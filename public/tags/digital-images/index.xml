@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Digital Images | Academic</title>
+    <link>https://github.com/Prof-ThiagoOliveira/blog/tags/digital-images/</link>
+      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/tags/digital-images/index.xml" rel="self" type="application/rss+xml" />
+    <description>Digital Images</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Digital Images</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/digital-images/</link>
+    </image>
+    
+    <item>
+      <title>Measuring color using image analyis</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/project/color-project/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/project/color-project/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

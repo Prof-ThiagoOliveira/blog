@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags | Academic</title>
+    <link>https://github.com/Prof-ThiagoOliveira/blog/tags/</link>
+      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <description>Tags</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 22 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Tags</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/</link>
+    </image>
+    
+    <item>
+      <title>Source Themes</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/source-themes/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/source-themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Athlete performance</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/athlete-performance/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/athlete-performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Biostatistics</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/biostatistics/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/biostatistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny App</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/shiny-app/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/shiny-app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical modelling</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/statistical-modelling/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/statistical-modelling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Accuracy</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/accuracy/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/accuracy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agreement</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/agreement/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/agreement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circular Statistics</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/circular-statistics/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/circular-statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Digital Images</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/digital-images/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/digital-images/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Analysis</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/image-analysis/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/image-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Precision</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/precision/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/precision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R package</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/r-package/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/tags/r-package/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

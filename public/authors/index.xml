@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Academic</title>
+    <link>https://github.com/Prof-ThiagoOliveira/blog/authors/</link>
+      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 22 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Authors</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/admin/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/admin/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Dr. Thiago de Paula Oliveira is a Researcher Biostatistician at Insight
+Centre for Data Analytics working in partnership with Orreco and NUI
+Galway. He develops statistical methods to model the longitudinal
+concordance correlation based on variance components of mixed effects
+models.  
+Thiago holds a PhD in Statistics from University of São Paulo,
+Brazil, and has at least five years experience in experimental
+statistics, statistical modeling, mixed effect models, longitudinal
+data, and concordance analysis. As PhD candidate, he was a visitor
+Scholar at Natio nal University of Ireland in 2016, working with
+statistical modeling for agricultural data. His current work is about
+Biostatistcs in sport. He was a lecturer in the Department of Exact
+Sciences at ‘Luiz de Queiroz’ College of Agriculture (ESALQ), University
+of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>John Hinde</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/john-hinde/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/john-hinde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Silvio S. Zocchi</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/silvio-s.-zocchi/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/silvio-s.-zocchi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Angelo P. M. Jacomino</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/</link>
+      <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

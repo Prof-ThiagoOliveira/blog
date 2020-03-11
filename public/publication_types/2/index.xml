@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 | Academic</title>
+    <link>https://github.com/Prof-ThiagoOliveira/blog/publication_types/2/</link>
+      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+    <description>2</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 22 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>2</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/publication_types/2/</link>
+    </image>
+    
+    <item>
+      <title>Longitudinal concordance correlation function based on variance components: an application in fruit color analysis</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/publication/2018-lcc/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/publication/2018-lcc/</guid>
+      <description>&lt;p&gt;Supplementary notes can be added here, including 
+&lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/publication/2017-papaya/</link>
+      <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/publication/2017-papaya/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

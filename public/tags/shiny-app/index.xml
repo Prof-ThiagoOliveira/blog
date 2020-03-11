@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny App | Academic</title>
+    <link>https://github.com/Prof-ThiagoOliveira/blog/tags/shiny-app/</link>
+      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/tags/shiny-app/index.xml" rel="self" type="application/rss+xml" />
+    <description>Shiny App</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Shiny App</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/shiny-app/</link>
+    </image>
+    
+    <item>
+      <title>The use of biostatistics for optimizing athletes performance</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/project/sport-project/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/project/sport-project/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

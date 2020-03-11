@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slides | Academic</title>
+    <link>https://github.com/Prof-ThiagoOliveira/blog/slides/</link>
+      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/slides/index.xml" rel="self" type="application/rss+xml" />
+    <description>Slides</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 10 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Slides</title>
+      <link>https://github.com/Prof-ThiagoOliveira/blog/slides/2017-papaya/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://github.com/Prof-ThiagoOliveira/blog/slides/2017-papaya/</guid>
+      <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;Measuring color hue in &amp;lsquo;Sunrise Solo&amp;rsquo; papaya using a flatbed scanner&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;papaya-production&#34;&gt;Papaya Production&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Global papaya producing (FAO, 2012):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;India: 38.61% (4,713,800)&lt;/li&gt;
+&lt;li&gt;Brazil: 17.5% (1,871,300)&lt;/li&gt;
+&lt;li&gt;Indonesia: 6.86% (695,214)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Brazil: $2^{\circ}$ major papaya exporting (11.2% of global trade)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Papayas are classified according to size and color;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;colorimeter-methodology&#34;&gt;Colorimeter Methodology&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Very efficient when the fruit has uniform coloration&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It may be inefficient when the fruit does not have uniform coloration&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Usually, samples are observed on the equatorial region of fruits&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;colorimeter-methodology-1&#34;&gt;Colorimeter Methodology&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The sample is observed from a very small area on the fruit&amp;rsquo;s peel&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Problem:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The sample cannot represents the equatorial region properly&lt;/li&gt;
+&lt;li&gt;A sample on the equatorial region cannot represents the whole region&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;digital-image-analysis&#34;&gt;Digital Image Analysis&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;An alternative method proposed to evaluate the color of several fruits&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Offers an objective measure for color and other physical factors&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Most recent applications include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fruit&amp;rsquo;s classification&lt;/li&gt;
+&lt;li&gt;Postharvest quality evaluation&lt;/li&gt;
+&lt;li&gt;Including meats, fruits, and seeds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Scanner can be used as a device to measure color components&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Colorimeter and digital image analysis leads to defferents peel color measurements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Based on sample size we conclude:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The usage of images analysis is preferable compared with colorimeter approach&lt;/li&gt;
+&lt;li&gt;Digital images analysis should be used for fruits with non-uniform coloration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
