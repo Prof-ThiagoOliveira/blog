@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Academic</title>
-    <link>https://github.com/Prof-ThiagoOliveira/blog/authors/</link>
-      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/authors/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 22 Mar 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/</link>
+      <link>https://prof-thiagooliveira.netlify.com/authors/</link>
     </image>
     
     <item>
       <title></title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/admin/</link>
+      <link>https://prof-thiagooliveira.netlify.com/authors/admin/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/admin/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/admin/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 Dr. Thiago de Paula Oliveira is a Researcher Biostatistician at Insight
 Centre for Data Analytics working in partnership with Orreco and NUI
@@ -38,25 +38,25 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
     
     <item>
       <title>John Hinde</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/john-hinde/</link>
+      <link>https://prof-thiagooliveira.netlify.com/authors/john-hinde/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/john-hinde/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/john-hinde/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Silvio S. Zocchi</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/silvio-s.-zocchi/</link>
+      <link>https://prof-thiagooliveira.netlify.com/authors/silvio-s.-zocchi/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/silvio-s.-zocchi/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/silvio-s.-zocchi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Angelo P. M. Jacomino</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/</link>
+      <link>https://prof-thiagooliveira.netlify.com/authors/angelo-p.-m.-jacomino/</link>
       <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/angelo-p.-m.-jacomino/</guid>
       <description></description>
     </item>
     

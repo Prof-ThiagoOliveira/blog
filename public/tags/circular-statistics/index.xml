@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Circular Statistics | Academic</title>
-    <link>https://github.com/Prof-ThiagoOliveira/blog/tags/circular-statistics/</link>
-      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/tags/circular-statistics/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/circular-statistics/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/circular-statistics/index.xml" rel="self" type="application/rss+xml" />
     <description>Circular Statistics</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Circular Statistics</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/circular-statistics/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/circular-statistics/</link>
     </image>
     
     <item>
       <title>Measuring color using image analyis</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/project/color-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/color-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/project/color-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/color-project/</guid>
       <description></description>
     </item>
     

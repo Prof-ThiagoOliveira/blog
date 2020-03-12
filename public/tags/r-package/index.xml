@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R package | Academic</title>
-    <link>https://github.com/Prof-ThiagoOliveira/blog/tags/r-package/</link>
-      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/tags/r-package/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/r-package/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/r-package/index.xml" rel="self" type="application/rss+xml" />
     <description>R package</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>R package</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/tags/r-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/r-package/</link>
     </image>
     
     <item>
       <title>The lcc Package</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/project/concordance-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/concordance-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/project/concordance-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/concordance-project/</guid>
       <description></description>
     </item>
     

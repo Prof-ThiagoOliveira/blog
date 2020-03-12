@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Courses | Academic</title>
-    <link>https://github.com/Prof-ThiagoOliveira/blog/courses/</link>
-      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/courses/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/courses/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/courses/index.xml" rel="self" type="application/rss+xml" />
     <description>Courses</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Courses</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/courses/</link>
+      <link>https://prof-thiagooliveira.netlify.com/courses/</link>
     </image>
     
   </channel>

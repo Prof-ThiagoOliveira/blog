@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Angelo P. M. Jacomino | Academic</title>
-    <link>https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/</link>
-      <atom:link href="https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/authors/angelo-p.-m.-jacomino/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/authors/angelo-p.-m.-jacomino/index.xml" rel="self" type="application/rss+xml" />
     <description>Angelo P. M. Jacomino</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 05 Jun 2017 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Angelo P. M. Jacomino</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/authors/angelo-p.-m.-jacomino/</link>
+      <link>https://prof-thiagooliveira.netlify.com/authors/angelo-p.-m.-jacomino/</link>
     </image>
     
     <item>
       <title>Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</title>
-      <link>https://github.com/Prof-ThiagoOliveira/blog/publication/2017-papaya/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</link>
       <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://github.com/Prof-ThiagoOliveira/blog/publication/2017-papaya/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</guid>
       <description></description>
     </item>
     
