@@ -6,7 +6,7 @@ authors:
 - Angelo P. M. Jacomino
 date: "2017-06-05T00:00:00Z"
 doi: "http://dx.doi.org/10.1590/0100-29452017911"
-featured: true
+featured: false
 image:
   caption: 'Image credit: [**Health Fitness Revolution**](https://www.healthfitnessrevolution.com/18-reasons-we-love-papaya-and-you-should-too/)'
   focal_point: ""

@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/authors/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 22 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
@@ -15,7 +15,7 @@
     <item>
       <title></title>
       <link>https://prof-thiagooliveira.netlify.com/authors/admin/</link>
-      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/authors/admin/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 Dr. Thiago de Paula Oliveira is a Researcher Biostatistician at Insight
@@ -37,18 +37,130 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
     </item>
     
     <item>
+      <title>Arthur K. B. Santos</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/arthur-k.-b.-santos/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/arthur-k.-b.-santos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Carlos E. P. Cerri</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/carlos-e.-p.-cerri/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/carlos-e.-p.-cerri/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gustavo V. Popin</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/gustavo-v.-popin/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/gustavo-v.-popin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marcos Siqueira-Neto</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/marcos-siqueira-neto/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/marcos-siqueira-neto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Plínio B. de Camargo</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/plinio-b.-de-camargo/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/plinio-b.-de-camargo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clarice G. B. Demetrio</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/clarice-g.-b.-demetrio/</link>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/clarice-g.-b.-demetrio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>John Hinde</title>
       <link>https://prof-thiagooliveira.netlify.com/authors/john-hinde/</link>
-      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/authors/john-hinde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rafael de Andrade Moral</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/rafael-de-andrade-moral/</link>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/rafael-de-andrade-moral/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Silvio S. Zocchi</title>
       <link>https://prof-thiagooliveira.netlify.com/authors/silvio-s.-zocchi/</link>
-      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/authors/silvio-s.-zocchi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Heloisa T. Kleina</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/heloisa-t.-kleina/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/heloisa-t.-kleina/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Helvecio D. Coletta-Filho</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/helvecio-d.-coletta-filho/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/helvecio-d.-coletta-filho/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Idemauro A.R. Lara</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/idemauro-a.r.-lara/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/idemauro-a.r.-lara/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>João R.S. Lopes</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/joao-r.s.-lopes/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/joao-r.s.-lopes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mariana B. Esteves</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/mariana-b.-esteves/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/mariana-b.-esteves/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rodrigo P.P. Almeida</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/rodrigo-p.p.-almeida/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/rodrigo-p.p.-almeida/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tiago de Melo Sales</title>
+      <link>https://prof-thiagooliveira.netlify.com/authors/tiago-de-melo-sales/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/authors/tiago-de-melo-sales/</guid>
       <description></description>
     </item>
     
