@@ -3,8 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://prof-thiagooliveira.netlify.com/courses/example/</loc>
+    <lastmod>2018-08-28T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/courses/example/example1/</loc>
+    <lastmod>2018-08-27T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://prof-thiagooliveira.netlify.com/</loc>
-    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/talk/2018-workshop/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -252,10 +272,6 @@
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/post/</loc>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/</loc>
   </url>
   
 </urlset>
