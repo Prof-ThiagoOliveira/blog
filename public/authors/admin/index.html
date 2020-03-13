@@ -206,11 +206,49 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-160613173-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
   
-  <link rel="alternate" href="/authors/admin/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/authors/admin/index.xml" type="application/rss+xml" title="Researcher">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -230,13 +268,16 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@_OliveiraTP_">
+  <meta property="twitter:creator" content="@_OliveiraTP_">
+  
+  <meta property="og:site_name" content="Researcher">
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/authors/admin/">
-  <meta property="og:title" content="Thiago de Paula Oliveira | Academic">
+  <meta property="og:title" content="Thiago de Paula Oliveira | Researcher">
   <meta property="og:description" content="Postdoctoral Researcher"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-07-16T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2019-10-04T09:00:00&#43;00:00">
   
 
   
@@ -253,7 +294,7 @@
 
 
 
-  <title>Thiago de Paula Oliveira | Academic</title>
+  <title>Thiago de Paula Oliveira | Researcher</title>
 
 </head>
 
@@ -304,7 +345,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -317,7 +358,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -462,6 +503,50 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/gallery/"><span>Gallery</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/accomplishments/"><span>Accomplishments</span></a>
         </li>
 
         
@@ -641,7 +726,7 @@
           
         
         <li>
-          <a href="/" >
+          <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener">
             <i class="fab fa-twitter big-icon"></i>
           </a>
         </li>
@@ -656,7 +741,7 @@
           
         
         <li>
-          <a href="https://scholar.google.com.br/citations?user=tVWCcSYAAAAJ&amp;hl" target="_blank" rel="noopener">
+          <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;user=KKY2ynUAAAAJ" target="_blank" rel="noopener">
             <i class="ai ai-google-scholar big-icon"></i>
           </a>
         </li>
@@ -769,6 +854,10 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
     <div class="article-widget content-widget-hr">
       <h3>Latest</h3>
       <ul>
+        
+        <li>
+          <a href="/talk/2019-young-stats/">Modelling menstrual cycle length using state space models</a>
+        </li>
         
         <li>
           <a href="/publication/2019-soil/">Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage</a>

@@ -206,11 +206,49 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-160613173-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
   
-  <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/tags/index.xml" type="application/rss+xml" title="Researcher">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -230,13 +268,16 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@_OliveiraTP_">
+  <meta property="twitter:creator" content="@_OliveiraTP_">
+  
+  <meta property="og:site_name" content="Researcher">
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/tags/">
-  <meta property="og:title" content="Tags | Academic">
+  <meta property="og:title" content="Tags | Researcher">
   <meta property="og:description" content="Postdoctoral Researcher"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-07-16T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2019-10-04T09:00:00&#43;00:00">
   
 
   
@@ -253,7 +294,7 @@
 
 
 
-  <title>Tags | Academic</title>
+  <title>Tags | Researcher</title>
 
 </head>
 
@@ -304,7 +345,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -317,7 +358,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -481,6 +522,50 @@
         
         
         
+
+        <li class="nav-item">
+          <a class="nav-link " href="/gallery/"><span>Gallery</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/accomplishments/"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
           
           
           
@@ -579,6 +664,56 @@
   
 
   
+  
+    
+    
+    
+    <div>
+      <h2><a href="/tags/athlete-performance/" >Athlete performance</a></h2>
+      <div class="article-style">
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/tags/biostatistics/" >Biostatistics</a></h2>
+      <div class="article-style">
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/tags/shiny-app/" >Shiny App</a></h2>
+      <div class="article-style">
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/tags/statistical-modelling/" >Statistical modelling</a></h2>
+      <div class="article-style">
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/tags/accuracy/" >Accuracy</a></h2>
+      <div class="article-style">
+        
+      </div>
+    </div>
   
     
     

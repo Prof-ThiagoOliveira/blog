@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags | Academic</title>
+    <title>Tags | Researcher</title>
     <link>https://prof-thiagooliveira.netlify.com/tags/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 09:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
       <link>https://prof-thiagooliveira.netlify.com/tags/</link>
     </image>
+    
+    <item>
+      <title>Autoregressive Models</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/autoregressive-models/</link>
+      <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/autoregressive-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Approach</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/bayesian-approach/</link>
+      <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/bayesian-approach/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cycle Length</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/cycle-length/</link>
+      <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/cycle-length/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Performance</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/performance/</link>
+      <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>State Space Models</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/state-space-models/</link>
+      <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/state-space-models/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Source Themes</title>

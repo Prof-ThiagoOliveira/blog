@@ -206,6 +206,44 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-160613173-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -227,9 +265,12 @@
   
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@_OliveiraTP_">
+  <meta property="twitter:creator" content="@_OliveiraTP_">
+  
+  <meta property="og:site_name" content="Researcher">
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/publication/2018-lcc/">
-  <meta property="og:title" content="Longitudinal concordance correlation function based on variance components: an application in fruit color analysis | Academic">
+  <meta property="og:title" content="Longitudinal concordance correlation function based on variance components: an application in fruit color analysis | Researcher">
   <meta property="og:description" content="We proposed a longitudinal concordance correlation (LCC) to estimate agreement over time among methods"><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/publication/2018-lcc/featured.png">
   <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/publication/2018-lcc/featured.png"><meta property="og:locale" content="en-us">
   
@@ -300,7 +341,7 @@
 
 
 
-  <title>Longitudinal concordance correlation function based on variance components: an application in fruit color analysis | Academic</title>
+  <title>Longitudinal concordance correlation function based on variance components: an application in fruit color analysis | Researcher</title>
 
 </head>
 
@@ -351,7 +392,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -364,7 +405,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -509,6 +550,50 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/gallery/"><span>Gallery</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/accomplishments/"><span>Accomplishments</span></a>
         </li>
 
         
@@ -829,8 +914,7 @@
 
     <div class="space-below"></div>
 
-    <div class="article-style"><p>Supplementary notes were added here, including 
-<a href="https://link.springer.com/article/10.1007%2Fs13253-018-0321-1" target="_blank" rel="noopener">code and data</a>.</p>
+    <div class="article-style"><p>Supplementary notes were added here, including <a href="https://link.springer.com/article/10.1007%2Fs13253-018-0321-1">code and data</a>.</p>
 </div>
 
     
@@ -1016,7 +1100,7 @@
       
     
     <li>
-      <a href="/" >
+      <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
@@ -1031,7 +1115,7 @@
       
     
     <li>
-      <a href="https://scholar.google.com.br/citations?user=tVWCcSYAAAAJ&amp;hl" target="_blank" rel="noopener">
+      <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;user=KKY2ynUAAAAJ" target="_blank" rel="noopener">
         <i class="ai ai-google-scholar"></i>
       </a>
     </li>

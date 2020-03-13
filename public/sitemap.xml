@@ -1,6 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/</loc>
+    <lastmod>2018-08-28T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2019/</loc>
+    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2013/</loc>
+    <lastmod>2018-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</loc>
+    <lastmod>2018-12-31T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/courses/example/</loc>
@@ -29,7 +69,57 @@
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/authors/admin/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/authors/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tags/autoregressive-models/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tags/bayesian-approach/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tags/cycle-length/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/authors/john-newell/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/talk/2019-young-stats/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tags/performance/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/talk/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tags/state-space-models/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tags/</loc>
+    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -39,11 +129,6 @@
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/authors/arthur-k.-b.-santos/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -88,11 +173,6 @@
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://prof-thiagooliveira.netlify.com/tags/agreement-measures/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
@@ -124,11 +204,6 @@
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/authors/rafael-de-andrade-moral/</loc>
-    <lastmod>2019-06-07T09:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
   
@@ -293,6 +368,10 @@
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/courses/</loc>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/gallery/</loc>
   </url>
   
   <url>

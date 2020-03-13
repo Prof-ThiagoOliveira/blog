@@ -34,10 +34,10 @@ social:
   link: https://orcid.org/0000-0002-4555-2584
 - icon: twitter
   icon_pack: fab
-  link: 
+  link: https://twitter.com/_OliveiraTP_
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.com.br/citations?user=tVWCcSYAAAAJ&hl
+  link: https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ
 - icon: github
   icon_pack: fab
   link: https://github.com/Prof-ThiagoOliveira

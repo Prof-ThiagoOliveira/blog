@@ -206,11 +206,49 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-160613173-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
   
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Researcher">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -230,9 +268,12 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@_OliveiraTP_">
+  <meta property="twitter:creator" content="@_OliveiraTP_">
+  
+  <meta property="og:site_name" content="Researcher">
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/">
-  <meta property="og:title" content="Academic">
+  <meta property="og:title" content="Researcher">
   <meta property="og:description" content="Postdoctoral Researcher"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
@@ -267,7 +308,7 @@
 
 
 
-  <title>Academic</title>
+  <title>Researcher</title>
 
 </head>
 
@@ -318,7 +359,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -331,7 +372,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -495,6 +536,50 @@
         
         
         
+
+        <li class="nav-item">
+          <a class="nav-link " href="/gallery/"><span>Gallery</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/accomplishments/"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
           
           
           
@@ -625,7 +710,7 @@
 
 
     <h1 class="hero-title">
-      Academic Profile
+      Professional Profile
     </h1>
 
     
@@ -701,13 +786,11 @@
       <h1>Researcher in Statistics</h1>
       
       <p><strong>Profissional summary:</strong>.</p>
+
 <ul>
-<li>
-<p>Dr. Oliveira is a reasercher in Biostatistics with strong publication record in the development and application of biostatistical theory, experimental and observational studies, agriculture,  and sports.</p>
-</li>
-<li>
-<p>School of Mathematics, Statistics and Applied Mathematics, Áras de Brún, NUI Galway, University Road, Galway, Ireland</p>
-</li>
+<li><p>Dr. Oliveira is a reasercher in Biostatistics with strong publication record in the development and application of biostatistical theory, experimental and observational studies, agriculture,  and sports.</p></li>
+
+<li><p>School of Mathematics, Statistics and Applied Mathematics, Áras de Brún, NUI Galway, University Road, Galway, Ireland</p></li>
 </ul>
 
     </div>
@@ -833,7 +916,7 @@
           
         
         <li>
-          <a href="/" >
+          <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener">
             <i class="fab fa-twitter big-icon"></i>
           </a>
         </li>
@@ -848,7 +931,7 @@
           
         
         <li>
-          <a href="https://scholar.google.com.br/citations?user=tVWCcSYAAAAJ&amp;hl" target="_blank" rel="noopener">
+          <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;user=KKY2ynUAAAAJ" target="_blank" rel="noopener">
             <i class="ai ai-google-scholar big-icon"></i>
           </a>
         </li>
@@ -1185,9 +1268,11 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
               
             </div>
             <div class="card-text">Responsibilities include:</p>
+
 <ul>
 <li>Development of biostatistical models applied to sports</li>
-<li>Development of shiny apps</li>
+<li>Development of shiny apps
+<br /></li>
 </ul></div>
           </div>
         </div>
@@ -1226,9 +1311,11 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
               
             </div>
             <div class="card-text">Responsibilities include:</p>
+
 <ul>
 <li>Development of biostatistical models applied to sports</li>
-<li>Development of shiny apps</li>
+<li>Development of shiny apps
+<br /></li>
 </ul></div>
           </div>
         </div>
@@ -1267,9 +1354,11 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
               
             </div>
             <div class="card-text">Responsibilities include:</p>
+
 <ul>
 <li>Development of statistical models applied to agriculture</li>
-<li>Development of R packages</li>
+<li>Development of R packages
+<br /></li>
 </ul></div>
           </div>
         </div>
@@ -1308,270 +1397,18 @@ of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
               
             </div>
             <div class="card-text">Lecturer in the Department of Exact Sciences at ‘Luiz de Queiroz’ College of Agriculture (ESALQ).
-Responsibilities include teach classes of::</p>
+  Responsibilities include teach classes of::</p>
+
 <ul>
 <li>Calculus I and II</li>
 <li>Statistics</li>
-<li>Experimental Statistics</li>
+<li>Experimental Statistics
+<br /></li>
 </ul></div>
           </div>
         </div>
       </div>
     </div>
-    
-    
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="accomplishments" class="home-section wg-accomplishments   "  >
-    <div class="container">
-      
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Accomplish­ments</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-    
-
-    
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Survival Analysis in R</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Jun 2019
-            
-          </div>
-
-          
-            <div class="card-text">Do patients taking the new drug survive longer than others? How fast do people get a new job after getting unemployed? What can I do to make my friends stay on the dancefloor at my party? All these questions require the analysis of time-to-event data, for which we use special statistical methods. This course introduces basic concepts of time-to-event data analysis, also called survival analysis. Learn how to deal with time-to-event data and how to compute, visualize and interpret survivor curves as well as Weibull and Cox models.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/ddf7f439aaafc0f65cfc17fdcc15ba3216b631ef" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Introduction to Statistical Modeling in R</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Mar 2019
-            
-          </div>
-
-          
-            <div class="card-text">Introduction Statistical Modeling in R is a multi-part course designed to get you up to speed with the most important and powerful methodologies in statistical modeling in R.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/2cd29704494850f0734330d18dcf524a178e0f76" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Intermediate R</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Mar 2019
-            
-          </div>
-
-          
-            <div class="card-text">Intermediate R is the next stop on your journey in mastering the R programming language. In this R training, you will learn about conditional statements, loops, and functions to power your own R scripts. Next, make your R code more efficient and readable using the apply functions. Finally, the utilities chapter gets you up to speed with regular expressions in R, data structure manipulations, and times and dates. This course will allow you to take the next step in advancing your overall knowledge and capabilities while programming in R.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/cdfa9f3054d0f21447749080f123978a51fbf687" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Introduction to Python</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Mar 2019
-            
-          </div>
-
-          
-            <div class="card-text">Python is a general-purpose programming language that is becoming ever more popular for data science. Companies worldwide are using Python to harvest insights from their data and gain a competitive edge. Unlike other Python tutorials, this course focuses on Python specifically for data science. In our Introduction to Python course, you’ll learn about powerful ways to store and manipulate data, and helpful data science tools to begin conducting your own analyses. Start DataCamp’s online Python curriculum now.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/8062775183a309f412e04dd66fbd826959657af4" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Introduction to R</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Mar 2019
-            
-          </div>
-
-          
-            <div class="card-text">In Introduction to R, you will master the basics of this widely used open source language, including factors, lists, and data frames. With the knowledge gained in this course, you will be ready to undertake your first very own data analysis. Oracle estimated over 2 million R users worldwide in 2012, cementing R as a leading programming language in statistics and data science. Every year, the number of R users grows by about 40%, and an increasing number of organizations are using it in their day-to-day activities. Begin your journey to learn R with us today!</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/b1cb6e841b52691a96b8bdacb820f0063b04f72f" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Building Dashboards with shinydashboard</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Feb 2019
-            
-          </div>
-
-          
-            <div class="card-text">Once you&rsquo;ve started learning tools for building interactive web applications with shiny, this course will translate this knowledge into building dashboards. Dashboards, a common data science deliverable, are pages that collate information, often tracking metrics from a live-updating data source. You&rsquo;ll gain more expertise using shiny while learning to build and design these dynamic dashboards. In the process, you&rsquo;ll pick up tips to optimize performance as well as best practices to create a visually appealing product.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/d0ee254430f7276780c793a4d64fc8b52977a001" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Case Studies: Building Web Applications with Shiny in R</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Feb 2019
-            
-          </div>
-
-          
-            <div class="card-text">After learning the basics of using Shiny to build web applications, this course takes you to the next level by putting your newly acquired skills into practice. You&rsquo;ll get experience developing fun and realistic Shiny apps for different common use cases, such as using Shiny to explore a dataset, generate a customized plot, and even create a word cloud. With all this practice and new knowledge, you will be well-equipped to develop Shiny apps for your own use.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/dc86b6f616fefe404f7f60813653b6376373d2d7" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Machine Learning with caret in R</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.datacamp.com" target="_blank" rel="noopener">DataCamp</a><span class="middot-divider"></span>
-
-            Dec 2018
-            
-          </div>
-
-          
-            <div class="card-text">Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular caret R package, which provides a consistent interface to all of R&rsquo;s most powerful machine learning facilities, is used throughout the course.</div>
-          
-
-          
-            <a class="card-link" href="https://www.datacamp.com/statement-of-accomplishment/course/cab13d01f8e885e2930590a7570441e508019f59" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Regression Models</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.coursera.org" target="_blank" rel="noopener">Coursera</a><span class="middot-divider"></span>
-
-            Jul 2015
-            
-          </div>
-
-          
-            <div class="card-text">Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.</div>
-          
-
-          
-            <a class="card-link" href="https://www.coursera.org/account/accomplishments/certificate/G7L3PUPHPJ" target="_blank" rel="noopener">
-              See certificate
-            </a>
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Mathematical Biostatistics BootCamp 1</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.coursera.org" target="_blank" rel="noopener">Coursera</a><span class="middot-divider"></span>
-
-            Jun 2013
-            
-          </div>
-
-          
-            <div class="card-text">This course puts forward key mathematical and statistical topicsto help students understand biostatistics at a deeper level.Successful students have a basic understanding of the goals,assumptions, benefits and negatives of probability modeling inthe medical sciences.</div>
-          
-
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Statistics: Making Sense of Data</h4><div class="card-subtitle my-0 article-metadata"><a href="https://www.coursera.org" target="_blank" rel="noopener">Coursera</a><span class="middot-divider"></span>
-
-            Jun 2013
-            
-          </div>
-
-          
-            <div class="card-text">This introductory statistics course teaches the fundamentals ofstatistical investigations, including numerical and graphicalsummaries of data, probability, confidence intervals, hypothesistesting, and linear regression.</div>
-          
-
-          
-        </div>
-      </div>
     
     
   </div>
@@ -1958,86 +1795,6 @@ Responsibilities include teach classes of::</p>
   
   
 
-  <section id="gallery" class="home-section wg-blank   "  >
-    <div class="container">
-      
-
-
-<div class="row">
-  
-    <div class="col-12 col-lg-4 section-heading">
-      <h1>Gallery</h1>
-      
-    </div>
-    <div class="col-12 col-lg-8">
-      
-
-
-
-
-
-
-
-  
-  
-
-
-<div class="gallery">
-
-  
-  
-  
-  
-    
-    
-    
-    
-    
-  <a data-fancybox="gallery-gallery" href="/home/gallery/gallery/workshop2018.jpg" >
-  <img data-src="/home/gallery/gallery/workshop2018_hu9b2a296cdabbf89d161337a26dc7c075_4529136_0x190_resize_q90_lanczos.jpg" class="lazyload" alt="" width="253" height="190">
-  </a>
-  
-
-  
-</div>
-
-    </div>
-  
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
   <section id="talks" class="home-section wg-pages   "  >
     <div class="container">
       
@@ -2091,6 +1848,131 @@ Responsibilities include teach classes of::</p>
 
     
 
+    
+      
+        
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2019-young-stats/" >Modelling menstrual cycle length using state space models</a>
+    </h3>
+
+    
+    <div class="article-style">
+      <p align="justify">Times are changing. At an elite level, female athletes and coaches across the globe are now starting to work with the menstrual cycle …</p>
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Oct 4, 2019 9:00 AM &mdash; 5:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>Glenroyal Hotel &amp; Leisure Club</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+
+
+  
+  <span><a href="/authors/admin/">Thiago de Paula Oliveira</a></span>, <span><a href="/authors/john-newell/">John Newell</a></span>
+
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/sport-project/">
+    Project
+  </a>
+  
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.eventbrite.ie/e/inaugural-young-isa-meeting-tickets-72058373535#" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+      
     
       
         
@@ -3348,12 +3230,27 @@ Responsibilities include teach classes of::</p>
           
           
           
+          <a href="/tags/autoregressive-models/" style="font-size:0.7rem">Autoregressive Models</a>
+        
+          
+          
+          
+          <a href="/tags/bayesian-approach/" style="font-size:0.7rem">Bayesian Approach</a>
+        
+          
+          
+          
           <a href="/tags/biostatistics/" style="font-size:0.7rem">Biostatistics</a>
         
           
           
           
           <a href="/tags/circular-statistics/" style="font-size:0.7rem">Circular Statistics</a>
+        
+          
+          
+          
+          <a href="/tags/cycle-length/" style="font-size:0.7rem">Cycle Length</a>
         
           
           
@@ -3378,6 +3275,11 @@ Responsibilities include teach classes of::</p>
           
           
           
+          <a href="/tags/performance/" style="font-size:0.7rem">Performance</a>
+        
+          
+          
+          
           <a href="/tags/precision/" style="font-size:0.7rem">Precision</a>
         
           
@@ -3394,6 +3296,11 @@ Responsibilities include teach classes of::</p>
           
           
           <a href="/tags/source-themes/" style="font-size:1.8677177222151053rem">Source Themes</a>
+        
+          
+          
+          
+          <a href="/tags/state-space-models/" style="font-size:0.7rem">State Space Models</a>
         
           
           
@@ -3538,21 +3445,7 @@ Responsibilities include teach classes of::</p>
       
       <li>
         <i class="fa-li fab fa-twitter fa-2x" aria-hidden="true"></i>
-        <a href="https://twitter.com/Twitter" target="_blank" rel="noopener">DM Me</a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-      <li>
-        <i class="fa-li fab fa-skype fa-2x" aria-hidden="true"></i>
-        <a href="skype:echo123?call" >Skype Me</a>
+        <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener">DM Me</a>
       </li>
       
       
@@ -3568,23 +3461,7 @@ Responsibilities include teach classes of::</p>
       
       <li>
         <i class="fa-li fab fa-keybase fa-2x" aria-hidden="true"></i>
-        <a href="https://keybase.io/" target="_blank" rel="noopener">Chat on Keybase</a>
-      </li>
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <i class="fa-li fas fa-comments fa-2x" aria-hidden="true"></i>
-        <a href="https://discourse.gohugo.io" target="_blank" rel="noopener">Discuss on Forum</a>
+        <a href="https://keybase.io/oliveiratp" target="_blank" rel="noopener">Chat on Keybase</a>
       </li>
       
 

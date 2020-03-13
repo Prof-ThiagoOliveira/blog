@@ -206,6 +206,44 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-160613173-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -227,9 +265,12 @@
   
   <meta property="twitter:card" content="summary_large_image">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@_OliveiraTP_">
+  <meta property="twitter:creator" content="@_OliveiraTP_">
+  
+  <meta property="og:site_name" content="Researcher">
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/project/sport-project/">
-  <meta property="og:title" content="The use of biostatistics for optimizing athletes performance | Academic">
+  <meta property="og:title" content="The use of biostatistics for optimizing athletes performance | Researcher">
   <meta property="og:description" content="Uniquely blending Data Science and Sports Science to generate customized strategies by athlete"><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/project/sport-project/featured.jpeg">
   <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/project/sport-project/featured.jpeg"><meta property="og:locale" content="en-us">
   
@@ -300,7 +341,7 @@
 
 
 
-  <title>The use of biostatistics for optimizing athletes performance | Academic</title>
+  <title>The use of biostatistics for optimizing athletes performance | Researcher</title>
 
 </head>
 
@@ -351,7 +392,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -364,7 +405,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">Researcher</a>
     </div>
     
 
@@ -509,6 +550,50 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/gallery/"><span>Gallery</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/accomplishments/"><span>Accomplishments</span></a>
         </li>
 
         
@@ -910,7 +995,7 @@
       
     
     <li>
-      <a href="/" >
+      <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
@@ -925,7 +1010,7 @@
       
     
     <li>
-      <a href="https://scholar.google.com.br/citations?user=tVWCcSYAAAAJ&amp;hl" target="_blank" rel="noopener">
+      <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;user=KKY2ynUAAAAJ" target="_blank" rel="noopener">
         <i class="ai ai-google-scholar"></i>
       </a>
     </li>
@@ -979,6 +1064,134 @@
 
       
       
+      
+        <h2>Talks</h2>
+        
+          
+            
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2019-young-stats/" >Modelling menstrual cycle length using state space models</a>
+    </h3>
+
+    
+    <div class="article-style">
+      <p align="justify">Times are changing. At an elite level, female athletes and coaches across the globe are now starting to work with the menstrual cycle …</p>
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Oct 4, 2019 9:00 AM &mdash; 5:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>Glenroyal Hotel &amp; Leisure Club</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+
+
+  
+  <span><a href="/authors/admin/">Thiago de Paula Oliveira</a></span>, <span><a href="/authors/john-newell/">John Newell</a></span>
+
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/sport-project/">
+    Project
+  </a>
+  
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.eventbrite.ie/e/inaugural-young-isa-meeting-tickets-72058373535#" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+          
+        
       
     </div>
   </div>
