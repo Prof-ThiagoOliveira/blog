@@ -1,6 +1,6 @@
 ---
 date: "2018-01-01T00:00:00Z"
-external_link: https://orreco.com
+external_link: ""
 image:
   caption: Thiago de Paula Oliveira
   focal_point: Smart

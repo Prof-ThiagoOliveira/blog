@@ -15,7 +15,7 @@ links:
 - name: Journal Link
   url: http://www.scielo.br/scielo.php?lng=en
 projects:
-- internal-project
+- color-project
 publication: '*Revista Brasileira de Fruticultura*, v. 39, n. 2'
 publication_short: In *RBF*
 publication_types:
