@@ -5,12 +5,44 @@
     <link>https://prof-thiagooliveira.netlify.com/tags/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 09:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
       <link>https://prof-thiagooliveira.netlify.com/tags/</link>
     </image>
+    
+    <item>
+      <title>Agreement Measures</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/agreement-measures/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/agreement-measures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Longitudinal Data</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/longitudinal-data/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/longitudinal-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixed-Effects Model</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/mixed-effects-model/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/mixed-effects-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R package</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/r-package/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/tags/r-package/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Autoregressive Models</title>
@@ -57,38 +89,6 @@
       <link>https://prof-thiagooliveira.netlify.com/tags/source-themes/</link>
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/tags/source-themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Agreement Measures</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/agreement-measures/</link>
-      <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/tags/agreement-measures/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Longitudinal Data</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/longitudinal-data/</link>
-      <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/tags/longitudinal-data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mixed-Effects Model</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/mixed-effects-model/</link>
-      <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/tags/mixed-effects-model/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R package</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/r-package/</link>
-      <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/tags/r-package/</guid>
       <description></description>
     </item>
     

@@ -5,12 +5,20 @@
     <link>https://prof-thiagooliveira.netlify.com/tags/r-package/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tags/r-package/index.xml" rel="self" type="application/rss+xml" />
     <description>R package</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 07 Jun 2019 09:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>R package</title>
       <link>https://prof-thiagooliveira.netlify.com/tags/r-package/</link>
     </image>
+    
+    <item>
+      <title>Estimating NBA athlete performance using multilevel models</title>
+      <link>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>The longitudinal concordance correlation</title>

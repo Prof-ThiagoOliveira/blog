@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Researcher</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 10 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Researcher</title>
@@ -323,6 +323,14 @@ QL &amp;lt;- function(Trat){
 QL(Trat)
 &lt;/code&gt;&lt;/pre&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Estimating NBA athlete performance using multilevel models</title>
+      <link>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</link>
+      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</guid>
+      <description></description>
     </item>
     
     <item>
