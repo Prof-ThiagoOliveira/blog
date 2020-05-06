@@ -18,25 +18,36 @@
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;SAS day, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 7h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Matrizes. &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Cálculo Diferencial e Integral, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Modelos não-lineares de efeitos mistos em R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 6h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Uma revisão de modelos lineares generalizados, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 4h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Noções de Probabilidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Testes de Hipóteses, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 24h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Métodos computacionais para inferência, Universidade de São Paulo, USP, Brasil, 6h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Álgebra intervalar na análise de correspondência, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;On longitudinal and incomplete data, Universidade de São Paulo, USP, Brasil, 30h.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SAS day, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 7h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Matrizes. &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cálculo Diferencial e Integral, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modelos não-lineares de efeitos mistos em R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uma revisão de modelos lineares generalizados, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 4h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Noções de Probabilidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Testes de Hipóteses, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 24h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Métodos computacionais para inferência, Universidade de São Paulo, USP, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Álgebra intervalar na análise de correspondência, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On longitudinal and incomplete data, Universidade de São Paulo, USP, Brasil, 30h.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -69,11 +80,14 @@
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;Machine Learning with caret in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/cab13d01f8e885e2930590a7570441e508019f59&#34;&gt;certificate&lt;/a&gt;
-
+&lt;li&gt;Machine Learning with caret in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/cab13d01f8e885e2930590a7570441e508019f59&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular caret R package, which provides a consistent interface to all of R&amp;rsquo;s most powerful machine learning facilities, is used throughout the course.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular caret R package, which provides a consistent interface to all of R&#39;s most powerful machine learning facilities, is used throughout the course.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -84,47 +98,68 @@
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2019/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Intermediate R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/cdfa9f3054d0f21447749080f123978a51fbf687&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Intermediate R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/cdfa9f3054d0f21447749080f123978a51fbf687&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt; &lt;strong&gt;Description&lt;/strong&gt;: Intermediate R is the next stop on your journey in mastering the R programming language. In this R training, you will learn about conditional statements, loops, and functions to power your own R scripts. Next, make your R code more efficient and readable using the apply functions. Finally, the utilities chapter gets you up to speed with regular expressions in R, data structure manipulations, and times and dates. This course will allow you to take the next step in advancing your overall knowledge and capabilities while programming in R.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Introduction to R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/b1cb6e841b52691a96b8bdacb820f0063b04f72f&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; **Description**: Intermediate R is the next stop on your journey in mastering the R programming language. In this R training, you will learn about conditional statements, loops, and functions to power your own R scripts. Next, make your R code more efficient and readable using the apply functions. Finally, the utilities chapter gets you up to speed with regular expressions in R, data structure manipulations, and times and dates. This course will allow you to take the next step in advancing your overall knowledge and capabilities while programming in R.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/b1cb6e841b52691a96b8bdacb820f0063b04f72f&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: In Introduction to R, you will master the basics of this widely used open source language, including factors, lists, and data frames. With the knowledge gained in this course, you will be ready to undertake your first very own data analysis. Oracle estimated over 2 million R users worldwide in 2012, cementing R as a leading programming language in statistics and data science. Every year, the number of R users grows by about 40%, and an increasing number of organizations are using it in their day-to-day activities. Begin your journey to learn R with us today!&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Introduction to Python, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/8062775183a309f412e04dd66fbd826959657af4&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: In Introduction to R, you will master the basics of this widely used open source language, including factors, lists, and data frames. With the knowledge gained in this course, you will be ready to undertake your first very own data analysis. Oracle estimated over 2 million R users worldwide in 2012, cementing R as a leading programming language in statistics and data science. Every year, the number of R users grows by about 40%, and an increasing number of organizations are using it in their day-to-day activities. Begin your journey to learn R with us today!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Python, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/8062775183a309f412e04dd66fbd826959657af4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: Python is a general-purpose programming language that is becoming ever more popular for data science. Companies worldwide are using Python to harvest insights from their data and gain a competitive edge. Unlike other Python tutorials, this course focuses on Python specifically for data science. In our Introduction to Python course, you’ll learn about powerful ways to store and manipulate data, and helpful data science tools to begin conducting your own analyses. Start DataCamp’s online Python curriculum now.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Survival Analysis in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/ddf7f439aaafc0f65cfc17fdcc15ba3216b631ef&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: Python is a general-purpose programming language that is becoming ever more popular for data science. Companies worldwide are using Python to harvest insights from their data and gain a competitive edge. Unlike other Python tutorials, this course focuses on Python specifically for data science. In our Introduction to Python course, you’ll learn about powerful ways to store and manipulate data, and helpful data science tools to begin conducting your own analyses. Start DataCamp’s online Python curriculum now.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Survival Analysis in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/ddf7f439aaafc0f65cfc17fdcc15ba3216b631ef&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: Do patients taking the new drug survive longer than others? How fast do people get a new job after getting unemployed? What can I do to make my friends stay on the dancefloor at my party? All these questions require the analysis of time-to-event data, for which we use special statistical methods. This course introduces basic concepts of time-to-event data analysis, also called survival analysis. Learn how to deal with time-to-event data and how to compute, visualize and interpret survivor curves as well as Weibull and Cox models.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Introduction to Statistical Modeling in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/2cd29704494850f0734330d18dcf524a178e0f76&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: Do patients taking the new drug survive longer than others? How fast do people get a new job after getting unemployed? What can I do to make my friends stay on the dancefloor at my party? All these questions require the analysis of time-to-event data, for which we use special statistical methods. This course introduces basic concepts of time-to-event data analysis, also called survival analysis. Learn how to deal with time-to-event data and how to compute, visualize and interpret survivor curves as well as Weibull and Cox models.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introduction to Statistical Modeling in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/2cd29704494850f0734330d18dcf524a178e0f76&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: Introduction Statistical Modeling in R is a multi-part course designed to get you up to speed with the most important and powerful methodologies in statistical modeling in R.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Building Dashboards with shinydashboard, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/d0ee254430f7276780c793a4d64fc8b52977a001&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: Introduction Statistical Modeling in R is a multi-part course designed to get you up to speed with the most important and powerful methodologies in statistical modeling in R.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Building Dashboards with shinydashboard, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/d0ee254430f7276780c793a4d64fc8b52977a001&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: Once you&amp;rsquo;ve started learning tools for building interactive web applications with shiny, this course will translate this knowledge into building dashboards. Dashboards, a common data science deliverable, are pages that collate information, often tracking metrics from a live-updating data source. You&amp;rsquo;ll gain more expertise using shiny while learning to build and design these dynamic dashboards. In the process, you&amp;rsquo;ll pick up tips to optimize performance as well as best practices to create a visually appealing product.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Case Studies: Building Web Applications with Shiny in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/dc86b6f616fefe404f7f60813653b6376373d2d7&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: Once you&#39;ve started learning tools for building interactive web applications with shiny, this course will translate this knowledge into building dashboards. Dashboards, a common data science deliverable, are pages that collate information, often tracking metrics from a live-updating data source. You&#39;ll gain more expertise using shiny while learning to build and design these dynamic dashboards. In the process, you&#39;ll pick up tips to optimize performance as well as best practices to create a visually appealing product.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Case Studies: Building Web Applications with Shiny in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, 
+&lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/dc86b6f616fefe404f7f60813653b6376373d2d7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: After learning the basics of using Shiny to build web applications, this course takes you to the next level by putting your newly acquired skills into practice. You&amp;rsquo;ll get experience developing fun and realistic Shiny apps for different common use cases, such as using Shiny to explore a dataset, generate a customized plot, and even create a word cloud. With all this practice and new knowledge, you will be well-equipped to develop Shiny apps for your own use.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: After learning the basics of using Shiny to build web applications, this course takes you to the next level by putting your newly acquired skills into practice. You&#39;ll get experience developing fun and realistic Shiny apps for different common use cases, such as using Shiny to explore a dataset, generate a customized plot, and even create a word cloud. With all this practice and new knowledge, you will be well-equipped to develop Shiny apps for your own use.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -135,23 +170,31 @@
       <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2013/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Mathematical Biostatistics BootCamp 1, 35h, &lt;strong&gt;Coursera&lt;/strong&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Mathematical Biostatistics BootCamp 1, 35h, &lt;strong&gt;Coursera&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: This course puts forward key mathematical and statistical topicsto help students understand biostatistics at a deeper level.Successful students have a basic understanding of the goals,assumptions, benefits and negatives of probability modeling inthe medical sciences.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Statistics: Making Sense of Data, 376h, &lt;strong&gt;Coursera&lt;/strong&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: This course puts forward key mathematical and statistical topicsto help students understand biostatistics at a deeper level.Successful students have a basic understanding of the goals,assumptions, benefits and negatives of probability modeling inthe medical sciences.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Statistics: Making Sense of Data, 376h, &lt;strong&gt;Coursera&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: This introductory statistics course teaches the fundamentals ofstatistical investigations, including numerical and graphicalsummaries of data, probability, confidence intervals, hypothesistesting, and linear regression.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Introdução a Análise de Dados Categóricos, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 15h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Modelos de Equações Estruturais, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Alguns Tópicos Importantes de Teoria Assintótica, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: This introductory statistics course teaches the fundamentals ofstatistical investigations, including numerical and graphicalsummaries of data, probability, confidence intervals, hypothesistesting, and linear regression.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introdução a Análise de Dados Categóricos, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 15h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modelos de Equações Estruturais, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alguns Tópicos Importantes de Teoria Assintótica, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -162,17 +205,24 @@
       <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Regression Models, &lt;strong&gt;Coursera&lt;/strong&gt;, 36h, &lt;a href=&#34;https://www.coursera.org/account/accomplishments/certificate/G7L3PUPHPJ&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Regression Models, &lt;strong&gt;Coursera&lt;/strong&gt;, 36h, 
+&lt;a href=&#34;https://www.coursera.org/account/accomplishments/certificate/G7L3PUPHPJ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p align=&#34;justify&#34;&gt;&lt;strong&gt;Description&lt;/strong&gt;: Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Explorando interfaces gráficas interativas no R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brazil, 2h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Redução de dimensionalidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 16h.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Modelos aditivos Generalizados con P-splines, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 4h.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;**Description**: Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.&lt;/p&gt; 
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Explorando interfaces gráficas interativas no R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brazil, 2h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redução de dimensionalidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 16h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modelos aditivos Generalizados con P-splines, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 4h.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -182,13 +232,9 @@
       <link>https://prof-thiagooliveira.netlify.com/courses/example/example1/</link>
       <pubDate>Mon, 27 Aug 2018 09:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/courses/example/example1/</guid>
-      <description>
-
-&lt;h1 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h1&gt;
-
+      <description>&lt;h1 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h1&gt;
 &lt;p&gt;Example of a completely randomized design.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;############################################################################
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34;&gt;############################################################################
 #################### Completely Randomized Design ##########################
 ############################################################################
 
@@ -217,12 +263,9 @@ DIC &amp;lt;- function(Trat,Rep){
 DIC(Trat,Rep)
 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h1 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h1&gt;
-
 &lt;p&gt;Example of a Randomized Block Design.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;############################################################################
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34;&gt;############################################################################
 ################### Randomized Block Design ################################
 ############################################################################
 
@@ -258,12 +301,9 @@ DCB &amp;lt;- function(Trat,Bloco){
 # Experiment Sketch
 DCB(Trat,Bloco)
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h1 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h1&gt;
-
 &lt;p&gt;Example of a completely randomized designs for factorial structure&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;############################################################################
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34;&gt;############################################################################
 ################## Completely randomized designs ###########################
 ####################### Factorial structure ################################
 ############################################################################
@@ -299,12 +339,9 @@ DIC &amp;lt;- function(Trat,Rep){
 # Experiment Sketch
 DIC(Trat$Tratamento,Rep)
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h1 id=&#34;tip-4&#34;&gt;Tip 4&lt;/h1&gt;
-
 &lt;p&gt;Example of a Latin Square Design&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;############################################################################
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34;&gt;############################################################################
 ######################## Latin Square Design ###############################
 ############################################################################
 
@@ -338,91 +375,87 @@ QL(Trat)
       <link>https://prof-thiagooliveira.netlify.com/slides/2017-papaya/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/slides/2017-papaya/</guid>
-      <description>
-
-&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
-
+      <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
 &lt;p&gt;Measuring color hue in &amp;lsquo;Sunrise Solo&amp;rsquo; papaya using a flatbed scanner&lt;/p&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;h2 id=&#34;papaya-production&#34;&gt;Papaya Production&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Global papaya producing (FAO, 2012):&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Global papaya producing (FAO, 2012):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;India: 38.61% (4,713,800)&lt;/li&gt;
 &lt;li&gt;Brazil: 17.5% (1,871,300)&lt;/li&gt;
-&lt;li&gt;Indonesia: 6.86% (695,214)
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Brazil: $2^{\circ}$ major papaya exporting (11.2\% of global trade)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Papayas are classified according to size and color;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Indonesia: 6.86% (695,214)&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
-
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Brazil: $2^{\circ}$ major papaya exporting (11.2% of global trade)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Papayas are classified according to size and color;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;colorimeter-methodology&#34;&gt;Colorimeter Methodology&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Very efficient when the fruit has uniform coloration&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;It may be inefficient when the fruit does not have uniform coloration&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Usually, samples are observed on the equatorial region of fruits&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Very efficient when the fruit has uniform coloration&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It may be inefficient when the fruit does not have uniform coloration&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Usually, samples are observed on the equatorial region of fruits&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;h2 id=&#34;colorimeter-methodology-1&#34;&gt;Colorimeter Methodology&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;The sample is observed from a very small area on the fruit&amp;rsquo;s peel&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Problem:&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;The sample is observed from a very small area on the fruit&amp;rsquo;s peel&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Problem:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The sample cannot represents the equatorial region properly&lt;/li&gt;
 &lt;li&gt;A sample on the equatorial region cannot represents the whole region&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;digital-image-analysis&#34;&gt;Digital Image Analysis&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;An alternative method proposed to evaluate the color of several fruits&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Offers an objective measure for color and other physical factors&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Most recent applications include:&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;An alternative method proposed to evaluate the color of several fruits&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Offers an objective measure for color and other physical factors&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Most recent applications include:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Fruit&amp;rsquo;s classification&lt;/li&gt;
 &lt;li&gt;Postharvest quality evaluation&lt;/li&gt;
 &lt;li&gt;Including meats, fruits, and seeds&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Scanner can be used as a device to measure color components&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Colorimeter and digital image analysis leads to defferents peel color measurements&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Based on sample size we conclude:&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Scanner can be used as a device to measure color components&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Colorimeter and digital image analysis leads to defferents peel color measurements&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Based on sample size we conclude:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The usage of images analysis is preferable compared with colorimeter approach&lt;/li&gt;
 &lt;li&gt;Digital images analysis should be used for fruits with non-uniform coloration&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -440,7 +473,8 @@ QL(Trat)
       <link>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</link>
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</guid>
-      <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007/s11027-019-09880-7&#34;&gt;figures&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;Supplementary notes were added here, including 
+&lt;a href=&#34;https://link.springer.com/article/10.1007/s11027-019-09880-7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;figures&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -473,7 +507,8 @@ QL(Trat)
       <link>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</guid>
-      <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34;&gt;code and data&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;Supplementary notes were added here, including 
+&lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and data&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

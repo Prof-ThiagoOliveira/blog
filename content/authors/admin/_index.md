@@ -18,13 +18,15 @@ email: "thiago.paula.oliveira@usp.br"
 interests:
 - Statistics and Biostatistics
 - Concordance Analysis
-- Agricultural Experimentation
+- Multilevel Models
+- Agriculture
 - Sports (Athlete Performance)
+- Shiny Apps
 name: Thiago de Paula Oliveira
 organizations:
-- name: National University of Ireland Galway
-  url: "http://www.nuigalway.ie/"
-role: Postdoctoral Researcher
+- name: The Roslin Institute
+  url: "https://alphagenes.roslin.ed.ac.uk/wp/"
+role: Researcher
 social:
 - icon: envelope
   icon_pack: fas
@@ -48,19 +50,21 @@ user_groups:
 ---
 
 <p align="justify">
-Dr. Thiago de Paula Oliveira is a Researcher Biostatistician at Insight
+Dr. Thiago de Paula Oliveira was a Researcher Biostatistician at Insight
 Centre for Data Analytics working in partnership with Orreco and NUI
-Galway. He develops statistical methods to model the longitudinal
-concordance correlation based on variance components of mixed effects
-models.  
-Thiago holds a PhD in Statistics from University of São Paulo,
+Galway in the development of statistical methods applied to athlete performance. 
+He develops statistical methods in longitudinal 
+concordance correlation, multilevel model (hierarchical model), 
+generalized linear mixed-effects model, experimental design, longitudinal
+data. Moreover, he is an enthusiast of use of Shiny apps to create interactive data visualization. 
+Thiago holds his PhD in Statistics from University of São Paulo,
 Brazil, and has at least five years experience in experimental
 statistics, statistical modeling, mixed effect models, longitudinal
 data, and concordance analysis. As PhD candidate, he was a visitor
-Scholar at Natio nal University of Ireland in 2016, working with
-statistical modeling for agricultural data. His current work is about
-Biostatistcs in sport. He was a lecturer in the Department of Exact
-Sciences at ‘Luiz de Queiroz’ College of Agriculture (ESALQ), University
-of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
+Scholar at National University of Ireland in 2016, working with
+statistical modeling for agricultural data. He was a lecturer in the Department of Exact
+Sciences at ESALQ/University of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019. 
+Currently, Thiago is working at the Roslin Institute/University of Edinburgh as 
+Researcher on development of statistical methods for global crop breeding programs.
 </p>
 

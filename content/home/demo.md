@@ -55,5 +55,5 @@ subtitle = ""
 
 - Dr. Oliveira is a reasercher in Biostatistics with strong publication record in the development and application of biostatistical theory, experimental and observational studies, agriculture,  and sports.
 
-- School of Mathematics, Statistics and Applied Mathematics, Áras de Brún, NUI Galway, University Road, Galway, Ireland
+- The Roslin Institute, University of Edinburgh, Edinburgh, Scotland 
 
