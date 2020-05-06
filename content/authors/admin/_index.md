@@ -53,7 +53,7 @@ user_groups:
 Dr. Thiago de Paula Oliveira was a Researcher Biostatistician at Insight
 Centre for Data Analytics working in partnership with Orreco and NUI
 Galway in the development of statistical methods applied to athlete performance. 
-He develops statistical methods in longitudinal 
+He developed statistical methods in longitudinal 
 concordance correlation, multilevel model (hierarchical model), 
 generalized linear mixed-effects model, experimental design, longitudinal
 data. Moreover, he is an enthusiast of use of Shiny apps to create interactive data visualization. 
