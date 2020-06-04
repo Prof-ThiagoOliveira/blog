@@ -3,385 +3,405 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/</loc>
+    <loc>/accomplishments/</loc>
     <lastmod>2018-08-28T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</loc>
+    <loc>/accomplishments/accomplishments2012/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</loc>
+    <loc>/accomplishments/accomplishments2014/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</loc>
+    <loc>/accomplishments/accomplishments2016/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</loc>
+    <loc>/accomplishments/accomplishments2018/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2019/</loc>
+    <loc>/accomplishments/accomplishments2019/</loc>
     <lastmod>2019-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2013/</loc>
+    <loc>/accomplishments/accomplishments2013/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</loc>
+    <loc>/accomplishments/accomplishments2015/</loc>
     <lastmod>2018-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/courses/example/</loc>
+    <loc>/courses/example/</loc>
     <lastmod>2018-08-28T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/courses/example/example1/</loc>
+    <loc>/courses/example/example1/</loc>
     <lastmod>2018-08-27T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/admin/</loc>
+    <loc>/authors/admin/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/3/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/2020-covid/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/rafael-de-andrade-moral/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/source-themes/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/agreement/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/agreement/</loc>
+    <loc>/tags/agreement-measures/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/agreement-measures/</loc>
+    <loc>/talk/2020-nuig/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/</loc>
+    <loc>/authors/john-newell/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</loc>
+    <loc>/tags/longitudinal-data/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/john-newell/</loc>
+    <loc>/tags/mixed-effects-model/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/longitudinal-data/</loc>
+    <loc>/tags/r-package/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/mixed-effects-model/</loc>
+    <loc>/talk/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/r-package/</loc>
-    <lastmod>2020-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/</loc>
-    <lastmod>2020-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/</loc>
-    <lastmod>2020-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/</loc>
-    <lastmod>2020-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/slides/</loc>
+    <loc>/slides/</loc>
     <lastmod>2020-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/slides/2017-papaya/</loc>
+    <loc>/slides/2017-papaya/</loc>
     <lastmod>2020-03-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/autoregressive-models/</loc>
+    <loc>/tags/autoregressive-models/</loc>
     <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/bayesian-approach/</loc>
+    <loc>/tags/bayesian-approach/</loc>
     <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/cycle-length/</loc>
+    <loc>/tags/cycle-length/</loc>
     <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2019-young-stats/</loc>
+    <loc>/talk/2019-young-stats/</loc>
     <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/performance/</loc>
+    <loc>/tags/performance/</loc>
     <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/state-space-models/</loc>
+    <loc>/tags/state-space-models/</loc>
     <lastmod>2019-10-04T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication_types/2/</loc>
+    <loc>/publication_types/2/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/arthur-k.-b.-santos/</loc>
+    <loc>/authors/arthur-k.-b.-santos/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/carlos-e.-p.-cerri/</loc>
+    <loc>/authors/carlos-e.-p.-cerri/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/gustavo-v.-popin/</loc>
+    <loc>/authors/gustavo-v.-popin/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/marcos-siqueira-neto/</loc>
+    <loc>/authors/marcos-siqueira-neto/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/plinio-b.-de-camargo/</loc>
+    <loc>/authors/plinio-b.-de-camargo/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication_types/</loc>
+    <loc>/publication/2019-soil/</loc>
     <lastmod>2019-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/source-themes/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/clarice-garcia-borges-demetrio/</loc>
+    <loc>/authors/clarice-garcia-borges-demetrio/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/john-hinde/</loc>
+    <loc>/authors/john-hinde/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/rafael-de-andrade-moral/</loc>
+    <loc>/authors/silvio-sandoval-zocchi/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/silvio-sandoval-zocchi/</loc>
+    <loc>/talk/2019-iwsm/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2019-iwsm/</loc>
-    <lastmod>2019-06-07T09:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication_types/0/</loc>
+    <loc>/publication_types/0/</loc>
     <lastmod>2018-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/clarice-g.-b.-demetrio/</loc>
+    <loc>/authors/clarice-g.-b.-demetrio/</loc>
     <lastmod>2018-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</loc>
+    <loc>/publication/2019-lcc-package/</loc>
     <lastmod>2018-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/silvio-s.-zocchi/</loc>
+    <loc>/authors/silvio-s.-zocchi/</loc>
     <lastmod>2018-11-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/heloisa-t.-kleina/</loc>
+    <loc>/authors/heloisa-t.-kleina/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/helvecio-d.-coletta-filho/</loc>
+    <loc>/authors/helvecio-d.-coletta-filho/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/idemauro-a.r.-lara/</loc>
+    <loc>/authors/idemauro-a.r.-lara/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/joao-r.s.-lopes/</loc>
+    <loc>/authors/joao-r.s.-lopes/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/mariana-b.-esteves/</loc>
+    <loc>/authors/mariana-b.-esteves/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/rodrigo-p.p.-almeida/</loc>
+    <loc>/authors/rodrigo-p.p.-almeida/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/tiago-de-melo-sales/</loc>
+    <loc>/authors/tiago-de-melo-sales/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</loc>
+    <loc>/publication/2019-phitopatology/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/courses/</loc>
+    <loc>/courses/</loc>
     <lastmod>2018-08-28T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</loc>
+    <loc>/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/terms/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/2018-lcc/</loc>
     <lastmod>2018-03-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/athlete-performance/</loc>
+    <loc>/tags/athlete-performance/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/biostatistics/</loc>
+    <loc>/tags/biostatistics/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/</loc>
+    <loc>/project/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/shiny-app/</loc>
+    <loc>/tags/shiny-app/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/statistical-modelling/</loc>
+    <loc>/tags/statistical-modelling/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/sport-project/</loc>
+    <loc>/project/sport-project/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/angelo-p.-m.-jacomino/</loc>
+    <loc>/authors/angelo-p.-m.-jacomino/</loc>
     <lastmod>2017-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</loc>
+    <loc>/publication/2017-papaya/</loc>
     <lastmod>2017-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/accuracy/</loc>
+    <loc>/tags/accuracy/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/circular-statistics/</loc>
+    <loc>/tags/circular-statistics/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/digital-images/</loc>
+    <loc>/tags/digital-images/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/image-analysis/</loc>
+    <loc>/tags/image-analysis/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/color-project/</loc>
+    <loc>/project/color-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/precision/</loc>
+    <loc>/tags/precision/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/concordance-project/</loc>
+    <loc>/project/concordance-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/categories/</loc>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/gallery/</loc>
+    <loc>/gallery/</loc>
   </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/</loc>
+    <loc>/post/</loc>
   </url>
   
 </urlset>

@@ -28,7 +28,7 @@ summary: We proposed a longitudinal concordance correlation (LCC) to estimate ag
 
 tags:
 - Source Themes
-featured: true
+featured: false
 
 links:
  - name: "Journal Link"
