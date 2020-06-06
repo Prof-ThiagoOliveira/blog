@@ -64,7 +64,7 @@ data, and concordance analysis. As PhD candidate, he was a visitor
 Scholar at National University of Ireland in 2016, working with
 statistical modeling for agricultural data. He was a lecturer in the Department of Exact
 Sciences at ESALQ/University of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019. 
-Currently, Thiago is working at the Roslin Institute/University of Edinburgh as 
-Researcher on development of statistical methods for global crop breeding programs.
+Currently, Thiago is working at the NUI Galway as 
+Researcher on development of statistical methods for sports.
 </p>
 
