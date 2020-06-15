@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks | Researcher</title>
-    <link>/talk/</link>
-      <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/talk/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>/talk/</link>
+      <link>https://prof-thiagooliveira.netlify.com/talk/</link>
     </image>
     
     <item>
       <title>Estimating NBA athlete performance using multilevel models</title>
-      <link>/talk/2020-nuig/</link>
+      <link>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</link>
       <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/talk/2020-nuig/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Modelling menstrual cycle length using state space models</title>
-      <link>/talk/2019-young-stats/</link>
+      <link>https://prof-thiagooliveira.netlify.com/talk/2019-young-stats/</link>
       <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
-      <guid>/talk/2019-young-stats/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/2019-young-stats/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The longitudinal concordance correlation</title>
-      <link>/talk/2019-iwsm/</link>
+      <link>https://prof-thiagooliveira.netlify.com/talk/2019-iwsm/</link>
       <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>/talk/2019-iwsm/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/2019-iwsm/</guid>
       <description></description>
     </item>
     

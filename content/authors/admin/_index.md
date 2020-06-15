@@ -18,10 +18,11 @@ email: "thiago.paula.oliveira@usp.br"
 interests:
 - Statistics and Biostatistics
 - Concordance Analysis
-- Multilevel Models
+- Multilevel and Forecast Models
+- Longitudinal Data
 - Agriculture
 - Sports (Athlete Performance)
-- Shiny Apps
+- Dashboard App
 name: Thiago de Paula Oliveira
 organizations:
 - name: The Roslin Institute

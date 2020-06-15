@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Slides | Researcher</title>
-    <link>/slides/</link>
-      <atom:link href="/slides/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/slides/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/slides/index.xml" rel="self" type="application/rss+xml" />
     <description>Slides</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 10 Mar 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Slides</title>
-      <link>/slides/2017-papaya/</link>
+      <link>https://prof-thiagooliveira.netlify.com/slides/2017-papaya/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>/slides/2017-papaya/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/slides/2017-papaya/</guid>
       <description>&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
 &lt;p&gt;Measuring color hue in &amp;lsquo;Sunrise Solo&amp;rsquo; papaya using a flatbed scanner&lt;/p&gt;
 &lt;hr&gt;

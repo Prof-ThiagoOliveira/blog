@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Agreement | Researcher</title>
-    <link>/tags/agreement/</link>
-      <atom:link href="/tags/agreement/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/agreement/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/agreement/index.xml" rel="self" type="application/rss+xml" />
     <description>Agreement</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Agreement</title>
-      <link>/tags/agreement/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/agreement/</link>
     </image>
     
     <item>
       <title>The lcc Package</title>
-      <link>/project/concordance-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/concordance-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/concordance-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/concordance-project/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Athlete performance | Researcher</title>
-    <link>/tags/athlete-performance/</link>
-      <atom:link href="/tags/athlete-performance/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/athlete-performance/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/athlete-performance/index.xml" rel="self" type="application/rss+xml" />
     <description>Athlete performance</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Athlete performance</title>
-      <link>/tags/athlete-performance/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/athlete-performance/</link>
     </image>
     
     <item>
       <title>The use of biostatistics for optimizing athletes performance</title>
-      <link>/project/sport-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/sport-project/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>/project/sport-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sport-project/</guid>
       <description></description>
     </item>
     

@@ -25,6 +25,12 @@ subtitle = ""
   icon_pack = "fab"
   name = "R and Shiny"
   description = "Advanced"
+  
+[[feature]]
+  icon = "contao"
+  icon_pack = "fab"
+  name = "C++"
+  description = "Beginner"
 
 [[feature]]
   icon = "file-word"
