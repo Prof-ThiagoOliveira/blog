@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Precision | Researcher</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/precision/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/precision/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/precision/</link>
+      <atom:link href="/tags/precision/index.xml" rel="self" type="application/rss+xml" />
     <description>Precision</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Precision</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/precision/</link>
+      <link>/tags/precision/</link>
     </image>
     
     <item>
       <title>The lcc Package</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/concordance-project/</link>
+      <link>/project/concordance-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/concordance-project/</guid>
+      <guid>/project/concordance-project/</guid>
       <description></description>
     </item>
     

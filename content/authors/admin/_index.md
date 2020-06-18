@@ -25,8 +25,8 @@ interests:
 - Dashboard App
 name: Thiago de Paula Oliveira
 organizations:
-- name: The Roslin Institute
-  url: "https://alphagenes.roslin.ed.ac.uk/wp/"
+- name: NUI Galway
+  url: "https://www.insight-centre.org/"
 role: Researcher
 social:
 - icon: envelope
@@ -66,6 +66,6 @@ Scholar at National University of Ireland in 2016, working with
 statistical modeling for agricultural data. He was a lecturer in the Department of Exact
 Sciences at ESALQ/University of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019. 
 Currently, Thiago is working at the NUI Galway as 
-Researcher on development of statistical methods for sports.
+Researcher on development of statistical methods in sports.
 </p>
 
