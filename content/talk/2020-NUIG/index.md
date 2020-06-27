@@ -21,14 +21,14 @@ image:
 location: National University of Ireland Galway
 math: true
 projects:
-- concordance-project
+- sport-project
 publishDate: "2020-04-21T00:00:00Z"
 slides: example
 summary: Athlete performance evaluation based on novel methodology using principal components and multilevel models
 tags:
-- R Package
+- Athlete Performance
 - Agreement Measures
-- Mixed-Effects Model
+- Multilevel Model
 - Longitudinal Data
 title: Estimating NBA athlete performance using multilevel models
 url_code: ""

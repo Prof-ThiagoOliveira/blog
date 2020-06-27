@@ -9,6 +9,6 @@ tags:
 - Agreement
 - Precision
 - Accuracy
-- R package
+- R packages
 title: The lcc Package
 ---

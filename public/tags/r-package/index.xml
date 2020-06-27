@@ -1,38 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R package | Researcher</title>
+    <title>R Package | Researcher</title>
     <link>/tags/r-package/</link>
       <atom:link href="/tags/r-package/index.xml" rel="self" type="application/rss+xml" />
-    <description>R package</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <description>R Package</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 07 Jun 2019 09:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>R package</title>
+      <title>R Package</title>
       <link>/tags/r-package/</link>
     </image>
-    
-    <item>
-      <title>Estimating NBA athlete performance using multilevel models</title>
-      <link>/talk/2020-nuig/</link>
-      <pubDate>Tue, 21 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/talk/2020-nuig/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>The longitudinal concordance correlation</title>
       <link>/talk/2019-iwsm/</link>
       <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
       <guid>/talk/2019-iwsm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The lcc Package</title>
-      <link>/project/concordance-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/concordance-project/</guid>
       <description></description>
     </item>
     

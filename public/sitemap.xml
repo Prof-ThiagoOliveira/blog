@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/experimental_design/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/accomplishments/</loc>
     <lastmod>2018-08-28T17:00:00+00:00</lastmod>
   </url>
@@ -50,6 +55,11 @@
   <url>
     <loc>/courses/example/example1/</loc>
     <lastmod>2018-08-27T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -108,6 +118,11 @@
   </url>
   
   <url>
+    <loc>/tags/athlete-performance/</loc>
+    <lastmod>2020-04-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/talk/2020-nuig/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
@@ -123,12 +138,7 @@
   </url>
   
   <url>
-    <loc>/tags/mixed-effects-model/</loc>
-    <lastmod>2020-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-package/</loc>
+    <loc>/tags/multilevel-model/</loc>
     <lastmod>2020-04-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -219,6 +229,16 @@
   
   <url>
     <loc>/authors/john-hinde/</loc>
+    <lastmod>2019-06-07T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mixed-effects-model/</loc>
+    <lastmod>2019-06-07T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-package/</loc>
     <lastmod>2019-06-07T09:00:00+00:00</lastmod>
   </url>
   
@@ -318,11 +338,6 @@
   </url>
   
   <url>
-    <loc>/tags/athlete-performance/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/biostatistics/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -334,6 +349,11 @@
   
   <url>
     <loc>/tags/shiny-app/</loc>
+    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sports/</loc>
     <lastmod>2018-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -363,6 +383,11 @@
   </url>
   
   <url>
+    <loc>/tags/agriculture/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/circular-statistics/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
@@ -388,6 +413,11 @@
   </url>
   
   <url>
+    <loc>/tags/r-packages/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/project/concordance-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
@@ -398,10 +428,6 @@
   
   <url>
     <loc>/gallery/</loc>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
   </url>
   
 </urlset>

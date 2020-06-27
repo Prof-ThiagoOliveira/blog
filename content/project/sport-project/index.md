@@ -10,5 +10,6 @@ tags:
 - Athlete performance
 - Biostatistics
 - Shiny App
+- Sports
 title: The use of biostatistics for optimizing athletes performance
 ---

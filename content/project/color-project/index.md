@@ -10,11 +10,12 @@ links:
   name: Follow
   url: ""
 slides: ""
-summary: Promote the usage of image analysis as well as development of statistical methodologies for this purpose.
+summary: Promote the usage of image analysis as well as development of statistical methodologies for that purpose.
 tags:
 - Image Analysis
 - Digital Images
 - Circular Statistics
+- Agriculture
 
 title: Measuring color using image analyis
 url_code: ""
