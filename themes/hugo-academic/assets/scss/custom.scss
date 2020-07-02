@@ -1,1 +1,59 @@
 // Override this file to add your own SCSS styling.
+
+
+/* Docs: custom TOC foot. */
+
+.connect-widget {
+  margin-top: 30px;
+  font-size: 0.7rem;
+}
+
+.connect-widget ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+/* Center tweets. */
+
+#tweets iframe {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* CTA Shortcode. */
+
+.cta-group {
+  --button-group-margin: 0.75em;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  justify-content: left;
+  margin-left: calc(-1 * var(--button-group-margin));
+  margin-right: calc(-1 * var(--button-group-margin));
+}
+
+.cta-group-center {
+  justify-content: center;
+}
+
+.cta-group li {
+  margin-bottom: 1em;
+  margin-left: var(--button-group-margin);
+  margin-right: var(--button-group-margin);
+}
+
+/* Thanks Aside */
+
+div.alert-thanks {
+  background: rgba(250, 235, 221, 0.3);
+}
+
+.dark div.alert-thanks {
+  background: rgba(250, 235, 221, 0.3);
+}
+
+/* Width of the page to the user*/
+.container {
+    width: 100% !important;
+}

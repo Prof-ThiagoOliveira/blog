@@ -2,12 +2,12 @@
 # Hero widget.
 widget = "hero"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
+active = false  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-title = "Professional Profile"
+ # title = "Professional Profile"
 
-# Hero image (optional). Enter filename of an image in the `static/img/` folder.
+ # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 
 
 [design.background]
@@ -20,8 +20,8 @@ title = "Professional Profile"
   # color = "navy"
   
   # Background gradient.
-  gradient_start = "#4bb4e3"
-  gradient_end = "#2b94c3"
+  # gradient_start = "#2e6fd9"
+  # gradient_end = "#2b94c3"
   
   # Background image.
   # image = ""  # Name of image in `static/img/`.
@@ -31,6 +31,6 @@ title = "Professional Profile"
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
   
   # Text color (true=light or false=dark).
-  text_color_light = true
+  # text_color_light = true
 +++
 

@@ -1,0 +1,11 @@
+# Font style metadata
+name = "Minimal"
+
+# Optional Google font URL
+google_fonts = "Raleway:400,700|Vollkorn:400|Ubuntu:400,400italic,700|Ubuntu+Mono"
+
+# Font families
+heading_font = "Raleway"
+body_font = "Ubuntu"
+nav_font = "Vollkorn"
+mono_font = "Ubuntu Mono"
