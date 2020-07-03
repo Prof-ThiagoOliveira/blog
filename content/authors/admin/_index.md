@@ -70,7 +70,7 @@ data.
 </p>
 
 <p align="justify">
-As an enthusiast of use of <ins>dashboard apps</ins> to create interactive data visualization, Thiago belives that interactive applications is an easier way to create visual representations of large data sets, allowing the user explore the complex reality of the database, or even handle multiple sets of data in a single visualization.
+As an enthusiast of the usage of <ins>dashboard apps</ins> to create interactive data visualization, Thiago belives that interactive applications is an easier way to create visual representations of large data sets, allowing the user explore the complex reality of the database, or even handle multiple sets of data in a single visualization.
 </p>
 
 <p align="justify">
