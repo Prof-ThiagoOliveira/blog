@@ -52,17 +52,17 @@ user_groups:
 
 <p align="justify">
 Dr. Thiago de Paula Oliveira holds his PhD in Statistics from University of São Paulo,
-Brazil, and has at least <ins>six years experience</ins> in experimental
+Brazil, and has at least seven years experience in experimental
 statistics, statistical modeling, and concordance analysis. As PhD candidate, he was a visitor
 Scholar at National University of Ireland in 2016, working with
-statistical modeling for agricultural data. He was a <ins>lecturer</ins> in the Department of Exact
+statistical modeling for agricultural data. He was a lecturer in the Department of Exact
 Sciences at ESALQ/University of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
 </p>
 
 <p align="justify">
 He was a Researcher Biostatistician at Insight 
 Centre for Data Analytics working in partnership with Orreco and NUI
-Galway in the development of <ins>statistical methods applied to athlete performance</ins>. 
+Galway in the development of statistical methods applied to athlete performance. 
 Thiago developed statistical methods in longitudinal 
 concordance correlation, multilevel model (hierarchical model), 
 generalized linear mixed-effects model, experimental design, longitudinal
@@ -70,10 +70,10 @@ data.
 </p>
 
 <p align="justify">
-As an enthusiast of the usage of <ins>dashboard apps</ins> to create interactive data visualization, Thiago belives that interactive applications is an easier way to create visual representations of large data sets, allowing the user explore the complex reality of the database, or even handle multiple sets of data in a single visualization.
+As an enthusiast of the usage of dashboard apps to create interactive data visualization, Thiago belives that interactive applications is an easier way to create visual representations of large data sets, allowing the user explore the complex reality of the database, or even handle multiple sets of data in a single visualization.
 </p>
 
 <p align="justify">
-Currently, he is working at the NUI Galway as Researcher on development of <ins>statistical methods in sports</ins>.
+Currently, he is working at the NUI Galway as Researcher on development of statistical methods in sports.
 </p>
 

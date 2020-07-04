@@ -31,10 +31,10 @@ opts_chunk$set(echo = TRUE)
 # Overview of the Seven Steps
 </div>
 
-The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process in shown in the Figure 1.
+The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1.
 
 ```{r,echo=FALSE,fig.cap="The seven steps (modified from Hilton et al. (2019))"}
-knitr::include_graphics('steps.png')
+knitr::include_graphics('seven_steps.png')
 ```
 All steps are then described in the sections below.
 
@@ -59,7 +59,7 @@ $$E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2$$
 Thus, we can pick particular values for $x_1$, and $x_2$ to calculate the total fat $y$ by hand. If $x_{1}=2$, $x_{2}=1$, then 
 $$y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.$$
 
-Now, suppose the the second aim is optimizing reduced fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface, consequently, we can divide our project into, e. g., two tasks:
+Now, suppose the the second aim is the optimization of reduction in fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface, consequently, we can divide our project into, e. g., two tasks:
 
 <div class="div-2">
 1. Generalize the function for any $x_1$ and $x_2$; 
@@ -94,6 +94,7 @@ Thus, during this step you have to identify all lack of domain knowledge and the
   text-align: justify;
 }
 .div-2{
+  color: black;
   text-align: justify;
   background-color: #d6edd3;
 }
