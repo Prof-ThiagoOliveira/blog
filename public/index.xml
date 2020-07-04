@@ -423,6 +423,24 @@ Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;p&gt;Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
+&lt;div class=&#34;header1&#34;&gt;
+&lt;h1 id=&#34;step-2&#34;&gt;Step 2&lt;/h1&gt;
+&lt;/div&gt;
+&lt;p&gt;In this step you should take notes about what you did to solve the project or tasks within the project. Your notes describing all solutions by task should be precisely enough to anyone else reproduce them easily. Sometimes we may omit common sense steps such as multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, or the order in which each task should be executed.&lt;/p&gt;
+&lt;div class=&#34;header2&#34;&gt;
+&lt;h2 id=&#34;example-1&#34;&gt;Example&lt;/h2&gt;
+&lt;/div&gt;
+&lt;p&gt;Suppose we are interested in computing &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)=x^y+3x\)&lt;/span&gt; when &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;, then we might write down a deatiled descriptions of all steps to compute &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiply 2 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
+&lt;li&gt;Multiply 4 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 8&lt;/li&gt;
+&lt;li&gt;Multiply 8 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 16&lt;/li&gt;
+&lt;li&gt;Sum 16 plus 3 multiplied by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 22&lt;/li&gt;
+&lt;li&gt;22 is the answer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;The steps are precise as anyone who can perform basic math can follow these steps to get the same answer.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;header1&#34;&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
@@ -442,11 +460,11 @@ Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;
 }
 .header1 h1{
 font-style: normal;
-color: #3715d1;
+color: #2283f2;
 }
 .header2 h2{
 font-style: normal;
-color: #3f3669;
+color: #3b80d1;
 }
 &lt;/style&gt;
 </description>
