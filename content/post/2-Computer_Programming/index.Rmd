@@ -10,7 +10,7 @@ tags:
   - Algorithm
 subtitle: 'Plan first and the translate everything as code'
 summary: ""
-featured: yes
+featured: no
 image:
   caption: ''
   focal_point: ''
@@ -34,7 +34,7 @@ opts_chunk$set(echo = TRUE)
 The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process in shown in the Figure 1.
 
 ```{r,echo=FALSE,fig.cap="The seven steps (modified from Hilton et al. (2019))"}
-knitr::include_graphics('featured.png')
+knitr::include_graphics('steps.png')
 ```
 All steps are then described in the sections below.
 
