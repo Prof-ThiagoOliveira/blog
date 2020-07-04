@@ -28,7 +28,7 @@ output:
 
 The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process in shown in the Figure 1.
 
-![The seven steps (modified from Hilton et al. (2019))](/2-Computer_Programming/2020-07-03-the-seven-steps-of-a-programer.en_files/featured.png)
+![The seven steps (modified from Hilton et al. (2019))](static/post/2-Computer_Programming/2020-07-03-the-seven-steps-of-a-programer.en_files/featured.png)
 
 All steps are then described in the sections below.
 
@@ -40,7 +40,6 @@ This is the moment where you spend time thinking about the project and how could
 
 ![Example of how divide the main project into small tasks](/2-Computer_Programming/2020-07-03-the-seven-steps-of-a-programer.en_files/main_project.png)
 
-*Figure 2: Example of how divide the main project into small tasks*
 
 <div class="header2">
 ## Example
