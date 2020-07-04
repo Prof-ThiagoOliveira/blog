@@ -1,0 +1,86 @@
+---
+title: The seven steps of a programer
+author: Thiago de Paula Oliveira
+date: "2020-07-04"
+slug: the-seven-steps-of-a-programer
+tags:
+  - Computer Science
+  - Computer Program
+  - C++
+  - Algorithm
+subtitle: 'Plan first and the translate everything as code'
+summary: ""
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+
+<div class="div-1">
+<div class="header1">
+<h1 id="overview-of-the-seven-steps">Overview of the Seven Steps</h1>
+</div>
+<p>The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process in shown in the Figure 1.</p>
+<p><img src="featured.png" />
+<em>Figure 1: The seven steps (modified from Hilton et al. (2019))</em></p>
+<p>All steps are then described in the sections below.</p>
+<div class="header1">
+<h1 id="step-1">Step 1</h1>
+</div>
+<p>This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.</p>
+<p><img src="main_project.png" />
+<em>Figure 2: Example of how divide the main project into small tasks</em></p>
+<div class="header2">
+<h2 id="example">Example</h2>
+</div>
+<p>Suppose we would want to write an algorithm in C++ to compute the total fat of a ice cream portion basis (<span class="math inline">\(y\)</span>). Suppose also this response variable is a function of butyric fat <span class="math inline">\(x_1\)</span> and vegetable fat <span class="math inline">\(x_2\)</span>. Let <span class="math inline">\(E[y]\)</span> be the expected value of <span class="math inline">\(y\)</span> defined as</p>
+<p><span class="math display">\[E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2\]</span>
+Thus, we can pick particular values for <span class="math inline">\(x_1\)</span>, and <span class="math inline">\(x_2\)</span> to calculate the total fat <span class="math inline">\(y\)</span> by hand. If <span class="math inline">\(x_{1}=2\)</span>, <span class="math inline">\(x_{2}=1\)</span>, then
+<span class="math display">\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]</span></p>
+<p>Now, suppose the the second aim is optimizing reduced fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface, consequently, we can divide our project into, e. g., two tasks:</p>
+<div class="div-2">
+<ol style="list-style-type: decimal">
+<li>Generalize the function for any <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>;</li>
+<li>Calculate the global (or absolute) minimum point;</li>
+</ol>
+</div>
+<p>If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:</p>
+<div class="div-2">
+<ul>
+<li>How could I calculate the global minimum?</li>
+<li>How can I use partial derivatives?</li>
+</ul>
+</div>
+<p>Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.</p>
+</div>
+<div class="header1">
+<h1 id="references">References</h1>
+</div>
+<p align="justify">
+[1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84.
+</p>
+<p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
+<style>
+.div-1 {
+  text-align: justify;
+}
+.div-2{
+  text-align: justify;
+  background-color: #d6edd3;
+}
+.header1 h1{
+font-style: normal;
+color: #3715d1;
+}
+.header2 h2{
+font-style: normal;
+color: #3f3669;
+}
+</style>
