@@ -8,7 +8,7 @@ tags:
   - Computer Program
   - C++
   - Algorithm
-subtitle: 'Plan first and the translate everything as code'
+subtitle: 'Plan first and then translate everything as code'
 summary: ""
 featured: no
 image:
