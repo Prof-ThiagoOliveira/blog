@@ -31,7 +31,7 @@ opts_chunk$set(echo = TRUE)
 # Overview of the Seven Steps
 </div>
 
-The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1.
+The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).
 
 ```{r,echo=FALSE,fig.cap="The seven steps (modified from Hilton et al. (2019))"}
 knitr::include_graphics('seven_steps.png')
@@ -39,7 +39,7 @@ knitr::include_graphics('seven_steps.png')
 All steps are then described in the sections below.
 
 <div class="header1">
-# Step 1
+# Step 1 - Project definition using simple examples
 </div>
 
 This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.   
@@ -50,7 +50,7 @@ knitr::include_graphics('main_project.png')
 
 
 <div class="header2">
-## Example
+## Example 1
 </div>
 
 Suppose we would want to write an algorithm in C++ to compute the total fat of a ice cream portion basis ($y$). Suppose also this response variable is a function of butyric fat $x_1$ and vegetable fat $x_2$. Let $E[y]$ be the expected value of $y$ defined as
@@ -76,14 +76,14 @@ If you get stuck in one of these steps, probably this difficult is comming from 
 Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.
 
 <div class="header1">
-# Step 2
+# Step 2 - Write everything you did
 </div>
 
 In this step you should take notes about what you did to solve the project or tasks within the project. Your notes describing all solutions by task should be precisely enough to anyone else reproduce them easily.  Sometimes we may omit common sense steps such as multiply $x$ by $y$, or the order in which each task should be executed.
 
 
 <div class="header2">
-## Example
+## Example 2
 </div>
 
 Suppose we are interested in computing $f(x,y)=x^y+3x$ when $x=2$ and $y=4$, then we might write down a deatiled descriptions of all steps to compute $f(x,y)$:
@@ -96,6 +96,41 @@ Suppose we are interested in computing $f(x,y)=x^y+3x$ when $x=2$ and $y=4$, the
 * 22 is the answer.
 </div>
 The steps are precise as anyone who can perform basic math can follow these steps to get the same answer. 
+
+
+<div class="header1">
+# Step 3 - Generalize
+</div>
+
+Our task now is generalize the last steps into an algorithm, finding patterns that allows us to solve the whole class rather than for a particular parameter values. Here is two common way to generalize those steps into algorithm:
+
+<div class="div-2">
+* Look all details of your step 2 because, sometimes, you can find the generalization into it description.
+* Look for repetition patterns - when the same step repeats several times
+</div>
+
+We can, e. g., generalize our **Example 2** just looking the description into step 2, where we can replacing the occurence of 2 by $x$:
+<div class="div-2">
+* Multiply 2 by $x$ $\rightarrow$ you get 4
+* Multiply 4 by $x$ $\rightarrow$ you get 8
+* Multiply 8 by $x$ $\rightarrow$ you get 16
+* Sum 16 plus 3 multiplied by $x$ $\rightarrow$ you get 22
+* 22 is the answer.
+</div>
+Note that, in the first multiplication, we have to start with $x \times x=2 \times x = 4$, thus the number of times that we should multiply 2 by $x$ are $y-1$. Thus, we would lead to the following generalized steps:
+
+```
+start with x = 2 and y = 4
+n[1] = x
+
+Count up from i in 1 to y-1 
+  n[i+1] = n[i] * x 
+
+z = n[y] + 3 * x
+z is  the answer
+```
+<div class="div-3">
+This process is referred to as writing 'pseudo-code' as an algorithm design with no particular target language.
 </div>
 
 <div class="header1">
@@ -105,7 +140,7 @@ The steps are precise as anyone who can perform basic math can follow these step
 <p align="justify">
 [1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84. 
 </p>
-
+</div>
 
 **Did you find this page helpful? Consider sharing it 🙌**
 
@@ -119,6 +154,11 @@ The steps are precise as anyone who can perform basic math can follow these step
   color: black;
   text-align: justify;
   background-color: #d6edd3;
+}
+.div-3{
+  color: black;
+  text-align: justify;
+  background-color: #cfbe7e;
 }
 .header1 h1{
 font-style: normal;
