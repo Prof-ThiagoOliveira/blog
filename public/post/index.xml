@@ -5,7 +5,7 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 04 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
@@ -24,7 +24,7 @@
     <item>
       <title>The seven steps of a programer</title>
       <link>/2020/07/the-seven-steps-of-a-programer/</link>
-      <pubDate>Sat, 04 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/2020/07/the-seven-steps-of-a-programer/</guid>
       <description>
 
@@ -112,7 +112,9 @@ We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just lookin
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;start with x = 2 and y = 4
+&lt;pre&gt;&lt;code&gt;Algorthm 1
+
+start with x = 2 and y = 4
 n[1] = x
 
 Count up from i in 1 to y-1 
@@ -122,6 +124,60 @@ z = n[y] + 3 * x
 z is  the answer&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;div-3&#34;&gt;
 &lt;p&gt;This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;header1&#34;&gt;
+&lt;h1 id=&#34;step-4---test-your-algorithm&#34;&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
+&lt;/div&gt;
+&lt;p&gt;Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do during this stage are described below:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Test your algorithm choosing different values for parameters&lt;/li&gt;
+&lt;li&gt;What happen if the value is positive, negative or equal to zero?&lt;/li&gt;
+&lt;li&gt;Have you restricted parameter space? Ex.: &lt;span class=&#34;math inline&#34;&gt;\(y\geq 0\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Use mathematical proofs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;div-3&#34;&gt;
+&lt;p&gt;Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.&lt;/p&gt;
+&lt;p&gt;A good example of algorithm mistake could be seen in the Example 2. What happens if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt; you will get &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; rather than &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt; (correct answer). Additionally, for any value &lt;span class=&#34;math inline&#34;&gt;\(y\leq 0\)&lt;/span&gt; the algorithm try to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1&amp;lt;0\)&lt;/span&gt;, of which are no Natural number, leading an error in the process. Thus, we can conclude that &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}\)&lt;/span&gt; represents Natural numbers. In this sense, we might attempt to generalize our algorithm to higher number of cases:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Algorthm 2 
+
+y must be a integer number
+
+start with x = 2 and y = 4
+
+if y=0 {
+n[1] = 1
+i=0
+} else{
+Count up from i in 1 to |y|-1
+  if y&amp;lt;0 {
+  n[1] = 1/x
+  n[i+1] = n[i] * 1/x 
+  } else{
+  n[1] = x
+  n[i+1] = n[i] * x
+  }
+}
+z = n[i+1] + 3 * x
+z is  the answer&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;528&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Example of output using the algorithm 2
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;div-3&#34;&gt;
+&lt;p&gt;Question: How can we improve this algorithm?&lt;/p&gt;
+&lt;/div&gt;
+For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.&lt;/li&gt;
+&lt;li&gt;Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class=&#34;header1&#34;&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;

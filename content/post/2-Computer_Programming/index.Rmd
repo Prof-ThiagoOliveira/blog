@@ -8,7 +8,7 @@ tags:
   - Computer Program
   - C++
   - Algorithm
-subtitle: 'Plan first and then translate everything as code'
+subtitle: 'Plan first and then   translate everything as code'
 summary: ""
 featured: no
 image:
@@ -120,6 +120,8 @@ We can, e. g., generalize our **Example 2** just looking the description into st
 Note that, in the first multiplication, we have to start with $x \times x=2 \times x = 4$, thus the number of times that we should multiply 2 by $x$ are $y-1$. Thus, we would lead to the following generalized steps:
 
 ```
+Algorthm 1
+
 start with x = 2 and y = 4
 n[1] = x
 
@@ -131,6 +133,63 @@ z is  the answer
 ```
 <div class="div-3">
 This process is referred to as writing 'pseudo-code' as an algorithm design with no particular target language.
+</div>
+
+<div class="header1">
+# Step 4 - Test Your Algorithm
+</div>
+
+Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do during this stage are described below:
+
+<div class="div-2">
+* Test your algorithm choosing different values for parameters
+* What happen if the value is positive, negative or equal to zero?
+* Have you restricted parameter space? Ex.: $y\geq 0$. 
+* Use mathematical proofs
+</div>
+
+<div class="div-3">
+Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.
+</div>
+
+Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.
+
+A good example of algorithm mistake could be seen in the Example 2. What happens if $y=0$, or $y<0$? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with $x=2$ and $y=0$ you will get $2^0=2$ rather than $2^0=1$ (correct answer). Additionally, for any value $y\leq 0$ the algorithm try to count from $1$ to $y-1<0$, of which are no Natural number, leading an error in the process. Thus, we can conclude that $|y| \in \mathcal{N}$, where $\mathcal{N}$ represents Natural numbers. In this sense, we might attempt to generalize our algorithm to higher number of cases:
+```
+Algorthm 2 
+
+y must be a integer number
+
+start with x = 2 and y = 4
+
+if y=0 {
+n[1] = 1
+i=0
+} else{
+Count up from i in 1 to |y|-1
+  if y<0 {
+  n[1] = 1/x
+  n[i+1] = n[i] * 1/x 
+  } else{
+  n[1] = x
+  n[i+1] = n[i] * x
+  }
+}
+z = n[i+1] + 3 * x
+z is  the answer
+```
+```{r,echo=FALSE,fig.cap="Example of output using the algorithm 2",fig.align='center'}
+knitr::include_graphics('example2.png')
+```
+
+<div class="div-3">
+Question: How can we improve this algorithm?
+</div>
+
+For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
+<div class="div-2">
+1. Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases. 
+2. Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).
 </div>
 
 <div class="header1">

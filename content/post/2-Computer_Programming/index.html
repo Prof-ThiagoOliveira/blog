@@ -1,14 +1,14 @@
 ---
 title: The seven steps of a programer
 author: Thiago de Paula Oliveira
-date: "2020-07-04"
+date: "2020-07-06"
 slug: the-seven-steps-of-a-programer
 tags:
   - Computer Science
   - Computer Program
   - C++
   - Algorithm
-subtitle: 'Plan first and then translate everything as code'
+subtitle: 'Plan first and then   translate everything as code'
 summary: ""
 featured: no
 image:
@@ -106,7 +106,9 @@ We can, e. g., generalize our <strong>Example 2</strong> just looking the descri
 </ul>
 </div>
 <p>Note that, in the first multiplication, we have to start with <span class="math inline">\(x \times x=2 \times x = 4\)</span>, thus the number of times that we should multiply 2 by <span class="math inline">\(x\)</span> are <span class="math inline">\(y-1\)</span>. Thus, we would lead to the following generalized steps:</p>
-<pre><code>start with x = 2 and y = 4
+<pre><code>Algorthm 1
+
+start with x = 2 and y = 4
 n[1] = x
 
 Count up from i in 1 to y-1 
@@ -116,6 +118,60 @@ z = n[y] + 3 * x
 z is  the answer</code></pre>
 <div class="div-3">
 <p>This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.</p>
+</div>
+<div class="header1">
+<h1 id="step-4---test-your-algorithm">Step 4 - Test Your Algorithm</h1>
+</div>
+<p>Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do during this stage are described below:</p>
+<div class="div-2">
+<ul>
+<li>Test your algorithm choosing different values for parameters</li>
+<li>What happen if the value is positive, negative or equal to zero?</li>
+<li>Have you restricted parameter space? Ex.: <span class="math inline">\(y\geq 0\)</span>.</li>
+<li>Use mathematical proofs</li>
+</ul>
+</div>
+<div class="div-3">
+<p>Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.</p>
+</div>
+<p>Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.</p>
+<p>A good example of algorithm mistake could be seen in the Example 2. What happens if <span class="math inline">\(y=0\)</span>, or <span class="math inline">\(y&lt;0\)</span>? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with <span class="math inline">\(x=2\)</span> and <span class="math inline">\(y=0\)</span> you will get <span class="math inline">\(2^0=2\)</span> rather than <span class="math inline">\(2^0=1\)</span> (correct answer). Additionally, for any value <span class="math inline">\(y\leq 0\)</span> the algorithm try to count from <span class="math inline">\(1\)</span> to <span class="math inline">\(y-1&lt;0\)</span>, of which are no Natural number, leading an error in the process. Thus, we can conclude that <span class="math inline">\(|y| \in \mathcal{N}\)</span>, where <span class="math inline">\(\mathcal{N}\)</span> represents Natural numbers. In this sense, we might attempt to generalize our algorithm to higher number of cases:</p>
+<pre><code>Algorthm 2 
+
+y must be a integer number
+
+start with x = 2 and y = 4
+
+if y=0 {
+n[1] = 1
+i=0
+} else{
+Count up from i in 1 to |y|-1
+  if y&lt;0 {
+  n[1] = 1/x
+  n[i+1] = n[i] * 1/x 
+  } else{
+  n[1] = x
+  n[i+1] = n[i] * x
+  }
+}
+z = n[i+1] + 3 * x
+z is  the answer</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="example2.png" alt="Example of output using the algorithm 2" width="528" />
+<p class="caption">
+Figure 3: Example of output using the algorithm 2
+</p>
+</div>
+<div class="div-3">
+<p>Question: How can we improve this algorithm?</p>
+</div>
+For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
+<div class="div-2">
+<ol style="list-style-type: decimal">
+<li>Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.</li>
+<li>Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).</li>
+</ol>
 </div>
 <div class="header1">
 <h1 id="references">References</h1>
