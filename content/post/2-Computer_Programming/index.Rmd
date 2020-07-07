@@ -26,10 +26,18 @@ library(knitr)
 opts_chunk$set(echo = TRUE)
 ```
 
-<div class="div-1">
-<div class="header1">
+```{css, echo = FALSE}
+h1, #TOC ul>li {
+  color: #0d0d0d;
+}
+h2, #TOC ul>li {
+  color: #3b80d1;
+}
+```
+
+
+
 # Overview of the Seven Steps
-</div>
 
 The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).
 
@@ -38,9 +46,7 @@ knitr::include_graphics('seven_steps.png')
 ```
 All steps are then described in the sections below.
 
-<div class="header1">
 # Step 1 - Project definition using simple examples
-</div>
 
 This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.   
 
@@ -48,10 +54,7 @@ This is the moment where you spend time thinking about the project and how could
 knitr::include_graphics('main_project.png')
 ```
 
-
-<div class="header2">
 ## Example 1
-</div>
 
 Suppose we would want to write an algorithm in C++ to compute the total fat of a ice cream portion basis ($y$). Suppose also this response variable is a function of butyric fat $x_1$ and vegetable fat $x_2$. Let $E[y]$ be the expected value of $y$ defined as
 
@@ -75,16 +78,16 @@ If you get stuck in one of these steps, probably this difficult is comming from 
 
 Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.
 
-<div class="header1">
+
 # Step 2 - Write everything you did
-</div>
+
 
 In this step you should take notes about what you did to solve the project or tasks within the project. Your notes describing all solutions by task should be precisely enough to anyone else reproduce them easily.  Sometimes we may omit common sense steps such as multiply $x$ by $y$, or the order in which each task should be executed.
 
 
-<div class="header2">
+
 ## Example 2
-</div>
+
 
 Suppose we are interested in computing $f(x,y)=x^y+3x$ when $x=2$ and $y=4$, then we might write down a deatiled descriptions of all steps to compute $f(x,y)$:
 
@@ -98,9 +101,8 @@ Suppose we are interested in computing $f(x,y)=x^y+3x$ when $x=2$ and $y=4$, the
 The steps are precise as anyone who can perform basic math can follow these steps to get the same answer. 
 
 
-<div class="header1">
 # Step 3 - Generalize
-</div>
+
 
 Our task now is generalize the last steps into an algorithm, finding patterns that allows us to solve the whole class rather than for a particular parameter values. Here is two common way to generalize those steps into algorithm:
 
@@ -194,9 +196,9 @@ For some problems, there are particular cases that require our attention. Every 
 </div>
 
 
-<div class="header2">
+
 ## Example 3
-</div>
+
 
 The numbers in the Figure 4 were obtained from an algorithm that has one parameter $N \in \mathcal{N}_{0}$ to be specified, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero, and a sequence of number as output values for each $N$. 
 
@@ -208,19 +210,14 @@ knitr::include_graphics('example3.png')
 Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for $N=5$?
 </div>
 
-<div class="header1">
+
 # References
-</div>
 
-<p align="justify">
+
 [1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84. 
-</p>
-</div>
 
 
-<div class="header1">
 # Answers
-</div>
 
 ## Example 3
 
@@ -268,7 +265,7 @@ cat("The answer is", seq)
 }
 .header1 h1{
 font-style: normal;
-color: #2283f2;
+color: #f00000;
 }
 .header2 h2{
 font-style: normal;
