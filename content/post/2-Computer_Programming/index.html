@@ -31,7 +31,8 @@ output:
 <li><a href="#step-2---write-everything-you-did">Step 2 - Write everything you did</a><ul>
 <li><a href="#example-2">Example 2</a></li>
 </ul></li>
-<li><a href="#step-3---generalize">Step 3 - Generalize</a><ul>
+<li><a href="#step-3---generalize">Step 3 - Generalize</a></li>
+<li><a href="#step-4---test-your-algorithm">Step 4 - Test Your Algorithm</a><ul>
 <li><a href="#example-3">Example 3</a></li>
 </ul></li>
 <li><a href="#references">References</a></li>
@@ -42,11 +43,55 @@ output:
 </div>
 
 <style type="text/css">
+/*  Header options */
 h1, #TOC ul>li {
   color: #0d0d0d;
 }
 h2, #TOC ul>li {
   color: #3b80d1;
+}
+
+/*  Code options */
+.code-input {
+  background-color: lightpink;
+  border: 2px solid darkblue;
+  font-size: 18px;
+}
+
+code.r{
+  font-size: 18px;
+}
+
+pre {
+  font-size: 18px
+}
+
+/*  Text options */
+body, td {
+   font-size: 18px;
+   text-align: justify;
+}
+
+/*  Div options - color box text */
+.div-2{
+  color: black;
+  text-align: justify;
+  background-color: #d6edd3;
+}
+.div-3{
+  color: black;
+  text-align: justify;
+  background-color: #cfbe7e;
+}
+
+/*  Specific headers */
+.header1 h1{
+font-style: normal;
+color: #f00000;
+}
+.header2 h2{
+font-style: normal;
+color: #3b80d1;
 }
 </style>
 <div id="overview-of-the-seven-steps" class="section level1">
@@ -143,9 +188,9 @@ z is  the answer</code></pre>
 <div class="div-3">
 <p>This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.</p>
 </div>
-<div class="header1">
-<h1 id="step-4---test-your-algorithm">Step 4 - Test Your Algorithm</h1>
 </div>
+<div id="step-4---test-your-algorithm" class="section level1">
+<h1>Step 4 - Test Your Algorithm</h1>
 <p>Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do/think during this stage are described below:</p>
 <div class="div-2">
 <ul>
@@ -234,34 +279,11 @@ start with N = n, where n represents the value
     x[i] = x[i-1] + Increment of the sequence
   
   x is the answer</code></pre>
-<pre class="r"><code># N = 6
+<pre class="r code-input"><code># N = 6
 N=5
 seq &lt;- seq(4*N, 9*N+6, 3)
 cat(&quot;The answer is&quot;, seq)</code></pre>
 <pre><code>## The answer is 20 23 26 29 32 35 38 41 44 47 50</code></pre>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
-<style>
-.div-1 {
-  text-align: justify;
-}
-.div-2{
-  color: black;
-  text-align: justify;
-  background-color: #d6edd3;
-}
-.div-3{
-  color: black;
-  text-align: justify;
-  background-color: #cfbe7e;
-}
-.header1 h1{
-font-style: normal;
-color: #f00000;
-}
-.header2 h2{
-font-style: normal;
-color: #3b80d1;
-}
-</style>
 </div>
 </div>

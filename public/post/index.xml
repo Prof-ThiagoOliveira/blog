@@ -37,7 +37,8 @@
 &lt;li&gt;&lt;a href=&#34;#step-2---write-everything-you-did&#34;&gt;Step 2 - Write everything you did&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#example-2&#34;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-3---generalize&#34;&gt;Step 3 - Generalize&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#step-3---generalize&#34;&gt;Step 3 - Generalize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#step-4---test-your-algorithm&#34;&gt;Step 4 - Test Your Algorithm&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#example-3&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
@@ -48,11 +49,55 @@
 &lt;/div&gt;
 
 &lt;style type=&#34;text/css&#34;&gt;
+/*  Header options */
 h1, #TOC ul&gt;li {
   color: #0d0d0d;
 }
 h2, #TOC ul&gt;li {
   color: #3b80d1;
+}
+
+/*  Code options */
+.code-input {
+  background-color: lightpink;
+  border: 2px solid darkblue;
+  font-size: 18px;
+}
+
+code.r{
+  font-size: 18px;
+}
+
+pre {
+  font-size: 18px
+}
+
+/*  Text options */
+body, td {
+   font-size: 18px;
+   text-align: justify;
+}
+
+/*  Div options - color box text */
+.div-2{
+  color: black;
+  text-align: justify;
+  background-color: #d6edd3;
+}
+.div-3{
+  color: black;
+  text-align: justify;
+  background-color: #cfbe7e;
+}
+
+/*  Specific headers */
+.header1 h1{
+font-style: normal;
+color: #f00000;
+}
+.header2 h2{
+font-style: normal;
+color: #3b80d1;
 }
 &lt;/style&gt;
 &lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
@@ -149,9 +194,9 @@ z is  the answer&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;div-3&#34;&gt;
 &lt;p&gt;This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&#34;header1&#34;&gt;
-&lt;h1 id=&#34;step-4---test-your-algorithm&#34;&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
 &lt;/div&gt;
+&lt;div id=&#34;step-4---test-your-algorithm&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
 &lt;p&gt;Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do/think during this stage are described below:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
@@ -240,35 +285,12 @@ start with N = n, where n represents the value
     x[i] = x[i-1] + Increment of the sequence
   
   x is the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# N = 6
+&lt;pre class=&#34;r code-input&#34;&gt;&lt;code&gt;# N = 6
 N=5
 seq &amp;lt;- seq(4*N, 9*N+6, 3)
 cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## The answer is 20 23 26 29 32 35 38 41 44 47 50&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
-&lt;style&gt;
-.div-1 {
-  text-align: justify;
-}
-.div-2{
-  color: black;
-  text-align: justify;
-  background-color: #d6edd3;
-}
-.div-3{
-  color: black;
-  text-align: justify;
-  background-color: #cfbe7e;
-}
-.header1 h1{
-font-style: normal;
-color: #f00000;
-}
-.header2 h2{
-font-style: normal;
-color: #3b80d1;
-}
-&lt;/style&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
