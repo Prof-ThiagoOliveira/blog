@@ -19,60 +19,8 @@ projects: []
 output:
   blogdown::html_page:
     toc: true
+    css: "my_style.css"
 ---
-
-```{css, echo = FALSE}
-/*  Header options */
-h1, #TOC ul>li {
-  color: #0d0d0d;
-}
-h2, #TOC ul>li {
-  color: #3b80d1;
-}
-
-/*  Code options */
-.code-input {
-  background-color: lightpink;
-  border: 2px solid darkblue;
-  font-size: 18px;
-}
-
-code.r{
-  font-size: 18px;
-}
-
-pre {
-  font-size: 18px
-}
-
-/*  Text options */
-body, td {
-   font-size: 18px;
-   text-align: justify;
-}
-
-/*  Div options - color box text */
-.div-2{
-  color: black;
-  text-align: justify;
-  background-color: #d6edd3;
-}
-.div-3{
-  color: black;
-  text-align: justify;
-  background-color: #cfbe7e;
-}
-
-/*  Specific headers */
-.header1 h1{
-font-style: normal;
-color: #f00000;
-}
-.header2 h2{
-font-style: normal;
-color: #3b80d1;
-}
-```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -163,7 +111,7 @@ We can, e. g., generalize our **Example 2** just looking the description into st
 Note that, in the first multiplication, we have to start with $x \times x=2 \times x = 4$, thus the number of times that we should multiply 2 by $x$ are $y-1$. Thus, we would lead to the following generalized steps:
 
 ```
-Algorthm 1
+Algorithm sketch 1
   
 start with x = 2 and y = 4
 n[1] = x
@@ -199,7 +147,7 @@ Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us
 A good example of algorithm mistake could be seen in the Example 2. What happens if $y=0$, or $y<0$? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with $x=2$ and $y=0$ you will get $2^0=2$ rather than $2^0=1$ (correct answer). Additionally, for any value $y\leq 0$ the algorithm try to count from $1$ to $y-1<0$, of which are no Natural number, leading an error in the process. Thus, we can conclude that $|y| \in \mathcal{N}_{0}$, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:
 
 ```
-Algorthm 2 
+Algorithm sketch 2 
 
 y must be a integer number
 
@@ -263,7 +211,7 @@ Question: Determine the algorithm that was used to generate the numbers in this 
 ## Example 3
 
 ```
-Algorthm
+Algorithm sketch 3
 
 N must be a Natural number with zero
 

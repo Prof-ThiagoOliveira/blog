@@ -19,8 +19,10 @@ projects: []
 output:
   blogdown::html_page:
     toc: true
+    css: "my_style.css"
 ---
 
+  <link rel="stylesheet" href="my_style.css" type="text/css" />
 
 <div id="TOC">
 <ul>
@@ -42,62 +44,10 @@ output:
 </ul>
 </div>
 
-<style type="text/css">
-/*  Header options */
-h1, #TOC ul>li {
-  color: #0d0d0d;
-}
-h2, #TOC ul>li {
-  color: #3b80d1;
-}
-
-/*  Code options */
-.code-input {
-  background-color: lightpink;
-  border: 2px solid darkblue;
-  font-size: 18px;
-}
-
-code.r{
-  font-size: 18px;
-}
-
-pre {
-  font-size: 18px
-}
-
-/*  Text options */
-body, td {
-   font-size: 18px;
-   text-align: justify;
-}
-
-/*  Div options - color box text */
-.div-2{
-  color: black;
-  text-align: justify;
-  background-color: #d6edd3;
-}
-.div-3{
-  color: black;
-  text-align: justify;
-  background-color: #cfbe7e;
-}
-
-/*  Specific headers */
-.header1 h1{
-font-style: normal;
-color: #f00000;
-}
-.header2 h2{
-font-style: normal;
-color: #3b80d1;
-}
-</style>
 <div id="overview-of-the-seven-steps" class="section level1">
 <h1>Overview of the Seven Steps</h1>
 <p>The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).</p>
-<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure"><span id="fig:unnamed-chunk-1"></span>
 <img src="seven_steps.png" alt="The seven steps (modified from Hilton et al. (2019))" width="684" />
 <p class="caption">
 Figure 1: The seven steps (modified from Hilton et al. (2019))
@@ -108,7 +58,7 @@ Figure 1: The seven steps (modified from Hilton et al. (2019))
 <div id="step-1---project-definition-using-simple-examples" class="section level1">
 <h1>Step 1 - Project definition using simple examples</h1>
 <p>This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.</p>
-<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
 <img src="main_project.png" alt="Example of how divide the main project into small tasks" width="557" />
 <p class="caption">
 Figure 2: Example of how divide the main project into small tasks
@@ -175,7 +125,7 @@ We can, e. g., generalize our <strong>Example 2</strong> just looking the descri
 </ul>
 </div>
 <p>Note that, in the first multiplication, we have to start with <span class="math inline">\(x \times x=2 \times x = 4\)</span>, thus the number of times that we should multiply 2 by <span class="math inline">\(x\)</span> are <span class="math inline">\(y-1\)</span>. Thus, we would lead to the following generalized steps:</p>
-<pre><code>Algorthm 1
+<pre><code>Algorithm sketch 1
   
 start with x = 2 and y = 4
 n[1] = x
@@ -206,7 +156,7 @@ z is  the answer</code></pre>
 </div>
 <p>Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.</p>
 <p>A good example of algorithm mistake could be seen in the Example 2. What happens if <span class="math inline">\(y=0\)</span>, or <span class="math inline">\(y&lt;0\)</span>? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with <span class="math inline">\(x=2\)</span> and <span class="math inline">\(y=0\)</span> you will get <span class="math inline">\(2^0=2\)</span> rather than <span class="math inline">\(2^0=1\)</span> (correct answer). Additionally, for any value <span class="math inline">\(y\leq 0\)</span> the algorithm try to count from <span class="math inline">\(1\)</span> to <span class="math inline">\(y-1&lt;0\)</span>, of which are no Natural number, leading an error in the process. Thus, we can conclude that <span class="math inline">\(|y| \in \mathcal{N}_{0}\)</span>, where <span class="math inline">\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)</span> represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:</p>
-<pre><code>Algorthm 2 
+<pre><code>Algorithm sketch 2 
 
 y must be a integer number
 
@@ -227,7 +177,7 @@ Count up from i in 1 to |y|-1
 }
 z = n[i+1] + 3 * x
 z is  the answer</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="example2.png" alt="Example of output using the algorithm 2" width="528" />
 <p class="caption">
 Figure 3: Example of output using the algorithm 2
@@ -246,7 +196,7 @@ For some problems, there are particular cases that require our attention. Every 
 <div id="example-3" class="section level2">
 <h2>Example 3</h2>
 <p>The numbers in the Figure 4 were obtained from an algorithm that has one parameter <span class="math inline">\(N \in \mathcal{N}_{0}\)</span> to be specified, where <span class="math inline">\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)</span> represents Natural numbers with zero, and a sequence of number as output values for each <span class="math inline">\(N\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="example3.png" alt="Output of sequences of integers based on values of $N$ from 0 to 4" width="402" />
 <p class="caption">
 Figure 4: Output of sequences of integers based on values of <span class="math inline">\(N\)</span> from 0 to 4
@@ -265,7 +215,7 @@ Figure 4: Output of sequences of integers based on values of <span class="math i
 <h1>Answers</h1>
 <div id="example-3-1" class="section level2">
 <h2>Example 3</h2>
-<pre><code>Algorthm
+<pre><code>Algorithm sketch 3
 
 N must be a Natural number with zero
 

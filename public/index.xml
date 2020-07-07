@@ -377,6 +377,7 @@ QL(Trat)
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/2020/07/the-seven-steps-of-a-programer/</guid>
       <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
@@ -398,62 +399,10 @@ QL(Trat)
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;style type=&#34;text/css&#34;&gt;
-/*  Header options */
-h1, #TOC ul&gt;li {
-  color: #0d0d0d;
-}
-h2, #TOC ul&gt;li {
-  color: #3b80d1;
-}
-
-/*  Code options */
-.code-input {
-  background-color: lightpink;
-  border: 2px solid darkblue;
-  font-size: 18px;
-}
-
-code.r{
-  font-size: 18px;
-}
-
-pre {
-  font-size: 18px
-}
-
-/*  Text options */
-body, td {
-   font-size: 18px;
-   text-align: justify;
-}
-
-/*  Div options - color box text */
-.div-2{
-  color: black;
-  text-align: justify;
-  background-color: #d6edd3;
-}
-.div-3{
-  color: black;
-  text-align: justify;
-  background-color: #cfbe7e;
-}
-
-/*  Specific headers */
-.header1 h1{
-font-style: normal;
-color: #f00000;
-}
-.header2 h2{
-font-style: normal;
-color: #3b80d1;
-}
-&lt;/style&gt;
 &lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview of the Seven Steps&lt;/h1&gt;
 &lt;p&gt;The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;684&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: The seven steps (modified from Hilton et al. (2019))
@@ -464,7 +413,7 @@ Figure 1: The seven steps (modified from Hilton et al. (2019))
 &lt;div id=&#34;step-1---project-definition-using-simple-examples&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 1 - Project definition using simple examples&lt;/h1&gt;
 &lt;p&gt;This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;557&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Example of how divide the main project into small tasks
@@ -531,7 +480,7 @@ We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just lookin
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Algorthm 1
+&lt;pre&gt;&lt;code&gt;Algorithm sketch 1
   
 start with x = 2 and y = 4
 n[1] = x
@@ -562,7 +511,7 @@ z is  the answer&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.&lt;/p&gt;
 &lt;p&gt;A good example of algorithm mistake could be seen in the Example 2. What happens if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt; you will get &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; rather than &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt; (correct answer). Additionally, for any value &lt;span class=&#34;math inline&#34;&gt;\(y\leq 0\)&lt;/span&gt; the algorithm try to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1&amp;lt;0\)&lt;/span&gt;, of which are no Natural number, leading an error in the process. Thus, we can conclude that &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Algorthm 2 
+&lt;pre&gt;&lt;code&gt;Algorithm sketch 2 
 
 y must be a integer number
 
@@ -583,7 +532,7 @@ Count up from i in 1 to |y|-1
 }
 z = n[i+1] + 3 * x
 z is  the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;528&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Example of output using the algorithm 2
@@ -602,7 +551,7 @@ For some problems, there are particular cases that require our attention. Every 
 &lt;div id=&#34;example-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 3&lt;/h2&gt;
 &lt;p&gt;The numbers in the Figure 4 were obtained from an algorithm that has one parameter &lt;span class=&#34;math inline&#34;&gt;\(N \in \mathcal{N}_{0}\)&lt;/span&gt; to be specified, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero, and a sequence of number as output values for each &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;402&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
@@ -621,7 +570,7 @@ Figure 4: Output of sequences of integers based on values of &lt;span class=&#34
 &lt;h1&gt;Answers&lt;/h1&gt;
 &lt;div id=&#34;example-3-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;Algorthm
+&lt;pre&gt;&lt;code&gt;Algorithm sketch 3
 
 N must be a Natural number with zero
 
