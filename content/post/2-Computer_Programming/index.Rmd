@@ -139,13 +139,14 @@ This process is referred to as writing 'pseudo-code' as an algorithm design with
 # Step 4 - Test Your Algorithm
 </div>
 
-Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do during this stage are described below:
+Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do/think during this stage are described below:
 
 <div class="div-2">
 * Test your algorithm choosing different values for parameters
 * What happen if the value is positive, negative or equal to zero?
 * Have you restricted parameter space? Ex.: $y\geq 0$. 
 * Use mathematical proofs
+* There is always more than one right answer to a programming problem
 </div>
 
 <div class="div-3">
@@ -154,7 +155,7 @@ Remember that parameter space is the space of possible parameter values that def
 
 Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.
 
-A good example of algorithm mistake could be seen in the Example 2. What happens if $y=0$, or $y<0$? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with $x=2$ and $y=0$ you will get $2^0=2$ rather than $2^0=1$ (correct answer). Additionally, for any value $y\leq 0$ the algorithm try to count from $1$ to $y-1<0$, of which are no Natural number, leading an error in the process. Thus, we can conclude that $|y| \in \mathcal{N}$, where $\mathcal{N}$ represents Natural numbers. In this sense, we might attempt to generalize our algorithm to higher number of cases:
+A good example of algorithm mistake could be seen in the Example 2. What happens if $y=0$, or $y<0$? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with $x=2$ and $y=0$ you will get $2^0=2$ rather than $2^0=1$ (correct answer). Additionally, for any value $y\leq 0$ the algorithm try to count from $1$ to $y-1<0$, of which are no Natural number, leading an error in the process. Thus, we can conclude that $|y| \in \mathcal{N}_{0}$, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:
 ```
 Algorthm 2 
 
@@ -192,6 +193,21 @@ For some problems, there are particular cases that require our attention. Every 
 2. Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).
 </div>
 
+
+<div class="header2">
+## Example 3
+</div>
+
+The numbers in the Figure 4 were obtained from an algorithm that has one parameter $N \in \mathcal{N}_{0}$ to be specified, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero, and a sequence of number as output values for each $N$. 
+
+```{r,echo=FALSE,fig.cap="Output of sequences of integers based on values of $N$ from 0 to 4",fig.align='center'}
+knitr::include_graphics('example3.png')
+```
+
+<div class="div-3">
+Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for $N=5$?
+</div>
+
 <div class="header1">
 # References
 </div>
@@ -200,6 +216,37 @@ For some problems, there are particular cases that require our attention. Every 
 [1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84. 
 </p>
 </div>
+
+
+<div class="header1">
+# Answers
+</div>
+
+## Example 3
+
+```
+Algorthm
+
+N must be a Natural number with zero
+
+start with N = n, where n represents the value 
+  Minimum value = 4 * N
+  Maximum value = 9 * N + 6
+  Increment of the sequence = 3
+  
+  x[1] = Minimum value
+  While x[i] is less than the Maximum value
+    x[i] = x[i-1] + Increment of the sequence
+  
+  x is the answer
+```
+
+```{r}
+# N = 6
+N=5
+seq <- seq(4*N, 9*N+6, 3)
+cat("The answer is", seq)
+```
 
 **Did you find this page helpful? Consider sharing it 🙌**
 
