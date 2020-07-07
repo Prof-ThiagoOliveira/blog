@@ -5,7 +5,7 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Posts</title>
@@ -24,7 +24,7 @@
     <item>
       <title>The seven steps of a programer</title>
       <link>/2020/07/the-seven-steps-of-a-programer/</link>
-      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/2020/07/the-seven-steps-of-a-programer/</guid>
       <description>
 
@@ -113,7 +113,7 @@ We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just lookin
 &lt;/div&gt;
 &lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Algorthm 1
-
+  
 start with x = 2 and y = 4
 n[1] = x
 
@@ -170,7 +170,7 @@ Figure 3: Example of output using the algorithm 2
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: How can we improve this algorithm?&lt;/p&gt;
+&lt;p&gt;Question: How can we improve this algorithm? Think about the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
 &lt;/div&gt;
 For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
 &lt;div class=&#34;div-2&#34;&gt;

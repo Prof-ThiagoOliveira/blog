@@ -121,7 +121,7 @@ Note that, in the first multiplication, we have to start with $x \times x=2 \tim
 
 ```
 Algorthm 1
-
+  
 start with x = 2 and y = 4
 n[1] = x
 
@@ -183,7 +183,7 @@ knitr::include_graphics('example2.png')
 ```
 
 <div class="div-3">
-Question: How can we improve this algorithm?
+Question: How can we improve this algorithm? Think about the case where $x=y=0$.
 </div>
 
 For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
