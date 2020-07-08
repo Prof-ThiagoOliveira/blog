@@ -26,18 +26,21 @@ output:
 ---
 # Introduction
 
-When we think about writing a program in C, the first step is understand how variables should be declared. There are several variable's type in C, and here we are introducing the type `int`, which is used for integer data types. Basically, we can define a variable as an integer `int x;` without assign a value to it (Figure 1), which generally is not a good idea as it could lead to a bug in the algorithm if no value is assign over the code (uninitialized variable). There are two ways to assign a value to a variable (initialized variable):
-
-<div class = "div-1">
-* in a single declaration -  `int x = 3;`
-* in a double step declaration - `int x;` and `x = 3;`
+When we think about writing a program in C, the first step is understand how variables should be assigned. There are several variable's type in C, and here we are introducing the type `int`, which is used for integer data types. Basically, we can define a variable as an integer in two ways:
+<div class="div-1">
+* Uninitialized variable: defined as `int x;`, where no value is assign to the variable $x$ (Figure 1), which generally is not a good idea as it could lead to a bug in the algorithm if no value is assign over the code. 
+* Initialized variable: there are two ways to assign a value to a variable $x$ (Figure 1):
+  <div class = "div-2">
+    * in a single declaration -  `int x = 3;`
+    * in a double step declaration - `int x;` and `x = 3;`
+  </div>
 </div>
 
 ```{r,echo=FALSE,fig.cap="Declaring variables in C",fig.height=6, fig.width=6, fig.align='center'}
 knitr::include_graphics('var_and_exp.png')
 ```
 
-Additionally, there are a large set of storage size-specific declarations for a integer, and here we will explain just an initial idea about it. Figure 2 showns the Integer representation of whole numbers or fixed-point numbers (fixed number of digits), and generally computers use a fixed number of bits to represent them, where commonly-used bit-lengths for integers are 8-bit, 16-bit (`short`), 32-bit (`long`) or 64-bit (`long long`). There are two representation schemes for integers called signed integer type (`signed int`) capable of containing the range of values from -32,767 to 32,767, and unsigned integer type (`unsigned int`) containing the range of values from 0 to 65,535 ($32767 \times 2+1$). Therefore, `unsigned` qualifier should be used when we are working with only positive values. 
+Additionally, there are a large set of storage size-specific declarations for a integer, and here we will explain just an initial idea about it. Figure 2 showns the Integer representation of whole numbers or fixed-point numbers (fixed number of digits). Generally, computers use a fixed number of bits to represent them, where commonly used bit-lengths for integers are 8-bit, 16-bit (`short`), 32-bit (`long`) or 64-bit (`long long`). There are two representation schemes for integers called signed integer type (`signed int`) capable of containing the range of values from -32,767 to 32,767, and unsigned integer type (`unsigned int`) containing the range of values from 0 to 65,535 ($32767 \times 2+1$). Therefore, `unsigned` qualifier should be used when we are working with only positive values. 
 
 ```{r,echo=FALSE,fig.cap="Integer Representation", fig.align='center'}
 knitr::include_graphics('binary_number.png')
