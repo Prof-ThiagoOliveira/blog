@@ -10,7 +10,7 @@ body.dark,
 .dark .form-control,
 .dark .form-control:focus {
   color: rgb(248, 248, 242);
-  background: $sta-dark-background;
+  background: $sta-dark-background; /* #453d36*/
 }
 
 .dark .form-control {
@@ -29,7 +29,7 @@ body.dark,
 .dark h4,
 .dark h5,
 .dark h6 {
-  color: rgb(152, 166, 173);
+  color: rgb(222, 240, 250);
 }
 
 .dark pre,
@@ -48,7 +48,7 @@ body.dark,
 }
 
 .dark #MathJax_Zoom {
-  background-color: rgb(68, 71, 90) !important;
+  background-color: rgb(94, 105, 173) !important;
 }
 
 .dark table table {
@@ -58,13 +58,13 @@ body.dark,
 /* Table Striped */
 .dark table > tbody > tr:nth-child(odd) > td,
 .dark table > tbody > tr:nth-child(odd) > th {
-  background-color: rgb(50, 52, 64);
+  background-color: rgb(91, 107, 105);
 }
 
 /* Table Hover */
 .dark table > tbody > tr:hover > td,
 .dark table > tbody > tr:hover > th {
-  background-color: rgb(60, 62, 74);
+  background-color: rgb(123, 129, 168);
 }
 
 .dark .article-title a {
