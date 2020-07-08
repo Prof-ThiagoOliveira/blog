@@ -58,32 +58,52 @@
   </url>
   
   <url>
+    <loc>/tags/c&#43;&#43;/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/c&#43;&#43;/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/computer-programs/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/computer-science/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/07/c-variables-and-expressions/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-07-07T21:41:20+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/algorithm/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/c&#43;&#43;/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/computer-program/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/computer-science/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-07-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>/tags/computer-programs/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -445,10 +465,6 @@
   <url>
     <loc>/project/concordance-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
   </url>
   
   <url>
