@@ -374,7 +374,7 @@ QL(Trat)
     <item>
       <title>Signed and Unsigned Binary Numbers</title>
       <link>/2020/07/c-variables-and-expressions/</link>
-      <pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/2020/07/c-variables-and-expressions/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -682,60 +682,6 @@ y
 &lt;caption&gt;
 &lt;span id=&#34;tab:unnamed-chunk-7&#34;&gt;Table 3: &lt;/span&gt;2’s Complement Representation of numbers from -8 to 7 using 4 bits
 &lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-9
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-10
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-11
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-12
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-13
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-14
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-15
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-16
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-1
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-2
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-3
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-4
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-5
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-6
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-7
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-8
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
