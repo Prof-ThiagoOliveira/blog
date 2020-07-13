@@ -1,7 +1,7 @@
 ---
 title: Signed and Unsigned Binary Numbers
 author: Thiago de Paula Oliveira
-date: "`r Sys.Date()`"
+date: "2020-07-01"
 slug: c-variables-and-expressions
 categories:
   - C++
@@ -12,7 +12,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2020-07-07T21:41:20+01:00'
+lastmod: "`r Sys.Date()`"
 featured: no
 image:
   caption: ''
@@ -116,3 +116,5 @@ Cadenhead, R.; Liberty, J. Sams Teach Yoirself C++. Pearson Education, ed. 6, 20
 
 C Data Types - https://en.wikipedia.org/wiki/C_data_types
 
+
+**Did you find this page helpful? Consider sharing it 🙌**

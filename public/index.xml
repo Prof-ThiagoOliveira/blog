@@ -372,9 +372,756 @@ QL(Trat)
     </item>
     
     <item>
+      <title>Expressions</title>
+      <link>/2020/07/expressions/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/2020/07/expressions/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-parentheses&#34;&gt;Using Parentheses &lt;code&gt;()&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#modulus-operator&#34;&gt;Modulus operator (%)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example&#34;&gt;Example:&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#short-hand-or-syntatic-sugar&#34;&gt;Short hand or syntatic sugar&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-1&#34;&gt;Example 1:&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#example-2&#34;&gt;Example 2:&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#operator-precedence-and-associativity&#34;&gt;Operator precedence and associativity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code. Thus, every expression is any part of a statement that returns a value, as in the follow example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;exp1.png&#34; width=&#34;312&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This statement creates a box to store the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and another to store the value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, which is equal to the expression &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; plus 13 (&lt;span class=&#34;math inline&#34;&gt;\(y=23\)&lt;/span&gt;). Now consider a more complex statement:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;exp2.png&#34; width=&#34;474&#34; /&gt;&lt;/p&gt;
+This statment consists of three expressions:
+&lt;div class=&#34;div-1&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;The results of the expression &lt;span class=&#34;math inline&#34;&gt;\(3 - x\)&lt;/span&gt; is stored in the variable &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;The expression &lt;span class=&#34;math inline&#34;&gt;\(y = 3 - x\)&lt;/span&gt; returns the value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, and it is stored in the variable &lt;span class=&#34;math inline&#34;&gt;\(v\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;The results of the expression &lt;span class=&#34;math inline&#34;&gt;\(y \times \left(\frac{v}{5} + x\right)\)&lt;/span&gt; is stored in the variable &lt;span class=&#34;math inline&#34;&gt;\(z\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Remember that multiplication and division occur before addition and subtraction. Ex.:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1-3*4 = -11
+2/3-4*2/3 = -2
+2/3-4/4*2/3 = 0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;strong&gt;operator precedente&lt;/strong&gt; dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence in relation to other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression &lt;span class=&#34;math inline&#34;&gt;\(\frac{2}{4}-3+ 4 \times 6\)&lt;/span&gt;, firstly the subexpressions &lt;span class=&#34;math inline&#34;&gt;\(\frac{2}{4}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(4 \times 6\)&lt;/span&gt; will be evaluated (Step 1 in the Figure 1), and then addition and subtraction (Step 2 in the Figure 1). Note that multiplication and division, or addition and subtraction have same precedente, then tey are evaluated from left to right due to its associativity.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;exp3.png&#34; alt=&#34;Precedence order&#34; width=&#34;358&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Precedence order
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Associativity&lt;/strong&gt; defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative while assignment operators are typically right-associative. Besides, there are operators that have no defined behavior when used in sequence over an expression, and they are called as non-associative (Figure 2). Note that when we include parentheses, we can force an expression to be right-associative rather than left-associative as usual.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;exp4.png&#34; alt=&#34;Example of left-associative, right-associative, and non-associative&#34; width=&#34;655&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Example of left-associative, right-associative, and non-associative
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-parentheses&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Using Parentheses &lt;code&gt;()&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The operator &lt;code&gt;()&lt;/code&gt; has the highest precedente order (see &lt;a href=&#34;#table1&#34;&gt;Table 1&lt;/a&gt;), as consequence, we can use parentheses to change the sequence of operators.
+Consider the following example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5 + 6 * 7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;*&lt;/code&gt; operator is evaluated firstly followed by the &lt;code&gt;+&lt;/code&gt; operator, so the result is &lt;span class=&#34;math inline&#34;&gt;\(5+6\times 7 = 47\)&lt;/span&gt;. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(5 + 6) * 7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, the program will compute &lt;span class=&#34;math inline&#34;&gt;\(\left(5+6\right)\times 7=11\times 7=77\)&lt;/span&gt;. Sometimes, the inclusion of parentheses should be important to makes your code easier to understand, and therefore easier to maintain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modulus-operator&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Modulus operator (%)&lt;/h1&gt;
+Modulus operator evaluates to the remainder when dividing the first operand by the second one. Ex.: &lt;code&gt;a % b&lt;/code&gt; is the remainder when &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; is divided
+&lt;table class=&#34;wikitable&#34;&gt;
+by &lt;span class=&#34;math inline&#34;&gt;\(b\)&lt;/span&gt; (&lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; modulus &lt;span class=&#34;math inline&#34;&gt;\(b\)&lt;/span&gt;).
+&lt;table class=&#34;wikitable&#34;&gt;
+&lt;p&gt;by &lt;span class=&#34;math inline&#34;&gt;\(b\)&lt;/span&gt; (&lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; modulus &lt;span class=&#34;math inline&#34;&gt;\(b\)&lt;/span&gt;).&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;exp5.png&#34; alt=&#34;Example of modulus&#34; width=&#34;268&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Example of modulus
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;div-1&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Dividing an integer by another one gives an integer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example:&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;int x = 10;
+int y = 3;
+
+x/y = 10/3 = 3 (dividing two integers)
+
+x % y = 1 (modulus)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;short-hand-or-syntatic-sugar&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Short hand or syntatic sugar&lt;/h1&gt;
+&lt;p&gt;Short hand expressions provide a short way to write common patterns over the algorithm for initialized variables.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Short hand&lt;/th&gt;
+&lt;th&gt;Meaning&lt;/th&gt;
+&lt;th&gt;Prefix and Postfix&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x+=y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x+y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x-=y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x-y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x*=y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x= x \times y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x/=y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x/y\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x++\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x+1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Return the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; first then increment it&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(++x\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x+1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Increment first then return the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x--\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Return the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; first then increment it&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(--x\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;math inline&#34;&gt;\(x=x-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;Increment first then return the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div id=&#34;example-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example 1:&lt;/h2&gt;
+&lt;p&gt;Here you can see that &lt;code&gt;y ++= x * z;&lt;/code&gt; is calculate as &lt;span class=&#34;math inline&#34;&gt;\(y=y+x \times z = 30 + 2 \times 4 = 34\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;example1.png&#34; width=&#34;401&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example 2:&lt;/h2&gt;
+&lt;p&gt;In this example you can see that we used the postfix &lt;code&gt;x++&lt;/code&gt; to first initialize &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; (&lt;span class=&#34;math inline&#34;&gt;\(y=8 \times x = 8 \times 7 = 56\)&lt;/span&gt;) and then update &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; to &lt;code&gt;x=x+1=8&lt;/code&gt;. On the other hand, we used the prefix &lt;code&gt;--y&lt;/code&gt; to first update the variable &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; to &lt;code&gt;y=y-1=55&lt;/code&gt; and then calculate the variable z using the updated &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\left(z = y/5 = 55/5 = 11 \right)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;example2.png&#34; width=&#34;572&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note that when we use &lt;code&gt;x*= (y/z) % 2&lt;/code&gt; the variable &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; multiply the entire expression after &lt;code&gt;=&lt;/code&gt; symbol. This expression is equivalent to &lt;code&gt;x = x * ((y/z) % 2));&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;operator-precedence-and-associativity&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Operator precedence and associativity&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;#table1&#34;&gt;Table 1&lt;/a&gt; shows a list of precedence (ordered) and associativity of C operators. This table was obtained from
+&lt;a href=&#34;https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1&#34;&gt;cppreference.com&lt;/a&gt;.&lt;/p&gt;
+&lt;div&gt;
+&lt;table class=&#34;wikitable&#34;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;a name=&#34;table1&#34;&gt; Table 1: Precedence and associativity of C operators &lt;/a&gt;
+&lt;th style=&#34;text-align: left&#34;&gt;
+Precedence
+&lt;/th&gt;
+&lt;th style=&#34;text-align: left&#34;&gt;
+Operator
+&lt;/th&gt;
+&lt;th style=&#34;text-align: left&#34;&gt;
+Description
+&lt;/th&gt;
+&lt;th style=&#34;text-align: left&#34;&gt;
+Associativity
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th rowspan=&#34;6&#34;&gt;
+1
+&lt;/th&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+&lt;code&gt;++&lt;/code&gt; &lt;code&gt;--&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+Suffix/postfix increment and decrement
+&lt;/td&gt;
+&lt;td style=&#34;vertical-align: top&#34; rowspan=&#34;6&#34;&gt;
+Left-to-right
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;()&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Function call
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;[]&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Array subscripting
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;.&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Structure and union member access
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;-&amp;gt;&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Structure and union member access through pointer
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;(&lt;i&gt;type&lt;/i&gt;){&lt;i&gt;list&lt;/i&gt;}&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Compound literal&lt;span class=&#34;t-mark-rev t-since-c99&#34;&gt;(C99)&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th rowspan=&#34;8&#34;&gt;
+2
+&lt;/th&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+&lt;code&gt;++&lt;/code&gt; &lt;code&gt;--&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+Prefix increment and decrement&lt;sup id=&#34;cite_ref-1&#34; class=&#34;reference&#34;&gt;&lt;a href=&#34;#cite_note-1&#34;&gt;[note 1]&lt;/a&gt;&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td style=&#34;vertical-align: top&#34; rowspan=&#34;8&#34;&gt;
+Right-to-left
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;+&lt;/code&gt; &lt;code&gt;-&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Unary plus and minus
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;!&lt;/code&gt; &lt;code&gt;~&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Logical NOT and bitwise NOT
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;(&lt;i&gt;type&lt;/i&gt;)&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Cast
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;*&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Indirection (dereference)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;&amp;amp;&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Address-of
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;sizeof&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Size-of&lt;sup id=&#34;cite_ref-2&#34; class=&#34;reference&#34;&gt;&lt;a href=&#34;#cite_note-2&#34;&gt;[note 2]&lt;/a&gt;&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;_Alignof&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Alignment requirement&lt;span class=&#34;t-mark-rev t-since-c11&#34;&gt;(C11)&lt;/span&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+3
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;*&lt;/code&gt; &lt;code&gt;/&lt;/code&gt; &lt;code&gt;%&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Multiplication, division, and remainder
+&lt;/td&gt;
+&lt;td style=&#34;vertical-align: top&#34; rowspan=&#34;11&#34;&gt;
+Left-to-right
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+4
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;+&lt;/code&gt; &lt;code&gt;-&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Addition and subtraction
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+5
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Bitwise left shift and right shift
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th rowspan=&#34;2&#34;&gt;
+6
+&lt;/th&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+&lt;code&gt;&amp;lt;&lt;/code&gt; &lt;code&gt;&amp;lt;=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+For relational operators &amp;lt; and ≤ respectively
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-top-style: none&#34;&gt;
+&lt;code&gt;&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;gt;=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-top-style: none&#34;&gt;
+For relational operators &amp;gt; and ≥ respectively
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+7
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;==&lt;/code&gt; &lt;code&gt;!=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+For relational = and ≠ respectively
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+8
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;&amp;amp;&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Bitwise AND
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+9
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;^&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Bitwise XOR (exclusive or)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+10
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;|&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Bitwise OR (inclusive or)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+11
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Logical AND
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+12
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;||&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Logical OR
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+13
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;?:&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Ternary conditional&lt;sup id=&#34;cite_ref-3&#34; class=&#34;reference&#34;&gt;&lt;a href=&#34;#cite_note-3&#34;&gt;[note 3]&lt;/a&gt;&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td style=&#34;vertical-align: top&#34; rowspan=&#34;6&#34;&gt;
+Right-to-Left
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th rowspan=&#34;5&#34;&gt;
+14&lt;sup id=&#34;cite_ref-4&#34; class=&#34;reference&#34;&gt;&lt;a href=&#34;#cite_note-4&#34;&gt;[note 4]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+&lt;code&gt;=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none&#34;&gt;
+Simple assignment
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;+=&lt;/code&gt; &lt;code&gt;-=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Assignment by sum and difference
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;*=&lt;/code&gt; &lt;code&gt;/=&lt;/code&gt; &lt;code&gt;%=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Assignment by product, quotient, and remainder
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+&lt;code&gt;&amp;lt;&amp;lt;=&lt;/code&gt; &lt;code&gt;&amp;gt;&amp;gt;=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-bottom-style: none; border-top-style: none&#34;&gt;
+Assignment by bitwise left shift and right shift
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;border-top-style: none&#34;&gt;
+&lt;code&gt;&amp;amp;=&lt;/code&gt; &lt;code&gt;^=&lt;/code&gt; &lt;code&gt;|=&lt;/code&gt;
+&lt;/td&gt;
+&lt;td style=&#34;border-top-style: none&#34;&gt;
+Assignment by bitwise AND, XOR, and OR
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;
+15
+&lt;/th&gt;
+&lt;td&gt;
+&lt;code&gt;,&lt;/code&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Comma
+&lt;/td&gt;
+&lt;td&gt;
+Left-to-right
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol class=&#34;references&#34;&gt;
+&lt;li id=&#34;cite_note-1&#34;&gt;
+&lt;span class=&#34;mw-cite-backlink&#34;&gt;&lt;a href=&#34;#cite_ref-1&#34;&gt;↑&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;reference-text&#34;&gt;The operand of prefix &lt;code&gt;++&lt;/code&gt; and &lt;code&gt;--&lt;/code&gt; can’t be a type cast. This rule grammatically forbids some expressions that would be semantically invalid anyway. Some compilers ignore this rule and detect the invalidity semantically.&lt;/span&gt;
+&lt;/li&gt;
+&lt;li id=&#34;cite_note-2&#34;&gt;
+&lt;span class=&#34;mw-cite-backlink&#34;&gt;&lt;a href=&#34;#cite_ref-2&#34;&gt;↑&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;reference-text&#34;&gt;The operand of &lt;code&gt;sizeof&lt;/code&gt; can’t be a type cast: the expression &lt;code&gt;sizeof (int) * p&lt;/code&gt; is unambiguously interpreted as &lt;code&gt;(sizeof(int)) * p&lt;/code&gt;, but not &lt;code&gt;sizeof((int)*p)&lt;/code&gt;.&lt;/span&gt;
+&lt;/li&gt;
+&lt;li id=&#34;cite_note-3&#34;&gt;
+&lt;span class=&#34;mw-cite-backlink&#34;&gt;&lt;a href=&#34;#cite_ref-3&#34;&gt;↑&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;reference-text&#34;&gt;The expression in the middle of the conditional operator (between &lt;code&gt;&lt;b&gt;?&lt;/b&gt;&lt;/code&gt; and &lt;code&gt;&lt;b&gt;:&lt;/b&gt;&lt;/code&gt;) is parsed as if parenthesized: its precedence relative to &lt;code&gt;?:&lt;/code&gt; is ignored.&lt;/span&gt;
+&lt;/li&gt;
+&lt;li id=&#34;cite_note-4&#34;&gt;
+&lt;span class=&#34;mw-cite-backlink&#34;&gt;&lt;a href=&#34;#cite_ref-4&#34;&gt;↑&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;reference-text&#34;&gt;Assignment operators’ left operands must be unary (level-2 non-cast) expressions. This rule grammatically forbids some expressions that would be semantically invalid anyway. Many compilers ignore this rule and detect the invalidity semantically. For example, &lt;span class=&#34;t-c&#34;&gt;&lt;span class=&#34;mw-geshi c source-c&#34;&gt;e &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; a &lt;span class=&#34;sy1&#34;&gt;&amp;lt;&lt;/span&gt; d &lt;span class=&#34;sy4&#34;&gt;?&lt;/span&gt; a&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy4&#34;&gt;:&lt;/span&gt; a &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; d&lt;/span&gt;&lt;/span&gt; is an expression that cannot be parsed because of this rule. However, many compilers ignore this rule and parse it as &lt;span class=&#34;t-c&#34;&gt;&lt;span class=&#34;mw-geshi c source-c&#34;&gt;e &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt;a &lt;span class=&#34;sy1&#34;&gt;&amp;lt;&lt;/span&gt; d&lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy4&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt;a&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy4&#34;&gt;:&lt;/span&gt; a&lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; d &lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, and then give an error because it is semantically invalid.&lt;/span&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The seven steps of a programer</title>
+      <link>/2020/07/the-seven-steps-of-a-programer/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/2020/07/the-seven-steps-of-a-programer/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#overview-of-the-seven-steps&#34;&gt;Overview of the Seven Steps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#step-1---project-definition-using-simple-examples&#34;&gt;Step 1 - Project definition using simple examples&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-1&#34;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#step-2---write-everything-you-did&#34;&gt;Step 2 - Write everything you did&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-2&#34;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#step-3---generalize&#34;&gt;Step 3 - Generalize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#step-4---test-your-algorithm&#34;&gt;Step 4 - Test Your Algorithm&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-3&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#answers&#34;&gt;Answers&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-3-1&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Overview of the Seven Steps&lt;/h1&gt;
+&lt;p&gt;The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;684&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: The seven steps (modified from Hilton et al. (2019))
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;All steps are then described in the sections below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-1---project-definition-using-simple-examples&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 1 - Project definition using simple examples&lt;/h1&gt;
+&lt;p&gt;This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;557&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Example of how divide the main project into small tasks
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example 1&lt;/h2&gt;
+&lt;p&gt;Suppose we would want to write an algorithm in C++ to compute the total fat of a ice cream portion basis (&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;). Suppose also this response variable is a function of butyric fat &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and vegetable fat &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. Let &lt;span class=&#34;math inline&#34;&gt;\(E[y]\)&lt;/span&gt; be the expected value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; defined as&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2\]&lt;/span&gt;
+Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; to calculate the total fat &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; by hand. If &lt;span class=&#34;math inline&#34;&gt;\(x_{1}=2\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(x_{2}=1\)&lt;/span&gt;, then
+&lt;span class=&#34;math display&#34;&gt;\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now, suppose the the second aim is the optimization of reduction in fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface, consequently, we can divide our project into, e. g., two tasks:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Generalize the function for any &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;;&lt;/li&gt;
+&lt;li&gt;Calculate the global (or absolute) minimum point;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;p&gt;If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;How could I calculate the global minimum?&lt;/li&gt;
+&lt;li&gt;How can I use partial derivatives?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2---write-everything-you-did&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 2 - Write everything you did&lt;/h1&gt;
+&lt;p&gt;In this step you should take notes about what you did to solve the project or tasks within the project. Your notes describing all solutions by task should be precisely enough to anyone else reproduce them easily. Sometimes we may omit common sense steps such as multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, or the order in which each task should be executed.&lt;/p&gt;
+&lt;div id=&#34;example-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example 2&lt;/h2&gt;
+&lt;p&gt;Suppose we are interested in computing &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)=x^y+3x\)&lt;/span&gt; when &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;, then we might write down a deatiled descriptions of all steps to compute &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)\)&lt;/span&gt;:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiply 2 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
+&lt;li&gt;Multiply 4 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 8&lt;/li&gt;
+&lt;li&gt;Multiply 8 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 16&lt;/li&gt;
+&lt;li&gt;Sum 16 plus 3 multiplied by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 22&lt;/li&gt;
+&lt;li&gt;22 is the answer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;The steps are precise as anyone who can perform basic math can follow these steps to get the same answer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3---generalize&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 3 - Generalize&lt;/h1&gt;
+&lt;p&gt;Our task now is generalize the last steps into an algorithm, finding patterns that allows us to solve the whole class rather than for a particular parameter values. Here is two common way to generalize those steps into algorithm:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Look all details of your step 2 because, sometimes, you can find the generalization into it description.&lt;/li&gt;
+&lt;li&gt;Look for repetition patterns - when the same step repeats several times&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just looking the description into step 2, where we can replacing the occurence of 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
+&lt;li&gt;Multiply 4 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 8&lt;/li&gt;
+&lt;li&gt;Multiply 8 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 16&lt;/li&gt;
+&lt;li&gt;Sum 16 plus 3 multiplied by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 22&lt;/li&gt;
+&lt;li&gt;22 is the answer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Algorithm sketch 1
+  
+start with x = 2 and y = 4
+n[1] = x
+
+Count up from i in 1 to y-1 
+  n[i+1] = n[i] * x 
+
+z = n[y] + 3 * x
+z is  the answer&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;div-3&#34;&gt;
+&lt;p&gt;This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4---test-your-algorithm&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
+&lt;p&gt;Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do/think during this stage are described below:&lt;/p&gt;
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Test your algorithm choosing different values for parameters&lt;/li&gt;
+&lt;li&gt;What happen if the value is positive, negative or equal to zero?&lt;/li&gt;
+&lt;li&gt;Have you restricted parameter space? Ex.: &lt;span class=&#34;math inline&#34;&gt;\(y\geq 0\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Use mathematical proofs&lt;/li&gt;
+&lt;li&gt;There is always more than one right answer to a programming problem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;div-3&#34;&gt;
+&lt;p&gt;Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.&lt;/p&gt;
+&lt;p&gt;A good example of algorithm mistake could be seen in the Example 2. What happens if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt; you will get &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; rather than &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt; (correct answer). Additionally, for any value &lt;span class=&#34;math inline&#34;&gt;\(y\leq 0\)&lt;/span&gt; the algorithm try to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1&amp;lt;0\)&lt;/span&gt;, of which are no Natural number, leading an error in the process. Thus, we can conclude that &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Algorithm sketch 2 
+
+y must be a integer number
+
+start with x = 2 and y = 4
+
+if y=0 {
+n[1] = 1
+i=0
+} else{
+Count up from i in 1 to |y|-1
+  if y&amp;lt;0 {
+  n[1] = 1/x
+  n[i+1] = n[i] * 1/x 
+  } else{
+  n[1] = x
+  n[i+1] = n[i] * x
+  }
+}
+z = n[i+1] + 3 * x
+z is  the answer&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;528&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Example of output using the algorithm 2
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;div-3&#34;&gt;
+&lt;p&gt;Question: How can we improve this algorithm? Think about the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
+&lt;div class=&#34;div-2&#34;&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.&lt;/li&gt;
+&lt;li&gt;Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-3&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example 3&lt;/h2&gt;
+&lt;p&gt;The numbers in the Figure 4 were obtained from an algorithm that has one parameter &lt;span class=&#34;math inline&#34;&gt;\(N \in \mathcal{N}_{0}\)&lt;/span&gt; to be specified, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero, and a sequence of number as output values for each &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;402&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;div-3&#34;&gt;
+&lt;p&gt;Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for &lt;span class=&#34;math inline&#34;&gt;\(N=5\)&lt;/span&gt;?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;p&gt;[1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;answers&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Answers&lt;/h1&gt;
+&lt;div id=&#34;example-3-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example 3&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;Algorithm sketch 3
+
+N must be a Natural number with zero
+
+start with N = n, where n represents the value 
+  Minimum value = 4 * N
+  Maximum value = 9 * N + 6
+  Increment of the sequence = 3
+  
+  x[1] = Minimum value
+  While x[i] is less than the Maximum value
+    x[i] = x[i-1] + Increment of the sequence
+  
+  x is the answer&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r code-input&#34;&gt;&lt;code&gt;# N = 6
+N=5
+seq &amp;lt;- seq(4*N, 9*N+6, 3)
+cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The answer is 20 23 26 29 32 35 38 41 44 47 50&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Signed and Unsigned Binary Numbers</title>
       <link>/2020/07/c-variables-and-expressions/</link>
-      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
       <guid>/2020/07/c-variables-and-expressions/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
@@ -798,230 +1545,7 @@ y
 &lt;p&gt;Barnett R.; O’Cull L.; Cox, S. Embedded C Programming and the Microship PIC. Delmar Learning, ed. 1, 2004.&lt;/p&gt;
 &lt;p&gt;Cadenhead, R.; Liberty, J. Sams Teach Yoirself C++. Pearson Education, ed. 6, 2017.&lt;/p&gt;
 &lt;p&gt;C Data Types - &lt;a href=&#34;https://en.wikipedia.org/wiki/C_data_types&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/C_data_types&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>The seven steps of a programer</title>
-      <link>/2020/07/the-seven-steps-of-a-programer/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/2020/07/the-seven-steps-of-a-programer/</guid>
-      <description>
-  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#overview-of-the-seven-steps&#34;&gt;Overview of the Seven Steps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-1---project-definition-using-simple-examples&#34;&gt;Step 1 - Project definition using simple examples&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-1&#34;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-2---write-everything-you-did&#34;&gt;Step 2 - Write everything you did&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-2&#34;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-3---generalize&#34;&gt;Step 3 - Generalize&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-4---test-your-algorithm&#34;&gt;Step 4 - Test Your Algorithm&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-3&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#answers&#34;&gt;Answers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-3-1&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Overview of the Seven Steps&lt;/h1&gt;
-&lt;p&gt;The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;684&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: The seven steps (modified from Hilton et al. (2019))
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;All steps are then described in the sections below.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;step-1---project-definition-using-simple-examples&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Step 1 - Project definition using simple examples&lt;/h1&gt;
-&lt;p&gt;This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;557&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 2: Example of how divide the main project into small tasks
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;example-1&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Example 1&lt;/h2&gt;
-&lt;p&gt;Suppose we would want to write an algorithm in C++ to compute the total fat of a ice cream portion basis (&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;). Suppose also this response variable is a function of butyric fat &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and vegetable fat &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. Let &lt;span class=&#34;math inline&#34;&gt;\(E[y]\)&lt;/span&gt; be the expected value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; defined as&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2\]&lt;/span&gt;
-Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; to calculate the total fat &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; by hand. If &lt;span class=&#34;math inline&#34;&gt;\(x_{1}=2\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(x_{2}=1\)&lt;/span&gt;, then
-&lt;span class=&#34;math display&#34;&gt;\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Now, suppose the the second aim is the optimization of reduction in fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface, consequently, we can divide our project into, e. g., two tasks:&lt;/p&gt;
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Generalize the function for any &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;;&lt;/li&gt;
-&lt;li&gt;Calculate the global (or absolute) minimum point;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;p&gt;If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:&lt;/p&gt;
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;How could I calculate the global minimum?&lt;/li&gt;
-&lt;li&gt;How can I use partial derivatives?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;step-2---write-everything-you-did&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Step 2 - Write everything you did&lt;/h1&gt;
-&lt;p&gt;In this step you should take notes about what you did to solve the project or tasks within the project. Your notes describing all solutions by task should be precisely enough to anyone else reproduce them easily. Sometimes we may omit common sense steps such as multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, or the order in which each task should be executed.&lt;/p&gt;
-&lt;div id=&#34;example-2&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Example 2&lt;/h2&gt;
-&lt;p&gt;Suppose we are interested in computing &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)=x^y+3x\)&lt;/span&gt; when &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;, then we might write down a deatiled descriptions of all steps to compute &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)\)&lt;/span&gt;:&lt;/p&gt;
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;Multiply 2 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
-&lt;li&gt;Multiply 4 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 8&lt;/li&gt;
-&lt;li&gt;Multiply 8 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 16&lt;/li&gt;
-&lt;li&gt;Sum 16 plus 3 multiplied by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 22&lt;/li&gt;
-&lt;li&gt;22 is the answer.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;The steps are precise as anyone who can perform basic math can follow these steps to get the same answer.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;step-3---generalize&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Step 3 - Generalize&lt;/h1&gt;
-&lt;p&gt;Our task now is generalize the last steps into an algorithm, finding patterns that allows us to solve the whole class rather than for a particular parameter values. Here is two common way to generalize those steps into algorithm:&lt;/p&gt;
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;Look all details of your step 2 because, sometimes, you can find the generalization into it description.&lt;/li&gt;
-&lt;li&gt;Look for repetition patterns - when the same step repeats several times&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just looking the description into step 2, where we can replacing the occurence of 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;Multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
-&lt;li&gt;Multiply 4 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 8&lt;/li&gt;
-&lt;li&gt;Multiply 8 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 16&lt;/li&gt;
-&lt;li&gt;Sum 16 plus 3 multiplied by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 22&lt;/li&gt;
-&lt;li&gt;22 is the answer.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 1
-  
-start with x = 2 and y = 4
-n[1] = x
-
-Count up from i in 1 to y-1 
-  n[i+1] = n[i] * x 
-
-z = n[y] + 3 * x
-z is  the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;step-4---test-your-algorithm&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
-&lt;p&gt;Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do/think during this stage are described below:&lt;/p&gt;
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;Test your algorithm choosing different values for parameters&lt;/li&gt;
-&lt;li&gt;What happen if the value is positive, negative or equal to zero?&lt;/li&gt;
-&lt;li&gt;Have you restricted parameter space? Ex.: &lt;span class=&#34;math inline&#34;&gt;\(y\geq 0\)&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;Use mathematical proofs&lt;/li&gt;
-&lt;li&gt;There is always more than one right answer to a programming problem&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.&lt;/p&gt;
-&lt;p&gt;A good example of algorithm mistake could be seen in the Example 2. What happens if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt; you will get &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; rather than &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt; (correct answer). Additionally, for any value &lt;span class=&#34;math inline&#34;&gt;\(y\leq 0\)&lt;/span&gt; the algorithm try to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1&amp;lt;0\)&lt;/span&gt;, of which are no Natural number, leading an error in the process. Thus, we can conclude that &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 2 
-
-y must be a integer number
-
-start with x = 2 and y = 4
-
-if y=0 {
-n[1] = 1
-i=0
-} else{
-Count up from i in 1 to |y|-1
-  if y&amp;lt;0 {
-  n[1] = 1/x
-  n[i+1] = n[i] * 1/x 
-  } else{
-  n[1] = x
-  n[i+1] = n[i] * x
-  }
-}
-z = n[i+1] + 3 * x
-z is  the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;528&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 3: Example of output using the algorithm 2
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: How can we improve this algorithm? Think about the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
-&lt;/div&gt;
-For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
-&lt;div class=&#34;div-2&#34;&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.&lt;/li&gt;
-&lt;li&gt;Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div id=&#34;example-3&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;p&gt;The numbers in the Figure 4 were obtained from an algorithm that has one parameter &lt;span class=&#34;math inline&#34;&gt;\(N \in \mathcal{N}_{0}\)&lt;/span&gt; to be specified, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero, and a sequence of number as output values for each &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;402&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 4: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for &lt;span class=&#34;math inline&#34;&gt;\(N=5\)&lt;/span&gt;?&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;References&lt;/h1&gt;
-&lt;p&gt;[1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;answers&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Answers&lt;/h1&gt;
-&lt;div id=&#34;example-3-1&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 3
-
-N must be a Natural number with zero
-
-start with N = n, where n represents the value 
-  Minimum value = 4 * N
-  Maximum value = 9 * N + 6
-  Increment of the sequence = 3
-  
-  x[1] = Minimum value
-  While x[i] is less than the Maximum value
-    x[i] = x[i-1] + Increment of the sequence
-  
-  x is the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r code-input&#34;&gt;&lt;code&gt;# N = 6
-N=5
-seq &amp;lt;- seq(4*N, 9*N+6, 3)
-cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## The answer is 20 23 26 29 32 35 38 41 44 47 50&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
