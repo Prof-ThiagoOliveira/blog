@@ -21,7 +21,6 @@ image:
 location: University of São Paulo
 math: true
 publishDate: "2020-07-30T00:00:00Z"
-slides: example
 summary: Accurate short-term forecasting is thus vital to support country-level policy making during COVID-19 outbreak
 tags:
 - COVID-19
@@ -31,6 +30,6 @@ tags:
 title: Global Short-Term Forecasting of Covid-19 Cases
 url_code: https://github.com/Prof-ThiagoOliveira/covid_forecast
 url_pdf: https://arxiv.org/pdf/2006.00111.pdf
-url_slides: files/seminars/covid-19Seminar2020.pdf
-url_video: ""
+url_slides: https://raw.githubusercontent.com/Prof-ThiagoOliveira/Poster-and-Seminars/master/Seminars/2020/covid-19Seminar2020.pdf
+url_video: ''
 ---
