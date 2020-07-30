@@ -20,7 +20,7 @@ image:
   focal_point: Right
 location: University of São Paulo
 math: true
-publishDate: "2020-08-05T00:00:00Z"
+publishDate: "2020-07-30T00:00:00Z"
 summary: Accurate short-term forecasting is thus vital to support country-level policy making during COVID-19 outbreak
 tags:
 - COVID-19
