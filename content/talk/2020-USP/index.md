@@ -29,8 +29,8 @@ tags:
 - State-Space Model
 - Longitudinal Data
 title: Global Short-Term Forecasting of Covid-19 Cases
-url_code: ""
-url_pdf: ""
-url_slides: ""
+url_code: https://github.com/Prof-ThiagoOliveira/covid_forecast
+url_pdf: https://arxiv.org/pdf/2006.00111.pdf
+url_slides: files/seminars/covid-19Seminar2020.pdf
 url_video: ""
 ---
