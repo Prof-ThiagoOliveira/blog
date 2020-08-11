@@ -22,8 +22,22 @@ date_format = "Jan 2006"
   company = "NUI Galway"
   company_url = "http://www.nuigalway.ie/"
   location = "Galway, Ireland"
-  date_start = "2020-03-02"
+  date_start = "2020-08-07"
   date_end = ""
+  description = """
+  Responsibilities include:
+  
+  * Development of statistical models applied to COVID-19 outbreak
+  * Development of shiny apps 
+  """
+  
+[[experience]]
+  title = "Posdoctoral Researcher"
+  company = "NUI Galway"
+  company_url = "http://www.nuigalway.ie/"
+  location = "Galway, Ireland"
+  date_start = "2020-03-02"
+  date_end = "2020-06-14"
   description = """
   Responsibilities include:
   

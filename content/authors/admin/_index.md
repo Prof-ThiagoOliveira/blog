@@ -14,7 +14,7 @@ education:
   - course: BSc in Agricultural Engineer
     institution: University of São Paulo
     year: 2012
-email: "thiago.paula.oliveira@usp.br"
+email: "thiago.paula.oliveira@insight-centre.org"
 interests:
 - Statistics and Biostatistics
 - Concordance Analysis
