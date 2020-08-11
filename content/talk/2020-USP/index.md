@@ -31,5 +31,5 @@ title: Global Short-Term Forecasting of Covid-19 Cases
 url_code: https://github.com/Prof-ThiagoOliveira/covid_forecast
 url_pdf: https://arxiv.org/pdf/2006.00111.pdf
 url_slides: https://raw.githubusercontent.com/Prof-ThiagoOliveira/Poster-and-Seminars/master/Seminars/2020/covid-19Seminar2020.pdf
-url_video: ''
+url_video: https://www.youtube.com/watch?v=M6H1Zcw9PRI
 ---
