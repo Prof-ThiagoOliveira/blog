@@ -5,12 +5,37 @@
     <link>/authors/admin/</link>
       <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>Researcher</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Researcher</title>
       <link>/authors/admin/</link>
     </image>
+    
+    <item>
+      <title>lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</title>
+      <link>/publication/2020-lccpeerj/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020-lccpeerj/</guid>
+      <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lcc package
+&lt;ul&gt;
+&lt;li&gt;Github: &lt;a href=&#34;https://github.com/Prof-ThiagoOliveira/lcc&#34;&gt;https://github.com/Prof-ThiagoOliveira/lcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CRAN: &lt;a href=&#34;https://CRAN.R-project.org/package=lcc&#34;&gt;https://CRAN.R-project.org/package=lcc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Global Short-Term Forecasting of Covid-19 Cases</title>
+      <link>/talk/2020-usp/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/talk/2020-usp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>

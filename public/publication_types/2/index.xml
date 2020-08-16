@@ -5,12 +5,29 @@
     <link>/publication_types/2/</link>
       <atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     <description>2</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 16 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>2</title>
       <link>/publication_types/2/</link>
     </image>
+    
+    <item>
+      <title>lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</title>
+      <link>/publication/2020-lccpeerj/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020-lccpeerj/</guid>
+      <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lcc package
+&lt;ul&gt;
+&lt;li&gt;Github: &lt;a href=&#34;https://github.com/Prof-ThiagoOliveira/lcc&#34;&gt;https://github.com/Prof-ThiagoOliveira/lcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CRAN: &lt;a href=&#34;https://CRAN.R-project.org/package=lcc&#34;&gt;https://CRAN.R-project.org/package=lcc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage</title>

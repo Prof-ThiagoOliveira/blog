@@ -372,6 +372,31 @@ QL(Trat)
     </item>
     
     <item>
+      <title>lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</title>
+      <link>/publication/2020-lccpeerj/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/2020-lccpeerj/</guid>
+      <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lcc package
+&lt;ul&gt;
+&lt;li&gt;Github: &lt;a href=&#34;https://github.com/Prof-ThiagoOliveira/lcc&#34;&gt;https://github.com/Prof-ThiagoOliveira/lcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CRAN: &lt;a href=&#34;https://CRAN.R-project.org/package=lcc&#34;&gt;https://CRAN.R-project.org/package=lcc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Global Short-Term Forecasting of Covid-19 Cases</title>
+      <link>/talk/2020-usp/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>/talk/2020-usp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Expressions</title>
       <link>/2020/07/expressions/</link>
       <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
