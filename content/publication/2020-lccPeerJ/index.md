@@ -8,7 +8,7 @@ authors:
 - John Hinde
 
 date: "2020-08-13T00:00:00Z"
-doi: "https://arxiv.org/pdf/2006.00111.pdf"
+doi: "10.7717/peerj.9850"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2020-08-13T00:00:00Z"
@@ -38,12 +38,12 @@ links:
  - name: "Dashboard App"
    url: "https://prof-thiagooliveira.shinyapps.io/lccApp/"
 
-url_pdf: ''
-url_code: ''
-url_dataset: ''
+url_pdf: https://peerj.com/articles/9850/
+url_code: https://github.com/Prof-ThiagoOliveira/lcc
+url_dataset: https://link.springer.com/article/10.1007%2Fs13253-018-0321-1
 url_poster: ''
 url_project: ''
-url_slides: ''
+url_slides: files/seminars/2019-seminar.pdf
 url_source: ''
 url_video: ''
 
