@@ -14,7 +14,7 @@ education:
   - course: BSc in Agricultural Engineer
     institution: University of São Paulo
     year: 2012
-email: "thiago.paula.oliveira@insight-centre.org"
+email: "thiago.oliveira@ed.ac.uk"
 interests:
 - Statistics and Biostatistics
 - Concordance Analysis
@@ -25,8 +25,8 @@ interests:
 - Dashboard App
 name: Thiago de Paula Oliveira
 organizations:
-- name: NUI Galway
-  url: "https://www.insight-centre.org/"
+- name: The Roslin Institute
+  url: "https://www.ed.ac.uk/roslin"
 role: Researcher
 social:
 - icon: envelope
@@ -62,7 +62,9 @@ Sciences at ESALQ/University of São Paulo, Piracicaba, São Paulo, Brazil from 
 <p align="justify">
 He was a Researcher Biostatistician at Insight 
 Centre for Data Analytics working in partnership with Orreco and NUI
-Galway in the development of statistical methods applied to athlete performance. 
+Galway in the development of statistical methods applied to athlete performance, and 
+prediction models for COVID-19.
+
 Thiago developed statistical methods in longitudinal 
 concordance correlation, multilevel model (hierarchical model), 
 generalized linear mixed-effects model, experimental design, longitudinal
@@ -74,6 +76,6 @@ As an enthusiast of the usage of dashboard apps to create interactive data visua
 </p>
 
 <p align="justify">
-Currently, he is working at the NUI Galway as Researcher on development of statistical methods in sports.
+Currently, he is working on plant and animal breeding programmes in partnership with <a href="https://www.lgseeds.co.uk/">Limagrain</a> company at the Roslin Institute, University of Edinburgh, Scotland.
 </p>
 

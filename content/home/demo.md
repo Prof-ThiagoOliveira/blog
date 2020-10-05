@@ -55,5 +55,5 @@ subtitle = ""
 
 - Dr. Oliveira is a reasercher in Biostatistics with strong publication record in the development and application of biostatistical theory, experimental and observational studies, agriculture, and sports.
 
-- NUI Galway, Insight Centre for Data Analytics, Galway, Ireland 
+- The Roslin Institute, University of Edinburgh, Edinburgh, Scotland
 

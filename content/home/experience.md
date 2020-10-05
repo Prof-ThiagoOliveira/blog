@@ -18,12 +18,24 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
+  title = "Researcher Fellow (TRAIN@Ed)"
+  company = "The Roslin Institute, University of Edinburgh"
+  company_url = "https://www.ed.ac.uk/roslin"
+  location = "Edinburgh, Scotland"
+  date_start = "2020-10-01"
+  date_end = ""
+  description = """
+  Responsibilities include:
+  *  Development of statistical models in quantitative genetics and genomics of plant breeding
+  """
+
+[[experience]]
   title = "Posdoctoral Researcher"
   company = "NUI Galway"
   company_url = "http://www.nuigalway.ie/"
   location = "Galway, Ireland"
   date_start = "2020-08-07"
-  date_end = ""
+  date_end = "2020-09-30"
   description = """
   Responsibilities include:
   

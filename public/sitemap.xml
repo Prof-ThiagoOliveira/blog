@@ -58,6 +58,51 @@
   </url>
   
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/covid-19/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/forecast-models/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/forecast-models/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/10/how-hard-is-it-to-predict-covid-19-cases/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/statistical-models/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/statistical-models/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-10-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/admin/</loc>
     <lastmod>2020-08-17T00:00:00+00:00</lastmod>
   </url>
@@ -128,11 +173,6 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/authors/clarice-g.-b.-demetrio/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
   </url>
@@ -155,11 +195,6 @@
   <url>
     <loc>/authors/silvio-sandoval-zocchi/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/covid-19/</loc>
-    <lastmod>2020-07-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -198,11 +233,6 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/computer-programs/</loc>
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
@@ -219,11 +249,6 @@
   
   <url>
     <loc>/2020/07/expressions/</loc>
-    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
