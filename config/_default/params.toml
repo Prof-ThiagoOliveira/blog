@@ -81,19 +81,20 @@ edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir 
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "thiago.paula.oliveira@insight-centre.org"
+email = "thiago.oliveira@ed.ac.uk"
 phone = ""
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "University Road", city = "Galway", postcode = "", country = "Ireland", country_code = "IE"}
+address = {street = "The University of Edinburgh, Easter Bush Campus, Midlothian", city = "Galway", 
+           postcode = "EH25 9RG", country = "Scotland", country_code = "UK"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-coordinates = {latitude = "53.277784", longitude = "-9.06186"}
+coordinates = {latitude = "55.865822", longitude = "-3.198568"}
 
 # Directions for visitors to locate you.
-directions = "School of Mathematics, Statistics, and Applied Mathematics"
+directions = "The Roslin Institute"
 
 # Office hours
 # A list of your office hours. To remove, set to an empty list `[]`.
