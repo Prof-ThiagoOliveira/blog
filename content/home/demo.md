@@ -51,7 +51,7 @@ subtitle = ""
  css_class = ""
 +++
 
-**Profissional summary:**.
+**Executive summary:**
 
 - Dr. Oliveira is a reasercher in Biostatistics with strong publication record in the development and application of biostatistical theory, experimental and observational studies, agriculture, and sports.
 
