@@ -32,7 +32,13 @@ abstract: <p align="justify">Xylella fastidiosa subsp. pauca is genetically dive
 summary: Adapt and validate an in vitro acquisition system for X. fastidiosa by sharpshooters.
 
 tags:
-- Source Themes
+- Phytopathology
+- Statistical Modelling
+- Experimental design
+- Agriculture
+- Mixed-Effects Models
+- Generalized linear models
+
 featured: false
 
 links:

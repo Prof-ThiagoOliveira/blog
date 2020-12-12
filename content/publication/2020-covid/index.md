@@ -26,7 +26,15 @@ abstract: <p align="justify"> The continuously growing number of COVID-19 cases 
 summary: We showthat our model generates highly accurate forecasts up to six days ahead for covid-19 cases.
 
 tags:
-- Source Themes
+- COVID-19
+- SARS-Cov-2
+- Pandemic
+- Statistical Methodology
+- Statistical Modelling
+- Longitudinal data
+- State-Space Models
+- Hierarchical data
+
 featured: TRUE
 
 links:

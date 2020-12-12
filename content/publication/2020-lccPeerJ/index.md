@@ -29,7 +29,15 @@ abstract: <p align="justify"> <b>Background and Objective:</b> Observational stu
 summary: Describes the statistical package lcc using three real examples. 
 
 tags:
-- Source Themes
+- R Package
+- Bootstrap Confidence Intervals
+- Statistical Methods
+- Longitudinal data
+- Concordance Correlation Coefficient
+- Accuracy
+- Precision
+- Mixed-Effects Model
+
 featured: TRUE
 
 links:

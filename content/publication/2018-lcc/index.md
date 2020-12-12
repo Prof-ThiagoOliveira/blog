@@ -27,7 +27,16 @@ abstract: <p align="justify"> The maturity stages of papaya fruit based on peel 
 summary: We proposed a longitudinal concordance correlation (LCC) to estimate agreement over time among methods
 
 tags:
-- Source Themes
+- Longitudinal data
+- Concordance Correlation Coefficient
+- Accuracy
+- Precision
+- Statistical Modelling
+- Statistical Methods
+- R Package
+- Bootstrap Confidence Intervals
+- Mixed-Effects Model
+
 featured: false
 
 links:

@@ -29,7 +29,15 @@ abstract: <p align="justify"> Estimates the longitudinal concordance correlation
 summary: We proposed an R package to estimate the longitudinal concordance correlation (LCC)
 
 tags:
-- Source Themes
+- R Package
+- Bootstrap Confidence Intervals
+- Statistical Methods
+- Longitudinal data
+- Concordance Correlation Coefficient
+- Accuracy
+- Precision
+- Mixed-Effects Model
+
 featured: false
 
 links:

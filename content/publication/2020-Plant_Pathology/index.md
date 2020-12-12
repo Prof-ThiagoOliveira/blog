@@ -31,7 +31,14 @@ abstract: <p align="justify"> Plum leaf scald (PLS) is a serious disease caused 
 summary: We focused to investigate the host non preference and suitability for xylem-sap feeding among plum genotypes that differ in bacterial leaf scald intensity in the field.
 
 tags:
-- Source Themes
+- Phytopathology
+- Statistical Modelling
+- Experimental design
+- Agriculture
+- Mixed-Effects Models
+- Generalized linear models
+- Hierarchical data
+
 featured: TRUE
 
 links:

@@ -27,7 +27,13 @@ abstract: <p align="justify"> The ability to predict menstrual cycle length to a
 summary: Development of an appropriate parametric state-space formulation for the marginal distribution of standard menstrual cycles for female athletes
 
 tags:
-- Source Themes
+- Menstrual cycle
+- Longitudinal data
+- State-Space Models
+- Athletes
+- Statistical Modelling
+- Hierarchical data
+
 featured: TRUE
 
 links:

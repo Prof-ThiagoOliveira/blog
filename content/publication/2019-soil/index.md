@@ -30,7 +30,10 @@ abstract: <p align="justify"> Global warming can intensify the soil organic matt
 summary: Evaluate the effects of global warming and straw removal on gas emissions
 
 tags:
-- Source Themes
+- Global warming
+- Statistical Modelling
+- Gas emissions
+
 featured: false
 
 links:
