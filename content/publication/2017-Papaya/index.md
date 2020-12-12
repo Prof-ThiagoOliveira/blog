@@ -17,14 +17,16 @@ links:
 projects:
 - color-project
 publication: '*Revista Brasileira de Fruticultura*, v. 39, n. 2'
-publication_short: In *RBF*
-publication_types:
-- "2"
+publication_short: 'In *RBF*'
+publication_types: ["2"]
 publishDate: "2017-01-01T00:00:00Z"
 slides: 2017-papaya
 summary: It is recommended the usage of digital image analysis to access the fruit peel color when it has non-uniform coloration.
 tags:
-- Source Themes
+- Fruit
+- Postharvest 
+- Colour
+- Statistics
 title: Measuring color hue in 'Sunrise Solo' papaya using a flatbed scanner
 url_pdf: http://www.scielo.br/pdf/rbf/v39n2/0100-2945-rbf-39-2-e-911.pdf
 url_project: ""

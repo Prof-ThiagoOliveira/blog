@@ -1,103 +1,94 @@
-+++
-# Experience widget.
-widget = "experience"  # See https://sourcethemes.com/academic/docs/page-builder/
-headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
-weight = 40  # Order that this section will appear.
+---
+# An instance of the Experience widget.
+# Documentation: https://sourcethemes.com/academic/docs/page-builder/
+widget: experience
 
-title = "Experience"
-subtitle = ""
+# Activate this widget? true/false
+active: true
 
-# Date format for experience
+# This file represents a page section.
+headless: true
+
+# Order that this section appears on the page.
+weight: 40
+
+title: Experience
+subtitle:
+
+# Date format
 #   Refer to https://sourcethemes.com/academic/docs/customization/#date-format
-date_format = "Jan 2006"
+date_format: Jan 2006
 
 # Experiences.
-#   Add/remove as many `[[experience]]` blocks below as you like.
+#   Add/remove as many `experience` blocks below as you like.
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
-#   Begin/end multi-line descriptions with 3 quotes `"""`.
-[[experience]]
-  title = "Researcher Fellow (TRAIN@Ed)"
-  company = "The Roslin Institute, University of Edinburgh"
-  company_url = "https://www.ed.ac.uk/roslin"
-  location = "Edinburgh, Scotland"
-  date_start = "2020-10-01"
-  date_end = ""
-  description = """
-  Responsibilities include:
-  *  Development of statistical models in quantitative genetics and genomics of plant breeding
-  """
+#   You can begin a multiline `description` using YAML's `|-`.
+experience:
+- company: The Roslin Institute, University of Edinburgh
+  company_url: "https://www.ed.ac.uk/roslin"
+  date_end: ""
+  date_start: "2020-10-01"
+  description: |-
+    Responsibilities include:
+    * Development of statistical models in quantitative genetics and genomics of plant breeding
+  location: Edinburgh, Scotland
+  title: Researcher Fellow (TRAIN@Ed)
+  
+- company: NUI Galway
+  company_url: "http://www.nuigalway.ie/"
+  date_end: "2020-09-30"
+  date_start: "2020-08-07"
+  description: |-
+    Responsibilities include:
+    * Development of statistical models applied to COVID-19 outbreak
+    * Development of shiny apps 
+  location: Galway, Ireland
+  title: Posdoctoral Researcher
+  
+- company: NUI Galway
+  company_url: "http://www.nuigalway.ie/"
+  date_end: "2020-06-14"
+  date_start: "2020-03-02"
+  description: |-
+    Responsibilities include:
+    * Development of biostatistical models applied to sports
+    * Development of shiny apps 
+  location: Galway, Ireland
+  title: Posdoctoral Researcher  
+  
+- company: NUI Galway
+  company_url: "http://www.nuigalway.ie/"
+  date_end: "2019-12-31"
+  date_start: "2019-04-01"
+  description: |-
+    Responsibilities include:
+    * Development of biostatistical models applied to sports
+    * Development of shiny apps 
+  location: Galway, Ireland
+  title: Posdoctoral Researcher
 
-[[experience]]
-  title = "Posdoctoral Researcher"
-  company = "NUI Galway"
-  company_url = "http://www.nuigalway.ie/"
-  location = "Galway, Ireland"
-  date_start = "2020-08-07"
-  date_end = "2020-09-30"
-  description = """
-  Responsibilities include:
-  
-  * Development of statistical models applied to COVID-19 outbreak
-  * Development of shiny apps 
-  """
-  
-[[experience]]
-  title = "Posdoctoral Researcher"
-  company = "NUI Galway"
-  company_url = "http://www.nuigalway.ie/"
-  location = "Galway, Ireland"
-  date_start = "2020-03-02"
-  date_end = "2020-06-14"
-  description = """
-  Responsibilities include:
-  
-  * Development of biostatistical models applied to sports
-  * Development of shiny apps 
-  """
-  
-[[experience]]
-  title = "Posdoctoral Researcher"
-  company = "NUI Galway"
-  company_url = "http://www.nuigalway.ie/"
-  location = "Galway, Ireland"
-  date_start = "2019-04-01"
-  date_end = "2019-12-31"
-  description = """
-  Responsibilities include:
-  
-  * Development of biostatistical models applied to sports
-  * Development of shiny apps 
-  """
-  
-[[experience]]
-  title = "Posdoctoral Researcher"
-  company = "University of São Paulo"
-  company_url = "https://www5.usp.br/"
-  location = "Piracicaba, São Paulo, Brazil"
-  date_start = "2018-05-01"
-  date_end = "2019-04-01"
-  description = """
-  Responsibilities include:
-  
-  * Development of statistical models applied to agriculture
-  * Development of R packages 
-  """
+- company: University of São Paulo
+  company_url: "https://www5.usp.br/"
+  date_start: "2018-05-01"
+  date_end: "2019-04-01"
+  description: |-
+    Responsibilities include:
+    * Development of statistical models applied to agriculture
+    * Development of R packages  
+  location: Piracicaba, Sao Paulo
+  title: Posdoctoral Researcher
 
-[[experience]]
-  title = "Professor"
-  company = "University of São Paulo"
-  company_url = "https://www5.usp.br/"
-  location = "Piracicaba, São Paulo, Brazil"
-  date_start = "2017-11-01"
-  date_end = "2019-04-01"
-  description = """Lecturer in the Department of Exact Sciences at ‘Luiz de Queiroz’ College of Agriculture (ESALQ).
-  Responsibilities include teach classes of::
-  
-  * Calculus I and II
-  * Statistics
-  * Experimental Statistics
-  """
-
-+++
+- company: University of São Paulo
+  company_url: "https://www5.usp.br/"
+  date_start: "2018-05-01"
+  date_end: "2019-04-01"
+  description: |-
+    Lecturer in the Department of Exact Sciences at ‘Luiz de Queiroz’ College of Agriculture (ESALQ) \
+    Responsibilities include:
+    * Calculus I and II
+    * Statistics
+    * Experimental Statistics
+  location: Piracicaba, Sao Paulo
+  title: "Assistant Professor"
+---

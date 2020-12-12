@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts | Researcher</title>
-    <link>/post/</link>
-      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/post/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 05 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 05 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
-      <link>/post/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/</link>
     </image>
     
     <item>
       <title>Main elements and questions of a good experimental plan.</title>
-      <link>/2020/06/main-elements-and-questions-of-a-good-experimental-plan./</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/experimental_design/</link>
       <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>/2020/06/main-elements-and-questions-of-a-good-experimental-plan./</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/experimental_design/</guid>
       <description>&lt;h3 id=&#34;did-you-find-this-page-helpful-consider-sharing-it-&#34;&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/h3&gt;
 </description>
     </item>
     
     <item>
       <title>How hard is it to predict COVID-19 cases?</title>
-      <link>/2020/10/how-hard-is-it-to-predict-covid-19-cases/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/5-covid19/</link>
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>/2020/10/how-hard-is-it-to-predict-covid-19-cases/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/5-covid19/</guid>
       <description>
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
@@ -115,9 +115,9 @@
     
     <item>
       <title>Expressions</title>
-      <link>/2020/07/expressions/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/expressions/</link>
       <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/2020/07/expressions/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/expressions/</guid>
       <description>
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
@@ -638,9 +638,9 @@ Left-to-right
     
     <item>
       <title>The seven steps of a programer</title>
-      <link>/2020/07/the-seven-steps-of-a-programer/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</link>
       <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/2020/07/the-seven-steps-of-a-programer/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</guid>
       <description>
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
@@ -862,11 +862,11 @@ cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Signed and Unsigned Binary Numbers</title>
-      <link>/2020/07/c-variables-and-expressions/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>/2020/07/c-variables-and-expressions/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;

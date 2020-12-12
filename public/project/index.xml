@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | Researcher</title>
-    <link>/project/</link>
-      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/project/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
-      <link>/project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/</link>
     </image>
     
     <item>
       <title>The use of biostatistics for optimizing athletes performance</title>
-      <link>/project/sport-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/sport-project/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>/project/sport-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sport-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Measuring color using image analyis</title>
-      <link>/project/color-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/color-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/color-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/color-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The lcc Package</title>
-      <link>/project/concordance-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/concordance-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>/project/concordance-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/concordance-project/</guid>
       <description></description>
     </item>
     

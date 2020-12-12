@@ -1,8 +1,5 @@
 ---
-authors:
-- admin
-bio: 
-  matter.
+bio: My research interests include statistical modelling, agriculture, genetics, and sports.
 education:
   courses:
   - course: PhD in Statistics
@@ -15,6 +12,7 @@ education:
     institution: University of São Paulo
     year: 2012
 email: "thiago.oliveira@ed.ac.uk"
+highlight_name: false
 interests:
 - Statistics and Biostatistics
 - Concordance Analysis
@@ -23,7 +21,6 @@ interests:
 - Agriculture
 - Sports (Athlete Performance)
 - Dashboard App
-name: Thiago de Paula Oliveira
 organizations:
 - name: The Roslin Institute
   url: "https://www.ed.ac.uk/roslin"
@@ -45,9 +42,7 @@ social:
   icon_pack: fab
   link: https://github.com/Prof-ThiagoOliveira
 superuser: true
-user_groups:
-- Researchers
-- Visitors
+title: Thiago de Paula Oliveira
 ---
 
 <p align="justify">

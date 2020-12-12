@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags | Researcher</title>
-    <link>/tags/</link>
-      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 05 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
       <title>Tags</title>
-      <link>/tags/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/</link>
     </image>
     
   </channel>
