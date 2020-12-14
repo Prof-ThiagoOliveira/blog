@@ -30,17 +30,20 @@ social:
   icon_pack: fas
   link: '#contact'
 - icon: orcid
-  icon_pack: ai
+  icon_pack: fab
   link: https://orcid.org/0000-0002-4555-2584
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/_OliveiraTP_
-- icon: google-scholar
-  icon_pack: ai
+- icon: google
+  icon_pack: fab
   link: https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ
 - icon: github
   icon_pack: fab
   link: https://github.com/Prof-ThiagoOliveira
+- icon: blog
+  icon_pack: fas
+  link: https://www.thiagooliveira.co.uk
 superuser: true
 title: Thiago de Paula Oliveira
 ---

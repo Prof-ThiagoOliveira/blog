@@ -18,7 +18,7 @@ subtitle = ""
   icon = "chart-line"
   icon_pack = "fas"
   name = "Statistics"
-  description = "Experience: 7 years"  
+  description = "Experience: 8 years"  
   
 [[feature]]
   icon = "r-project"
@@ -78,7 +78,7 @@ subtitle = ""
   icon = "camera-retro"
   icon_pack = "fas"
   name = "Photography"
-  description = "10%"
+  description = "Intermediate"
 
 # Uncomment to use emoji icons.
 # [[feature]]

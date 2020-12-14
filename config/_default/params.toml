@@ -45,7 +45,7 @@ local_business_type = ""
 
 # Organization name (optional)
 # Enter an organization or project name. Defaults to the site title from `config.toml`.
-org_name = ""
+org_name = "The Roslin Institute"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
 description = ""
@@ -62,7 +62,7 @@ highlight_languages = ["r", "latex"]  # Add support for highlighting additional 
 
 # Enable LaTeX math rendering? true/false
 #   If false, you can enable math on a per page basis as needed.
-math = false
+math = true
 
 # Enable diagram rendering? true/false
 #   If false, you can enable diagrams on a per page basis as needed.
@@ -113,7 +113,7 @@ appointment_url = "https://calendly.com/thiago-paula-oliveira"
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
 contact_links = [
   {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/_OliveiraTP_"},
-#  {icon = "skype", icon_pack = "fab", name = "Zoom Me", link = "skype:echo123?call"},
+  {icon = "blog", icon_pack = "fas", name = "Photography Website", link = "https://www.thiagooliveira.co.uk"},
   {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/oliveiratp"},
 #  {icon = "comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://discourse.gohugo.io/u/prof-thiagooliveira"},
   # {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/@Telegram"},
