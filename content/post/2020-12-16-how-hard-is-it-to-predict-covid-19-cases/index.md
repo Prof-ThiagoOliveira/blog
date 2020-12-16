@@ -29,20 +29,14 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+    css: "my_style.css"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      message = FALSE,
-                      warning = FALSE,
-                      fig.align = 'center', 
-                      fig.show = 'H')
-library(tidyverse)
-library(plotly)
-library(scales)
-library(data.table)
-library(lubridate)
-```
+
 
 # tl;dr
 
@@ -61,9 +55,7 @@ It is very hard, however, to pinpoint exactly every single factor that affects t
 
 There are many different strategies and mathematical/statistical tools we can use to attempt to predict the future. These can include what we call mechanistic, or compartment models, for example. These make assumptions based on empirical evidence of the biological system being studied and translate them into mathematical equations based on the flow of individuals to/from specific compartments. For COVID-19 the SEIR-type model has been widely used by many research groups to describe the behaviour of the outbreak (see our [blog post](https://www.hamilton.ie/covid19/posts/2020-09-11-how-long-will-covid-19-last-in-ireland/) on the use of SEIR models to predict when the pandemic will end). They are realistic in the sense that they reflect the epidemiological behaviour of the outbreak.
 
-```{r}
-knitr::include_graphics('SEIR.png', dpi = 50)
-```
+<img src="SEIR.png" width="700px" style="display: block; margin: auto;" />
 
 There are other alternatives that do not take into account the true biological nature of the phenomenon per se, but may use it as input in a different way. Many [machine learning](https://en.wikipedia.org/wiki/Machine_learning) techniques could sometimes be seen as black-box methods, that would e.g. take the reported number of past COVID-19 cases and other variables that we would believe could influence this number and spit out a prediction for tomorrow, or next week, next month, etc. There are cases where these methods are even more accurate than mechanistic models, however there is a trade-off to consider here in terms of prediction accuracy vs. explainability, as [discussed here](https://royalsocietypublishing.org/doi/10.1098/rsbl.2017.0660). If a new event or variable comes into play, which could empirically be very important to dictate the future behaviour of the pandemic, it is very difficult to gauge its effects using a black-box method.
 
@@ -83,9 +75,7 @@ So long-term forecasting is very prone to built-up variation and error, as we al
 
 [We developed a modelling framework](https://arxiv.org/abs/2006.00111) in an attempt to predict the number of reported COVID-19 cases for up to 7 days in the future. We fitted our models to the data collected by the [ECDC](https://www.ecdc.europa.eu/en) to generate the forecasts. See below for a validation study we carried out back in May/2020.
 
-```{r}
-knitr::include_graphics('forecast.png', dpi = 50)
-```
+<img src="forecast.png" width="800px" style="display: block; margin: auto;" />
 
 The panels are in the logarithmic scale, but in essence, the closer the points are to the identity line (dashed line), the closer our model was in predicting the number of COVID-19 cases up to 7 days ahead (panels in part *A*). In part *B* we see that the accuracy of the method is high for all 7 days ahead, but we begin to lose in terms of precision from day four onwards. ($r$ represents [Pearson's linear correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient), the closest it is to 1 the better the method is; the same applies to the CCC - the [concordance correlation coefficient](https://en.wikipedia.org/wiki/Concordance_correlation_coefficient).)
 
@@ -93,9 +83,7 @@ The idea behind this is not to be able to inform governments the exact numbers w
 
 Our model creates predictions based on two components. The first, called the autoregressive component, uses information on the past number of cases to predict future ones. The second is included to account for extra variability that could occur for a variety of different reasons. The autoregressive component is directly linked to the behaviour of the outbreak, so it is useful to detect waves of the pandemic. See, for example, our latest estimates for Ireland:
 
-```{r}
-knitr::include_graphics('Ireland.png', dpi = 50)
-```
+<img src="Ireland.png" width="500px" style="display: block; margin: auto;" />
 
 We can clearly see that towards the end of July this second wave was already starting to take shape, and now we are aiming at a new peak of cases.
 
@@ -103,9 +91,7 @@ We can clearly see that towards the end of July this second wave was already sta
 
 Now that we have profiles for each country on how the pandemic is behaving in terms of number of cases, perhaps it would be a good idea to look at which countries present a similar behaviour over the last, say, 60 days. We created a dendrogram based on a cluster analysis performed using the values of the autoregressive parameter and produced the figure below --
 
-```{r}
-knitr::include_graphics('dendrogram.png', dpi = 50)
-```
+<img src="dendrogram.png" width="1000px" style="display: block; margin: auto;" />
 
 Here we see that over looking at the past two months, the country that has presented the most similar behaviour to Ireland was Croatia. In our [app](link) you can play with different ways of presenting the dendrogram, as well as print names of different countries in bold to aid in finding them easily when looking at the picture. You can also change the number of clusters.
 

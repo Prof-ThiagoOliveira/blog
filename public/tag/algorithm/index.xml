@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/tag/algorithm/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <description>Algorithm</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
       <title>Algorithm</title>
@@ -15,38 +15,16 @@
     <item>
       <title>The seven steps of a programer</title>
       <link>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</link>
-      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</guid>
       <description>
-&lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#overview-of-the-seven-steps&#34;&gt;Overview of the Seven Steps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-1---project-definition-using-simple-examples&#34;&gt;Step 1 - Project definition using simple examples&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-1&#34;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-2---write-everything-you-did&#34;&gt;Step 2 - Write everything you did&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-2&#34;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-3---generalize&#34;&gt;Step 3 - Generalize&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#step-4---test-your-algorithm&#34;&gt;Step 4 - Test Your Algorithm&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-3&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#answers&#34;&gt;Answers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#example-3-1&#34;&gt;Example 3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 
 &lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview of the Seven Steps&lt;/h1&gt;
 &lt;p&gt;The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;684&#34; /&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: The seven steps (modified from Hilton et al. (2019))
 &lt;/p&gt;
@@ -56,8 +34,8 @@ Figure 1: The seven steps (modified from Hilton et al. (2019))
 &lt;div id=&#34;step-1---project-definition-using-simple-examples&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 1 - Project definition using simple examples&lt;/h1&gt;
 &lt;p&gt;This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;557&#34; /&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Example of how divide the main project into small tasks
 &lt;/p&gt;
@@ -176,7 +154,7 @@ Count up from i in 1 to |y|-1
 z = n[i+1] + 3 * x
 z is  the answer&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;528&#34; /&gt;
+&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Example of output using the algorithm 2
 &lt;/p&gt;
@@ -195,7 +173,7 @@ For some problems, there are particular cases that require our attention. Every 
 &lt;h2&gt;Example 3&lt;/h2&gt;
 &lt;p&gt;The numbers in the Figure 4 were obtained from an algorithm that has one parameter &lt;span class=&#34;math inline&#34;&gt;\(N \in \mathcal{N}_{0}\)&lt;/span&gt; to be specified, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero, and a sequence of number as output values for each &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;402&#34; /&gt;
+&lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;400px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
 &lt;/p&gt;

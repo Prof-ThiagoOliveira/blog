@@ -21,6 +21,11 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+    css: "my_style.css"
 ---
 
 ```{r setup, include=FALSE}
@@ -31,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).
 
-```{r,echo=FALSE,fig.cap="The seven steps (modified from Hilton et al. (2019))"}
+```{r,echo=FALSE,fig.cap="The seven steps (modified from Hilton et al. (2019))", out.width = "500px", fig.align='center'}
 knitr::include_graphics('seven_steps.png')
 ```
 All steps are then described in the sections below.
@@ -40,7 +45,7 @@ All steps are then described in the sections below.
 
 This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.   
 
-```{r,echo=FALSE,fig.cap="Example of how divide the main project into small tasks"}
+```{r,echo=FALSE,fig.cap="Example of how divide the main project into small tasks", out.width = "500px", fig.align='center'}
 knitr::include_graphics('main_project.png')
 ```
 
@@ -171,7 +176,7 @@ z = n[i+1] + 3 * x
 z is  the answer
 ```
 
-```{r,echo=FALSE,fig.cap="Example of output using the algorithm 2",fig.align='center'}
+```{r,echo=FALSE,fig.cap="Example of output using the algorithm 2", out.width = "500px", fig.align='center'}
 knitr::include_graphics('example2.png')
 ```
 
@@ -192,7 +197,7 @@ For some problems, there are particular cases that require our attention. Every 
 
 The numbers in the Figure 4 were obtained from an algorithm that has one parameter $N \in \mathcal{N}_{0}$ to be specified, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero, and a sequence of number as output values for each $N$. 
 
-```{r,echo=FALSE,fig.cap="Output of sequences of integers based on values of $N$ from 0 to 4",fig.align='center'}
+```{r,echo=FALSE,fig.cap="Output of sequences of integers based on values of $N$ from 0 to 4", out.width = "400px", fig.align='center'}
 knitr::include_graphics('example3.png')
 ```
 

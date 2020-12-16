@@ -21,21 +21,22 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+    css: "my_style.css"
 ---
 
 # Introduction
 
 Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code. Thus, every expression is any part of a statement that returns a value, as in the follow example: 
 
-```{r,echo=FALSE}
-knitr::include_graphics('exp1.png')
-```
+<img src="exp1.png" width="320px" style="display: block; margin: auto;" />
 
 This statement creates a box to store the value of $x$ and another to store the value of $y$, which is equal to the expression $x$ plus 13 ($y=23$). Now consider a more complex statement:
 
-```{r,echo=FALSE}
-knitr::include_graphics('exp2.png')
-```
+<img src="exp2.png" width="500px" style="display: block; margin: auto;" />
 
 This statment consists of three expressions:
 <div class="div-1">
@@ -52,15 +53,17 @@ Remember that multiplication and division occur before addition and subtraction.
 ```
 The **operator precedente** dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence in relation to other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression $\frac{2}{4}-3+ 4 \times 6$, firstly the subexpressions $\frac{2}{4}$ and $4 \times 6$ will be evaluated (Step 1 in the Figure 1), and then addition and subtraction (Step 2 in the Figure 1). Note that multiplication and division, or addition and subtraction have same precedente, then tey are evaluated from left to right due to its associativity. 
 
-```{r,echo=FALSE, fig.cap="Precedence order",fig.align='center'}
-knitr::include_graphics('exp3.png')
-```
+<div class="figure" style="text-align: center">
+<img src="exp3.png" alt="Precedence order" width="300px" />
+<p class="caption">Precedence order</p>
+</div>
 
 **Associativity** defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative while assignment operators are typically right-associative. Besides, there are operators that have no defined behavior when used in sequence over an expression, and they are called as non-associative (Figure 2). Note that when we include parentheses, we can force an expression to be right-associative rather than left-associative as usual. 
 
-```{r,echo=FALSE, fig.cap="Example of left-associative, right-associative, and non-associative",fig.align='center'}
-knitr::include_graphics('exp4.png')
-```
+<div class="figure" style="text-align: center">
+<img src="exp4.png" alt="Example of left-associative, right-associative, and non-associative" width="800px" />
+<p class="caption">Example of left-associative, right-associative, and non-associative</p>
+</div>
 
 # Using Parentheses `()`
 
@@ -83,9 +86,10 @@ Modulus operator evaluates to the remainder when dividing the first operand by t
 
  by $b$ ($a$ modulus $b$).<table class="wikitable"> by $b$ ($a$ modulus $b$).
 
-```{r,echo=FALSE, fig.cap="Example of modulus",fig.align='center'}
-knitr::include_graphics('exp5.png')
-```
+<div class="figure" style="text-align: center">
+<img src="exp5.png" alt="Example of modulus" width="300px" />
+<p class="caption">Example of modulus</p>
+</div>
 
 <div class="div-1">
 * Dividing an integer by another one gives an integer.
@@ -120,18 +124,14 @@ Short hand expressions provide a short way to write common patterns over the alg
 
 Here you can see that `y ++= x * z;` is calculate as $y=y+x \times z = 30 + 2 \times 4 = 34$.
 
-```{r,echo=FALSE, fig.align='center'}
-knitr::include_graphics('example1.png')
-```
+<img src="example1.png" width="350px" style="display: block; margin: auto;" />
 
 
 ## Example 2:
 
 In this example you can see that we used the postfix `x++` to first initialize $y$ ($y=8 \times x = 8 \times 7 = 56$) and then update $x$ to ```x=x+1=8```. On the other hand, we used the prefix `--y` to first update the variable $y$ to `y=y-1=55` and then calculate the variable z using the updated $y$ $\left(z = y/5 = 55/5 = 11 \right)$. 
 
-```{r,echo=FALSE, fig.align='center'}
-knitr::include_graphics('example2.png')
-```
+<img src="example2.png" width="500px" style="display: block; margin: auto;" />
 
 Note that when we use `x*= (y/z) % 2` the variable $x$ multiply the entire expression after `=` symbol. This expression is equivalent to `x = x * ((y/z) % 2));`. 
 

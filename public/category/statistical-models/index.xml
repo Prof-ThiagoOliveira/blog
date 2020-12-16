@@ -14,26 +14,11 @@
     
     <item>
       <title>How hard is it to predict COVID-19 cases?</title>
-      <link>https://prof-thiagooliveira.netlify.com/post/5-covid19/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</link>
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/post/5-covid19/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</guid>
       <description>
-&lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/5-covid19/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/5-covid19/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
-  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#tldr&#34;&gt;tl;dr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#how-many-people-will-get-infected-tomorrow&#34;&gt;How many people will get infected tomorrow?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#what-strategies-can-we-use&#34;&gt;What strategies can we use?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#why-is-it-so-difficult&#34;&gt;Why is it so difficult?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#what-about-short-term-forecasting&#34;&gt;What about short-term forecasting?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#grouping-countries-together&#34;&gt;Grouping countries together&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#all-models-are-wrong&#34;&gt;All models are wrong…&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#citation&#34;&gt;Citation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
 
 &lt;div id=&#34;tldr&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;tl;dr&lt;/h1&gt;
@@ -52,7 +37,7 @@
 &lt;div id=&#34;what-strategies-can-we-use&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;What strategies can we use?&lt;/h1&gt;
 &lt;p&gt;There are many different strategies and mathematical/statistical tools we can use to attempt to predict the future. These can include what we call mechanistic, or compartment models, for example. These make assumptions based on empirical evidence of the biological system being studied and translate them into mathematical equations based on the flow of individuals to/from specific compartments. For COVID-19 the SEIR-type model has been widely used by many research groups to describe the behaviour of the outbreak (see our &lt;a href=&#34;https://www.hamilton.ie/covid19/posts/2020-09-11-how-long-will-covid-19-last-in-ireland/&#34;&gt;blog post&lt;/a&gt; on the use of SEIR models to predict when the pandemic will end). They are realistic in the sense that they reflect the epidemiological behaviour of the outbreak.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;SEIR.png&#34; width=&#34;1206&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;SEIR.png&#34; width=&#34;700px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;There are other alternatives that do not take into account the true biological nature of the phenomenon per se, but may use it as input in a different way. Many &lt;a href=&#34;https://en.wikipedia.org/wiki/Machine_learning&#34;&gt;machine learning&lt;/a&gt; techniques could sometimes be seen as black-box methods, that would e.g. take the reported number of past COVID-19 cases and other variables that we would believe could influence this number and spit out a prediction for tomorrow, or next week, next month, etc. There are cases where these methods are even more accurate than mechanistic models, however there is a trade-off to consider here in terms of prediction accuracy vs. explainability, as &lt;a href=&#34;https://royalsocietypublishing.org/doi/10.1098/rsbl.2017.0660&#34;&gt;discussed here&lt;/a&gt;. If a new event or variable comes into play, which could empirically be very important to dictate the future behaviour of the pandemic, it is very difficult to gauge its effects using a black-box method.&lt;/p&gt;
 &lt;p&gt;We could also simply assume that the number of reported COVID-19 cases today is purely a reflection of the reported number of cases yesterday, and the day before, and so on. So we pretty much assume all variables that influence this process can be summarised purely by the outcomes we have observed in the past, and this can in turn be used to forecast what future numbers will be. Of course, there are plenty of different ways to include other variables in these types of models, but the important thing is to notice that we place a very heavy assumption on an underlying process that is able to explain its own behaviour. We usually refer to these models as &lt;a href=&#34;https://en.wikipedia.org/wiki/Time_series&#34;&gt;“time series”&lt;/a&gt; or “state-space” models.&lt;/p&gt;
 &lt;/div&gt;
@@ -66,17 +51,17 @@
 &lt;h1&gt;What about short-term forecasting?&lt;/h1&gt;
 &lt;p&gt;So long-term forecasting is very prone to built-up variation and error, as we all know. It’s just like predicting what time you’ll wake up on your birthday 10 years from now. But there must be something we could do in the short-term, right? Well, it depends on how “long” this short-term is. And it also depends on how we want to use this information.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/2006.00111&#34;&gt;We developed a modelling framework&lt;/a&gt; in an attempt to predict the number of reported COVID-19 cases for up to 7 days in the future. We fitted our models to the data collected by the &lt;a href=&#34;https://www.ecdc.europa.eu/en&#34;&gt;ECDC&lt;/a&gt; to generate the forecasts. See below for a validation study we carried out back in May/2020.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;forecast.png&#34; width=&#34;1891&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;forecast.png&#34; width=&#34;800px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The panels are in the logarithmic scale, but in essence, the closer the points are to the identity line (dashed line), the closer our model was in predicting the number of COVID-19 cases up to 7 days ahead (panels in part &lt;em&gt;A&lt;/em&gt;). In part &lt;em&gt;B&lt;/em&gt; we see that the accuracy of the method is high for all 7 days ahead, but we begin to lose in terms of precision from day four onwards. (&lt;span class=&#34;math inline&#34;&gt;\(r\)&lt;/span&gt; represents &lt;a href=&#34;https://en.wikipedia.org/wiki/Pearson_correlation_coefficient&#34;&gt;Pearson’s linear correlation coefficient&lt;/a&gt;, the closest it is to 1 the better the method is; the same applies to the CCC - the &lt;a href=&#34;https://en.wikipedia.org/wiki/Concordance_correlation_coefficient&#34;&gt;concordance correlation coefficient&lt;/a&gt;.)&lt;/p&gt;
 &lt;p&gt;The idea behind this is not to be able to inform governments the exact numbers we’d expect tomorrow, but to give more perspective in terms of the types of trends we expect in the near future. This is useful to inform decision making related to the healthcare services. For instance, if a particular country’s healthcare system is currently at capacity, and we are predicting an upward trend in the number of infections, then this could guide policy in terms of resource allocation to accommodate the extra patients that are likely to seek health professionals in the upcoming weeks. This is why it is so important to look at overall trends (for example, the number of cases per 100,000 people over the last 14 days).&lt;/p&gt;
 &lt;p&gt;Our model creates predictions based on two components. The first, called the autoregressive component, uses information on the past number of cases to predict future ones. The second is included to account for extra variability that could occur for a variety of different reasons. The autoregressive component is directly linked to the behaviour of the outbreak, so it is useful to detect waves of the pandemic. See, for example, our latest estimates for Ireland:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;Ireland.png&#34; width=&#34;2726&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Ireland.png&#34; width=&#34;500px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can clearly see that towards the end of July this second wave was already starting to take shape, and now we are aiming at a new peak of cases.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;grouping-countries-together&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Grouping countries together&lt;/h1&gt;
 &lt;p&gt;Now that we have profiles for each country on how the pandemic is behaving in terms of number of cases, perhaps it would be a good idea to look at which countries present a similar behaviour over the last, say, 60 days. We created a dendrogram based on a cluster analysis performed using the values of the autoregressive parameter and produced the figure below –&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;dendrogram.png&#34; width=&#34;3836&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;dendrogram.png&#34; width=&#34;1000px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Here we see that over looking at the past two months, the country that has presented the most similar behaviour to Ireland was Croatia. In our &lt;a href=&#34;link&#34;&gt;app&lt;/a&gt; you can play with different ways of presenting the dendrogram, as well as print names of different countries in bold to aid in finding them easily when looking at the picture. You can also change the number of clusters.&lt;/p&gt;
 &lt;p&gt;Perhaps these comparisons would be useful in terms of comparing government policies on how to deal with the COVID-19 outbreak, and learn lessons from successful policies vs unsuccessful ones. Also, this type of modelling can help to detect a further wave of the outbreak sooner rather than when we are already in the middle of it!&lt;/p&gt;
 &lt;/div&gt;

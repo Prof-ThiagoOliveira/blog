@@ -21,6 +21,11 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+    css: "my_style.css"
 ---
 
 # Introduction
@@ -35,19 +40,19 @@ When we think about writing a program in C, the first step is understand how var
   </div>
 </div>
 
-```{r,echo=FALSE,fig.cap="Declaring variables in C",fig.height=6, fig.width=6, fig.align='center'}
+```{r,echo=FALSE,fig.cap="Declaring variables in C", out.width = "550px", fig.align='center'}
 knitr::include_graphics('var_and_exp.png')
 ```
 
 Additionally, there are a large set of storage size-specific declarations for a integer, and here we will explain just an initial idea about it. Figure 2 showns the Integer representation of whole numbers or fixed-point numbers (fixed number of digits). Generally, computers use a fixed number of bits to represent them, where commonly used bit-lengths for integers are 8-bit, 16-bit (`short`), 32-bit (`long`) or 64-bit (`long long`). There are two representation schemes for integers called signed integer type (`signed int`) capable of containing the range of values from -32,767 to 32,767, and unsigned integer type (`unsigned int`) containing the range of values from 0 to 65,535 ($32767 \times 2+1$). Therefore, `unsigned` qualifier should be used when we are working with only positive values. 
 
-```{r,echo=FALSE,fig.cap="Integer Representation", fig.align='center'}
+```{r,echo=FALSE,fig.cap="Integer Representation", out.width = "500px", fig.align='center'}
 knitr::include_graphics('binary_number.png')
 ```
 
 Furthermore, there are three representation schemes for signed integers called *Sign-Magnitude representation*, *1's Complement representation*, and *2's Complement representation*. The 1’s and the 2’s complements of a binary number are important because they permit different representation for negative numbers. In all of these schemes, positive signed binary numbers starts with value 0 while negative ones starts with value 1 (Figure 3).
 
-```{r,echo=FALSE,fig.cap="Signed binary numbers", fig.align='center'}
+```{r,echo=FALSE,fig.cap="Signed binary numbers", out.width = "300px", fig.align='center'}
 knitr::include_graphics('sign_bit.png')
 ```
 Consequently, the disadvantage of signed binary numbers is that there is 1 bit used to store the sign positive or negative while the remaning $n-1$ bits are assign to the range of digits from $-2^{n-1}$ to $2^{n-1}$. If we have 8 bits to represent a signed binary number, we have to use 1 bit for the **sign bit** and 7 bits for the **magnitude bits**:
@@ -60,7 +65,7 @@ $$-2^{\left(8-1\right)} \mbox{ to } 2^{\left(8-1\right)}-1 = -128 \mbox{ to } 12
 </div>
 Thus, we can representing the numbers ranging from -128 to 127 using 2's Complement Representation. Probably now you are asking why there is one extra number being accounted when using 2's Complement Representation. The answer can be found in the Figure 4.
 
-```{r,echo=FALSE,fig.cap="Representation schemes of Sign-Magnitude Representation and 2's Complement Representation", fig.align='center'}
+```{r,echo=FALSE,fig.cap="Representation schemes of Sign-Magnitude Representation and 2's Complement Representation", out.width = "400px", fig.align='center'}
 knitr::include_graphics('repre_scheme.png')
 ```
 

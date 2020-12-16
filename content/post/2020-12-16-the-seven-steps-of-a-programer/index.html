@@ -1,0 +1,225 @@
+---
+title: The seven steps of a programer
+author: Thiago de Paula Oliveira
+date: '2020-12-16'
+slug: the-seven-steps-of-a-programer
+categories:
+  - C++
+  - Computer Programs
+tags:
+  - Algorithm
+  - C++
+  - Computer Science
+subtitle: ''
+summary: ''
+authors: 
+- admin
+lastmod: '2020-12-16T11:53:03Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+    css: "my_style.css"
+---
+
+
+
+<div id="overview-of-the-seven-steps" class="section level1">
+<h1>Overview of the Seven Steps</h1>
+<p>The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="seven_steps.png" alt="The seven steps (modified from Hilton et al. (2019))" width="500px" />
+<p class="caption">
+Figure 1: The seven steps (modified from Hilton et al. (2019))
+</p>
+</div>
+<p>All steps are then described in the sections below.</p>
+</div>
+<div id="step-1---project-definition-using-simple-examples" class="section level1">
+<h1>Step 1 - Project definition using simple examples</h1>
+<p>This is the moment where you spend time thinking about the project and how could you divide them into small tasks. Start your project drawing a diagram of it by hand, including the main subjects, how you could sorted out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided in smaller tasks, how this tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be build. Doing a good job during this stage will facilitate the remainder steps.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="main_project.png" alt="Example of how divide the main project into small tasks" width="500px" />
+<p class="caption">
+Figure 2: Example of how divide the main project into small tasks
+</p>
+</div>
+<div id="example-1" class="section level2">
+<h2>Example 1</h2>
+<p>Suppose we would want to write an algorithm in C++ to compute the total fat of a ice cream portion basis (<span class="math inline">\(y\)</span>). Suppose also this response variable is a function of butyric fat <span class="math inline">\(x_1\)</span> and vegetable fat <span class="math inline">\(x_2\)</span>. Let <span class="math inline">\(E[y]\)</span> be the expected value of <span class="math inline">\(y\)</span> defined as</p>
+<p><span class="math display">\[E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2\]</span>
+Thus, we can pick particular values for <span class="math inline">\(x_1\)</span>, and <span class="math inline">\(x_2\)</span> to calculate the total fat <span class="math inline">\(y\)</span> by hand. If <span class="math inline">\(x_{1}=2\)</span>, <span class="math inline">\(x_{2}=1\)</span>, then
+<span class="math display">\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]</span></p>
+<p>Now, suppose the the second aim is the optimization of reduction in fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface, consequently, we can divide our project into, e. g., two tasks:</p>
+<div class="div-2">
+<ol style="list-style-type: decimal">
+<li>Generalize the function for any <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>;</li>
+<li>Calculate the global (or absolute) minimum point;</li>
+</ol>
+</div>
+<p>If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:</p>
+<div class="div-2">
+<ul>
+<li>How could I calculate the global minimum?</li>
+<li>How can I use partial derivatives?</li>
+</ul>
+</div>
+<p>Thus, during this step you have to identify all lack of domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.</p>
+</div>
+</div>
+<div id="step-2---write-everything-you-did" class="section level1">
+<h1>Step 2 - Write everything you did</h1>
+<p>In this step you should take notes about what you did to solve the project or tasks within the project. Your notes describing all solutions by task should be precisely enough to anyone else reproduce them easily. Sometimes we may omit common sense steps such as multiply <span class="math inline">\(x\)</span> by <span class="math inline">\(y\)</span>, or the order in which each task should be executed.</p>
+<div id="example-2" class="section level2">
+<h2>Example 2</h2>
+<p>Suppose we are interested in computing <span class="math inline">\(f(x,y)=x^y+3x\)</span> when <span class="math inline">\(x=2\)</span> and <span class="math inline">\(y=4\)</span>, then we might write down a deatiled descriptions of all steps to compute <span class="math inline">\(f(x,y)\)</span>:</p>
+<div class="div-2">
+<ul>
+<li>Multiply 2 by 2 <span class="math inline">\(\rightarrow\)</span> you get 4</li>
+<li>Multiply 4 by 2 <span class="math inline">\(\rightarrow\)</span> you get 8</li>
+<li>Multiply 8 by 2 <span class="math inline">\(\rightarrow\)</span> you get 16</li>
+<li>Sum 16 plus 3 multiplied by 2 <span class="math inline">\(\rightarrow\)</span> you get 22</li>
+<li>22 is the answer.</li>
+</ul>
+</div>
+<p>The steps are precise as anyone who can perform basic math can follow these steps to get the same answer.</p>
+</div>
+</div>
+<div id="step-3---generalize" class="section level1">
+<h1>Step 3 - Generalize</h1>
+<p>Our task now is generalize the last steps into an algorithm, finding patterns that allows us to solve the whole class rather than for a particular parameter values. Here is two common way to generalize those steps into algorithm:</p>
+<div class="div-2">
+<ul>
+<li>Look all details of your step 2 because, sometimes, you can find the generalization into it description.</li>
+<li>Look for repetition patterns - when the same step repeats several times</li>
+</ul>
+</div>
+We can, e. g., generalize our <strong>Example 2</strong> just looking the description into step 2, where we can replacing the occurence of 2 by <span class="math inline">\(x\)</span>:
+<div class="div-2">
+<ul>
+<li>Multiply 2 by <span class="math inline">\(x\)</span> <span class="math inline">\(\rightarrow\)</span> you get 4</li>
+<li>Multiply 4 by <span class="math inline">\(x\)</span> <span class="math inline">\(\rightarrow\)</span> you get 8</li>
+<li>Multiply 8 by <span class="math inline">\(x\)</span> <span class="math inline">\(\rightarrow\)</span> you get 16</li>
+<li>Sum 16 plus 3 multiplied by <span class="math inline">\(x\)</span> <span class="math inline">\(\rightarrow\)</span> you get 22</li>
+<li>22 is the answer.</li>
+</ul>
+</div>
+<p>Note that, in the first multiplication, we have to start with <span class="math inline">\(x \times x=2 \times x = 4\)</span>, thus the number of times that we should multiply 2 by <span class="math inline">\(x\)</span> are <span class="math inline">\(y-1\)</span>. Thus, we would lead to the following generalized steps:</p>
+<pre><code>Algorithm sketch 1
+  
+start with x = 2 and y = 4
+n[1] = x
+
+Count up from i in 1 to y-1 
+  n[i+1] = n[i] * x 
+
+z = n[y] + 3 * x
+z is  the answer</code></pre>
+<div class="div-3">
+<p>This process is referred to as writing ‘pseudo-code’ as an algorithm design with no particular target language.</p>
+</div>
+</div>
+<div id="step-4---test-your-algorithm" class="section level1">
+<h1>Step 4 - Test Your Algorithm</h1>
+<p>Testing your algorithm is a useful step to ensure steps 1-3 are actually right before we proceed to the step 5. Some examples about what you should do/think during this stage are described below:</p>
+<div class="div-2">
+<ul>
+<li>Test your algorithm choosing different values for parameters</li>
+<li>What happen if the value is positive, negative or equal to zero?</li>
+<li>Have you restricted parameter space? Ex.: <span class="math inline">\(y\geq 0\)</span>.</li>
+<li>Use mathematical proofs</li>
+<li>There is always more than one right answer to a programming problem</li>
+</ul>
+</div>
+<div class="div-3">
+<p>Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.</p>
+</div>
+<p>Sometimes, we mis-generalizing our algorithm at step 3, and this mistake lead us again to the steps 1-2. Generally, mis-generalization happens when we did not consider all possible cases during step 3, or when we did not have mathematical proofs about what we are doing.</p>
+<p>A good example of algorithm mistake could be seen in the Example 2. What happens if <span class="math inline">\(y=0\)</span>, or <span class="math inline">\(y&lt;0\)</span>? We can see that our algorithm handles these cases incorrectly. If you calculate the algorithm steps by hand with <span class="math inline">\(x=2\)</span> and <span class="math inline">\(y=0\)</span> you will get <span class="math inline">\(2^0=2\)</span> rather than <span class="math inline">\(2^0=1\)</span> (correct answer). Additionally, for any value <span class="math inline">\(y\leq 0\)</span> the algorithm try to count from <span class="math inline">\(1\)</span> to <span class="math inline">\(y-1&lt;0\)</span>, of which are no Natural number, leading an error in the process. Thus, we can conclude that <span class="math inline">\(|y| \in \mathcal{N}_{0}\)</span>, where <span class="math inline">\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)</span> represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to higher number of cases:</p>
+<pre><code>Algorithm sketch 2 
+
+y must be a integer number
+
+start with x = 2 and y = 4
+
+if y=0 {
+n[1] = 1
+i=0
+} else{
+Count up from i in 1 to |y|-1
+  if y&lt;0 {
+  n[1] = 1/x
+  n[i+1] = n[i] * 1/x 
+  } else{
+  n[1] = x
+  n[i+1] = n[i] * x
+  }
+}
+z = n[i+1] + 3 * x
+z is  the answer</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="example2.png" alt="Example of output using the algorithm 2" width="500px" />
+<p class="caption">
+Figure 3: Example of output using the algorithm 2
+</p>
+</div>
+<div class="div-3">
+<p>Question: How can we improve this algorithm? Think about the case where <span class="math inline">\(x=y=0\)</span>.</p>
+</div>
+For some problems, there are particular cases that require our attention. Every time we detect problem with our algorithm in this step, we have to choose one of this option:
+<div class="div-2">
+<ol style="list-style-type: decimal">
+<li>Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.</li>
+<li>Skip the last steps and fix the algorithm directly in the step 4 (when we know easily how to fix the problem).</li>
+</ol>
+</div>
+<div id="example-3" class="section level2">
+<h2>Example 3</h2>
+<p>The numbers in the Figure 4 were obtained from an algorithm that has one parameter <span class="math inline">\(N \in \mathcal{N}_{0}\)</span> to be specified, where <span class="math inline">\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)</span> represents Natural numbers with zero, and a sequence of number as output values for each <span class="math inline">\(N\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="example3.png" alt="Output of sequences of integers based on values of $N$ from 0 to 4" width="400px" />
+<p class="caption">
+Figure 4: Output of sequences of integers based on values of <span class="math inline">\(N\)</span> from 0 to 4
+</p>
+</div>
+<div class="div-3">
+<p>Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for <span class="math inline">\(N=5\)</span>?</p>
+</div>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p>[1] Hilton, AD; Lipp, GM; Rodger, SH, Translation from Problem to Code in Seven Steps, Comped 2019 Proceedings of the Acm Conference on Global Computing Education (2019), pp. 78-84.</p>
+</div>
+<div id="answers" class="section level1">
+<h1>Answers</h1>
+<div id="example-3-1" class="section level2">
+<h2>Example 3</h2>
+<pre><code>Algorithm sketch 3
+
+N must be a Natural number with zero
+
+start with N = n, where n represents the value 
+  Minimum value = 4 * N
+  Maximum value = 9 * N + 6
+  Increment of the sequence = 3
+  
+  x[1] = Minimum value
+  While x[i] is less than the Maximum value
+    x[i] = x[i-1] + Increment of the sequence
+  
+  x is the answer</code></pre>
+<pre class="r code-input"><code># N = 6
+N=5
+seq &lt;- seq(4*N, 9*N+6, 3)
+cat(&quot;The answer is&quot;, seq)</code></pre>
+<pre><code>## The answer is 20 23 26 29 32 35 38 41 44 47 50</code></pre>
+<p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
+</div>
+</div>
