@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/experimental_design/</loc>
-    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://prof-thiagooliveira.netlify.com/accomplishments/</loc>
     <lastmod>2018-08-28T17:00:00+00:00</lastmod>
   </url>
@@ -110,41 +105,6 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/categories/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/forecast-models/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/forecast-models/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/5-covid19/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-models/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/statistical-models/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -335,51 +295,6 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-methods/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/c-/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/c-/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/computer-programs/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/computer-programs/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/computer-science/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/expressions/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/algorithm/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -594,32 +509,32 @@
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/author/angelo-p.-m.-jacomino/</loc>
-    <lastmod>2017-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/colour/</loc>
-    <lastmod>2017-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/fruit/</loc>
-    <lastmod>2017-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</loc>
-    <lastmod>2017-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/postharvest/</loc>
-    <lastmod>2017-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/statistics/</loc>
-    <lastmod>2017-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -658,7 +573,15 @@
   </url>
   
   <url>
+    <loc>https://prof-thiagooliveira.netlify.com/categories/</loc>
+  </url>
+  
+  <url>
     <loc>https://prof-thiagooliveira.netlify.com/gallery/</loc>
+  </url>
+  
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/post/</loc>
   </url>
   
 </urlset>
