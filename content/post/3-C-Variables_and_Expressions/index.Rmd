@@ -20,7 +20,7 @@ image:
   preview_only: no
 projects: []
 output:
-  blogdown::html_page:
+  html_document:
     toc: true
     css: "my_style.css"
 ---
