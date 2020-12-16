@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/post/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 05 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
@@ -24,9 +24,11 @@
     <item>
       <title>How hard is it to predict COVID-19 cases?</title>
       <link>https://prof-thiagooliveira.netlify.com/post/5-covid19/</link>
-      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/5-covid19/</guid>
       <description>
+&lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/5-covid19/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/5-covid19/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -119,6 +121,8 @@
       <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/expressions/</guid>
       <description>
+&lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/expressions/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/expressions/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -868,7 +872,10 @@ cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/</guid>
       <description>
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/index_files/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/index_files/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/index_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/c-variables-and-expressions/index_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
