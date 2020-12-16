@@ -1,29 +1,28 @@
 ---
 title: Signed and Unsigned Binary Numbers
 author: Thiago de Paula Oliveira
-date: "2020-07-01"
-slug: c-variables-and-expressions
+date: '2020-12-16'
+slug: signed-and-unsigned-binary-numbers
 categories:
   - C++
   - Computer Programs
 tags:
   - C++
   - Computer Science
+  - Computer Programs
 subtitle: ''
 summary: ''
-authors: []
-lastmod: "`r Sys.Date()`"
+authors: 
+- admin
+lastmod: '2020-12-16T12:10:51Z'
 featured: no
 image:
   caption: ''
   focal_point: ''
   preview_only: no
 projects: []
-output:
-  html_document:
-    toc: true
-    css: "my_style.css"
 ---
+
 # Introduction
 
 When we think about writing a program in C, the first step is understand how variables should be assigned. There are several variable's type in C, and here we are introducing the type `int`, which is used for integer data types. Basically, we can define a variable as an integer in two ways:

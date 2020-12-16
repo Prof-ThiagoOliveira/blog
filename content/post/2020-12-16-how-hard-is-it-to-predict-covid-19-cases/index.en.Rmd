@@ -1,30 +1,36 @@
 ---
-title: "How hard is it to predict COVID-19 cases?"
-subtitle: " Short answer: very hard!"
+title: 'How hard is it to predict COVID-19 cases?'
 author:
   - Rafael Moral
-  - Thiago Oliveira
-  - Andrew Parnell
-date: 09-29-2020
+  - Thiago de Paula Oliveira
+  - Andrew Parnell  
+date: '2020-12-16'
+slug: how-hard-is-it-to-predict-covid-19-cases
 categories:
-  - Forecast Models
+  - COVID-19
   - Statistical Models
+  - Forecast Models
 tags:
   - Covid-19
-  - Forecast Models
+  - Statistics
+  - State-Space Model
   - Statistical Models
-lastmod: "`r Sys.Date()`"
-citation_url: https://www.hamilton.ie/covid19/posts/2020-09-29-how-hard-is-it-to-predict-covid-19-cases/
-collections:
-posts:
-citations: true
-share: [twitter, linkedin]
-output:
-  html_document:
-    toc: true
-    css: "my_style.css"
+  - Statistical Methodology
+subtitle: 'Short answer: very hard!'
+summary: ''
+authors: 
+  - Rafael Moral
+  - admin
+  - Andrew Parnell  
+lastmod: '2020-12-16T12:19:46Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
 ---
-  
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE,

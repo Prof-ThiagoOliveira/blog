@@ -1,7 +1,7 @@
 ---
 title: Expressions
 author: Thiago de Paula Oliveira
-date: '2020-07-12'
+date: '2020-12-16'
 slug: expressions
 categories:
   - C++
@@ -12,18 +12,15 @@ tags:
   - Computer Programs
 subtitle: ''
 summary: ''
-authors: []
-lastmod: "`r Sys.Date()`"
+authors: 
+- admin
+lastmod: '2020-12-16T12:15:54Z'
 featured: no
 image:
   caption: ''
   focal_point: ''
   preview_only: no
 projects: []
-output:
-  html_document:
-    toc: true
-    css: "my_style.css"
 ---
 
 # Introduction
@@ -370,6 +367,7 @@ Note that when we use `x*= (y/z) % 2` the variable $x$ multiply the entire expre
 
 # References
 
+* C Operator Precedence - https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1
 
 **Did you find this page helpful? Consider sharing it 🙌**
                        

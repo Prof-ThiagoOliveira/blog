@@ -12,7 +12,8 @@ tags:
   - Computer Science
 subtitle: ''
 summary: ''
-authors: []
+authors: 
+- admin
 lastmod: '2020-12-16T11:53:03Z'
 featured: no
 image:
