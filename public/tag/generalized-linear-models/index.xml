@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Generalized linear models | Researcher</title>
+    <link>https://prof-thiagooliveira.netlify.com/tag/generalized-linear-models/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tag/generalized-linear-models/index.xml" rel="self" type="application/rss+xml" />
+    <description>Generalized linear models</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <title>Generalized linear models</title>
+      <link>https://prof-thiagooliveira.netlify.com/tag/generalized-linear-models/</link>
+    </image>
+    
+    <item>
+      <title>Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transmission efficiency of xylella fastidiosa subsp. Pauca sequence types by sharpshooter vectors after in vitro acquisition</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

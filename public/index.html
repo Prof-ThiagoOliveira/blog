@@ -1,0 +1,5739 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Thiago de Paula Oliveira">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Researcher">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://prof-thiagooliveira.netlify.com/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2e6fd9">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.e1b970b221479c370be0afa52ad28f91.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-160613173-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+  
+
+
+  
+  
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Researcher">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://prof-thiagooliveira.netlify.com/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@_OliveiraTP_">
+  <meta property="twitter:creator" content="@_OliveiraTP_">
+  
+  <meta property="og:site_name" content="Researcher">
+  <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/">
+  <meta property="og:title" content="Researcher">
+  <meta property="og:description" content="Researcher"><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2030-06-01T13:00:00&#43;00:00">
+  
+
+  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://prof-thiagooliveira.netlify.com?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "https://prof-thiagooliveira.netlify.com"
+}
+</script>
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Researcher</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Researcher</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Researcher</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about" data-target="#about"><span>Introduction</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured" data-target="#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/"><span>Courses</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/gallery/"><span>Gallery</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/accomplishments/"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/cv.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    
+
+
+
+
+
+
+
+
+
+
+
+  
+<span class="js-widget-page d-none"></span>
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+    
+      
+    
+    
+    
+    
+    
+      
+      
+    
+    
+      
+      
+    
+  
+
+  
+    
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="demo" class="home-section wg-blank dark " style="padding: 45px 0 45px 0;" >
+   <div class="home-section-bg  bg-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(&#39;https://prof-thiagooliveira.netlify.com/media/headers/agriculture.jpg&#39;);background-size: cover;background-position: center;"></div>
+    <div class="container">
+
+    
+      <div class="row  justify-content-center">
+      
+        
+          <div class="col-12 section-heading text-center">
+            <h1>Researcher in Statistics</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+  <div class="col-12">
+    <p><strong>Executive summary:</strong></p>
+<ul>
+<li>
+<p>Dr. Oliveira is a reasercher in Biostatistics with strong publication record in the development and application of biostatistical theory, experimental and observational studies, agriculture, and sports.</p>
+</li>
+<li>
+<p>The Roslin Institute, University of Edinburgh, Edinburgh, Scotland</p>
+</li>
+</ul>
+
+  </div>
+
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="about" class="home-section wg-about  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+
+      
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12 col-lg-4">
+    <div id="profile">
+
+      
+      
+      <img class="avatar avatar-circle" src="/author/thiago-de-paula-oliveira/avatar_hu9934606b14d258ccb98b349da0748f45_3865_270x270_fill_q90_lanczos_center.jpg" alt="Thiago de Paula Oliveira">
+      
+
+      <div class="portrait-title">
+        <h2>Thiago de Paula Oliveira</h2>
+        <h3>Researcher</h3>
+
+        
+        <h3>
+          <a href="https://www.ed.ac.uk/roslin" target="_blank" rel="noopener">
+          <span>The Roslin Institute</span>
+          </a>
+        </h3>
+        
+      </div>
+
+      <ul class="network-icon" aria-hidden="true">
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="/#contact"  aria-label="envelope">
+            <i class="fas fa-envelope big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://orcid.org/0000-0002-4555-2584" target="_blank" rel="noopener" aria-label="orcid">
+            <i class="fab fa-orcid big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener" aria-label="twitter">
+            <i class="fab fa-twitter big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;user=KKY2ynUAAAAJ" target="_blank" rel="noopener" aria-label="google">
+            <i class="fab fa-google big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://github.com/Prof-ThiagoOliveira" target="_blank" rel="noopener" aria-label="github">
+            <i class="fab fa-github big-icon"></i>
+          </a>
+        </li>
+        
+        
+        
+        
+          
+        
+        
+        
+        
+        
+          
+        
+        <li>
+          <a href="https://www.thiagooliveira.co.uk" target="_blank" rel="noopener" aria-label="blog">
+            <i class="fas fa-blog big-icon"></i>
+          </a>
+        </li>
+        
+      </ul>
+
+    </div>
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+    <h1>Biography</h1>
+
+    <p align="justify">
+I hold a PhD in Statistics from the University of São Paulo, Brazil, and have at least eight years of experience in experimental statistics, statistical modelling, and concordance analysis. As a PhD candidate, I was a visiting Scholar at the National University of Ireland in 2016, working with statistical modelling for agricultural data. Besides, I was a lecturer in the Department of Exact Sciences at ESALQ/University of São Paulo, Piracicaba, São Paulo, Brazil from 2017 to 2019.
+</p>
+<p align="justify">
+I worked as a Researcher Biostatistician from 2019-2020 at Insight Centre for Data Analytics in partnership with Orreco, School of Mathematics, Statistics, and Applied Mathematics, and NUI Galway in the development of statistical methods applied to athlete performance, and predictive models for COVID-19. I developed statistical methods in longitudinal concordance correlation, multilevel model (hierarchical model), generalized linear mixed-effects model, state-space models, experimental design, longitudinal data. 
+</p>
+<p align="justify">
+As an enthusiast of the usage of dashboard apps to create an interactive data visualization, I believe that interactive applications are an easier way to create visual representations of large scale data sets, allowing the user explore the complex reality of the database, or even handle multiple sets of data in a single visualization.
+</p>
+<p align="justify">
+Recently, I was awarded a Marie Skłodowska-Curie Individual Fellowship to work at The Roslin Institute - The University of Edinburgh, where I currently work on the development of statistical models applied to quantitative genetics and genomics of plant breeding in partnership with <a href="https://www.lgseeds.co.uk/">Limagrain</a>.
+</p>
+
+
+    <div class="row">
+
+      
+      <div class="col-md-5">
+        <h3>Interests</h3>
+        <ul class="ul-interests">
+          
+          <li>Statistics and Biostatistics</li>
+          
+          <li>Concordance Analysis</li>
+          
+          <li>Multilevel and Forecast Models</li>
+          
+          <li>Longitudinal Data</li>
+          
+          <li>Agriculture</li>
+          
+          <li>Sports (Athlete Performance)</li>
+          
+          <li>Dashboard App</li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <div class="col-md-7">
+        <h3>Education</h3>
+        <ul class="ul-edu fa-ul">
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">PhD in Statistics, 2018</p>
+              <p class="institution">University of São Paulo</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">Master in Statistics, 2014</p>
+              <p class="institution">University of São Paulo</p>
+            </div>
+          </li>
+          
+          <li>
+            <i class="fa-li fas fa-graduation-cap"></i>
+            <div class="description">
+              <p class="course">BSc in Agricultural Engineer, 2012</p>
+              <p class="institution">University of São Paulo</p>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="skills" class="home-section wg-featurette  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+
+      
+
+
+<div class="row featurette">
+  
+  <div class="col-md-12 section-heading">
+    <h1>Skills</h1>
+    
+  </div>
+  
+
+  
+
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-chart-line"></i></div>
+    
+    <h3>Statistics</h3>
+    <p>Experience: 8 years</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fab fa-r-project"></i></div>
+    
+    <h3>R and Shiny</h3>
+    <p>Advanced</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fab fa-contao"></i></div>
+    
+    <h3>C++</h3>
+    <p>Beginner</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-file-word"></i></div>
+    
+    <h3>Markdown</h3>
+    <p>Advanced</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-subscript"></i></div>
+    
+    <h3>Maple</h3>
+    <p>Intermediate</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-calculator"></i></div>
+    
+    <h3>SageMath</h3>
+    <p>Intermediate</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fab fa-github"></i></div>
+    
+    <h3>Github</h3>
+    <p>Advanced</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-image"></i></div>
+    
+    <h3>Inkscape</h3>
+    <p>Intermediate</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fab fa-linux"></i></div>
+    
+    <h3>Linux</h3>
+    <p>Advanced</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-file-excel"></i></div>
+    
+    <h3>Office</h3>
+    <p>Advanced</p>
+  </div>
+  
+  
+  
+  
+    
+  
+  <div class="col-12 col-sm-4">
+    
+    <div class="featurette-icon"><i class="fas fa-camera-retro"></i></div>
+    
+    <h3>Photography</h3>
+    <p>Intermediate</p>
+  </div>
+  
+</div>
+
+
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="experience" class="home-section wg-experience  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Experience</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+<div class="col-12 col-lg-8">
+  
+
+  
+  
+  
+  <div class="row experience">
+    
+    <div class="col-auto text-center flex-column d-none d-sm-flex">
+      <div class="row h-50">
+        <div class="col ">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="m-2">
+        <span class="badge badge-pill border exp-fill">&nbsp;</span>
+      </div>
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    
+    <div class="col py-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title exp-title text-muted mt-0 mb-1">Researcher Fellow (TRAIN@Ed)</h4>
+          <h4 class="card-title exp-company text-muted my-0"><a href="https://www.ed.ac.uk/roslin" target="_blank" rel="noopener">The Roslin Institute, University of Edinburgh</a></h4>
+          <div class="text-muted exp-meta">
+            Oct 2020 –
+            
+              Present
+            
+            
+              <span class="middot-divider"></span>
+              <span>Edinburgh, Scotland</span>
+            
+          </div>
+          <div class="card-text"><p>Responsibilities include:</p>
+<ul>
+<li>Development of statistical models in quantitative genetics and genomics of plant breeding</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row experience">
+    
+    <div class="col-auto text-center flex-column d-none d-sm-flex">
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="m-2">
+        <span class="badge badge-pill border ">&nbsp;</span>
+      </div>
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    
+    <div class="col py-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title exp-title text-muted mt-0 mb-1">Posdoctoral Researcher</h4>
+          <h4 class="card-title exp-company text-muted my-0"><a href="http://www.nuigalway.ie/" target="_blank" rel="noopener">NUI Galway</a></h4>
+          <div class="text-muted exp-meta">
+            Aug 2020 –
+            
+              Sep 2020
+            
+            
+              <span class="middot-divider"></span>
+              <span>Galway, Ireland</span>
+            
+          </div>
+          <div class="card-text"><p>Responsibilities include:</p>
+<ul>
+<li>Development of statistical models applied to COVID-19 outbreak</li>
+<li>Development of shiny apps</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row experience">
+    
+    <div class="col-auto text-center flex-column d-none d-sm-flex">
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="m-2">
+        <span class="badge badge-pill border ">&nbsp;</span>
+      </div>
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    
+    <div class="col py-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title exp-title text-muted mt-0 mb-1">Posdoctoral Researcher</h4>
+          <h4 class="card-title exp-company text-muted my-0"><a href="http://www.nuigalway.ie/" target="_blank" rel="noopener">NUI Galway</a></h4>
+          <div class="text-muted exp-meta">
+            Mar 2020 –
+            
+              Jun 2020
+            
+            
+              <span class="middot-divider"></span>
+              <span>Galway, Ireland</span>
+            
+          </div>
+          <div class="card-text"><p>Responsibilities include:</p>
+<ul>
+<li>Development of biostatistical models applied to sports</li>
+<li>Development of shiny apps</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row experience">
+    
+    <div class="col-auto text-center flex-column d-none d-sm-flex">
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="m-2">
+        <span class="badge badge-pill border ">&nbsp;</span>
+      </div>
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    
+    <div class="col py-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title exp-title text-muted mt-0 mb-1">Posdoctoral Researcher</h4>
+          <h4 class="card-title exp-company text-muted my-0"><a href="http://www.nuigalway.ie/" target="_blank" rel="noopener">NUI Galway</a></h4>
+          <div class="text-muted exp-meta">
+            Apr 2019 –
+            
+              Dec 2019
+            
+            
+              <span class="middot-divider"></span>
+              <span>Galway, Ireland</span>
+            
+          </div>
+          <div class="card-text"><p>Responsibilities include:</p>
+<ul>
+<li>Development of biostatistical models applied to sports</li>
+<li>Development of shiny apps</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row experience">
+    
+    <div class="col-auto text-center flex-column d-none d-sm-flex">
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="m-2">
+        <span class="badge badge-pill border ">&nbsp;</span>
+      </div>
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    
+    <div class="col py-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title exp-title text-muted mt-0 mb-1">Posdoctoral Researcher</h4>
+          <h4 class="card-title exp-company text-muted my-0"><a href="https://www5.usp.br/" target="_blank" rel="noopener">University of São Paulo</a></h4>
+          <div class="text-muted exp-meta">
+            May 2018 –
+            
+              Apr 2019
+            
+            
+              <span class="middot-divider"></span>
+              <span>Piracicaba, Sao Paulo</span>
+            
+          </div>
+          <div class="card-text"><p>Responsibilities include:</p>
+<ul>
+<li>Development of statistical models applied to agriculture</li>
+<li>Development of R packages</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row experience">
+    
+    <div class="col-auto text-center flex-column d-none d-sm-flex">
+      <div class="row h-50">
+        <div class="col border-right">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+      <div class="m-2">
+        <span class="badge badge-pill border ">&nbsp;</span>
+      </div>
+      <div class="row h-50">
+        <div class="col ">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+      </div>
+    </div>
+    
+    <div class="col py-2">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title exp-title text-muted mt-0 mb-1">Assistant Professor</h4>
+          <h4 class="card-title exp-company text-muted my-0"><a href="https://www5.usp.br/" target="_blank" rel="noopener">University of São Paulo</a></h4>
+          <div class="text-muted exp-meta">
+            May 2018 –
+            
+              Apr 2019
+            
+            
+              <span class="middot-divider"></span>
+              <span>Piracicaba, Sao Paulo</span>
+            
+          </div>
+          <div class="card-text"><p>Lecturer in the Department of Exact Sciences at ‘Luiz de Queiroz’ College of Agriculture (ESALQ)<br>
+Responsibilities include:</p>
+<ul>
+<li>Calculus I and II</li>
+<li>Statistics</li>
+<li>Experimental Statistics</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="posts" class="home-section wg-pages  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Recent Posts</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+<div class="col-12 col-lg-8">
+
+  
+
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/5-covid19/" >How hard is it to predict COVID-19 cases?</a>
+    </h3>
+
+    
+    <a href="/post/5-covid19/"  class="summary-link">
+      <div class="article-style">
+        tl;dr How many people will get infected tomorrow? What strategies can we use? Why is it so difficult? What about short-term forecasting? Grouping countries together All models are wrong… Citation   tl;dr  Many different variables affect how the pandemic progresses and it is extremely difficult to identify each one, and precisely measure them.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Dec 16, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/forecast-models/">Forecast Models</a>, <a href="/category/statistical-models/">Statistical Models</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/expressions/" >Expressions</a>
+    </h3>
+
+    
+    <a href="/post/expressions/"  class="summary-link">
+      <div class="article-style">
+        Introduction Using Parentheses () Modulus operator (%) Example:  Short hand or syntatic sugar Example 1: Example 2:  Operator precedence and associativity References   Introduction Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Dec 16, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/c-/">C&#43;&#43;</a>, <a href="/category/computer-programs/">Computer Programs</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/the-seven-steps-of-a-programer/" >The seven steps of a programer</a>
+    </h3>
+
+    
+    <a href="/post/the-seven-steps-of-a-programer/"  class="summary-link">
+      <div class="article-style">
+        Overview of the Seven Steps Step 1 - Project definition using simple examples Example 1  Step 2 - Write everything you did Example 2  Step 3 - Generalize Step 4 - Test Your Algorithm Example 3  References Answers Example 3    Overview of the Seven Steps The seven steps proposed by Hilton et al.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Dec 16, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/c-/">C&#43;&#43;</a>, <a href="/category/computer-programs/">Computer Programs</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/c-variables-and-expressions/" >Signed and Unsigned Binary Numbers</a>
+    </h3>
+
+    
+    <a href="/post/c-variables-and-expressions/"  class="summary-link">
+      <div class="article-style">
+        Introduction Examples Unsigned int Signed int  References   Introduction When we think about writing a program in C, the first step is understand how variables should be assigned.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Dec 16, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/c-/">C&#43;&#43;</a>, <a href="/category/computer-programs/">Computer Programs</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/experimental_design/" >Main elements and questions of a good experimental plan.</a>
+    </h3>
+
+    
+    <a href="/post/experimental_design/"  class="summary-link">
+      <div class="article-style">
+        Did you find this page helpful? Consider sharing it 🙌 
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 27, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    
+    
+    <a href="/post/experimental_design/" >
+      <img src="/post/experimental_design/featured_hue444b370fd5c9e2ccf62283f6932f07e_236512_188962e5187b7f250e70e6bbe3e09e1a.png" data-src="/post/experimental_design/featured_hue444b370fd5c9e2ccf62283f6932f07e_236512_150x0_resize_lanczos_2.png" alt="Main elements and questions of a good experimental plan." class="lazyload">
+    </a>
+    
+  </div>
+</div>
+
+    
+  
+
+  
+  
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="projects" class="home-section wg-portfolio  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Projects</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+
+<div class="col-12 col-lg-8">
+
+  
+
+  
+
+    
+
+    
+    
+    
+    
+      
+    
+
+    <span class="d-none default-project-filter">*</span>
+
+    
+    
+    <div class="project-toolbar">
+      <div class="project-filters">
+        <div class="btn-toolbar">
+          <div class="btn-group flex-wrap">
+            
+              
+              
+              
+                
+              
+              <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
+            
+              
+              
+              
+              <a href="#" data-filter=".js-id-R-packages" class="btn btn-primary btn-lg">R packages</a>
+            
+              
+              
+              
+              <a href="#" data-filter=".js-id-Agriculture" class="btn btn-primary btn-lg">Agriculture</a>
+            
+              
+              
+              
+              <a href="#" data-filter=".js-id-Sports" class="btn btn-primary btn-lg">Sports</a>
+            
+              
+              
+              
+              <a href="#" data-filter=".js-id-Demo" class="btn btn-primary btn-lg">Other</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+
+  <div class="isotope projects-container js-layout-masonry ">
+    
+
+      
+      
+      
+
+      
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="project-card project-item isotope-item js-id-Statistical-modelling js-id-Athlete-performance js-id-Biostatistics js-id-Shiny-App js-id-Sports">
+  <div class="card">
+    
+    
+    
+    
+    <a href="/project/sport-project/"  class="card-image hover-overlay">
+      <img src="/project/sport-project/featured_hudffbf5ce04efff5a9d575004be26f24a_107787_25761549c589a8cf592122fbdb84f975.jpeg" data-src="/project/sport-project/featured_hudffbf5ce04efff5a9d575004be26f24a_107787_550x0_resize_q90_lanczos.jpeg" alt="The use of biostatistics for optimizing athletes performance" class="img-responsive lazyload">
+    </a>
+    
+    <div class="card-text">
+      <h4><a href="/project/sport-project/" >The use of biostatistics for optimizing athletes performance</a></h4>
+      
+      <div class="article-style">
+        <p>Uniquely blending Data Science and Sports Science to generate customized strategies by athlete</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+      
+
+    
+
+      
+      
+      
+
+      
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="project-card project-item isotope-item js-id-Image-Analysis js-id-Digital-Images js-id-Circular-Statistics js-id-Agriculture">
+  <div class="card">
+    
+    
+    
+    
+    <a href="/project/color-project/"  class="card-image hover-overlay">
+      <img src="/project/color-project/featured_hu006f905d4145a98b48afe86d63a58d99_114685_bcf41d5b1ae805952b11264f74f3f546.jpg" data-src="/project/color-project/featured_hu006f905d4145a98b48afe86d63a58d99_114685_550x0_resize_q90_lanczos.jpg" alt="Measuring color using image analyis" class="img-responsive lazyload">
+    </a>
+    
+    <div class="card-text">
+      <h4><a href="/project/color-project/" >Measuring color using image analyis</a></h4>
+      
+      <div class="article-style">
+        <p>Promote the usage of image analysis as well as development of statistical methodologies for that purpose.</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+      
+
+    
+
+      
+      
+      
+
+      
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<div class="project-card project-item isotope-item js-id-Agreement js-id-Precision js-id-Accuracy js-id-R-packages">
+  <div class="card">
+    
+    
+    
+    
+    <a href="/project/concordance-project/"  class="card-image hover-overlay">
+      <img src="/project/concordance-project/featured_hu3fafb11cb2ebd58faf7b9121f1d536c6_9413_6f219ee83f63f9eedeecd3b9a7e065a1.jpg" data-src="/project/concordance-project/featured_hu3fafb11cb2ebd58faf7b9121f1d536c6_9413_550x0_resize_q90_lanczos.jpg" alt="The lcc Package" class="img-responsive lazyload">
+    </a>
+    
+    <div class="card-text">
+      <h4><a href="/project/concordance-project/" >The lcc Package</a></h4>
+      
+      <div class="article-style">
+        <p>Estimating longitudinal concordance correlation function</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+      
+
+    
+  </div>
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="talks" class="home-section wg-pages  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Recent &amp; Upcoming Talks</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+<div class="col-12 col-lg-8">
+
+  
+
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2020-usp/" >Global Short-Term Forecasting of Covid-19 Cases</a>
+    </h3>
+
+    
+    <a href="/talk/2020-usp/"  class="summary-link">
+      <div class="article-style">
+        Accurate short-term forecasting is thus vital to support country-level policy making during COVID-19 outbreak
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Jun 1, 2030 1:00 PM &mdash; 3:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>University of São Paulo</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/pdf/2006.00111.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/Prof-ThiagoOliveira/covid_forecast" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+  
+    
+  
+
+
+
+
+  
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.youtube.com/watch?v=M6H1Zcw9PRI" target="_blank" rel="noopener">
+  Video
+</a>
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://twitter.com/georgecushen" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2020-young-isa/" >Global Short-Term Forecasting of Covid-19 Cases</a>
+    </h3>
+
+    
+    <a href="/talk/2020-young-isa/"  class="summary-link">
+      <div class="article-style">
+        Accurate short-term forecasting is thus vital to support country-level policy making during COVID-19 outbreak
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Nov 12, 2020 11:00 AM &mdash; 12:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>University of Maynooth</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/pdf/2006.00111.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/Prof-ThiagoOliveira/covid_forecast" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+  
+    
+  
+
+
+
+
+  
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.youtube.com/watch?v=M6H1Zcw9PRI" target="_blank" rel="noopener">
+  Video
+</a>
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://twitter.com/georgecushen" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2020-nuig/" >Estimating NBA athlete performance using multilevel models</a>
+    </h3>
+
+    
+    <a href="/talk/2020-nuig/"  class="summary-link">
+      <div class="article-style">
+        Athlete performance evaluation based on novel methodology using principal components and multilevel models
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Apr 21, 2020 10:00 AM &mdash; 12:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>National University of Ireland Galway</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/john-newell/">John Newell</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/sport-project/">
+    Project
+  </a>
+  
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://twitter.com/georgecushen" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2019-young-stats/" >Modelling menstrual cycle length using state space models</a>
+    </h3>
+
+    
+    <a href="/talk/2019-young-stats/"  class="summary-link">
+      <div class="article-style">
+        <p align="justify">Times are changing. At an elite level, female athletes and coaches across the globe are now starting to work with the menstrual cycle to gain a performance edge. By tracking the menstrual cycle, and knowing how, why and when hormone fluctuations affect female physiology, an athlete's training, nutrition and recovery can be tailored to their cycle to sustain peak performance
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Oct 4, 2019 9:00 AM &mdash; 5:00 PM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>Glenroyal Hotel &amp; Leisure Club</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/john-newell/">John Newell</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/sport-project/">
+    Project
+  </a>
+  
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://young-istat.github.io/news/" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2019-iwsm/" >The longitudinal concordance correlation</a>
+    </h3>
+
+    
+    <a href="/talk/2019-iwsm/"  class="summary-link">
+      <div class="article-style">
+        Abstract:
+We present the lcc package, available from the Comprehensive R Archive Network (CRAN). The package implements estimation procedures for the longitudinal concordance correlation (LCC), using fixed effects and variance components estimates from linear mixed models.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Jun 7, 2019 &mdash; Jun 12, 2019
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>University of Minho</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>, <span ><a href="/author/john-hinde/">John Hinde</a></span>, <span ><a href="/author/silvio-sandoval-zocchi/">Silvio Sandoval Zocchi</a></span>, <span ><a href="/author/clarice-garcia-borges-demetrio/">Clarice Garcia Borges Demetrio</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://link.springer.com/article/10.1007/s13253-018-0321-1" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/concordance-project/">
+    Project
+  </a>
+  
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="http://www.iwsm2019.org/" target="_blank" rel="noopener">
+    <i class="fab fa-twitter mr-1"></i>
+    Follow
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
+
+  
+  
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="featured" class="home-section wg-featured  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Featured Publications</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<div class="col-12 col-lg-8">
+
+  
+
+  
+    
+      
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple">
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/georgie-bruinvels/">Georgie Bruinvels</a></span>, <span ><a href="/author/charles-pedlar/">Charles Pedlar</a></span>, <span ><a href="/author/john-newell/">John Newell</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    December 2020
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="pub-publication">
+    
+      <em>Nature Scientific Reports</em>
+    
+  </span>
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  
+  
+  <a href="/publication/2020-scireports/">
+    <div class="img-hover-zoom"><img src="/publication/2020-scireports/featured_hu8151cd125c7b1a2ad0b455bcf7ef3fa8_267573_5f55bb489a54f450fe6473d03c1f660c.png" data-src="/publication/2020-scireports/featured_hu8151cd125c7b1a2ad0b455bcf7ef3fa8_267573_808x455_fill_lanczos_smart1_2.png" class="article-banner lazyload" alt="Modelling menstrual cycle length in athletes using state-space models"></div>
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3">
+    <a href="/publication/2020-scireports/">Modelling menstrual cycle length in athletes using state-space models</a>
+  </h3>
+
+  
+  <a href="/publication/2020-scireports/" class="summary-link">
+    <div class="article-style">
+      <p>Development of an appropriate parametric state-space formulation for the marginal distribution of standard menstrual cycles for female athletes</p>
+    </div>
+  </a>
+  
+
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://assets.researchsquare.com/files/rs-122553/v1_stamped.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-scireports/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/sport-project/">
+    Project
+  </a>
+  
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/10.21203/rs.3.rs-122553/v1" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.researchsquare.com/article/rs-122553/v1" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+
+  </div>
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple">
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span ><a href="/author/heloisa-thomazi-kleina1/">Heloisa Thomazi Kleina1</a></span>, <span ><a href="/author/karla-kudlawiec/">Karla Kudlawiec</a></span>, <span ><a href="/author/mariana-b.-esteves/">Mariana B. Esteves</a></span>, <span ><a href="/author/marco-a.-dalbo/">Marco A. Dalbó</a></span>, <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/nathalie-maluta/">Nathalie Maluta</a></span>, <span ><a href="/author/joao-r.-s.-lopes/">João R. S. Lopes</a></span>, <span ><a href="/author/louise-l.-may-de-mio1/">Louise L. May-De-Mio1</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    August 2020
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="pub-publication">
+    
+      <em>European Journal of Plant Pathology</em>
+    
+  </span>
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  
+  
+  <a href="/publication/2020-plant_pathology/">
+    <div class="img-hover-zoom"><img src="/publication/2020-plant_pathology/featured_hu2fb2d45f824dbfb343939ea461255604_25737_9881100743d64c14e6c3aab473107532.jpg" data-src="/publication/2020-plant_pathology/featured_hu2fb2d45f824dbfb343939ea461255604_25737_808x455_fill_q90_lanczos_smart1.jpg" class="article-banner lazyload" alt="Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)"></div>
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3">
+    <a href="/publication/2020-plant_pathology/">Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)</a>
+  </h3>
+
+  
+  <a href="/publication/2020-plant_pathology/" class="summary-link">
+    <div class="article-style">
+      <p>We focused to investigate the host non preference and suitability for xylem-sap feeding among plum genotypes that differ in bacterial leaf scald intensity in the field.</p>
+    </div>
+  </a>
+  
+
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-plant_pathology/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.springer.com/journal/10658/" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+
+  </div>
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple">
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>, <span ><a href="/author/silvio-sandoval-zocchi/">Silvio Sandoval Zocchi</a></span>, <span ><a href="/author/clarice-g.-b.-demetrio/">Clarice G. B. Demetrio</a></span>, <span ><a href="/author/john-hinde/">John Hinde</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    August 2020
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="pub-publication">
+    
+      PeerJ
+    
+  </span>
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  
+  
+  <a href="/publication/2020-lccpeerj/">
+    <div class="img-hover-zoom"><img src="/publication/2020-lccpeerj/featured_hu50416ecd42c74db3df5b23c8532f0693_21672_3acae2ff1be2d9b05285c100d0d43a8d.png" data-src="/publication/2020-lccpeerj/featured_hu50416ecd42c74db3df5b23c8532f0693_21672_808x455_fill_lanczos_smart1_2.png" class="article-banner lazyload" alt="lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time"></div>
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3">
+    <a href="/publication/2020-lccpeerj/">lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</a>
+  </h3>
+
+  
+  <a href="/publication/2020-lccpeerj/" class="summary-link">
+    <div class="article-style">
+      <p>Describes the statistical package lcc using three real examples.</p>
+    </div>
+  </a>
+  
+
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://peerj.com/articles/9850/" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-lccpeerj/cite.bib">
+  Cite
+</button>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/Prof-ThiagoOliveira/lcc" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://link.springer.com/article/10.1007%2Fs13253-018-0321-1" target="_blank" rel="noopener">
+  Dataset
+</a>
+
+
+
+  
+    
+  
+
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/files/seminars/2019-seminar.pdf" target="_blank" rel="noopener">
+  Slides
+</a>
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/10.7717/peerj.9850" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://peerj.com" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://prof-thiagooliveira.shinyapps.io/lccApp/" target="_blank" rel="noopener">
+    
+    Dashboard App
+  </a>
+
+
+  </div>
+  
+
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple">
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 2020
+  </span>
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="pub-publication">
+    
+      arXiv
+    
+  </span>
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  
+  
+  <a href="/publication/2020-covid/">
+    <div class="img-hover-zoom"><img src="/publication/2020-covid/featured_hu9370dcfca080875b0640eda46f29de1f_73082_b97edbbadba037295a52c0f5b73a559f.jpg" data-src="/publication/2020-covid/featured_hu9370dcfca080875b0640eda46f29de1f_73082_808x455_fill_q90_lanczos_smart1.jpg" class="article-banner lazyload" alt="Global Short-Term Forecasting of Covid-19 Cases"></div>
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3">
+    <a href="/publication/2020-covid/">Global Short-Term Forecasting of Covid-19 Cases</a>
+  </h3>
+
+  
+  <a href="/publication/2020-covid/" class="summary-link">
+    <div class="article-style">
+      <p>We showthat our model generates highly accurate forecasts up to six days ahead for covid-19 cases.</p>
+    </div>
+  </a>
+  
+
+  
+  <div class="btn-links">
+    
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/pdf/2006.00111.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-covid/cite.bib">
+  Cite
+</button>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/Prof-ThiagoOliveira/covid_forecast" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/https://arxiv.org/pdf/2006.00111.pdf" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://prof-thiagooliveira.shinyapps.io/COVIDForecast/" target="_blank" rel="noopener">
+    
+    Dashboard App
+  </a>
+
+
+  </div>
+  
+
+</div>
+
+    
+  
+
+  
+  
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="publications" class="home-section wg-pages  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Recent Publications</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+<div class="col-12 col-lg-8">
+
+  <div class="alert alert-note">
+  <div>
+    Quickly discover relevant content by <a href="https://prof-thiagooliveira.netlify.com/publication/">filtering publications</a>.
+  </div>
+</div>
+
+
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/publication/2020-scireports/" >Modelling menstrual cycle length in athletes using state-space models</a>
+    </h3>
+
+    
+    <a href="/publication/2020-scireports/"  class="summary-link">
+      <div class="article-style">
+        Development of an appropriate parametric state-space formulation for the marginal distribution of standard menstrual cycles for female athletes
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/georgie-bruinvels/">Georgie Bruinvels</a></span>, <span ><a href="/author/charles-pedlar/">Charles Pedlar</a></span>, <span ><a href="/author/john-newell/">John Newell</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://assets.researchsquare.com/files/rs-122553/v1_stamped.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-scireports/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/project/sport-project/">
+    Project
+  </a>
+  
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/10.21203/rs.3.rs-122553/v1" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.researchsquare.com/article/rs-122553/v1" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    
+    
+    <a href="/publication/2020-scireports/" >
+      <img src="/publication/2020-scireports/featured_hu8151cd125c7b1a2ad0b455bcf7ef3fa8_267573_312483354e16a8ba5f1e33e21855d673.png" data-src="/publication/2020-scireports/featured_hu8151cd125c7b1a2ad0b455bcf7ef3fa8_267573_150x0_resize_lanczos_2.png" alt="Modelling menstrual cycle length in athletes using state-space models" class="lazyload">
+    </a>
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/publication/2020-plant_pathology/" >Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)</a>
+    </h3>
+
+    
+    <a href="/publication/2020-plant_pathology/"  class="summary-link">
+      <div class="article-style">
+        We focused to investigate the host non preference and suitability for xylem-sap feeding among plum genotypes that differ in bacterial leaf scald intensity in the field.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/heloisa-thomazi-kleina1/">Heloisa Thomazi Kleina1</a></span>, <span ><a href="/author/karla-kudlawiec/">Karla Kudlawiec</a></span>, <span ><a href="/author/mariana-b.-esteves/">Mariana B. Esteves</a></span>, <span ><a href="/author/marco-a.-dalbo/">Marco A. Dalbó</a></span>, <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/nathalie-maluta/">Nathalie Maluta</a></span>, <span ><a href="/author/joao-r.-s.-lopes/">João R. S. Lopes</a></span>, <span ><a href="/author/louise-l.-may-de-mio1/">Louise L. May-De-Mio1</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-plant_pathology/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://www.springer.com/journal/10658/" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    
+    
+    <a href="/publication/2020-plant_pathology/" >
+      <img src="/publication/2020-plant_pathology/featured_hu2fb2d45f824dbfb343939ea461255604_25737_397a05d2a86b505f4836442797047b8f.jpg" data-src="/publication/2020-plant_pathology/featured_hu2fb2d45f824dbfb343939ea461255604_25737_150x0_resize_q90_lanczos.jpg" alt="Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)" class="lazyload">
+    </a>
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/publication/2020-lccpeerj/" >lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</a>
+    </h3>
+
+    
+    <a href="/publication/2020-lccpeerj/"  class="summary-link">
+      <div class="article-style">
+        Describes the statistical package lcc using three real examples.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>, <span ><a href="/author/silvio-sandoval-zocchi/">Silvio Sandoval Zocchi</a></span>, <span ><a href="/author/clarice-g.-b.-demetrio/">Clarice G. B. Demetrio</a></span>, <span ><a href="/author/john-hinde/">John Hinde</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://peerj.com/articles/9850/" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-lccpeerj/cite.bib">
+  Cite
+</button>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/Prof-ThiagoOliveira/lcc" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://link.springer.com/article/10.1007%2Fs13253-018-0321-1" target="_blank" rel="noopener">
+  Dataset
+</a>
+
+
+
+  
+    
+  
+
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/files/seminars/2019-seminar.pdf" target="_blank" rel="noopener">
+  Slides
+</a>
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/10.7717/peerj.9850" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://peerj.com" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://prof-thiagooliveira.shinyapps.io/lccApp/" target="_blank" rel="noopener">
+    
+    Dashboard App
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    
+    
+    <a href="/publication/2020-lccpeerj/" >
+      <img src="/publication/2020-lccpeerj/featured_hu50416ecd42c74db3df5b23c8532f0693_21672_bb98f1ca304d5ab3f75974c1ed3538c0.png" data-src="/publication/2020-lccpeerj/featured_hu50416ecd42c74db3df5b23c8532f0693_21672_150x0_resize_lanczos_2.png" alt="lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time" class="lazyload">
+    </a>
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/publication/2020-covid/" >Global Short-Term Forecasting of Covid-19 Cases</a>
+    </h3>
+
+    
+    <a href="/publication/2020-covid/"  class="summary-link">
+      <div class="article-style">
+        We showthat our model generates highly accurate forecasts up to six days ahead for covid-19 cases.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/rafael-de-andrade-moral/">Rafael de Andrade Moral</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/pdf/2006.00111.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2020-covid/cite.bib">
+  Cite
+</button>
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/Prof-ThiagoOliveira/covid_forecast" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/https://arxiv.org/pdf/2006.00111.pdf" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://prof-thiagooliveira.shinyapps.io/COVIDForecast/" target="_blank" rel="noopener">
+    
+    Dashboard App
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    
+    
+    <a href="/publication/2020-covid/" >
+      <img src="/publication/2020-covid/featured_hu9370dcfca080875b0640eda46f29de1f_73082_791a001357e40f9809c87a0e8b6d310c.jpg" data-src="/publication/2020-covid/featured_hu9370dcfca080875b0640eda46f29de1f_73082_150x0_resize_q90_lanczos.jpg" alt="Global Short-Term Forecasting of Covid-19 Cases" class="lazyload">
+    </a>
+    
+  </div>
+</div>
+
+    
+  
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/publication/2019-soil/" >Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage</a>
+    </h3>
+
+    
+    <a href="/publication/2019-soil/"  class="summary-link">
+      <div class="article-style">
+        Evaluate the effects of global warming and straw removal on gas emissions
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+      <div>
+        
+
+  
+  <span ><a href="/author/gustavo-v.-popin/">Gustavo V. Popin</a></span>, <span ><a href="/author/arthur-k.-b.-santos/">Arthur K. B. Santos</a></span>, <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/plinio-b.-de-camargo/">Plínio B. de Camargo</a></span>, <span ><a href="/author/carlos-e.-p.-cerri/">Carlos E. P. Cerri</a></span>, <span ><a href="/author/marcos-siqueira-neto/">Marcos Siqueira-Neto</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://link.springer.com/article/10.1007/s11027-019-09880-7" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
+        data-filename="/publication/2019-soil/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://doi.org/https://doi.org/10.1007/s11027-019-09880-7" target="_blank" rel="noopener">
+  DOI
+</a>
+
+
+  
+  
+  
+    
+  
+  
+  
+  
+  
+    
+  
+  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://link.springer.com/" target="_blank" rel="noopener">
+    
+    Journal Link
+  </a>
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    
+    
+    <a href="/publication/2019-soil/" >
+      <img src="/publication/2019-soil/featured_hu758e58a84ab4097aa7ae139216969b0b_12887_49040269d7edb9b7d7d079f25b2578a8.jpg" data-src="/publication/2019-soil/featured_hu758e58a84ab4097aa7ae139216969b0b_12887_150x0_resize_q90_lanczos.jpg" alt="Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage" class="lazyload">
+    </a>
+    
+  </div>
+</div>
+
+    
+  
+
+  
+  
+  
+
+    
+    
+      
+    
+
+    
+
+    <div class="see-all">
+      <a href="/publication/">
+        See all publications
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="tags" class="home-section wg-tag-cloud  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Popular Topics</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+<div class="col-12 col-lg-8">
+  
+
+  
+
+    
+    
+    
+    
+    
+    
+
+    <div class="tag-cloud">
+      
+        
+        
+        
+        <a href="/tag/accuracy/" style="font-size:1.259879525495411rem">Accuracy</a>
+      
+        
+        
+        
+        <a href="/tag/agreement-measures/" style="font-size:0.7rem">Agreement Measures</a>
+      
+        
+        
+        
+        <a href="/tag/agriculture/" style="font-size:1.0275085273363698rem">Agriculture</a>
+      
+        
+        
+        
+        <a href="/tag/athlete-performance/" style="font-size:0.7rem">Athlete performance</a>
+      
+        
+        
+        
+        <a href="/tag/bootstrap-confidence-intervals/" style="font-size:1.0275085273363698rem">Bootstrap Confidence Intervals</a>
+      
+        
+        
+        
+        <a href="/tag/c-/" style="font-size:1.0275085273363698rem">C&#43;&#43;</a>
+      
+        
+        
+        
+        <a href="/tag/computer-programs/" style="font-size:0.7rem">Computer Programs</a>
+      
+        
+        
+        
+        <a href="/tag/computer-science/" style="font-size:1.0275085273363698rem">Computer Science</a>
+      
+        
+        
+        
+        <a href="/tag/concordance-correlation-coefficient/" style="font-size:1.0275085273363698rem">Concordance Correlation Coefficient</a>
+      
+        
+        
+        
+        <a href="/tag/covid-19/" style="font-size:1.259879525495411rem">Covid-19</a>
+      
+        
+        
+        
+        <a href="/tag/experimental-design/" style="font-size:0.7rem">Experimental design</a>
+      
+        
+        
+        
+        <a href="/tag/generalized-linear-models/" style="font-size:0.7rem">Generalized linear models</a>
+      
+        
+        
+        
+        <a href="/tag/hierarchical-data/" style="font-size:1.0275085273363698rem">Hierarchical data</a>
+      
+        
+        
+        
+        <a href="/tag/longitudinal-data/" style="font-size:1.9148965801681508rem">Longitudinal data</a>
+      
+        
+        
+        
+        <a href="/tag/mixed-effects-model/" style="font-size:1.259879525495411rem">Mixed-Effects Model</a>
+      
+        
+        
+        
+        <a href="/tag/precision/" style="font-size:1.259879525495411rem">Precision</a>
+      
+        
+        
+        
+        <a href="/tag/r-package/" style="font-size:1.259879525495411rem">R Package</a>
+      
+        
+        
+        
+        <a href="/tag/state-space-models/" style="font-size:1.0275085273363698rem">State-Space Models</a>
+      
+        
+        
+        
+        <a href="/tag/statistical-methods/" style="font-size:1.0275085273363698rem">Statistical Methods</a>
+      
+        
+        
+        
+        <a href="/tag/statistical-modelling/" style="font-size:1.711901016163407rem">Statistical modelling</a>
+      
+    </div>
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  <section id="contact" class="home-section wg-contact  "  >
+   <div class="home-section-bg " ></div>
+    <div class="container">
+
+    
+      <div class="row  ">
+      
+        
+          <div class="col-12 col-lg-4 section-heading">
+            <h1>Contact</h1>
+            
+          </div>
+        
+      
+    
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-12 col-lg-8">
+  
+
+  
+
+    
+    
+      
+      
+    
+
+    <div class="mb-3">
+      <form name="contact" method="POST" action="https://formspree.io/f/test"  >
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputName">Name</label>
+          <input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Name" required>
+        </div>
+        <div class="form-group form-inline">
+          <label class="sr-only" for="inputEmail">Email</label>
+          <input type="email" name="email" class="form-control w-100" id="inputEmail" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="inputMessage">Message</label>
+          <textarea name="message" class="form-control" id="inputMessage" rows="5" placeholder="Message" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-primary px-3 py-2">Send</button>
+      </form>
+    </div>
+  
+
+  <ul class="fa-ul">
+
+    
+    <li>
+      <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
+      <span id="person-email"><a href="mailto:thiago.oliveira@ed.ac.uk">thiago.oliveira@ed.ac.uk</a></span>
+    </li>
+    
+
+    
+
+    
+    
+      
+      <li>
+        <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
+        <span id="person-address">The University of Edinburgh, Easter Bush Campus, Midlothian, Edinburgh, EH25 9RG</span>
+      </li>
+    
+
+    
+    <li>
+      <i class="fa-li fas fa-compass fa-2x" aria-hidden="true"></i>
+      <span>The Roslin Institute</span>
+    </li>
+    
+
+    
+    <li>
+      <i class="fa-li fas fa-clock fa-2x" aria-hidden="true"></i>
+      <span>Monday-Friday 9:00 to 17:00</span>
+    </li>
+    
+
+    
+    <li>
+      <i class="fa-li fas fa-calendar-check fa-2x" aria-hidden="true"></i>
+      <a href="https://calendly.com/thiago-paula-oliveira" target="_blank" rel="noopener">Book an appointment</a>
+    </li>
+    
+
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <i class="fa-li fab fa-twitter fa-2x" aria-hidden="true"></i>
+      <a href="https://twitter.com/_OliveiraTP_" target="_blank" rel="noopener">DM Me</a>
+    </li>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <i class="fa-li fas fa-blog fa-2x" aria-hidden="true"></i>
+      <a href="https://www.thiagooliveira.co.uk" target="_blank" rel="noopener">Photography Website</a>
+    </li>
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <i class="fa-li fab fa-keybase fa-2x" aria-hidden="true"></i>
+      <a href="https://keybase.io/oliveiratp" target="_blank" rel="noopener">Chat on Keybase</a>
+    </li>
+    
+
+  </ul>
+
+  
+  <div class="d-none">
+    <input id="map-provider" value="2">
+    <input id="map-lat" value="55.865822">
+    <input id="map-lng" value="-3.198568">
+    <input id="map-dir" value="The University of Edinburgh, Easter Bush Campus, Midlothian, Edinburgh, EH25 9RG">
+    <input id="map-zoom" value="15">
+    <input id="map-api-key" value="">
+  </div>
+  <div id="map"></div>
+  
+
+</div>
+
+
+    
+      </div>
+    
+
+    </div>
+  </section>
+
+
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.4d670e4e47b7eaa49759e6822501455e.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

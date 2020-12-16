@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 | Researcher</title>
+    <link>https://prof-thiagooliveira.netlify.com/publication-type/2/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
+    <description>2</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <title>2</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication-type/2/</link>
+    </image>
+    
+    <item>
+      <title>Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</guid>
+      <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lcc package
+&lt;ul&gt;
+&lt;li&gt;Github: &lt;a href=&#34;https://github.com/Prof-ThiagoOliveira/lcc&#34;&gt;https://github.com/Prof-ThiagoOliveira/lcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CRAN: &lt;a href=&#34;https://CRAN.R-project.org/package=lcc&#34;&gt;https://CRAN.R-project.org/package=lcc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</link>
+      <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</guid>
+      <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007/s11027-019-09880-7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;figures&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transmission efficiency of xylella fastidiosa subsp. Pauca sequence types by sharpshooter vectors after in vitro acquisition</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Longitudinal concordance correlation function based on variance components: an application in fruit color analysis</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</link>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</guid>
+      <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and data&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

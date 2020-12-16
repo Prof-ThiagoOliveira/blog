@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Courses | Researcher</title>
+    <link>https://prof-thiagooliveira.netlify.com/courses/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/courses/index.xml" rel="self" type="application/rss+xml" />
+    <description>Courses</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 27 Aug 2018 09:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <title>Courses</title>
+      <link>https://prof-thiagooliveira.netlify.com/courses/</link>
+    </image>
+    
+  </channel>
+</rss>
