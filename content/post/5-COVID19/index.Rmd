@@ -24,7 +24,7 @@ output:
     toc: true
     css: "my_style.css"
 ---
-
+  
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       message = FALSE,
@@ -101,7 +101,7 @@ Now that we have profiles for each country on how the pandemic is behaving in te
 knitr::include_graphics('dendrogram.png', dpi = 50)
 ```
 
-Here we see that over looking at the past two months, the country that has presented the most similar behaviour to Ireland was Croatia. In our [app](https://www.hamilton.ie/covid19/apps/pred_app/) you can play with different ways of presenting the dendrogram, as well as print names of different countries in bold to aid in finding them easily when looking at the picture. You can also change the number of clusters.
+Here we see that over looking at the past two months, the country that has presented the most similar behaviour to Ireland was Croatia. In our [app](link) you can play with different ways of presenting the dendrogram, as well as print names of different countries in bold to aid in finding them easily when looking at the picture. You can also change the number of clusters.
 
 Perhaps these comparisons would be useful in terms of comparing government policies on how to deal with the COVID-19 outbreak, and learn lessons from successful policies vs unsuccessful ones. Also, this type of modelling can help to detect a further wave of the outbreak sooner rather than when we are already in the middle of it!
 
@@ -131,4 +131,3 @@ Moral, et al. (2020, Sept. 29). Ireland's COVID-19 Data Dive: How hard is it to 
   year = {2020}
 }
 ```
-
