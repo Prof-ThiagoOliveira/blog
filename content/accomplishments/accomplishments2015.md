@@ -13,7 +13,7 @@ weight: 1
 ---
 
 1. Regression Models, **Coursera**, 36h, [certificate](https://www.coursera.org/account/accomplishments/certificate/G7L3PUPHPJ)
-    - <p align="justify">**Description**: Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.</p> 
+    - <p align="justify"><b>Description</b>: Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.</p> 
 
 2. Explorando interfaces gráficas interativas no R, **Região Brasileira da Sociedade Internacional de Biometria**, RBRAS, Brazil, 2h.
 

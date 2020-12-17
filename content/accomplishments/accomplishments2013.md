@@ -13,10 +13,10 @@ weight: 1
 ---
 
 1. Mathematical Biostatistics BootCamp 1, 35h, **Coursera**
-    - <p align="justify">**Description**: This course puts forward key mathematical and statistical topicsto help students understand biostatistics at a deeper level.Successful students have a basic understanding of the goals,assumptions, benefits and negatives of probability modeling inthe medical sciences.</p>
+    - <p align="justify"><b>Description</b>: This course puts forward key mathematical and statistical topicsto help students understand biostatistics at a deeper level.Successful students have a basic understanding of the goals,assumptions, benefits and negatives of probability modeling inthe medical sciences.</p>
 
 2. Statistics: Making Sense of Data, 376h, **Coursera**
-    - <p align="justify">**Description**: This introductory statistics course teaches the fundamentals ofstatistical investigations, including numerical and graphicalsummaries of data, probability, confidence intervals, hypothesistesting, and linear regression.</p>
+    - <p align="justify"><b>Description</b>: This introductory statistics course teaches the fundamentals ofstatistical investigations, including numerical and graphicalsummaries of data, probability, confidence intervals, hypothesistesting, and linear regression.</p>
 
 3. Introdução a Análise de Dados Categóricos, **Universidade de São Paulo**, USP, Brasil, 15h.
 

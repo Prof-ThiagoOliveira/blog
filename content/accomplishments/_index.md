@@ -17,5 +17,5 @@ Summary of the number of courses and number of hours dedicated by category:
 
 |   | Programming | Shiny |Statistical Models | Maching Learning | Linear Algebra | Inference and Probability | Total |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Number| 5 | 2 |  13 |  1 | 4  |  4  | 29 |
-|Hours| 21 | 8  |  196 | 4 | 56 |  55  | 340 |
+|Number| 6 | 2 |  13 |  1 | 4  |  4  | 29 |
+|Hours| 53 | 8  |  196 | 4 | 56 |  55  | 372 |
