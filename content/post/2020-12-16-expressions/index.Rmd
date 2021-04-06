@@ -1,5 +1,5 @@
 ---
-title: Expressions
+title: Expressions in C++
 author: Thiago de Paula Oliveira
 date: '2020-12-16'
 slug: expressions
@@ -30,13 +30,13 @@ output:
 
 # Introduction
 
-Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code. Thus, every expression is any part of a statement that returns a value, as in the follow example: 
+Expressions are combinations of operators, values (constants), and variables arranged according to the rules established throughout the code. Thus, every expression is any part of a statement that returns a value, as in the following example: 
 
 ```{r,echo=FALSE, out.width = "320px", fig.align='center'}
 knitr::include_graphics('exp1.png')
 ```
 
-This statement creates a box to store the value of $x$ and another to store the value of $y$, which is equal to the expression $x$ plus 13 ($y=23$). Now consider a more complex statement:
+This statement creates a box to store the value of $x$ and another to keep the value of $y$ equal to the expression $x$ plus 13 ($y=23$). Now consider a more complex statement:
 
 ```{r,echo=FALSE, out.width = "500px", fig.align='center'}
 knitr::include_graphics('exp2.png')
@@ -55,13 +55,13 @@ Remember that multiplication and division occur before addition and subtraction.
 2/3-4*2/3 = -2
 2/3-4/4*2/3 = 0
 ```
-The **operator precedente** dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence in relation to other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression $\frac{2}{4}-3+ 4 \times 6$, firstly the subexpressions $\frac{2}{4}$ and $4 \times 6$ will be evaluated (Step 1 in the Figure 1), and then addition and subtraction (Step 2 in the Figure 1). Note that multiplication and division, or addition and subtraction have same precedente, then tey are evaluated from left to right due to its associativity. 
+The **operator precedence** dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence concerning other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression $\frac{2}{4}-3+ 4 \times 6$, firstly, the subexpressions $\frac{2}{4}$ and $4 \times 6$ will be evaluated (Step 1 in Figure 1), and then addition and subtraction (Step 2 in Figure 1). Note that multiplication and division, or addition and subtraction have the same precedence, then they are evaluated from left to right due to their associativity. 
 
 ```{r,echo=FALSE, fig.cap="Precedence order",fig.align='center', , out.width = "300px"}
 knitr::include_graphics('exp3.png')
 ```
 
-**Associativity** defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative while assignment operators are typically right-associative. Besides, there are operators that have no defined behavior when used in sequence over an expression, and they are called as non-associative (Figure 2). Note that when we include parentheses, we can force an expression to be right-associative rather than left-associative as usual. 
+**Associativity** defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative, while assignment operators are typically right-associative. Besides, some operators have no defined behaviour when used in sequence over an expression, and they are called non-associative (Figure 2). When we include parentheses, we can force an expression to be right-associative rather than left-associative as usual. 
 
 ```{r,echo=FALSE, fig.cap="Example of left-associative, right-associative, and non-associative",fig.align='center', out.width = "800px"}
 knitr::include_graphics('exp4.png')
@@ -75,16 +75,15 @@ Consider the following example:
 ```
 5 + 6 * 7
 ```
-The `*` operator is evaluated firstly followed by the `+` operator, so the result is $5+6\times 7 = 47$. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:
+The `*` operator is evaluated firstly, followed by the `+` operator, so the result is $5+6\times 7 = 47$. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:
 ```
 (5 + 6) * 7
 ```
-Then, the program will compute $\left(5+6\right)\times 7=11\times 7=77$. Sometimes, the inclusion of parentheses should be important to makes your code easier to understand, and therefore easier to maintain.
-
+Then, the program will compute $\left(5+6\right)\times 7=11\times 7=77$. Sometimes, parentheses' inclusion should be important to make your code easier to understand, and therefore easier to maintain.
 
 # Modulus operator (%)
 
-Modulus operator evaluates to the remainder when dividing the first operand by the second one. Ex.: `a % b` is the remainder when $a$ is divided<table class="wikitable">
+The modulus operator evaluates the remainder when dividing the first operand by the second one. Ex.: `a % b` is the remainder when $a$ is divided<table class="wikitable">
 
  by $b$ ($a$ modulus $b$).<table class="wikitable"> by $b$ ($a$ modulus $b$).
 
@@ -108,7 +107,7 @@ x % y = 1 (modulus)
 
 # Short hand or syntatic sugar
 
-Short hand expressions provide a short way to write common patterns over the algorithm for initialized variables. 
+Short hand expressions provide a straightforward way to write common patterns over the algorithm for initialized variables. 
 
 | Short hand | Meaning         |              Prefix and Postfix                 | 
 |------------|-----------------|-------------------------------------------------|
@@ -373,6 +372,26 @@ Note that when we use `x*= (y/z) % 2` the variable $x$ multiply the entire expre
 # References
 
 * C Operator Precedence - https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1
+
+
+# Citation
+
+1. For attribution, please cite this work as:
+
+<div class="div-1">
+Oliveira T.P. (2020, Dec. 16). Expressions in C++
+</div>
+
+2. BibTeX citation
+
+```
+@misc{oliveira2020expression,
+  author = {Oliveira, Thiago},
+  title = {Expressions in C++},
+  url = {https://prof-thiagooliveira.netlify.app/post/expressions/},
+  year = {2020}
+}
+```
 
 **Did you find this page helpful? Consider sharing it 🙌**
                        

@@ -38,7 +38,7 @@ tags:
 - Precision
 - Mixed-Effects Model
 
-featured: TRUE
+featured: FALSE
 
 links:
  - name: "Journal Link"

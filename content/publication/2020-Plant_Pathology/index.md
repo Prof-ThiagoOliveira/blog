@@ -39,7 +39,7 @@ tags:
 - Generalized linear models
 - Hierarchical data
 
-featured: TRUE
+featured: FALSE
 
 links:
  - name: "Journal Link"

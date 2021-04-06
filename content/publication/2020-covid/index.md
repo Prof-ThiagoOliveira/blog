@@ -4,26 +4,26 @@ authors:
 - admin
 - Rafael de Andrade Moral
 
-date: "2020-05-29T00:00:00Z"
-doi: "https://arxiv.org/pdf/2006.00111.pdf"
+date: "2021-04-06T00:00:00Z"
+doi: "https://doi.org/10.1038/s41598-021-87230-x"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2020-05-28T00:00:00Z"
+publishDate: "2021-04-06T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["3"]
+publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*arXiv*"
-publication_short: "arXiv"
+publication: "*Scientific Reports*"
+publication_short: "Sci Rep"
 
-abstract: <p align="justify"> The continuously growing number of COVID-19 cases pressures healthcare services worldwide. Accurate short-termforecasting is thus vital to support country-level policy making. The strategies adopted by countries to combat the pandemicvary, generating different uncertainty levels about the actual number of cases. Accounting for the hierarchical structure ofthe data and accommodating extra-variability is therefore fundamental. We introduce a new modelling framework to describethe course of the pandemic with great accuracy, and provide short-term daily forecasts for every country in the world. We showthat our model generates highly accurate forecasts up to six days ahead, and use estimated model components to clustercountries based on recent events. We introduce statistical novelty in terms of modelling the autoregressive parameter as afunction of time, increasing predictive power and flexibility to adapt to each country. Our model can also be used to forecast thenumber of deaths, study the effects of covariates (such as lockdown policies), and generate forecasts for smaller regions withincountries. Consequently, it has strong implications for global planning and decision making. We constantly update forecastsand make all results freely available to any country in the world through an online Shiny dashboard.</p>
+abstract: <p align="justify"> The continuously growing number of COVID-19 cases pressures healthcare services worldwide. Accurate short-term forecasting is thus vital to support country-level policy making. The strategies adopted by countries to combat the pandemic vary, generating different uncertainty levels about the actual number of cases. Accounting for the hierarchical structure of the data and accommodating extra-variability is therefore fundamental. We introduce a new modelling framework to describe the pandemic’s course with great accuracy and provide short-term daily forecasts for every country in the world. We show that our model generates highly accurate forecasts up to seven days ahead and use estimated model components to cluster countries based on recent events. We introduce statistical novelty in terms of modelling the autoregressive parameter as a function of time, increasing predictive power and flexibility to adapt to each country. Our model can also be used to forecast the number of deaths, study the effects of covariates (such as lockdown policies), and generate forecasts for smaller regions within countries. Consequently, it has substantial implications for global planning and decision making. We present forecasts and make all results freely available to any country in the world through an online Shiny dashboard.</p>
 
 # Summary. An optional shortened abstract.
-summary: We showthat our model generates highly accurate forecasts up to six days ahead for covid-19 cases.
+summary: We show our model generates high accurate forecasts up to seven days ahead for COVID-19 reported cases.
 
 tags:
 - COVID-19
@@ -39,11 +39,11 @@ featured: TRUE
 
 links:
  - name: "Journal Link"
-   url: "https://arxiv.org"
+   url: "https://doi.org/10.1038/s41598-021-87230-x"
  - name: "Dashboard App"
    url: "https://prof-thiagooliveira.shinyapps.io/COVIDForecast/"
 
-url_pdf: https://arxiv.org/pdf/2006.00111.pdf
+url_pdf: https://www.nature.com/articles/s41598-021-87230-x.pdf
 url_code: https://github.com/Prof-ThiagoOliveira/covid_forecast
 url_dataset: ''
 url_poster: ''

@@ -1,5 +1,5 @@
 ---
-title: Expressions
+title: Expressions in C++
 author: Thiago de Paula Oliveira
 date: '2020-12-16'
 slug: expressions
@@ -28,13 +28,14 @@ output:
     css: "my_style.css"
 ---
 
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code. Thus, every expression is any part of a statement that returns a value, as in the follow example:</p>
+<p>Expressions are combinations of operators, values (constants), and variables arranged according to the rules established throughout the code. Thus, every expression is any part of a statement that returns a value, as in the following example:</p>
 <p><img src="exp1.png" width="320px" style="display: block; margin: auto;" /></p>
-<p>This statement creates a box to store the value of <span class="math inline">\(x\)</span> and another to store the value of <span class="math inline">\(y\)</span>, which is equal to the expression <span class="math inline">\(x\)</span> plus 13 (<span class="math inline">\(y=23\)</span>). Now consider a more complex statement:</p>
+<p>This statement creates a box to store the value of <span class="math inline">\(x\)</span> and another to keep the value of <span class="math inline">\(y\)</span> equal to the expression <span class="math inline">\(x\)</span> plus 13 (<span class="math inline">\(y=23\)</span>). Now consider a more complex statement:</p>
 <p><img src="exp2.png" width="500px" style="display: block; margin: auto;" /></p>
 This statment consists of three expressions:
 <div class="div-1">
@@ -48,14 +49,14 @@ This statment consists of three expressions:
 <pre><code>1-3*4 = -11
 2/3-4*2/3 = -2
 2/3-4/4*2/3 = 0</code></pre>
-<p>The <strong>operator precedente</strong> dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence in relation to other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression <span class="math inline">\(\frac{2}{4}-3+ 4 \times 6\)</span>, firstly the subexpressions <span class="math inline">\(\frac{2}{4}\)</span> and <span class="math inline">\(4 \times 6\)</span> will be evaluated (Step 1 in the Figure 1), and then addition and subtraction (Step 2 in the Figure 1). Note that multiplication and division, or addition and subtraction have same precedente, then tey are evaluated from left to right due to its associativity.</p>
+<p>The <strong>operator precedence</strong> dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence concerning other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression <span class="math inline">\(\frac{2}{4}-3+ 4 \times 6\)</span>, firstly, the subexpressions <span class="math inline">\(\frac{2}{4}\)</span> and <span class="math inline">\(4 \times 6\)</span> will be evaluated (Step 1 in Figure 1), and then addition and subtraction (Step 2 in Figure 1). Note that multiplication and division, or addition and subtraction have the same precedence, then they are evaluated from left to right due to their associativity.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="exp3.png" alt="Precedence order" width="300px" />
 <p class="caption">
 Figure 1: Precedence order
 </p>
 </div>
-<p><strong>Associativity</strong> defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative while assignment operators are typically right-associative. Besides, there are operators that have no defined behavior when used in sequence over an expression, and they are called as non-associative (Figure 2). Note that when we include parentheses, we can force an expression to be right-associative rather than left-associative as usual.</p>
+<p><strong>Associativity</strong> defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative, while assignment operators are typically right-associative. Besides, some operators have no defined behaviour when used in sequence over an expression, and they are called non-associative (Figure 2). When we include parentheses, we can force an expression to be right-associative rather than left-associative as usual.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="exp4.png" alt="Example of left-associative, right-associative, and non-associative" width="800px" />
 <p class="caption">
@@ -68,13 +69,13 @@ Figure 2: Example of left-associative, right-associative, and non-associative
 <p>The operator <code>()</code> has the highest precedente order (see <a href="#table1">Table 1</a>), as consequence, we can use parentheses to change the sequence of operators.
 Consider the following example:</p>
 <pre><code>5 + 6 * 7</code></pre>
-<p>The <code>*</code> operator is evaluated firstly followed by the <code>+</code> operator, so the result is <span class="math inline">\(5+6\times 7 = 47\)</span>. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:</p>
+<p>The <code>*</code> operator is evaluated firstly, followed by the <code>+</code> operator, so the result is <span class="math inline">\(5+6\times 7 = 47\)</span>. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:</p>
 <pre><code>(5 + 6) * 7</code></pre>
-<p>Then, the program will compute <span class="math inline">\(\left(5+6\right)\times 7=11\times 7=77\)</span>. Sometimes, the inclusion of parentheses should be important to makes your code easier to understand, and therefore easier to maintain.</p>
+<p>Then, the program will compute <span class="math inline">\(\left(5+6\right)\times 7=11\times 7=77\)</span>. Sometimes, parentheses’ inclusion should be important to make your code easier to understand, and therefore easier to maintain.</p>
 </div>
 <div id="modulus-operator" class="section level1">
 <h1>Modulus operator (%)</h1>
-Modulus operator evaluates to the remainder when dividing the first operand by the second one. Ex.: <code>a % b</code> is the remainder when <span class="math inline">\(a\)</span> is divided
+The modulus operator evaluates the remainder when dividing the first operand by the second one. Ex.: <code>a % b</code> is the remainder when <span class="math inline">\(a\)</span> is divided
 <table class="wikitable">
 by <span class="math inline">\(b\)</span> (<span class="math inline">\(a\)</span> modulus <span class="math inline">\(b\)</span>).
 <table class="wikitable">
@@ -102,7 +103,7 @@ x % y = 1 (modulus)</code></pre>
 </div>
 <div id="short-hand-or-syntatic-sugar" class="section level1">
 <h1>Short hand or syntatic sugar</h1>
-<p>Short hand expressions provide a short way to write common patterns over the algorithm for initialized variables.</p>
+<p>Short hand expressions provide a straightforward way to write common patterns over the algorithm for initialized variables.</p>
 <table>
 <thead>
 <tr class="header">
@@ -527,5 +528,23 @@ Left-to-right
 <ul>
 <li>C Operator Precedence - <a href="https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1" class="uri">https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1</a></li>
 </ul>
+</div>
+<div id="citation" class="section level1">
+<h1>Citation</h1>
+<ol style="list-style-type: decimal">
+<li>For attribution, please cite this work as:</li>
+</ol>
+<div class="div-1">
+<p>Oliveira T.P. (2020, Dec. 16). Expressions in C++</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>BibTeX citation</li>
+</ol>
+<pre><code>@misc{oliveira2020expression,
+  author = {Oliveira, Thiago},
+  title = {Expressions in C++},
+  url = {https://prof-thiagooliveira.netlify.app/post/expressions/},
+  year = {2020}
+}</code></pre>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
 </div>
