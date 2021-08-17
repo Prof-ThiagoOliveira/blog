@@ -61,6 +61,6 @@ As an enthusiast of using dashboard apps to create an interactive data visualiza
 </p>
 
 <p align="justify">
-I was recently awarded a <a href="https://ec.europa.eu/research/mariecurieactions/actions/individual-fellowships_en">Marie Skłodowska-Curie Actions (MSCA) Individual Fellowships (IF)</a> to work at The <a href="https://www.ed.ac.uk/roslin">Roslin Institute</a> , University of Edinburgh, where I currently work on the development of statistical models applied to quantitative genetics genomics of plant breeding in partnership with <a href="https://www.lgseeds.co.uk/">Limagrain</a>.
+I was recently awarded a <a href="https://ec.europa.eu/research/mariecurieactions/actions/individual-fellowships_en">Marie Skłodowska-Curie Actions (MSCA) COFOUND Fellowship (Train@Ed)</a> to work at The <a href="https://www.ed.ac.uk/roslin">Roslin Institute</a> , University of Edinburgh, where I currently work on the development of statistical models applied to quantitative genetics genomics of plant breeding in partnership with <a href="https://www.lgseeds.co.uk/">Limagrain</a>.
 </p>
 
