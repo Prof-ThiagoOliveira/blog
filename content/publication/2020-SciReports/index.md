@@ -35,7 +35,7 @@ tags:
 - Statistical Modelling
 - Hierarchical data
 
-featured: TRUE
+featured: FALSE
 
 links:
  - name: "Journal Link"

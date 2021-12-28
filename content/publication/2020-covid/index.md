@@ -35,7 +35,7 @@ tags:
 - State-Space Models
 - Hierarchical data
 
-featured: TRUE
+featured: FALSE
 
 links:
  - name: "Journal Link"
