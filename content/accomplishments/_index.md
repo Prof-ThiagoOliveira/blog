@@ -3,7 +3,7 @@ date: "2020-03-13T09:00:00Z"
 draft: false
 lastmod: "2018-08-28T17:00:00Z"
 title: Accomplishments
-toc: true
+toc: false
 type: page
 weight: 1
 ---
