@@ -4,7 +4,6 @@ draft: false
 lastmod: "2018-08-28T17:00:00Z"
 title: Accomplishments
 toc: false
-type: page
 weight: 1
 ---
 
