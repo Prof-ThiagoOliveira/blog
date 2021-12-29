@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Accuracy | Researcher</title>
+    <title>Accuracy | Thiago Oliveira</title>
     <link>https://prof-thiagooliveira.netlify.com/tag/accuracy/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/accuracy/index.xml" rel="self" type="application/rss+xml" />
     <description>Accuracy</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Accuracy</title>
       <link>https://prof-thiagooliveira.netlify.com/tag/accuracy/</link>
     </image>
@@ -21,8 +21,8 @@
 &lt;ul&gt;
 &lt;li&gt;lcc package
 &lt;ul&gt;
-&lt;li&gt;Github: &lt;a href=&#34;https://github.com/Prof-ThiagoOliveira/lcc&#34;&gt;https://github.com/Prof-ThiagoOliveira/lcc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;CRAN: &lt;a href=&#34;https://CRAN.R-project.org/package=lcc&#34;&gt;https://CRAN.R-project.org/package=lcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github: &lt;a href=&#34;https://github.com/Prof-ThiagoOliveira/lcc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Prof-ThiagoOliveira/lcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CRAN: &lt;a href=&#34;https://CRAN.R-project.org/package=lcc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://CRAN.R-project.org/package=lcc&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

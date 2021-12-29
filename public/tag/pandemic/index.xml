@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pandemic | Researcher</title>
+    <title>Pandemic | Thiago Oliveira</title>
     <link>https://prof-thiagooliveira.netlify.com/tag/pandemic/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/pandemic/index.xml" rel="self" type="application/rss+xml" />
     <description>Pandemic</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Pandemic</title>
       <link>https://prof-thiagooliveira.netlify.com/tag/pandemic/</link>
     </image>
@@ -15,7 +15,7 @@
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
       <link>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</link>
-      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</guid>
       <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
 &lt;ul&gt;

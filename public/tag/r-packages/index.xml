@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R packages | Researcher</title>
+    <title>R packages | Thiago Oliveira</title>
     <link>https://prof-thiagooliveira.netlify.com/tag/r-packages/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/r-packages/index.xml" rel="self" type="application/rss+xml" />
     <description>R packages</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>R packages</title>
       <link>https://prof-thiagooliveira.netlify.com/tag/r-packages/</link>
     </image>

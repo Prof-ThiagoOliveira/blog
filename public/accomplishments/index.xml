@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Courses | Researcher</title>
+    <title>Courses | Thiago Oliveira</title>
     <link>https://prof-thiagooliveira.netlify.com/accomplishments/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/accomplishments/index.xml" rel="self" type="application/rss+xml" />
     <description>Courses</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 13 Mar 2020 09:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 13 Mar 2020 09:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Courses</title>
       <link>https://prof-thiagooliveira.netlify.com/accomplishments/</link>
     </image>
@@ -18,89 +18,10 @@
       <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2020/</guid>
       <description>&lt;ol&gt;
-&lt;li&gt;Programming Fundamentals, &lt;strong&gt;Coursera&lt;/strong&gt;, 4h &lt;a href=&#34;https://www.coursera.org/account/accomplishments/certificate/HW36TQ7CA337&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;
+&lt;li&gt;Programming Fundamentals, &lt;strong&gt;Coursera&lt;/strong&gt;, 32h &lt;a href=&#34;https://www.coursera.org/account/accomplishments/certificate/HW36TQ7CA337&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p align=&#34;justify&#34;&gt; &lt;b&gt;Description&lt;/b&gt;: Programming is an increasingly important skill, whether you aspire to a career in software development, or in other fields. This course is the first in the specialization Introduction to Programming in C, but its lessons extend to any language you might want to learn. This is because programming is fundamentally about figuring out how to solve a class of problems and writing the algorithm, a clear set of steps to solve any problem in its class. This course will introduce you to a powerful problem-solving process—the Seven Steps—which you can use to solve any programming problem. In this course, you will learn how to develop an algorithm, then progress to reading code and understanding how programming concepts relate to algorithms.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2012</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;SAS day, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 7h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Matrizes. &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Cálculo Diferencial e Integral, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Modelos não-lineares de efeitos mistos em R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 6h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Uma revisão de modelos lineares generalizados, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 4h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Noções de Probabilidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Testes de Hipóteses, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 24h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Métodos computacionais para inferência, Universidade de São Paulo, USP, Brasil, 6h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Álgebra intervalar na análise de correspondência, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;On longitudinal and incomplete data, Universidade de São Paulo, USP, Brasil, 30h.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2014</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;Generalized Additive Models with P-splines, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 20h.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2016</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;Longitudinal and Incomplete Data, Escola superior de agricultura &amp;ldquo;Luiz de queiroz&amp;rdquo;, ESALQ, Brasil (30h).&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2018</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;Machine Learning with caret in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/cab13d01f8e885e2930590a7570441e508019f59&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p align=&#34;justify&#34;&gt;&lt;b&gt;Description&lt;/b&gt;: Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular caret R package, which provides a consistent interface to all of R&#39;s most powerful machine learning facilities, is used throughout the course.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -174,6 +95,72 @@
     </item>
     
     <item>
+      <title>2018</title>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Machine Learning with caret in R, &lt;strong&gt;DataCamp&lt;/strong&gt;, 4h, &lt;a href=&#34;https://www.datacamp.com/statement-of-accomplishment/course/cab13d01f8e885e2930590a7570441e508019f59&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;&lt;b&gt;Description&lt;/b&gt;: Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular caret R package, which provides a consistent interface to all of R&#39;s most powerful machine learning facilities, is used throughout the course.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016</title>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Longitudinal and Incomplete Data, Escola superior de agricultura &amp;ldquo;Luiz de queiroz&amp;rdquo;, ESALQ, Brasil (30h).&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2015</title>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</link>
+      <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Regression Models, &lt;strong&gt;Coursera&lt;/strong&gt;, 36h, &lt;a href=&#34;https://www.coursera.org/account/accomplishments/certificate/G7L3PUPHPJ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt;&lt;b&gt;Description&lt;/b&gt;: Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.&lt;/p&gt; 
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Explorando interfaces gráficas interativas no R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brazil, 2h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Redução de dimensionalidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 16h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modelos aditivos Generalizados con P-splines, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 4h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2014</title>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Generalized Additive Models with P-splines, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 20h.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
       <title>2013</title>
       <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2013/</link>
       <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
@@ -209,27 +196,40 @@
     </item>
     
     <item>
-      <title>2015</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</link>
-      <pubDate>Mon, 31 Dec 2018 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</guid>
+      <title>2012</title>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Regression Models, &lt;strong&gt;Coursera&lt;/strong&gt;, 36h, &lt;a href=&#34;https://www.coursera.org/account/accomplishments/certificate/G7L3PUPHPJ&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;certificate&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p align=&#34;justify&#34;&gt;&lt;b&gt;Description&lt;/b&gt;: Linear models, as their name implies, relates an outcome to a set of predictors of interest using linear assumptions.  Regression models, a subset of linear models, are the most important statistical analysis tool in a data scientist’s toolkit. This course covers regression analysis, least squares and inference using regression models. Special cases of the regression model, ANOVA and ANCOVA will be covered as well. Analysis of residuals and variability will be investigated. The course will cover modern thinking on model selection and novel uses of regression models including scatterplot smoothing.&lt;/p&gt; 
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;SAS day, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 7h.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Explorando interfaces gráficas interativas no R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brazil, 2h.&lt;/p&gt;
+&lt;p&gt;Matrizes. &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Redução de dimensionalidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 16h.&lt;/p&gt;
+&lt;p&gt;Cálculo Diferencial e Integral, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Modelos aditivos Generalizados con P-splines, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 4h.&lt;/p&gt;
+&lt;p&gt;Modelos não-lineares de efeitos mistos em R, &lt;strong&gt;Região Brasileira da Sociedade Internacional de Biometria&lt;/strong&gt;, RBRAS, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uma revisão de modelos lineares generalizados, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 4h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Noções de Probabilidade, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 25h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Testes de Hipóteses, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 24h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Métodos computacionais para inferência, Universidade de São Paulo, USP, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Álgebra intervalar na análise de correspondência, &lt;strong&gt;Universidade de São Paulo&lt;/strong&gt;, USP, Brasil, 6h.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On longitudinal and incomplete data, Universidade de São Paulo, USP, Brasil, 30h.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 </description>

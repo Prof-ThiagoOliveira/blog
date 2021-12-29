@@ -1,679 +1,331 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2020/</loc>
-    <lastmod>2020-12-17T00:00:00+00:00</lastmod>
-  </url>
   
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/experimental_design/</loc>
-    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/courses/2021_ddbg/</loc><lastmod>2021-09-18T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/</loc>
-    <lastmod>2018-08-28T17:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/post/experimental_design/</loc><lastmod>2020-06-27T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</loc>
-    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/</loc><lastmod>2018-08-28T17:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</loc>
-    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/courses/2019_workshop/</loc><lastmod>2018-08-28T17:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</loc>
-    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/courses/2019_workshop/visualization/</loc><lastmod>2018-08-27T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</loc>
-    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2020/</loc><lastmod>2020-12-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2019/</loc>
-    <lastmod>2019-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2019/</loc><lastmod>2019-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2013/</loc>
-    <lastmod>2018-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2018/</loc><lastmod>2019-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</loc>
-    <lastmod>2018-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2016/</loc><lastmod>2019-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/courses/example/</loc>
-    <lastmod>2018-08-28T17:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2015/</loc><lastmod>2018-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/courses/example/example1/</loc>
-    <lastmod>2018-08-27T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2014/</loc><lastmod>2019-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/authors/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2013/</loc><lastmod>2018-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/covid-19/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/accomplishments2012/</loc><lastmod>2019-12-31T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2020-usp/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/longitudinal-data/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication-type/2/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/outbreak/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/authors/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/rafael-de-andrade-moral/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/breeding-programme/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/chris-gaynor/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/genetic-variance/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/state-space-model/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/genomic-analysis/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tags/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/gregor-gorjanc/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/ivan-pocrnic/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/algorithm/</loc>
-    <lastmod>2020-12-16T11:53:03+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/leticia-a.-p.-lara/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/andrew-parnell/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/linkage-disequilibrium/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/c-/</loc>
-    <lastmod>2020-12-16T12:15:54+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication_types/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/c-/</loc>
-    <lastmod>2020-12-16T12:15:54+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/categories/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/simulation/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/computer-programs/</loc>
-    <lastmod>2020-12-16T12:15:54+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tags/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/computer-programs/</loc>
-    <lastmod>2020-12-16T12:15:54+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/computer-science/</loc>
-    <lastmod>2020-12-16T12:15:54+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/covid-19/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/variance-components/</loc><lastmod>2021-11-01T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/expressions/</loc>
-    <lastmod>2020-12-16T12:15:54+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/data-structure/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/forecast-models/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/ggplot2/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/grammar-of-graphics/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/event/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/rafael-moral/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/visualization/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</loc>
-    <lastmod>2020-12-16T12:10:51+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-methodology/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-models/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/courses/</loc><lastmod>2021-09-18T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/category/statistical-models/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication-type/0/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/statistics/</loc>
-    <lastmod>2020-12-16T12:19:46+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/c-/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</loc>
-    <lastmod>2020-12-16T11:53:03+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/genetic/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication-type/3/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/jana-obsteter/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/athletes/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/charles-pedlar/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/quantitative-genetic/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/georgie-bruinvels/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/r-package/</loc><lastmod>2021-04-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/hierarchical-data/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/covid-19/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/john-newell/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/menstrual-cycle/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/hierarchical-data/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/longitudinal-data/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication_types/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/pandemic/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/rafael-de-andrade-moral/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/state-space-models/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/sars-cov-2/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-modelling/</loc>
-    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/state-space-models/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2020-young-isa/</loc>
-    <lastmod>2020-11-12T11:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-methodology/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication-type/2/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-modelling/</loc><lastmod>2021-04-06T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/agriculture/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/algorithm/</loc><lastmod>2020-12-16T11:53:03+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/experimental-design/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/andrew-parnell/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/generalized-linear-models/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/category/c-/</loc><lastmod>2020-12-16T12:15:54+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/heloisa-thomazi-kleina1/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/categories/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/joao-r.-s.-lopes/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/computer-programs/</loc><lastmod>2020-12-16T12:15:54+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/karla-kudlawiec/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/category/computer-programs/</loc><lastmod>2020-12-16T12:15:54+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/louise-l.-may-de-mio1/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/computer-science/</loc><lastmod>2020-12-16T12:15:54+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/marco-a.-dalbo/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/category/covid-19/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/mariana-b.-esteves/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/post/expressions/</loc><lastmod>2020-12-16T12:15:54+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/mixed-effects-models/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/category/forecast-models/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/nathalie-maluta/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/phytopathology/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/post/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/rafael-moral/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/accuracy/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</loc><lastmod>2020-12-16T12:10:51+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/bootstrap-confidence-intervals/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/state-space-model/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/clarice-g.-b.-demetrio/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-models/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/concordance-correlation-coefficient/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/category/statistical-models/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/john-hinde/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/statistics/</loc><lastmod>2020-12-16T12:19:46+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</loc><lastmod>2020-12-16T11:53:03+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/mixed-effects-model/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/athletes/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/precision/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/brian-moore/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/r-package/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/charles-pedlar/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/silvio-sandoval-zocchi/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/georgie-bruinvels/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-methods/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/john-newell/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</loc>
-    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/menstrual-cycle/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/pandemic/</loc>
-    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</loc><lastmod>2020-12-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/sars-cov-2/</loc>
-    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/global-short-term-forecasting-of-covid-19-cases/</loc><lastmod>2020-11-12T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/agreement-measures/</loc>
-    <lastmod>2020-04-21T10:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/outbreak/</loc><lastmod>2020-11-12T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/athlete-performance/</loc>
-    <lastmod>2020-04-21T10:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/agriculture/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2020-nuig/</loc>
-    <lastmod>2020-04-21T10:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/experimental-design/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/multilevel-model/</loc>
-    <lastmod>2020-04-21T10:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/generalized-linear-models/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/slides/</loc>
-    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/heloisa-thomazi-kleina1/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/slides/2017-papaya/</loc>
-    <lastmod>2020-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/joao-r.-s.-lopes/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/autoregressive-models/</loc>
-    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/karla-kudlawiec/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/bayesian-approach/</loc>
-    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/louise-l.-may-de-mio1/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/cycle-length/</loc>
-    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/marco-a.-dalbo/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2019-young-stats/</loc>
-    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/mariana-b.-esteves/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/performance/</loc>
-    <lastmod>2019-10-04T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/mixed-effects-models/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/arthur-k.-b.-santos/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/nathalie-maluta/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/carlos-e.-p.-cerri/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/phytopathology/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/gas-emissions/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</loc><lastmod>2020-08-17T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/global-warming/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/accuracy/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/gustavo-v.-popin/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/bootstrap-confidence-intervals/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/marcos-siqueira-neto/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/clarice-g.-b.-demetrio/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/plinio-b.-de-camargo/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/concordance-correlation-coefficient/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</loc>
-    <lastmod>2019-07-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/john-hinde/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/clarice-garcia-borges-demetrio/</loc>
-    <lastmod>2019-06-07T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/2019-iwsm/</loc>
-    <lastmod>2019-06-07T09:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/mixed-effects-model/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication-type/0/</loc>
-    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/precision/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</loc>
-    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/silvio-sandoval-zocchi/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/silvio-s.-zocchi/</loc>
-    <lastmod>2018-11-16T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/statistical-methods/</loc><lastmod>2020-08-13T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/heloisa-t.-kleina/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/global-short-term-forecasting-of-covid-19-cases/</loc><lastmod>2020-06-01T13:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/helvecio-d.-coletta-filho/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/agreement-measures/</loc><lastmod>2020-04-21T10:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/idemauro-a.r.-lara/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/athlete-performance/</loc><lastmod>2020-04-21T10:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/joao-r.s.-lopes/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/estimating-nba-athlete-performance-using-multilevel-models/</loc><lastmod>2020-04-21T10:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/rodrigo-p.p.-almeida/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/multilevel-model/</loc><lastmod>2020-04-21T10:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/tiago-de-melo-sales/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/genetics/</loc><lastmod>2020-01-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</loc>
-    <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/genomics/</loc><lastmod>2020-01-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/courses/</loc>
-    <lastmod>2018-08-28T17:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/plant-breeding/</loc><lastmod>2020-01-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</loc>
-    <lastmod>2018-03-22T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/project/</loc><lastmod>2020-01-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/biostatistics/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/project/genetic-project/</loc><lastmod>2020-01-10T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/autoregressive-models/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/shiny-app/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/bayesian-approach/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/sports/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/cycle-length/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/sport-project/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/modelling-menstrual-cycle-length-using-state-space-models/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/author/angelo-p.-m.-jacomino/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/performance/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/colour/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/arthur-k.-b.-santos/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/fruit/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/carlos-e.-p.-cerri/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/gas-emissions/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/postharvest/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/tag/global-warming/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/agreement/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/gustavo-v.-popin/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/circular-statistics/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/marcos-siqueira-neto/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/digital-images/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/plinio-b.-de-camargo/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/image-analysis/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</loc><lastmod>2019-07-16T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/color-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/author/clarice-garcia-borges-demetrio/</loc><lastmod>2019-06-07T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/r-packages/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/talk/the-longitudinal-concordance-correlation/</loc><lastmod>2019-06-07T09:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/concordance-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
+    <loc>https://prof-thiagooliveira.netlify.com/slides/</loc><lastmod>2019-02-05T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/gallery/</loc>
-  </url>
-  
-</urlset>
+    <loc>https://prof-thiagooliveira.netlify.com/slides/example/</loc><lastmod>2019-02-05T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</loc><lastmod>2018-11-16T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/silvio-s.-zocchi/</loc><lastmod>2018-11-16T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/heloisa-t.-kleina/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/helvecio-d.-coletta-filho/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/idemauro-a.r.-lara/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/joao-r.s.-lopes/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/rodrigo-p.p.-almeida/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/tiago-de-melo-sales/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</loc><lastmod>2018-11-10T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</loc><lastmod>2018-03-22T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/biostatistics/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/shiny-app/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/sports/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/project/sport-project/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/angelo-p.-m.-jacomino/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/colour/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/fruit/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/postharvest/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/agreement/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/circular-statistics/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/digital-images/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/image-analysis/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/project/color-project/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/r-packages/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/project/concordance-project/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/admin/</loc></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/gallery/</loc></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/author/%E5%90%B3%E6%81%A9%E9%81%94/</loc></url></urlset>

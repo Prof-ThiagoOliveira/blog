@@ -1,19 +1,45 @@
 <!DOCTYPE html><html lang="en-us" >
 
+
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
   
   
-  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
-  
-
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
   
 
   
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
   
 
   
@@ -27,56 +53,49 @@
   
   
 
-  <meta name="author" content="Thiago de Paula Oliveira">
+  <meta name="author" content="Thiago de Paula Oliveira" />
 
   
   
   
     
   
-  <meta name="description" content="tl;dr  Many different variables affect how the pandemic progresses and it is extremely difficult to identify each one, and precisely measure them. The data we have is surely innacurate, but could be a good proxy for understanding the behaviour of the coronavirus outbreak We developed a statistical model to obtain short-term forecasts of the number of COVID-19 cases We constantly update forecasts and make all results freely available to any country in the world through a web app   How many people will get infected tomorrow?">
+  <meta name="description" content="tl;dr  Many different variables affect how the pandemic progresses and it is extremely difficult to identify each one, and precisely measure them. The data we have is surely innacurate, but could be a good proxy for understanding the behaviour of the coronavirus outbreak We developed a statistical model to obtain short-term forecasts of the number of COVID-19 cases We constantly update forecasts and make all results freely available to any country in the world through a web app   How many people will get infected tomorrow?" />
 
   
-  <link rel="alternate" hreflang="en-us" href="https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/">
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+  <link rel="alternate" hreflang="en-us" href="https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" />
 
   
   
   
-  <meta name="theme-color" content="#2e6fd9">
+    <meta name="theme-color" content="#1565c0" />
   
 
   
   
-  
-  <script src="/js/mathjax-config.js"></script>
+    
+    <script src="/js/mathjax-config.js"></script>
   
 
   
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="print" onload="this.media='all'">
+
   
   
   
     
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
 
     
     
@@ -87,14 +106,16 @@
       
       
         
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
         
       
     
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
     
 
     
@@ -102,12 +123,6 @@
     
     
       
-
-      
-      
-
-      
-    
       
 
       
@@ -116,12 +131,6 @@
       
     
       
-
-      
-      
-
-      
-    
       
 
       
@@ -130,12 +139,6 @@
       
     
       
-
-      
-      
-
-      
-    
       
 
       
@@ -144,12 +147,6 @@
       
     
       
-
-      
-      
-
-      
-    
       
 
       
@@ -158,12 +155,6 @@
       
     
       
-
-      
-      
-
-      
-    
       
 
       
@@ -172,21 +163,6 @@
       
     
       
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
-      
-    
       
 
       
@@ -195,12 +171,54 @@
       
     
       
+      
 
       
       
 
       
     
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
       
 
       
@@ -211,12 +229,6 @@
       
     
       
-
-      
-      
-
-      
-    
       
 
       
@@ -224,16 +236,13 @@
 
       
     
-
-  
-
-  
-  
-  
-    
       
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+
+      
+      
+
+      
     
   
 
@@ -241,15 +250,15 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.e1b970b221479c370be0afa52ad28f91.css">
+  
+  <link rel="stylesheet" href="/css/wowchemy.859ec43b0461173cf4eb24478aaef3f1.css" />
 
   
 
 
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160613173-1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F170NVYBW1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
 
@@ -279,7 +288,8 @@
   }
 
   gtag('js', new Date());
-  gtag('config', 'UA-160613173-1', {});
+  gtag('config', 'G-F170NVYBW1', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
 
   
   document.addEventListener('click', onClickCallback, false);
@@ -290,18 +300,27 @@
 
   
 
+  
+
+
+
 
   
   
+  
 
   
 
-  <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_192x192_fill_lanczos_center_2.png">
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
 
-  <link rel="canonical" href="https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/">
+  <link rel="icon" type="image/png" href="/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_180x180_fill_lanczos_center_3.png" />
 
+  <link rel="canonical" href="https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" />
+
+  
   
   
   
@@ -313,19 +332,25 @@
     
   
   
-  <meta property="twitter:card" content="summary">
+
   
-  <meta property="twitter:site" content="@_OliveiraTP_">
-  <meta property="twitter:creator" content="@_OliveiraTP_">
-  
-  <meta property="og:site_name" content="Researcher">
-  <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/">
-  <meta property="og:title" content="How hard is it to predict COVID-19 cases? | Researcher">
-  <meta property="og:description" content="tl;dr  Many different variables affect how the pandemic progresses and it is extremely difficult to identify each one, and precisely measure them. The data we have is surely innacurate, but could be a good proxy for understanding the behaviour of the coronavirus outbreak We developed a statistical model to obtain short-term forecasts of the number of COVID-19 cases We constantly update forecasts and make all results freely available to any country in the world through a web app   How many people will get infected tomorrow?"><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-12-16T00:00:00&#43;00:00">
+    
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Thiago Oliveira" />
+  <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" />
+  <meta property="og:title" content="How hard is it to predict COVID-19 cases? | Thiago Oliveira" />
+  <meta property="og:description" content="tl;dr  Many different variables affect how the pandemic progresses and it is extremely difficult to identify each one, and precisely measure them. The data we have is surely innacurate, but could be a good proxy for understanding the behaviour of the coronavirus outbreak We developed a statistical model to obtain short-term forecasts of the number of COVID-19 cases We constantly update forecasts and make all results freely available to any country in the world through a web app   How many people will get infected tomorrow?" /><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2020-12-16T00:00:00&#43;00:00"
+      />
     
     <meta property="article:modified_time" content="2020-12-16T12:19:46&#43;00:00">
   
@@ -365,10 +390,10 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "The Roslin Institute",
+    "name": "University of Edinburgh",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://prof-thiagooliveira.netlify.com/images/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_192x192_fill_lanczos_center_2.png"
+      "url": "https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_192x192_fill_lanczos_center_3.png"
     }
   },
   "description": "tl;dr  Many different variables affect how the pandemic progresses and it is extremely difficult to identify each one, and precisely measure them. The data we have is surely innacurate, but could be a good proxy for understanding the behaviour of the coronavirus outbreak We developed a statistical model to obtain short-term forecasts of the number of COVID-19 cases We constantly update forecasts and make all results freely available to any country in the world through a web app   How many people will get infected tomorrow?"
@@ -379,31 +404,35 @@
 
   
 
+  
 
   
 
 
-  
 
 
 
-
-
-  <title>How hard is it to predict COVID-19 cases? | Researcher</title>
-
+  <title>How hard is it to predict COVID-19 cases? | Thiago Oliveira</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="8a17a1381fc8f69cddde821d4df2bfcb" >
 
   
   
   
   
   
-  <script src="/js/wowchemy-init.js"></script>
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.2da3b1fa37e894630bf6de39b1b694b3.js"></script>
 
-  <aside class="search-results" id="search">
+  
+
+
+<aside class="search-modal" id="search">
   <div class="container">
     <section class="search-header">
 
@@ -412,16 +441,22 @@
           <h1>Search</h1>
         </div>
         <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
         </div>
       </div>
 
       <div id="search-box">
         
         <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
         
       </div>
+
+      
+      
+
+      
 
     </section>
     <section class="section-search-results">
@@ -433,6 +468,7 @@
     </section>
   </div>
 </aside>
+
 
 
   <div class="page-header">
@@ -450,24 +486,24 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
+  <div class="container-xl">
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Researcher</a>
+      <a class="navbar-brand" href="/">Thiago Oliveira</a>
     </div>
     
 
     
     <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
     <span><i class="fas fa-bars"></i></span>
     </button>
     
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Researcher</a>
+      <a class="navbar-brand" href="/">Thiago Oliveira</a>
     </div>
     
 
@@ -585,6 +621,43 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
         
@@ -791,6 +864,12 @@
     </div>
 
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
       
       
       <li class="nav-item">
@@ -818,6 +897,7 @@
       </li>
       
 
+      
       
 
     </ul>
@@ -869,8 +949,10 @@
   <div>
     
 
-  
-  <span ><a href="/author/rafael-moral/">Rafael Moral</a></span>, <span ><a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span ><a href="/author/andrew-parnell/">Andrew Parnell</a></span>
+  <span >
+      <a href="/author/rafael-moral/">Rafael Moral</a></span>, <span class="author-highlighted">
+      <a href="/author/thiago-de-paula-oliveira/">Thiago de Paula Oliveira</a></span>, <span >
+      <a href="/author/andrew-parnell/">Andrew Parnell</a></span>
   </div>
   
   
@@ -901,6 +983,7 @@
   
   
   
+  
 
   
   
@@ -912,15 +995,6 @@
 </div>
 
     
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1017,7 +1091,7 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/covid-19/">Covid-19</a>
+  <a class="badge badge-light" href="/tag/covid-19/">COVID-19</a>
   
   <a class="badge badge-light" href="/tag/statistics/">Statistics</a>
   
@@ -1031,7 +1105,7 @@
 
 
 
-<div class="share-box" aria-hidden="true">
+<div class="share-box">
   <ul class="share">
     
       
@@ -1042,7 +1116,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;text=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;text=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1055,7 +1129,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;t=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;t=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1068,7 +1142,7 @@
       
       
       <li>
-        <a href="mailto:?subject=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?&amp;body=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?&amp;body=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1081,7 +1155,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;title=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;title=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1094,7 +1168,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?%20https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?%20https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1107,7 +1181,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;title=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/&amp;title=How%20hard%20is%20it%20to%20predict%20COVID-19%20cases?" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1147,7 +1221,7 @@
   <div class="media author-card content-widget-hr">
     
       
-      <a href="https://prof-thiagooliveira.netlify.com"><img class="avatar mr-3 avatar-circle" src="/author/thiago-de-paula-oliveira/avatar_hu9934606b14d258ccb98b349da0748f45_3865_270x270_fill_q90_lanczos_center.jpg" alt="Thiago de Paula Oliveira"></a>
+      <a href="https://prof-thiagooliveira.netlify.com"><img class="avatar mr-3 avatar-circle" src="/author/thiago-de-paula-oliveira/avatar_hu9934606b14d258ccb98b349da0748f45_3865_270x270_fill_q75_lanczos_center.jpg" alt="Thiago de Paula Oliveira"></a>
     
 
     <div class="media-body">
@@ -1253,7 +1327,7 @@
       
     
     <li>
-      <a href="https://www.thiagooliveira.co.uk" target="_blank" rel="noopener">
+      <a href="https://naturesouvenirs.smugmug.com/" target="_blank" rel="noopener">
         <i class="fas fa-blog"></i>
       </a>
     </li>
@@ -1291,15 +1365,15 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/talk/2020-young-isa/">Global Short-Term Forecasting of Covid-19 Cases</a></li>
-      
-      <li><a href="/talk/2020-usp/">Global Short-Term Forecasting of Covid-19 Cases</a></li>
-      
       <li><a href="/publication/2020-covid/">Global Short-Term Forecasting of Covid-19 Cases</a></li>
       
-      <li><a href="/publication/2017-papaya/">Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</a></li>
+      <li><a href="/talk/global-short-term-forecasting-of-covid-19-cases/">Global Short-Term Forecasting of Covid-19 Cases</a></li>
       
-      <li><a href="/post/expressions/">Expressions</a></li>
+      <li><a href="/talk/global-short-term-forecasting-of-covid-19-cases/">Global Short-Term Forecasting of Covid-19 Cases</a></li>
+      
+      <li><a href="/project/genetic-project/">Statistical models applied to quantitative genetics and genomics of plant breeding</a></li>
+      
+      <li><a href="/publication/2017-papaya/">Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</a></li>
       
     </ul>
   </div>
@@ -1318,11 +1392,20 @@
     
     <div class="container">
       <footer class="site-footer">
+
   
 
+
+
+  
+
+  
+
+  
   <p class="powered-by">
-    
+    © 2021 Thiago Oliviera
   </p>
+  
 
   
   
@@ -1336,10 +1419,13 @@
     
     
     
-    Published with
-    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
-    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
-    open source</a> website builder that empowers creators.
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
     
   </p>
 </footer>
@@ -1377,28 +1463,34 @@
       
 
     
+    <script src="/js/vendor-bundle.min.b73dfaac3b6499dc997741748a7c3fe2.js"></script>
+
     
     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    
+      
+      
+        <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+      
 
       
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
 
       
 
       
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/c++.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/bash/shell.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/latex.min.js" crossorigin="anonymous"></script>
         
       
 
@@ -1406,31 +1498,8 @@
 
     
     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
-
-    
-    
-    <script>const code_highlighting = true;</script>
-    
-
-    
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks",
-        'slides' : "Slides"
-        };
-    </script>
+      <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
     
 
     
@@ -1438,30 +1507,23 @@
 
     
     
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-    </script>
-    
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
-
-    
-    
-
-    
-    
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
     
 
     
@@ -1469,8 +1531,20 @@
 
     
     
+    
+    
 
     
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
     
     
     
@@ -1480,15 +1554,13 @@
     
     
       
+      
     
     
-    
-    
-    <script src="/js/wowchemy.min.4d670e4e47b7eaa49759e6822501455e.js"></script>
+    <script src="/en/js/wowchemy.min.7cd6ec29d281a73c92a2958a1584aadc.js"></script>
 
     
-
-
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 
