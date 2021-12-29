@@ -1,0 +1,94 @@
+---
+title: "Courses"
+summary: "Education and training" 
+author: "Thiago de Paula Oliveira"
+date: "`r Sys.Date()`"
+weight: 10
+highlight: true
+type: book
+output:
+  blogdown::html_page:
+    number_sections: false
+    css: "my_style.css"
+---
+
+```{r setup, include=FALSE}
+# Configuring global parameters
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE,
+                      fig.align = "center", fig.height = 6, fig.width = 6,
+                      class.source = "lineAnchors")
+```
+
+## Summary
+
+```{r, echo=FALSE}
+type <- as.factor(c("Genetics", "Programming language", "Statistical modelling and correlation", "Describing and displaying data", 
+          "Hypothesis tests and confidence intervals", "Workflow"))
+y <- c(1, # Genetics
+       6, # Programming language
+      12, # Statistical modelling and correlation
+       6, # Describing and displaying data
+       1, # Hypothesis tests and confidence intervals
+       2  # Workflow
+      )
+library(tidyverse)
+tibble(type, y) %>%
+  ggplot(aes(y=y, fill=type, x = "")) + 
+  geom_col(color = "black") +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+  geom_text(aes(label = y),
+            position = position_stack(vjust = 0.5)) +
+  labs(fill = "Type") +
+  theme_void() 
+```
+
+## 2021
+
+1. Workflows with Nextflow, University of Edinburgh
+2. [Introduction to Bash Shell Scripting](https://www.coursera.org/account/accomplishments/certificate/3FXUKF7J65G8), Coursera Project Network
+3. Genome-wide prediction of complex traits in humans, plants and animals
+4. UKRI-BBSRC Workshop on Computing in the Biosciences
+5. World Meeting of the International Society for Bayesian Analysis
+
+## 2020
+
+1. [Programming Fundamentals](https://www.coursera.org/account/accomplishments/certificate/HW36TQ7CA337), Coursera, Duke University, USA.
+
+## 2019
+
+1. Survival Analysis in R. DataCamp, USA.
+2. Building Web Applications in R with Shiny: Case Studies Course. DataCamp, USA.
+3. Building Dashboards with shinydashboard. DataCamp, USA.
+4. Building Web Applications in R with Shiny. DataCamp, USA.
+5. Introduction to Python. DataCamp, USA.
+6. Statistical Modeling in R (Part 1). DataCamp, USA
+7. Intermediate R. DataCamp, USA
+8. Introduction to R. DataCamp, USA
+
+## 2018 
+
+1. Machine Learning Toolbox. DataCamp, USA
+
+## 2016
+1. Longitudinal and Incomplete Data – USP
+
+## 2015
+1. Regression Models – Coursera, MOOC, USA
+2. Short curse on Dimensionality Reduction – USP
+3. Additive Generalized Models with P-splines – RBras
+4. Exploring interactive graphical interfaces in R – RBras
+5. Exploring the Flexibility of Linear Mixed Models – RBras
+6. Special Topics in Multivariate Analysis – RBras
+
+## 2014
+
+1. Generalized Additive Models with P-splines – USP
+
+## 2013
+
+1. [Statistics: Making Sense of Data](https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/970433~3060810/pdf) – Coursera, MOOC, USA
+2. [Mathematical Biostatistics Boot Camp](https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/970405~3060810/pdf) – Coursera, MOOC, USA
+3. Introduction to Categorical Data Analysis – USP
+4. Structural Equations Models – USP
+5. Some Important Topics of Asymptotic Theory – USP

@@ -8,18 +8,11 @@ highlight: true
 header-includes:
   - \usepackage{amsmath}
 output:
-  bookdown::html_page:
-    fig_caption: true
-    number_sections: true
-    df_print: paged
-    mathjax: "default"
+  blogdown::html_page:
+    number_sections: false
     highlight: kate
     toc: true
-    toc_depth: 2
     css: "my_style.css"
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
 ---
 
 ```{r, echo=FALSE}

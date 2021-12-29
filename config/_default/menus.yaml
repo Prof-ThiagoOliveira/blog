@@ -32,7 +32,7 @@ main:
     url: '#contact'
     weight: 90
   - name: CV
-    url: 'files/cv.pdf'
+    url: 'uploads/cv.pdf'
     weight: 100
     
     

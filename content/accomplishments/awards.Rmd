@@ -1,0 +1,33 @@
+---
+title: "Awards and recognition"
+summary: "Personal and scientific accomplishments" 
+author: "Thiago de Paula Oliveira"
+date: "`r Sys.Date()`"
+weight: 10
+highlight: true
+type: book
+output:
+  blogdown::html_page:
+    number_sections: false
+    css: "my_style.css"
+---
+
+```{r setup, include=FALSE}
+# Configuring global parameters
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE,
+                      fig.align = "center", fig.height = 6, fig.width = 6,
+                      class.source = "lineAnchors")
+```
+
+## 2020
+
+1. Marie Skłodowska-Curie COFUND Fellowship under the project ``Quantitative genetics and
+genomics of plant breeding''
+2. Runner-up Poster on Young-ISA Twitter Poster Conference promoted by the Irish Statistical
+Association. Poster Title: Global short-term forecasting of Covid-19 cases. Authors: Oliveira,
+T.P.; Moral, R.A., July, 2020
+
+## 2010
+
+1. Honorable Mention at the 18th USP International Symposium of Undergraduate Research,
+University of São Paulo.
