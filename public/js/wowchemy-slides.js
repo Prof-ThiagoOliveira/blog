@@ -2,7 +2,7 @@
   // ns-params:@params
   var slides = null;
 
-  // ns-hugo:/home/thiago/Documents/1-Project/Work/blog/themes/github.com/wowchemy/wowchemy-hugo-modules/wowchemy/v5/assets/js/wowchemy-utils.js
+  // ns-hugo:/home/thiago/Documents/2-Areas/Profissional/blog/themes/github.com/wowchemy/wowchemy-hugo-modules/wowchemy/v5/assets/js/wowchemy-utils.js
   function fixMermaid(render = false) {
     let mermaids = [];
     [].push.apply(mermaids, document.getElementsByClassName("language-mermaid"));
