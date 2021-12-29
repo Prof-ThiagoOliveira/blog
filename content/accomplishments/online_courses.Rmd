@@ -4,11 +4,12 @@ summary: "Education and training"
 author: "Thiago de Paula Oliveira"
 date: "`r Sys.Date()`"
 weight: 10
-highlight: true
+highlight: false
 type: book
 output:
   blogdown::html_page:
     number_sections: false
+    toc: false
     css: "my_style.css"
 ---
 
