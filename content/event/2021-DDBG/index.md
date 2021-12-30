@@ -1,7 +1,7 @@
 ---
 title: Visualization and Data Structure
 
-subtitle: Principles of graph grammar and tidy data - ggplot2
+subtitle: Principles of graph grammar and tidy data - ggplot2 and tidyverse
 
 event: Data Driven Breeding and Genetics (DDBG)
 event_url: ""
@@ -14,7 +14,7 @@ address:
   postcode: "EH25 9RG"
   country: Scotland
 
-summary: Discussion on the principles of grammar of graphics and application using the ggplot2 package
+summary: Discussion on the principles of grammar of graphics and tidy data with application using the tidyverse
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -32,6 +32,8 @@ authors:
 tags:
 - ggplot2
 - Visualization
+- tidyverse
+- tidy data
 - Data structure
 - Grammar of graphics
 
@@ -65,5 +67,5 @@ slides: example
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects:
-- others-project
+- genetic-project
 ---

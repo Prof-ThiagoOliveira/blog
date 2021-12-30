@@ -20,6 +20,9 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE
                       class.source = "lineAnchors")
 ```
 
+
+<hr>
+
 ## 2020
 
 1. Marie Skłodowska-Curie COFUND Fellowship under the project ``Quantitative genetics and
@@ -27,6 +30,9 @@ genomics of plant breeding''
 2. Runner-up Poster on Young-ISA Twitter Poster Conference promoted by the Irish Statistical
 Association. Poster Title: Global short-term forecasting of Covid-19 cases. Authors: Oliveira,
 T.P.; Moral, R.A., July, 2020
+
+<br>
+<hr>
 
 ## 2010
 

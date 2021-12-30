@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE
                       fig.align = "center", fig.height = 6, fig.width = 6,
                       class.source = "lineAnchors")
 ```
-
+<hr>
 ## Summary
 
 ```{r, echo=FALSE}
@@ -44,6 +44,9 @@ tibble(type, y) %>%
   theme_void() 
 ```
 
+
+<hr>
+
 ## 2021
 
 1. Workflows with Nextflow, University of Edinburgh
@@ -52,10 +55,14 @@ tibble(type, y) %>%
 4. UKRI-BBSRC Workshop on Computing in the Biosciences
 5. World Meeting of the International Society for Bayesian Analysis
 
+<br>
+<hr>
 ## 2020
 
 1. [Programming Fundamentals](https://www.coursera.org/account/accomplishments/certificate/HW36TQ7CA337), Coursera, Duke University, USA.
 
+<br>
+<hr>
 ## 2019
 
 1. Survival Analysis in R. DataCamp, USA.
@@ -67,13 +74,19 @@ tibble(type, y) %>%
 7. Intermediate R. DataCamp, USA
 8. Introduction to R. DataCamp, USA
 
+<br>
+<hr>
 ## 2018 
 
 1. Machine Learning Toolbox. DataCamp, USA
 
+<br>
+<hr>
 ## 2016
 1. Longitudinal and Incomplete Data – USP
 
+<br>
+<hr>
 ## 2015
 1. Regression Models – Coursera, MOOC, USA
 2. Short curse on Dimensionality Reduction – USP
@@ -82,10 +95,14 @@ tibble(type, y) %>%
 5. Exploring the Flexibility of Linear Mixed Models – RBras
 6. Special Topics in Multivariate Analysis – RBras
 
+<br>
+<hr>
 ## 2014
 
 1. Generalized Additive Models with P-splines – USP
 
+<br>
+<hr>
 ## 2013
 
 1. [Statistics: Making Sense of Data](https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/970433~3060810/pdf) – Coursera, MOOC, USA

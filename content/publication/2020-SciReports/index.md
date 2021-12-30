@@ -64,6 +64,7 @@ image:
 #   Otherwise, set `projects: []`.
 projects:
 - sport-project
+- predictive-models
 
 # Slides (optional).
 #   Associate this publication with Markdown slides.

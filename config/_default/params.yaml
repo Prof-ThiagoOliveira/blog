@@ -5,9 +5,9 @@
 
 # Appearance
 
-theme: minimal
+theme: oliveira
 day_night: true
-font: ''
+font: minimal
 font_size: L
 
 # SEO

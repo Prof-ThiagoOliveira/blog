@@ -16,6 +16,8 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/accomplishments/awards/</loc><lastmod>2021-12-29T00:00:00+00:00</lastmod></url>
   <url>
+    <loc>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</loc><lastmod>2021-12-30T00:00:00+00:00</lastmod></url>
+  <url>
     <loc>https://prof-thiagooliveira.netlify.com/accomplishments/online_courses/</loc><lastmod>2021-12-29T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/courses/2021_ddbg/ggplot2/</loc><lastmod>2021-09-18T00:00:00+00:00</lastmod></url>
@@ -28,7 +30,7 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/courses/2021_ddbg/oliveiratp_tidyverse_answers/</loc><lastmod>2021-12-29T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/</loc><lastmod>2021-12-29T00:00:00+00:00</lastmod></url>
+    <loc>https://prof-thiagooliveira.netlify.com/</loc><lastmod>2021-12-30T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/courses/</loc><lastmod>2021-12-29T00:00:00+00:00</lastmod></url>
   <url>
@@ -74,9 +76,11 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/event/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/visualization/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/tidy-data/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/tidyverse/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/visualization/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</loc><lastmod>2021-09-20T11:00:00+00:00</lastmod></url>
   <url>
@@ -236,6 +240,16 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/project/genetic-project/</loc><lastmod>2020-01-10T00:00:00+00:00</lastmod></url>
   <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/biostatistics/</loc><lastmod>2020-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/project/predictive-models/</loc><lastmod>2020-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/forecast/</loc><lastmod>2020-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/predictive-models/</loc><lastmod>2020-01-01T00:00:00+00:00</lastmod></url>
+  <url>
+    <loc>https://prof-thiagooliveira.netlify.com/tag/shiny-app/</loc><lastmod>2020-01-01T00:00:00+00:00</lastmod></url>
+  <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/autoregressive-models/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/bayesian-approach/</loc><lastmod>2019-10-04T09:00:00+00:00</lastmod></url>
@@ -290,10 +304,6 @@
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</loc><lastmod>2018-03-22T00:00:00+00:00</lastmod></url>
   <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/biostatistics/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/shiny-app/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
-  <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/sports/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/project/sport-project/</loc><lastmod>2018-01-01T00:00:00+00:00</lastmod></url>
@@ -307,20 +317,6 @@
     <loc>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/tag/postharvest/</loc><lastmod>2017-01-01T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/agreement/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/circular-statistics/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/digital-images/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/image-analysis/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/color-project/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/tag/r-packages/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
-  <url>
-    <loc>https://prof-thiagooliveira.netlify.com/project/concordance-project/</loc><lastmod>2016-04-27T00:00:00+00:00</lastmod></url>
   <url>
     <loc>https://prof-thiagooliveira.netlify.com/admin/</loc></url>
   <url>

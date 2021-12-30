@@ -68,7 +68,6 @@ image:
 #   Otherwise, set `projects: []`.
 projects:
 - concordance-project
-- color-project
 
 # Slides (optional).
 #   Associate this publication with Markdown slides.

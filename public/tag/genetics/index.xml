@@ -17,7 +17,32 @@
       <link>https://prof-thiagooliveira.netlify.com/project/genetic-project/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/project/genetic-project/</guid>
-      <description></description>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Plant breeding programmes are a complex network of a multitude of operations and decisions. Quantifying the drives of genetic change in such programmes is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these measures only change the overall genetic mean. To understand the genetic change more comprehensively, we also need to measure the change in genetic variance and drives of mean and variance changes. 
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+To quantify the drives of genetic change in mean we can i) partition breeding values into parent average and Mendelian sampling terms, ii) allocate the terms to analyst-defined &#34;paths&#34; (specific individuals or groups of individuals), and iii) summarise the path specific terms to quantify path contributions to the overall genetic trend in mean. 
+&lt;/p&gt;
+&lt;p&gt;We have used the partitioning method in several cases with profound results:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; To estimate the contribution of different cattle breeding programmes globally and in particular countries; &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;To estimate the contribution of national selection and import in cattle; and&lt;/li&gt;
+&lt;li&gt;To evaluate national selection and import in pig breeds.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&#34;justify&#34;&gt;
+This project aims to apply the partitioning method to plant breeding programmes and to expand its versatility. Specifically, we are aiming to:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; Utilise genomic information to identify which genome regions drive genetic change and which sources contribute to favourable alleles in these genome regions &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Analyse changes in genetic variance in addition to the genetic mean&lt;/li&gt;
+&lt;li&gt;Account for uncertainty in genetic trends and their partitions, and&lt;/li&gt;
+&lt;li&gt;Develop an R package&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

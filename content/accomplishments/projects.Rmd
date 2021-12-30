@@ -1,0 +1,51 @@
+---
+title: "Finalized Projects"
+summary: "These projects have been finsihed or discontinued" 
+author: "Thiago de Paula Oliveira"
+date: "`r Sys.Date()`"
+weight: 10
+highlight: false
+type: book
+output:
+  blogdown::html_page:
+    number_sections: false
+    toc: false
+    css: "my_style.css"
+---
+
+```{r setup, include=FALSE}
+# Configuring global parameters
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE,
+                      fig.align = "center", fig.height = 6, fig.width = 6,
+                      class.source = "lineAnchors")
+```
+
+<hr>
+
+## 2020
+
+### The lcc Package
+
+**Summary**: 
+Estimating longitudinal concordance correlation function
+
+**Publications**:
+
+1. [lcc: Longitudinal Concordance Correlation (2019)](https://cran.r-project.org/web/packages/lcc/lcc.pdf)
+2. [lcc: an R package to estimate the concordance correlation, Pearson correlation and accuracy over time (2020)](https://peerj.com/articles/9850/)
+
+<br>
+<hr>
+
+## 2019
+
+### Measuring color using image analysis
+
+**Summary**: 
+Promote the usage of image analysis as well as development of statistical methodologies for that purpose.
+
+**Publications**:
+
+1. [Longitudinal concordance correlation function based on variance components: an application in fruit color analysis (2018)](https://link.springer.com/article/10.1007%2Fs13253-018-0321-1)
+2. [Measuring color hue in 'Sunrise Solo' papaya using a flatbed scanner (2017)](https://www.scielo.br/j/rbf/a/X6xRm34btCXNMJYGdxzdcKB/?format=pdf&lang=en)
+    

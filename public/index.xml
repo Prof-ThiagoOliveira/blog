@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Thiago Oliveira</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Wed, 29 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Thiago Oliveira</title>
@@ -183,6 +183,45 @@ T.P.; Moral, R.A., July, 2020&lt;/li&gt;
 &lt;li&gt;Honorable Mention at the 18th USP International Symposium of Undergraduate Research,
 University of São Paulo.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Finalized Projects</title>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</link>
+      <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</guid>
+      <description>
+&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2020&lt;/h2&gt;
+&lt;div id=&#34;the-lcc-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The lcc Package&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+Estimating longitudinal concordance correlation function&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/lcc/lcc.pdf&#34;&gt;lcc: Longitudinal Concordance Correlation (2018)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34;&gt;Longitudinal Concordance Correlation Function Based on Variance Components: An Application in Fruit Color Analysis (2018)&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2019&lt;/h2&gt;
+&lt;div id=&#34;measuring-color-using-image-analysis&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Measuring color using image analysis&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+Promote the usage of image analysis as well as development of statistical methodologies for that purpose.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34;&gt;Longitudinal concordance correlation function based on variance components: an application in fruit color analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.scielo.br/j/rbf/a/X6xRm34btCXNMJYGdxzdcKB/?format=pdf&amp;amp;lang=en&#34;&gt;Measuring color hue in ‘Sunrise Solo’ papaya using a flatbed scanner&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -2514,14 +2553,6 @@ get the maximum, minimum, and mean values.&lt;/li&gt;
     </item>
     
     <item>
-      <title>Visualization and Data Structure</title>
-      <link>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</link>
-      <pubDate>Mon, 20 Sep 2021 11:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Partition/Decomposition of Breeding Values by Paths of Information</title>
       <link>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
@@ -3885,7 +3916,42 @@ cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
       <link>https://prof-thiagooliveira.netlify.com/project/genetic-project/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/project/genetic-project/</guid>
-      <description></description>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Plant breeding programmes are a complex network of a multitude of operations and decisions. Quantifying the drives of genetic change in such programmes is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these measures only change the overall genetic mean. To understand the genetic change more comprehensively, we also need to measure the change in genetic variance and drives of mean and variance changes. 
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+To quantify the drives of genetic change in mean we can i) partition breeding values into parent average and Mendelian sampling terms, ii) allocate the terms to analyst-defined &#34;paths&#34; (specific individuals or groups of individuals), and iii) summarise the path specific terms to quantify path contributions to the overall genetic trend in mean. 
+&lt;/p&gt;
+&lt;p&gt;We have used the partitioning method in several cases with profound results:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; To estimate the contribution of different cattle breeding programmes globally and in particular countries; &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;To estimate the contribution of national selection and import in cattle; and&lt;/li&gt;
+&lt;li&gt;To evaluate national selection and import in pig breeds.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&#34;justify&#34;&gt;
+This project aims to apply the partitioning method to plant breeding programmes and to expand its versatility. Specifically, we are aiming to:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; Utilise genomic information to identify which genome regions drive genetic change and which sources contribute to favourable alleles in these genome regions &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Analyse changes in genetic variance in addition to the genetic mean&lt;/li&gt;
+&lt;li&gt;Account for uncertainty in genetic trends and their partitions, and&lt;/li&gt;
+&lt;li&gt;Develop an R package&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development of predictive models and analytics techniques to forecast historical data-driven outcomes</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/predictive-models/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/predictive-models/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Predictive modelling is a commonly used statistical technique to predict future behavior. Predictive modelling solutions are a form of data-mining technology that analyses historical and current data and generates a model to help predict future outcomes. In predictive modelling, data is collected, a statistical model is formulated, predictions are made, and the model is validated as additional data becomes available.
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -4085,22 +4151,6 @@ $$&lt;/p&gt;
       <link>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Measuring color using image analyis</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/color-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/color-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The lcc Package</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/concordance-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/concordance-project/</guid>
       <description></description>
     </item>
     
