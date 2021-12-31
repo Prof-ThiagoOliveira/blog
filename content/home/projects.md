@@ -33,6 +33,8 @@ content:
     tag: Statistics
   - name: Sports
     tag: Sports
+  - name: Genetic
+    tag: Genetic
   - name: Other
     tag: 'other'
 
@@ -45,8 +47,8 @@ design:
   #   2 = Compact
   #   3 = Card
   #   5 = Showcase
-  view: 3
+  view: 5
 
   # For Showcase view, flip alternate rows?
-  flip_alt_rows: false
+  flip_alt_rows: true
 ---

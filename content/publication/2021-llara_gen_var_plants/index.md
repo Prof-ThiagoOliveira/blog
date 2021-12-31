@@ -32,6 +32,7 @@ tags:
 - Genetic variance
 - Breeding programme
 - Simulation
+- Genetic
 - Variance components
 - Linkage-disequilibrium
 

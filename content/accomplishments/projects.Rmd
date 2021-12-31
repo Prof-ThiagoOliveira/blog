@@ -1,6 +1,6 @@
 ---
 title: "Finalized Projects"
-summary: "These projects have been finsihed or discontinued" 
+summary: "These projects were finsihed or discontinued" 
 author: "Thiago de Paula Oliveira"
 date: "`r Sys.Date()`"
 weight: 10

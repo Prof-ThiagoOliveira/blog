@@ -8,7 +8,7 @@ summary: Quantitative genetics is a field of biology studying the effect of gene
 tags:
 - Statistics
 - Statistical modelling
-- Genetics
+- Genetic
 - Genomics
 - Plant breeding
 
