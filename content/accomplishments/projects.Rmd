@@ -4,7 +4,7 @@ summary: "These projects were finsihed or discontinued"
 author: "Thiago de Paula Oliveira"
 date: "`r Sys.Date()`"
 weight: 10
-highlight: false
+highlight: true
 type: book
 output:
   blogdown::html_page:
@@ -32,12 +32,35 @@ Estimating longitudinal concordance correlation function
 **Publications**:
 
 1. [lcc: Longitudinal Concordance Correlation (2019)](https://cran.r-project.org/web/packages/lcc/lcc.pdf)
-2. [lcc: an R package to estimate the concordance correlation, Pearson correlation and accuracy over time (2020)](https://peerj.com/articles/9850/)
+2. [lcc: an R package to estimate the concordance correlation, Pearson correlation and accuracy over time, 2020](https://peerj.com/articles/9850/)
+
+<br>
+
+### Transmission efficiency of *xylella fastidiosa*
+
+**Summary**:
+*Xylella fastidiosa* is genetically diverse and has many vector species. However, there is limited information on vector specificity and efficiency for different sequence types (STs) Both STs of X. fastidiosa and vectors differ in their associations with plants
+
+**Publications**:
+
+1. [Transmission efficiency of xylella fastidiosa subsp. Pauca sequence types by sharpshooter vectors after in vitro acquisition, 2018](https://apsjournals.apsnet.org/doi/pdf/10.1094/PHYTO-07-18-0254-FI)
+2. [Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa), 2020](https://link.springer.com/article/10.1007%2Fs10658-020-02104-8)
 
 <br>
 <hr>
 
 ## 2019
+
+### Sugarcane straw management for bioenergy
+
+**Summary**:
+Global warming can intensify the soil organic matter (SOM) turnover, damaging soil health. Crop residues left on the soil are important to maintain a positive SOM budget and nutrient cycling. But, sugarcane (Saccharum officinarum) straw has been removed from the field for bioenergy purposes. We hypothesize that global warming, together with straw removal, will negatively impact Brazil’s ethanol carbon footprint.
+
+**Publications**:
+
+1. [Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage](https://link.springer.com/article/10.1007/s11027-019-09880-7)
+
+<br>
 
 ### Measuring color using image analysis
 
@@ -46,6 +69,7 @@ Promote the usage of image analysis as well as development of statistical method
 
 **Publications**:
 
-1. [Longitudinal concordance correlation function based on variance components: an application in fruit color analysis (2018)](https://link.springer.com/article/10.1007%2Fs13253-018-0321-1)
-2. [Measuring color hue in 'Sunrise Solo' papaya using a flatbed scanner (2017)](https://www.scielo.br/j/rbf/a/X6xRm34btCXNMJYGdxzdcKB/?format=pdf&lang=en)
+1. [Measuring color hue in 'Sunrise Solo' papaya using a flatbed scanner (2017)](https://www.scielo.br/j/rbf/a/X6xRm34btCXNMJYGdxzdcKB/?format=pdf&lang=en)
+2. [Longitudinal concordance correlation function based on variance components: an application in fruit color analysis, 2018](https://link.springer.com/article/10.1007%2Fs13253-018-0321-1)
+
     

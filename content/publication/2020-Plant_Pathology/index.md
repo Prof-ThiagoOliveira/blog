@@ -45,7 +45,7 @@ links:
  - name: "Journal Link"
    url: "https://www.springer.com/journal/10658/"
 
-url_pdf: ''
+url_pdf: 'https://link.springer.com/article/10.1007%2Fs10658-020-02104-8'
 url_code: ''
 url_dataset: ''
 url_poster: ''
