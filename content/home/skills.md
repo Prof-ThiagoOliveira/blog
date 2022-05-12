@@ -25,6 +25,11 @@ feature:
   icon: rlogo
   icon_pack: custom
   name: R and Shiny
+
+- description: Beginner
+  icon: octave
+  icon_pack: custom
+  name: Octave
   
 - description: Beginner
   icon: c++
