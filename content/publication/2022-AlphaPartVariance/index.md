@@ -1,5 +1,5 @@
 ---
-title: "Temporal and genomic analysis of additive genetic variance in breeding programmes"
+title: "A method for partitioning trends in genetic mean and variance to understand breeding practices"
 authors:
 - admin
 - Jana Obsteter
