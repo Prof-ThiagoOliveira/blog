@@ -22,17 +22,20 @@ main:
   - name: Courses
     url: courses/
     weight: 60
+  - name: Conferences
+    url: conferences/
+    weight: 60
   - name: Gallery
     url: 'gallery/'
-    weight: 70
+    weight: 80
   - name: Accomplishments
     url: 'accomplishments/'
-    weight: 80
+    weight: 90
   - name: Contact
     url: '#contact'
-    weight: 90
-  - name: CV
-    url: 'uploads/cv.pdf'
     weight: 100
+  - name: CV
+    url: 'cv/'
+    weight: 110
     
     

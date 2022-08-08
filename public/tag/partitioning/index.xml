@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Partitioning | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tag/partitioning/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tag/partitioning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Partitioning</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Wed, 27 Jul 2022 19:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
+      <title>Partitioning</title>
+      <link>https://prof-thiagooliveira.netlify.com/tag/partitioning/</link>
+    </image>
+    
+    <item>
+      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
+      <link>https://prof-thiagooliveira.netlify.com/talk/a-method-for-partitioning-trends-in-genetic-mean-and-variance-to-understand-breeding-practices/</link>
+      <pubDate>Wed, 27 Jul 2022 19:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/a-method-for-partitioning-trends-in-genetic-mean-and-variance-to-understand-breeding-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
+      <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genomic strategies for optimal crossbreeding in African dairy cattle</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/ihouaga_adgg_spatial/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/ihouaga_adgg_spatial/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+This project will develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle. Crossbreeding is the mating of individuals from different lines, breeds, or populations. There are three benefits of crossbreeding in livestock:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cross-bred animals perform better than purebreds because of breed complementary,&lt;/li&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; Cross-bred animals perform better than purebreds because of heterosis (hybrid vigour), and &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p align=&#34;justify&#34;&gt; Cross-breeding protects breeders&#39; intellectual property because production animals outperform their offspring. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Breed complementary refers to the fact that a cross between breeds with different strengths has the potential to combine the strengths of its parents. In the East African dairy sector, which provides the context for this project, the goal is to develop a cross in cattle that combines the milk production of the Holstein with the tropical adaptation of the East African Zebu. Hybrid vigour is the tendency of a cross-bred animal to outperform its purebred parents. Cross-breeding protects the breeders&#39; intellectual property because cross-bred production animals outperform their offspring, so farmers get better returns by buying production animals from the breeder than by breeding from production animals. An analogous example of the benefits of cross-breeding in the crop breeding practice is seen in maize which has seen a 6-fold increase in productivity since hybrid breeding was introduced in the 1930s.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AlphaPart - Partition of Breeding Values by Paths of Information</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/alphapart-project/</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/alphapart-project/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+The partitioning method is described in Garcia-Cortes et al. (2008). The package includes the main function AlphaPart for partitioning breeding values and auxiliary functions for manipulating data and summarizing, visualizing, and saving results.
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

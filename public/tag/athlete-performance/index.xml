@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athlete Performance | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tag/athlete-performance/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tag/athlete-performance/index.xml" rel="self" type="application/rss+xml" />
+    <description>Athlete Performance</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Tue, 21 Apr 2020 10:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
+      <title>Athlete Performance</title>
+      <link>https://prof-thiagooliveira.netlify.com/tag/athlete-performance/</link>
+    </image>
+    
+    <item>
+      <title>Estimating NBA athlete performance using multilevel models</title>
+      <link>https://prof-thiagooliveira.netlify.com/talk/estimating-nba-athlete-performance-using-multilevel-models/</link>
+      <pubDate>Tue, 21 Apr 2020 10:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/estimating-nba-athlete-performance-using-multilevel-models/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;In basketball, the athlete performance evaluation are generally based on variants of plus-minus and PER statistics Optimizing Athlete Performance calculated through multiple regression, ridge, or lasso models using likelihood-based or Bayesian approach. We developed a novel methodology based on principal components analysis and multilevel model to create new indexes such as Oliveira-Newell Score that can be used to evaluate player performance during a match, relevance score used to rank players in a season, and the consistence score used to evaluate the player contribution for their team based on random effects.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The use of biostatistics for optimizing athletes performance</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/sport-project/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sport-project/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
