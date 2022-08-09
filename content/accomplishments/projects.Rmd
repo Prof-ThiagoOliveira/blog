@@ -22,6 +22,33 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE
 
 <hr>
 
+## 2021
+
+### The use of biostatistics for optimizing athletes performance
+
+**Summary**: 
+Uniquely blending Data Science and Sports Science to generate customized strategies by athlete
+
+**Publications**:
+
+1. [Modelling menstrual cycle length in athletes using state-space models, 2021](https://www.nature.com/articles/s41598-021-95960-1)
+
+<br>
+
+### Development of predictive models and analytics techniques to forecast historical data-driven outcomes
+
+**Summary**: 
+Predictive modelling is a commonly used statistical technique to predict future behavior. Predictive modelling solutions are a form of data-mining technology that analyses historical and current data and generates a model to help predict future outcomes. In predictive modelling, data is collected, a statistical model is formulated, predictions are made, and the model is validated as additional data becomes available.
+
+**Publications**:
+
+1. [Global short-term forecasting of COVID-19 cases, 2021](https://www.nature.com/articles/s41598-021-87230-x)
+2. [Modelling menstrual cycle length in athletes using state-space models, 2021](https://www.nature.com/articles/s41598-021-95960-1)
+
+<br>
+
+<hr>
+
 ## 2020
 
 ### The lcc Package
@@ -31,7 +58,7 @@ Estimating longitudinal concordance correlation function
 
 **Publications**:
 
-1. [lcc: Longitudinal Concordance Correlation (2019)](https://cran.r-project.org/web/packages/lcc/lcc.pdf)
+1. [lcc: Longitudinal Concordance Correlation, 2019](https://cran.r-project.org/web/packages/lcc/lcc.pdf)
 2. [lcc: an R package to estimate the concordance correlation, Pearson correlation and accuracy over time, 2020](https://peerj.com/articles/9850/)
 
 <br>
