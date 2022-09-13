@@ -33,7 +33,7 @@ experience:
     Responsibilities include:
     * Development of statistical models in quantitative genetics and genomics of plant breeding
   location: Edinburgh, Scotland
-  title: Researcher Fellow (TRAIN@Ed)
+  title: MSCA (TRAIN@Ed) postdoc 
   
 - company: NUI Galway
   company_url: "http://www.nuigalway.ie/"
@@ -44,7 +44,7 @@ experience:
     * Development of statistical models applied to COVID-19 outbreak
     * Development of shiny apps 
   location: Galway, Ireland
-  title: Posdoctoral Researcher
+  title: Postdoctoral Researcher
   
 - company: NUI Galway
   company_url: "http://www.nuigalway.ie/"
@@ -55,7 +55,7 @@ experience:
     * Development of biostatistical models applied to sports
     * Development of shiny apps 
   location: Galway, Ireland
-  title: Posdoctoral Researcher  
+  title: Postdoctoral Researcher 
   
 - company: NUI Galway
   company_url: "http://www.nuigalway.ie/"
@@ -66,7 +66,7 @@ experience:
     * Development of biostatistical models applied to sports
     * Development of shiny apps 
   location: Galway, Ireland
-  title: Posdoctoral Researcher
+  title: Postdoctoral Researcher
 
 - company: University of São Paulo
   company_url: "https://www5.usp.br/"
@@ -77,7 +77,7 @@ experience:
     * Development of statistical models applied to agriculture
     * Development of R packages  
   location: Piracicaba, Sao Paulo
-  title: Posdoctoral Researcher
+  title: Postdoctoral Researcher
 
 - company: University of São Paulo
   company_url: "https://www5.usp.br/"
