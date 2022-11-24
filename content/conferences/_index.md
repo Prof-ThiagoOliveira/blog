@@ -25,6 +25,7 @@ design:
 
 1.  [**World Congress on Genetics Applied to Livestock Production (WCGALP)**](https://wcgalp.com/)
 2. [**36th International Workshop on Statistical Modelling (IWSM)**](https://www.iwsm2022.com/)
+1.  [**XVIIIth Eucarpia Biometrics in Plant Breeding Conference**](https://eucarpiabiom22.sciencesconf.org/)
 
 **2021**
 

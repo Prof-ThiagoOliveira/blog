@@ -16,7 +16,7 @@ subtitle:
 # - Add/remove as many `feature` blocks below as you like.
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
-- description: 10 years experience 
+- description: 11 years experience 
   icon: statistics
   icon_pack: custom
   name: Statistics
@@ -36,7 +36,7 @@ feature:
   icon_pack: custom
   name: C++
 
-- description: Beginner
+- description: Intermediate
   icon: shell
   icon_pack: custom
   name: Bash/Shell
