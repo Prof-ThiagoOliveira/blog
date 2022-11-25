@@ -5,12 +5,28 @@
     <link>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/index.xml" rel="self" type="application/rss+xml" />
     <description>Thiago de Paula Oliveira</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Wed, 27 Jul 2022 19:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/avatar_hu9353ec15fa579d9456130373dd41bde0_1211788_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Thiago de Paula Oliveira</title>
       <link>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</link>
     </image>
+    
+    <item>
+      <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quantifying the Drivers of Genetic Change in Plant Breeding</title>
+      <link>https://prof-thiagooliveira.netlify.com/talk/quantifying-the-drivers-of-genetic-change-in-plant-breeding/</link>
+      <pubDate>Wed, 21 Sep 2022 19:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/talk/quantifying-the-drivers-of-genetic-change-in-plant-breeding/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>

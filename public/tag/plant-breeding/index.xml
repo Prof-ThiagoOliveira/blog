@@ -5,12 +5,23 @@
     <link>https://prof-thiagooliveira.netlify.com/tag/plant-breeding/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/plant-breeding/index.xml" rel="self" type="application/rss+xml" />
     <description>Plant breeding</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 10 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Plant breeding</title>
       <link>https://prof-thiagooliveira.netlify.com/tag/plant-breeding/</link>
     </image>
+    
+    <item>
+      <title>Analysis of non-additive genetic variance in breeding programmes</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/non-additive/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/non-additive/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+This seeding project aims to build a proof of concept for extending our recently developed framework for temporal and genomic analysis of additive genetic variance in breeding programmes to non-additive genetic variance. The primary purpose of this extension is to quantify the magnitude of non-additive genetic variance and relatedy to quantify the contribution of inbreeding depression and heterosis to genetic gain in breeding programmes.
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Statistical models applied to quantitative genetics and genomics of plant breeding</title>

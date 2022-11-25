@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marcelo Mollinari | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/author/marcelo-mollinari/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/author/marcelo-mollinari/index.xml" rel="self" type="application/rss+xml" />
+    <description>Marcelo Mollinari</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
+      <title>Marcelo Mollinari</title>
+      <link>https://prof-thiagooliveira.netlify.com/author/marcelo-mollinari/</link>
+    </image>
+    
+    <item>
+      <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,12 +5,23 @@
     <link>https://prof-thiagooliveira.netlify.com/project/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
       <link>https://prof-thiagooliveira.netlify.com/project/</link>
     </image>
+    
+    <item>
+      <title>Analysis of non-additive genetic variance in breeding programmes</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/non-additive/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/non-additive/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+This seeding project aims to build a proof of concept for extending our recently developed framework for temporal and genomic analysis of additive genetic variance in breeding programmes to non-additive genetic variance. The primary purpose of this extension is to quantify the magnitude of non-additive genetic variance and relatedy to quantify the contribution of inbreeding depression and heterosis to genetic gain in breeding programmes.
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Genomic strategies for optimal crossbreeding in African dairy cattle</title>
@@ -76,24 +87,6 @@ This project aims to apply the partitioning method to plant breeding programmes 
 &lt;li&gt;Develop an R package&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Development of predictive models and analytics techniques to forecast historical data-driven outcomes</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/predictive-models/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/predictive-models/</guid>
-      <description>&lt;p align=&#34;justify&#34;&gt;
-Predictive modelling is a commonly used statistical technique to predict future behavior. Predictive modelling solutions are a form of data-mining technology that analyses historical and current data and generates a model to help predict future outcomes. In predictive modelling, data is collected, a statistical model is formulated, predictions are made, and the model is validated as additional data becomes available.
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The use of biostatistics for optimizing athletes performance</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/sport-project/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/sport-project/</guid>
-      <description></description>
     </item>
     
   </channel>
