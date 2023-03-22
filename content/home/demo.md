@@ -28,6 +28,4 @@ design:
     padding: ["45px", "0", "45px", "0"]
 ---
 
-I am a **biostatistician** with a solid publication record in developing and applying biostatistical theory. I have more than ten years of experience in **statistical modelling** and **R programming**. 
-
-I've been developing research related to agriculture and sports as well as **dashboard apps** to create interactive data visualization.
+As a **biostatistician**, I have a proven track record of developing and applying biostatistical theory. With over ten years of experience in **statistical modeling** and proficiency in R programming, I have worked on research projects related to agriculture and sports, and have also **developed dashboard apps** for creating interactive data visualizations.
