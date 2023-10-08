@@ -5,12 +5,94 @@
     <link>https://prof-thiagooliveira.netlify.com/tag/r-package/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/r-package/index.xml" rel="self" type="application/rss+xml" />
     <description>R Package</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Sat, 15 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Mon, 02 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>R Package</title>
       <link>https://prof-thiagooliveira.netlify.com/tag/r-package/</link>
     </image>
+    
+    <item>
+      <title>Navigating the Shiny Universe with Golem</title>
+      <link>https://prof-thiagooliveira.netlify.com/post/golem-package/</link>
+      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/post/golem-package/</guid>
+      <description>
+
+
+&lt;div id=&#34;the-golem-package&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The &lt;code&gt;golem&lt;/code&gt; package&lt;/h1&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In the expansive realm of R programming, Shiny applications have established their own unique niche, allowing for the creation of interactive web applications directly from R code. However, just as any universe undergoes constant expansion and evolution, so too does the complexity of this development landscape. Addressing this, the golem package (Fay et al. 2021) has revolutionized the way we approach development in this domain.
+&lt;/p&gt;
+&lt;div id=&#34;crafting-with-structure&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Crafting with Structure&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Imagine you are crafting a sculpture. In its initial stages, the sheer amount of clay can be overwhelming. What &lt;code&gt;golem&lt;/code&gt; does is help sculptors — in our case, developers — by providing a consistent framework. Instead of wrestling with a massive, unwieldy block of code, developers get a neat, standardized structure. It is akin to having guide marks on your clay, letting you know where to carve, mold, and refine.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modular-component&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Modular Component&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In the domain of traditional craftsmanship, experts frequently emphasize the significance of attending to nuanced details. Analogously, in software application development, such granularity is embodied in the modular components of the code. The &lt;code&gt;golem&lt;/code&gt; package ardently advocates for this modular paradigm, systematically alleviating challenges associated with code organization. Instead of navigating through intricate and interwoven code lines, developers are equipped to systematically assemble distinct modules. Each module precisely aligns with its pre-defined function, and in aggregate, they form a comprehensive and structured application architecture. The intrinsic modularity fostered by &lt;code&gt;golem&lt;/code&gt; is especially pivotal for complex applications or collaborative projects, ensuring consistent integration and streamlined collaborative processes.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-developers-toolbox&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A Developer’s Toolbox&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+But &lt;code&gt;golem&lt;/code&gt; is not just about organization. It is like a Swiss Army knife, stocked with a multitude of tools tailored for the Shiny developer. From handling the intricacies of JavaScript and CSS to simplifying app configurations, it significantly boosts developer efficiency. Moreover, in the dynamic landscape of R, where packages evolve and update, &lt;code&gt;golem&lt;/code&gt; stands as a guardian. It offers a robust system for dependency management, ensuring that the sands shifting underneath (due to updates in the broader R ecosystem) do not topple the house you are building.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;navigating-in-the-testing-domain&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Navigating in the Testing Domain&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In the intricate ecosystem of Shiny application development, the realm of testing represents a particularly challenging dimension. Leveraging the capabilities of the &lt;code&gt;golem&lt;/code&gt; package, developers can more adeptly traverse this complex domain. &lt;code&gt;golem&lt;/code&gt; offers seamless integration with established testing frameworks, facilitating both unit testing and continuous integration procedures. Such rigorous testing mechanisms are imperative for transitioning Shiny applications into production environments, where stability, performance, and resilience are non-negotiable criteria.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;deployment-and-documentation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Deployment and Documentation&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Deploying a Shiny app should feel like a victory lap, not a hurdle race. &lt;code&gt;golem&lt;/code&gt; ensures this by packaging Shiny apps in a deployment-ready format. Be it RStudio Connect, Shinyapps.io, or the containerized world of Docker, your app is prepped and primed to go live.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Documentation, often the unsung hero of the development world, gets its due recognition with &lt;code&gt;golem&lt;/code&gt;. It encourages thorough documentation, a beacon for future developers and collaborators. And if you ever find yourself at a crossroads, remember: the &lt;code&gt;golem&lt;/code&gt; community, rich with tutorials and collective wisdom, is right behind you.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;continuous-evolution&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Continuous Evolution&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+The beauty of &lt;code&gt;golem&lt;/code&gt; is that it is a living, breathing entity. As Shiny development best practices evolve and new needs arise, &lt;code&gt;golem&lt;/code&gt; adapts, ensuring developers always have a cutting-edge toolkit at their disposal.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In the grand tapestry of Shiny development, &lt;code&gt;golem&lt;/code&gt; shines brightly. It is not just a package; it is a compass, guiding developers towards a path of efficiency, robustness, and code clarity.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;p&gt;Fay, Colin, Vincent Guyader, Sébastien Rochette, and Cervan Girard. 2021. Golem: A Framework for Robust Shiny Applications. &lt;a href=&#34;https://github.com/ThinkR-open/golem&#34; class=&#34;uri&#34;&gt;https://github.com/ThinkR-open/golem&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;citation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Citation&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;For attribution, please cite this work as:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;div-1&#34;&gt;
+&lt;p&gt;Oliveira T.P. (2023, Oct. 02). Navigating the Shiny Universe with Golem&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;BibTeX citation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;@misc{oliveira2020golem,
+  author = {Oliveira, Thiago},
+  title = {Navigating the Shiny Universe with Golem},
+  url = {https://prof-thiagooliveira.netlify.app/post/golem-package/},
+  year = {2023}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Comparison of Markerless and Marker-based Motion Capture Systems using 95% Functional Limits of Agreement in a Linear Mixed-Effects Modelling Framework</title>
