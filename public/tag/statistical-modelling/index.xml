@@ -24,6 +24,14 @@ This seeding project aims to build a proof of concept for extending our recently
     </item>
     
     <item>
+      <title>Modelling menstrual cycle length in athletes using state-space models</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
       <link>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
@@ -38,14 +46,6 @@ This seeding project aims to build a proof of concept for extending our recently
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Modelling menstrual cycle length in athletes using state-space models</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
-      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -95,6 +95,17 @@ This project aims to apply the partitioning method to plant breeding programmes 
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</guid>
       <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007/s11027-019-09880-7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;figures&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development and Application of Statistical Frameworks in Sports Analytics</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/sports-project/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sports-project/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Utilizing statistical frameworks in sports analytics enables more precise evaluations of athlete performance and team dynamics. This advancement provides coaches and stakeholders with deeper insights, fostering informed decisions that can significantly elevate a team&#39;s competitive edge.
+&lt;/p&gt;
 </description>
     </item>
     

@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/author/gregor-gorjanc/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/author/gregor-gorjanc/index.xml" rel="self" type="application/rss+xml" />
     <description>Gregor Gorjanc</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Sun, 03 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Gregor Gorjanc</title>
@@ -13,9 +13,17 @@
     </image>
     
     <item>
+      <title>Pedigree-based Animal Models Using Directed Acyclic Graphs</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
       <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
-      <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
       <description></description>
     </item>

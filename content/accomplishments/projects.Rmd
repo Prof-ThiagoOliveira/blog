@@ -1,6 +1,6 @@
 ---
-title: "Finalized Projects"
-summary: "These projects were finsihed or discontinued" 
+title: "Completed & Discontinued Projects"
+summary: "A compilation of projects that have reached completion or were terminated." 
 author: "Thiago de Paula Oliveira"
 date: "`r Sys.Date()`"
 weight: 10
@@ -21,6 +21,29 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE
 ```
 
 <hr>
+## 2022
+
+### AlphaPart - Partition of Breeding Values by Paths of Information
+
+**Summary**: 
+The partitioning method is described in Garcia-Cortes et al. (2008). The package includes the main function AlphaPart for partitioning breeding values and auxiliary functions for manipulating data and summarizing, visualizing, and saving results.
+
+**Publications**:
+
+1. [A method for partitioning trends in genetic mean and variance to understand breeding practices](https://doi.org/10.1186/s12711-023-00804-3)
+
+**R Package**:
+
+1. [AlphaPart: Partition/Decomposition of Breeding Values by Paths of Information](https://CRAN.R-project.org/package=AlphaPart)
+
+<br>
+
+### Genomic strategies for optimal crossbreeding in African dairy cattle
+
+**Summary**: 
+Develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle
+
+<br>
 
 ## 2021
 
@@ -60,6 +83,10 @@ Estimating longitudinal concordance correlation function
 
 1. [lcc: Longitudinal Concordance Correlation, 2019](https://cran.r-project.org/web/packages/lcc/lcc.pdf)
 2. [lcc: an R package to estimate the concordance correlation, Pearson correlation and accuracy over time, 2020](https://peerj.com/articles/9850/)
+
+**R Package**:
+
+1. [lcc: Longitudinal Concordance Correlation](https://CRAN.R-project.org/package=lcc)
 
 <br>
 

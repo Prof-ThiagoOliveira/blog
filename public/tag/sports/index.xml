@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/tag/sports/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/tag/sports/index.xml" rel="self" type="application/rss+xml" />
     <description>Sports</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Sports</title>
@@ -13,11 +13,14 @@
     </image>
     
     <item>
-      <title>The use of biostatistics for optimizing athletes performance</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/sport-project/</link>
-      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/sport-project/</guid>
-      <description></description>
+      <title>Development and Application of Statistical Frameworks in Sports Analytics</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/sports-project/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sports-project/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Utilizing statistical frameworks in sports analytics enables more precise evaluations of athlete performance and team dynamics. This advancement provides coaches and stakeholders with deeper insights, fostering informed decisions that can significantly elevate a team&#39;s competitive edge.
+&lt;/p&gt;
+</description>
     </item>
     
   </channel>

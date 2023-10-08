@@ -1,6 +1,6 @@
 ---
-title: "Awards and recognition"
-summary: "Personal and scientific accomplishments" 
+title: "Awards and achievements"
+summary: "A showcase of distinguished personal and scientific milestones" 
 author: "Thiago de Paula Oliveira"
 date: "`r Sys.Date()`"
 weight: 5

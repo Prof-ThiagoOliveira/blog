@@ -7,4 +7,4 @@ toc: false
 weight: 1
 ---
 
-This section shows all the training and development programs I have been doing since my undergraduate as well as awards and recognition.
+Explore a curated collection of my educational journey, from foundational undergraduate endeavors to advanced training and development programs. Additionally, this space celebrates the awards and achievements I've garnered along the way.

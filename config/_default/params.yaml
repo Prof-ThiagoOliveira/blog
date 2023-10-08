@@ -14,16 +14,16 @@ font_size: L
 
 site_type: Person
 local_business_type: 'University'
-org_name: 'University of Edinburgh'
-description: 'The Roslin Institute'
+org_name: 'AbacusBio'
+description: 'Edinburgh Office, UK'
 twitter: ''
 
 # Contact (edit or remove options as required)
 
-email: thiago.oliveira@ed.ac.uk
+email: toliveira@abacusbio.com
 phone: 
 address:
-  street: The University of Edinburgh, Easter Bush Campus, Midlothian
+  street: AbacusBio, Easter Bush Campus, Midlothian
   city: Edinburgh
   region: 
   postcode: 'EH25 9RG'

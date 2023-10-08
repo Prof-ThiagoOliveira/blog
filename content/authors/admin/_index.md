@@ -22,9 +22,9 @@ interests:
 - Sports (Athlete Performance)
 - Dashboard App
 organizations:
-- name: The Roslin Institute
-  url: "https://www.ed.ac.uk/roslin"
-role: Researcher
+- name: AbacusBio 
+  url: "https://abacusbio.com/"
+role: Consultant Statistician
 social:
 - icon: envelope
   icon_pack: fas
@@ -49,7 +49,7 @@ title: Thiago de Paula Oliveira
 ---
 
 <p align="justify">
-I am a highly skilled and accomplished statistician with over eight years of experience in experimental statistics and statistical modelling. I hold a PhD in Statistics from the <a href="https://www5.usp.br/">University of São Paulo</a>, Brazil, and during my PhD studies, I gained expertise in statistical modelling in agricultural data while working as a visiting scholar at the National University of Ireland Galway, Ireland. After completing my PhD, I worked as a lecturer at ESALQ/University of São Paulo from 2017 to 2019.
+I am a highly skilled and accomplished statistician with over 10 years of experience in experimental statistics and statistical modelling. I hold a PhD in Statistics from the <a href="https://www5.usp.br/">University of São Paulo</a>, Brazil, and during my PhD studies, I gained expertise in statistical modelling in agricultural data while working as a visiting scholar at the National University of Ireland Galway, Ireland. After completing my PhD, I worked as a lecturer at ESALQ/University of São Paulo from 2017 to 2019.
 </p>
 
 <p align="justify">

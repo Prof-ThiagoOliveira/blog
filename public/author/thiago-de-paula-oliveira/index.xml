@@ -5,12 +5,44 @@
     <link>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/index.xml" rel="self" type="application/rss+xml" />
     <description>Thiago de Paula Oliveira</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Sat, 15 Jul 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/avatar_hu9353ec15fa579d9456130373dd41bde0_1211788_270x270_fill_q75_lanczos_center.jpg</url>
       <title>Thiago de Paula Oliveira</title>
       <link>https://prof-thiagooliveira.netlify.com/author/thiago-de-paula-oliveira/</link>
     </image>
+    
+    <item>
+      <title>Comparison of Markerless and Marker-based Motion Capture Systems using 95% Functional Limits of Agreement in a Linear Mixed-Effects Modelling Framework</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Hierarchical Approach for Evaluating Athlete Performance with an Application in Elite Basketball</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pedigree-based Animal Models Using Directed Acyclic Graphs</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
@@ -37,14 +69,6 @@
     </item>
     
     <item>
-      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
-      <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Temporal and genomic analysis of additive genetic variance in breeding programmes</title>
       <link>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
@@ -57,6 +81,14 @@
       <link>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</link>
       <pubDate>Mon, 20 Sep 2021 11:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/talk/visualization-and-data-structure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelling menstrual cycle length in athletes using state-space models</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
       <description></description>
     </item>
     
@@ -1355,14 +1387,6 @@ cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Modelling menstrual cycle length in athletes using state-space models</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
-      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
-      <description></description>
     </item>
     
     <item>

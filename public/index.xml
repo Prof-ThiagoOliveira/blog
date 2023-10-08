@@ -5,7 +5,7 @@
     <link>https://prof-thiagooliveira.netlify.com/</link>
       <atom:link href="https://prof-thiagooliveira.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Thiago Oliveira</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Sun, 08 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://prof-thiagooliveira.netlify.com/media/icon_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_512x512_fill_lanczos_center_3.png</url>
       <title>Thiago Oliveira</title>
@@ -193,15 +193,33 @@ University of São Paulo.&lt;/li&gt;
     <item>
       <title>Finalized Projects</title>
       <link>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</link>
-      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</guid>
       <description>
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;my_style.css&#34; type=&#34;text/css&#34; /&gt;
 
 
 &lt;hr&gt;
 &lt;div id=&#34;section&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2022&lt;/h2&gt;
+&lt;div id=&#34;alphapart---partition-of-breeding-values-by-paths-of-information&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;AlphaPart - Partition of Breeding Values by Paths of Information&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+The partitioning method is described in Garcia-Cortes et al. (2008). The package includes the main function AlphaPart for partitioning breeding values and auxiliary functions for manipulating data and summarizing, visualizing, and saving results.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://doi.org/10.1186/s12711-023-00804-3&#34;&gt;A method for partitioning trends in genetic mean and variance to understand breeding practices&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;genomic-strategies-for-optimal-crossbreeding-in-african-dairy-cattle&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Genomic strategies for optimal crossbreeding in African dairy cattle&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+Develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2021&lt;/h2&gt;
 &lt;div id=&#34;the-use-of-biostatistics-for-optimizing-athletes-performance&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;The use of biostatistics for optimizing athletes performance&lt;/h3&gt;
@@ -226,7 +244,7 @@ Predictive modelling is a commonly used statistical technique to predict future 
 &lt;hr&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;section-1&#34; class=&#34;section level2&#34;&gt;
+&lt;div id=&#34;section-2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2020&lt;/h2&gt;
 &lt;div id=&#34;the-lcc-package&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;The lcc Package&lt;/h3&gt;
@@ -252,7 +270,7 @@ Estimating longitudinal concordance correlation function&lt;/p&gt;
 &lt;hr&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;section-2&#34; class=&#34;section level2&#34;&gt;
+&lt;div id=&#34;section-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;2019&lt;/h2&gt;
 &lt;div id=&#34;sugarcane-straw-management-for-bioenergy&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sugarcane straw management for bioenergy&lt;/h3&gt;
@@ -2605,6 +2623,38 @@ get the maximum, minimum, and mean values.&lt;/li&gt;
     </item>
     
     <item>
+      <title>Comparison of Markerless and Marker-based Motion Capture Systems using 95% Functional Limits of Agreement in a Linear Mixed-Effects Modelling Framework</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Hierarchical Approach for Evaluating Athlete Performance with an Application in Elite Basketball</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pedigree-based Animal Models Using Directed Acyclic Graphs</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
       <link>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
@@ -2625,14 +2675,6 @@ get the maximum, minimum, and mean values.&lt;/li&gt;
       <link>https://prof-thiagooliveira.netlify.com/talk/a-method-for-partitioning-trends-in-genetic-mean-and-variance-to-understand-breeding-practices/</link>
       <pubDate>Wed, 27 Jul 2022 19:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/talk/a-method-for-partitioning-trends-in-genetic-mean-and-variance-to-understand-breeding-practices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
-      <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
       <description></description>
     </item>
     
@@ -2664,25 +2706,11 @@ This seeding project aims to build a proof of concept for extending our recently
     </item>
     
     <item>
-      <title>Genomic strategies for optimal crossbreeding in African dairy cattle</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/ihouaga_adgg_spatial/</link>
-      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/ihouaga_adgg_spatial/</guid>
-      <description>&lt;p align=&#34;justify&#34;&gt;
-This project will develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle. Crossbreeding is the mating of individuals from different lines, breeds, or populations. There are three benefits of crossbreeding in livestock:
-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Cross-bred animals perform better than purebreds because of breed complementary,&lt;/li&gt;
-&lt;li&gt;
-&lt;p align=&#34;justify&#34;&gt; Cross-bred animals perform better than purebreds because of heterosis (hybrid vigour), and &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p align=&#34;justify&#34;&gt; Cross-breeding protects breeders&#39; intellectual property because production animals outperform their offspring. &lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Breed complementary refers to the fact that a cross between breeds with different strengths has the potential to combine the strengths of its parents. In the East African dairy sector, which provides the context for this project, the goal is to develop a cross in cattle that combines the milk production of the Holstein with the tropical adaptation of the East African Zebu. Hybrid vigour is the tendency of a cross-bred animal to outperform its purebred parents. Cross-breeding protects the breeders&#39; intellectual property because cross-bred production animals outperform their offspring, so farmers get better returns by buying production animals from the breeder than by breeding from production animals. An analogous example of the benefits of cross-breeding in the crop breeding practice is seen in maize which has seen a 6-fold increase in productivity since hybrid breeding was introduced in the 1930s.
-&lt;/p&gt;</description>
+      <title>Modelling menstrual cycle length in athletes using state-space models</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -2707,17 +2735,6 @@ Breed complementary refers to the fact that a cross between breeds with differen
 &lt;p&gt;&lt;a href=&#34;https://prof-thiagooliveira.shinyapps.io/COVIDForecast/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dashboard App&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AlphaPart - Partition of Breeding Values by Paths of Information</title>
-      <link>https://prof-thiagooliveira.netlify.com/project/alphapart-project/</link>
-      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/project/alphapart-project/</guid>
-      <description>&lt;p align=&#34;justify&#34;&gt;
-The partitioning method is described in Garcia-Cortes et al. (2008). The package includes the main function AlphaPart for partitioning breeding values and auxiliary functions for manipulating data and summarizing, visualizing, and saving results.
-&lt;/p&gt;
 </description>
     </item>
     
@@ -3994,14 +4011,6 @@ cat(&amp;quot;The answer is&amp;quot;, seq)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Modelling menstrual cycle length in athletes using state-space models</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
-      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
       <link>https://prof-thiagooliveira.netlify.com/talk/global-short-term-forecasting-of-covid-19-cases/</link>
       <pubDate>Thu, 12 Nov 2020 11:00:00 +0000</pubDate>
@@ -4115,6 +4124,17 @@ The ability to predict menstrual cycle length to a high degree of precision enab
       <guid>https://prof-thiagooliveira.netlify.com/talk/the-longitudinal-concordance-correlation/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;We present the lcc package, available from the Comprehensive R Archive Network (CRAN). The package implements estimation procedures for the longitudinal concordance correlation (LCC), using fixed effects and variance components estimates from linear mixed models. The LCC is a quantity that measures the extent of agreement between two (or more) methods used to evaluate a response variable of interest and is frequently applied in medicine, pharmacology, and agronomy. The main features of the package are the estimation and inference of the extent of agreement using numerical and graphical summaries. Moreover, our approach presents flexibility in the sense that it accommodates both balanced and unbalanced experimental designs, allows for different within-group error structures, while also allowing for the inclusion of covariates in the linear predictor to control systematic variations in the response. We illustrate our methodology by comparing different methods used to measure the peel colour of fruit as an assessment of ripeness.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Development and Application of Statistical Frameworks in Sports Analytics</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/sports-project/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sports-project/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Utilizing statistical frameworks in sports analytics enables more precise evaluations of athlete performance and team dynamics. This advancement provides coaches and stakeholders with deeper insights, fostering informed decisions that can significantly elevate a team&#39;s competitive edge.
+&lt;/p&gt;
 </description>
     </item>
     

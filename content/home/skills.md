@@ -24,14 +24,19 @@ feature:
 - description: Advanced
   icon: rlogo
   icon_pack: custom
-  name: R and Shiny
+  name: R
+  
+- description: Advanced
+  icon: shiny
+  icon_pack: custom
+  name: Shiny
 
 - description: Beginner
   icon: octave
   icon_pack: custom
   name: Octave
   
-- description: Beginner
+- description: Intermediate
   icon: c++
   icon_pack: custom
   name: C++
@@ -52,9 +57,14 @@ feature:
   name: SageMath
 
 - description: Advanced
-  icon: rmarkdown
+  icon: quarto
   icon_pack: custom
-  name: (R)Markdown
+  name: Quarto/Markdown
+  
+- description: Advanced
+  icon: docker
+  icon_pack: custom
+  name: Docker
 
 - description: Advanced
   icon: tex

@@ -25,9 +25,21 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   You can begin a multiline `description` using YAML's `|-`.
 experience:
+- company: AbacusBio
+  company_url: "https://abacusbio.com/"
+  date_end: ""
+  date_start: "2022-04-01"
+  description: |-
+    Responsibilities include development of:
+    * Statistical models in quantitative genetics and genomics of plant and animal breeding
+    * Selection index
+    * Dashboard apps (Shiny)
+  location: Edinburgh, Scotland
+  title: Consultant Statistician
+  
 - company: The Roslin Institute, University of Edinburgh
   company_url: "https://www.ed.ac.uk/roslin"
-  date_end: ""
+  date_end: "2022-04-01"
   date_start: "2020-10-01"
   description: |-
     Responsibilities include:
