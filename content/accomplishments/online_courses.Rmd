@@ -1,6 +1,6 @@
 ---
 title: "Educational Pursuits"
-summary: "A chronicle of formal courses and specialized training sessions." 
+summary: "A chronicle of formal courses and specialized training sessions" 
 author: "Thiago de Paula Oliveira"
 date: "`r Sys.Date()`"
 weight: 10
