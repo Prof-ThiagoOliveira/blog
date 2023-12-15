@@ -1079,7 +1079,7 @@ code span.wa { color: #bf0303; } /* Warning */
   
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Filter the data set to get replications 2 and 4, and summarise it to
+&lt;li&gt;Filter the data set to get replications 2 and 4, and summarise it to 
 get the maximum, minimum, and mean values.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code class=&#34;language-{r,&#34;&gt;ex2 %&amp;gt;%

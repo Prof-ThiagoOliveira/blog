@@ -28,68 +28,70 @@ output:
     css: "my_style.css"
 ---
 
-<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
 <script src="{{< blogdown/postref >}}index.en_files/kePrint/kePrint.js"></script>
 <link href="{{< blogdown/postref >}}index.en_files/lightable/lightable.css" rel="stylesheet" />
 
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-When we think about writing a C program, the first step is to understand how variables should be assigned. There are several variable’s types in C, and here we are introducing the type <code>int</code>, which is used for integer data types. We can define a variable as an integer in two ways:
+<p>When programming in C, a fundamental step is understanding variable assignment. C offers various data types, and here we focus on <code>int</code>, used for integer data. There are two primary methods to define an <code>int</code> variable:</p>
 <div class="div-1">
 <ul>
-<li>Uninitialized variable: defined as <code>int x;</code>, where no value is assigned to the variable <span class="math inline">\(x\)</span> (Figure 1), which generally is not a good idea. It could lead to a bug in the algorithm if no value is assigned over the code.</li>
-<li>Initialized variable: there are two ways to assign a value to a variable <span class="math inline">\(x\)</span> (Figure 1):
+<li><strong>Uninitialized Variable</strong>: Defined simply as <code>int x;</code>, this approach does not assign an initial value to the variable <span class="math inline">\(x\)</span> (Figure 1). It’s generally advisable to avoid this since it can lead to bugs if <span class="math inline">\(x\)</span> remains unassigned throughout the code.</li>
+<li><strong>Initialized Variable</strong>: Assigning a value to <span class="math inline">\(x\)</span> can be done in two ways (Figure 1):
 <div class="div-2">
 <ul>
-<li>in a single declaration - <code>int x = 3;</code></li>
-<li>in a double step declaration - <code>int x;</code> and <code>x = 3;</code></li>
+<li>Single-step declaration - <code>int x = 3;</code></li>
+<li>Two-step declaration - First, declare with <code>int x;</code> then assign with <code>x = 3;</code></li>
 </ul>
 </div></li>
 </ul>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="var_and_exp.png" alt="Declaring variables in C" width="550px" />
 <p class="caption">
 Figure 1: Declaring variables in C
 </p>
 </div>
-<p>Additionally, there is a large set of storage size-specific declarations for an integer, and here we will explain just an initial idea about it. Figure 2 shows the Integer representation of whole numbers or fixed-point numbers (fixed number of digits). Generally, computers use a set number of bits to represent them, where commonly used bit-lengths for integers are 8-bit, 16-bit (<code>short</code>), 32-bit (<code>long</code>) or 64-bit (<code>long long</code>). There are two representation schemes for integers called signed integer type (<code>signed int</code>), capable of containing the range of values from -32,767 to 32,767, and unsigned integer type (<code>unsigned int</code>) containing the range of deals from 0 to 65,535 (<span class="math inline">\(32767 \times 2+1\)</span>). Therefore, an <code>unsigned</code> qualifier should be used when we are working with only positive values.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<p>Additionally, C provides various storage sizes for integer variables. We will briefly introduce this concept. Figure 2 illustrates the representation of integers, either as whole numbers or fixed-point numbers (with a fixed number of digits). Typically, computers use a set number of bits to represent these integers. Common bit-lengths for integers include 8-bit, 16-bit (<code>short</code>), 32-bit (<code>long</code>), or 64-bit (<code>long long</code>). There are two main schemes for integer representation: the signed integer type (<code>signed int</code>), which can store values ranging from -32,767 to 32,767, and the unsigned integer type (<code>unsigned int</code>), which encompasses values from 0 to 65,535 (calculated as <span class="math inline">\(32767 \times 2 + 1\)</span>). The <code>unsigned</code> qualifier is particularly useful when dealing exclusively with positive values.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="binary_number.png" alt="Integer Representation" width="500px" />
 <p class="caption">
 Figure 2: Integer Representation
 </p>
 </div>
-<p>Furthermore, there are three representation schemes for signed integers called <em>Sign-Magnitude representation</em>, * 1’s Complement representation<em>, and </em> 2’s Complement representation*. The 1’s and the 2’s complements of a binary number are essential because they permit different negative numbers representation. In all of these schemes, positive signed binary numbers start with value 0 while negative ones start with value 1 (Figure 3).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<p>Furthermore, there are three representation schemes for signed integers: <em>Sign-Magnitude Representation</em>, <em>1’s Complement Representation</em>, and <em>2’s Complement Representation</em>. These schemes are crucial for representing negative numbers in binary form. In all these schemes, positive signed binary numbers begin with a 0, while negative numbers start with a 1 (Figure 3).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="sign_bit.png" alt="Signed binary numbers" width="300px" />
 <p class="caption">
 Figure 3: Signed binary numbers
 </p>
 </div>
-<p>Consequently, the disadvantage of signed binary numbers is that there is 1 bit used to store the sign positive or negative while the remaining <span class="math inline">\(n-1\)</span> bits are assigned to the range of digits from <span class="math inline">\(-2^{n-1}\)</span> to <span class="math inline">\(2^{n-1}\)</span>. If we have 8 bits to represent a signed binary number, we have to use 1 bit for the <strong>sign bit</strong> and 7 bits for the <strong>magnitude bits</strong>:</p>
+<p>A limitation of signed binary numbers is that one bit is dedicated to indicating the sign (positive or negative), leaving the remaining <span class="math inline">\(n-1\)</span> bits for the number’s magnitude, ranging from <span class="math inline">\(-2^{n-1}\)</span> to <span class="math inline">\(2^{n-1}\)</span>. For instance, in an 8-bit signed binary number, one bit is for the sign, and the remaining seven bits are for the magnitude:</p>
 <div class="div-1">
 <ul>
-<li>Using Sign-Magnitude Representation:
-<span class="math display">\[-|2^{\left(8-1\right)}-1| \mbox{ to } 2^{\left(8-1\right)}-1 = -127 \mbox{ to } 127\]</span></li>
-<li>Using 2’s Complement Representation:
-<span class="math display">\[-2^{\left(8-1\right)} \mbox{ to } 2^{\left(8-1\right)}-1 = -128 \mbox{ to } 127\]</span></li>
+<li>With Sign-Magnitude Representation:
+<span class="math display">\[ -|2^{(8-1)}-1| \mbox{ to } 2^{(8-1)}-1 = -127 \mbox{ to } 127 \]</span></li>
+<li>With 2’s Complement Representation:
+<span class="math display">\[ -2^{(8-1)} \mbox{ to } 2^{(8-1)}-1 = -128 \mbox{ to } 127 \]</span></li>
 </ul>
 </div>
-<p>Thus, we can represent the numbers ranging from -128 to 127 using 2’s Complement Representation. You probably ask why there is one extra number being accounted for when using 2’s Complement Representation. The answer can be found in Figure 4.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<p>Therefore, using 2’s Complement Representation, we can represent numbers from -128 to 127. You might wonder why there’s an additional number in the range with 2’s Complement. The answer lies in the unique way this representation handles the negative of the lowest negative number, which can be seen in Figure 4.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="repre_scheme.png" alt="Representation schemes of Sign-Magnitude Representation and 2's Complement Representation" width="400px" />
 <p class="caption">
 Figure 4: Representation schemes of Sign-Magnitude Representation and 2’s Complement Representation
 </p>
 </div>
 </div>
-<div id="examples" class="section level1">
-<h1>Examples</h1>
-<div id="unsigned-int" class="section level2">
-<h2>Unsigned int</h2>
-<p>Suppose we are interested in representing a sequence of number <span class="math inline">\(x\)</span> where <span class="math inline">\(x \in \lbrace 0, 1, \ldots, 15\rbrace\)</span>. We can assign these numbers as unsigned numbers of 4 bits. Consequently, we have <strong>4 zero</strong> bits associated with describing these numbers because our variable belongs to the interval <span class="math inline">\([0, 2^{4}−1] \in \mathcal{N}_{0}\)</span>.</p>
+<div id="dive-into-the-world-of-integer-representations" class="section level1">
+<h1>Dive Into the World of Integer Representations!</h1>
+<p>Embark on an exhilarating journey through the binary landscape of computer science! We’re set to explore the intricate ways of representing integers, both unsigned and signed, using the power of binary digits. This adventure will take us through two riveting examples, complete with R code snippets for a hands-on experience!</p>
+<div id="unveiling-the-unsigned-integers" class="section level2">
+<h2>Unveiling the Unsigned Integers</h2>
+<p>Picture a sequence of numbers <span class="math inline">\(x\)</span>, where <span class="math inline">\(x \in \lbrace 0, 1, \ldots, 15 \rbrace\)</span>. We’re about to represent these numbers as 4-bit unsigned integers. Imagine this: <strong>4 bits</strong>, each a 0 or 1, combining in myriad ways to encapsulate numbers from 0 to 15. Our journey here explores the interval <span class="math inline">\([0, 2^{4}−1] \in \mathcal{N}_{0}\)</span>.</p>
+<p>Here’s an R snippet to visualize this transformation:</p>
+<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.2.3</code></pre>
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:unnamed-chunk-5">Table 1: </span>Representation of numbers from 0 to 15 in 4 bits
@@ -203,10 +205,12 @@ x
 </tr>
 </tbody>
 </table>
+<p>Prepare to be amazed as simple integers transform into a beautiful array of zeros and ones!</p>
 </div>
-<div id="signed-int" class="section level2">
-<h2>Signed int</h2>
-<p>Suppose now we are interested in representing a sequence of number <span class="math inline">\(y\)</span> where <span class="math inline">\(y \in \lbrace -7, -6, \ldots,6, 7\rbrace\)</span>. We have to assign them as signed numbers using 4 bits because 1 bit will be used for <strong>sign bit</strong> and 3 bits for the <strong>magnitude bits</strong> to describe <span class="math inline">\(y \in \left[-|2^3-1|,2^3-1\right] \in \mathcal{Z}\)</span>.</p>
+<div id="deciphering-signed-integers" class="section level2">
+<h2>Deciphering Signed Integers</h2>
+<p>Next, let’s step into the world of signed integers, representing a sequence <span class="math inline">\(y\)</span> within <span class="math inline">\(\{-7, -6, \ldots, 6, 7\}\)</span>. With 4 bits at our disposal, one bit becomes the <strong>sign bit</strong>, while the remaining three are <strong>magnitude bits</strong>. This setup enables us to span <span class="math inline">\(y\)</span> within the range <span class="math inline">\(\left[-|2^3-1|, 2^3-1\right] \in \mathcal{Z}\)</span>.</p>
+<p>Witness the Sign-Magnitude Representation, where the first bit unveils the sign, and the rest narrate the magnitude:</p>
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:unnamed-chunk-6">Table 2: </span>Sign-Magnitude Representation of numbers from -7 to 7 using 4 bits
@@ -320,6 +324,7 @@ y
 </tr>
 </tbody>
 </table>
+<p>But the intrigue doesn’t end there! Introducing the 2’s Complement Representation, a brilliant method to elegantly incorporate negative numbers. This approach allows us to explore the depths of the negative spectrum, all the way to -8:</p>
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:unnamed-chunk-7">Table 3: </span>2’s Complement Representation of numbers from -8 to 7 using 4 bits
@@ -433,6 +438,217 @@ y
 </tr>
 </tbody>
 </table>
+<p>These examples, enriched with R code for hands-on experimentation! 🌌💻🚀</p>
+</div>
+</div>
+<div id="exploring-further-a-new-perspective-on-integer-representations" class="section level1">
+<h1>Exploring Further: A New Perspective on Integer Representations</h1>
+<p>Let’s delve deeper into the world of integer representations with a fresh example! We’ll take a different approach, offering a new perspective to understand and construct binary representations. This time, we’ll focus on a practical application that brings these concepts to life.</p>
+<div id="example-binary-encoding-of-characters" class="section level2">
+<h2>Example: Binary Encoding of Characters</h2>
+<p>Imagine you want to represent characters (like letters and symbols) in binary. This is essential in computer science, as it allows for the storage and transmission of text in a form that computers can process. We’ll use the ASCII (American Standard Code for Information Interchange) system, a widely used method to encode characters.</p>
+<p>Each character in ASCII is assigned a unique number, and this number is then represented in binary. For example, the upper-case letter ‘A’ is represented by the number 65 in ASCII, which corresponds to the binary number 01000001.</p>
+<p>Here’s an R snippet to visualize this transformation for a set of characters:</p>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-8">Table 4: </span>Binary Encoding of Characters Using ASCII
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Char
+</th>
+<th style="text-align:left;">
+ASCII
+</th>
+<th style="text-align:left;">
+Binary
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+A
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;font-family: monospace;">
+41
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+B
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;font-family: monospace;">
+42
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000010
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+C
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;font-family: monospace;">
+43
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000011
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+D
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;font-family: monospace;">
+44
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+E
+</td>
+<td style="text-align:left;">
+E
+</td>
+<td style="text-align:left;font-family: monospace;">
+45
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000101
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+F
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:left;font-family: monospace;">
+46
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000110
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+G
+</td>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;font-family: monospace;">
+47
+</td>
+<td style="text-align:left;">
+00000000000000000000000001000111
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+H
+</td>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;font-family: monospace;">
+48
+</td>
+<td style="text-align:left;">
+00000000000000000000000001001000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+I
+</td>
+<td style="text-align:left;">
+I
+</td>
+<td style="text-align:left;font-family: monospace;">
+49
+</td>
+<td style="text-align:left;">
+00000000000000000000000001001001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;border-right:1px solid;">
+J
+</td>
+<td style="text-align:left;">
+J
+</td>
+<td style="text-align:left;font-family: monospace;">
+4a
+</td>
+<td style="text-align:left;">
+00000000000000000000000001001010
+</td>
+</tr>
+</tbody>
+</table>
+<p>This example shows how characters are converted to ASCII values and then to their binary equivalents, demonstrating the practical application of binary representation in everyday computing tasks. Such an understanding is crucial for tasks like data encoding, cryptography, and digital communication.</p>
+<p>This fresh perspective, combined with hands-on R code, adds another layer to our understanding of binary representations in the digital world. It’s not just about numbers; it’s about how even the simplest characters we use every day are translated into a language that computers understand. 🌐🔢🖥️</p>
+</div>
+</div>
+<div id="efficiency-in-data-storage-numbers-vs.-letters" class="section level1">
+<h1>Efficiency in Data Storage: Numbers vs. Letters</h1>
+<p>As we wrap up our exploration of binary representations, it’s crucial to understand why storing numbers instead of letters (words) is often more efficient and preferred in terms of memory usage. This principle is key in optimizing data storage and processing in computing systems.</p>
+<div id="why-numbers-trump-letters-for-memory-efficiency" class="section level2">
+<h2>Why Numbers Trump Letters for Memory Efficiency</h2>
+<div id="compact-representation" class="section level3">
+<h3>Compact Representation:</h3>
+<ul>
+<li><strong>Fixed Length</strong>: Numbers, especially integers, typically have a fixed-length representation in binary. For example, a 32-bit system will represent all integers using 32 bits, regardless of the value. This uniformity leads to more predictable and efficient memory usage.</li>
+<li><strong>Greater Density</strong>: A single number can represent a large range of values. For example, a 32-bit integer can represent over 4 billion different values, while 32 bits allocated for characters might only store a few words.</li>
+</ul>
+</div>
+<div id="processing-speed" class="section level3">
+<h3>Processing Speed:</h3>
+<ul>
+<li><strong>Simpler Operations</strong>: Numerical data allows for more straightforward and faster arithmetic operations compared to string processing, which involves character-by-character manipulation.</li>
+<li><strong>Optimized Hardware</strong>: Computer processors are inherently designed to handle numerical calculations efficiently. Operations on numbers are generally faster due to hardware-level optimizations.</li>
+</ul>
+</div>
+<div id="memory-management" class="section level3">
+<h3>Memory Management:</h3>
+<ul>
+<li><strong>Less Overhead</strong>: Storing numbers reduces the need for additional memory overhead compared to strings. For instance, numbers do not require extra characters for delimiters or markers that are often needed in text.</li>
+<li><strong>Indexing and Searching</strong>: It’s quicker to index and search through numerical data compared to textual data. This efficiency is crucial in database operations and large-scale data processing.</li>
+</ul>
+</div>
+<div id="application-in-real-world-scenarios" class="section level3">
+<h3>Application in Real-World Scenarios:</h3>
+<ul>
+<li><strong>Encoding Complexity</strong>: Complex data like images, videos, and sound are more efficiently stored and processed as numerical values rather than trying to represent them as lengthy strings of text.</li>
+<li><strong>Data Analysis and Machine Learning</strong>: Numerical data is more amenable to statistical analysis and machine learning algorithms, which rely heavily on numerical inputs for predictions and insights.</li>
+</ul>
+<p>In summary, while both numbers and letters have their place in data representation, the choice often boils down to efficiency and suitability for the task at hand. For tasks requiring compact storage, fast processing, and efficient manipulation, numbers usually offer significant advantages over letters or words. This principle of choosing the right data type for the right purpose is fundamental in the field of computer science and data management. 🌍💾🚀</p>
+</div>
 </div>
 </div>
 <div id="references" class="section level1">

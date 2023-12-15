@@ -34,16 +34,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview of the Seven Steps
 
-The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).
+The seven steps proposed by Hilton et al. (2019) present an intriguing strategy for initiating a new project involving programming. This approach is concisely summarized in Figure 1. In this discussion, we will elaborate on these steps, drawing upon the work of Hilton et al. (2019).
 
 ```{r,echo=FALSE,fig.cap="The seven steps (modified from Hilton et al. (2019))", out.width = "500px", fig.align='center'}
 knitr::include_graphics('seven_steps.png')
 ```
+
 All steps are then described in the sections below.
 
 # Step 1 - Project definition using simple examples
 
-This is when you spend time thinking about the project and how could you divide them into small tasks. Start your project by drawing a diagram of it by hand, including the main subjects, how you could sort out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided into smaller tasks, how these tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be built. Doing an excellent job during this stage will facilitate the remainder steps.   
+This step involves dedicating time to conceptualize the project and breaking it down into manageable tasks. Begin by manually sketching a diagram of the project, highlighting key topics, strategies for addressing challenges, and estimating the number of primary algorithms required for completion. This should also encompass the subdivision of the project into smaller tasks, their interconnections, and any sequential order for their execution, as depicted in Figure 2. An effective approach in this stage is crucial as it simplifies the subsequent steps. 
 
 ```{r,echo=FALSE,fig.cap="Example of how divide the main project into small tasks", out.width = "500px", fig.align='center'}
 knitr::include_graphics('main_project.png')
@@ -51,40 +52,38 @@ knitr::include_graphics('main_project.png')
 
 ## Example 1
 
-Suppose we would want to write an algorithm in C++ to compute the total fat of an ice cream portion basis ($y$). Suppose also this response variable is a function of butyric fat $x_1$ and vegetable fat $x_2$. Let $E[y]$ be the expected value of $y$ defined as
+Imagine we need to develop a `C++` algorithm to calculate the total fat content ($y$) of a portion of ice cream. Assume this response variable is determined by the amounts of butyric fat ($x_1$) and vegetable fat ($x_2$). Let $E[y]$ represent the expected value of $y$, defined as:
 
 $$E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2$$
-Thus, we can pick particular values for $x_1$, and $x_2$ to calculate the total fat $y$ by hand. If $x_{1}=2$, $x_{2}=1$, then 
+We can manually compute the total fat $y$ for specific values of $x_1$ and $x_2$. For instance, if $x_1=2$ and $x_2=1$, then:
+
 $$y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.$$
 
-Now, suppose the second aim is to optimise fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface. Consequently, we can divide our project into, e. g., two tasks:
+Now, let's assume the secondary goal is to optimize the fat content in the ice cream formulation based on this model. This involves searching for the global minimum on the response surface. Consequently, we can break down our project into two tasks:
 
 <div class="div-2">
 1. Generalize the function for any $x_1$ and $x_2$; 
 2. Calculate the global (or absolute) minimum point;
 </div>
 
-If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:
+If you encounter difficulties in these tasks, it's often due to a gap in specific domain knowledge, such as a lack of expertise in mathematics:
 
 <div class="div-2">
 * How could I calculate the global minimum? 
 * How can I use partial derivatives?
 </div>
 
-Thus, during this step, you have to identify all domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.
+Therefore, during this step, it is essential to identify all the necessary domain knowledge and address these gaps before proceeding to the next stage. Sometimes, this knowledge may stem from specialized areas such as computer science, sports, agriculture, statistics, or engineering.
 
 
 # Step 2 - Write everything you did
 
 
-In this step, you should take notes about what you did to solve the project's project or tasks. Your notes describing all solutions by reading should be precise enough to anyone else reproduce them quickly.  Sometimes we may omit common-sense steps such as multiply $x$ by $y$ or the order in which each task should be executed.
-
-
+In this phase, it is crucial to meticulously record every action undertaken to resolve the project's challenges or tasks. Ensure that your notes are clear and detailed enough for others to replicate your solutions effortlessly. Be cautious not to overlook steps that might seem obvious, such as basic operations like multiplying $x$ by $y$, or the sequence in which tasks are to be executed.
 
 ## Example 2
 
-
-Suppose we are interested in computing $f(x,y)=x^y+3x$ when $x=2$ and $y=4$, then we might write down a deatiled descriptions of all steps to compute $f(x,y)$:
+Consider the task of calculating $f(x, y) = x^y + 3x$ for $x=2$ and $y=4$. Here's how you could document the process in a detailed and comprehensible manner:
 
 <div class="div-2">
 * Multiply 2 by 2 $\rightarrow$ you get 4
@@ -93,20 +92,21 @@ Suppose we are interested in computing $f(x,y)=x^y+3x$ when $x=2$ and $y=4$, the
 * Sum 16 plus 3 multiplied by 2 $\rightarrow$ you get 22
 * 22 is the answer.
 </div>
-The steps are precise as anyone who can perform basic math can follow these steps to get the same answer. 
+
+By following these explicit steps, anyone with basic mathematical skills should be able to reach the same result.
 
 
 # Step 3 - Generalize
 
-
-Our task is to generalize the last steps into an algorithm, finding patterns that allow us to solve the whole class rather than for particular parameter values. Here is two common way to generalize those steps into the algorithm:
+The goal now is to transform the specific steps from earlier into a universal algorithm that applies to a broader range of cases, not just specific parameter values. Here are two common methods to achieve this generalization:
 
 <div class="div-2">
-* Look all details of your step 2 because, sometimes, you can find the generalization into it description.
-* Look for repetition patterns - when the same step repeats several times
+* Re-examine the details from Step 2, as the key to generalization often lies within its description.
+* Identify repetitive patterns, particularly where the same step is executed multiple times.
 </div>
 
-We can, e. g., generalize our **Example 2** just looking the description into step 2, where we can replacing the occurrence of 2 by $x$:
+For instance, let's generalize our Example 2 by adapting the steps from Step 2, replacing the specific occurrences of 2 with a variable $x$:
+
 <div class="div-2">
 * Multiply 2 by $x$ $\rightarrow$ you get 4
 * Multiply 4 by $x$ $\rightarrow$ you get 8
@@ -114,7 +114,8 @@ We can, e. g., generalize our **Example 2** just looking the description into st
 * Sum 16 plus 3 multiplied by $x$ $\rightarrow$ you get 22
 * 22 is the answer.
 </div>
-Note that, in the first multiplication, we have to start with $x \times x=2 \times x = 4$, thus the number of times that we should multiply 2 by $x$ are $y-1$. Thus, we would lead to the following generalized steps:
+
+It is important to note that the initial multiplication should start with $x \times x = x^2$. Therefore, we multiply $x$ by itself $y-1$ times to obtain $x^y$. This leads us to the following generalized steps for any values of $x$ and $y$:
 
 ```
 Algorithm sketch 1
@@ -132,77 +133,73 @@ z is  the answer
 This process is referred to as writing 'pseudo-code' as an algorithm design with no particular target language.
 </div>
 
+
 # Step 4 - Test Your Algorithm
 
-Testing your algorithm is a practical step to ensure steps 1-3 are right before proceeding to step 5. Some examples of what you should do/think during this stage are described below:
+Testing your algorithm is a crucial step to ensure the correctness of steps 1-3 before advancing to step 5. Here are some key actions and considerations during this stage:
 
 <div class="div-2">
-* Test your algorithm choosing different values for parameters
-* What happens if the value is positive, negative or equal to zero?
-* Have you restricted parameter space? Ex.: $y\geq 0$. 
-* Use mathematical proofs
-* There is always more than one right answer to a programming problem
+* Test your algorithm with varying parameter values.
+* Assess the algorithm's behavior for positive, negative, or zero values.
+* Determine if you have confined the parameter space, e.g., $y \geq 0$.
+* Employ mathematical proofs to validate your approach.
+* Recognize that there may be more than one correct solution to a programming problem.
 </div>
 
 <div class="div-3">
-Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.
+Remember, the parameter space refers to the range of possible parameter values that define a specific mathematical or statistical model, typically within a subset of the finite-dimensional Euclidean space.
 </div>
 
-Sometimes, we miss-generalizing our algorithm at step 3, and this mistake leads us again to steps 1-2. Generally, miss-generalization happens when we did not consider all possible cases during step 3 or did not have mathematical proofs about what we are doing.
+At times, the generalization in step 3 might be incomplete, leading to a revisit of steps 1-2. This oversight often occurs when not all potential cases are considered or when mathematical proofs are lacking.
 
-A good example of an algorithm mistake could be seen in Example 2. What happens if $y=0$, or $y<0$? We can see that our algorithm mishandles these cases. If you calculate the algorithm steps by hand with $x=2$ and $y=0$, you will get $2^0=2$ rather than $2^0=1$ (correct answer). Additionally, for any value $y\leq 0$ the algorithm try to count from $1$ to $y-1<0$, of which are no Natural number, leading an error in the process. Thus, we can conclude that $|y| \in \mathcal{N}_{0}$, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to a higher number of cases:
+A notable example of an algorithmic error is seen in Example 2. What if $y=0$ or $y<0$? Our algorithm incorrectly addresses these cases. For example, with $x=2$ and $y=0$, the algorithm erroneously calculates $2^0=2$ instead of the correct $2^0=1$. Also, for any $y \leq 0$, the algorithm erroneously tries to count from $1$ to $y-1 < 0$, which is not applicable for natural numbers, leading to an error. Therefore, we must ensure $|y| \in \mathcal{N}_{0}$, where $\mathcal{N}_{0}$ represents the set of natural numbers including zero. Consequently, we should aim to generalize our algorithm to accommodate a broader range of cases:
 
 ```
-Algorithm sketch 2 
+Algorithm Sketch 2 
 
-y must be a integer number
+y must be an integer number.
 
-start with x = 2 and y = 4
+Start with x = 2 and y = 4.
 
-if y=0 {
-n[1] = 1
-i=0
-} else{
-Count up from i in 1 to |y|-1
-  if y<0 {
-  n[1] = 1/x
-  n[i+1] = n[i] * 1/x 
-  } else{
-  n[1] = x
-  n[i+1] = n[i] * x
+If y=0 {
+  n[1] = 1;
+  i=0;
+} else {
+  Count from i = 1 to |y|-1;
+  If y < 0 {
+    n[1] = 1/x;
+    n[i+1] = n[i] * (1/x);
+  } else {
+    n[1] = x;
+    n[i+1] = n[i] * x;
   }
 }
-z = n[i+1] + 3 * x
-z is  the answer
-```
 
-```{r,echo=FALSE,fig.cap="Example of output using the algorithm 2", out.width = "500px", fig.align='center'}
-knitr::include_graphics('example2.png')
+z = n[i+1] + 3 * x;
+z is the answer.
 ```
 
 <div class="div-3">
-Question: How can we improve this algorithm? Think about the case where $x=y=0$.
+Question: How can we improve this algorithm? Consider the case where $x=y=0$.
 </div>
 
-For some problems, particular cases require our attention. Every time we detect a problem with our algorithm in this step, we have to choose one of this option:
+When encountering problems with our algorithm at this stage, we have two options:
+
 <div class="div-2">
-1. Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases. 
-2. Skip the last steps and fix the algorithm directly in step 4 (when we know how to fix the problem).
+1. Return to steps 1-3 to gather more information for broadening the algorithm's applicability.
+2. Directly fix the algorithm in step 4 when the solution is known.
 </div>
-
-
 
 ## Example 3
 
-
-The numbers in Figure 4 were obtained from an algorithm that has one parameter $N \in \mathcal{N}_{0}$ to be specified, where $\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace$ represents Natural numbers with zero and a sequence of number as output values for each $N$. 
+The data in Figure 4 originates from an algorithm that accepts a single parameter, $N$, belonging to the set $\mathcal{N}_{0}$, where $\mathcal{N}_{0} = \mathcal{N} \cup \{ 0 \}$ denotes the set of natural numbers including zero. This algorithm generates a sequence of output values corresponding to each specified value of $N$.
 
 ```{r,echo=FALSE,fig.cap="Output of sequences of integers based on values of $N$ from 0 to 4", out.width = "400px", fig.align='center'}
 knitr::include_graphics('example3.png')
 ```
 
 <div class="div-3">
-Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for $N=5$?
+Question: Can you deduce the algorithm that produced the numbers in this figure? Additionally, what would be the result for $N=5$?
 </div>
 
 
@@ -217,20 +214,27 @@ Question: Determine the algorithm that was used to generate the numbers in this 
 ## Example 3
 
 ```
-Algorithm sketch 3
+Algorithm Sketch 3
 
-N must be a Natural number with zero
+Set N as a non-negative integer (Natural number with zero).
 
-start with N = n, where n represents the value 
-  Minimum value = 4 * N
-  Maximum value = 9 * N + 6
-  Increment of the sequence = 3
+Initialize N with a specific value n.
+
+  Define the sequence parameters:
+    Minimum Value = 4 * N
+    Maximum Value = 9 * N + 6
+    Sequence Increment = 3
+
+  Set x[1] to the Minimum Value.
   
-  x[1] = Minimum value
-  While x[i] is less than the Maximum value
-    x[i] = x[i-1] + Increment of the sequence
-  
-  x is the answer
+  Iteratively calculate the sequence:
+    For each iteration i,
+      if x[i-1] < Maximum Value,
+        then x[i] = x[i-1] + Sequence Increment.
+      else,
+        break the loop.
+
+  The sequence x represents the final answer.
 ```
 
 
