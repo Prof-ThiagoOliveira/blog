@@ -26,16 +26,15 @@
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/expressions/</guid>
       <description>
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/expressions/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Expressions are combinations of operators, values (constants), and variables arranged according to the rules established throughout the code. Thus, every expression is any part of a statement that returns a value, as in the following example:&lt;/p&gt;
+&lt;p&gt;Expressions in C++ are fundamental constructs made up of operators, constants, and variables, following the language’s syntactical rules. Every expression is a segment of a code that returns a value. For instance:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;exp1.png&#34; width=&#34;320px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This statement creates a box to store the value of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and another to keep the value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; equal to the expression &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; plus 13 (&lt;span class=&#34;math inline&#34;&gt;\(y=23\)&lt;/span&gt;). Now consider a more complex statement:&lt;/p&gt;
+&lt;p&gt;This example demonstrates the creation of variables to store values: a box for &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and another for &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; equals the expression &lt;span class=&#34;math inline&#34;&gt;\(x + 13\)&lt;/span&gt; (thus, &lt;span class=&#34;math inline&#34;&gt;\(y = 23\)&lt;/span&gt;). Now, let’s delve into a more complex example:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;exp2.png&#34; width=&#34;500px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-This statment consists of three expressions:
+This statement encompasses three expressions:
 &lt;div class=&#34;div-1&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;The results of the expression &lt;span class=&#34;math inline&#34;&gt;\(3 - x\)&lt;/span&gt; is stored in the variable &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;&lt;/li&gt;
@@ -43,18 +42,18 @@ This statment consists of three expressions:
 &lt;li&gt;The results of the expression &lt;span class=&#34;math inline&#34;&gt;\(y \times \left(\frac{v}{5} + x\right)\)&lt;/span&gt; is stored in the variable &lt;span class=&#34;math inline&#34;&gt;\(z\)&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Remember that multiplication and division occur before addition and subtraction. Ex.:&lt;/p&gt;
+&lt;p&gt;It’s essential to remember the precedence of operations: multiplication and division are executed before addition and subtraction. For example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1-3*4 = -11
 2/3-4*2/3 = -2
 2/3-4/4*2/3 = 0&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;strong&gt;operator precedence&lt;/strong&gt; dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence concerning other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression &lt;span class=&#34;math inline&#34;&gt;\(\frac{2}{4}-3+ 4 \times 6\)&lt;/span&gt;, firstly, the subexpressions &lt;span class=&#34;math inline&#34;&gt;\(\frac{2}{4}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(4 \times 6\)&lt;/span&gt; will be evaluated (Step 1 in Figure 1), and then addition and subtraction (Step 2 in Figure 1). Note that multiplication and division, or addition and subtraction have the same precedence, then they are evaluated from left to right due to their associativity.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Operator precedence&lt;/strong&gt; in &lt;code&gt;C++&lt;/code&gt; determines the sequence of operations in an expression. Operators have a specific order of execution relative to others. For instance, in the expression &lt;span class=&#34;math inline&#34;&gt;\(\frac{2}{4} - 3 + 4 \times 6\)&lt;/span&gt;, the subexpressions &lt;span class=&#34;math inline&#34;&gt;\(\frac{2}{4}\)&lt;/span&gt;&lt;code&gt;and&lt;/code&gt;&lt;span class=&#34;math inline&#34;&gt;\(4 \times 6\)&lt;/span&gt; are calculated first, followed by the addition and subtraction. When operators have the same precedence, their associativity dictates the order - either left-to-right or right-to-left.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;exp3.png&#34; alt=&#34;Precedence order&#34; width=&#34;300px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Precedence order
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Associativity&lt;/strong&gt; defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative, while assignment operators are typically right-associative. Besides, some operators have no defined behaviour when used in sequence over an expression, and they are called non-associative (Figure 2). When we include parentheses, we can force an expression to be right-associative rather than left-associative as usual.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Associativity&lt;/strong&gt; specifies the order of operations for operators with the same precedence level. It can be left-to-right or right-to-left. Typically, addition, subtraction, multiplication, and division are left-associative, while assignment operators are right-associative. Some operators are non-associative, meaning their behaviour is undefined if used sequentially in an expression. Parentheses can alter the default associativity, enforcing a specific order.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;exp4.png&#34; alt=&#34;Example of left-associative, right-associative, and non-associative&#34; width=&#34;800px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
@@ -103,6 +102,11 @@ x % y = 1 (modulus)&lt;/code&gt;&lt;/pre&gt;
 &lt;h1&gt;Short hand or syntatic sugar&lt;/h1&gt;
 &lt;p&gt;Short hand expressions provide a straightforward way to write common patterns over the algorithm for initialized variables.&lt;/p&gt;
 &lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;15%&#34; /&gt;
+&lt;col width=&#34;21%&#34; /&gt;
+&lt;col width=&#34;62%&#34; /&gt;
+&lt;/colgroup&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
 &lt;th&gt;Short hand&lt;/th&gt;
@@ -155,7 +159,7 @@ x % y = 1 (modulus)&lt;/code&gt;&lt;/pre&gt;
 &lt;/table&gt;
 &lt;div id=&#34;example-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 1:&lt;/h2&gt;
-&lt;p&gt;Here you can see that &lt;code&gt;y ++= x * z;&lt;/code&gt; is calculate as &lt;span class=&#34;math inline&#34;&gt;\(y=y+x \times z = 30 + 2 \times 4 = 34\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Here you can see that &lt;code&gt;y ++= x * z;&lt;/code&gt; is calculate as &lt;span class=&#34;math inline&#34;&gt;\(y=y+x \times z = 30 + 2 \times 4 = 38\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;example1.png&#34; width=&#34;350px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-2&#34; class=&#34;section level2&#34;&gt;
@@ -519,6 +523,40 @@ Left-to-right
 &lt;span class=&#34;mw-cite-backlink&#34;&gt;&lt;a href=&#34;#cite_ref-4&#34;&gt;↑&lt;/a&gt;&lt;/span&gt; &lt;span class=&#34;reference-text&#34;&gt;Assignment operators’ left operands must be unary (level-2 non-cast) expressions. This rule grammatically forbids some expressions that would be semantically invalid anyway. Many compilers ignore this rule and detect the invalidity semantically. For example, &lt;span class=&#34;t-c&#34;&gt;&lt;span class=&#34;mw-geshi c source-c&#34;&gt;e &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; a &lt;span class=&#34;sy1&#34;&gt;&amp;lt;&lt;/span&gt; d &lt;span class=&#34;sy4&#34;&gt;?&lt;/span&gt; a&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;sy4&#34;&gt;:&lt;/span&gt; a &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; d&lt;/span&gt;&lt;/span&gt; is an expression that cannot be parsed because of this rule. However, many compilers ignore this rule and parse it as &lt;span class=&#34;t-c&#34;&gt;&lt;span class=&#34;mw-geshi c source-c&#34;&gt;e &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt;a &lt;span class=&#34;sy1&#34;&gt;&amp;lt;&lt;/span&gt; d&lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy4&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;br0&#34;&gt;(&lt;/span&gt;a&lt;span class=&#34;sy2&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy4&#34;&gt;:&lt;/span&gt; a&lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;sy1&#34;&gt;=&lt;/span&gt; d &lt;span class=&#34;br0&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, and then give an error because it is semantically invalid.&lt;/span&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;impact-of-data-types-on-expressions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Impact of Data Types on Expressions&lt;/h2&gt;
+&lt;p&gt;In &lt;code&gt;C++&lt;/code&gt;, the data type of the variables involved in an expression significantly impacts the result. For instance, dividing two integers results in an integer, while using at least one floating-point number yields a floating-point result. Understanding how data types interact within expressions is crucial for accurate calculations and avoiding common pitfalls like integer truncation.&lt;/p&gt;
+&lt;p&gt;Here are some key points about integer truncation and other common pitfalls in C++:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Integer Truncation&lt;/strong&gt;: This occurs when the result of a division or other operation between integers is a floating-point number, but the data type is an integer. For example, &lt;code&gt;int result = 5 / 2;&lt;/code&gt; will store &lt;code&gt;2&lt;/code&gt; in &lt;code&gt;result&lt;/code&gt;, not &lt;code&gt;2.5&lt;/code&gt;, as the fractional part is truncated.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Implicit Type Conversions&lt;/strong&gt;: &lt;code&gt;C++&lt;/code&gt; automatically converts types in certain situations, which can lead to unexpected results. For instance, mixing signed and unsigned integers in expressions can cause unexpected behaviours due to implicit type conversions.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Overflow and Underflow&lt;/strong&gt;: This happens when a variable is assigned a value outside its range. For example, storing a value larger than the maximum value that an &lt;code&gt;int&lt;/code&gt; can hold will result in overflow, leading to unexpected values.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Precision Loss in Floating-Point Numbers&lt;/strong&gt;: Floating-point variables can lose precision, especially when dealing with very large or very small numbers. This can result in rounding errors in calculations.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Division by Zero&lt;/strong&gt;: This can occur if a program inadvertently divides a number by zero. It’s a critical error in &lt;code&gt;C++&lt;/code&gt; and can cause a program to crash or behave unpredictably.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Uninitialized Variables&lt;/strong&gt;: Using variables before initializing them can lead to unpredictable results, as they may contain random data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Pointer Errors&lt;/strong&gt;: Common mistakes with pointers include dereferencing a null or uninitialized pointer, pointer arithmetic errors, and memory leaks.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Operator Precedence Mistakes&lt;/strong&gt;: Misunderstanding the order in which operations are performed can lead to bugs. For example, assuming that &lt;code&gt;a + b * c&lt;/code&gt; adds &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; before multiplying by &lt;code&gt;c&lt;/code&gt; (it doesn’t; multiplication is done first).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Assuming Size of Data Types is Constant&lt;/strong&gt;: The size of data types like &lt;code&gt;int&lt;/code&gt; can vary depending on the system. Assuming a constant size can lead to errors, particularly when performing operations like bit manipulation or working with binary file formats.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Not Checking the Return Value of Functions&lt;/strong&gt;: When functions return values to indicate success or failure, not checking these can lead to the program continuing as if nothing went wrong, even when errors have occurred.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;role-of-type-casting-in-expressions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Role of Type Casting in Expressions&lt;/h2&gt;
+&lt;p&gt;Type casting in expressions can be used to explicitly convert data from one type to another. This technique is particularly useful in situations where operations between different data types are necessary. For example, casting an integer to a float in a division operation to obtain a floating-point result. However, it’s important to use type casting judiciously to maintain the precision and integrity of data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-significance-of-expression-evaluation-order&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Significance of Expression Evaluation Order&lt;/h2&gt;
+&lt;p&gt;While operator precedence and associativity rules dictate the order of operations in an expression, the sequence in which expressions are evaluated can also be influenced by function calls, side effects, and sequence points. Understanding how &lt;code&gt;C++&lt;/code&gt; evaluates expressions, especially in complex statements, is essential for debugging and writing predictable code.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compiler-optimizations-and-expressions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compiler Optimizations and Expressions&lt;/h2&gt;
+&lt;p&gt;Modern &lt;code&gt;C++&lt;/code&gt; compilers often optimize expressions to enhance performance. These optimizations might include reordering operations (while respecting the language rules), eliminating redundant calculations, or simplifying expressions at compile time. Being aware of these potential optimizations can help in writing more efficient code and understanding any discrepancies between the written code and its execution behaviour.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;best-practices-for-writing-expressions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Best Practices for Writing Expressions&lt;/h2&gt;
+&lt;p&gt;To maintain readability and reduce errors in &lt;code&gt;C++&lt;/code&gt;, it’s advisable to write clear and simple expressions. Avoid overly complex expressions, use parentheses to clarify order of operations, and follow coding standards and guidelines. Readable expressions are easier to debug, maintain, and understand, especially in collaborative environments.&lt;/p&gt;
+&lt;p&gt;Adding these paragraphs can provide a more comprehensive and nuanced understanding of expressions in &lt;code&gt;C++&lt;/code&gt;, catering to both beginners and experienced programmers.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;

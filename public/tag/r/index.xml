@@ -137,5 +137,41 @@ Beyond just coding, &lt;code&gt;golem&lt;/code&gt; makes deploying apps feel lik
 </description>
     </item>
     
+    <item>
+      <title>R Programming with Efficient Snippets</title>
+      <link>https://prof-thiagooliveira.netlify.com/post/r-programming/</link>
+      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/post/r-programming/</guid>
+      <description>
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In &lt;code&gt;R&lt;/code&gt; programming, efficiency is key. Snippets, small reusable blocks of code, are a cornerstone in achieving this. This post delves into the world of snippets, offering both novice and seasoned &lt;code&gt;R&lt;/code&gt; programmers insights into their power and versatility.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;citation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Citation&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;For attribution, please cite this work as:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;div-1&#34;&gt;
+&lt;p&gt;Oliveira T.P. (2024, Jan. 06). R Programming with Efficient Snippets&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;BibTeX citation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;@misc{oliveira2020snippets,
+  author = {Oliveira, Thiago},
+  title = {R Programming with Efficient Snippets},
+  url = {https://prof-thiagooliveira.netlify.app/post/r-programming-with-efficient-snippets/},
+  year = {2024}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
