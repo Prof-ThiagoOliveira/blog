@@ -180,30 +180,6 @@ Most `R` Integrated Development Environments (IDEs), such as RStudio, have built
 
 These snippets are formatted to be directly added to your `R` snippet library, making them easily accessible and usable within your `R` programming environment.
 
-
-
-```R
-snippet measureCodeBottleneck
-    library(microbenchmark)
-    library(pryr)
-
-    # Memory and Time Measurement Function
-    measureBottleneck <- function(expr) {
-        # Measure execution time
-        time_result <- microbenchmark(expr, times = ${1:100})
-        print(summary(time_result))
-
-        # Measure memory usage
-        mem_usage <- object_size(expr)
-        print(paste("Memory Usage: ", mem_usage))
-    }
-
-    # Example Usage
-    # measureBottleneck({
-    #    # Place your code here
-    # })
-```
-
 ## Evaluating Code Performance with Snippet
 
 In addition to the various functional and structural snippets, a key aspect of efficient programming is performance optimization. The `measureCodeBottleneck` snippet is an example of code for identifying performance bottlenecks in your `R` code. It helps you measure both execution time and memory usage, offering insights into how your code can be optimized for better performance.

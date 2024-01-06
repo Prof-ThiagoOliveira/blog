@@ -159,25 +159,6 @@ Most <code>R</code> Integrated Development Environments (IDEs), such as RStudio,
     ${1:dataset} &lt;- read.csv(&quot;${2:file_path}&quot;, header = ${3:TRUE}, na.strings = &quot;${4:NA}&quot;, stringsAsFactors = ${5:FALSE})</code></pre></li>
 </ol>
 <p>These snippets are formatted to be directly added to your <code>R</code> snippet library, making them easily accessible and usable within your <code>R</code> programming environment.</p>
-<pre class="r"><code>snippet measureCodeBottleneck
-    library(microbenchmark)
-    library(pryr)
-
-    # Memory and Time Measurement Function
-    measureBottleneck &lt;- function(expr) {
-        # Measure execution time
-        time_result &lt;- microbenchmark(expr, times = ${1:100})
-        print(summary(time_result))
-
-        # Measure memory usage
-        mem_usage &lt;- object_size(expr)
-        print(paste(&quot;Memory Usage: &quot;, mem_usage))
-    }
-
-    # Example Usage
-    # measureBottleneck({
-    #    # Place your code here
-    # })</code></pre>
 </div>
 <div id="evaluating-code-performance-with-snippet" class="section level2">
 <h2>Evaluating Code Performance with Snippet</h2>
