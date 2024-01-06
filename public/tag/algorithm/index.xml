@@ -18,13 +18,12 @@
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</guid>
       <description>
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview of the Seven Steps&lt;/h1&gt;
-&lt;p&gt;The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;p&gt;The seven steps proposed by Hilton et al. (2019) present an intriguing strategy for initiating a new project involving programming. This approach is concisely summarized in Figure 1. In this discussion, we will elaborate on these steps, drawing upon the work of Hilton et al. (2019).&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: The seven steps (modified from Hilton et al. (2019))
@@ -34,8 +33,8 @@ Figure 1: The seven steps (modified from Hilton et al. (2019))
 &lt;/div&gt;
 &lt;div id=&#34;step-1---project-definition-using-simple-examples&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 1 - Project definition using simple examples&lt;/h1&gt;
-&lt;p&gt;This is when you spend time thinking about the project and how could you divide them into small tasks. Start your project by drawing a diagram of it by hand, including the main subjects, how you could sort out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided into smaller tasks, how these tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be built. Doing an excellent job during this stage will facilitate the remainder steps.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;p&gt;This step involves dedicating time to conceptualize the project and breaking it down into manageable tasks. Begin by manually sketching a diagram of the project, highlighting key topics, strategies for addressing challenges, and estimating the number of primary algorithms required for completion. This should also encompass the subdivision of the project into smaller tasks, their interconnections, and any sequential order for their execution, as depicted in Figure 2. An effective approach in this stage is crucial as it simplifies the subsequent steps.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Example of how divide the main project into small tasks
@@ -43,33 +42,33 @@ Figure 2: Example of how divide the main project into small tasks
 &lt;/div&gt;
 &lt;div id=&#34;example-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 1&lt;/h2&gt;
-&lt;p&gt;Suppose we would want to write an algorithm in C++ to compute the total fat of an ice cream portion basis (&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;). Suppose also this response variable is a function of butyric fat &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and vegetable fat &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. Let &lt;span class=&#34;math inline&#34;&gt;\(E[y]\)&lt;/span&gt; be the expected value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; defined as&lt;/p&gt;
+&lt;p&gt;Imagine we need to develop a &lt;code&gt;C++&lt;/code&gt; algorithm to calculate the total fat content (&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;) of a portion of ice cream. Assume this response variable is determined by the amounts of butyric fat (&lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt;) and vegetable fat (&lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;). Let &lt;span class=&#34;math inline&#34;&gt;\(E[y]\)&lt;/span&gt; represent the expected value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, defined as:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2\]&lt;/span&gt;
-Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; to calculate the total fat &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; by hand. If &lt;span class=&#34;math inline&#34;&gt;\(x_{1}=2\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(x_{2}=1\)&lt;/span&gt;, then
-&lt;span class=&#34;math display&#34;&gt;\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Now, suppose the second aim is to optimise fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface. Consequently, we can divide our project into, e. g., two tasks:&lt;/p&gt;
+We can manually compute the total fat &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; for specific values of &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. For instance, if &lt;span class=&#34;math inline&#34;&gt;\(x_1=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2=1\)&lt;/span&gt;, then:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now, let’s assume the secondary goal is to optimize the fat content in the ice cream formulation based on this model. This involves searching for the global minimum on the response surface. Consequently, we can break down our project into two tasks:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Generalize the function for any &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;;&lt;/li&gt;
 &lt;li&gt;Calculate the global (or absolute) minimum point;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;p&gt;If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:&lt;/p&gt;
+&lt;p&gt;If you encounter difficulties in these tasks, it’s often due to a gap in specific domain knowledge, such as a lack of expertise in mathematics:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;How could I calculate the global minimum?&lt;/li&gt;
 &lt;li&gt;How can I use partial derivatives?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Thus, during this step, you have to identify all domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
+&lt;p&gt;Therefore, during this step, it is essential to identify all the necessary domain knowledge and address these gaps before proceeding to the next stage. Sometimes, this knowledge may stem from specialized areas such as computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-2---write-everything-you-did&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 2 - Write everything you did&lt;/h1&gt;
-&lt;p&gt;In this step, you should take notes about what you did to solve the project’s project or tasks. Your notes describing all solutions by reading should be precise enough to anyone else reproduce them quickly. Sometimes we may omit common-sense steps such as multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; or the order in which each task should be executed.&lt;/p&gt;
+&lt;p&gt;In this phase, it is crucial to meticulously record every action undertaken to resolve the project’s challenges or tasks. Ensure that your notes are clear and detailed enough for others to replicate your solutions effortlessly. Be cautious not to overlook steps that might seem obvious, such as basic operations like multiplying &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, or the sequence in which tasks are to be executed.&lt;/p&gt;
 &lt;div id=&#34;example-2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 2&lt;/h2&gt;
-&lt;p&gt;Suppose we are interested in computing &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)=x^y+3x\)&lt;/span&gt; when &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;, then we might write down a deatiled descriptions of all steps to compute &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;Consider the task of calculating &lt;span class=&#34;math inline&#34;&gt;\(f(x, y) = x^y + 3x\)&lt;/span&gt; for &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;. Here’s how you could document the process in a detailed and comprehensible manner:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;Multiply 2 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
@@ -79,19 +78,19 @@ Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;
 &lt;li&gt;22 is the answer.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;The steps are precise as anyone who can perform basic math can follow these steps to get the same answer.&lt;/p&gt;
+&lt;p&gt;By following these explicit steps, anyone with basic mathematical skills should be able to reach the same result.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-3---generalize&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 3 - Generalize&lt;/h1&gt;
-&lt;p&gt;Our task is to generalize the last steps into an algorithm, finding patterns that allow us to solve the whole class rather than for particular parameter values. Here is two common way to generalize those steps into the algorithm:&lt;/p&gt;
+&lt;p&gt;The goal now is to transform the specific steps from earlier into a universal algorithm that applies to a broader range of cases, not just specific parameter values. Here are two common methods to achieve this generalization:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;Look all details of your step 2 because, sometimes, you can find the generalization into it description.&lt;/li&gt;
-&lt;li&gt;Look for repetition patterns - when the same step repeats several times&lt;/li&gt;
+&lt;li&gt;Re-examine the details from Step 2, as the key to generalization often lies within its description.&lt;/li&gt;
+&lt;li&gt;Identify repetitive patterns, particularly where the same step is executed multiple times.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just looking the description into step 2, where we can replacing the occurrence of 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:
+&lt;p&gt;For instance, let’s generalize our Example 2 by adapting the steps from Step 2, replacing the specific occurrences of 2 with a variable &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;Multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
@@ -101,7 +100,7 @@ We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just lookin
 &lt;li&gt;22 is the answer.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
+&lt;p&gt;It is important to note that the initial multiplication should start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x = x^2\)&lt;/span&gt;. Therefore, we multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by itself &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt; times to obtain &lt;span class=&#34;math inline&#34;&gt;\(x^y\)&lt;/span&gt;. This leads us to the following generalized steps for any values of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Algorithm sketch 1
   
 start with x = 2 and y = 4
@@ -118,69 +117,64 @@ z is  the answer&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-4---test-your-algorithm&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
-&lt;p&gt;Testing your algorithm is a practical step to ensure steps 1-3 are right before proceeding to step 5. Some examples of what you should do/think during this stage are described below:&lt;/p&gt;
+&lt;p&gt;Testing your algorithm is a crucial step to ensure the correctness of steps 1-3 before advancing to step 5. Here are some key actions and considerations during this stage:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;Test your algorithm choosing different values for parameters&lt;/li&gt;
-&lt;li&gt;What happens if the value is positive, negative or equal to zero?&lt;/li&gt;
-&lt;li&gt;Have you restricted parameter space? Ex.: &lt;span class=&#34;math inline&#34;&gt;\(y\geq 0\)&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;Use mathematical proofs&lt;/li&gt;
-&lt;li&gt;There is always more than one right answer to a programming problem&lt;/li&gt;
+&lt;li&gt;Test your algorithm with varying parameter values.&lt;/li&gt;
+&lt;li&gt;Assess the algorithm’s behavior for positive, negative, or zero values.&lt;/li&gt;
+&lt;li&gt;Determine if you have confined the parameter space, e.g., &lt;span class=&#34;math inline&#34;&gt;\(y \geq 0\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Employ mathematical proofs to validate your approach.&lt;/li&gt;
+&lt;li&gt;Recognize that there may be more than one correct solution to a programming problem.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Remember, the parameter space refers to the range of possible parameter values that define a specific mathematical or statistical model, typically within a subset of the finite-dimensional Euclidean space.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Sometimes, we miss-generalizing our algorithm at step 3, and this mistake leads us again to steps 1-2. Generally, miss-generalization happens when we did not consider all possible cases during step 3 or did not have mathematical proofs about what we are doing.&lt;/p&gt;
-&lt;p&gt;A good example of an algorithm mistake could be seen in Example 2. What happens if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? We can see that our algorithm mishandles these cases. If you calculate the algorithm steps by hand with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, you will get &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; rather than &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt; (correct answer). Additionally, for any value &lt;span class=&#34;math inline&#34;&gt;\(y\leq 0\)&lt;/span&gt; the algorithm try to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1&amp;lt;0\)&lt;/span&gt;, of which are no Natural number, leading an error in the process. Thus, we can conclude that &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to a higher number of cases:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 2 
+&lt;p&gt;At times, the generalization in step 3 might be incomplete, leading to a revisit of steps 1-2. This oversight often occurs when not all potential cases are considered or when mathematical proofs are lacking.&lt;/p&gt;
+&lt;p&gt;A notable example of an algorithmic error is seen in Example 2. What if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt; or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? Our algorithm incorrectly addresses these cases. For example, with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, the algorithm erroneously calculates &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; instead of the correct &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt;. Also, for any &lt;span class=&#34;math inline&#34;&gt;\(y \leq 0\)&lt;/span&gt;, the algorithm erroneously tries to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1 &amp;lt; 0\)&lt;/span&gt;, which is not applicable for natural numbers, leading to an error. Therefore, we must ensure &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}\)&lt;/span&gt; represents the set of natural numbers including zero. Consequently, we should aim to generalize our algorithm to accommodate a broader range of cases:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Algorithm Sketch 2 
 
-y must be a integer number
+y must be an integer number.
 
-start with x = 2 and y = 4
+Start with x = 2 and y = 4.
 
-if y=0 {
-n[1] = 1
-i=0
-} else{
-Count up from i in 1 to |y|-1
-  if y&amp;lt;0 {
-  n[1] = 1/x
-  n[i+1] = n[i] * 1/x 
-  } else{
-  n[1] = x
-  n[i+1] = n[i] * x
+If y=0 {
+  n[1] = 1;
+  i=0;
+} else {
+  Count from i = 1 to |y|-1;
+  If y &amp;lt; 0 {
+    n[1] = 1/x;
+    n[i+1] = n[i] * (1/x);
+  } else {
+    n[1] = x;
+    n[i+1] = n[i] * x;
   }
 }
-z = n[i+1] + 3 * x
-z is  the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;500px&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 3: Example of output using the algorithm 2
-&lt;/p&gt;
-&lt;/div&gt;
+
+z = n[i+1] + 3 * x;
+z is the answer.&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: How can we improve this algorithm? Think about the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Question: How can we improve this algorithm? Consider the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
 &lt;/div&gt;
-For some problems, particular cases require our attention. Every time we detect a problem with our algorithm in this step, we have to choose one of this option:
+&lt;p&gt;When encountering problems with our algorithm at this stage, we have two options:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.&lt;/li&gt;
-&lt;li&gt;Skip the last steps and fix the algorithm directly in step 4 (when we know how to fix the problem).&lt;/li&gt;
+&lt;li&gt;Return to steps 1-3 to gather more information for broadening the algorithm’s applicability.&lt;/li&gt;
+&lt;li&gt;Directly fix the algorithm in step 4 when the solution is known.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;p&gt;The numbers in Figure 4 were obtained from an algorithm that has one parameter &lt;span class=&#34;math inline&#34;&gt;\(N \in \mathcal{N}_{0}\)&lt;/span&gt; to be specified, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero and a sequence of number as output values for each &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;p&gt;The data in Figure 4 originates from an algorithm that accepts a single parameter, &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;, belonging to the set &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0} = \mathcal{N} \cup \{ 0 \}\)&lt;/span&gt; denotes the set of natural numbers including zero. This algorithm generates a sequence of output values corresponding to each specified value of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;400px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
-Figure 4: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
+Figure 3: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for &lt;span class=&#34;math inline&#34;&gt;\(N=5\)&lt;/span&gt;?&lt;/p&gt;
+&lt;p&gt;Question: Can you deduce the algorithm that produced the numbers in this figure? Additionally, what would be the result for &lt;span class=&#34;math inline&#34;&gt;\(N=5\)&lt;/span&gt;?&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -192,20 +186,27 @@ Figure 4: Output of sequences of integers based on values of &lt;span class=&#34
 &lt;h1&gt;Answers&lt;/h1&gt;
 &lt;div id=&#34;example-3-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 3
+&lt;pre&gt;&lt;code&gt;Algorithm Sketch 3
 
-N must be a Natural number with zero
+Set N as a non-negative integer (Natural number with zero).
 
-start with N = n, where n represents the value 
-  Minimum value = 4 * N
-  Maximum value = 9 * N + 6
-  Increment of the sequence = 3
+Initialize N with a specific value n.
+
+  Define the sequence parameters:
+    Minimum Value = 4 * N
+    Maximum Value = 9 * N + 6
+    Sequence Increment = 3
+
+  Set x[1] to the Minimum Value.
   
-  x[1] = Minimum value
-  While x[i] is less than the Maximum value
-    x[i] = x[i-1] + Increment of the sequence
-  
-  x is the answer&lt;/code&gt;&lt;/pre&gt;
+  Iteratively calculate the sequence:
+    For each iteration i,
+      if x[i-1] &amp;lt; Maximum Value,
+        then x[i] = x[i-1] + Sequence Increment.
+      else,
+        break the loop.
+
+  The sequence x represents the final answer.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r code-input&#34;&gt;&lt;code&gt;# N = 6
 N=5
 seq &amp;lt;- seq(4*N, 9*N+6, 3)

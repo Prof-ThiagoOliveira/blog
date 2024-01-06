@@ -555,68 +555,70 @@ Left-to-right
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</guid>
       <description>
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/index.en_files/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 &lt;link href=&#34;https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/index.en_files/lightable/lightable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Introduction&lt;/h1&gt;
-When we think about writing a C program, the first step is to understand how variables should be assigned. There are several variable’s types in C, and here we are introducing the type &lt;code&gt;int&lt;/code&gt;, which is used for integer data types. We can define a variable as an integer in two ways:
+&lt;p&gt;When programming in C, a fundamental step is understanding variable assignment. C offers various data types, and here we focus on &lt;code&gt;int&lt;/code&gt;, used for integer data. There are two primary methods to define an &lt;code&gt;int&lt;/code&gt; variable:&lt;/p&gt;
 &lt;div class=&#34;div-1&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;Uninitialized variable: defined as &lt;code&gt;int x;&lt;/code&gt;, where no value is assigned to the variable &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; (Figure 1), which generally is not a good idea. It could lead to a bug in the algorithm if no value is assigned over the code.&lt;/li&gt;
-&lt;li&gt;Initialized variable: there are two ways to assign a value to a variable &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; (Figure 1):
+&lt;li&gt;&lt;strong&gt;Uninitialized Variable&lt;/strong&gt;: Defined simply as &lt;code&gt;int x;&lt;/code&gt;, this approach does not assign an initial value to the variable &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; (Figure 1). It’s generally advisable to avoid this since it can lead to bugs if &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; remains unassigned throughout the code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Initialized Variable&lt;/strong&gt;: Assigning a value to &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; can be done in two ways (Figure 1):
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;in a single declaration - &lt;code&gt;int x = 3;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;in a double step declaration - &lt;code&gt;int x;&lt;/code&gt; and &lt;code&gt;x = 3;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Single-step declaration - &lt;code&gt;int x = 3;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Two-step declaration - First, declare with &lt;code&gt;int x;&lt;/code&gt; then assign with &lt;code&gt;x = 3;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;var_and_exp.png&#34; alt=&#34;Declaring variables in C&#34; width=&#34;550px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Declaring variables in C
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Additionally, there is a large set of storage size-specific declarations for an integer, and here we will explain just an initial idea about it. Figure 2 shows the Integer representation of whole numbers or fixed-point numbers (fixed number of digits). Generally, computers use a set number of bits to represent them, where commonly used bit-lengths for integers are 8-bit, 16-bit (&lt;code&gt;short&lt;/code&gt;), 32-bit (&lt;code&gt;long&lt;/code&gt;) or 64-bit (&lt;code&gt;long long&lt;/code&gt;). There are two representation schemes for integers called signed integer type (&lt;code&gt;signed int&lt;/code&gt;), capable of containing the range of values from -32,767 to 32,767, and unsigned integer type (&lt;code&gt;unsigned int&lt;/code&gt;) containing the range of deals from 0 to 65,535 (&lt;span class=&#34;math inline&#34;&gt;\(32767 \times 2+1\)&lt;/span&gt;). Therefore, an &lt;code&gt;unsigned&lt;/code&gt; qualifier should be used when we are working with only positive values.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;p&gt;Additionally, C provides various storage sizes for integer variables. We will briefly introduce this concept. Figure 2 illustrates the representation of integers, either as whole numbers or fixed-point numbers (with a fixed number of digits). Typically, computers use a set number of bits to represent these integers. Common bit-lengths for integers include 8-bit, 16-bit (&lt;code&gt;short&lt;/code&gt;), 32-bit (&lt;code&gt;long&lt;/code&gt;), or 64-bit (&lt;code&gt;long long&lt;/code&gt;). There are two main schemes for integer representation: the signed integer type (&lt;code&gt;signed int&lt;/code&gt;), which can store values ranging from -32,767 to 32,767, and the unsigned integer type (&lt;code&gt;unsigned int&lt;/code&gt;), which encompasses values from 0 to 65,535 (calculated as &lt;span class=&#34;math inline&#34;&gt;\(32767 \times 2 + 1\)&lt;/span&gt;). The &lt;code&gt;unsigned&lt;/code&gt; qualifier is particularly useful when dealing exclusively with positive values.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;binary_number.png&#34; alt=&#34;Integer Representation&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Integer Representation
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Furthermore, there are three representation schemes for signed integers called &lt;em&gt;Sign-Magnitude representation&lt;/em&gt;, * 1’s Complement representation&lt;em&gt;, and &lt;/em&gt; 2’s Complement representation*. The 1’s and the 2’s complements of a binary number are essential because they permit different negative numbers representation. In all of these schemes, positive signed binary numbers start with value 0 while negative ones start with value 1 (Figure 3).&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;p&gt;Furthermore, there are three representation schemes for signed integers: &lt;em&gt;Sign-Magnitude Representation&lt;/em&gt;, &lt;em&gt;1’s Complement Representation&lt;/em&gt;, and &lt;em&gt;2’s Complement Representation&lt;/em&gt;. These schemes are crucial for representing negative numbers in binary form. In all these schemes, positive signed binary numbers begin with a 0, while negative numbers start with a 1 (Figure 3).&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;sign_bit.png&#34; alt=&#34;Signed binary numbers&#34; width=&#34;300px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Signed binary numbers
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Consequently, the disadvantage of signed binary numbers is that there is 1 bit used to store the sign positive or negative while the remaining &lt;span class=&#34;math inline&#34;&gt;\(n-1\)&lt;/span&gt; bits are assigned to the range of digits from &lt;span class=&#34;math inline&#34;&gt;\(-2^{n-1}\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(2^{n-1}\)&lt;/span&gt;. If we have 8 bits to represent a signed binary number, we have to use 1 bit for the &lt;strong&gt;sign bit&lt;/strong&gt; and 7 bits for the &lt;strong&gt;magnitude bits&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;A limitation of signed binary numbers is that one bit is dedicated to indicating the sign (positive or negative), leaving the remaining &lt;span class=&#34;math inline&#34;&gt;\(n-1\)&lt;/span&gt; bits for the number’s magnitude, ranging from &lt;span class=&#34;math inline&#34;&gt;\(-2^{n-1}\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(2^{n-1}\)&lt;/span&gt;. For instance, in an 8-bit signed binary number, one bit is for the sign, and the remaining seven bits are for the magnitude:&lt;/p&gt;
 &lt;div class=&#34;div-1&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;Using Sign-Magnitude Representation:
-&lt;span class=&#34;math display&#34;&gt;\[-|2^{\left(8-1\right)}-1| \mbox{ to } 2^{\left(8-1\right)}-1 = -127 \mbox{ to } 127\]&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;Using 2’s Complement Representation:
-&lt;span class=&#34;math display&#34;&gt;\[-2^{\left(8-1\right)} \mbox{ to } 2^{\left(8-1\right)}-1 = -128 \mbox{ to } 127\]&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;With Sign-Magnitude Representation:
+&lt;span class=&#34;math display&#34;&gt;\[ -|2^{(8-1)}-1| \mbox{ to } 2^{(8-1)}-1 = -127 \mbox{ to } 127 \]&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;With 2’s Complement Representation:
+&lt;span class=&#34;math display&#34;&gt;\[ -2^{(8-1)} \mbox{ to } 2^{(8-1)}-1 = -128 \mbox{ to } 127 \]&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Thus, we can represent the numbers ranging from -128 to 127 using 2’s Complement Representation. You probably ask why there is one extra number being accounted for when using 2’s Complement Representation. The answer can be found in Figure 4.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;p&gt;Therefore, using 2’s Complement Representation, we can represent numbers from -128 to 127. You might wonder why there’s an additional number in the range with 2’s Complement. The answer lies in the unique way this representation handles the negative of the lowest negative number, which can be seen in Figure 4.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;repre_scheme.png&#34; alt=&#34;Representation schemes of Sign-Magnitude Representation and 2&#39;s Complement Representation&#34; width=&#34;400px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Representation schemes of Sign-Magnitude Representation and 2’s Complement Representation
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;examples&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Examples&lt;/h1&gt;
-&lt;div id=&#34;unsigned-int&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Unsigned int&lt;/h2&gt;
-&lt;p&gt;Suppose we are interested in representing a sequence of number &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(x \in \lbrace 0, 1, \ldots, 15\rbrace\)&lt;/span&gt;. We can assign these numbers as unsigned numbers of 4 bits. Consequently, we have &lt;strong&gt;4 zero&lt;/strong&gt; bits associated with describing these numbers because our variable belongs to the interval &lt;span class=&#34;math inline&#34;&gt;\([0, 2^{4}−1] \in \mathcal{N}_{0}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;dive-into-the-world-of-integer-representations&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Dive Into the World of Integer Representations!&lt;/h1&gt;
+&lt;p&gt;Embark on an exhilarating journey through the binary landscape of computer science! We’re set to explore the intricate ways of representing integers, both unsigned and signed, using the power of binary digits. This adventure will take us through two riveting examples, complete with R code snippets for a hands-on experience!&lt;/p&gt;
+&lt;div id=&#34;unveiling-the-unsigned-integers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Unveiling the Unsigned Integers&lt;/h2&gt;
+&lt;p&gt;Picture a sequence of numbers &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(x \in \lbrace 0, 1, \ldots, 15 \rbrace\)&lt;/span&gt;. We’re about to represent these numbers as 4-bit unsigned integers. Imagine this: &lt;strong&gt;4 bits&lt;/strong&gt;, each a 0 or 1, combining in myriad ways to encapsulate numbers from 0 to 15. Our journey here explores the interval &lt;span class=&#34;math inline&#34;&gt;\([0, 2^{4}−1] \in \mathcal{N}_{0}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Here’s an R snippet to visualize this transformation:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &amp;#39;kableExtra&amp;#39; was built under R version 4.2.3&lt;/code&gt;&lt;/pre&gt;
 &lt;table class=&#34;table table-striped table-hover&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;caption&gt;
 &lt;span id=&#34;tab:unnamed-chunk-5&#34;&gt;Table 1: &lt;/span&gt;Representation of numbers from 0 to 15 in 4 bits
@@ -730,10 +732,12 @@ x
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Prepare to be amazed as simple integers transform into a beautiful array of zeros and ones!&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;signed-int&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Signed int&lt;/h2&gt;
-&lt;p&gt;Suppose now we are interested in representing a sequence of number &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(y \in \lbrace -7, -6, \ldots,6, 7\rbrace\)&lt;/span&gt;. We have to assign them as signed numbers using 4 bits because 1 bit will be used for &lt;strong&gt;sign bit&lt;/strong&gt; and 3 bits for the &lt;strong&gt;magnitude bits&lt;/strong&gt; to describe &lt;span class=&#34;math inline&#34;&gt;\(y \in \left[-|2^3-1|,2^3-1\right] \in \mathcal{Z}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;deciphering-signed-integers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Deciphering Signed Integers&lt;/h2&gt;
+&lt;p&gt;Next, let’s step into the world of signed integers, representing a sequence &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; within &lt;span class=&#34;math inline&#34;&gt;\(\{-7, -6, \ldots, 6, 7\}\)&lt;/span&gt;. With 4 bits at our disposal, one bit becomes the &lt;strong&gt;sign bit&lt;/strong&gt;, while the remaining three are &lt;strong&gt;magnitude bits&lt;/strong&gt;. This setup enables us to span &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; within the range &lt;span class=&#34;math inline&#34;&gt;\(\left[-|2^3-1|, 2^3-1\right] \in \mathcal{Z}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Witness the Sign-Magnitude Representation, where the first bit unveils the sign, and the rest narrate the magnitude:&lt;/p&gt;
 &lt;table class=&#34;table table-striped table-hover&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;caption&gt;
 &lt;span id=&#34;tab:unnamed-chunk-6&#34;&gt;Table 2: &lt;/span&gt;Sign-Magnitude Representation of numbers from -7 to 7 using 4 bits
@@ -847,6 +851,7 @@ y
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;But the intrigue doesn’t end there! Introducing the 2’s Complement Representation, a brilliant method to elegantly incorporate negative numbers. This approach allows us to explore the depths of the negative spectrum, all the way to -8:&lt;/p&gt;
 &lt;table class=&#34;table table-striped table-hover&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;caption&gt;
 &lt;span id=&#34;tab:unnamed-chunk-7&#34;&gt;Table 3: &lt;/span&gt;2’s Complement Representation of numbers from -8 to 7 using 4 bits
@@ -960,6 +965,217 @@ y
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;These examples, enriched with R code for hands-on experimentation! 🌌💻🚀&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploring-further-a-new-perspective-on-integer-representations&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exploring Further: A New Perspective on Integer Representations&lt;/h1&gt;
+&lt;p&gt;Let’s delve deeper into the world of integer representations with a fresh example! We’ll take a different approach, offering a new perspective to understand and construct binary representations. This time, we’ll focus on a practical application that brings these concepts to life.&lt;/p&gt;
+&lt;div id=&#34;example-binary-encoding-of-characters&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example: Binary Encoding of Characters&lt;/h2&gt;
+&lt;p&gt;Imagine you want to represent characters (like letters and symbols) in binary. This is essential in computer science, as it allows for the storage and transmission of text in a form that computers can process. We’ll use the ASCII (American Standard Code for Information Interchange) system, a widely used method to encode characters.&lt;/p&gt;
+&lt;p&gt;Each character in ASCII is assigned a unique number, and this number is then represented in binary. For example, the upper-case letter ‘A’ is represented by the number 65 in ASCII, which corresponds to the binary number 01000001.&lt;/p&gt;
+&lt;p&gt;Here’s an R snippet to visualize this transformation for a set of characters:&lt;/p&gt;
+&lt;table class=&#34;table table-striped table-hover&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:unnamed-chunk-8&#34;&gt;Table 4: &lt;/span&gt;Binary Encoding of Characters Using ASCII
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Char
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+ASCII
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Binary
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+A
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+A
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000001
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+B
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+B
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+42
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000010
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+C
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+C
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+43
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000011
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+D
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+D
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+44
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000100
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+E
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+E
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+45
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000101
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+F
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+F
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+46
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000110
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+G
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+G
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+47
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001000111
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+H
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+H
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+48
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001001000
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+I
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+I
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001001001
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;font-weight: bold;border-right:1px solid;&#34;&gt;
+J
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+J
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;font-family: monospace;&#34;&gt;
+4a
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+00000000000000000000000001001010
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;This example shows how characters are converted to ASCII values and then to their binary equivalents, demonstrating the practical application of binary representation in everyday computing tasks. Such an understanding is crucial for tasks like data encoding, cryptography, and digital communication.&lt;/p&gt;
+&lt;p&gt;This fresh perspective, combined with hands-on R code, adds another layer to our understanding of binary representations in the digital world. It’s not just about numbers; it’s about how even the simplest characters we use every day are translated into a language that computers understand. 🌐🔢🖥️&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;efficiency-in-data-storage-numbers-vs.-letters&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Efficiency in Data Storage: Numbers vs. Letters&lt;/h1&gt;
+&lt;p&gt;As we wrap up our exploration of binary representations, it’s crucial to understand why storing numbers instead of letters (words) is often more efficient and preferred in terms of memory usage. This principle is key in optimizing data storage and processing in computing systems.&lt;/p&gt;
+&lt;div id=&#34;why-numbers-trump-letters-for-memory-efficiency&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why Numbers Trump Letters for Memory Efficiency&lt;/h2&gt;
+&lt;div id=&#34;compact-representation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Compact Representation:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Fixed Length&lt;/strong&gt;: Numbers, especially integers, typically have a fixed-length representation in binary. For example, a 32-bit system will represent all integers using 32 bits, regardless of the value. This uniformity leads to more predictable and efficient memory usage.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Greater Density&lt;/strong&gt;: A single number can represent a large range of values. For example, a 32-bit integer can represent over 4 billion different values, while 32 bits allocated for characters might only store a few words.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;processing-speed&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Processing Speed:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Simpler Operations&lt;/strong&gt;: Numerical data allows for more straightforward and faster arithmetic operations compared to string processing, which involves character-by-character manipulation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimized Hardware&lt;/strong&gt;: Computer processors are inherently designed to handle numerical calculations efficiently. Operations on numbers are generally faster due to hardware-level optimizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;memory-management&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Memory Management:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Less Overhead&lt;/strong&gt;: Storing numbers reduces the need for additional memory overhead compared to strings. For instance, numbers do not require extra characters for delimiters or markers that are often needed in text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Indexing and Searching&lt;/strong&gt;: It’s quicker to index and search through numerical data compared to textual data. This efficiency is crucial in database operations and large-scale data processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;application-in-real-world-scenarios&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Application in Real-World Scenarios:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Encoding Complexity&lt;/strong&gt;: Complex data like images, videos, and sound are more efficiently stored and processed as numerical values rather than trying to represent them as lengthy strings of text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Analysis and Machine Learning&lt;/strong&gt;: Numerical data is more amenable to statistical analysis and machine learning algorithms, which rely heavily on numerical inputs for predictions and insights.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In summary, while both numbers and letters have their place in data representation, the choice often boils down to efficiency and suitability for the task at hand. For tasks requiring compact storage, fast processing, and efficient manipulation, numbers usually offer significant advantages over letters or words. This principle of choosing the right data type for the right purpose is fundamental in the field of computer science and data management. 🌍💾🚀&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
@@ -996,13 +1212,12 @@ y
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</guid>
       <description>
-&lt;script src=&#34;https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;overview-of-the-seven-steps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Overview of the Seven Steps&lt;/h1&gt;
-&lt;p&gt;The seven steps proposed by Hilton et al. (2019) is very interesting strategy to start a new project that involves programming process, where a summary of the entire process is shown in the Figure 1. Here we will describe these steps based on thw work of Hilton et al. (2019).&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;p&gt;The seven steps proposed by Hilton et al. (2019) present an intriguing strategy for initiating a new project involving programming. This approach is concisely summarized in Figure 1. In this discussion, we will elaborate on these steps, drawing upon the work of Hilton et al. (2019).&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;seven_steps.png&#34; alt=&#34;The seven steps (modified from Hilton et al. (2019))&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: The seven steps (modified from Hilton et al. (2019))
@@ -1012,8 +1227,8 @@ Figure 1: The seven steps (modified from Hilton et al. (2019))
 &lt;/div&gt;
 &lt;div id=&#34;step-1---project-definition-using-simple-examples&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 1 - Project definition using simple examples&lt;/h1&gt;
-&lt;p&gt;This is when you spend time thinking about the project and how could you divide them into small tasks. Start your project by drawing a diagram of it by hand, including the main subjects, how you could sort out the problems, and how many main algorithms should you create to have your project done. Here you may include how the project could be sub-divided into smaller tasks, how these tasks are connected, and if there is an order to execute them (Figure 2). Consequently, this should reflect in the number of main algorithms to be built. Doing an excellent job during this stage will facilitate the remainder steps.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;p&gt;This step involves dedicating time to conceptualize the project and breaking it down into manageable tasks. Begin by manually sketching a diagram of the project, highlighting key topics, strategies for addressing challenges, and estimating the number of primary algorithms required for completion. This should also encompass the subdivision of the project into smaller tasks, their interconnections, and any sequential order for their execution, as depicted in Figure 2. An effective approach in this stage is crucial as it simplifies the subsequent steps.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;main_project.png&#34; alt=&#34;Example of how divide the main project into small tasks&#34; width=&#34;500px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Example of how divide the main project into small tasks
@@ -1021,33 +1236,33 @@ Figure 2: Example of how divide the main project into small tasks
 &lt;/div&gt;
 &lt;div id=&#34;example-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 1&lt;/h2&gt;
-&lt;p&gt;Suppose we would want to write an algorithm in C++ to compute the total fat of an ice cream portion basis (&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;). Suppose also this response variable is a function of butyric fat &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and vegetable fat &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. Let &lt;span class=&#34;math inline&#34;&gt;\(E[y]\)&lt;/span&gt; be the expected value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; defined as&lt;/p&gt;
+&lt;p&gt;Imagine we need to develop a &lt;code&gt;C++&lt;/code&gt; algorithm to calculate the total fat content (&lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;) of a portion of ice cream. Assume this response variable is determined by the amounts of butyric fat (&lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt;) and vegetable fat (&lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;). Let &lt;span class=&#34;math inline&#34;&gt;\(E[y]\)&lt;/span&gt; represent the expected value of &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, defined as:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[E[y]=10-0.5x_1+0.6x_1^2-0.6x_2+0.2x_2^2+0.1x_1x_2\]&lt;/span&gt;
-Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt; to calculate the total fat &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; by hand. If &lt;span class=&#34;math inline&#34;&gt;\(x_{1}=2\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(x_{2}=1\)&lt;/span&gt;, then
-&lt;span class=&#34;math display&#34;&gt;\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Now, suppose the second aim is to optimise fat ice cream formulation from this fitted model. In this sense, we are looking for the global minimum through the response surface. Consequently, we can divide our project into, e. g., two tasks:&lt;/p&gt;
+We can manually compute the total fat &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; for specific values of &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;. For instance, if &lt;span class=&#34;math inline&#34;&gt;\(x_1=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2=1\)&lt;/span&gt;, then:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[y=10-0.5\times2+0.6\times 2^2-0.6\times 1+0.2 \times 1^2+0.1\times 2 \times 1 = 11.2.\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now, let’s assume the secondary goal is to optimize the fat content in the ice cream formulation based on this model. This involves searching for the global minimum on the response surface. Consequently, we can break down our project into two tasks:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Generalize the function for any &lt;span class=&#34;math inline&#34;&gt;\(x_1\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x_2\)&lt;/span&gt;;&lt;/li&gt;
 &lt;li&gt;Calculate the global (or absolute) minimum point;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;p&gt;If you get stuck in one of these steps, probably this difficult is comming from a lack of domain knowledge of a particular field, e. g., a lack of domain in mathematics:&lt;/p&gt;
+&lt;p&gt;If you encounter difficulties in these tasks, it’s often due to a gap in specific domain knowledge, such as a lack of expertise in mathematics:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;How could I calculate the global minimum?&lt;/li&gt;
 &lt;li&gt;How can I use partial derivatives?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Thus, during this step, you have to identify all domain knowledge and then overcome them before going to the next step. Sometimes, domain knowledge may come from particular fields of computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
+&lt;p&gt;Therefore, during this step, it is essential to identify all the necessary domain knowledge and address these gaps before proceeding to the next stage. Sometimes, this knowledge may stem from specialized areas such as computer science, sports, agriculture, statistics, or engineering.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-2---write-everything-you-did&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 2 - Write everything you did&lt;/h1&gt;
-&lt;p&gt;In this step, you should take notes about what you did to solve the project’s project or tasks. Your notes describing all solutions by reading should be precise enough to anyone else reproduce them quickly. Sometimes we may omit common-sense steps such as multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt; or the order in which each task should be executed.&lt;/p&gt;
+&lt;p&gt;In this phase, it is crucial to meticulously record every action undertaken to resolve the project’s challenges or tasks. Ensure that your notes are clear and detailed enough for others to replicate your solutions effortlessly. Be cautious not to overlook steps that might seem obvious, such as basic operations like multiplying &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;, or the sequence in which tasks are to be executed.&lt;/p&gt;
 &lt;div id=&#34;example-2&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 2&lt;/h2&gt;
-&lt;p&gt;Suppose we are interested in computing &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)=x^y+3x\)&lt;/span&gt; when &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;, then we might write down a deatiled descriptions of all steps to compute &lt;span class=&#34;math inline&#34;&gt;\(f(x,y)\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;Consider the task of calculating &lt;span class=&#34;math inline&#34;&gt;\(f(x, y) = x^y + 3x\)&lt;/span&gt; for &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=4\)&lt;/span&gt;. Here’s how you could document the process in a detailed and comprehensible manner:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;Multiply 2 by 2 &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
@@ -1057,19 +1272,19 @@ Thus, we can pick particular values for &lt;span class=&#34;math inline&#34;&gt;
 &lt;li&gt;22 is the answer.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;The steps are precise as anyone who can perform basic math can follow these steps to get the same answer.&lt;/p&gt;
+&lt;p&gt;By following these explicit steps, anyone with basic mathematical skills should be able to reach the same result.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-3---generalize&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 3 - Generalize&lt;/h1&gt;
-&lt;p&gt;Our task is to generalize the last steps into an algorithm, finding patterns that allow us to solve the whole class rather than for particular parameter values. Here is two common way to generalize those steps into the algorithm:&lt;/p&gt;
+&lt;p&gt;The goal now is to transform the specific steps from earlier into a universal algorithm that applies to a broader range of cases, not just specific parameter values. Here are two common methods to achieve this generalization:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;Look all details of your step 2 because, sometimes, you can find the generalization into it description.&lt;/li&gt;
-&lt;li&gt;Look for repetition patterns - when the same step repeats several times&lt;/li&gt;
+&lt;li&gt;Re-examine the details from Step 2, as the key to generalization often lies within its description.&lt;/li&gt;
+&lt;li&gt;Identify repetitive patterns, particularly where the same step is executed multiple times.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just looking the description into step 2, where we can replacing the occurrence of 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:
+&lt;p&gt;For instance, let’s generalize our Example 2 by adapting the steps from Step 2, replacing the specific occurrences of 2 with a variable &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;Multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; &lt;span class=&#34;math inline&#34;&gt;\(\rightarrow\)&lt;/span&gt; you get 4&lt;/li&gt;
@@ -1079,7 +1294,7 @@ We can, e. g., generalize our &lt;strong&gt;Example 2&lt;/strong&gt; just lookin
 &lt;li&gt;22 is the answer.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;p&gt;Note that, in the first multiplication, we have to start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x=2 \times x = 4\)&lt;/span&gt;, thus the number of times that we should multiply 2 by &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; are &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt;. Thus, we would lead to the following generalized steps:&lt;/p&gt;
+&lt;p&gt;It is important to note that the initial multiplication should start with &lt;span class=&#34;math inline&#34;&gt;\(x \times x = x^2\)&lt;/span&gt;. Therefore, we multiply &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; by itself &lt;span class=&#34;math inline&#34;&gt;\(y-1\)&lt;/span&gt; times to obtain &lt;span class=&#34;math inline&#34;&gt;\(x^y\)&lt;/span&gt;. This leads us to the following generalized steps for any values of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Algorithm sketch 1
   
 start with x = 2 and y = 4
@@ -1096,69 +1311,64 @@ z is  the answer&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-4---test-your-algorithm&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Step 4 - Test Your Algorithm&lt;/h1&gt;
-&lt;p&gt;Testing your algorithm is a practical step to ensure steps 1-3 are right before proceeding to step 5. Some examples of what you should do/think during this stage are described below:&lt;/p&gt;
+&lt;p&gt;Testing your algorithm is a crucial step to ensure the correctness of steps 1-3 before advancing to step 5. Here are some key actions and considerations during this stage:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;Test your algorithm choosing different values for parameters&lt;/li&gt;
-&lt;li&gt;What happens if the value is positive, negative or equal to zero?&lt;/li&gt;
-&lt;li&gt;Have you restricted parameter space? Ex.: &lt;span class=&#34;math inline&#34;&gt;\(y\geq 0\)&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;Use mathematical proofs&lt;/li&gt;
-&lt;li&gt;There is always more than one right answer to a programming problem&lt;/li&gt;
+&lt;li&gt;Test your algorithm with varying parameter values.&lt;/li&gt;
+&lt;li&gt;Assess the algorithm’s behavior for positive, negative, or zero values.&lt;/li&gt;
+&lt;li&gt;Determine if you have confined the parameter space, e.g., &lt;span class=&#34;math inline&#34;&gt;\(y \geq 0\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Employ mathematical proofs to validate your approach.&lt;/li&gt;
+&lt;li&gt;Recognize that there may be more than one correct solution to a programming problem.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Remember that parameter space is the space of possible parameter values that define a particular mathematical/statistical model, and they are generally a subset of finite-dimensional Euclidean space.&lt;/p&gt;
+&lt;p&gt;Remember, the parameter space refers to the range of possible parameter values that define a specific mathematical or statistical model, typically within a subset of the finite-dimensional Euclidean space.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Sometimes, we miss-generalizing our algorithm at step 3, and this mistake leads us again to steps 1-2. Generally, miss-generalization happens when we did not consider all possible cases during step 3 or did not have mathematical proofs about what we are doing.&lt;/p&gt;
-&lt;p&gt;A good example of an algorithm mistake could be seen in Example 2. What happens if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? We can see that our algorithm mishandles these cases. If you calculate the algorithm steps by hand with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, you will get &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; rather than &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt; (correct answer). Additionally, for any value &lt;span class=&#34;math inline&#34;&gt;\(y\leq 0\)&lt;/span&gt; the algorithm try to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1&amp;lt;0\)&lt;/span&gt;, of which are no Natural number, leading an error in the process. Thus, we can conclude that &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero. In this sense, we might attempt to generalize our algorithm to a higher number of cases:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 2 
+&lt;p&gt;At times, the generalization in step 3 might be incomplete, leading to a revisit of steps 1-2. This oversight often occurs when not all potential cases are considered or when mathematical proofs are lacking.&lt;/p&gt;
+&lt;p&gt;A notable example of an algorithmic error is seen in Example 2. What if &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt; or &lt;span class=&#34;math inline&#34;&gt;\(y&amp;lt;0\)&lt;/span&gt;? Our algorithm incorrectly addresses these cases. For example, with &lt;span class=&#34;math inline&#34;&gt;\(x=2\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y=0\)&lt;/span&gt;, the algorithm erroneously calculates &lt;span class=&#34;math inline&#34;&gt;\(2^0=2\)&lt;/span&gt; instead of the correct &lt;span class=&#34;math inline&#34;&gt;\(2^0=1\)&lt;/span&gt;. Also, for any &lt;span class=&#34;math inline&#34;&gt;\(y \leq 0\)&lt;/span&gt;, the algorithm erroneously tries to count from &lt;span class=&#34;math inline&#34;&gt;\(1\)&lt;/span&gt; to &lt;span class=&#34;math inline&#34;&gt;\(y-1 &amp;lt; 0\)&lt;/span&gt;, which is not applicable for natural numbers, leading to an error. Therefore, we must ensure &lt;span class=&#34;math inline&#34;&gt;\(|y| \in \mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}\)&lt;/span&gt; represents the set of natural numbers including zero. Consequently, we should aim to generalize our algorithm to accommodate a broader range of cases:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Algorithm Sketch 2 
 
-y must be a integer number
+y must be an integer number.
 
-start with x = 2 and y = 4
+Start with x = 2 and y = 4.
 
-if y=0 {
-n[1] = 1
-i=0
-} else{
-Count up from i in 1 to |y|-1
-  if y&amp;lt;0 {
-  n[1] = 1/x
-  n[i+1] = n[i] * 1/x 
-  } else{
-  n[1] = x
-  n[i+1] = n[i] * x
+If y=0 {
+  n[1] = 1;
+  i=0;
+} else {
+  Count from i = 1 to |y|-1;
+  If y &amp;lt; 0 {
+    n[1] = 1/x;
+    n[i+1] = n[i] * (1/x);
+  } else {
+    n[1] = x;
+    n[i+1] = n[i] * x;
   }
 }
-z = n[i+1] + 3 * x
-z is  the answer&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;example2.png&#34; alt=&#34;Example of output using the algorithm 2&#34; width=&#34;500px&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 3: Example of output using the algorithm 2
-&lt;/p&gt;
-&lt;/div&gt;
+
+z = n[i+1] + 3 * x;
+z is the answer.&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: How can we improve this algorithm? Think about the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Question: How can we improve this algorithm? Consider the case where &lt;span class=&#34;math inline&#34;&gt;\(x=y=0\)&lt;/span&gt;.&lt;/p&gt;
 &lt;/div&gt;
-For some problems, particular cases require our attention. Every time we detect a problem with our algorithm in this step, we have to choose one of this option:
+&lt;p&gt;When encountering problems with our algorithm at this stage, we have two options:&lt;/p&gt;
 &lt;div class=&#34;div-2&#34;&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Return to steps 1-3 to get more information to generalize the algorithm to a higher number of cases.&lt;/li&gt;
-&lt;li&gt;Skip the last steps and fix the algorithm directly in step 4 (when we know how to fix the problem).&lt;/li&gt;
+&lt;li&gt;Return to steps 1-3 to gather more information for broadening the algorithm’s applicability.&lt;/li&gt;
+&lt;li&gt;Directly fix the algorithm in step 4 when the solution is known.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-3&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;p&gt;The numbers in Figure 4 were obtained from an algorithm that has one parameter &lt;span class=&#34;math inline&#34;&gt;\(N \in \mathcal{N}_{0}\)&lt;/span&gt; to be specified, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}=\mathcal{N} \cup \lbrace 0 \rbrace\)&lt;/span&gt; represents Natural numbers with zero and a sequence of number as output values for each &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;p&gt;The data in Figure 4 originates from an algorithm that accepts a single parameter, &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;, belonging to the set &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0}\)&lt;/span&gt;, where &lt;span class=&#34;math inline&#34;&gt;\(\mathcal{N}_{0} = \mathcal{N} \cup \{ 0 \}\)&lt;/span&gt; denotes the set of natural numbers including zero. This algorithm generates a sequence of output values corresponding to each specified value of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;example3.png&#34; alt=&#34;Output of sequences of integers based on values of $N$ from 0 to 4&#34; width=&#34;400px&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
-Figure 4: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
+Figure 3: Output of sequences of integers based on values of &lt;span class=&#34;math inline&#34;&gt;\(N\)&lt;/span&gt; from 0 to 4
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;div-3&#34;&gt;
-&lt;p&gt;Question: Determine the algorithm that was used to generate the numbers in this Figure. What is the result for &lt;span class=&#34;math inline&#34;&gt;\(N=5\)&lt;/span&gt;?&lt;/p&gt;
+&lt;p&gt;Question: Can you deduce the algorithm that produced the numbers in this figure? Additionally, what would be the result for &lt;span class=&#34;math inline&#34;&gt;\(N=5\)&lt;/span&gt;?&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1170,20 +1380,27 @@ Figure 4: Output of sequences of integers based on values of &lt;span class=&#34
 &lt;h1&gt;Answers&lt;/h1&gt;
 &lt;div id=&#34;example-3-1&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Example 3&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;Algorithm sketch 3
+&lt;pre&gt;&lt;code&gt;Algorithm Sketch 3
 
-N must be a Natural number with zero
+Set N as a non-negative integer (Natural number with zero).
 
-start with N = n, where n represents the value 
-  Minimum value = 4 * N
-  Maximum value = 9 * N + 6
-  Increment of the sequence = 3
+Initialize N with a specific value n.
+
+  Define the sequence parameters:
+    Minimum Value = 4 * N
+    Maximum Value = 9 * N + 6
+    Sequence Increment = 3
+
+  Set x[1] to the Minimum Value.
   
-  x[1] = Minimum value
-  While x[i] is less than the Maximum value
-    x[i] = x[i-1] + Increment of the sequence
-  
-  x is the answer&lt;/code&gt;&lt;/pre&gt;
+  Iteratively calculate the sequence:
+    For each iteration i,
+      if x[i-1] &amp;lt; Maximum Value,
+        then x[i] = x[i-1] + Sequence Increment.
+      else,
+        break the loop.
+
+  The sequence x represents the final answer.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r code-input&#34;&gt;&lt;code&gt;# N = 6
 N=5
 seq &amp;lt;- seq(4*N, 9*N+6, 3)
