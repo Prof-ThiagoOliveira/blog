@@ -6,7 +6,7 @@ authors:
 - John Newell
 
 date: "2023-07-15T00:00:00Z"
-doi: "https://www.researchsquare.com/article/rs-3057436/v1"
+doi: "https://doi.org/10.1038/s41598-023-49360-2"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2023-07-15T00:00:00Z"
@@ -15,10 +15,10 @@ publishDate: "2023-07-15T00:00:00Z"
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["3"]
+publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Research Square*"
+publication: "*Scientific Reports*"
 
 abstract: <p align="justify">Biomechanics analysis of human movement has been proven useful for maintenance of health, injury prevention, and rehabilitation in both sports and clinical populations. A marker-based motion capture system is considered the gold standard method of measurement for three dimensional kinematics measurements. However, the application of markers to anatomical bony points is a time consuming process and constrained by inter-, intra-tester and session reliability issues. The emergence of novel markerless motion capture systems without the use of reflective markers is a rapidly growing field in motion analysis. However an assessment of the level of agreement of a markerless system with an established gold standard marker-based system is needed to ensure the applicability of a markerless system. In order to achieve this, a new approach for generating  95% functional limits of agreement (fLoA) using the linear mixed-effects modelling for hierarchical study designs is proposed.  This approach is attractive as it will allow practitioners to use linear mixed models to assess agreement in method comparison studies with functional responses.</p>
 
@@ -37,9 +37,9 @@ featured: true
 
 links:
  - name: "Journal Link"
-   url: "https://www.nature.com/srep/"
+   url: "https://www.nature.com/"
 
-url_pdf: ''
+url_pdf: 'https://www.nature.com/articles/s41598-023-49360-2'
 url_code: ''
 url_dataset: ''
 url_poster: ''
