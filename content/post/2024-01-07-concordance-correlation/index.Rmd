@@ -55,8 +55,8 @@ Understanding the concepts of precision and accuracy is crucial for grasping the
     -   <p align="justify">If your arrows hit or are very close to the bullseye, this indicates high accuracy. You are hitting the correct or intended spot.</p>
     -   <p align="justify">It's possible to be accurate without being precise if your arrows are scattered all around the bullseye, each hitting close but not in a consistent pattern.</p>
 
-```{r,echo=FALSE,fig.cap="Example of precision and accuracy concept", out.width = "650px", fig.align='center'}
-knitr::include_graphics('precision_accuracy_animation.gif')
+```{r,echo=FALSE,fig.cap="Example of precision and accuracy concept. The red dot in the center represents the bullseye.", out.width = "500px", fig.align='center'}
+knitr::include_graphics('dartboard_precision_accuracy.gif')
 ```
 
 <p align="justify">
