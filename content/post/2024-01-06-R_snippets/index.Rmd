@@ -1,7 +1,7 @@
 ---
 title: R Programming with Efficient Snippets
 author: Thiago de Paula Oliveira
-date: '2023-10-02'
+date: '2024-01-06'
 slug: R Programming
 categories:
   - R
@@ -241,7 +241,7 @@ Oliveira T.P. (2024, Jan. 06). R Programming with Efficient Snippets
 2. BibTeX citation
 
 ```
-@misc{oliveira2020snippets,
+@misc{oliveira2024snippets,
   author = {Oliveira, Thiago},
   title = {R Programming with Efficient Snippets},
   url = {https://prof-thiagooliveira.netlify.app/post/r-programming-with-efficient-snippets/},
