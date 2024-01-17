@@ -35,7 +35,7 @@ The Concordance Correlation Coefficient (CCC) is a statistical measure designed 
 $$\rho_c = \frac{2\sigma_{x,y}}{\sigma_x^2 + \sigma_y^2 + (\mu_x - \mu_y)^2} = \frac{2\rho\sigma_x\sigma_y}{\sigma_x^2 + \sigma_y^2 + (\mu_x - \mu_y)^2} = \rho \times C_b.$$
 
 <p align="justify">
-In this formula, $\sigma_x$ and $\sigma_y$ are the standard deviations of $X$ and $Y$, respectively, showing the variability within each set of measurements. The means, $\mu_x$ and $\mu_y$, represent the central tendency of each dataset. The term $\rho$ is Pearson's correlation coefficient, expressing the linear association between $X$ and $Y$, while $C_b$, the bias correction factor, quantifies the deviation of the best-fit line from the 45-degree line through the origin---the line of perfect agreement. A $C_b$ of 1 indicates no bias, and values close to 1 signify an accurate agreement.
+In this formula, $\sigma_x$ and $\sigma_y$ are the standard deviations of $X$ and $Y$, respectively, showing the variability within each set of measurements. The means, $\mu_x$ and $\mu_y$, represent the central tendency of each dataset. The term $\rho$ is Pearson's correlation coefficient, expressing the linear association between $X$ and $Y$, while $C_b$, the bias correction factor, quantifies the deviation of the best-fit line from the 45-degree line through the origin---the line of perfect agreement. 
 </p>
 
 <p align="justify">
