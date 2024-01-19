@@ -290,7 +290,7 @@ Oliveira T.P. (2024, Jan. 25). Exploring the Technicalities of Data Fitting - Po
 ```         
 @misc{oliveira2024polynomials,
   author = {Oliveira, Thiago},
-  title = {Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models},
+  title = {Exploring Polynomial, Fractional Polynomial, and Spline Models},
   year = {2024}
 }
 ```
