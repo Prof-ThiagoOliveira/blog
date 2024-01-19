@@ -282,7 +282,7 @@ The selection process for spline models involves determining the optimal type an
 1.  For attribution, please cite this work as:
 
 ::: div-1
-Oliveira T.P. (2024, Jan. 25). Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models
+Oliveira T.P. (2024, Jan. 25). Exploring Polynomial, Fractional Polynomial, and Spline Models.
 :::
 
 2.  BibTeX citation
