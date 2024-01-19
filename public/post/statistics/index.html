@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="The Concordance Correlation Coefficient (CCC) is a statistical measure designed to evaluate the agreement between two sets of measurements, such as those represented by two random variables, \(X\) and \(Y\)." />
+  <meta name="description" content="The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:Polynomial Models,Fractional Polynomials, andSpline Models.Each of these models serves as a fundamental tool in the statistical toolkit, enabling us to capture and understand the intricacies of linear and non-linear relationships inherent in real-world data." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://prof-thiagooliveira.netlify.com/post/statistics/" />
@@ -342,17 +342,17 @@
   
   <meta property="og:site_name" content="Thiago Oliveira" />
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/post/statistics/" />
-  <meta property="og:title" content="Precision &amp; Accuracy - The Role of Concordance Correlation in Research | Thiago Oliveira" />
-  <meta property="og:description" content="The Concordance Correlation Coefficient (CCC) is a statistical measure designed to evaluate the agreement between two sets of measurements, such as those represented by two random variables, \(X\) and \(Y\)." /><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:title" content="Exploring the Technicalities of Data Fitting | Thiago Oliveira" />
+  <meta property="og:description" content="The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:Polynomial Models,Fractional Polynomials, andSpline Models.Each of these models serves as a fundamental tool in the statistical toolkit, enabling us to capture and understand the intricacies of linear and non-linear relationships inherent in real-world data." /><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2024-01-17T00:00:00&#43;00:00"
+        content="2024-01-19T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2024-01-17T12:15:54&#43;00:00">
+    <meta property="article:modified_time" content="2024-01-19T08:15:54&#43;00:00">
   
 
   
@@ -378,10 +378,10 @@
     "@type": "WebPage",
     "@id": "https://prof-thiagooliveira.netlify.com/post/statistics/"
   },
-  "headline": "Precision \u0026 Accuracy - The Role of Concordance Correlation in Research",
+  "headline": "Exploring the Technicalities of Data Fitting",
   
-  "datePublished": "2024-01-17T00:00:00Z",
-  "dateModified": "2024-01-17T12:15:54Z",
+  "datePublished": "2024-01-19T00:00:00Z",
+  "dateModified": "2024-01-19T08:15:54Z",
   
   "author": {
     "@type": "Person",
@@ -396,7 +396,7 @@
       "url": "https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "The Concordance Correlation Coefficient (CCC) is a statistical measure designed to evaluate the agreement between two sets of measurements, such as those represented by two random variables, \\(X\\) and \\(Y\\)."
+  "description": "The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:\r\rPolynomial Models,\rFractional Polynomials, and\rSpline Models.\r\rEach of these models serves as a fundamental tool in the statistical toolkit, enabling us to capture and understand the intricacies of linear and non-linear relationships inherent in real-world data."
 }
 </script>
 
@@ -412,11 +412,11 @@
 
 
 
-  <title>Precision &amp; Accuracy - The Role of Concordance Correlation in Research | Thiago Oliveira</title>
+  <title>Exploring the Technicalities of Data Fitting | Thiago Oliveira</title>
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="cf8331c6eb5b199d6eda6aa5ad907dcc" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="709e88fa8a6bf95f1598f8b2f0b14bd2" >
 
   
   
@@ -958,8 +958,10 @@
   
   
 <div class="article-container pt-3">
-  <h1>Precision &amp; Accuracy - The Role of Concordance Correlation in Research</h1>
+  <h1>Exploring the Technicalities of Data Fitting</h1>
 
+  
+  <p class="page-subtitle">Polynomial, Fractional Polynomial, and Spline Models</p>
   
 
   
@@ -989,7 +991,7 @@
           Last updated on
       
     
-    Jan 17, 2024
+    Jan 19, 2024
   </span>
   
 
@@ -998,7 +1000,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    12 min read
+    8 min read
   </span>
   
 
@@ -1013,7 +1015,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/statistics/">Statistics</a>, <a href="/category/concordance/">Concordance</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/statistics/">Statistics</a>, <a href="/category/statistical-models/">Statistical Models</a></span>
   
 
 </div>
@@ -1036,264 +1038,131 @@
 
 
 <p align="justify">
-<p>The Concordance Correlation Coefficient (CCC) is a statistical measure designed to evaluate the agreement between two sets of measurements, such as those represented by two random variables, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Mathematically, the CCC is defined as:</p>
-</p>
-<p><span class="math display">\[\rho_c = \frac{2\sigma_{x,y}}{\sigma_x^2 + \sigma_y^2 + (\mu_x - \mu_y)^2} = \frac{2\rho\sigma_x\sigma_y}{\sigma_x^2 + \sigma_y^2 + (\mu_x - \mu_y)^2} = \rho \times C_b.\]</span></p>
-<p align="justify">
-<p>In this formula, <span class="math inline">\(\sigma_x\)</span> and <span class="math inline">\(\sigma_y\)</span> are the standard deviations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively, showing the variability within each set of measurements. The means, <span class="math inline">\(\mu_x\)</span> and <span class="math inline">\(\mu_y\)</span>, represent the central tendency of each dataset. The term <span class="math inline">\(\rho\)</span> is Pearson’s correlation coefficient, expressing the linear association between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, while <span class="math inline">\(C_b\)</span>, the bias correction factor, quantifies the deviation of the best-fit line from the 45-degree line through the origin—the line of perfect agreement. A <span class="math inline">\(C_b\)</span> of 1 indicates no bias, and values close to 1 signify an accurate agreement.</p>
-</p>
-<p align="justify">
-<p>Understanding the concepts of precision and accuracy is crucial for grasping the essence of CCC (Concordance Correlation Coefficient). Let’s break down these components:</p>
-</p>
-<ol style="list-style-type: decimal">
-<li><p align="justify">
-<strong>Precision</strong>: This aspect refers to the consistency or repeatability of measurements (Figure 1). Imagine a target with a bullseye:
+The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:
 </p>
 <ul>
-<li><p align="justify">
-If you shoot a series of arrows, and they all land very close to each other but not necessarily near the bullseye, this demonstrates high precision. The arrows are consistently hitting the same spot, showing that your measurements (in this case, arrow shots) are repeatable and reliable.
-</p></li>
-<li><p align="justify">
-However, high precision does not guarantee that you are hitting the target accurately. Your consistent shots might be clustered in a corner of the target, far from the bullseye.
-</p></li>
-</ul></li>
-<li><p align="justify">
-<strong>Accuracy</strong>: This term refers to how close the measurements are to the ‘true’ or accepted value (Figure 1). Continuing with the target analogy:
+<li><strong>Polynomial Models</strong>,</li>
+<li><strong>Fractional Polynomials</strong>, and</li>
+<li><strong>Spline Models</strong>.</li>
+</ul>
+<p align="justify">
+Each of these models serves as a fundamental tool in the statistical toolkit, enabling us to capture and understand the intricacies of linear and non-linear relationships inherent in real-world data.
 </p>
-<ul>
-<li><p align="justify">
-If your arrows hit or are very close to the bullseye, this indicates high accuracy. You are hitting the correct or intended spot.
-</p></li>
-<li><p align="justify">
-It’s possible to be accurate without being precise if your arrows are scattered all around the bullseye, each hitting close but not in a consistent pattern.
-</p></li>
-</ul></li>
-</ol>
+<p align="justify">
+As a bio-statistician entrenched in the technical aspects of data analysis, I recognize the critical importance of these models. We will commence with an examination of Polynomial Models, discussing their mathematical underpinnings and practical applications in capturing curvilinear trends. Next, we will navigate through the Fractional Polynomials, a more flexible extension of traditional polynomials, adept at modelling asymmetric patterns. Lastly, we will explore Spline Models, one of the most flexible approach in data fitting, capable of adapting to complex and segmented patterns in data.
+</p>
+<p align="justify">
+This post is designed not just to inform but to provide a technical understanding of these models with examples, illustrating their relevance and application in contemporary data analysis. Whether you are a data scientist, a statistician, or a researcher grappling with complex data sets, this exploration aims to enhance the modelling arsenal, offering insights into when and how to apply these models effectively.
+</p>
+<div id="polynomial-models" class="section level1">
+<h1>Polynomial Models</h1>
+<p align="justify">
+Polynomial Models, represented by functions of the form <span class="math display">\[y = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0,\]</span> are foundational in modelling curvilinear relationships. In this formulation, each <span class="math inline">\(a_i\)</span> (where <span class="math inline">\(i = 0, 1, \ldots, n\)</span>) denotes the coefficient corresponding to the <span class="math inline">\(i\)</span>-th term of the polynomial, and <span class="math inline">\(x\)</span> is the independent or exploratory variable. The degree <span class="math inline">\(n\)</span> of the polynomial determines the model’s complexity, with higher degrees allowing for more intricate curve shapes.
+</p>
+<p align="justify">
+These models are particularly useful in capturing the non-linear dynamics often observed in real-world data. For instance, a quadratic model (where <span class="math inline">\(n = 2\)</span>) can describe simple parabolic trends, while higher-degree models, such as cubic (<span class="math inline">\(n = 3\)</span>) or quartic (<span class="math inline">\(n = 4\)</span>), enable the representation of more complex and varied behaviours (Figure 1).
+</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="dartboard_precision_accuracy.gif" alt="Example of precision and accuracy concept. The red dot in the center represents the bullseye." width="500px" />
+<img src="polynomial.png" alt="Comparative Visualization of Polynomial Fits: Degrees 1 to 4" width="650px" />
 <p class="caption">
-Figure 1: Example of precision and accuracy concept. The red dot in the center represents the bullseye.
+Figure 1: Comparative Visualization of Polynomial Fits: Degrees 1 to 4
 </p>
 </div>
 <p align="justify">
-<p>Now, applying these concepts to CCC. The <strong>CCC measures both the precision and accuracy of a set of measurements</strong>. It assesses the strength of the relationship between two variables (precision) and how closely these measurements agree with the ‘true’ or accepted values (accuracy). A high CCC indicates that not only are the measurements consistent with each other (precision), but they also closely match the true values (accuracy). In our analogy, this would be like consistently hitting the bullseye with every arrow.</p>
-</p>
-<p align="justify">
-<p>Furthermore, in the context of CCC, the concept of a “true” value is central. One variable is considered the standard or “true” measurement against which the other is compared. This distinction is vital because CCC is not merely a correlation but a measure of agreement. The notion of a “true” value in scientific research is intricate, often defined by theoretical constructs or consensus standards, and the assumption of truth can be challenged or refined with advancing knowledge and technology. Thus, CCC offers a way to quantitatively assess how well our measurements reflect what we accept as true, acknowledging that our understanding of “true” can evolve.</p>
-</p>
-<p align="justify">
-<p>To illustrate, in Scenario 1, even with a Pearson correlation near 1, the CCC’s modest value signals a discrepancy from the true value, reflecting either a systematic bias or scale differences between the measurements. The dashed red line represents the line of perfect agreement, where the true values would ideally lie. This scenario underscores the necessity of considering both precision and accuracy—where precision alone can mislead, and accuracy is pivotal for measurements to be meaningful and trustworthy.</p>
+However, increasing the degree <span class="math inline">\(n\)</span> also increases the risk of overfitting, a phenomenon where the model adapts too closely to the specificities of the training data, including noise, at the expense of generalizability to new data (Figure 2). Overfitting leads to models that perform poorly in predictive scenarios, failing to capture the true underlying trend.
 </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="scenario1.png" alt="Scenario 1 - High Pearson correlation with modest CCC indicating possible systematic bias or scale differences. The dashed line represents perfect agreement" width="500px" />
+<img src="poly_overfit.png" alt="Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits" width="650px" />
 <p class="caption">
-Figure 2: Scenario 1 - High Pearson correlation with modest CCC indicating possible systematic bias or scale differences. The dashed line represents perfect agreement
+Figure 2: Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits
 </p>
 </div>
 <p align="justify">
-<p>Scenario 2 presents a contrasting picture with a CCC value of 0.95, indicating not only a strong linear relationship but also a high degree of concordance. In this instance, the measurements not only follow a consistent pattern (precision) but also align closely with the line of perfect agreement (accuracy), suggesting that one set of measurements can be reliably used as a surrogate for the true values.</p>
+Polynomial models are extensively applied across various disciplines. In physics, they are instrumental in modelling motion under uniform acceleration, among other phenomena. In economics, polynomial trends are fitted to time series data to understand market dynamics. In biological sciences, these models aid in interpreting growth rates and simple gene expression patterns. The interpretation of the coefficients <span class="math inline">\(a_i\)</span> can provide significant insights; for instance, in the quadratic model <span class="math inline">\(y = ax^2 + bx + c\)</span>, the sign of <span class="math inline">\(a\)</span> determines the direction in which the parabola opens, offering crucial information about the nature of the relationship being modelled (Figure 3).
 </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="scenario2.png" alt="Scenario 2 - Strong linear relationship and high concordance with CCC at 0.95. The dashed line indicates the line of perfect agreement" width="500px" />
+<img src="parabola.png" alt="Parabola Opening Upwards and Downwards" width="500px" />
 <p class="caption">
-Figure 3: Scenario 2 - Strong linear relationship and high concordance with CCC at 0.95. The dashed line indicates the line of perfect agreement
+Figure 3: Parabola Opening Upwards and Downwards
 </p>
 </div>
 <p align="justify">
-<p>In Scenario 3, we explore a scenario characterized by a negative Pearson correlation coefficient of approximately -0.44 and a Concordance Correlation Coefficient (CCC) of -0.43. This specific case demands a tailored approach to understanding concordance within inverse relationships. Instead of using the <span class="math inline">\(Y = X\)</span> line commonly associated with positive correlations, we introduce a new reference line represented by <span class="math inline">\(Y = 100 - X\)</span> (depicted as the black dashed line in the plot). This reference line possesses a slope of -1 and serves as the benchmark for perfect inverse agreement.</p>
+In practical applications, the selection of the polynomial degree <span class="math inline">\(n\)</span> is critical. It is a balance between capturing the complexity of the data and avoiding overfitting (Figure 2). Techniques such as cross-validation, where the data is divided into training and testing sets, can be used to determine the optimal degree of the polynomial. Additionally, statistical measures like the Akaike Information Criterion (AIC) or the Bayesian Information Criterion (BIC) are often employed to select the most appropriate model by balancing model fit and complexity.
+</p>
+<p align="justify">
+In summary, Polynomial Models are a versatile and powerful tool in statistical modelling. Their ability to approximate complex functions with a relatively straightforward mathematical formulation makes them a fundamental component in various fields of data analysis.
+</p>
+<p align="justify">
+While traditional polynomial models are highly effective, they sometimes lack the flexibility required for certain types of data, particularly those exhibiting asymmetric trends. This limitation led to the development of fractional polynomial models, which extend the concept of polynomial models by allowing for fractional exponents. This advancement provides a greater ability to fit a wider range of curves and is especially useful in cases where the relationship between variables is not adequately captured by integer exponents.
+</p>
+</div>
+<div id="fractional-polynomial-models" class="section level1">
+<h1>Fractional Polynomial Models</h1>
+<p align="justify">
+Fractional Polynomials represent an advanced evolution of traditional polynomial models, marked by their use of non-integer, real-number exponents in the independent variable. Mathematically, they are expressed as <span class="math display">\[y = \beta_0 + \beta_1 x^{p_1} + \beta_2 x^{p_2} + \ldots + \beta_n x^{p_n},\]</span> where <span class="math inline">\(x\)</span> is the independent variable, <span class="math inline">\(\beta_i\)</span> are coefficients, and <span class="math inline">\(p_i\)</span> are the variable powers. These powers, unlike the integer-only powers in traditional polynomials, can include any real number like <span class="math inline">\(0.5\)</span>, <span class="math inline">\(-1\)</span>, or <span class="math inline">\(2.3\)</span>. This flexibility significantly broadens the modeling capability of polynomials, allowing for more precise fitting to complex and asymmetric data patterns. Terms such as <span class="math inline">\(x^{-1}\)</span> and <span class="math inline">\(x^{0.5}\)</span>, representing the reciprocal and square root of <span class="math inline">\(x\)</span> respectively, enable the modeling of relationships that exhibit dramatic changes over different ranges of <span class="math inline">\(x\)</span>, a task challenging for standard polynomial models with integer exponents.
 </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="scenario3.png" alt="Scenario 3: Inverse relationship with both Pearson correlation and CCC around -0.44. The red dashed line represents $Y = X$, the black dashed line is the $Y = 100 - X$, and the blue solid line is the best fit line" width="500px" />
+<img src="frac_poly.png" alt="Comparative Visualization of Fractional Polynomial Fits" width="650px" />
 <p class="caption">
-Figure 4: Scenario 3: Inverse relationship with both Pearson correlation and CCC around -0.44. The red dashed line represents <span class="math inline">\(Y = X\)</span>, the black dashed line is the <span class="math inline">\(Y = 100 - X\)</span>, and the blue solid line is the best fit line
+Figure 4: Comparative Visualization of Fractional Polynomial Fits
 </p>
 </div>
 <p align="justify">
-<p>The noteworthy aspect of this scenario lies in the high <span class="math inline">\(C_b\)</span> value, which is approximately 0.98 (<span class="math inline">\(C_b = \frac{\rho_c}{\rho} = \frac{-0.43}{-0.44}\)</span>). This value is calculated as the ratio of CCC to the Pearson correlation coefficient. While the negative Pearson correlation may not indicate a high precision, the elevated <span class="math inline">\(C_b\)</span> value implies that <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are almost perfectly accurate.</p>
+The utility of fractional polynomials extends to various fields, notably in medical statistics and biological data analysis, where data patterns often defy symmetry. They are particularly adept in modeling phenomena like dose-response curves in pharmacokinetics and progression rates of diseases, where the response changes in a non-linear fashion. Such flexibility makes them invaluable in scenarios where data exhibit complex, non-standard behaviors.
 </p>
 <p align="justify">
-<p>Now, let’s take a closer look at an intriguing scenario. If we push the Pearson correlation to the extreme, reaching -1, we witness a perfect inverse agreement. In this scenario, every data point converges precisely onto the black dashed line, forming an impeccable alignment. Notably, even the best fit line mirrors this black dashed line in perfect harmony, showcasing the unparalleled concordance in this exceptional case.</p>
+However, the complexity of fractional polynomials can pose interpretational challenges, and like their traditional counterparts, they are susceptible to overfitting. This risk is heightened with the inclusion of multiple fractional terms or higher degrees, necessitating careful model selection and validation processes. Methods such as cross-validation or the use of information criteria like AIC or BIC are often employed to balance model fit against the risk of overfitting.
+</p>
+<div id="finding-optimal-power-values-in-fractional-polynomials" class="section level2">
+<h2>Finding Optimal Power Values in Fractional Polynomials</h2>
+<p align="justify">
+The process of finding the best values for <span class="math inline">\(p_1, p_2, \ldots, p_n\)</span> is inherently iterative and may require a combination of statistical testing, validation techniques, and expert judgement. The goal is to have a balance between a model that fits the data well, is not overly complex, and is robust to variations in model parameters.
+</p>
+<p align="justify">
+In Figure 5, I exemplify this process by fitting various fractional polynomial models to the dataset. Through the application of the Bayesian Information Criterion (BIC), I identified the most parsimonious model, which is succinctly expressed mathematically as <span class="math display">\[y = \beta_0 + \beta_1 x^{1.13},\]</span> and the corresponding BIC value for this model is denoted as <span class="math inline">\(−144.34\)</span>.
 </p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="scenario4_gif.gif" alt="Scenario 4: Inverse relationship with both Pearson correlation varying from -0.43 to -1. The red dashed line represents $Y = X$, the black dashed line is the $Y = 100 - X$, and the blue solid line is the best fit line" width="600px" />
+<img src="fractional_polynomial_fit_with_bic.gif" alt="Comparative Visualization of Fractional Polynomial Fits" width="650px" />
 <p class="caption">
-Figure 5: Scenario 4: Inverse relationship with both Pearson correlation varying from -0.43 to -1. The red dashed line represents <span class="math inline">\(Y = X\)</span>, the black dashed line is the <span class="math inline">\(Y = 100 - X\)</span>, and the blue solid line is the best fit line
+Figure 5: Comparative Visualization of Fractional Polynomial Fits
 </p>
 </div>
 <p align="justify">
-<p>In Scenario 5, the CCC value of 0 denotes absolute non-concordance, indicating that the variability between the measurements does not correspond to the variability expected by chance alone. This suggests that the measurements lack any systematic agreement and cannot be used interchangeably or as reliable estimates of one another. The complete absence of concordance highlights the importance of accuracy in measurement, underscoring that precision without accuracy does not yield valid or useful data in reflecting the assumed “true” values.</p>
+Below I have described some possible approaches to achieve this objective:
 </p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="scenario4.png" alt="Scenario 5 - No agreement with CCC at 0" width="500px" />
-<p class="caption">
-Figure 6: Scenario 5 - No agreement with CCC at 0
+<p align="justify">
+<strong>Initial Power Selection</strong>: Start with a set of candidate powers, often including a mix of positive, negative, and fractional values. Common choices are <span class="math inline">\(-2, -1, -0.5, 0, 0.5, 1, 2, 3\)</span>. The selection of these initial powers is guided by prior knowledge about the data, theoretical considerations, or exploratory analysis.
+</p>
+<p align="justify">
+<strong>Model Fitting and Comparison</strong>: Fit fractional polynomial models using different combinations of these candidate powers. This fitting can be done using least squares regression or other suitable methods depending on the nature of the data. For each model, compute a goodness-of-fit statistic, such as the residual sum of squares (RSS) or the Akaike Information Criterion (AIC).
+</p>
+<p align="justify">
+<strong>Iterative Testing</strong>: Employ an iterative approach to test various combinations of powers. This might involve starting with a simple model and gradually adding complexity (increasing the number of terms) while monitoring the improvement in the fit.
+</p>
+<p align="justify">
+<strong>Cross-Validation</strong>: To guard against overfitting, especially in models with higher degrees or more terms, use cross-validation. Divide your data into training and testing sets. Fit the model to the training set and evaluate its performance on the testing set. This step helps in assessing the model’s predictive accuracy.
+</p>
+<p align="justify">
+<strong>Statistical Significance</strong>: Assess the statistical significance of the coefficients associated with each term in the model. Non-significant terms might suggest that certain powers do not contribute meaningfully to the model and could be excluded.
+</p>
+<p align="justify">
+<strong>Model Selection Criteria</strong>: Use model selection criteria like AIC or BIC to compare models with different combinations of powers. These criteria balance the goodness of fit with the complexity of the model, helping to choose a model that is both accurate and parsimonious.
+</p>
+<p align="justify">
+<strong>Sensitivity Analysis</strong>: Conduct sensitivity analyses by varying the powers slightly to see how robust the model is to changes in these parameters. This step is crucial to understand the stability and reliability of the model.
+</p>
+<p align="justify">
+While fractional polynomials offer enhanced modelling flexibility over traditional polynomials, they sometimes fall short in handling data with distinct behavioural changes across different segments. This limitation summed to the difficulty in determine <span class="math inline">\(p_i\)</span> are where spline models come into play. Spline models, constructed as piecewise polynomials, provide localized fitting capabilities, adapting seamlessly to variations within different data segments. Such adaptability is particularly useful in datasets with distinct phases or regimes. Thus, spline models emerge as a natural progression when fractional polynomials alone are insufficient to model the intricate patterns present in the data
 </p>
 </div>
-<p align="justify">
-<p>These scenarios vividly demonstrate the nuanced interplay between precision and accuracy within the framework of CCC. They bring to light the importance of accuracy in scientific measurement and the limitations of relying solely on correlation coefficients for assessing the validity and reliability of data.</p>
-</p>
-<p align="justify">
-<p>To further strengthen the discussion, we must consider the assumptions and limitations of CCC. It assumes that the data scales are continuous and that the relationship between the measures is linear. The presence of outliers can unduly influence the CCC, and it may not be suitable for all data types. Additionally, the CCC does not account for random error, which can affect measurements variably.</p>
-</p>
-<p align="justify">
-<p>When considering alternative measures, such as Bland-Altman plots, we can address scenarios where CCC is less suitable, like non-normal data or comparisons of more than two measurement sets.</p>
-</p>
-<p align="justify">
-<p>In practical terms, CCC can be used to validate new measurement methods against established gold standards, underscoring its application in method comparison studies. Real-world examples where CCC has been pivotal could include its use in clinical settings for comparing measurement techniques, methods of colour measurements in agriculture, and model diagnostic in statistics.</p>
-</p>
-<p align="justify">
-<p>For computational purposes, the statistical environment <code>R</code> has functions and libraries dedicated to calculating CCC, making it accessible for researchers and practitioners to apply this measure to their data. The <code>epiR</code> package in <code>R</code>, for instance, provides a function <code>epi.ccc</code> specifically for calculating Lin’s CCC.</p>
-</p>
-<p align="justify">
-<p>If one prefers to write a custom function in <code>R</code> for educational or analytical purposes, the following function can be used to compute a point estimate for Lin’s Concordance Correlation Coefficient (CCC):</p>
-</p>
-<pre class="r"><code>#&#39; Calculate Lin&#39;s Concordance Correlation Coefficient (CCC)
-#&#39;
-#&#39; This function computes Lin&#39;s Concordance Correlation Coefficient to evaluate the agreement
-#&#39; between two sets of measurements. It returns the CCC which combines measures of precision
-#&#39; and accuracy to determine how well the data from the two sets conform to the line of
-#&#39; perfect concordance.
-#&#39;
-#&#39; @param x A numeric vector of measurements.
-#&#39; @param y A numeric vector of measurements, where each element corresponds to the element in `x`.
-#&#39;
-#&#39; @return The Concordance Correlation Coefficient as a numeric value.
-#&#39;
-#&#39; @examples
-#&#39; x &lt;- c(1, 2, 3, 4, 5)
-#&#39; y &lt;- c(1.1, 1.9, 3.1, 4.2, 4.8)
-#&#39; ccc(x, y)
-#&#39;
-#&#39; @export
-ccc &lt;- function(x, y) {
-  # Check if inputs are numeric vectors
-  stopifnot(is.numeric(x), is.numeric(y))
-
-  # Calculate Pearson&#39;s correlation coefficient
-  rho &lt;- cor(x, y)
-
-  # Calculate means of x and y
-  mean_x &lt;- mean(x)
-  mean_y &lt;- mean(y)
-
-  # Calculate variances of x and y
-  var_x &lt;- var(x)
-  var_y &lt;- var(y)
-
-  # Calculate CCC based on the formula
-  ccc_value &lt;- (2 * rho * sqrt(var_x) * sqrt(var_y)) / 
-               (var_x + var_y + (mean_x - mean_y)^2)
-
-  return(ccc_value)
-}</code></pre>
-<p align="justify">
-<p>This function begins by calculating Pearson’s correlation coefficient (<span class="math inline">\(rho\)</span>) for the input vectors <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. It then computes the means (<span class="math inline">\(mean_x\)</span> and <span class="math inline">\(mean_y\)</span>) and variances (<span class="math inline">\(var_x\)</span> and <span class="math inline">\(var_y\)</span>) of the two sets of measurements. The CCC is calculated by combining these values according to the formula, thereby quantifying the agreement between the two measurements in terms of both precision and accuracy.</p>
-</p>
-<p align="justify">
-<p>Using the custom <code>ccc</code> function provides a straightforward computation of Lin’s Concordance Correlation Coefficient (CCC) for research applications, particularly when a simple estimate of concordance is required. However, for a more comprehensive analysis, the <code>epi.ccc</code> function from the <a href="https://cran.r-project.org/web/packages/epiR/index.html"><code>epiR</code> package</a> is advantageous as it not only computes CCC but also provides confidence intervals for the CCC value, offering a statistical range within which the true concordance lies with a certain probability. This is crucial for making inferences about the precision of the agreement between measurements in research.</p>
-</p>
-<p align="justify">
-<p>For those looking to apply CCC specifically to Lin’s method, both the <a href="https://cran.r-project.org/web/packages/epiR/index.html"><code>epiR</code> package</a> and the <a href="https://cran.r-project.org/web/packages/DescTools/index.html"><code>DescTools</code> package</a> on CRAN offer robust tools. The <code>DescTools</code> package provides a comprehensive collection of statistical functions, including methods for calculating CCC.</p>
-</p>
-<p align="justify">
-<p>For studies involving repeated measures, where the same subjects are measured under different conditions or at different times, the <a href="https://cloud.r-project.org/web/packages/lcc/index.html"><code>lcc</code> package</a> offers functions for calculating CCC for longitudinal data, taking into account the within-subject correlation.</p>
-</p>
-<p align="justify">
-<p>Additionally, the <a href="https://cran.r-project.org/web/packages/cccrm/index.html"><code>cccrm</code> package</a> provides functions for calculating the CCC for repeated (and non-repeated) measures, catering to a wide range of research designs and ensuring that the variability inherent in repeated measures is appropriately accounted for.</p>
-</p>
-<p align="justify">
-<p>These packages are valuable additions to the toolkit of researchers, statisticians, and data analysts, enhancing the reliability and interpretability of concordance assessments in scientific studies.</p>
-</p>
-<div id="r-code-used-to-produce-the-data-and-plots" class="section level1">
-<h1>R code used to produce the data and plots</h1>
-<pre><code># Load necessary libraries
-library(MASS)
-library(ggplot2)
-
-# Function to calculate Concordance Correlation Coefficient (CCC)
-ccc &lt;- function(x, y) {
-  # Check if inputs are numeric vectors
-  stopifnot(is.numeric(x), is.numeric(y))
-
-  # Calculate Pearson&#39;s correlation coefficient
-  rho &lt;- cor(x, y)
-
-  # Calculate means of x and y
-  mean_x &lt;- mean(x)
-  mean_y &lt;- mean(y)
-
-  # Calculate variances of x and y
-  var_x &lt;- var(x)
-  var_y &lt;- var(y)
-
-  # Calculate CCC based on the formula
-  ccc_value &lt;- (2 * rho * sqrt(var_x) * sqrt(var_y)) / 
-               (var_x + var_y + (mean_x - mean_y)^2)
-
-  return(ccc_value)
-}
-
-# Set seed for reproducibility
-set.seed(123)
-
-# Function to generate and plot data for each scenario
-data_plot &lt;- function(mean, cov, scenario_number) {
-  data &lt;- mvrnorm(100, mu = mean, Sigma = cov)
-  df &lt;- data.frame(x = data[,1], y = data[,2])
-  
-  title &lt;- ifelse(scenario_number == 3 || scenario_number == 4,
-                  paste(&quot;Scenario&quot;, scenario_number, &quot;: Pearson =&quot;, round(cor(df$x, df$y), 2), 
-                        &quot;CCC =&quot;, round(ccc(df$x, df$y), 2)),
-                  paste(&quot;Scenario&quot;, scenario_number, &quot;: CCC =&quot;, round(ccc(df$x, df$y), 2)))
-  
-  p &lt;- ggplot(df, aes(x = x, y = y)) + 
-    geom_point(color = &quot;blue&quot;, alpha = 0.6, size = 3) +
-    ggtitle(title) +
-    xlab(&quot;X values&quot;) +
-    ylab(&quot;Y values&quot;) +
-    theme_minimal() +
-    theme(plot.title = element_text(hjust = 0.5, face = &quot;bold&quot;, size = 14),
-          axis.title.x = element_text(face = &quot;bold&quot;, size = 12),
-          axis.title.y = element_text(face = &quot;bold&quot;, size = 12),
-          axis.text.x = element_text(size = 10),
-          axis.text.y = element_text(size = 10))
-  
-  if (scenario_number == 3 || scenario_number == 4) {
-    p &lt;- p + geom_smooth(method = &quot;lm&quot;, color = &quot;blue&quot;, se = FALSE) +
-      geom_abline(slope = -1, intercept = 100, linetype = &quot;dashed&quot;, color = &quot;black&quot;) +
-      geom_abline(slope = 1, intercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;)
-  } else {
-    p &lt;- p + geom_abline(slope = 1, intercept = 0, linetype = &quot;dashed&quot;, color = &quot;red&quot;)
-  }
-  
-  print(p)
-}
-
-# Scenario 1: High Pearson correlation, modest CCC
-data_plot(c(50, 70), matrix(c(100, 0.99 * sqrt(100) * sqrt(150), 0.99 * sqrt(100) * sqrt(150), 150), 2), 1)
-
-# Scenario 2: High CCC
-data_plot(c(50, 50), matrix(c(100, 0.95 * sqrt(100) * sqrt(100), 0.95 * sqrt(100) * sqrt(100), 100), 2), 2)
-
-# Scenario 3: Negative Pearson and CCC
-data_plot(c(50, 50), matrix(c(100, -0.3 * sqrt(100) * sqrt(150), -0.3 * sqrt(100) * sqrt(150), 150), 2), 3)
-
-# Scenario 4 (previously 5): Perfect inverse agreement
-data_plot(c(50, 50), matrix(c(100, -1 * sqrt(100) * sqrt(100), -1 * sqrt(100) * sqrt(100), 100), 2), 4)
-
-# Scenario 5 (previously 4): No correlation (CCC = 0)
-data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
+</div>
+<div id="spline-models" class="section level1">
+<h1>Spline Models</h1>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
 <p align="justify">
 <p>Carrasco, J. L., King, T. S., &amp; Chinchilli, V. M. (2009). The Concordance Correlation Coefficient for Repeated Measures Estimated by Variance Components. <em>Journal of Biopharmaceutical Statistics, 19</em>, 90-105. DOI: 10.1080/10543400802527890</p>
-</p>
-<p align="justify">
-<p>Oliveira, T. de P., Hinde, J., &amp; Zocchi, S. S. (2018). Longitudinal Concordance Correlation Function Based on Variance Components: An Application in Fruit Color Analysis. <em>Journal of Agricultural, Biological, and Environmental Statistics, 23</em>(2), 233-254. DOI: 10.1007/s13253-018-0321-1</p>
-</p>
-<p align="justify">
-<p>Rathnayake, L. N., &amp; Choudhary, P. K. (2017). Semiparametric Modeling and Analysis of Longitudinal Method Comparison Data. <em>Statistics in Medicine, 36</em>, 2003-2015. DOI: 10.1002/sim.7261</p>
 </p>
 </div>
 <div id="citation" class="section level1">
@@ -1302,15 +1171,15 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
 <li>For attribution, please cite this work as:</li>
 </ol>
 <div class="div-1">
-<p>Oliveira T.P. (2024, Jan. 10). Precision &amp; Accuracy - The Role of Concordance Correlation in Research</p>
+<p>Oliveira T.P. (2024, Jan. 25). Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>BibTeX citation</li>
 </ol>
-<pre><code>@misc{oliveira2024concordance,
+<pre><code>@misc{oliveira2024polynomials,
   author = {Oliveira, Thiago},
-  title = {Precision &amp; Accuracy - The Role of Concordance Correlation in Research},
-  url = {https://prof-thiagooliveira.netlify.app/post/precision-and-accuracy-the-role-of-concordance-correlation-in-research/},
+  title = {Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models},
+  url = {https://prof-thiagooliveira.netlify.app/post/exploring-the-technicalities-of-data-fitting-polynomial-fractional-polynomial-and-spline-models/},
   year = {2024}
 }</code></pre>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
@@ -1327,9 +1196,11 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/concordance/">Concordance</a>
+  <a class="badge badge-light" href="/tag/splines/">Splines</a>
   
-  <a class="badge badge-light" href="/tag/agreement/">Agreement</a>
+  <a class="badge badge-light" href="/tag/polynomials/">Polynomials</a>
+  
+  <a class="badge badge-light" href="/tag/statistical-modelling/">Statistical Modelling</a>
   
   <a class="badge badge-light" href="/tag/statistics/">Statistics</a>
   
@@ -1348,7 +1219,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;text=Precision%20&amp;amp;%20Accuracy%20-%20The%20Role%20of%20Concordance%20Correlation%20in%20Research" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;text=Exploring%20the%20Technicalities%20of%20Data%20Fitting" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1361,7 +1232,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;t=Precision%20&amp;amp;%20Accuracy%20-%20The%20Role%20of%20Concordance%20Correlation%20in%20Research" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;t=Exploring%20the%20Technicalities%20of%20Data%20Fitting" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1374,7 +1245,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       
       <li>
-        <a href="mailto:?subject=Precision%20&amp;amp;%20Accuracy%20-%20The%20Role%20of%20Concordance%20Correlation%20in%20Research&amp;body=https://prof-thiagooliveira.netlify.com/post/statistics/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=Exploring%20the%20Technicalities%20of%20Data%20Fitting&amp;body=https://prof-thiagooliveira.netlify.com/post/statistics/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1387,7 +1258,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;title=Precision%20&amp;amp;%20Accuracy%20-%20The%20Role%20of%20Concordance%20Correlation%20in%20Research" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;title=Exploring%20the%20Technicalities%20of%20Data%20Fitting" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1400,7 +1271,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       
       <li>
-        <a href="whatsapp://send?text=Precision%20&amp;amp;%20Accuracy%20-%20The%20Role%20of%20Concordance%20Correlation%20in%20Research%20https://prof-thiagooliveira.netlify.com/post/statistics/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+        <a href="whatsapp://send?text=Exploring%20the%20Technicalities%20of%20Data%20Fitting%20https://prof-thiagooliveira.netlify.com/post/statistics/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1413,7 +1284,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;title=Precision%20&amp;amp;%20Accuracy%20-%20The%20Role%20of%20Concordance%20Correlation%20in%20Research" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://prof-thiagooliveira.netlify.com/post/statistics/&amp;title=Exploring%20the%20Technicalities%20of%20Data%20Fitting" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1587,13 +1458,13 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
       <li><a href="/project/non-additive/">Analysis of non-additive genetic variance in breeding programmes</a></li>
       
-      <li><a href="/post/how-hard-is-it-to-predict-covid-19-cases/">How hard is it to predict COVID-19 cases?</a></li>
-      
       <li><a href="/project/genetic-project/">Statistical models applied to quantitative genetics and genomics of plant breeding</a></li>
       
       <li><a href="/project/sports-project/">Development and Application of Statistical Frameworks in Sports Analytics</a></li>
       
-      <li><a href="/publication/2017-papaya/">Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</a></li>
+      <li><a href="/post/statistics/">Precision &amp; Accuracy - The Role of Concordance Correlation in Research</a></li>
+      
+      <li><a href="/post/how-hard-is-it-to-predict-covid-19-cases/">How hard is it to predict COVID-19 cases?</a></li>
       
     </ul>
   </div>
@@ -1777,7 +1648,7 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)</code></pre>
       
     
     
-    <script src="/en/js/wowchemy.min.b206710415a50cb12ea588a8ed1fe3c5.js"></script>
+    <script src="/en/js/wowchemy.min.7cd6ec29d281a73c92a2958a1584aadc.js"></script>
 
     
   <script async defer src="https://buttons.github.io/buttons.js"></script>

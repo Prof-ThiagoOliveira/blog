@@ -21,14 +21,14 @@
 
 
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;The Concordance Correlation Coefficient (CCC) is a statistical measure designed to evaluate the agreement between two sets of measurements, such as those represented by two random variables, &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;. Mathematically, the CCC is defined as:&lt;/p&gt;
+The Concordance Correlation Coefficient (CCC) is a statistical measure designed to evaluate the agreement between two sets of measurements, such as those represented by two random variables, &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;. Mathematically, the CCC is defined as:
 &lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\rho_c = \frac{2\sigma_{x,y}}{\sigma_x^2 + \sigma_y^2 + (\mu_x - \mu_y)^2} = \frac{2\rho\sigma_x\sigma_y}{\sigma_x^2 + \sigma_y^2 + (\mu_x - \mu_y)^2} = \rho \times C_b.\]&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;In this formula, &lt;span class=&#34;math inline&#34;&gt;\(\sigma_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\sigma_y\)&lt;/span&gt; are the standard deviations of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;, respectively, showing the variability within each set of measurements. The means, &lt;span class=&#34;math inline&#34;&gt;\(\mu_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mu_y\)&lt;/span&gt;, represent the central tendency of each dataset. The term &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt; is Pearson’s correlation coefficient, expressing the linear association between &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;, while &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt;, the bias correction factor, quantifies the deviation of the best-fit line from the 45-degree line through the origin—the line of perfect agreement. A &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt; of 1 indicates no bias, and values close to 1 signify an accurate agreement.&lt;/p&gt;
+In this formula, &lt;span class=&#34;math inline&#34;&gt;\(\sigma_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\sigma_y\)&lt;/span&gt; are the standard deviations of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;, respectively, showing the variability within each set of measurements. The means, &lt;span class=&#34;math inline&#34;&gt;\(\mu_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\mu_y\)&lt;/span&gt;, represent the central tendency of each dataset. The term &lt;span class=&#34;math inline&#34;&gt;\(\rho\)&lt;/span&gt; is Pearson’s correlation coefficient, expressing the linear association between &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt;, while &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt;, the bias correction factor, quantifies the deviation of the best-fit line from the 45-degree line through the origin—the line of perfect agreement. A &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt; of 1 indicates no bias, and values close to 1 signify an accurate agreement.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Understanding the concepts of precision and accuracy is crucial for grasping the essence of CCC (Concordance Correlation Coefficient). Let’s break down these components:&lt;/p&gt;
+Understanding the concepts of precision and accuracy is crucial for grasping the essence of CCC (Concordance Correlation Coefficient). Let’s break down these components:
 &lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;p align=&#34;justify&#34;&gt;
@@ -61,13 +61,13 @@ Figure 1: Example of precision and accuracy concept. The red dot in the center r
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Now, applying these concepts to CCC. The &lt;strong&gt;CCC measures both the precision and accuracy of a set of measurements&lt;/strong&gt;. It assesses the strength of the relationship between two variables (precision) and how closely these measurements agree with the ‘true’ or accepted values (accuracy). A high CCC indicates that not only are the measurements consistent with each other (precision), but they also closely match the true values (accuracy). In our analogy, this would be like consistently hitting the bullseye with every arrow.&lt;/p&gt;
+Now, applying these concepts to CCC. The &lt;strong&gt;CCC measures both the precision and accuracy of a set of measurements&lt;/strong&gt;. It assesses the strength of the relationship between two variables (precision) and how closely these measurements agree with the ‘true’ or accepted values (accuracy). A high CCC indicates that not only are the measurements consistent with each other (precision), but they also closely match the true values (accuracy). In our analogy, this would be like consistently hitting the bullseye with every arrow.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Furthermore, in the context of CCC, the concept of a “true” value is central. One variable is considered the standard or “true” measurement against which the other is compared. This distinction is vital because CCC is not merely a correlation but a measure of agreement. The notion of a “true” value in scientific research is intricate, often defined by theoretical constructs or consensus standards, and the assumption of truth can be challenged or refined with advancing knowledge and technology. Thus, CCC offers a way to quantitatively assess how well our measurements reflect what we accept as true, acknowledging that our understanding of “true” can evolve.&lt;/p&gt;
+Furthermore, in the context of CCC, the concept of a “true” value is central. One variable is considered the standard or “true” measurement against which the other is compared. This distinction is vital because CCC is not merely a correlation but a measure of agreement. The notion of a “true” value in scientific research is intricate, often defined by theoretical constructs or consensus standards, and the assumption of truth can be challenged or refined with advancing knowledge and technology. Thus, CCC offers a way to quantitatively assess how well our measurements reflect what we accept as true, acknowledging that our understanding of “true” can evolve.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;To illustrate, in Scenario 1, even with a Pearson correlation near 1, the CCC’s modest value signals a discrepancy from the true value, reflecting either a systematic bias or scale differences between the measurements. The dashed red line represents the line of perfect agreement, where the true values would ideally lie. This scenario underscores the necessity of considering both precision and accuracy—where precision alone can mislead, and accuracy is pivotal for measurements to be meaningful and trustworthy.&lt;/p&gt;
+To illustrate, in Scenario 1, even with a Pearson correlation near 1, the CCC’s modest value signals a discrepancy from the true value, reflecting either a systematic bias or scale differences between the measurements. The dashed red line represents the line of perfect agreement, where the true values would ideally lie. This scenario underscores the necessity of considering both precision and accuracy—where precision alone can mislead, and accuracy is pivotal for measurements to be meaningful and trustworthy.
 &lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;scenario1.png&#34; alt=&#34;Scenario 1 - High Pearson correlation with modest CCC indicating possible systematic bias or scale differences. The dashed line represents perfect agreement&#34; width=&#34;500px&#34; /&gt;
@@ -76,7 +76,7 @@ Figure 2: Scenario 1 - High Pearson correlation with modest CCC indicating possi
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Scenario 2 presents a contrasting picture with a CCC value of 0.95, indicating not only a strong linear relationship but also a high degree of concordance. In this instance, the measurements not only follow a consistent pattern (precision) but also align closely with the line of perfect agreement (accuracy), suggesting that one set of measurements can be reliably used as a surrogate for the true values.&lt;/p&gt;
+Scenario 2 presents a contrasting picture with a CCC value of 0.95, indicating not only a strong linear relationship but also a high degree of concordance. In this instance, the measurements not only follow a consistent pattern (precision) but also align closely with the line of perfect agreement (accuracy), suggesting that one set of measurements can be reliably used as a surrogate for the true values.
 &lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;scenario2.png&#34; alt=&#34;Scenario 2 - Strong linear relationship and high concordance with CCC at 0.95. The dashed line indicates the line of perfect agreement&#34; width=&#34;500px&#34; /&gt;
@@ -85,7 +85,7 @@ Figure 3: Scenario 2 - Strong linear relationship and high concordance with CCC 
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;In Scenario 3, we explore a scenario characterized by a negative Pearson correlation coefficient of approximately -0.44 and a Concordance Correlation Coefficient (CCC) of -0.43. This specific case demands a tailored approach to understanding concordance within inverse relationships. Instead of using the &lt;span class=&#34;math inline&#34;&gt;\(Y = X\)&lt;/span&gt; line commonly associated with positive correlations, we introduce a new reference line represented by &lt;span class=&#34;math inline&#34;&gt;\(Y = 100 - X\)&lt;/span&gt; (depicted as the black dashed line in the plot). This reference line possesses a slope of -1 and serves as the benchmark for perfect inverse agreement.&lt;/p&gt;
+In Scenario 3, we explore a scenario characterized by a negative Pearson correlation coefficient of approximately -0.44 and a Concordance Correlation Coefficient (CCC) of -0.43. This specific case demands a tailored approach to understanding concordance within inverse relationships. Instead of using the &lt;span class=&#34;math inline&#34;&gt;\(Y = X\)&lt;/span&gt; line commonly associated with positive correlations, we introduce a new reference line represented by &lt;span class=&#34;math inline&#34;&gt;\(Y = 100 - X\)&lt;/span&gt; (depicted as the black dashed line in the plot). This reference line possesses a slope of -1 and serves as the benchmark for perfect inverse agreement.
 &lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;scenario3.png&#34; alt=&#34;Scenario 3: Inverse relationship with both Pearson correlation and CCC around -0.44. The red dashed line represents $Y = X$, the black dashed line is the $Y = 100 - X$, and the blue solid line is the best fit line&#34; width=&#34;500px&#34; /&gt;
@@ -94,10 +94,10 @@ Figure 4: Scenario 3: Inverse relationship with both Pearson correlation and CCC
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;The noteworthy aspect of this scenario lies in the high &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt; value, which is approximately 0.98 (&lt;span class=&#34;math inline&#34;&gt;\(C_b = \frac{\rho_c}{\rho} = \frac{-0.43}{-0.44}\)&lt;/span&gt;). This value is calculated as the ratio of CCC to the Pearson correlation coefficient. While the negative Pearson correlation may not indicate a high precision, the elevated &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt; value implies that &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; are almost perfectly accurate.&lt;/p&gt;
+The noteworthy aspect of this scenario lies in the high &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt; value, which is approximately 0.98 (&lt;span class=&#34;math inline&#34;&gt;\(C_b = \frac{\rho_c}{\rho} = \frac{-0.43}{-0.44}\)&lt;/span&gt;). This value is calculated as the ratio of CCC to the Pearson correlation coefficient. While the negative Pearson correlation may not indicate a high precision, the elevated &lt;span class=&#34;math inline&#34;&gt;\(C_b\)&lt;/span&gt; value implies that &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; are almost perfectly accurate.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Now, let’s take a closer look at an intriguing scenario. If we push the Pearson correlation to the extreme, reaching -1, we witness a perfect inverse agreement. In this scenario, every data point converges precisely onto the black dashed line, forming an impeccable alignment. Notably, even the best fit line mirrors this black dashed line in perfect harmony, showcasing the unparalleled concordance in this exceptional case.&lt;/p&gt;
+Now, let’s take a closer look at an intriguing scenario. If we push the Pearson correlation to the extreme, reaching -1, we witness a perfect inverse agreement. In this scenario, every data point converges precisely onto the black dashed line, forming an impeccable alignment. Notably, even the best fit line mirrors this black dashed line in perfect harmony, showcasing the unparalleled concordance in this exceptional case.
 &lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;scenario4_gif.gif&#34; alt=&#34;Scenario 4: Inverse relationship with both Pearson correlation varying from -0.43 to -1. The red dashed line represents $Y = X$, the black dashed line is the $Y = 100 - X$, and the blue solid line is the best fit line&#34; width=&#34;600px&#34; /&gt;
@@ -106,7 +106,7 @@ Figure 5: Scenario 4: Inverse relationship with both Pearson correlation varying
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;In Scenario 5, the CCC value of 0 denotes absolute non-concordance, indicating that the variability between the measurements does not correspond to the variability expected by chance alone. This suggests that the measurements lack any systematic agreement and cannot be used interchangeably or as reliable estimates of one another. The complete absence of concordance highlights the importance of accuracy in measurement, underscoring that precision without accuracy does not yield valid or useful data in reflecting the assumed “true” values.&lt;/p&gt;
+In Scenario 5, the CCC value of 0 denotes absolute non-concordance, indicating that the variability between the measurements does not correspond to the variability expected by chance alone. This suggests that the measurements lack any systematic agreement and cannot be used interchangeably or as reliable estimates of one another. The complete absence of concordance highlights the importance of accuracy in measurement, underscoring that precision without accuracy does not yield valid or useful data in reflecting the assumed “true” values.
 &lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-6&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;scenario4.png&#34; alt=&#34;Scenario 5 - No agreement with CCC at 0&#34; width=&#34;500px&#34; /&gt;
@@ -115,22 +115,22 @@ Figure 6: Scenario 5 - No agreement with CCC at 0
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;These scenarios vividly demonstrate the nuanced interplay between precision and accuracy within the framework of CCC. They bring to light the importance of accuracy in scientific measurement and the limitations of relying solely on correlation coefficients for assessing the validity and reliability of data.&lt;/p&gt;
+These scenarios vividly demonstrate the nuanced interplay between precision and accuracy within the framework of CCC. They bring to light the importance of accuracy in scientific measurement and the limitations of relying solely on correlation coefficients for assessing the validity and reliability of data.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;To further strengthen the discussion, we must consider the assumptions and limitations of CCC. It assumes that the data scales are continuous and that the relationship between the measures is linear. The presence of outliers can unduly influence the CCC, and it may not be suitable for all data types. Additionally, the CCC does not account for random error, which can affect measurements variably.&lt;/p&gt;
+To further strengthen the discussion, we must consider the assumptions and limitations of CCC. It assumes that the data scales are continuous and that the relationship between the measures is linear. The presence of outliers can unduly influence the CCC, and it may not be suitable for all data types. Additionally, the CCC does not account for random error, which can affect measurements variably.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;When considering alternative measures, such as Bland-Altman plots, we can address scenarios where CCC is less suitable, like non-normal data or comparisons of more than two measurement sets.&lt;/p&gt;
+When considering alternative measures, such as Bland-Altman plots, we can address scenarios where CCC is less suitable, like non-normal data or comparisons of more than two measurement sets.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;In practical terms, CCC can be used to validate new measurement methods against established gold standards, underscoring its application in method comparison studies. Real-world examples where CCC has been pivotal could include its use in clinical settings for comparing measurement techniques, methods of colour measurements in agriculture, and model diagnostic in statistics.&lt;/p&gt;
+In practical terms, CCC can be used to validate new measurement methods against established gold standards, underscoring its application in method comparison studies. Real-world examples where CCC has been pivotal could include its use in clinical settings for comparing measurement techniques, methods of colour measurements in agriculture, and model diagnostic in statistics.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;For computational purposes, the statistical environment &lt;code&gt;R&lt;/code&gt; has functions and libraries dedicated to calculating CCC, making it accessible for researchers and practitioners to apply this measure to their data. The &lt;code&gt;epiR&lt;/code&gt; package in &lt;code&gt;R&lt;/code&gt;, for instance, provides a function &lt;code&gt;epi.ccc&lt;/code&gt; specifically for calculating Lin’s CCC.&lt;/p&gt;
+For computational purposes, the statistical environment &lt;code&gt;R&lt;/code&gt; has functions and libraries dedicated to calculating CCC, making it accessible for researchers and practitioners to apply this measure to their data. The &lt;code&gt;epiR&lt;/code&gt; package in &lt;code&gt;R&lt;/code&gt;, for instance, provides a function &lt;code&gt;epi.ccc&lt;/code&gt; specifically for calculating Lin’s CCC.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;If one prefers to write a custom function in &lt;code&gt;R&lt;/code&gt; for educational or analytical purposes, the following function can be used to compute a point estimate for Lin’s Concordance Correlation Coefficient (CCC):&lt;/p&gt;
+If one prefers to write a custom function in &lt;code&gt;R&lt;/code&gt; for educational or analytical purposes, the following function can be used to compute a point estimate for Lin’s Concordance Correlation Coefficient (CCC):
 &lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#&amp;#39; Calculate Lin&amp;#39;s Concordance Correlation Coefficient (CCC)
 #&amp;#39;
@@ -172,22 +172,22 @@ ccc &amp;lt;- function(x, y) {
   return(ccc_value)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;This function begins by calculating Pearson’s correlation coefficient (&lt;span class=&#34;math inline&#34;&gt;\(rho\)&lt;/span&gt;) for the input vectors &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;. It then computes the means (&lt;span class=&#34;math inline&#34;&gt;\(mean_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(mean_y\)&lt;/span&gt;) and variances (&lt;span class=&#34;math inline&#34;&gt;\(var_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(var_y\)&lt;/span&gt;) of the two sets of measurements. The CCC is calculated by combining these values according to the formula, thereby quantifying the agreement between the two measurements in terms of both precision and accuracy.&lt;/p&gt;
+This function begins by calculating Pearson’s correlation coefficient (&lt;span class=&#34;math inline&#34;&gt;\(rho\)&lt;/span&gt;) for the input vectors &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y\)&lt;/span&gt;. It then computes the means (&lt;span class=&#34;math inline&#34;&gt;\(mean_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(mean_y\)&lt;/span&gt;) and variances (&lt;span class=&#34;math inline&#34;&gt;\(var_x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(var_y\)&lt;/span&gt;) of the two sets of measurements. The CCC is calculated by combining these values according to the formula, thereby quantifying the agreement between the two measurements in terms of both precision and accuracy.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Using the custom &lt;code&gt;ccc&lt;/code&gt; function provides a straightforward computation of Lin’s Concordance Correlation Coefficient (CCC) for research applications, particularly when a simple estimate of concordance is required. However, for a more comprehensive analysis, the &lt;code&gt;epi.ccc&lt;/code&gt; function from the &lt;a href=&#34;https://cran.r-project.org/web/packages/epiR/index.html&#34;&gt;&lt;code&gt;epiR&lt;/code&gt; package&lt;/a&gt; is advantageous as it not only computes CCC but also provides confidence intervals for the CCC value, offering a statistical range within which the true concordance lies with a certain probability. This is crucial for making inferences about the precision of the agreement between measurements in research.&lt;/p&gt;
+Using the custom &lt;code&gt;ccc&lt;/code&gt; function provides a straightforward computation of Lin’s Concordance Correlation Coefficient (CCC) for research applications, particularly when a simple estimate of concordance is required. However, for a more comprehensive analysis, the &lt;code&gt;epi.ccc&lt;/code&gt; function from the &lt;a href=&#34;https://cran.r-project.org/web/packages/epiR/index.html&#34;&gt;&lt;code&gt;epiR&lt;/code&gt; package&lt;/a&gt; is advantageous as it not only computes CCC but also provides confidence intervals for the CCC value, offering a statistical range within which the true concordance lies with a certain probability. This is crucial for making inferences about the precision of the agreement between measurements in research.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;For those looking to apply CCC specifically to Lin’s method, both the &lt;a href=&#34;https://cran.r-project.org/web/packages/epiR/index.html&#34;&gt;&lt;code&gt;epiR&lt;/code&gt; package&lt;/a&gt; and the &lt;a href=&#34;https://cran.r-project.org/web/packages/DescTools/index.html&#34;&gt;&lt;code&gt;DescTools&lt;/code&gt; package&lt;/a&gt; on CRAN offer robust tools. The &lt;code&gt;DescTools&lt;/code&gt; package provides a comprehensive collection of statistical functions, including methods for calculating CCC.&lt;/p&gt;
+For those looking to apply CCC specifically to Lin’s method, both the &lt;a href=&#34;https://cran.r-project.org/web/packages/epiR/index.html&#34;&gt;&lt;code&gt;epiR&lt;/code&gt; package&lt;/a&gt; and the &lt;a href=&#34;https://cran.r-project.org/web/packages/DescTools/index.html&#34;&gt;&lt;code&gt;DescTools&lt;/code&gt; package&lt;/a&gt; on CRAN offer robust tools. The &lt;code&gt;DescTools&lt;/code&gt; package provides a comprehensive collection of statistical functions, including methods for calculating CCC.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;For studies involving repeated measures, where the same subjects are measured under different conditions or at different times, the &lt;a href=&#34;https://cloud.r-project.org/web/packages/lcc/index.html&#34;&gt;&lt;code&gt;lcc&lt;/code&gt; package&lt;/a&gt; offers functions for calculating CCC for longitudinal data, taking into account the within-subject correlation.&lt;/p&gt;
+For studies involving repeated measures, where the same subjects are measured under different conditions or at different times, the &lt;a href=&#34;https://cloud.r-project.org/web/packages/lcc/index.html&#34;&gt;&lt;code&gt;lcc&lt;/code&gt; package&lt;/a&gt; offers functions for calculating CCC for longitudinal data, taking into account the within-subject correlation.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Additionally, the &lt;a href=&#34;https://cran.r-project.org/web/packages/cccrm/index.html&#34;&gt;&lt;code&gt;cccrm&lt;/code&gt; package&lt;/a&gt; provides functions for calculating the CCC for repeated (and non-repeated) measures, catering to a wide range of research designs and ensuring that the variability inherent in repeated measures is appropriately accounted for.&lt;/p&gt;
+Additionally, the &lt;a href=&#34;https://cran.r-project.org/web/packages/cccrm/index.html&#34;&gt;&lt;code&gt;cccrm&lt;/code&gt; package&lt;/a&gt; provides functions for calculating the CCC for repeated (and non-repeated) measures, catering to a wide range of research designs and ensuring that the variability inherent in repeated measures is appropriately accounted for.
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;These packages are valuable additions to the toolkit of researchers, statisticians, and data analysts, enhancing the reliability and interpretability of concordance assessments in scientific studies.&lt;/p&gt;
+These packages are valuable additions to the toolkit of researchers, statisticians, and data analysts, enhancing the reliability and interpretability of concordance assessments in scientific studies.
 &lt;/p&gt;
 &lt;div id=&#34;r-code-used-to-produce-the-data-and-plots&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;R code used to produce the data and plots&lt;/h1&gt;
@@ -272,13 +272,13 @@ data_plot(c(50, 50), matrix(c(100, 0, 0, 150), 2), 5)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;References&lt;/h1&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Carrasco, J. L., King, T. S., &amp;amp; Chinchilli, V. M. (2009). The Concordance Correlation Coefficient for Repeated Measures Estimated by Variance Components. &lt;em&gt;Journal of Biopharmaceutical Statistics, 19&lt;/em&gt;, 90-105. DOI: 10.1080/10543400802527890&lt;/p&gt;
+Carrasco, J. L., King, T. S., &amp;amp; Chinchilli, V. M. (2009). The Concordance Correlation Coefficient for Repeated Measures Estimated by Variance Components. &lt;em&gt;Journal of Biopharmaceutical Statistics, 19&lt;/em&gt;, 90-105. DOI: 10.1080/10543400802527890
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Oliveira, T. de P., Hinde, J., &amp;amp; Zocchi, S. S. (2018). Longitudinal Concordance Correlation Function Based on Variance Components: An Application in Fruit Color Analysis. &lt;em&gt;Journal of Agricultural, Biological, and Environmental Statistics, 23&lt;/em&gt;(2), 233-254. DOI: 10.1007/s13253-018-0321-1&lt;/p&gt;
+Oliveira, T. de P., Hinde, J., &amp;amp; Zocchi, S. S. (2018). Longitudinal Concordance Correlation Function Based on Variance Components: An Application in Fruit Color Analysis. &lt;em&gt;Journal of Agricultural, Biological, and Environmental Statistics, 23&lt;/em&gt;(2), 233-254. DOI: 10.1007/s13253-018-0321-1
 &lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
-&lt;p&gt;Rathnayake, L. N., &amp;amp; Choudhary, P. K. (2017). Semiparametric Modeling and Analysis of Longitudinal Method Comparison Data. &lt;em&gt;Statistics in Medicine, 36&lt;/em&gt;, 2003-2015. DOI: 10.1002/sim.7261&lt;/p&gt;
+Rathnayake, L. N., &amp;amp; Choudhary, P. K. (2017). Semiparametric Modeling and Analysis of Longitudinal Method Comparison Data. &lt;em&gt;Statistics in Medicine, 36&lt;/em&gt;, 2003-2015. DOI: 10.1002/sim.7261
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;citation&#34; class=&#34;section level1&#34;&gt;

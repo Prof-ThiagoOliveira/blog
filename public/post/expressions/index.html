@@ -60,7 +60,7 @@
   
     
   
-  <meta name="description" content="IntroductionExpressions in C&#43;&#43; are fundamental constructs made up of operators, constants, and variables, following the language’s syntactical rules. Every expression is a segment of a code that returns a value." />
+  <meta name="description" content="Introduction Expressions in C&#43;&#43; are fundamental constructs made up of operators, constants, and variables, following the language&rsquo;s syntactical rules. Every expression is a segment of a code that returns a value." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://prof-thiagooliveira.netlify.com/post/expressions/" />
@@ -343,7 +343,7 @@
   <meta property="og:site_name" content="Thiago Oliveira" />
   <meta property="og:url" content="https://prof-thiagooliveira.netlify.com/post/expressions/" />
   <meta property="og:title" content="Expressions in C&#43;&#43; | Thiago Oliveira" />
-  <meta property="og:description" content="IntroductionExpressions in C&#43;&#43; are fundamental constructs made up of operators, constants, and variables, following the language’s syntactical rules. Every expression is a segment of a code that returns a value." /><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:description" content="Introduction Expressions in C&#43;&#43; are fundamental constructs made up of operators, constants, and variables, following the language&rsquo;s syntactical rules. Every expression is a segment of a code that returns a value." /><meta property="og:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -396,7 +396,7 @@
       "url": "https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "Introduction\rExpressions in C++ are fundamental constructs made up of operators, constants, and variables, following the language’s syntactical rules. Every expression is a segment of a code that returns a value."
+  "description": "Introduction Expressions in C++ are fundamental constructs made up of operators, constants, and variables, following the language\u0026rsquo;s syntactical rules. Every expression is a segment of a code that returns a value."
 }
 </script>
 
@@ -416,7 +416,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="505ea7ea3b3953f93ed1b36b33bb0f23" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="974dd795c8e7490101d09add351d92fd" >
 
   
   
@@ -1032,555 +1032,401 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Expressions in C++ are fundamental constructs made up of operators, constants, and variables, following the language’s syntactical rules. Every expression is a segment of a code that returns a value. For instance:</p>
-<p><img src="exp1.png" width="320px" style="display: block; margin: auto;" /></p>
-<p>This example demonstrates the creation of variables to store values: a box for <span class="math inline">\(x\)</span> and another for <span class="math inline">\(y\)</span>, where <span class="math inline">\(y\)</span> equals the expression <span class="math inline">\(x + 13\)</span> (thus, <span class="math inline">\(y = 23\)</span>). Now, let’s delve into a more complex example:</p>
-<p><img src="exp2.png" width="500px" style="display: block; margin: auto;" /></p>
-This statement encompasses three expressions:
+      <h1 id="introduction">Introduction</h1>
+<p>Expressions in C++ are fundamental constructs made up of operators, constants, and variables, following the language&rsquo;s syntactical rules. Every expression is a segment of a code that returns a value. For instance:</p>
+<img src="exp1.png" width="320px" style="display: block; margin: auto;" />
+<p>This example demonstrates the creation of variables to store values: a box for $x$ and another for $y$, where $y$ equals the expression $x + 13$ (thus, $y = 23$). Now, let&rsquo;s delve into a more complex example:</p>
+<img src="exp2.png" width="500px" style="display: block; margin: auto;" />
+<p>This statement encompasses three expressions:</p>
 <div class="div-1">
-<ul>
-<li>The results of the expression <span class="math inline">\(3 - x\)</span> is stored in the variable <span class="math inline">\(y\)</span></li>
-<li>The expression <span class="math inline">\(y = 3 - x\)</span> returns the value of <span class="math inline">\(y\)</span>, and it is stored in the variable <span class="math inline">\(v\)</span></li>
-<li>The results of the expression <span class="math inline">\(y \times \left(\frac{v}{5} + x\right)\)</span> is stored in the variable <span class="math inline">\(z\)</span></li>
-</ul>
+* The results of the expression $3 - x$ is stored in the variable $y$
+* The expression $y = 3 - x$ returns the value of $y$, and it is stored in the variable $v$
+* The results of the expression $y \times \left(\frac{v}{5} + x\right)$ is stored in the variable $z$
 </div>
-<p>It’s essential to remember the precedence of operations: multiplication and division are executed before addition and subtraction. For example:</p>
+<p>It&rsquo;s essential to remember the precedence of operations: multiplication and division are executed before addition and subtraction. For example:</p>
 <pre><code>1-3*4 = -11
 2/3-4*2/3 = -2
-2/3-4/4*2/3 = 0</code></pre>
-<p><strong>Operator precedence</strong> in <code>C++</code> determines the sequence of operations in an expression. Operators have a specific order of execution relative to others. For instance, in the expression <span class="math inline">\(\frac{2}{4} - 3 + 4 \times 6\)</span>, the subexpressions <span class="math inline">\(\frac{2}{4}\)</span><code>and</code><span class="math inline">\(4 \times 6\)</span> are calculated first, followed by the addition and subtraction. When operators have the same precedence, their associativity dictates the order - either left-to-right or right-to-left.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+2/3-4/4*2/3 = 0
+</code></pre>
+<p><strong>Operator precedence</strong> in <code>C++</code> determines the sequence of operations in an expression. Operators have a specific order of execution relative to others. For instance, in the expression $\frac{2}{4} - 3 + 4 \times 6$, the subexpressions $\frac{2}{4}$<code>and</code>$4 \times 6$ are calculated first, followed by the addition and subtraction. When operators have the same precedence, their associativity dictates the order - either left-to-right or right-to-left.</p>
+<div class="figure" style="text-align: center">
 <img src="exp3.png" alt="Precedence order" width="300px" />
-<p class="caption">
-Figure 1: Precedence order
-</p>
+<p class="caption">Precedence order</p>
 </div>
 <p><strong>Associativity</strong> specifies the order of operations for operators with the same precedence level. It can be left-to-right or right-to-left. Typically, addition, subtraction, multiplication, and division are left-associative, while assignment operators are right-associative. Some operators are non-associative, meaning their behaviour is undefined if used sequentially in an expression. Parentheses can alter the default associativity, enforcing a specific order.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center">
 <img src="exp4.png" alt="Example of left-associative, right-associative, and non-associative" width="800px" />
-<p class="caption">
-Figure 2: Example of left-associative, right-associative, and non-associative
-</p>
+<p class="caption">Example of left-associative, right-associative, and non-associative</p>
 </div>
-</div>
-<div id="using-parentheses" class="section level1">
-<h1>Using Parentheses <code>()</code></h1>
-<p>The operator <code>()</code> has the highest precedente order (see <a href="#table1">Table 1</a>), as consequence, we can use parentheses to change the sequence of operators.
+<h1 id="using-parentheses-">Using Parentheses <code>()</code></h1>
+<p>The operator <code>()</code> has the highest precedente order (see <a href="#table1">Table 1</a>), as consequence, we can use parentheses to change the sequence of operators. 
 Consider the following example:</p>
-<pre><code>5 + 6 * 7</code></pre>
-<p>The <code>*</code> operator is evaluated firstly, followed by the <code>+</code> operator, so the result is <span class="math inline">\(5+6\times 7 = 47\)</span>. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:</p>
-<pre><code>(5 + 6) * 7</code></pre>
-<p>Then, the program will compute <span class="math inline">\(\left(5+6\right)\times 7=11\times 7=77\)</span>. Sometimes, parentheses’ inclusion should be important to make your code easier to understand, and therefore easier to maintain.</p>
-</div>
-<div id="modulus-operator" class="section level1">
-<h1>Modulus operator (%)</h1>
-The modulus operator evaluates the remainder when dividing the first operand by the second one. Ex.: <code>a % b</code> is the remainder when <span class="math inline">\(a\)</span> is divided
-<table class="wikitable">
-by <span class="math inline">\(b\)</span> (<span class="math inline">\(a\)</span> modulus <span class="math inline">\(b\)</span>).
-<table class="wikitable">
-<p>by <span class="math inline">\(b\)</span> (<span class="math inline">\(a\)</span> modulus <span class="math inline">\(b\)</span>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<pre><code>5 + 6 * 7
+</code></pre>
+<p>The <code>*</code> operator is evaluated firstly, followed by the <code>+</code> operator, so the result is $5+6\times 7 = 47$. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:</p>
+<pre><code>(5 + 6) * 7
+</code></pre>
+<p>Then, the program will compute $\left(5+6\right)\times 7=11\times 7=77$. Sometimes, parentheses' inclusion should be important to make your code easier to understand, and therefore easier to maintain.</p>
+<h1 id="modulus-operator-">Modulus operator (%)</h1>
+<p>The modulus operator evaluates the remainder when dividing the first operand by the second one. Ex.: <code>a % b</code> is the remainder when $a$ is divided<table class="wikitable"></p>
+<p>by $b$ ($a$ modulus $b$).<table class="wikitable"> by $b$ ($a$ modulus $b$).</p>
+<div class="figure" style="text-align: center">
 <img src="exp5.png" alt="Example of modulus" width="300px" />
-<p class="caption">
-Figure 3: Example of modulus
-</p>
+<p class="caption">Example of modulus</p>
 </div>
 <div class="div-1">
-<ul>
-<li>Dividing an integer by another one gives an integer.</li>
-</ul>
+* Dividing an integer by another one gives an integer.
 </div>
-<div id="example" class="section level2">
-<h2>Example:</h2>
+<h2 id="example">Example:</h2>
 <pre><code>int x = 10;
 int y = 3;
 
 x/y = 10/3 = 3 (dividing two integers)
 
-x % y = 1 (modulus)</code></pre>
-</div>
-</div>
-<div id="short-hand-or-syntatic-sugar" class="section level1">
-<h1>Short hand or syntatic sugar</h1>
+x % y = 1 (modulus)
+</code></pre>
+<h1 id="short-hand-or-syntatic-sugar">Short hand or syntatic sugar</h1>
 <p>Short hand expressions provide a straightforward way to write common patterns over the algorithm for initialized variables.</p>
 <table>
-<colgroup>
-<col width="15%" />
-<col width="21%" />
-<col width="62%" />
-</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Short hand</th>
 <th>Meaning</th>
 <th>Prefix and Postfix</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(x+=y\)</span></td>
-<td><span class="math inline">\(x=x+y\)</span></td>
+<tr>
+<td>$x+=y$</td>
+<td>$x=x+y$</td>
 <td></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(x-=y\)</span></td>
-<td><span class="math inline">\(x=x-y\)</span></td>
+<tr>
+<td>$x-=y$</td>
+<td>$x=x-y$</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(x*=y\)</span></td>
-<td><span class="math inline">\(x= x \times y\)</span></td>
+<tr>
+<td>$x*=y$</td>
+<td>$x= x \times y$</td>
 <td></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(x/=y\)</span></td>
-<td><span class="math inline">\(x=x/y\)</span></td>
+<tr>
+<td>$x/=y$</td>
+<td>$x=x/y$</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(x++\)</span></td>
-<td><span class="math inline">\(x=x+1\)</span></td>
-<td>Return the value of <span class="math inline">\(x\)</span> first then increment it</td>
+<tr>
+<td>$x++$</td>
+<td>$x=x+1$</td>
+<td>Return the value of $x$ first then increment it</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(++x\)</span></td>
-<td><span class="math inline">\(x=x+1\)</span></td>
-<td>Increment first then return the value of <span class="math inline">\(x\)</span></td>
+<tr>
+<td>$++x$</td>
+<td>$x=x+1$</td>
+<td>Increment first then return the value of $x$</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(x--\)</span></td>
-<td><span class="math inline">\(x=x-1\)</span></td>
-<td>Return the value of <span class="math inline">\(x\)</span> first then increment it</td>
+<tr>
+<td>$x&ndash;$</td>
+<td>$x=x-1$</td>
+<td>Return the value of $x$ first then increment it</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(--x\)</span></td>
-<td><span class="math inline">\(x=x-1\)</span></td>
-<td>Increment first then return the value of <span class="math inline">\(x\)</span></td>
+<tr>
+<td>$&ndash;x$</td>
+<td>$x=x-1$</td>
+<td>Increment first then return the value of $x$</td>
 </tr>
 </tbody>
 </table>
-<div id="example-1" class="section level2">
-<h2>Example 1:</h2>
-<p>Here you can see that <code>y ++= x * z;</code> is calculate as <span class="math inline">\(y=y+x \times z = 30 + 2 \times 4 = 38\)</span>.</p>
-<p><img src="example1.png" width="350px" style="display: block; margin: auto;" /></p>
-</div>
-<div id="example-2" class="section level2">
-<h2>Example 2:</h2>
-<p>In this example you can see that we used the postfix <code>x++</code> to first initialize <span class="math inline">\(y\)</span> (<span class="math inline">\(y=8 \times x = 8 \times 7 = 56\)</span>) and then update <span class="math inline">\(x\)</span> to <code>x=x+1=8</code>. On the other hand, we used the prefix <code>--y</code> to first update the variable <span class="math inline">\(y\)</span> to <code>y=y-1=55</code> and then calculate the variable z using the updated <span class="math inline">\(y\)</span> <span class="math inline">\(\left(z = y/5 = 55/5 = 11 \right)\)</span>.</p>
-<p><img src="example2.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>Note that when we use <code>x*= (y/z) % 2</code> the variable <span class="math inline">\(x\)</span> multiply the entire expression after <code>=</code> symbol. This expression is equivalent to <code>x = x * ((y/z) % 2));</code>.</p>
-</div>
-</div>
-<div id="operator-precedence-and-associativity" class="section level1">
-<h1>Operator precedence and associativity</h1>
-<p><a href="#table1">Table 1</a> shows a list of precedence (ordered) and associativity of C operators. This table was obtained from
+<h2 id="example-1">Example 1:</h2>
+<p>Here you can see that <code>y ++= x * z;</code> is calculate as $y=y+x \times z = 30 + 2 \times 4 = 38$.</p>
+<img src="example1.png" width="350px" style="display: block; margin: auto;" />
+<h2 id="example-2">Example 2:</h2>
+<p>In this example you can see that we used the postfix <code>x++</code> to first initialize $y$ ($y=8 \times x = 8 \times 7 = 56$) and then update $x$ to <code>x=x+1=8</code>. On the other hand, we used the prefix <code>--y</code> to first update the variable $y$ to <code>y=y-1=55</code> and then calculate the variable z using the updated $y$ $\left(z = y/5 = 55/5 = 11 \right)$.</p>
+<img src="example2.png" width="500px" style="display: block; margin: auto;" />
+<p>Note that when we use <code>x*= (y/z) % 2</code> the variable $x$ multiply the entire expression after <code>=</code> symbol. This expression is equivalent to <code>x = x * ((y/z) % 2));</code>.</p>
+<h1 id="operator-precedence-and-associativity">Operator precedence and associativity</h1>
+<p><a href="#table1">Table 1</a> shows a list of precedence (ordered) and associativity of C operators. This table was obtained from 
 <a href="https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1">cppreference.com</a>.</p>
 <div>
 <table class="wikitable">
-<tbody>
-<tr>
+<tbody><tr>
 <a name="table1"> Table 1: Precedence and associativity of C operators </a>
-<th style="text-align: left">
-Precedence
+<th style="text-align: left"> Precedence
 </th>
-<th style="text-align: left">
-Operator
+<th style="text-align: left"> Operator
 </th>
-<th style="text-align: left">
-Description
+<th style="text-align: left"> Description
 </th>
-<th style="text-align: left">
-Associativity
+<th style="text-align: left"> Associativity
+</th></tr>
+<tr>
+<th rowspan="6"> 1
 </th>
-</tr>
+<td style="border-bottom-style: none"> <code>++</code> <code>\-\-</code>
+</td>
+<td style="border-bottom-style: none"> Suffix/postfix increment and decrement
+</td>
+<td style="vertical-align: top" rowspan="6"> Left-to-right
+</td></tr>
 <tr>
-<th rowspan="6">
-1
+<td style="border-bottom-style: none; border-top-style: none"> <code>()</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Function call
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>[]</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Array subscripting
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>.</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Structure and union member access
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>-&gt;</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Structure and union member access through pointer
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>(<i>type</i>){<i>list</i>}</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Compound literal<span class="t-mark-rev t-since-c99">(C99)</span>
+</td></tr>
+<tr>
+<th rowspan="8"> 2
 </th>
-<td style="border-bottom-style: none">
-<code>++</code> <code>--</code>
+<td style="border-bottom-style: none"> <code>++</code> <code>\-\-</code>
 </td>
-<td style="border-bottom-style: none">
-Suffix/postfix increment and decrement
+<td style="border-bottom-style: none"> Prefix increment and decrement<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[note 1]</a></sup>
 </td>
-<td style="vertical-align: top" rowspan="6">
-Left-to-right
-</td>
-</tr>
+<td style="vertical-align: top" rowspan="8"> Right-to-left
+</td></tr>
 <tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>()</code>
+<td style="border-bottom-style: none; border-top-style: none"> <code>+</code> <code>-</code>
 </td>
-<td style="border-bottom-style: none; border-top-style: none">
-Function call
-</td>
-</tr>
+<td style="border-bottom-style: none; border-top-style: none"> Unary plus and minus
+</td></tr>
 <tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>[]</code>
+<td style="border-bottom-style: none; border-top-style: none"> <code>!</code> <code>~</code>
 </td>
-<td style="border-bottom-style: none; border-top-style: none">
-Array subscripting
-</td>
-</tr>
+<td style="border-bottom-style: none; border-top-style: none"> Logical NOT and bitwise NOT
+</td></tr>
 <tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>.</code>
+<td style="border-bottom-style: none; border-top-style: none"> <code>(<i>type</i>)</code>
 </td>
-<td style="border-bottom-style: none; border-top-style: none">
-Structure and union member access
-</td>
-</tr>
+<td style="border-bottom-style: none; border-top-style: none"> Cast
+</td></tr>
 <tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>-&gt;</code>
+<td style="border-bottom-style: none; border-top-style: none"> <code>*</code>
 </td>
-<td style="border-bottom-style: none; border-top-style: none">
-Structure and union member access through pointer
-</td>
-</tr>
+<td style="border-bottom-style: none; border-top-style: none"> Indirection (dereference)
+</td></tr>
 <tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>(<i>type</i>){<i>list</i>}</code>
+<td style="border-bottom-style: none; border-top-style: none"> <code>&amp;</code>
 </td>
-<td style="border-bottom-style: none; border-top-style: none">
-Compound literal<span class="t-mark-rev t-since-c99">(C99)</span>
-</td>
-</tr>
+<td style="border-bottom-style: none; border-top-style: none"> Address-of
+</td></tr>
 <tr>
-<th rowspan="8">
-2
+<td style="border-bottom-style: none; border-top-style: none"> <code>sizeof</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Size-of<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[note 2]</a></sup>
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>_Alignof</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Alignment requirement<span class="t-mark-rev t-since-c11">(C11)</span>
+</td></tr>
+<tr>
+<th> 3
 </th>
-<td style="border-bottom-style: none">
-<code>++</code> <code>--</code>
+<td> <code>*</code> <code>/</code> <code>%</code>
 </td>
-<td style="border-bottom-style: none">
-Prefix increment and decrement<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[note 1]</a></sup>
+<td> Multiplication, division, and remainder
 </td>
-<td style="vertical-align: top" rowspan="8">
-Right-to-left
-</td>
-</tr>
+<td style="vertical-align: top" rowspan="11"> Left-to-right
+</td></tr>
 <tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>+</code> <code>-</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Unary plus and minus
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>!</code> <code>~</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Logical NOT and bitwise NOT
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>(<i>type</i>)</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Cast
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>*</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Indirection (dereference)
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>&amp;</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Address-of
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>sizeof</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Size-of<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[note 2]</a></sup>
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>_Alignof</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Alignment requirement<span class="t-mark-rev t-since-c11">(C11)</span>
-</td>
-</tr>
-<tr>
-<th>
-3
+<th> 4
 </th>
-<td>
-<code>*</code> <code>/</code> <code>%</code>
+<td> <code>+</code> <code>-</code>
 </td>
-<td>
-Multiplication, division, and remainder
-</td>
-<td style="vertical-align: top" rowspan="11">
-Left-to-right
-</td>
-</tr>
+<td> Addition and subtraction
+</td></tr>
 <tr>
-<th>
-4
+<th> 5
 </th>
-<td>
-<code>+</code> <code>-</code>
+<td> <code>&lt;&lt;</code> <code>&gt;&gt;</code>
 </td>
-<td>
-Addition and subtraction
-</td>
-</tr>
+<td> Bitwise left shift and right shift
+</td></tr>
 <tr>
-<th>
-5
+<th rowspan="2"> 6
 </th>
-<td>
-<code>&lt;&lt;</code> <code>&gt;&gt;</code>
+<td style="border-bottom-style: none"> <code>&lt;</code> <code>&lt;=</code>
 </td>
-<td>
-Bitwise left shift and right shift
-</td>
-</tr>
+<td style="border-bottom-style: none"> For relational operators &lt; and ≤ respectively
+</td></tr>
 <tr>
-<th rowspan="2">
-6
+<td style="border-top-style: none"> <code>&gt;</code> <code>&gt;=</code>
+</td>
+<td style="border-top-style: none"> For relational operators &gt; and ≥ respectively
+</td></tr>
+<tr>
+<th> 7
 </th>
-<td style="border-bottom-style: none">
-<code>&lt;</code> <code>&lt;=</code>
+<td> <code>==</code> <code>!=</code>
 </td>
-<td style="border-bottom-style: none">
-For relational operators &lt; and ≤ respectively
-</td>
-</tr>
+<td> For relational = and ≠ respectively
+</td></tr>
 <tr>
-<td style="border-top-style: none">
-<code>&gt;</code> <code>&gt;=</code>
-</td>
-<td style="border-top-style: none">
-For relational operators &gt; and ≥ respectively
-</td>
-</tr>
-<tr>
-<th>
-7
+<th> 8
 </th>
-<td>
-<code>==</code> <code>!=</code>
+<td> <code>&amp;</code>
 </td>
-<td>
-For relational = and ≠ respectively
-</td>
-</tr>
+<td> Bitwise AND
+</td></tr>
 <tr>
-<th>
-8
+<th> 9
 </th>
-<td>
-<code>&amp;</code>
+<td> <code>^</code>
 </td>
-<td>
-Bitwise AND
-</td>
-</tr>
+<td> Bitwise XOR (exclusive or)
+</td></tr>
 <tr>
-<th>
-9
+<th> 10
 </th>
-<td>
-<code>^</code>
+<td> <code>|</code>
 </td>
-<td>
-Bitwise XOR (exclusive or)
-</td>
-</tr>
+<td> Bitwise OR (inclusive or)
+</td></tr>
 <tr>
-<th>
-10
+<th> 11
 </th>
-<td>
-<code>|</code>
+<td> <code>&amp;&amp;</code>
 </td>
-<td>
-Bitwise OR (inclusive or)
-</td>
-</tr>
+<td> Logical AND
+</td></tr>
 <tr>
-<th>
-11
+<th> 12
 </th>
-<td>
-<code>&amp;&amp;</code>
+<td> <code>||</code>
 </td>
-<td>
-Logical AND
-</td>
-</tr>
+<td> Logical OR
+</td></tr>
 <tr>
-<th>
-12
+<th> 13
 </th>
-<td>
-<code>||</code>
+<td> <code>?:</code>
 </td>
-<td>
-Logical OR
+<td> Ternary conditional<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[note 3]</a></sup>
 </td>
-</tr>
+<td style="vertical-align: top" rowspan="6"> Right-to-Left
+</td></tr>
 <tr>
-<th>
-13
+<th rowspan="5"> 14<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[note 4]</a></sup>
 </th>
-<td>
-<code>?:</code>
+<td style="border-bottom-style: none"> <code>=</code>
 </td>
-<td>
-Ternary conditional<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[note 3]</a></sup>
-</td>
-<td style="vertical-align: top" rowspan="6">
-Right-to-Left
-</td>
-</tr>
+<td style="border-bottom-style: none"> Simple assignment
+</td></tr>
 <tr>
-<th rowspan="5">
-14<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[note 4]</a></sup>
+<td style="border-bottom-style: none; border-top-style: none"> <code>+=</code> <code>-=</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Assignment by sum and difference
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>*=</code> <code>/=</code> <code>%=</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Assignment by product, quotient, and remainder
+</td></tr>
+<tr>
+<td style="border-bottom-style: none; border-top-style: none"> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code>
+</td>
+<td style="border-bottom-style: none; border-top-style: none"> Assignment by bitwise left shift and right shift
+</td></tr>
+<tr>
+<td style="border-top-style: none"> <code>&amp;=</code> <code>^=</code> <code>|=</code>
+</td>
+<td style="border-top-style: none"> Assignment by bitwise AND, XOR, and OR
+</td></tr>
+<tr>
+<th> 15
 </th>
-<td style="border-bottom-style: none">
-<code>=</code>
+<td> <code>,</code>
 </td>
-<td style="border-bottom-style: none">
-Simple assignment
+<td> Comma
 </td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>+=</code> <code>-=</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Assignment by sum and difference
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>*=</code> <code>/=</code> <code>%=</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Assignment by product, quotient, and remainder
-</td>
-</tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none">
-<code>&lt;&lt;=</code> <code>&gt;&gt;=</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none">
-Assignment by bitwise left shift and right shift
-</td>
-</tr>
-<tr>
-<td style="border-top-style: none">
-<code>&amp;=</code> <code>^=</code> <code>|=</code>
-</td>
-<td style="border-top-style: none">
-Assignment by bitwise AND, XOR, and OR
-</td>
-</tr>
-<tr>
-<th>
-15
-</th>
-<td>
-<code>,</code>
-</td>
-<td>
-Comma
-</td>
-<td>
-Left-to-right
-</td>
-</tr>
-</tbody>
-</table>
+<td> Left-to-right
+</td></tr></tbody></table>
 <ol class="references">
-<li id="cite_note-1">
-<span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">The operand of prefix <code>++</code> and <code>--</code> can’t be a type cast. This rule grammatically forbids some expressions that would be semantically invalid anyway. Some compilers ignore this rule and detect the invalidity semantically.</span>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">The operand of prefix <code>++</code> and <code>\-\-</code> can't be a type cast. This rule grammatically forbids some expressions that would be semantically invalid anyway. Some compilers ignore this rule and detect the invalidity semantically.</span>
 </li>
-<li id="cite_note-2">
-<span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">The operand of <code>sizeof</code> can’t be a type cast: the expression <code>sizeof (int) * p</code> is unambiguously interpreted as <code>(sizeof(int)) * p</code>, but not <code>sizeof((int)*p)</code>.</span>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">The operand of <code>sizeof</code> can't be a type cast: the expression <code>sizeof (int) * p</code> is unambiguously interpreted as <code>(sizeof(int)) * p</code>, but not <code>sizeof((int)*p)</code>.</span>
 </li>
-<li id="cite_note-3">
-<span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">The expression in the middle of the conditional operator (between <code><b>?</b></code> and <code><b>:</b></code>) is parsed as if parenthesized: its precedence relative to <code>?:</code> is ignored.</span>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">The expression in the middle of the conditional operator (between <code><b>?</b></code> and <code><b>:</b></code>) is parsed as if parenthesized: its precedence relative to <code>?:</code> is ignored.</span>
 </li>
-<li id="cite_note-4">
-<span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">Assignment operators’ left operands must be unary (level-2 non-cast) expressions. This rule grammatically forbids some expressions that would be semantically invalid anyway. Many compilers ignore this rule and detect the invalidity semantically. For example, <span class="t-c"><span class="mw-geshi c source-c">e <span class="sy1">=</span> a <span class="sy1">&lt;</span> d <span class="sy4">?</span> a<span class="sy2">++</span> <span class="sy4">:</span> a <span class="sy1">=</span> d</span></span> is an expression that cannot be parsed because of this rule. However, many compilers ignore this rule and parse it as <span class="t-c"><span class="mw-geshi c source-c">e <span class="sy1">=</span> <span class="br0">(</span> <span class="br0">(</span><span class="br0">(</span>a <span class="sy1">&lt;</span> d<span class="br0">)</span> <span class="sy4">?</span> <span class="br0">(</span>a<span class="sy2">++</span><span class="br0">)</span> <span class="sy4">:</span> a<span class="br0">)</span> <span class="sy1">=</span> d <span class="br0">)</span></span></span>, and then give an error because it is semantically invalid.</span>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">Assignment operators' left operands must be unary (level-2 non-cast) expressions. This rule grammatically forbids some expressions that would be semantically invalid anyway. Many compilers ignore this rule and detect the invalidity semantically. For example, <span class="t-c"><span class="mw-geshi c source-c">e <span class="sy1">=</span> a <span class="sy1">&lt;</span> d <span class="sy4">?</span> a<span class="sy2">++</span> <span class="sy4">:</span> a <span class="sy1">=</span> d</span></span> is an expression that cannot be parsed because of this rule. However, many compilers ignore this rule and parse it as <span class="t-c"><span class="mw-geshi c source-c">e <span class="sy1">=</span> <span class="br0">(</span> <span class="br0">(</span><span class="br0">(</span>a <span class="sy1">&lt;</span> d<span class="br0">)</span> <span class="sy4">?</span> <span class="br0">(</span>a<span class="sy2">++</span><span class="br0">)</span> <span class="sy4">:</span> a<span class="br0">)</span> <span class="sy1">=</span> d <span class="br0">)</span></span></span>, and then give an error because it is semantically invalid.</span>
 </li>
 </ol>
 </div>
-<div id="impact-of-data-types-on-expressions" class="section level2">
-<h2>Impact of Data Types on Expressions</h2>
+<h2 id="impact-of-data-types-on-expressions">Impact of Data Types on Expressions</h2>
 <p>In <code>C++</code>, the data type of the variables involved in an expression significantly impacts the result. For instance, dividing two integers results in an integer, while using at least one floating-point number yields a floating-point result. Understanding how data types interact within expressions is crucial for accurate calculations and avoiding common pitfalls like integer truncation.</p>
 <p>Here are some key points about integer truncation and other common pitfalls in C++:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Integer Truncation</strong>: This occurs when the result of a division or other operation between integers is a floating-point number, but the data type is an integer. For example, <code>int result = 5 / 2;</code> will store <code>2</code> in <code>result</code>, not <code>2.5</code>, as the fractional part is truncated.</p></li>
-<li><p><strong>Implicit Type Conversions</strong>: <code>C++</code> automatically converts types in certain situations, which can lead to unexpected results. For instance, mixing signed and unsigned integers in expressions can cause unexpected behaviours due to implicit type conversions.</p></li>
-<li><p><strong>Overflow and Underflow</strong>: This happens when a variable is assigned a value outside its range. For example, storing a value larger than the maximum value that an <code>int</code> can hold will result in overflow, leading to unexpected values.</p></li>
-<li><p><strong>Precision Loss in Floating-Point Numbers</strong>: Floating-point variables can lose precision, especially when dealing with very large or very small numbers. This can result in rounding errors in calculations.</p></li>
-<li><p><strong>Division by Zero</strong>: This can occur if a program inadvertently divides a number by zero. It’s a critical error in <code>C++</code> and can cause a program to crash or behave unpredictably.</p></li>
-<li><p><strong>Uninitialized Variables</strong>: Using variables before initializing them can lead to unpredictable results, as they may contain random data.</p></li>
-<li><p><strong>Pointer Errors</strong>: Common mistakes with pointers include dereferencing a null or uninitialized pointer, pointer arithmetic errors, and memory leaks.</p></li>
-<li><p><strong>Operator Precedence Mistakes</strong>: Misunderstanding the order in which operations are performed can lead to bugs. For example, assuming that <code>a + b * c</code> adds <code>a</code> and <code>b</code> before multiplying by <code>c</code> (it doesn’t; multiplication is done first).</p></li>
-<li><p><strong>Assuming Size of Data Types is Constant</strong>: The size of data types like <code>int</code> can vary depending on the system. Assuming a constant size can lead to errors, particularly when performing operations like bit manipulation or working with binary file formats.</p></li>
-<li><p><strong>Not Checking the Return Value of Functions</strong>: When functions return values to indicate success or failure, not checking these can lead to the program continuing as if nothing went wrong, even when errors have occurred.</p></li>
+<ol>
+<li>
+<p><strong>Integer Truncation</strong>: This occurs when the result of a division or other operation between integers is a floating-point number, but the data type is an integer. For example, <code>int result = 5 / 2;</code> will store <code>2</code> in <code>result</code>, not <code>2.5</code>, as the fractional part is truncated.</p>
+</li>
+<li>
+<p><strong>Implicit Type Conversions</strong>: <code>C++</code> automatically converts types in certain situations, which can lead to unexpected results. For instance, mixing signed and unsigned integers in expressions can cause unexpected behaviours due to implicit type conversions.</p>
+</li>
+<li>
+<p><strong>Overflow and Underflow</strong>: This happens when a variable is assigned a value outside its range. For example, storing a value larger than the maximum value that an <code>int</code> can hold will result in overflow, leading to unexpected values.</p>
+</li>
+<li>
+<p><strong>Precision Loss in Floating-Point Numbers</strong>: Floating-point variables can lose precision, especially when dealing with very large or very small numbers. This can result in rounding errors in calculations.</p>
+</li>
+<li>
+<p><strong>Division by Zero</strong>: This can occur if a program inadvertently divides a number by zero. It&rsquo;s a critical error in <code>C++</code> and can cause a program to crash or behave unpredictably.</p>
+</li>
+<li>
+<p><strong>Uninitialized Variables</strong>: Using variables before initializing them can lead to unpredictable results, as they may contain random data.</p>
+</li>
+<li>
+<p><strong>Pointer Errors</strong>: Common mistakes with pointers include dereferencing a null or uninitialized pointer, pointer arithmetic errors, and memory leaks.</p>
+</li>
+<li>
+<p><strong>Operator Precedence Mistakes</strong>: Misunderstanding the order in which operations are performed can lead to bugs. For example, assuming that <code>a + b * c</code> adds <code>a</code> and <code>b</code> before multiplying by <code>c</code> (it doesn&rsquo;t; multiplication is done first).</p>
+</li>
+<li>
+<p><strong>Assuming Size of Data Types is Constant</strong>: The size of data types like <code>int</code> can vary depending on the system. Assuming a constant size can lead to errors, particularly when performing operations like bit manipulation or working with binary file formats.</p>
+</li>
+<li>
+<p><strong>Not Checking the Return Value of Functions</strong>: When functions return values to indicate success or failure, not checking these can lead to the program continuing as if nothing went wrong, even when errors have occurred.</p>
+</li>
 </ol>
-</div>
-<div id="role-of-type-casting-in-expressions" class="section level2">
-<h2>Role of Type Casting in Expressions</h2>
-<p>Type casting in expressions can be used to explicitly convert data from one type to another. This technique is particularly useful in situations where operations between different data types are necessary. For example, casting an integer to a float in a division operation to obtain a floating-point result. However, it’s important to use type casting judiciously to maintain the precision and integrity of data.</p>
-</div>
-<div id="the-significance-of-expression-evaluation-order" class="section level2">
-<h2>The Significance of Expression Evaluation Order</h2>
+<h2 id="role-of-type-casting-in-expressions">Role of Type Casting in Expressions</h2>
+<p>Type casting in expressions can be used to explicitly convert data from one type to another. This technique is particularly useful in situations where operations between different data types are necessary. For example, casting an integer to a float in a division operation to obtain a floating-point result. However, it&rsquo;s important to use type casting judiciously to maintain the precision and integrity of data.</p>
+<h2 id="the-significance-of-expression-evaluation-order">The Significance of Expression Evaluation Order</h2>
 <p>While operator precedence and associativity rules dictate the order of operations in an expression, the sequence in which expressions are evaluated can also be influenced by function calls, side effects, and sequence points. Understanding how <code>C++</code> evaluates expressions, especially in complex statements, is essential for debugging and writing predictable code.</p>
-</div>
-<div id="compiler-optimizations-and-expressions" class="section level2">
-<h2>Compiler Optimizations and Expressions</h2>
+<h2 id="compiler-optimizations-and-expressions">Compiler Optimizations and Expressions</h2>
 <p>Modern <code>C++</code> compilers often optimize expressions to enhance performance. These optimizations might include reordering operations (while respecting the language rules), eliminating redundant calculations, or simplifying expressions at compile time. Being aware of these potential optimizations can help in writing more efficient code and understanding any discrepancies between the written code and its execution behaviour.</p>
-</div>
-<div id="best-practices-for-writing-expressions" class="section level2">
-<h2>Best Practices for Writing Expressions</h2>
-<p>To maintain readability and reduce errors in <code>C++</code>, it’s advisable to write clear and simple expressions. Avoid overly complex expressions, use parentheses to clarify order of operations, and follow coding standards and guidelines. Readable expressions are easier to debug, maintain, and understand, especially in collaborative environments.</p>
+<h2 id="best-practices-for-writing-expressions">Best Practices for Writing Expressions</h2>
+<p>To maintain readability and reduce errors in <code>C++</code>, it&rsquo;s advisable to write clear and simple expressions. Avoid overly complex expressions, use parentheses to clarify order of operations, and follow coding standards and guidelines. Readable expressions are easier to debug, maintain, and understand, especially in collaborative environments.</p>
 <p>Adding these paragraphs can provide a more comprehensive and nuanced understanding of expressions in <code>C++</code>, catering to both beginners and experienced programmers.</p>
-</div>
-</div>
-<div id="references" class="section level1">
-<h1>References</h1>
+<h1 id="references">References</h1>
 <ul>
-<li>C Operator Precedence - <a href="https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1" class="uri">https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1</a></li>
+<li>C Operator Precedence - <a href="https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1" target="_blank" rel="noopener">https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1</a></li>
 </ul>
-</div>
-<div id="citation" class="section level1">
-<h1>Citation</h1>
-<ol style="list-style-type: decimal">
+<h1 id="citation">Citation</h1>
+<ol>
 <li>For attribution, please cite this work as:</li>
 </ol>
 <div class="div-1">
-<p>Oliveira T.P. (2020, Dec. 16). Expressions in C++</p>
+Oliveira T.P. (2020, Dec. 16). Expressions in C++
 </div>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2">
 <li>BibTeX citation</li>
 </ol>
 <pre><code>@misc{oliveira2020expression,
@@ -1588,9 +1434,9 @@ Left-to-right
   title = {Expressions in C++},
   url = {https://prof-thiagooliveira.netlify.app/post/expressions/},
   year = {2020}
-}</code></pre>
+}
+</code></pre>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
-</div>
 
     </div>
 
@@ -2049,7 +1895,7 @@ Left-to-right
       
     
     
-    <script src="/en/js/wowchemy.min.b206710415a50cb12ea588a8ed1fe3c5.js"></script>
+    <script src="/en/js/wowchemy.min.7cd6ec29d281a73c92a2958a1584aadc.js"></script>
 
     
   <script async defer src="https://buttons.github.io/buttons.js"></script>

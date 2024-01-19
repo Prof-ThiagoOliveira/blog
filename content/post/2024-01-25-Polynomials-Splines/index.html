@@ -1,0 +1,269 @@
+---
+title: Exploring the Technicalities of Data Fitting
+author: Thiago de Paula Oliveira
+date: '2024-01-19'
+slug: Statistics
+categories:
+  - Statistics
+  - Statistical Models
+tags:
+  - Splines
+  - Polynomials
+  - Statistical Modelling
+  - Statistics
+subtitle: 'Polynomial, Fractional Polynomial, and Spline Models'
+summary: ''
+authors: 
+- admin
+lastmod: '2024-01-19T08:15:54Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+    css: "my_style.css"
+---
+
+
+
+<p align="justify">
+The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:
+</p>
+<ul>
+<li><strong>Polynomial Models</strong>,</li>
+<li><strong>Fractional Polynomials</strong>, and</li>
+<li><strong>Spline Models</strong>.</li>
+</ul>
+<p align="justify">
+Each of these models serves as a fundamental tool in the statistical toolkit, enabling us to capture and understand the intricacies of linear and non-linear relationships inherent in real-world data.
+</p>
+<p align="justify">
+As a bio-statistician entrenched in the technical aspects of data analysis, I recognize the critical importance of these models. We will commence with an examination of Polynomial Models, discussing their mathematical underpinnings and practical applications in capturing curvilinear trends. Next, we will navigate through the Fractional Polynomials, a more flexible extension of traditional polynomials, adept at modelling asymmetric patterns. Lastly, we will explore Spline Models, one of the most flexible approach in data fitting, capable of adapting to complex and segmented patterns in data.
+</p>
+<p align="justify">
+This post is designed not just to inform but to provide a technical understanding of these models with examples, illustrating their relevance and application in contemporary data analysis. Whether you are a data scientist, a statistician, or a researcher grappling with complex data sets, this exploration aims to enhance the modelling arsenal, offering insights into when and how to apply these models effectively.
+</p>
+<div id="polynomial-models" class="section level1">
+<h1>Polynomial Models</h1>
+<p align="justify">
+<a href="https://en.wikipedia.org/wiki/Polynomial">Polynomial Models</a>, represented by functions of the form <span class="math display">\[y = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0,\]</span> are foundational in modelling curvilinear relationships. In this formulation, each <span class="math inline">\(a_i\)</span> (where <span class="math inline">\(i = 0, 1, \ldots, n\)</span>) denotes the coefficient corresponding to the <span class="math inline">\(i\)</span>-th term of the polynomial, and <span class="math inline">\(x\)</span> is the independent or exploratory variable. The degree <span class="math inline">\(n\)</span> of the polynomial determines the model’s complexity, with higher degrees allowing for more intricate curve shapes.
+</p>
+<p align="justify">
+These models are particularly useful in capturing the non-linear dynamics often observed in real-world data. For instance, a quadratic model (where <span class="math inline">\(n = 2\)</span>) can describe simple parabolic trends, while higher-degree models, such as cubic (<span class="math inline">\(n = 3\)</span>) or quartic (<span class="math inline">\(n = 4\)</span>), enable the representation of more complex and varied behaviours (Figure 1).
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="polynomial.png" alt="Comparative Visualization of Polynomial Fits: Degrees 1 to 4" width="650px" />
+<p class="caption">
+Figure 1: Comparative Visualization of Polynomial Fits: Degrees 1 to 4
+</p>
+</div>
+<p align="justify">
+However, increasing the degree <span class="math inline">\(n\)</span> also increases the risk of overfitting, a phenomenon where the model adapts too closely to the specificities of the training data, including noise, at the expense of generalizability to new data (Figure 2). Overfitting leads to models that perform poorly in predictive scenarios, failing to capture the true underlying trend.
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="poly_overfit.png" alt="Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits" width="650px" />
+<p class="caption">
+Figure 2: Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits
+</p>
+</div>
+<p align="justify">
+Polynomial models are extensively applied across various disciplines. In physics, they are instrumental in <a href="https://aapm.onlinelibrary.wiley.com/doi/abs/10.1118/1.2739811">modelling motion</a> under uniform acceleration, among other phenomena. In economics, <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378475405000418">polynomial trends are fitted to time series data</a> to understand market dynamics. In biological sciences, these models aid in <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1574-0862.2010.00450.x">interpreting growth rates</a> and <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-4304-3">simple gene expression patterns</a>. The interpretation of the coefficients <span class="math inline">\(a_i\)</span> can provide significant insights; for instance, in the quadratic model <span class="math inline">\(y = ax^2 + bx + c\)</span>, the sign of <span class="math inline">\(a\)</span> determines the direction in which the parabola opens, offering crucial information about the nature of the relationship being modelled (Figure 3).
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="parabola.png" alt="Parabola Opening Upwards and Downwards" width="500px" />
+<p class="caption">
+Figure 3: Parabola Opening Upwards and Downwards
+</p>
+</div>
+<p align="justify">
+In practical applications, the selection of the polynomial degree <span class="math inline">\(n\)</span> is critical. It is a balance between capturing the complexity of the data and avoiding overfitting (Figure 2). Techniques such as cross-validation, where the data is divided into training and testing sets, can be used to determine the optimal degree of the polynomial. Additionally, statistical measures like the Akaike Information Criterion (AIC) or the Bayesian Information Criterion (BIC) are often employed to select the most appropriate model by balancing model fit and complexity.
+</p>
+<p align="justify">
+In summary, Polynomial Models are a versatile and powerful tool in statistical modelling. Their ability to approximate complex functions with a relatively straightforward mathematical formulation makes them a fundamental component in various fields of data analysis.
+</p>
+<p align="justify">
+While traditional polynomial models are highly effective, they sometimes lack the flexibility required for certain types of data, particularly those exhibiting asymmetric trends. This limitation led to the development of fractional polynomial models, which extend the concept of polynomial models by allowing for fractional exponents. This advancement provides a greater ability to fit a wider range of curves and is especially useful in cases where the relationship between variables is not adequately captured by integer exponents.
+</p>
+</div>
+<div id="fractional-polynomial-models" class="section level1">
+<h1>Fractional Polynomial Models</h1>
+<p align="justify">
+<a href="https://academic.oup.com/jrsssc/article-abstract/43/3/429/6990357">Fractional Polynomials</a> represent an advanced evolution of traditional polynomial models, marked by their use of non-integer, real-number exponents in the independent variable. Mathematically, they are expressed as <span class="math display">\[y = \beta_0 + \beta_1 x^{p_1} + \beta_2 x^{p_2} + \ldots + \beta_n x^{p_n},\]</span> where <span class="math inline">\(x\)</span> is the independent variable, <span class="math inline">\(\beta_i\)</span> are coefficients, and <span class="math inline">\(p_i\)</span> are the variable powers. These powers, unlike the integer-only powers in traditional polynomials, can include any real number like <span class="math inline">\(0.5\)</span>, <span class="math inline">\(-1\)</span>, or <span class="math inline">\(2.3\)</span>. This flexibility significantly broadens the modeling capability of polynomials, allowing for more precise fitting to complex and asymmetric data patterns. Terms such as <span class="math inline">\(x^{-1}\)</span> and <span class="math inline">\(x^{0.5}\)</span>, representing the reciprocal and square root of <span class="math inline">\(x\)</span> respectively, enable the modeling of relationships that exhibit dramatic changes over different ranges of <span class="math inline">\(x\)</span>, a task challenging for standard polynomial models with integer exponents.
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="frac_poly.png" alt="Comparative Visualization of Fractional Polynomial Fits" width="650px" />
+<p class="caption">
+Figure 4: Comparative Visualization of Fractional Polynomial Fits
+</p>
+</div>
+<p align="justify">
+The utility of fractional polynomials extends to various fields, notably in medical statistics and biological data analysis, where data patterns often defy symmetry. They are particularly adept in modeling phenomena like dose-response curves in pharmacokinetics and progression rates of diseases, where the response changes in a non-linear fashion. Such flexibility makes them invaluable in scenarios where data exhibit complex, non-standard behaviors.
+</p>
+<p align="justify">
+However, the complexity of fractional polynomials can pose interpretational challenges, and like their traditional counterparts, they are susceptible to overfitting. This risk is heightened with the inclusion of multiple fractional terms or higher degrees, necessitating careful model selection and validation processes. Methods such as cross-validation or the use of information criteria like AIC or BIC are often employed to balance model fit against the risk of overfitting.
+</p>
+<div id="finding-optimal-power-values-in-fractional-polynomials" class="section level2">
+<h2>Finding Optimal Power Values in Fractional Polynomials</h2>
+<p align="justify">
+The process of finding the best values for <span class="math inline">\(p_1, p_2, \ldots, p_n\)</span> is inherently iterative and may require a combination of statistical testing, validation techniques, and expert judgement. The goal is to have a balance between a model that fits the data well, is not overly complex, and is robust to variations in model parameters.
+</p>
+<p align="justify">
+In Figure 5, I exemplify this process by fitting various fractional polynomial models to the dataset. Through the application of the Bayesian Information Criterion (BIC), I identified the most parsimonious model, which is succinctly expressed mathematically as <span class="math display">\[y = \beta_0 + \beta_1 x^{1.13},\]</span> and the corresponding BIC value for this model is denoted as <span class="math inline">\(−144.34\)</span>.
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="fractional_polynomial_fit_with_bic.gif" alt="Comparative Visualization of Fractional Polynomial Fits" width="650px" />
+<p class="caption">
+Figure 5: Comparative Visualization of Fractional Polynomial Fits
+</p>
+</div>
+<p align="justify">
+Below I have described some possible approaches to achieve this objective:
+</p>
+<p align="justify">
+<strong>Initial Power Selection</strong>: Start with a set of candidate powers, often including a mix of positive, negative, and fractional values. Common choices are <span class="math inline">\(-2, -1, -0.5, 0, 0.5, 1, 2, 3\)</span>. The selection of these initial powers is guided by prior knowledge about the data, theoretical considerations, or exploratory analysis.
+</p>
+<p align="justify">
+<strong>Model Fitting and Comparison</strong>: Fit fractional polynomial models using different combinations of these candidate powers. This fitting can be done using least squares regression or other suitable methods depending on the nature of the data. For each model, compute a goodness-of-fit statistic, such as the residual sum of squares (RSS) or the Akaike Information Criterion (AIC).
+</p>
+<p align="justify">
+<strong>Iterative Testing</strong>: Employ an iterative approach to test various combinations of powers. This might involve starting with a simple model and gradually adding complexity (increasing the number of terms) while monitoring the improvement in the fit.
+</p>
+<p align="justify">
+<strong>Cross-Validation</strong>: To guard against overfitting, especially in models with higher degrees or more terms, use cross-validation. Divide your data into training and testing sets. Fit the model to the training set and evaluate its performance on the testing set. This step helps in assessing the model’s predictive accuracy.
+</p>
+<p align="justify">
+<strong>Statistical Significance</strong>: Assess the statistical significance of the coefficients associated with each term in the model. Non-significant terms might suggest that certain powers do not contribute meaningfully to the model and could be excluded.
+</p>
+<p align="justify">
+<strong>Model Selection Criteria</strong>: Use model selection criteria like AIC or BIC to compare models with different combinations of powers. These criteria balance the goodness of fit with the complexity of the model, helping to choose a model that is both accurate and parsimonious.
+</p>
+<p align="justify">
+<strong>Sensitivity Analysis</strong>: Conduct sensitivity analyses by varying the powers slightly to see how robust the model is to changes in these parameters. This step is crucial to understand the stability and reliability of the model.
+</p>
+<p align="justify">
+While fractional polynomials offer enhanced modelling flexibility over traditional polynomials, they sometimes fall short in handling data with distinct behavioural changes across different segments. This limitation summed to the difficulty in determine <span class="math inline">\(p_i\)</span> are where spline models come into play. Spline models, constructed as piecewise polynomials, provide localized fitting capabilities, adapting seamlessly to variations within different data segments. Such adaptability is particularly useful in datasets with distinct phases or regimes. Thus, spline models emerge as a natural progression when fractional polynomials alone are insufficient to model the intricate patterns present in the data
+</p>
+</div>
+</div>
+<div id="spline-models" class="section level1">
+<h1>Spline Models</h1>
+<p align="justify">
+<a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9780203738535-7/generalized-additive-models-trevor-hastie">Splines</a> are a class of mathematical functions used in statistical modeling, defined as piecewise polynomials that are joined at specific points called knots. Mathematically, if we denote a spline function by <span class="math inline">\(S(x)\)</span>, it can be represented as:
+<span class="math display">\[S(x) = \begin{cases}
+P_1(x) &amp; \text{for } x \leq k_1, \\
+P_2(x) &amp; \text{for } k_1 &lt; x \leq k_2, \\
+\vdots \\
+P_n(x) &amp; \text{for } x &gt; k_{n-1},
+\end{cases}\]</span>
+where <span class="math inline">\(P_i(x)\)</span> are polynomial functions of degree <span class="math inline">\(d\)</span>, typically represented as <span class="math display">\[P_i(x) = a_{i0} + a_{i1}x + a_{i2}x^2 + \ldots + a_{id}x^d\]</span> for each piece of the spline, with <span class="math inline">\(a_{i0}, a_{i1}, \ldots, a_{id}\)</span> being the coefficients that vary from one segment of the spline to another. The knots <span class="math inline">\(k_1, k_2, \ldots, k_{n-1}\)</span> are specific values in the domain of <span class="math inline">\(x\)</span> where these polynomial pieces meet. Splines ensure continuity and smoothness at these knots by enforcing that both the function and its derivatives up to degree <span class="math inline">\(d-1\)</span> are continuous across the knots. This mathematical formulation allows splines to flexibly model a wide range of functions by varying the number and position of the knots as well as the degree of the polynomial pieces.
+</p>
+<p align="justify">
+Splines, with their diverse forms, can have a variety of applications, each type distinguished by its unique features and mathematical formulation. Linear splines represent the most basic form, where each segment <span class="math inline">\(P_i(x)\)</span> is a linear function, typically <span class="math inline">\(P_i(x) = a_{i0} + a_{i1}x\)</span>. These are straightforward to compute and are used in applications requiring simple, piecewise linear approximations.
+</p>
+<p align="justify">
+Cubic splines elevate the complexity and smoothness, with each <span class="math inline">\(P_i(x)\)</span> being a third-degree polynomial: <span class="math display">\[P_i(x) = a_{i0} + a_{i1}x + a_{i2}x^2 + a_{i3}x^3\]</span>. Their widespread adoption is attributed to their ability to model smooth, continuous curves, making them highly suitable for applications in curve fitting, computer-aided design, and modelling non-linear relationships in data.
+</p>
+<p align="justify">
+<a href="https://link.springer.com/content/pdf/10.1007/978-0-387-84858-7_5.pdf">B-splines</a>, or basis splines, while they can also be cubic, offer a more general and flexible approach. They are defined not by the splines themselves, but by a set of basis functions, which are piecewise polynomials of a specified degree. The key advantage of B-splines is their local control; adjustments in one part of the spline affect only a limited region around that part. This is due to their basis functions having minimal support, which means each function is non-zero only over a small interval.
+</p>
+<p align="justify">
+For B-splines, the mathematical representation shifts from individual polynomial pieces to a sum of basis functions, each weighted by a coefficient. These basis functions are defined over the knots and have local support. The B-spline representation can be expressed as:
+</p>
+<p><span class="math display">\[S(x) = \sum_{i=0}^{n+d} B_{i,d}(x) \cdot c_i\]</span></p>
+<p align="justify">
+Here, <span class="math inline">\(B_{i,d}(x)\)</span> are the B-spline basis functions of degree <span class="math inline">\(d\)</span>, and <span class="math inline">\(c_i\)</span> are the coefficients. The basis functions <span class="math inline">\(B_{i,d}(x)\)</span> are defined recursively, starting with degree 0 (piecewise constant functions) and building up to the desired degree. The recursive definition for a B-spline basis function of degree <span class="math inline">\(d\)</span> is given by:
+</p>
+<p><span class="math display">\[ B_{i,0}(x) = \begin{cases}
+1 &amp; \text{if } k_i \leq x &lt; k_{i+1}, \\
+0 &amp; \text{otherwise},
+\end{cases} \]</span></p>
+<p><span class="math display">\[ B_{i,d}(x) = \frac{x - k_i}{k_{i+d} - k_i} B_{i,d-1}(x) + \frac{k_{i+d+1} - x}{k_{i+d+1} - k_{i+1}} B_{i+1,d-1}(x) \]</span></p>
+<p align="justify">
+The knots <span class="math inline">\(k_0, k_1, \ldots, k_{n+d}\)</span> in the case of B-splines extend beyond the range of the data to ensure that the spline is well-defined at the boundaries. This expansion of the knot sequence provides a framework for the B-spline basis functions to cover the entire domain of the data. Unlike traditional splines, where each polynomial piece is defined explicitly, B-splines construct the spline function as a linear combination of these basis functions, providing a high degree of flexibility and local control over the shape of the spline. This formulation allows for efficient computation and adjustments in a localized manner, making B-splines a powerful tool for modelling complex data in various applications.
+</p>
+</p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p align="justify">
+Figure 6 visualizes the fitting of four distinct statistical models to a dataset:
+</p>
+<ul>
+<li>a cubic polynomial,</li>
+<li>a fractional polynomial,</li>
+<li>a cubic spline, and</li>
+<li>a B-spline.</li>
+</ul>
+<p align="justify">
+The explanatory variable is shown along the x-axis, while the response variable is on the y-axis.
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="splines.png" alt="Comparison of Different Fitting Models" width="650px" />
+<p class="caption">
+Figure 6: Comparison of Different Fitting Models
+</p>
+</div>
+<p align="justify">
+The plot provides a comparative visualization of four distinct statistical models applied to the same data set, with the cubic polynomial model (solid red line) demonstrating a poor fit. It captures the global tendency but lacks the intricacy to model local data variations, likely due to its restrictive assumption of a single global function without ‘breaks’. In contrast, the fractional polynomial (dotted blue line) incorporates power transformations of the explanatory variable, allowing for a more flexible functional form and better accommodation of non-linear relationships within the data. Nevertheless, it continues to apply a global approach to the data, which is evidently insufficient for modelling the localized fluctuations observed in the dataset. Both models underperform, suggesting that their global fitting strategies are inadequate for datasets. A more complex polynomial might offer an enhanced fit, but at the risk of overfitting, which must be judiciously managed.
+</p>
+<p align="justify">
+More nuanced fits are achieved with the spline-based models. The cubic spline (dashed green line) employs piecewise third-degree polynomials, joining at the knots—strategically placed along the domain of the explanatory variable—to enhance model flexibility. This allows the cubic spline to conform more closely to the data’s local variations and structural shifts. The B-spline model (long-dashed purple line), with its basis function approach, offers a superior level of smoothness and local control, manifesting in its ability to trace the dataset’s oscillatory pattern with considerable precision.
+</p>
+<p align="justify">
+The visual assessment thus underscores the critical role of model selection in statistical analysis, emphasizing that the appropriateness of a model is contingent upon its alignment with the data’s inherent patterns and the analysis objectives. The choice of model has profound implications for the accuracy of predictions and the robustness of inferences drawn from the data.
+</p>
+</div>
+<div id="challenges" class="section level2">
+<h2>Challenges</h2>
+<p align="justify">
+The primary challenge in using spline models lies in the selection of knots. The number and location of knots significantly influence the model’s complexity and its ability to capture underlying patterns in data. Too few knots can lead to underfitting, while too many can cause overfitting. There is no universal method for optimal knot placement, often requiring a combination of data-driven techniques and expert judgement. Additionally, spline models can become computationally intensive with an increasing number of knots.
+</p>
+<p align="justify">
+Splines are implemented through specialized algorithms that construct the piecewise polynomial functions and determine the appropriate knot positions, like in the <code>R</code> package <code>splines</code>. These algorithms often utilize basis functions, such as B-spline basis functions, which provide a stable and efficient way to represent spline curves. Computational techniques, like penalized least squares for smoothing splines, are employed to balance model fit and smoothness. Most statistical software packages offer built-in functions for spline modelling, simplifying their application in practical scenarios.
+</p>
+</div>
+<div id="selection-process-for-spline-models" class="section level2">
+<h2>Selection Process for Spline Models</h2>
+<p align="justify">
+<p>The selection process for spline models involves determining the optimal type and number of splines, along with the placement of knots, to best fit the data while avoiding overfitting. This process is a critical step in spline modelling and typically involves a blend of statistical techniques and domain expertise.</p>
+<p align="justify">
+<strong>Type Selection</strong>: The first step is choosing the type of spline (e.g., linear, cubic, B-spline, smoothing spline). The choice depends on the nature of the data and the smoothness required in the model. For instance, cubic splines are often chosen for their balance between flexibility and smoothness.
+</p>
+<p align="justify">
+<strong>Number of Knots</strong>: Deciding on the number of knots is crucial as it controls the flexibility of the spline model. As explained previously, fewer knots result in a smoother, but potentially underfit model, while more knots can capture finer details but risk overfitting. Methods like cross-validation can be used to determine an optimal number of knots (<code>caret</code> package in <code>R</code>). In cross-validation, the data is divided into subsets; the model is trained on some subsets and validated on others, with the goal of minimizing prediction error.
+</p>
+<p align="justify">
+<strong>Knot Placement</strong>: The location of knots is equally important. Knots can be placed at quantiles of the independent variable, which is a common strategy for evenly distributing them across the range of data. Alternatively, adaptive methods can be used where knot placement is data-driven, focusing on regions where the function appears to change rapidly.
+</p>
+<p align="justify">
+<strong>Model Complexity and Regularization</strong>: For smoothing splines, the degree of smoothness is controlled by a smoothing parameter. Techniques like the Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC), or <a href="https://www.sciencedirect.com/science/article/abs/pii/S0005109817306416">generalized cross-validation (GCV)</a>
+are used to select this parameter. These methods aim to find a balance between the goodness of fit and the complexity of the model.
+</p>
+<p align="justify">
+<strong>Model Validation</strong>: After selecting the spline model, it is validated using unseen data or through resampling methods like bootstrapping. This step is crucial to ensure that the model generalizes well and does not merely capture the idiosyncrasies of the training data.
+</p>
+</div>
+</div>
+<div id="citation" class="section level1">
+<h1>Citation</h1>
+<ol style="list-style-type: decimal">
+<li>For attribution, please cite this work as:</li>
+</ol>
+<div class="div-1">
+<p>Oliveira T.P. (2024, Jan. 25). Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>BibTeX citation</li>
+</ol>
+<pre><code>@misc{oliveira2024polynomials,
+  author = {Oliveira, Thiago},
+  title = {Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models},
+  url = {https://prof-thiagooliveira.netlify.app/post/exploring-the-technicalities-of-data-fitting-polynomial-fractional-polynomial-and-spline-models/},
+  year = {2024}
+}</code></pre>
+<p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
+</div>

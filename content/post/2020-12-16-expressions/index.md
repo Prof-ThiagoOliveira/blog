@@ -1,5 +1,5 @@
 ---
-title: Expressions
+title: Expressions in C++
 author: Thiago de Paula Oliveira
 date: '2020-12-16'
 slug: expressions
@@ -14,7 +14,7 @@ subtitle: ''
 summary: ''
 authors: 
 - admin
-lastmod: '2020-12-16T12:15:54Z'
+lastmod: '2024-01-06T12:15:54Z'
 featured: no
 image:
   caption: ''
@@ -30,35 +30,37 @@ output:
 
 # Introduction
 
-Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code. Thus, every expression is any part of a statement that returns a value, as in the follow example: 
+
+Expressions in C++ are fundamental constructs made up of operators, constants, and variables, following the language's syntactical rules. Every expression is a segment of a code that returns a value. For instance:
 
 <img src="exp1.png" width="320px" style="display: block; margin: auto;" />
 
-This statement creates a box to store the value of $x$ and another to store the value of $y$, which is equal to the expression $x$ plus 13 ($y=23$). Now consider a more complex statement:
+This example demonstrates the creation of variables to store values: a box for $x$ and another for $y$, where $y$ equals the expression $x + 13$ (thus, $y = 23$). Now, let's delve into a more complex example:
 
 <img src="exp2.png" width="500px" style="display: block; margin: auto;" />
 
-This statment consists of three expressions:
+This statement encompasses three expressions:
 <div class="div-1">
 * The results of the expression $3 - x$ is stored in the variable $y$
 * The expression $y = 3 - x$ returns the value of $y$, and it is stored in the variable $v$
 * The results of the expression $y \times \left(\frac{v}{5} + x\right)$ is stored in the variable $z$
 </div>
 
-Remember that multiplication and division occur before addition and subtraction. Ex.:
+It's essential to remember the precedence of operations: multiplication and division are executed before addition and subtraction. For example:
 ```
 1-3*4 = -11
 2/3-4*2/3 = -2
 2/3-4/4*2/3 = 0
 ```
-The **operator precedente** dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence in relation to other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression $\frac{2}{4}-3+ 4 \times 6$, firstly the subexpressions $\frac{2}{4}$ and $4 \times 6$ will be evaluated (Step 1 in the Figure 1), and then addition and subtraction (Step 2 in the Figure 1). Note that multiplication and division, or addition and subtraction have same precedente, then tey are evaluated from left to right due to its associativity. 
+
+**Operator precedence** in `C++` determines the sequence of operations in an expression. Operators have a specific order of execution relative to others. For instance, in the expression $\frac{2}{4} - 3 + 4 \times 6$, the subexpressions $\frac{2}{4}$` and `$4 \times 6$ are calculated first, followed by the addition and subtraction. When operators have the same precedence, their associativity dictates the order - either left-to-right or right-to-left.
 
 <div class="figure" style="text-align: center">
 <img src="exp3.png" alt="Precedence order" width="300px" />
 <p class="caption">Precedence order</p>
 </div>
 
-**Associativity** defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative while assignment operators are typically right-associative. Besides, there are operators that have no defined behavior when used in sequence over an expression, and they are called as non-associative (Figure 2). Note that when we include parentheses, we can force an expression to be right-associative rather than left-associative as usual. 
+**Associativity** specifies the order of operations for operators with the same precedence level. It can be left-to-right or right-to-left. Typically, addition, subtraction, multiplication, and division are left-associative, while assignment operators are right-associative. Some operators are non-associative, meaning their behaviour is undefined if used sequentially in an expression. Parentheses can alter the default associativity, enforcing a specific order.
 
 <div class="figure" style="text-align: center">
 <img src="exp4.png" alt="Example of left-associative, right-associative, and non-associative" width="800px" />
@@ -73,16 +75,15 @@ Consider the following example:
 ```
 5 + 6 * 7
 ```
-The `*` operator is evaluated firstly followed by the `+` operator, so the result is $5+6\times 7 = 47$. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:
+The `*` operator is evaluated firstly, followed by the `+` operator, so the result is $5+6\times 7 = 47$. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:
 ```
 (5 + 6) * 7
 ```
-Then, the program will compute $\left(5+6\right)\times 7=11\times 7=77$. Sometimes, the inclusion of parentheses should be important to makes your code easier to understand, and therefore easier to maintain.
-
+Then, the program will compute $\left(5+6\right)\times 7=11\times 7=77$. Sometimes, parentheses' inclusion should be important to make your code easier to understand, and therefore easier to maintain.
 
 # Modulus operator (%)
 
-Modulus operator evaluates to the remainder when dividing the first operand by the second one. Ex.: `a % b` is the remainder when $a$ is divided<table class="wikitable">
+The modulus operator evaluates the remainder when dividing the first operand by the second one. Ex.: `a % b` is the remainder when $a$ is divided<table class="wikitable">
 
  by $b$ ($a$ modulus $b$).<table class="wikitable"> by $b$ ($a$ modulus $b$).
 
@@ -107,7 +108,7 @@ x % y = 1 (modulus)
 
 # Short hand or syntatic sugar
 
-Short hand expressions provide a short way to write common patterns over the algorithm for initialized variables. 
+Short hand expressions provide a straightforward way to write common patterns over the algorithm for initialized variables. 
 
 | Short hand | Meaning         |              Prefix and Postfix                 | 
 |------------|-----------------|-------------------------------------------------|
@@ -122,7 +123,7 @@ Short hand expressions provide a short way to write common patterns over the alg
 
 ## Example 1:
 
-Here you can see that `y ++= x * z;` is calculate as $y=y+x \times z = 30 + 2 \times 4 = 34$.
+Here you can see that `y ++= x * z;` is calculate as $y=y+x \times z = 30 + 2 \times 4 = 38$.
 
 <img src="example1.png" width="350px" style="display: block; margin: auto;" />
 
@@ -364,10 +365,74 @@ Note that when we use `x*= (y/z) % 2` the variable $x$ multiply the entire expre
 </ol>
 </div>
 
+## Impact of Data Types on Expressions
+
+In `C++`, the data type of the variables involved in an expression significantly impacts the result. For instance, dividing two integers results in an integer, while using at least one floating-point number yields a floating-point result. Understanding how data types interact within expressions is crucial for accurate calculations and avoiding common pitfalls like integer truncation.
+
+Here are some key points about integer truncation and other common pitfalls in C++:
+
+1. **Integer Truncation**: This occurs when the result of a division or other operation between integers is a floating-point number, but the data type is an integer. For example, `int result = 5 / 2;` will store `2` in `result`, not `2.5`, as the fractional part is truncated.
+
+2. **Implicit Type Conversions**: `C++` automatically converts types in certain situations, which can lead to unexpected results. For instance, mixing signed and unsigned integers in expressions can cause unexpected behaviours due to implicit type conversions.
+
+3. **Overflow and Underflow**: This happens when a variable is assigned a value outside its range. For example, storing a value larger than the maximum value that an `int` can hold will result in overflow, leading to unexpected values.
+
+4. **Precision Loss in Floating-Point Numbers**: Floating-point variables can lose precision, especially when dealing with very large or very small numbers. This can result in rounding errors in calculations.
+
+5. **Division by Zero**: This can occur if a program inadvertently divides a number by zero. It's a critical error in `C++` and can cause a program to crash or behave unpredictably.
+
+6. **Uninitialized Variables**: Using variables before initializing them can lead to unpredictable results, as they may contain random data.
+
+7. **Pointer Errors**: Common mistakes with pointers include dereferencing a null or uninitialized pointer, pointer arithmetic errors, and memory leaks.
+
+8. **Operator Precedence Mistakes**: Misunderstanding the order in which operations are performed can lead to bugs. For example, assuming that `a + b * c` adds `a` and `b` before multiplying by `c` (it doesn't; multiplication is done first).
+
+9. **Assuming Size of Data Types is Constant**: The size of data types like `int` can vary depending on the system. Assuming a constant size can lead to errors, particularly when performing operations like bit manipulation or working with binary file formats.
+
+10. **Not Checking the Return Value of Functions**: When functions return values to indicate success or failure, not checking these can lead to the program continuing as if nothing went wrong, even when errors have occurred.
+
+
+## Role of Type Casting in Expressions
+
+Type casting in expressions can be used to explicitly convert data from one type to another. This technique is particularly useful in situations where operations between different data types are necessary. For example, casting an integer to a float in a division operation to obtain a floating-point result. However, it's important to use type casting judiciously to maintain the precision and integrity of data.
+
+## The Significance of Expression Evaluation Order
+
+While operator precedence and associativity rules dictate the order of operations in an expression, the sequence in which expressions are evaluated can also be influenced by function calls, side effects, and sequence points. Understanding how `C++` evaluates expressions, especially in complex statements, is essential for debugging and writing predictable code.
+
+## Compiler Optimizations and Expressions
+
+Modern `C++` compilers often optimize expressions to enhance performance. These optimizations might include reordering operations (while respecting the language rules), eliminating redundant calculations, or simplifying expressions at compile time. Being aware of these potential optimizations can help in writing more efficient code and understanding any discrepancies between the written code and its execution behaviour.
+
+## Best Practices for Writing Expressions
+
+To maintain readability and reduce errors in `C++`, it's advisable to write clear and simple expressions. Avoid overly complex expressions, use parentheses to clarify order of operations, and follow coding standards and guidelines. Readable expressions are easier to debug, maintain, and understand, especially in collaborative environments.
+
+Adding these paragraphs can provide a more comprehensive and nuanced understanding of expressions in `C++`, catering to both beginners and experienced programmers.
 
 # References
 
 * C Operator Precedence - https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1
+
+
+# Citation
+
+1. For attribution, please cite this work as:
+
+<div class="div-1">
+Oliveira T.P. (2020, Dec. 16). Expressions in C++
+</div>
+
+2. BibTeX citation
+
+```
+@misc{oliveira2020expression,
+  author = {Oliveira, Thiago},
+  title = {Expressions in C++},
+  url = {https://prof-thiagooliveira.netlify.app/post/expressions/},
+  year = {2020}
+}
+```
 
 **Did you find this page helpful? Consider sharing it 🙌**
                        

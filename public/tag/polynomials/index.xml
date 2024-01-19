@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Polynomials | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tag/polynomials/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tag/polynomials/index.xml" rel="self" type="application/rss+xml" />
+    <description>Polynomials</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Thiago Oliviera</copyright><lastBuildDate>Fri, 19 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/icon_hucac388deec264b13c6395804f04d3e9e_484996_512x512_fill_lanczos_center_3.png</url>
+      <title>Polynomials</title>
+      <link>https://prof-thiagooliveira.netlify.com/tag/polynomials/</link>
+    </image>
+    
+    <item>
+      <title>Exploring the Technicalities of Data Fitting</title>
+      <link>https://prof-thiagooliveira.netlify.com/post/statistics/</link>
+      <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/post/statistics/</guid>
+      <description>
+
+
+&lt;p align=&#34;justify&#34;&gt;
+The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Polynomial Models&lt;/strong&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fractional Polynomials&lt;/strong&gt;, and&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spline Models&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Each of these models serves as a fundamental tool in the statistical toolkit, enabling us to capture and understand the intricacies of linear and non-linear relationships inherent in real-world data.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+As a bio-statistician entrenched in the technical aspects of data analysis, I recognize the critical importance of these models. We will commence with an examination of Polynomial Models, discussing their mathematical underpinnings and practical applications in capturing curvilinear trends. Next, we will navigate through the Fractional Polynomials, a more flexible extension of traditional polynomials, adept at modelling asymmetric patterns. Lastly, we will explore Spline Models, one of the most flexible approach in data fitting, capable of adapting to complex and segmented patterns in data.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+This post is designed not just to inform but to provide a technical understanding of these models with examples, illustrating their relevance and application in contemporary data analysis. Whether you are a data scientist, a statistician, or a researcher grappling with complex data sets, this exploration aims to enhance the modelling arsenal, offering insights into when and how to apply these models effectively.
+&lt;/p&gt;
+&lt;div id=&#34;polynomial-models&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Polynomial Models&lt;/h1&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Polynomial Models, represented by functions of the form &lt;span class=&#34;math display&#34;&gt;\[y = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0,\]&lt;/span&gt; are foundational in modelling curvilinear relationships. In this formulation, each &lt;span class=&#34;math inline&#34;&gt;\(a_i\)&lt;/span&gt; (where &lt;span class=&#34;math inline&#34;&gt;\(i = 0, 1, \ldots, n\)&lt;/span&gt;) denotes the coefficient corresponding to the &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt;-th term of the polynomial, and &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; is the independent or exploratory variable. The degree &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; of the polynomial determines the model’s complexity, with higher degrees allowing for more intricate curve shapes.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+These models are particularly useful in capturing the non-linear dynamics often observed in real-world data. For instance, a quadratic model (where &lt;span class=&#34;math inline&#34;&gt;\(n = 2\)&lt;/span&gt;) can describe simple parabolic trends, while higher-degree models, such as cubic (&lt;span class=&#34;math inline&#34;&gt;\(n = 3\)&lt;/span&gt;) or quartic (&lt;span class=&#34;math inline&#34;&gt;\(n = 4\)&lt;/span&gt;), enable the representation of more complex and varied behaviours (Figure 1).
+&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;polynomial.png&#34; alt=&#34;Comparative Visualization of Polynomial Fits: Degrees 1 to 4&#34; width=&#34;650px&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Comparative Visualization of Polynomial Fits: Degrees 1 to 4
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p align=&#34;justify&#34;&gt;
+However, increasing the degree &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; also increases the risk of overfitting, a phenomenon where the model adapts too closely to the specificities of the training data, including noise, at the expense of generalizability to new data (Figure 2). Overfitting leads to models that perform poorly in predictive scenarios, failing to capture the true underlying trend.
+&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;poly_overfit.png&#34; alt=&#34;Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits&#34; width=&#34;650px&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Polynomial models are extensively applied across various disciplines. In physics, they are instrumental in modelling motion under uniform acceleration, among other phenomena. In economics, polynomial trends are fitted to time series data to understand market dynamics. In biological sciences, these models aid in interpreting growth rates and simple gene expression patterns. The interpretation of the coefficients &lt;span class=&#34;math inline&#34;&gt;\(a_i\)&lt;/span&gt; can provide significant insights; for instance, in the quadratic model &lt;span class=&#34;math inline&#34;&gt;\(y = ax^2 + bx + c\)&lt;/span&gt;, the sign of &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; determines the direction in which the parabola opens, offering crucial information about the nature of the relationship being modelled (Figure 3).
+&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;parabola.png&#34; alt=&#34;Parabola Opening Upwards and Downwards&#34; width=&#34;500px&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: Parabola Opening Upwards and Downwards
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In practical applications, the selection of the polynomial degree &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is critical. It is a balance between capturing the complexity of the data and avoiding overfitting (Figure 2). Techniques such as cross-validation, where the data is divided into training and testing sets, can be used to determine the optimal degree of the polynomial. Additionally, statistical measures like the Akaike Information Criterion (AIC) or the Bayesian Information Criterion (BIC) are often employed to select the most appropriate model by balancing model fit and complexity.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In summary, Polynomial Models are a versatile and powerful tool in statistical modelling. Their ability to approximate complex functions with a relatively straightforward mathematical formulation makes them a fundamental component in various fields of data analysis.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+While traditional polynomial models are highly effective, they sometimes lack the flexibility required for certain types of data, particularly those exhibiting asymmetric trends. This limitation led to the development of fractional polynomial models, which extend the concept of polynomial models by allowing for fractional exponents. This advancement provides a greater ability to fit a wider range of curves and is especially useful in cases where the relationship between variables is not adequately captured by integer exponents.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fractional-polynomial-models&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Fractional Polynomial Models&lt;/h1&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Fractional Polynomials represent an advanced evolution of traditional polynomial models, marked by their use of non-integer, real-number exponents in the independent variable. Mathematically, they are expressed as &lt;span class=&#34;math display&#34;&gt;\[y = \beta_0 + \beta_1 x^{p_1} + \beta_2 x^{p_2} + \ldots + \beta_n x^{p_n},\]&lt;/span&gt; where &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; is the independent variable, &lt;span class=&#34;math inline&#34;&gt;\(\beta_i\)&lt;/span&gt; are coefficients, and &lt;span class=&#34;math inline&#34;&gt;\(p_i\)&lt;/span&gt; are the variable powers. These powers, unlike the integer-only powers in traditional polynomials, can include any real number like &lt;span class=&#34;math inline&#34;&gt;\(0.5\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(-1\)&lt;/span&gt;, or &lt;span class=&#34;math inline&#34;&gt;\(2.3\)&lt;/span&gt;. This flexibility significantly broadens the modeling capability of polynomials, allowing for more precise fitting to complex and asymmetric data patterns. Terms such as &lt;span class=&#34;math inline&#34;&gt;\(x^{-1}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(x^{0.5}\)&lt;/span&gt;, representing the reciprocal and square root of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; respectively, enable the modeling of relationships that exhibit dramatic changes over different ranges of &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, a task challenging for standard polynomial models with integer exponents.
+&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;frac_poly.png&#34; alt=&#34;Comparative Visualization of Fractional Polynomial Fits&#34; width=&#34;650px&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 4: Comparative Visualization of Fractional Polynomial Fits
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p align=&#34;justify&#34;&gt;
+The utility of fractional polynomials extends to various fields, notably in medical statistics and biological data analysis, where data patterns often defy symmetry. They are particularly adept in modeling phenomena like dose-response curves in pharmacokinetics and progression rates of diseases, where the response changes in a non-linear fashion. Such flexibility makes them invaluable in scenarios where data exhibit complex, non-standard behaviors.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+However, the complexity of fractional polynomials can pose interpretational challenges, and like their traditional counterparts, they are susceptible to overfitting. This risk is heightened with the inclusion of multiple fractional terms or higher degrees, necessitating careful model selection and validation processes. Methods such as cross-validation or the use of information criteria like AIC or BIC are often employed to balance model fit against the risk of overfitting.
+&lt;/p&gt;
+&lt;div id=&#34;finding-optimal-power-values-in-fractional-polynomials&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Finding Optimal Power Values in Fractional Polynomials&lt;/h2&gt;
+&lt;p align=&#34;justify&#34;&gt;
+The process of finding the best values for &lt;span class=&#34;math inline&#34;&gt;\(p_1, p_2, \ldots, p_n\)&lt;/span&gt; is inherently iterative and may require a combination of statistical testing, validation techniques, and expert judgement. The goal is to have a balance between a model that fits the data well, is not overly complex, and is robust to variations in model parameters.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+In Figure 5, I exemplify this process by fitting various fractional polynomial models to the dataset. Through the application of the Bayesian Information Criterion (BIC), I identified the most parsimonious model, which is succinctly expressed mathematically as &lt;span class=&#34;math display&#34;&gt;\[y = \beta_0 + \beta_1 x^{1.13},\]&lt;/span&gt; and the corresponding BIC value for this model is denoted as &lt;span class=&#34;math inline&#34;&gt;\(−144.34\)&lt;/span&gt;.
+&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;fractional_polynomial_fit_with_bic.gif&#34; alt=&#34;Comparative Visualization of Fractional Polynomial Fits&#34; width=&#34;650px&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 5: Comparative Visualization of Fractional Polynomial Fits
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p align=&#34;justify&#34;&gt;
+Below I have described some possible approaches to achieve this objective:
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Initial Power Selection&lt;/strong&gt;: Start with a set of candidate powers, often including a mix of positive, negative, and fractional values. Common choices are &lt;span class=&#34;math inline&#34;&gt;\(-2, -1, -0.5, 0, 0.5, 1, 2, 3\)&lt;/span&gt;. The selection of these initial powers is guided by prior knowledge about the data, theoretical considerations, or exploratory analysis.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Model Fitting and Comparison&lt;/strong&gt;: Fit fractional polynomial models using different combinations of these candidate powers. This fitting can be done using least squares regression or other suitable methods depending on the nature of the data. For each model, compute a goodness-of-fit statistic, such as the residual sum of squares (RSS) or the Akaike Information Criterion (AIC).
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Iterative Testing&lt;/strong&gt;: Employ an iterative approach to test various combinations of powers. This might involve starting with a simple model and gradually adding complexity (increasing the number of terms) while monitoring the improvement in the fit.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Cross-Validation&lt;/strong&gt;: To guard against overfitting, especially in models with higher degrees or more terms, use cross-validation. Divide your data into training and testing sets. Fit the model to the training set and evaluate its performance on the testing set. This step helps in assessing the model’s predictive accuracy.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Statistical Significance&lt;/strong&gt;: Assess the statistical significance of the coefficients associated with each term in the model. Non-significant terms might suggest that certain powers do not contribute meaningfully to the model and could be excluded.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Model Selection Criteria&lt;/strong&gt;: Use model selection criteria like AIC or BIC to compare models with different combinations of powers. These criteria balance the goodness of fit with the complexity of the model, helping to choose a model that is both accurate and parsimonious.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;strong&gt;Sensitivity Analysis&lt;/strong&gt;: Conduct sensitivity analyses by varying the powers slightly to see how robust the model is to changes in these parameters. This step is crucial to understand the stability and reliability of the model.
+&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;
+While fractional polynomials offer enhanced modelling flexibility over traditional polynomials, they sometimes fall short in handling data with distinct behavioural changes across different segments. This limitation summed to the difficulty in determine &lt;span class=&#34;math inline&#34;&gt;\(p_i\)&lt;/span&gt; are where spline models come into play. Spline models, constructed as piecewise polynomials, provide localized fitting capabilities, adapting seamlessly to variations within different data segments. Such adaptability is particularly useful in datasets with distinct phases or regimes. Thus, spline models emerge as a natural progression when fractional polynomials alone are insufficient to model the intricate patterns present in the data
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;spline-models&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Spline Models&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;p align=&#34;justify&#34;&gt;
+&lt;p&gt;Carrasco, J. L., King, T. S., &amp;amp; Chinchilli, V. M. (2009). The Concordance Correlation Coefficient for Repeated Measures Estimated by Variance Components. &lt;em&gt;Journal of Biopharmaceutical Statistics, 19&lt;/em&gt;, 90-105. DOI: 10.1080/10543400802527890&lt;/p&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;citation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Citation&lt;/h1&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;For attribution, please cite this work as:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;div-1&#34;&gt;
+&lt;p&gt;Oliveira T.P. (2024, Jan. 25). Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;BibTeX citation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;@misc{oliveira2024polynomials,
+  author = {Oliveira, Thiago},
+  title = {Exploring the Technicalities of Data Fitting - Polynomial, Fractional Polynomial, and Spline Models},
+  url = {https://prof-thiagooliveira.netlify.app/post/exploring-the-technicalities-of-data-fitting-polynomial-fractional-polynomial-and-spline-models/},
+  year = {2024}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
