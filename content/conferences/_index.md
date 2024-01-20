@@ -21,6 +21,10 @@ design:
     text_color_light: true
 ---
 
+**2023**
+
+1. [The Plant and Animal Genome Conference (PAG) - PAG 31](https://www.intlpag.org/31/)
+
 **2022**
 
 1.  [**World Congress on Genetics Applied to Livestock Production (WCGALP)**](https://wcgalp.com/)
