@@ -116,7 +116,7 @@ The process of finding the best values for $p_1, p_2, \ldots, p_n$ is inherently
 </p>
 
 <p align="justify">
-In Figure 5, I exemplify this process by fitting various fractional polynomial models to the dataset. Through the application of the Bayesian Information Criterion (BIC), I identified the most parsimonious model, which is succinctly expressed mathematically as $$y = \beta_0 + \beta_1 x^{1.13},$$ and the corresponding BIC value for this model is denoted as $−144.34$.
+In Figure 5, I exemplify this process by fitting various fractional polynomial models to the dataset. Through the application of the Bayesian Information Criterion (BIC), I identified the most parsimonious model, which is succinctly expressed mathematically as $$E(y) = \beta_0 + \beta_1 x^{1.13},$$ and the corresponding BIC value for this model is denoted as $−144.34$.
 </p>
 
 ```{r,echo=FALSE,fig.cap="Comparative Visualization of Fractional Polynomial Fits", out.width = "650px", fig.align='center'}
