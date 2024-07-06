@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | Thiago Oliveira</title>
-    <link>http://localhost:4321/project/</link>
-      <atom:link href="http://localhost:4321/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/project/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Projects</title>
-      <link>http://localhost:4321/project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/</link>
     </image>
     
     <item>
       <title>Analysis of non-additive genetic variance in breeding programmes</title>
-      <link>http://localhost:4321/project/non-additive/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/non-additive/</link>
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/non-additive/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/non-additive/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 This seeding project aims to build a proof of concept for extending our recently developed framework for temporal and genomic analysis of additive genetic variance in breeding programmes to non-additive genetic variance. The primary purpose of this extension is to quantify the magnitude of non-additive genetic variance and relatedy to quantify the contribution of inbreeding depression and heterosis to genetic gain in breeding programmes.
 &lt;/p&gt;
@@ -25,9 +25,9 @@ This seeding project aims to build a proof of concept for extending our recently
     
     <item>
       <title>Statistical models applied to quantitative genetics and genomics of plant breeding</title>
-      <link>http://localhost:4321/project/genetic-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/genetic-project/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/genetic-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/genetic-project/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 Plant breeding programmes are a complex network of a multitude of operations and decisions. Quantifying the drives of genetic change in such programmes is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these measures only change the overall genetic mean. To understand the genetic change more comprehensively, we also need to measure the change in genetic variance and drives of mean and variance changes. 
 &lt;/p&gt;
@@ -58,9 +58,9 @@ This project aims to apply the partitioning method to plant breeding programmes 
     
     <item>
       <title>Development and Application of Statistical Frameworks in Sports Analytics</title>
-      <link>http://localhost:4321/project/sports-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/sports-project/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/sports-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sports-project/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 Utilizing statistical frameworks in sports analytics enables more precise evaluations of athlete performance and team dynamics. This advancement provides coaches and stakeholders with deeper insights, fostering informed decisions that can significantly elevate a team&#39;s competitive edge.
 &lt;/p&gt;

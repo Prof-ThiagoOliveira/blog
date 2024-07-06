@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Thiago Oliveira</title>
-    <link>http://localhost:4321/</link>
-      <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Thiago Oliveira</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Thiago Oliveira</title>
-      <link>http://localhost:4321/</link>
+      <link>https://prof-thiagooliveira.netlify.com/</link>
     </image>
     
     <item>
       <title>Main elements and questions of a good experimental plan.</title>
-      <link>http://localhost:4321/post/experimental_design/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/experimental_design/</link>
       <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/experimental_design/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/experimental_design/</guid>
       <description>&lt;h3 id=&#34;did-you-find-this-page-helpful-consider-sharing-it-&#34;&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/h3&gt;
 </description>
     </item>
     
     <item>
       <title>Completed &amp; Discontinued Projects</title>
-      <link>http://localhost:4321/accomplishments/projects/</link>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</link>
       <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/accomplishments/projects/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -247,322 +247,26 @@ Promote the usage of image analysis as well as development of statistical method
     </item>
     
     <item>
-      <title>Comparing data read and write performance in R</title>
-      <link>http://localhost:4321/post/data-read-write-performance/</link>
-      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/data-read-write-performance/</guid>
-      <description>&lt;style&gt;
-/* Blog post container */
-body {
-   font-family: &#39;Helvetica Neue&#39;, Arial, sans-serif;
-   font-size: 1rem;
-   line-height: 1.8;
-   color: #333;
-   text-align: justify;
-   background-color: #fafafa;
-   margin: 0;
-   padding: 0 20px;
-}
-
-/* Header styling */
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 {
-  font-weight: 600; /* Semi-bold for a professional look */
-  margin-bottom: 0.75em; /* Slightly reduced bottom margin */
-  color: #0d0d0d;
-  line-height: 1.2;
-  margin-top: 1.5em; /* Added top margin for consistency */
-}
-
-h1 {
-  font-size: 1.75rem; 
-  border-bottom: 2px solid #3b80d1;
-  padding-bottom: 0.3em; /* Padding for visual separation */
-  margin-top: 1em; 
-}
-
-h2 {
-  font-size: 1.5rem; 
-  color: #3b80d1;
-  padding-bottom: 0.2em; /* Padding for visual separation */
-}
-
-h3 {
-  font-size: 1.25rem; 
-  color: #333;
-}
-
-h4 {
-  font-size: 1.125rem; 
-  color: #333;
-}
-
-h5 {
-  font-size: 1rem; 
-  color: #333;
-}
-
-h6 {
-  font-size: 0.875rem; 
-  color: #333;
-}
-
-/* Link styling */
-a {
-  color: #3b80d0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #1a57a0;
-}
-
-/* Code styling */
-pre, 
-.code-input {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 10px;
-  font-size: 0.9rem;
-  border-radius: 5px;
-  margin: 20px 0;
-  overflow-x: auto;
-}
-
-code {
-  font-size: 0.9rem;
-  background-color: #f5f5f5;
-  padding: 2px 4px;
-  border-radius: 3px;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5em;
-  text-align: left;
-}
-
-th, 
-td {
-  padding: 12px;
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #3b80d1;
-  color: white;
-}
-
-/* Div options - color box text */
-.div-1 {
-  color: black;
-  background-color: #d6edd3;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-
-.div-2 {
-  color: black;
-  background-color: #cfbe7e;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-
-/* Article content */
-.article-content {
-  text-align: justify;
-}
-
-/* Image styling */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-&lt;/style&gt;
-&lt;h1 id=&#34;post-summary&#34;&gt;Post Summary&lt;/h1&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Efficient data handling is crucial for daily data analysis tasks. In this post, we will compare the performance of various data formats in `R` for reading and writing operations. The formats considered include RDS, CSV (using `data.table` and `readr`), FST, Feather, Parquet, and QS. We will benchmark the speed, file sizes, and memory usage of each format across different data sizes.
-&lt;/p&gt;
-&lt;h1 id=&#34;database-definition&#34;&gt;Database Definition&lt;/h1&gt;
-&lt;p align=&#34;justify&#34;&gt;
-In this section, we will describe each of the data formats in detail, highlighting their strengths and weaknesses. We will provide insights into the specific use cases where each format excels. The choice of format will depend on the specific needs of the data analysis tasks.
-&lt;/p&gt;
-&lt;h2 id=&#34;rds&#34;&gt;RDS&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-RDS is a format native to `R` that is highly efficient for saving single R objects. The `saveRDS()` and `readRDS()` functions are used to write and read `R` objects, respectively. RDS seamlessly integrates with `R`, retaining object metadata including data types and structures, which is beneficial for preserving the exact state of an `R` object. It provides fast read and write operations for moderate data sizes, making it suitable for storing intermediate results and final outputs in `R`. Additionally, it is easy to use with built-in `R` functions. However, it can result in larger file sizes compared to some compressed formats due to lack of advanced compression. Moreover, RDS has limited compatibility with other software or programming languages, limiting its use for data sharing outside of `R` environments.
-&lt;/p&gt;
-&lt;h2 id=&#34;qs&#34;&gt;QS&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-QS (Quick Serialization of `R` objects) is a binary format for `R` objects that emphasizes speed and compression. It uses advanced compression algorithms to achieve high performance. QS provides extremely fast read and write operations, even for large data sets, making it suitable for high-performance computing tasks. It uses advanced compression techniques to reduce file size significantly without compromising on speed. Additionally, QS preserves `R` object metadata, ensuring that data types and structures are maintained. However, QS is mainly designed for use within `R`, with limited support in other programming environments. It also requires familiarity with additional functions and parameters to fully leverage its capabilities, which might be a barrier for new users. The goal of this package is to provide a lightning-fast and complete replacement for the `saveRDS` and `readRDS` functions in `R`.
-&lt;/p&gt;
-&lt;h2 id=&#34;csv-using-datatable-and-readr&#34;&gt;CSV (using &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;readr&lt;/code&gt;)&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-CSV (Comma-Separated Values) is a plain text format widely used for data storage and transfer. `R` offers multiple ways to handle CSV files, with `data.table` and `readr` being popular for their speed and efficiency. The universality of CSV makes it readable across different software and programming languages. Its simple, plain text format can be easily inspected and edited manually, facilitating easy debugging and quick checks. Moreover, `data.table` and `readr` provide efficient functions for reading and writing CSV files in `R`, enhancing performance over base `R` functions. However, CSV does not retain data types and structure information, requiring manual handling and potential data type issues when reading back. It is generally slower for large data sets compared to binary formats due to the need to parse text. The text format also results in larger file sizes, especially for large data sets with many rows and columns.
-&lt;/p&gt;
-&lt;h2 id=&#34;columnar-storage-formats&#34;&gt;Columnar storage formats&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Columnar storage is a method of storing data tables that improves the efficiency of reading and writing operations, especially for large data sets. Instead of storing data row by row, columnar storage organizes data by columns. This allows for more efficient data compression and faster retrieval of specific columns, which is particularly beneficial for analytical queries that often access a subset of columns from a large data set.
-&lt;/p&gt;
-&lt;h3 id=&#34;fst&#34;&gt;FST&lt;/h3&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The `fst` package is a fast, binary data format for `R` data frames. It uses a highly efficient columnar storage format and supports multiple compression algorithms. FST offers extremely fast read and write operations, especially for large data sets, making it ideal for scenarios requiring frequent data access and manipulation. It efficiently compresses data, reducing file size significantly without sacrificing speed. The columnar storage format is optimized for columnar data access, enhancing speed for specific column retrieval and partial data loading. While FST is primarily designed for use within `R`, it is not limited to it. The `pyfst` library, for example, provides an interface to the `OpenFst` library, enabling similar fast storage and retrieval functionalities in Python. However, within `R`, FST can be slightly more complex to use compared to native formats due to additional options and parameters for compression and storage.
-&lt;/p&gt;
-&lt;h3 id=&#34;feather&#34;&gt;Feather&lt;/h3&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Feather is a binary columnar data format that is part of the Apache Arrow project. It provides efficient storage for data frames and supports interchangeability between different languages. Feather supports interchangeability between `R`, Python, and other languages, making it a great choice for multi-language data workflows. It offers fast read and write speeds due to columnar storage, suitable for handling large data sets efficiently. It is also easy to use with the `arrow` package in `R`, allowing straightforward data exchange and manipulation. However, file sizes are generally larger than highly compressed formats like FST or Parquet, which might be a concern for very large data sets. Additionally, Feather is continually evolving, which might affect long-term stability and require frequent updates.
-&lt;/p&gt;
-&lt;h3 id=&#34;parquet&#34;&gt;Parquet&lt;/h3&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Parquet is a columnar storage file format optimized for large-scale data processing and is part of the Apache Hadoop ecosystem. Parquet is widely supported across different programming languages and big data tools, including `R`, Python, Spark, and more, facilitating seamless data exchange. It uses highly efficient data compression and encoding schemes to reduce file sizes significantly while maintaining performance. The columnar storage format is optimized for read performance on large data sets, especially when querying specific columns, making it ideal for big data applications. However, Parquet is more complex to handle due to advanced features and options for compression, encoding, and storage management.
-&lt;/p&gt;
-&lt;h1 id=&#34;data-simulation&#34;&gt;Data Simulation&lt;/h1&gt;
-&lt;p align=&#34;justify&#34;&gt;
-To evaluate the performance of various data formats, we generated sample datasets of varying sizes using a custom data generation function. This function creates data frames with three columns: an `ID` column with sequential integers, a `Value` column with random normal values, and a `Group` column with randomly selected letters. The sizes of the datasets range from 100 to 10 million rows, allowing us to assess the performance across different scales. The random seed is set to $123$ to ensure reproducibility of the generated data.
-&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Function to generate sample datasets
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;generate_sample_data &amp;lt;- function(n) {
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  set.seed(123)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  data.frame(
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ID = 1:n,
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Value = rnorm(n),
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Group = sample(letters, n, replace = TRUE)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  )
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Define dataset sizes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dataset_sizes &amp;lt;- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;benchmarking-read-and-write-performance&#34;&gt;Benchmarking read and write performance&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The benchmarking process involves measuring the time taken to read from and write to different data formats. We used the `microbenchmark` package in `R` to perform these measurements, ensuring that each operation is repeated 30 times to obtain reliable statistics.
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-For writing operations, we utilized the following functions:
-&lt;ul&gt;
-  &lt;li&gt;`saveRDS()` for RDS files&lt;/li&gt;
-  &lt;li&gt;`fwrite()` from the `data.table` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`write_fst()` from the `fst` package for FST files&lt;/li&gt;
-  &lt;li&gt;`write_feather()` from the `arrow` package for Feather files&lt;/li&gt;
-  &lt;li&gt;`qsave()` from the `qs` package for QS files&lt;/li&gt;
-  &lt;li&gt;`write_csv()` from the `readr` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`write_parquet()` from the `arrow` package for Parquet files&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-For reading operations, we used the following functions:
-&lt;ul&gt;
-  &lt;li&gt;`readRDS()` for RDS files&lt;/li&gt;
-  &lt;li&gt;`fread()` from the `data.table` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`read_fst()` from the `fst` package for FST files&lt;/li&gt;
-  &lt;li&gt;`read_feather()` from the `arrow` package for Feather files&lt;/li&gt;
-  &lt;li&gt;`qread()` from the `qs` package for QS files&lt;/li&gt;
-  &lt;li&gt;`read_csv()` from the `readr` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`read_parquet()` from the `arrow` package for Parquet files&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;performance-metrics&#34;&gt;Performance metrics&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The performance metrics considered in our analysis are:
-&lt;ul&gt;
-  &lt;li&gt; The time taken to read from and write to each data format. This metric is crucial for understanding the efficiency of each format in different scenarios.&lt;/li&gt;
-  &lt;li&gt;The disk space required to store the data in each format. Smaller file sizes are generally preferable, especially when dealing with large data sets.&lt;/li&gt;
-  &lt;li&gt;The amount of memory consumed during the read operations. Efficient memory usage is important for handling large data sets without running into memory constraints.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;h1 id=&#34;results-and-analysis&#34;&gt;Results and analysis&lt;/h1&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The results of benchmarking study on various data formats in `R` include read and write time, file size, and memory usage. The results are visualized in graphs and tables, which show the performance trends as the data set size increases.
-&lt;/p&gt;
-&lt;h2 id=&#34;file-sizes&#34;&gt;File sizes&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The first graph illustrates the file sizes for each data format across different data set sizes. Smaller file sizes are generally preferable as they require less disk space and can be more efficient for data transfer. The formats compared include RDS, CSV (using `data.table` and `readr`), FST, Feather, Parquet, and QS.
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-From the graph, we can observe:
-&lt;ul&gt;
-  &lt;li&gt;QS consistently produces the smallest file sizes across all data set sizes.&lt;/li&gt;
-  &lt;li&gt;RDS and FST also perform well, producing relatively small file sizes.&lt;/li&gt;
-  &lt;li&gt;CSV formats (both `data.table` and `readr`) tend to produce the largest file sizes, particularly for larger data sets.&lt;/li&gt;
-  &lt;li&gt;Feather and Parquet offer a balance between file size and compatibility, but their sizes increase significantly with very large data sets.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;write-performance&#34;&gt;Write performance&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The second graph shows the write performance for each data format. Faster write times are beneficial for efficiently saving data, particularly in workflows involving frequent data saving operations.
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Key observations from the graph include:
-&lt;ul&gt;
-  &lt;li&gt;QS and FST exhibit the fastest write times for smaller datasets, maintaining good performance even as dataset size increases.&lt;/li&gt;
-  &lt;li&gt;RDS is also relatively fast, but its performance degrades more than QS and FST with larger datasets.&lt;/li&gt;
-  &lt;li&gt;CSV formats, especially `readr`, show significantly slower write times, making them less suitable for large-scale data operations.&lt;/li&gt;
-  &lt;li&gt;Feather and Parquet provide moderate write performance, balancing speed and compatibility with other data analysis tools.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;read-performance&#34;&gt;Read performance&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The third graph displays the read performance for each data format. Fast read times are critical for efficient data analysis, especially when working with large datasets that need to be frequently loaded into memory.
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-From the graph, we note that:
-&lt;ul&gt;
-  &lt;li&gt;QS, FST, and RDS offer the fastest read times, making them ideal for scenarios where quick data loading is essential.&lt;/li&gt;
-  &lt;li&gt;CSV formats (both `data.table` and `readr`) have slower read times, particularly for larger datasets, which can hinder performance in large-scale analyses.&lt;/li&gt;
-  &lt;li&gt;Feather and Parquet provide moderate read speeds, suitable for interoperability across different tools and languages.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;memory-usage&#34;&gt;Memory usage&lt;/h2&gt;
-&lt;p align=&#34;justify&#34;&gt;
-The final graph compares the memory usage of each data format during read operations. Efficient memory usage is important for handling large datasets without encountering memory constraints.
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Key points from the graph include:
-&lt;ul&gt;
-  &lt;li&gt;QS and RDS exhibit the lowest memory usage, making them suitable for environments with limited memory resources.&lt;/li&gt;
-  &lt;li&gt;FST and Feather also show good memory efficiency, particularly for smaller to moderate-sized datasets.&lt;/li&gt;
-  &lt;li&gt;CSV formats, especially `readr`, consume the most memory, which can be problematic for very large datasets.&lt;/li&gt;
-  &lt;li&gt;Parquet offers a balance between memory usage and interoperability, although its memory consumption increases with larger datasets.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/p&gt;
-&lt;p align=&#34;justify&#34;&gt;
-Overall, these results provide a comprehensive comparison of different data formats in `R`, highlighting their respective strengths and weaknesses in terms of file size, read and write performance, and memory usage. This information can guide the selection of appropriate data formats based on specific analysis requirements.
-&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Did you find this page helpful? Consider sharing it 🙌&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Projects</title>
-      <link>http://localhost:4321/projects/</link>
+      <link>https://prof-thiagooliveira.netlify.com/projects/</link>
       <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/projects/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/projects/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Hierarchical Approach for Evaluating Athlete Performance with an Application in Elite Basketball</title>
-      <link>http://localhost:4321/publication/2023-onscore/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</link>
       <pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2023-onscore/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exploring Polynomial, Fractional Polynomial, and Spline Models</title>
-      <link>http://localhost:4321/post/spline-models/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/spline-models/</link>
       <pubDate>Fri, 19 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/spline-models/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/spline-models/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -837,9 +541,9 @@ are used to select this parameter. These methods aim to find a balance between t
     
     <item>
       <title>Precision &amp; Accuracy - The Role of Concordance Correlation in Research</title>
-      <link>http://localhost:4321/post/precision-and-accuracy/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/precision-and-accuracy/</link>
       <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/precision-and-accuracy/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/precision-and-accuracy/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -1196,9 +900,9 @@ Oliveira T.P. (2024, Jan. 10). Precision &amp; Accuracy - The Role of Concordanc
     
     <item>
       <title>R Programming with Efficient Snippets</title>
-      <link>http://localhost:4321/post/r-programming/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/r-programming/</link>
       <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/r-programming/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/r-programming/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -1536,17 +1240,17 @@ Oliveira T.P. (2024, Jan. 06). R Programming with Efficient Snippets
     
     <item>
       <title>Experience</title>
-      <link>http://localhost:4321/experience/</link>
+      <link>https://prof-thiagooliveira.netlify.com/experience/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/experience/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/experience/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Learn JavaScript</title>
-      <link>http://localhost:4321/teaching/js/</link>
+      <link>https://prof-thiagooliveira.netlify.com/teaching/js/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/teaching/js/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/teaching/js/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
@@ -1593,7 +1297,7 @@ Oliveira T.P. (2024, Jan. 06). R Programming with Efficient Snippets
 
 
 &lt;audio controls &gt;
-  &lt;source src=&#34;http://localhost:4321/teaching/js/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+  &lt;source src=&#34;https://prof-thiagooliveira.netlify.com/teaching/js/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
 &lt;/audio&gt;
 
 &lt;h2 id=&#34;test-students&#34;&gt;Test students&lt;/h2&gt;
@@ -1670,9 +1374,9 @@ data.head()
     
     <item>
       <title>Learn Python</title>
-      <link>http://localhost:4321/teaching/python/</link>
+      <link>https://prof-thiagooliveira.netlify.com/teaching/python/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/teaching/python/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/teaching/python/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
@@ -1719,7 +1423,7 @@ data.head()
 
 
 &lt;audio controls &gt;
-  &lt;source src=&#34;http://localhost:4321/teaching/python/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+  &lt;source src=&#34;https://prof-thiagooliveira.netlify.com/teaching/python/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
 &lt;/audio&gt;
 
 &lt;h2 id=&#34;test-students&#34;&gt;Test students&lt;/h2&gt;
@@ -1796,9 +1500,9 @@ data.head()
     
     <item>
       <title>Navigating the Shiny Universe with Golem</title>
-      <link>http://localhost:4321/post/golem-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/golem-package/</link>
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/golem-package/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/golem-package/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -2024,57 +1728,57 @@ Oliveira T.P. (2023, Oct. 02). Navigating the Shiny Universe with Golem
     
     <item>
       <title>Comparison of Markerless and Marker-based Motion Capture Systems using 95% Functional Limits of Agreement in a Linear Mixed-Effects Modelling Framework</title>
-      <link>http://localhost:4321/publication/2023-floa/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</link>
       <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2023-floa/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pedigree-based Animal Models Using Directed Acyclic Graphs</title>
-      <link>http://localhost:4321/publication/2023-dag/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</link>
       <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2023-dag/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
-      <link>http://localhost:4321/publication/2022-alphapartvariance/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
       <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2022-alphapartvariance/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
-      <link>http://localhost:4321/publication/2022-genotyping-by-sequencing/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2022-genotyping-by-sequencing/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Quantifying the Drivers of Genetic Change in Plant Breeding</title>
-      <link>http://localhost:4321/event/2022-eucarpia/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</link>
       <pubDate>Wed, 21 Sep 2022 19:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2022-eucarpia/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
-      <link>http://localhost:4321/event/2022-purdue/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-purdue/</link>
       <pubDate>Wed, 27 Jul 2022 19:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2022-purdue/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-purdue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>How hard is it to predict COVID-19 cases?</title>
-      <link>http://localhost:4321/post/how-hard-is-it-to-predict-covid-19-cases/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/how-hard-is-it-to-predict-covid-19-cases/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -2272,9 +1976,9 @@ Moral, et al. (2020, Sept. 29). Ireland&#39;s COVID-19 Data Dive: How hard is it
     
     <item>
       <title>Analysis of non-additive genetic variance in breeding programmes</title>
-      <link>http://localhost:4321/project/non-additive/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/non-additive/</link>
       <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/non-additive/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/non-additive/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 This seeding project aims to build a proof of concept for extending our recently developed framework for temporal and genomic analysis of additive genetic variance in breeding programmes to non-additive genetic variance. The primary purpose of this extension is to quantify the magnitude of non-additive genetic variance and relatedy to quantify the contribution of inbreeding depression and heterosis to genetic gain in breeding programmes.
 &lt;/p&gt;
@@ -2283,41 +1987,41 @@ This seeding project aims to build a proof of concept for extending our recently
     
     <item>
       <title>Temporal and genomic analysis of additive genetic variance in breeding programmes</title>
-      <link>http://localhost:4321/publication/2021-llara_gen_var_plants/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2021-llara_gen_var_plants/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization and Data Structure</title>
-      <link>http://localhost:4321/event/2021-ddbg/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2021-ddbg/</link>
       <pubDate>Mon, 20 Sep 2021 11:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2021-ddbg/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2021-ddbg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Modelling menstrual cycle length in athletes using state-space models</title>
-      <link>http://localhost:4321/publication/2020-scireports/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</link>
       <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2020-scireports/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-scireports/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Partition/Decomposition of Breeding Values by Paths of Information</title>
-      <link>http://localhost:4321/publication/2021-alphapart-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2021-alphapart-package/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
-      <link>http://localhost:4321/publication/2020-covid/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2020-covid/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-covid/</guid>
       <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -2332,9 +2036,9 @@ This seeding project aims to build a proof of concept for extending our recently
     
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
-      <link>http://localhost:4321/event/2020-young-isa/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-young-isa/</link>
       <pubDate>Thu, 12 Nov 2020 11:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2020-young-isa/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-young-isa/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;The continuously growing number of COVID-19 cases pressures healthcare services worldwide. Accurate short-term forecasting is thus vital to support country-level policy making. The strategies adopted by countries to combat the pandemic vary, generating different uncertainty levels about the actual number of cases. Accounting for the hierarchical structure of the data and accommodating extra-variability is therefore fundamental. We introduce a new modelling framework to describe the course of the pandemic with great accuracy, and provide short-term daily forecasts for every country in the world. We show that our model generates highly accurate forecasts up to six days ahead, and use estimated model components to cluster countries based on recent events. We introduce statistical novelty in terms of modelling the autoregressive parameter as a function of time, increasing predictive power and flexibility to adapt to each country. Our model can also be used to forecast the number of deaths, study the effects of covariates (such as lockdown policies), and generate forecasts for smaller regions within countries. Consequently, it has strong implications for global planning and decision making. We constantly update forecasts and make all results freely available to any country in the world through an online Shiny dashboard.&lt;/p&gt;
 </description>
@@ -2342,17 +2046,17 @@ This seeding project aims to build a proof of concept for extending our recently
     
     <item>
       <title>Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)</title>
-      <link>http://localhost:4321/publication/2020-plant_pathology/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</link>
       <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2020-plant_pathology/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</title>
-      <link>http://localhost:4321/publication/2020-lccpeerj/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2020-lccpeerj/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</guid>
       <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;lcc package
@@ -2367,9 +2071,9 @@ This seeding project aims to build a proof of concept for extending our recently
     
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
-      <link>http://localhost:4321/event/2020-usp/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-usp/</link>
       <pubDate>Mon, 01 Jun 2020 13:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2020-usp/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-usp/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt;&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;The continuously growing number of COVID-19 cases pressures healthcare services worldwide. Accurate short-term forecasting is thus vital to support country-level policy making. The strategies adopted by countries to combat the pandemic vary, generating different uncertainty levels about the actual number of cases. Accounting for the hierarchical structure of the data and accommodating extra-variability is therefore fundamental. We introduce a new modelling framework to describe the course of the pandemic with great accuracy, and provide short-term daily forecasts for every country in the world. We show that our model generates highly accurate forecasts up to six days ahead, and use estimated model components to cluster countries based on recent events. We introduce statistical novelty in terms of modelling the autoregressive parameter as a function of time, increasing predictive power and flexibility to adapt to each country. Our model can also be used to forecast the number of deaths, study the effects of covariates (such as lockdown policies), and generate forecasts for smaller regions within countries. Consequently, it has strong implications for global planning and decision making. We constantly update forecasts and make all results freely available to any country in the world through an online Shiny dashboard.&lt;/p&gt;
 </description>
@@ -2377,9 +2081,9 @@ This seeding project aims to build a proof of concept for extending our recently
     
     <item>
       <title>The seven steps of a programer</title>
-      <link>http://localhost:4321/post/the-seven-steps-of-a-programer/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/the-seven-steps-of-a-programer/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -2695,18 +2399,18 @@ Oliveira T.P. (2020, Dec. 16). The seven steps of a programer
     
     <item>
       <title>Estimating NBA athlete performance using multilevel models</title>
-      <link>http://localhost:4321/event/2020-nuig/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-nuig/</link>
       <pubDate>Tue, 21 Apr 2020 10:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2020-nuig/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-nuig/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;In basketball, the athlete performance evaluation are generally based on variants of plus-minus and PER statistics Optimizing Athlete Performance calculated through multiple regression, ridge, or lasso models using likelihood-based or Bayesian approach. We developed a novel methodology based on principal components analysis and multilevel model to create new indexes such as Oliveira-Newell Score that can be used to evaluate player performance during a match, relevance score used to rank players in a season, and the consistence score used to evaluate the player contribution for their team based on random effects.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Expressions in C&#43;&#43;</title>
-      <link>http://localhost:4321/post/expressions/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/expressions/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/expressions/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/expressions/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -3252,9 +2956,9 @@ Oliveira T.P. (2020, Dec. 16). Expressions in C++
     
     <item>
       <title>Statistical models applied to quantitative genetics and genomics of plant breeding</title>
-      <link>http://localhost:4321/project/genetic-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/genetic-project/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/genetic-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/genetic-project/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 Plant breeding programmes are a complex network of a multitude of operations and decisions. Quantifying the drives of genetic change in such programmes is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these measures only change the overall genetic mean. To understand the genetic change more comprehensively, we also need to measure the change in genetic variance and drives of mean and variance changes. 
 &lt;/p&gt;
@@ -3285,9 +2989,9 @@ This project aims to apply the partitioning method to plant breeding programmes 
     
     <item>
       <title>Signed and Unsigned Binary Numbers</title>
-      <link>http://localhost:4321/post/signed-and-unsigned-binary-numbers/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/signed-and-unsigned-binary-numbers/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -3799,9 +3503,9 @@ Oliveira T.P. (2020, Dec. 16). Signed and Unsigned Binary Numbers
     
     <item>
       <title>Modelling menstrual cycle length using state space models</title>
-      <link>http://localhost:4321/event/2019-young-stats/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2019-young-stats/</link>
       <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2019-young-stats/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2019-young-stats/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
 The ability to predict menstrual cycle length to a high degree of precision enables female athletes to track their period and tailortheir training and nutrition correspondingly knowing when to push harder when to prioritise recovery and how to minimise theimpact of menstrual symptoms on performance. Such individualisation is possible if cycle length can be predicted to a highdegree of accuracy. To achieve this, a hybrid predictive model was built using data on 16,990 cycles collected from a sampleof 2,178 women (mean age 33.89 years, range 14.98 - 47.10, number of menstrual cycles ranging from 4 - 53). To capture thewithin-subject temporal correlation, a mixed-effect state-space model was fitted incorporating a Bayesian approach for processforecasting to predict the duration (in days) of the next menstrual cycle. The modelling procedure was split into three steps(i)a time trend component using a random walk with an overdispersion parameter, (ii) an autocorrelation component using anautoregressive moving-average (ARMA) model, and (iii) a linear predictor to account for covariates (e.g. injury, stomach cramps,training intensity). The inclusion of an overdispersion parameter suggested that26.81% [24.14%,29.58%]of cycles in the samplewere overdispersed where the random walk standard deviation under a non-overdispersed cycle is1.0530 [1.0060,1.0526]days whileunder an overdispersed cycle it increased to4.7386 [4.5379,4.9492]days. To assess the performance and prediction accuracy ofthe model, each woman’s last observation was used as test data. The Root Mean Square Error (RMSE), Concordance CorrelationCoefficient (CCC) and Pearson correlation coefficient (r) between the observed and predicted values were calculated. The modelhad an RMSE of 1.6126 days, a precision of 0.7501 and overall accuracy of 0.9855. In the absence of hormonal measurements,knowing how aspects of physiology and psychology are changing across the menstrual cycle has the potential to help femaleathletes personalise their training, nutrition and recovery tailored to their cycle to sustain peak performance at the highest leveland gain a competitive edge. In conclusion, the hybrid model presented here is a useful approach for predicting menstrual cyclelength which in turn can be used to support female athlete wellness to optimise performance
@@ -3810,18 +3514,18 @@ The ability to predict menstrual cycle length to a high degree of precision enab
     
     <item>
       <title>Sugarcane straw management for bioenergy: effects of global warming on greenhouse gas emissions and soil carbon storage</title>
-      <link>http://localhost:4321/publication/2019-soil/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</link>
       <pubDate>Tue, 16 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2019-soil/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-soil/</guid>
       <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007/s11027-019-09880-7&#34;&gt;figures&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>The longitudinal concordance correlation</title>
-      <link>http://localhost:4321/event/2019-iwsm/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2019-iwsm/</link>
       <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2019-iwsm/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2019-iwsm/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;We present the lcc package, available from the Comprehensive R Archive Network (CRAN). The package implements estimation procedures for the longitudinal concordance correlation (LCC), using fixed effects and variance components estimates from linear mixed models. The LCC is a quantity that measures the extent of agreement between two (or more) methods used to evaluate a response variable of interest and is frequently applied in medicine, pharmacology, and agronomy. The main features of the package are the estimation and inference of the extent of agreement using numerical and graphical summaries. Moreover, our approach presents flexibility in the sense that it accommodates both balanced and unbalanced experimental designs, allows for different within-group error structures, while also allowing for the inclusion of covariates in the linear predictor to control systematic variations in the response. We illustrate our methodology by comparing different methods used to measure the peel colour of fruit as an assessment of ripeness.&lt;/p&gt;
 </description>
@@ -3829,9 +3533,9 @@ The ability to predict menstrual cycle length to a high degree of precision enab
     
     <item>
       <title>Development and Application of Statistical Frameworks in Sports Analytics</title>
-      <link>http://localhost:4321/project/sports-project/</link>
+      <link>https://prof-thiagooliveira.netlify.com/project/sports-project/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/sports-project/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sports-project/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;
 Utilizing statistical frameworks in sports analytics enables more precise evaluations of athlete performance and team dynamics. This advancement provides coaches and stakeholders with deeper insights, fostering informed decisions that can significantly elevate a team&#39;s competitive edge.
 &lt;/p&gt;
@@ -3840,34 +3544,34 @@ Utilizing statistical frameworks in sports analytics enables more precise evalua
     
     <item>
       <title>lcc: Longitudinal Concordance Correlation</title>
-      <link>http://localhost:4321/publication/2019-lcc-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2019-lcc-package/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Transmission efficiency of xylella fastidiosa subsp. Pauca sequence types by sharpshooter vectors after in vitro acquisition</title>
-      <link>http://localhost:4321/publication/2019-phitopatology/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2019-phitopatology/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Longitudinal concordance correlation function based on variance components: an application in fruit color analysis</title>
-      <link>http://localhost:4321/publication/2018-lcc/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2018-lcc/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</guid>
       <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34;&gt;code and data&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</title>
-      <link>http://localhost:4321/publication/2017-papaya/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2017-papaya/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</guid>
       <description></description>
     </item>
     

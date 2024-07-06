@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistical Models | Thiago Oliveira</title>
-    <link>http://localhost:4321/tags/statistical-models/</link>
-      <atom:link href="http://localhost:4321/tags/statistical-models/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/statistical-models/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/statistical-models/index.xml" rel="self" type="application/rss+xml" />
     <description>Statistical Models</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 11 Apr 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Statistical Models</title>
-      <link>http://localhost:4321/tags/statistical-models/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/statistical-models/</link>
     </image>
     
     <item>
       <title>How hard is it to predict COVID-19 cases?</title>
-      <link>http://localhost:4321/post/how-hard-is-it-to-predict-covid-19-cases/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</link>
       <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/how-hard-is-it-to-predict-covid-19-cases/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/how-hard-is-it-to-predict-covid-19-cases/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {

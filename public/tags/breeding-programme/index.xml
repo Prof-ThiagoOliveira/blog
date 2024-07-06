@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Breeding Programme | Thiago Oliveira</title>
-    <link>http://localhost:4321/tags/breeding-programme/</link>
-      <atom:link href="http://localhost:4321/tags/breeding-programme/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/breeding-programme/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/breeding-programme/index.xml" rel="self" type="application/rss+xml" />
     <description>Breeding Programme</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 21 Sep 2022 19:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Breeding Programme</title>
-      <link>http://localhost:4321/tags/breeding-programme/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/breeding-programme/</link>
     </image>
     
     <item>
       <title>Quantifying the Drivers of Genetic Change in Plant Breeding</title>
-      <link>http://localhost:4321/event/2022-eucarpia/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</link>
       <pubDate>Wed, 21 Sep 2022 19:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2022-eucarpia/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Temporal and genomic analysis of additive genetic variance in breeding programmes</title>
-      <link>http://localhost:4321/publication/2021-llara_gen_var_plants/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2021-llara_gen_var_plants/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</guid>
       <description></description>
     </item>
     

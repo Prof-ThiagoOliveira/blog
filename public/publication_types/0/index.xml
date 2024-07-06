@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>0 | Thiago Oliveira</title>
-    <link>http://localhost:4321/publication_types/0/</link>
-      <atom:link href="http://localhost:4321/publication_types/0/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/publication_types/0/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/publication_types/0/index.xml" rel="self" type="application/rss+xml" />
     <description>0</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>0</title>
-      <link>http://localhost:4321/publication_types/0/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication_types/0/</link>
     </image>
     
     <item>
       <title>Partition/Decomposition of Breeding Values by Paths of Information</title>
-      <link>http://localhost:4321/publication/2021-alphapart-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2021-alphapart-package/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lcc: Longitudinal Concordance Correlation</title>
-      <link>http://localhost:4321/publication/2019-lcc-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2019-lcc-package/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</guid>
       <description></description>
     </item>
     

@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Consultant Statistician
+role: Statistician
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -275,7 +275,7 @@ awards:
       Awarded for research excellence in quantitative genetics and genomics.
 
   - title: Research Excellence Award
-    date: 2018-01-01
+    date: 2014-01-01
     awarder: University of São Paulo
     summary: |
       Recognized for outstanding contributions to statistical modelling and data analysis.

@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; | Thiago Oliveira</title>
-    <link>http://localhost:4321/tags/c&#43;&#43;/</link>
-      <atom:link href="http://localhost:4321/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/tags/c&#43;&#43;/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <description>C&#43;&#43;</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>C&#43;&#43;</title>
-      <link>http://localhost:4321/tags/c&#43;&#43;/</link>
+      <link>https://prof-thiagooliveira.netlify.com/tags/c&#43;&#43;/</link>
     </image>
     
     <item>
       <title>Partition/Decomposition of Breeding Values by Paths of Information</title>
-      <link>http://localhost:4321/publication/2021-alphapart-package/</link>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/2021-alphapart-package/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The seven steps of a programer</title>
-      <link>http://localhost:4321/post/the-seven-steps-of-a-programer/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/the-seven-steps-of-a-programer/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/the-seven-steps-of-a-programer/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -340,9 +340,9 @@ Oliveira T.P. (2020, Dec. 16). The seven steps of a programer
     
     <item>
       <title>Expressions in C&#43;&#43;</title>
-      <link>http://localhost:4321/post/expressions/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/expressions/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/expressions/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/expressions/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -888,9 +888,9 @@ Oliveira T.P. (2020, Dec. 16). Expressions in C++
     
     <item>
       <title>Signed and Unsigned Binary Numbers</title>
-      <link>http://localhost:4321/post/signed-and-unsigned-binary-numbers/</link>
+      <link>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/signed-and-unsigned-binary-numbers/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {

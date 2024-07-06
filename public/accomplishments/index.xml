@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Accomplishments | Thiago Oliveira</title>
-    <link>http://localhost:4321/accomplishments/</link>
-      <atom:link href="http://localhost:4321/accomplishments/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/accomplishments/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/accomplishments/index.xml" rel="self" type="application/rss+xml" />
     <description>Accomplishments</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 13 Mar 2020 09:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Accomplishments</title>
-      <link>http://localhost:4321/accomplishments/</link>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/</link>
     </image>
     
     <item>
       <title>Completed &amp; Discontinued Projects</title>
-      <link>http://localhost:4321/accomplishments/projects/</link>
+      <link>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</link>
       <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/accomplishments/projects/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {

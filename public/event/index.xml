@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks | Thiago Oliveira</title>
-    <link>http://localhost:4321/event/</link>
-      <atom:link href="http://localhost:4321/event/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://prof-thiagooliveira.netlify.com/event/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/event/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 21 Sep 2022 19:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>http://localhost:4321/event/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/</link>
     </image>
     
     <item>
       <title>Quantifying the Drivers of Genetic Change in Plant Breeding</title>
-      <link>http://localhost:4321/event/2022-eucarpia/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</link>
       <pubDate>Wed, 21 Sep 2022 19:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2022-eucarpia/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
-      <link>http://localhost:4321/event/2022-purdue/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-purdue/</link>
       <pubDate>Wed, 27 Jul 2022 19:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2022-purdue/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-purdue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization and Data Structure</title>
-      <link>http://localhost:4321/event/2021-ddbg/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2021-ddbg/</link>
       <pubDate>Mon, 20 Sep 2021 11:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2021-ddbg/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2021-ddbg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
-      <link>http://localhost:4321/event/2020-young-isa/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-young-isa/</link>
       <pubDate>Thu, 12 Nov 2020 11:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2020-young-isa/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-young-isa/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;The continuously growing number of COVID-19 cases pressures healthcare services worldwide. Accurate short-term forecasting is thus vital to support country-level policy making. The strategies adopted by countries to combat the pandemic vary, generating different uncertainty levels about the actual number of cases. Accounting for the hierarchical structure of the data and accommodating extra-variability is therefore fundamental. We introduce a new modelling framework to describe the course of the pandemic with great accuracy, and provide short-term daily forecasts for every country in the world. We show that our model generates highly accurate forecasts up to six days ahead, and use estimated model components to cluster countries based on recent events. We introduce statistical novelty in terms of modelling the autoregressive parameter as a function of time, increasing predictive power and flexibility to adapt to each country. Our model can also be used to forecast the number of deaths, study the effects of covariates (such as lockdown policies), and generate forecasts for smaller regions within countries. Consequently, it has strong implications for global planning and decision making. We constantly update forecasts and make all results freely available to any country in the world through an online Shiny dashboard.&lt;/p&gt;
 </description>
@@ -48,9 +48,9 @@
     
     <item>
       <title>Global Short-Term Forecasting of Covid-19 Cases</title>
-      <link>http://localhost:4321/event/2020-usp/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-usp/</link>
       <pubDate>Mon, 01 Jun 2020 13:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2020-usp/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-usp/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract:&lt;/strong&gt;&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;The continuously growing number of COVID-19 cases pressures healthcare services worldwide. Accurate short-term forecasting is thus vital to support country-level policy making. The strategies adopted by countries to combat the pandemic vary, generating different uncertainty levels about the actual number of cases. Accounting for the hierarchical structure of the data and accommodating extra-variability is therefore fundamental. We introduce a new modelling framework to describe the course of the pandemic with great accuracy, and provide short-term daily forecasts for every country in the world. We show that our model generates highly accurate forecasts up to six days ahead, and use estimated model components to cluster countries based on recent events. We introduce statistical novelty in terms of modelling the autoregressive parameter as a function of time, increasing predictive power and flexibility to adapt to each country. Our model can also be used to forecast the number of deaths, study the effects of covariates (such as lockdown policies), and generate forecasts for smaller regions within countries. Consequently, it has strong implications for global planning and decision making. We constantly update forecasts and make all results freely available to any country in the world through an online Shiny dashboard.&lt;/p&gt;
 </description>
@@ -58,18 +58,18 @@
     
     <item>
       <title>Estimating NBA athlete performance using multilevel models</title>
-      <link>http://localhost:4321/event/2020-nuig/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-nuig/</link>
       <pubDate>Tue, 21 Apr 2020 10:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2020-nuig/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-nuig/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;In basketball, the athlete performance evaluation are generally based on variants of plus-minus and PER statistics Optimizing Athlete Performance calculated through multiple regression, ridge, or lasso models using likelihood-based or Bayesian approach. We developed a novel methodology based on principal components analysis and multilevel model to create new indexes such as Oliveira-Newell Score that can be used to evaluate player performance during a match, relevance score used to rank players in a season, and the consistence score used to evaluate the player contribution for their team based on random effects.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Modelling menstrual cycle length using state space models</title>
-      <link>http://localhost:4321/event/2019-young-stats/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2019-young-stats/</link>
       <pubDate>Fri, 04 Oct 2019 09:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2019-young-stats/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2019-young-stats/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;
 The ability to predict menstrual cycle length to a high degree of precision enables female athletes to track their period and tailortheir training and nutrition correspondingly knowing when to push harder when to prioritise recovery and how to minimise theimpact of menstrual symptoms on performance. Such individualisation is possible if cycle length can be predicted to a highdegree of accuracy. To achieve this, a hybrid predictive model was built using data on 16,990 cycles collected from a sampleof 2,178 women (mean age 33.89 years, range 14.98 - 47.10, number of menstrual cycles ranging from 4 - 53). To capture thewithin-subject temporal correlation, a mixed-effect state-space model was fitted incorporating a Bayesian approach for processforecasting to predict the duration (in days) of the next menstrual cycle. The modelling procedure was split into three steps(i)a time trend component using a random walk with an overdispersion parameter, (ii) an autocorrelation component using anautoregressive moving-average (ARMA) model, and (iii) a linear predictor to account for covariates (e.g. injury, stomach cramps,training intensity). The inclusion of an overdispersion parameter suggested that26.81% [24.14%,29.58%]of cycles in the samplewere overdispersed where the random walk standard deviation under a non-overdispersed cycle is1.0530 [1.0060,1.0526]days whileunder an overdispersed cycle it increased to4.7386 [4.5379,4.9492]days. To assess the performance and prediction accuracy ofthe model, each woman’s last observation was used as test data. The Root Mean Square Error (RMSE), Concordance CorrelationCoefficient (CCC) and Pearson correlation coefficient (r) between the observed and predicted values were calculated. The modelhad an RMSE of 1.6126 days, a precision of 0.7501 and overall accuracy of 0.9855. In the absence of hormonal measurements,knowing how aspects of physiology and psychology are changing across the menstrual cycle has the potential to help femaleathletes personalise their training, nutrition and recovery tailored to their cycle to sustain peak performance at the highest leveland gain a competitive edge. In conclusion, the hybrid model presented here is a useful approach for predicting menstrual cyclelength which in turn can be used to support female athlete wellness to optimise performance
@@ -78,9 +78,9 @@ The ability to predict menstrual cycle length to a high degree of precision enab
     
     <item>
       <title>The longitudinal concordance correlation</title>
-      <link>http://localhost:4321/event/2019-iwsm/</link>
+      <link>https://prof-thiagooliveira.netlify.com/event/2019-iwsm/</link>
       <pubDate>Fri, 07 Jun 2019 09:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/event/2019-iwsm/</guid>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2019-iwsm/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
 &lt;p align=&#34;justify&#34;&gt;We present the lcc package, available from the Comprehensive R Archive Network (CRAN). The package implements estimation procedures for the longitudinal concordance correlation (LCC), using fixed effects and variance components estimates from linear mixed models. The LCC is a quantity that measures the extent of agreement between two (or more) methods used to evaluate a response variable of interest and is frequently applied in medicine, pharmacology, and agronomy. The main features of the package are the estimation and inference of the extent of agreement using numerical and graphical summaries. Moreover, our approach presents flexibility in the sense that it accommodates both balanced and unbalanced experimental designs, allows for different within-group error structures, while also allowing for the inclusion of covariates in the linear predictor to control systematic variations in the response. We illustrate our methodology by comparing different methods used to measure the peel colour of fruit as an assessment of ripeness.&lt;/p&gt;
 </description>
