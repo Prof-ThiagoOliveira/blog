@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Workflows | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/workflows/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/workflows/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/workflows/</link>
+      <atom:link href="http://localhost:4321/tags/workflows/index.xml" rel="self" type="application/rss+xml" />
     <description>Workflows</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Workflows</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/workflows/</link>
+      <link>http://localhost:4321/tags/workflows/</link>
     </image>
     
     <item>
       <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</link>
+      <link>http://localhost:4321/publication/2022-genotyping-by-sequencing/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</guid>
+      <guid>http://localhost:4321/publication/2022-genotyping-by-sequencing/</guid>
       <description></description>
     </item>
     

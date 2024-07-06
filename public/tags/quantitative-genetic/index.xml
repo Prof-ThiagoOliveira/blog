@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quantitative Genetic | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/quantitative-genetic/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/quantitative-genetic/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/quantitative-genetic/</link>
+      <atom:link href="http://localhost:4321/tags/quantitative-genetic/index.xml" rel="self" type="application/rss+xml" />
     <description>Quantitative Genetic</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Quantitative Genetic</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/quantitative-genetic/</link>
+      <link>http://localhost:4321/tags/quantitative-genetic/</link>
     </image>
     
     <item>
       <title>Developing best practices for genotyping-by-sequencing analysis using linkage maps as benchmarks</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</link>
+      <link>http://localhost:4321/publication/2022-genotyping-by-sequencing/</link>
       <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-genotyping-by-sequencing/</guid>
+      <guid>http://localhost:4321/publication/2022-genotyping-by-sequencing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Partition/Decomposition of Breeding Values by Paths of Information</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</link>
+      <link>http://localhost:4321/publication/2021-alphapart-package/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-alphapart-package/</guid>
+      <guid>http://localhost:4321/publication/2021-alphapart-package/</guid>
       <description></description>
     </item>
     

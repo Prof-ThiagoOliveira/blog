@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Postharvest | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/postharvest/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/postharvest/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/postharvest/</link>
+      <atom:link href="http://localhost:4321/tags/postharvest/index.xml" rel="self" type="application/rss+xml" />
     <description>Postharvest</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Postharvest</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/postharvest/</link>
+      <link>http://localhost:4321/tags/postharvest/</link>
     </image>
     
     <item>
       <title>Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</link>
+      <link>http://localhost:4321/publication/2017-papaya/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</guid>
+      <guid>http://localhost:4321/publication/2017-papaya/</guid>
       <description></description>
     </item>
     
