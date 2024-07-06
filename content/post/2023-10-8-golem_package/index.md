@@ -1,20 +1,20 @@
 ---
-title: Expressions
+title: Navigating the Shiny Universe with Golem
 author: Thiago de Paula Oliveira
-date: '2020-12-16'
-slug: expressions
+date: '2023-10-02'
+slug: golem package
 categories:
-  - C++
-  - Computer Programs
+  - R
+  - shiny
 tags:
-  - C++
-  - Computer Science
-  - Computer Programs
+  - R
+  - shiny
+  - R package
 subtitle: ''
 summary: ''
 authors: 
 - admin
-lastmod: '2020-12-16T12:15:54Z'
+lastmod: '2023-10-02T12:15:54Z'
 featured: no
 image:
   caption: ''
@@ -25,349 +25,257 @@ output:
   html_document:
     keep_md: yes
     toc: true
-    css: "my_style.css"
 ---
 
-# Introduction
+<style>
+/* Blog post container */
+body {
+   font-family: 'Helvetica Neue', Arial, sans-serif;
+   font-size: 1rem;
+   line-height: 1.8;
+   color: #333;
+   text-align: justify;
+   background-color: #fafafa;
+   margin: 0;
+   padding: 0 20px;
+}
 
-Expressions are combinations of operators, values (constants), and variables which are arranged according to the rules established througout the code. Thus, every expression is any part of a statement that returns a value, as in the follow example: 
+/* Header styling */
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-weight: 600; /* Semi-bold for a professional look */
+  margin-bottom: 0.75em; /* Slightly reduced bottom margin */
+  color: #0d0d0d;
+  line-height: 1.2;
+  margin-top: 1.5em; /* Added top margin for consistency */
+}
 
-<img src="exp1.png" width="320px" style="display: block; margin: auto;" />
+h1 {
+  font-size: 1.75rem; 
+  border-bottom: 2px solid #3b80d1;
+  padding-bottom: 0.3em; /* Padding for visual separation */
+  margin-top: 1em; 
+}
 
-This statement creates a box to store the value of $x$ and another to store the value of $y$, which is equal to the expression $x$ plus 13 ($y=23$). Now consider a more complex statement:
+h2 {
+  font-size: 1.5rem; 
+  color: #3b80d1;
+  padding-bottom: 0.2em; /* Padding for visual separation */
+}
 
-<img src="exp2.png" width="500px" style="display: block; margin: auto;" />
+h3 {
+  font-size: 1.25rem; 
+  color: #333;
+}
 
-This statment consists of three expressions:
-<div class="div-1">
-* The results of the expression $3 - x$ is stored in the variable $y$
-* The expression $y = 3 - x$ returns the value of $y$, and it is stored in the variable $v$
-* The results of the expression $y \times \left(\frac{v}{5} + x\right)$ is stored in the variable $z$
-</div>
+h4 {
+  font-size: 1.125rem; 
+  color: #333;
+}
 
-Remember that multiplication and division occur before addition and subtraction. Ex.:
-```
-1-3*4 = -11
-2/3-4*2/3 = -2
-2/3-4/4*2/3 = 0
-```
-The **operator precedente** dictates the order of evaluation of operators in an expression. In C, each operator has a fixed priority order to be executed or precedence in relation to other operators. As multiplication or division has higher precedence than addition and subtraction, in the expression $\frac{2}{4}-3+ 4 \times 6$, firstly the subexpressions $\frac{2}{4}$ and $4 \times 6$ will be evaluated (Step 1 in the Figure 1), and then addition and subtraction (Step 2 in the Figure 1). Note that multiplication and division, or addition and subtraction have same precedente, then tey are evaluated from left to right due to its associativity. 
+h5 {
+  font-size: 1rem; 
+  color: #333;
+}
 
-<div class="figure" style="text-align: center">
-<img src="exp3.png" alt="Precedence order" width="300px" />
-<p class="caption">Precedence order</p>
-</div>
+h6 {
+  font-size: 0.875rem; 
+  color: #333;
+}
 
-**Associativity** defines the order in which operators of the same precedence are evaluated in an expression, and it can be either from left to right or right to left (Figure 2). Generally, addition, subtraction, multiplication, and division operators are usually left-associative while assignment operators are typically right-associative. Besides, there are operators that have no defined behavior when used in sequence over an expression, and they are called as non-associative (Figure 2). Note that when we include parentheses, we can force an expression to be right-associative rather than left-associative as usual. 
+/* Link styling */
+a {
+  color: #3b80d0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-<div class="figure" style="text-align: center">
-<img src="exp4.png" alt="Example of left-associative, right-associative, and non-associative" width="800px" />
-<p class="caption">Example of left-associative, right-associative, and non-associative</p>
-</div>
+a:hover {
+  text-decoration: underline;
+  color: #1a57a0;
+}
 
-# Using Parentheses `()`
+/* Code styling */
+pre, 
+.code-input {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
 
-The operator `()` has the highest precedente order (see <a href="#table1">Table 1</a>), as consequence, we can use parentheses to change the sequence of operators. 
-Consider the following example:
+code {
+  font-size: 0.9rem;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
 
-```
-5 + 6 * 7
-```
-The `*` operator is evaluated firstly followed by the `+` operator, so the result is $5+6\times 7 = 47$. However, if we want to account for the addiction first and then the multiplication, we can rewrite the code as:
-```
-(5 + 6) * 7
-```
-Then, the program will compute $\left(5+6\right)\times 7=11\times 7=77$. Sometimes, the inclusion of parentheses should be important to makes your code easier to understand, and therefore easier to maintain.
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+
+th, 
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #3b80d1;
+  color: white;
+}
+
+/* Div options - color box text */
+.div-1 {
+  color: black;
+  background-color: #d6edd3;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.div-2 {
+  color: black;
+  background-color: #cfbe7e;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+/* Article content */
+.article-content {
+  text-align: justify;
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+</style>
+
+# The `golem` package
+
+<p align="justify">
+In the world of `R` programming, Shiny applications let us make interactive web apps using R code. The `golem` package (Fay et al. 2021) makes it easier to develop these apps. It brings new tools and methods to this area, helping developers handle complex tasks more simply.
+</p>
+
+## Making Things with Structure
+
+<p align="justify">
+Think of making a sculpture out of clay. At first, the big lump of clay can be hard to handle. `golem` helps developers, like sculptors, by giving them a clear framework. This means instead of dealing with a big, confusing bunch of code, developers have an organized way to work. It is like having lines drawn on the clay, showing where to shape and smooth it.
+</p>
+
+## Modular Component
+
+<p align="justify">
+When I first stumbled upon the `golem` package for R's Shiny applications, it was like discovering a secret garden in the world of coding. The stand-out feature for me? Its emphasis on modular coding. Let me break down why this is such a big deal.
+</p>
+
+<p align="justify">
+Think of building a Shiny app like crafting a beautiful mosaic. Each piece (or module) is unique and serves a specific purpose. When you put them all together, they create a stunning picture - your final application. This modular approach is not just about aesthetics; it is about making your coding life a whole lot easier.
+</p>
+
+### Why Modules Make All the Difference
+
+<p align="justify">
+1. **Organization**: Breaking down the app into modules is like having a well-organized toolbox. Everything has its place, and you know exactly where to find it. It is incredibly satisfying and efficient.
+</p>
+
+<p align="justify">
+2. **Teamwork Made Simple**: If you are working in a team, modules are a lifesaver. Imagine each team member painting their part of a large canvas. With modules, you can work independently on different features without stepping on each other's toes.
+</p>
+
+<p align="justify">
+3. **Debugging**: We have all been there - something is broken, and we have no idea where to start looking. With modular coding, it is like having a map with a big "X" marking the spot of the problem. A big simplication!
+</p>
+
+<p align="justify">
+4. **Reuse and Recycle**: I love this part. Created a nifty user authentication module? You can plug it into your next project without reinventing the wheel. It is like having a secret recipe you can use over and over with minor adaptations when needed.
+</p>
+
+<p align="justify">
+5. **Growth Made Easy**: As your app grows, you can just add new modules. It is like adding new rooms to a house. This scalability is one of most helpful feature for any developer.
+</p>
+
+<p align="justify">
+6. **Testing**: Testing each module separately means you can be super confident that every part of your app works perfectly before you put it all together.
+</p>
+
+<p align="justify">
+7. **Newbie-Friendly**: If someone new joins your project, it is much easier for them to get up to speed with a modular structure. It is like giving them a well-detailed map instead of a single, overwhelming blueprint.
+</p>
+
+## A Developer's Toolbox
+
+<p align="justify">
+`golem` is not just about keeping things tidy. It is like a multi-tool for Shiny developers. It helps with JavaScript and CSS, makes app settings simpler, and improves how you work. `golem` also manages updates in `R`, making sure your app stays stable even when other parts of `R` change.
+</p>
 
 
-# Modulus operator (%)
+## Deployment and Documentation
 
-Modulus operator evaluates to the remainder when dividing the first operand by the second one. Ex.: `a % b` is the remainder when $a$ is divided<table class="wikitable">
+<p align="justify">
+Deploying a Shiny app should feel like a victory lap, not a hurdle race. `golem` ensures this by packaging Shiny apps in a deployment-ready format. Be it RStudio Connect, Shinyapps.io, or the containerized world of Docker, your app is prepared and primed to go live.
+</p>
 
- by $b$ ($a$ modulus $b$).<table class="wikitable"> by $b$ ($a$ modulus $b$).
+<p align="justify">
+Now, let's talk about something that does not always get the spotlight but is super crucial: documentation. `golem` knows how important this is. It is not just about coding; it is about leaving a trail of breadcrumbs for those who will follow in your footsteps. `golem` encourages you to document your work thoroughly. Think of it as creating a treasure map for future developers and collaborators who will join your project. Moreover, `golem` aligns seamlessly with the `roxygen2` style of documentation, familiar to many R developers. This integration means that while you are crafting your Shiny app, you can simultaneously create comprehensive, easy-to-understand documentation. It is like having a dual toolkit - one for building your app and another for creating a clear, helpful guide for any future developer or user who ventures into your code. This approach not only saves time but also ensures that your documentation is as robust and user-friendly as the app you are building.
+</p>
 
-<div class="figure" style="text-align: center">
-<img src="exp5.png" alt="Example of modulus" width="300px" />
-<p class="caption">Example of modulus</p>
-</div>
+## Conclusion
 
-<div class="div-1">
-* Dividing an integer by another one gives an integer.
-</div>
+<p align="justify">
+`golem` truly revolutionizes the way we handle R and Shiny applications. It is like having a GPS for the often complex journey of app development, guiding you with a structured, modular approach. This not only simplifies the process but also injects a sense of fun and creativity, much like piecing together a Lego masterpiece.
+</p>
 
-## Example:
-```
-int x = 10;
-int y = 3;
-
-x/y = 10/3 = 3 (dividing two integers)
-
-x % y = 1 (modulus)
-```
-
-# Short hand or syntatic sugar
-
-Short hand expressions provide a short way to write common patterns over the algorithm for initialized variables. 
-
-| Short hand | Meaning         |              Prefix and Postfix                 | 
-|------------|-----------------|-------------------------------------------------|
-| $x+=y$     | $x=x+y$         |                                                 |
-| $x-=y$     | $x=x-y$         |                                                 |
-| $x*=y$     | $x= x \times y$ |                                                 |
-| $x/=y$     | $x=x/y$         |                                                 |    
-| $x++$      | $x=x+1$         | Return the value of $x$ first then increment it |
-| $++x$      | $x=x+1$         | Increment first then return the value of $x$    |
-| $x--$      | $x=x-1$         | Return the value of $x$ first then increment it |
-| $--x$      | $x=x-1$         | Increment first then return the value of $x$    |
-
-## Example 1:
-
-Here you can see that `y ++= x * z;` is calculate as $y=y+x \times z = 30 + 2 \times 4 = 34$.
-
-<img src="example1.png" width="350px" style="display: block; margin: auto;" />
-
-
-## Example 2:
-
-In this example you can see that we used the postfix `x++` to first initialize $y$ ($y=8 \times x = 8 \times 7 = 56$) and then update $x$ to ```x=x+1=8```. On the other hand, we used the prefix `--y` to first update the variable $y$ to `y=y-1=55` and then calculate the variable z using the updated $y$ $\left(z = y/5 = 55/5 = 11 \right)$. 
-
-<img src="example2.png" width="500px" style="display: block; margin: auto;" />
-
-Note that when we use `x*= (y/z) % 2` the variable $x$ multiply the entire expression after `=` symbol. This expression is equivalent to `x = x * ((y/z) % 2));`. 
-
-# Operator precedence and associativity
-
-<a href="#table1">Table 1</a> shows a list of precedence (ordered) and associativity of C operators. This table was obtained from 
-<a href="https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1">cppreference.com</a>.
-
-<div>
-<table class="wikitable">
-<tbody><tr>
-<a name="table1"> Table 1: Precedence and associativity of C operators </a>
-<th style="text-align: left"> Precedence
-</th>
-<th style="text-align: left"> Operator
-</th>
-<th style="text-align: left"> Description
-</th>
-<th style="text-align: left"> Associativity
-</th></tr>
-<tr>
-<th rowspan="6"> 1
-</th>
-<td style="border-bottom-style: none"> <code>++</code> <code>\-\-</code>
-</td>
-<td style="border-bottom-style: none"> Suffix/postfix increment and decrement
-</td>
-<td style="vertical-align: top" rowspan="6"> Left-to-right
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>()</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Function call
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>[]</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Array subscripting
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>.</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Structure and union member access
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>-&gt;</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Structure and union member access through pointer
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>(<i>type</i>){<i>list</i>}</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Compound literal<span class="t-mark-rev t-since-c99">(C99)</span>
-</td></tr>
-<tr>
-<th rowspan="8"> 2
-</th>
-<td style="border-bottom-style: none"> <code>++</code> <code>\-\-</code>
-</td>
-<td style="border-bottom-style: none"> Prefix increment and decrement<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[note 1]</a></sup>
-</td>
-<td style="vertical-align: top" rowspan="8"> Right-to-left
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>+</code> <code>-</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Unary plus and minus
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>!</code> <code>~</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Logical NOT and bitwise NOT
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>(<i>type</i>)</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Cast
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>*</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Indirection (dereference)
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>&amp;</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Address-of
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>sizeof</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Size-of<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[note 2]</a></sup>
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>_Alignof</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Alignment requirement<span class="t-mark-rev t-since-c11">(C11)</span>
-</td></tr>
-<tr>
-<th> 3
-</th>
-<td> <code>*</code> <code>/</code> <code>%</code>
-</td>
-<td> Multiplication, division, and remainder
-</td>
-<td style="vertical-align: top" rowspan="11"> Left-to-right
-</td></tr>
-<tr>
-<th> 4
-</th>
-<td> <code>+</code> <code>-</code>
-</td>
-<td> Addition and subtraction
-</td></tr>
-<tr>
-<th> 5
-</th>
-<td> <code>&lt;&lt;</code> <code>&gt;&gt;</code>
-</td>
-<td> Bitwise left shift and right shift
-</td></tr>
-<tr>
-<th rowspan="2"> 6
-</th>
-<td style="border-bottom-style: none"> <code>&lt;</code> <code>&lt;=</code>
-</td>
-<td style="border-bottom-style: none"> For relational operators &lt; and ≤ respectively
-</td></tr>
-<tr>
-<td style="border-top-style: none"> <code>&gt;</code> <code>&gt;=</code>
-</td>
-<td style="border-top-style: none"> For relational operators &gt; and ≥ respectively
-</td></tr>
-<tr>
-<th> 7
-</th>
-<td> <code>==</code> <code>!=</code>
-</td>
-<td> For relational = and ≠ respectively
-</td></tr>
-<tr>
-<th> 8
-</th>
-<td> <code>&amp;</code>
-</td>
-<td> Bitwise AND
-</td></tr>
-<tr>
-<th> 9
-</th>
-<td> <code>^</code>
-</td>
-<td> Bitwise XOR (exclusive or)
-</td></tr>
-<tr>
-<th> 10
-</th>
-<td> <code>|</code>
-</td>
-<td> Bitwise OR (inclusive or)
-</td></tr>
-<tr>
-<th> 11
-</th>
-<td> <code>&amp;&amp;</code>
-</td>
-<td> Logical AND
-</td></tr>
-<tr>
-<th> 12
-</th>
-<td> <code>||</code>
-</td>
-<td> Logical OR
-</td></tr>
-<tr>
-<th> 13
-</th>
-<td> <code>?:</code>
-</td>
-<td> Ternary conditional<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[note 3]</a></sup>
-</td>
-<td style="vertical-align: top" rowspan="6"> Right-to-Left
-</td></tr>
-<tr>
-<th rowspan="5"> 14<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[note 4]</a></sup>
-</th>
-<td style="border-bottom-style: none"> <code>=</code>
-</td>
-<td style="border-bottom-style: none"> Simple assignment
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>+=</code> <code>-=</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Assignment by sum and difference
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>*=</code> <code>/=</code> <code>%=</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Assignment by product, quotient, and remainder
-</td></tr>
-<tr>
-<td style="border-bottom-style: none; border-top-style: none"> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code>
-</td>
-<td style="border-bottom-style: none; border-top-style: none"> Assignment by bitwise left shift and right shift
-</td></tr>
-<tr>
-<td style="border-top-style: none"> <code>&amp;=</code> <code>^=</code> <code>|=</code>
-</td>
-<td style="border-top-style: none"> Assignment by bitwise AND, XOR, and OR
-</td></tr>
-<tr>
-<th> 15
-</th>
-<td> <code>,</code>
-</td>
-<td> Comma
-</td>
-<td> Left-to-right
-</td></tr></tbody></table>
-<ol class="references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">The operand of prefix <code>++</code> and <code>\-\-</code> can't be a type cast. This rule grammatically forbids some expressions that would be semantically invalid anyway. Some compilers ignore this rule and detect the invalidity semantically.</span>
-</li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">The operand of <code>sizeof</code> can't be a type cast: the expression <code>sizeof (int) * p</code> is unambiguously interpreted as <code>(sizeof(int)) * p</code>, but not <code>sizeof((int)*p)</code>.</span>
-</li>
-<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">The expression in the middle of the conditional operator (between <code><b>?</b></code> and <code><b>:</b></code>) is parsed as if parenthesized: its precedence relative to <code>?:</code> is ignored.</span>
-</li>
-<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">Assignment operators' left operands must be unary (level-2 non-cast) expressions. This rule grammatically forbids some expressions that would be semantically invalid anyway. Many compilers ignore this rule and detect the invalidity semantically. For example, <span class="t-c"><span class="mw-geshi c source-c">e <span class="sy1">=</span> a <span class="sy1">&lt;</span> d <span class="sy4">?</span> a<span class="sy2">++</span> <span class="sy4">:</span> a <span class="sy1">=</span> d</span></span> is an expression that cannot be parsed because of this rule. However, many compilers ignore this rule and parse it as <span class="t-c"><span class="mw-geshi c source-c">e <span class="sy1">=</span> <span class="br0">(</span> <span class="br0">(</span><span class="br0">(</span>a <span class="sy1">&lt;</span> d<span class="br0">)</span> <span class="sy4">?</span> <span class="br0">(</span>a<span class="sy2">++</span><span class="br0">)</span> <span class="sy4">:</span> a<span class="br0">)</span> <span class="sy1">=</span> d <span class="br0">)</span></span></span>, and then give an error because it is semantically invalid.</span>
-</li>
-</ol>
-</div>
-
+<p align="justify">
+Beyond just coding, `golem` makes deploying apps feel like a victory lap and turns documentation into an integral, rewarding part of the development cycle. With the added bonus of a supportive community, `golem` is more than just a tool - it is a companion for any developer venturing into the exciting world of Shiny applications. 🚀🌟
+</p>
 
 # References
 
-* C Operator Precedence - https://en.cppreference.com/w/c/language/operator_precedence#cite_note-1
+Fay, Colin, Vincent Guyader, Sébastien Rochette, and Cervan Girard. 2021. Golem: A Framework for Robust Shiny Applications. https://github.com/ThinkR-open/golem.
+
+
+# Additional Material
+
+* [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/golem.html)
+* [golem: A Framework for Building Robust Shiny Apps](https://rstudio.github.io/cheatsheets/golem.pdf)
+* [golem R package](https://cran.r-project.org/web/packages/golem/index.html)
+
+# Citation
+
+1. For attribution, please cite this work as:
+
+<div class="div-1">
+Oliveira T.P. (2023, Oct. 02). Navigating the Shiny Universe with Golem
+</div>
+
+2. BibTeX citation
+
+```
+@misc{oliveira2020golem,
+  author = {Oliveira, Thiago},
+  title = {Navigating the Shiny Universe with Golem},
+  url = {https://prof-thiagooliveira.netlify.app/post/golem-package/},
+  year = {2023}
+}
+```
 
 **Did you find this page helpful? Consider sharing it 🙌**
                        

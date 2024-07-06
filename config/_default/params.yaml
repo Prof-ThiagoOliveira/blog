@@ -1,156 +1,74 @@
 # SITE SETUP
-# Guide: https://wowchemy.com/docs/getting-started/
-# Documentation: https://wowchemy.com/docs/
+# Guide: https://docs.hugoblox.com/tutorial/
+# Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Appearance
-
-theme: oliveira
-day_night: true
-font: minimal
-font_size: L
-
+appearance:
+  mode: light
+  color: blue
+  
 # SEO
-
-site_type: Person
-local_business_type: 'University'
-org_name: 'AbacusBio'
-description: 'Edinburgh Office, UK'
-twitter: ''
-
-# Contact (edit or remove options as required)
-
-email: toliveira@abacusbio.com
-phone: 
-address:
-  street: AbacusBio, Easter Bush Campus, Midlothian
-  city: Edinburgh
-  region: 
-  postcode: 'EH25 9RG'
-  country: Scotland
-  country_code: UK
-coordinates:
-  latitude: '55.865822'
-  longitude: '-3.198568'
-directions: 
-office_hours:
-  - 'Monday-Friday 9:00 to 17:00'
-appointment_url: ''
-contact_links:
-  - icon: twitter
-    icon_pack: fab
-    name: Twitter
-    link: 'https://twitter.com/_OliveiraTP_'
-  - icon: github
-    icon_pack: fab
-    name: GitHub
-    link: 'https://github.com/Prof-ThiagoOliveira'
-  - icon: camera-retro
-    icon_pack: fas
-    name: Photography Website
-    link: 'https://naturesouvenirs.smugmug.com/'
+marketing:
+  seo:
+    site_type: Person
+    local_business_type: 'University'
+    org_name: 'AbacusBio'
+    description: 'Edinburgh Office, UK'
+    twitter: ''
+  analytics:
+    google_analytics: 'G-F170NVYBW1'
+    baidu_tongji: ''
+    plausible: ''
+    fathom: ''
+    pirsch: ''
+  verification:
+    google: ''
+    baidu: ''
 
 # Site header
+header:
+  navbar:
+    enable: true
+    blox: "navbar"
+    align: "center"
+    fixed_to_top: true
+    logo:
+      text: "Thiago Oliveira"
+      filename: "logo.png"
+    button:
+      enable: true
+      text: "Contact me"
+      url: "mailto:toliveira@abacusbio.com"
+    show_theme_chooser: true
+    show_search: true
+    highlight_active_link: true
+    show_translations: true
+    hide_language_name: false
 
-main_menu:
-  enable: true
-  align: l
-  show_logo: true
-  show_language: false
-  show_day_night: true
-  show_search: true
-  highlight_active_link: true
+# Site footer
+footer:
+  copyright:
+    notice: '© {year} Me. This work is licensed under {license}'
+    license:
+      enable: true
+      allow_derivatives: false
+      share_alike: true
+      allow_commercial: false
 
 # Localization
-
-date_format: 'Jan 2, 2006'
-time_format: '3:04 PM'
-address_format: en-us
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+  address_format: en-us
 
 # Site features
-
-highlight: true
-highlight_languages:
-  - r
-  - c++
-  - bash/shell
-  - latex
-math: true
-diagram: false
-privacy_pack: false
-edit_page:
-  repo_url: ''
-  content_dir: ''
-  repo_branch: main
-  editable:
-    page: false
-    post: false
-    book: false
-show_related:
-  book: true
-  page: false
-  post: true
-  project: true
-  publication: true
-  event: true
-reading_time: true
-section_pager: false
-docs_section_pager: true
-sharing: true
-copyright_license:
-  enable: false
-  allow_derivatives: false
-  share_alike: true
-  allow_commercial: false
-  notice: 'This work is licensed under {license}'
-abstract_length: 135
-plugins_js: []
-avatar:
-  gravatar: false
-  shape: circle
-publications:
-  date_format: January 2006
-  citation_style: apa
-projects:
-  post_view: 2
-  publication_view: 2
-  talk_view: 2
-breadcrumb:
-  page_types:
-    book: true
-comments:
-  provider: ''
-  commentable:
-    post: true
-    book: true
-    project: true
-    publication: true
-    event: true
-  disqus:
-    shortname: ''
-    show_count: true
-  commento:
-    url: ''
-search:
-  provider: wowchemy
-  algolia:
-    app_id: ''
+features:
+  math:
+    enable: true
+  privacy_pack:
+    enable: true
+  map:
+    provider: mapnik
     api_key: ''
-    index_name: ''
-    show_logo: false
-map:
-  provider: mapnik
-  api_key: ''
-  zoom: 15
-marketing:
-  google_analytics: 'G-F170NVYBW1'
-  google_tag_manager: ''
-  google_site_verification: ''
-  baidu_site_verification: ''
-  baidu_tongji: ''
-cms:
-  branch: master
-  local_backend: false
-icon:
-  pack:
-    ai: false
+    zoom: 15

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phytopathology | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/phytopathology/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/phytopathology/index.xml" rel="self" type="application/rss+xml" />
+    <description>Phytopathology</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Phytopathology</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/phytopathology/</link>
+    </image>
+    
+    <item>
+      <title>Settling and feeding behavior of sharpshooter vectors on plum genotypes with different susceptibility levels to leaf scald disease (Xylella fastidiosa)</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-plant_pathology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Transmission efficiency of xylella fastidiosa subsp. Pauca sequence types by sharpshooter vectors after in vitro acquisition</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-phitopatology/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

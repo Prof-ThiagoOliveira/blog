@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Colour | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/colour/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/colour/index.xml" rel="self" type="application/rss+xml" />
+    <description>Colour</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Colour</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/colour/</link>
+    </image>
+    
+    <item>
+      <title>Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2017-papaya/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

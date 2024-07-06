@@ -11,7 +11,7 @@
 
 <meta name="author" content="Thiago de Paula Oliveira" />
 
-<meta name="date" content="2020-12-16" />
+<meta name="date" content="2019-12-04" />
 
 <title>Signed and Unsigned Binary Numbers</title>
 
@@ -478,7 +478,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">h1, #TOC ul>li {color: #0d0d0d;}h2, #TOC ul>li {color: #3b80d1;}.code-input {background-color: lightpink;border: 2px solid darkblue;font-size: 18px;}code.r{font-size: 18px;}pre {font-size: 18px}body, td {font-size: 18px;text-align: justify;}.div-1{color: black;text-align: justify;background-color: #d6edd3;}.div-2{color: black;text-align: justify;background-color: #cfbe7e;}.header1 h1{font-style: normal;color: #f00000;}.header2 h2{font-style: normal;color: #3b80d1;}</style>
 
 
 
@@ -577,7 +576,7 @@ display: none;
 
 <h1 class="title toc-ignore">Signed and Unsigned Binary Numbers</h1>
 <h4 class="author">Thiago de Paula Oliveira</h4>
-<h4 class="date">2020-12-16</h4>
+<h4 class="date">2019-12-04</h4>
 
 </div>
 
@@ -618,6 +617,114 @@ Scenarios:</a></li>
 </ul>
 </div>
 
+<style>
+
+body {
+font-family: 'Helvetica Neue', Arial, sans-serif;
+font-size: 1rem;
+line-height: 1.8;
+color: #333;
+text-align: justify;
+background-color: #fafafa;
+margin: 0;
+padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: 600; 
+margin-bottom: 0.75em; 
+color: #0d0d0d;
+line-height: 1.2;
+margin-top: 1.5em; 
+}
+h1 {
+font-size: 1.75rem; border-bottom: 2px solid #3b80d1;
+padding-bottom: 0.3em; 
+margin-top: 1em; }
+h2 {
+font-size: 1.5rem; color: #3b80d1;
+padding-bottom: 0.2em; 
+}
+h3 {
+font-size: 1.25rem; color: #333;
+}
+h4 {
+font-size: 1.125rem; color: #333;
+}
+h5 {
+font-size: 1rem; color: #333;
+}
+h6 {
+font-size: 0.875rem; color: #333;
+}
+
+a {
+color: #3b80d0;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+a:hover {
+text-decoration: underline;
+color: #1a57a0;
+}
+
+pre, .code-input {
+background-color: #f5f5f5;
+border: 1px solid #ddd;
+padding: 10px;
+font-size: 0.9rem;
+border-radius: 5px;
+margin: 20px 0;
+overflow-x: auto;
+}
+code {
+font-size: 0.9rem;
+background-color: #f5f5f5;
+padding: 2px 4px;
+border-radius: 3px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 1.5em;
+text-align: left;
+}
+th, td {
+padding: 12px;
+border: 1px solid #ddd;
+}
+th {
+background-color: #3b80d1;
+color: white;
+}
+
+.div-1 {
+color: black;
+background-color: #d6edd3;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 1.5em;
+}
+.div-2 {
+color: black;
+background-color: #cfbe7e;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 1.5em;
+}
+
+.article-content {
+text-align: justify;
+}
+
+img {
+max-width: 100%;
+height: auto;
+border-radius: 5px;
+margin-bottom: 1.5em;
+}
+</style>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>When programming in C, a fundamental step is understanding variable
@@ -722,11 +829,49 @@ combining in myriad ways to encapsulate numbers from 0 to 15. Our
 journey here explores the interval <span class="math inline">\([0,
 2^{4}−1] \in \mathcal{N}_{0}\)</span>.</p>
 <p>Here’s an R snippet to visualize this transformation:</p>
-<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.2.3</code></pre>
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 4.4.1</code></pre>
+<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>
 Representation of numbers from 0 to 15 in 4 bits
 </caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td style="text-align:left;font-weight: bold;border-right:1px solid;">
@@ -849,10 +994,48 @@ us to span <span class="math inline">\(y\)</span> within the range <span class="
 \mathcal{Z}\)</span>.</p>
 <p>Witness the Sign-Magnitude Representation, where the first bit
 unveils the sign, and the rest narrate the magnitude:</p>
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>
 Sign-Magnitude Representation of numbers from -7 to 7 using 4 bits
 </caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td style="text-align:left;font-weight: bold;border-right:1px solid;">
@@ -966,10 +1149,48 @@ y
 Representation, a brilliant method to elegantly incorporate negative
 numbers. This approach allows us to explore the depths of the negative
 spectrum, all the way to -8:</p>
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>
 2’s Complement Representation of numbers from -8 to 7 using 4 bits
 </caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td style="text-align:left;font-weight: bold;border-right:1px solid;">
@@ -1103,7 +1324,7 @@ represented by the number 65 in ASCII, which corresponds to the binary
 number 01000001.</p>
 <p>Here’s an R snippet to visualize this transformation for a set of
 characters:</p>
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>
 Binary Encoding of Characters Using ASCII
 </caption>

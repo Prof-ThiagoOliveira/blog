@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multilevel Regression | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/multilevel-regression/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/multilevel-regression/index.xml" rel="self" type="application/rss+xml" />
+    <description>Multilevel Regression</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Multilevel Regression</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/multilevel-regression/</link>
+    </image>
+    
+    <item>
+      <title>A Hierarchical Approach for Evaluating Athlete Performance with an Application in Elite Basketball</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</link>
+      <pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-onscore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comparison of Markerless and Marker-based Motion Capture Systems using 95% Functional Limits of Agreement in a Linear Mixed-Effects Modelling Framework</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-floa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

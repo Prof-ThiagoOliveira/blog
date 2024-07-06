@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AlphaPart | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/alphapart/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/alphapart/index.xml" rel="self" type="application/rss+xml" />
+    <description>AlphaPart</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 03 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>AlphaPart</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/alphapart/</link>
+    </image>
+    
+    <item>
+      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</link>
+      <pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2022-alphapartvariance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quantifying the Drivers of Genetic Change in Plant Breeding</title>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</link>
+      <pubDate>Wed, 21 Sep 2022 19:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-eucarpia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A method for partitioning trends in genetic mean and variance to understand breeding practices</title>
+      <link>https://prof-thiagooliveira.netlify.com/event/2022-purdue/</link>
+      <pubDate>Wed, 27 Jul 2022 19:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2022-purdue/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

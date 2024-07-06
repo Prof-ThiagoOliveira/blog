@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linkage-Disequilibrium | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/linkage-disequilibrium/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/linkage-disequilibrium/index.xml" rel="self" type="application/rss+xml" />
+    <description>Linkage-Disequilibrium</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Linkage-Disequilibrium</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/linkage-disequilibrium/</link>
+    </image>
+    
+    <item>
+      <title>Temporal and genomic analysis of additive genetic variance in breeding programmes</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2021-llara_gen_var_plants/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

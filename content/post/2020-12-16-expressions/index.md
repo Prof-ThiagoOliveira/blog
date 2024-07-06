@@ -1,7 +1,7 @@
 ---
 title: Expressions in C++
 author: Thiago de Paula Oliveira
-date: '2020-12-16'
+date: '2020-02-16'
 slug: expressions
 categories:
   - C++
@@ -25,8 +25,148 @@ output:
   html_document:
     keep_md: yes
     toc: true
-    css: "my_style.css"
 ---
+
+<style>
+/* Blog post container */
+body {
+   font-family: 'Helvetica Neue', Arial, sans-serif;
+   font-size: 1rem;
+   line-height: 1.8;
+   color: #333;
+   text-align: justify;
+   background-color: #fafafa;
+   margin: 0;
+   padding: 0 20px;
+}
+
+/* Header styling */
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-weight: 600; /* Semi-bold for a professional look */
+  margin-bottom: 0.75em; /* Slightly reduced bottom margin */
+  color: #0d0d0d;
+  line-height: 1.2;
+  margin-top: 1.5em; /* Added top margin for consistency */
+}
+
+h1 {
+  font-size: 1.75rem; 
+  border-bottom: 2px solid #3b80d1;
+  padding-bottom: 0.3em; /* Padding for visual separation */
+  margin-top: 1em; 
+}
+
+h2 {
+  font-size: 1.5rem; 
+  color: #3b80d1;
+  padding-bottom: 0.2em; /* Padding for visual separation */
+}
+
+h3 {
+  font-size: 1.25rem; 
+  color: #333;
+}
+
+h4 {
+  font-size: 1.125rem; 
+  color: #333;
+}
+
+h5 {
+  font-size: 1rem; 
+  color: #333;
+}
+
+h6 {
+  font-size: 0.875rem; 
+  color: #333;
+}
+
+/* Link styling */
+a {
+  color: #3b80d0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #1a57a0;
+}
+
+/* Code styling */
+pre, 
+.code-input {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+code {
+  font-size: 0.9rem;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+
+th, 
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #3b80d1;
+  color: white;
+}
+
+/* Div options - color box text */
+.div-1 {
+  color: black;
+  background-color: #d6edd3;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.div-2 {
+  color: black;
+  background-color: #cfbe7e;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+/* Article content */
+.article-content {
+  text-align: justify;
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+</style>
 
 # Introduction
 

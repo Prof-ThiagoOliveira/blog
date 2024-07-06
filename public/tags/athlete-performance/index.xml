@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athlete Performance | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/athlete-performance/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/athlete-performance/index.xml" rel="self" type="application/rss+xml" />
+    <description>Athlete Performance</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2020 10:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Athlete Performance</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/athlete-performance/</link>
+    </image>
+    
+    <item>
+      <title>Estimating NBA athlete performance using multilevel models</title>
+      <link>https://prof-thiagooliveira.netlify.com/event/2020-nuig/</link>
+      <pubDate>Tue, 21 Apr 2020 10:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/event/2020-nuig/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Abstract&lt;/strong&gt;:&lt;/p&gt;
+&lt;p align=&#34;justify&#34;&gt;In basketball, the athlete performance evaluation are generally based on variants of plus-minus and PER statistics Optimizing Athlete Performance calculated through multiple regression, ridge, or lasso models using likelihood-based or Bayesian approach. We developed a novel methodology based on principal components analysis and multilevel model to create new indexes such as Oliveira-Newell Score that can be used to evaluate player performance during a match, relevance score used to rank players in a season, and the consistence score used to evaluate the player contribution for their team based on random effects.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<!-- layouts/shortcodes/gallery.html -->
+<div class="gallery">
+  {{ $albums := resources.Match "media/albums/*.{jpg,jpeg}" }}
+  {{ if $albums }}
+    {{ range $albums }}
+      <div class="gallery-item">
+        <img src="{{ .RelPermalink }}" alt="{{ .Name }}">
+      </div>
+    {{ end }}
+  {{ else }}
+    <p>No images found in media/albums.</p>
+  {{ end }}
+</div>
+
+<style>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.gallery-item {
+  flex: 1 1 calc(33.333% - 16px);
+  box-sizing: border-box;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+</style>
+

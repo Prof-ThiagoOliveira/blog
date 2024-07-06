@@ -7,4 +7,4 @@ toc: false
 weight: 1
 ---
 
-Explore a curated collection of my educational journey, from foundational undergraduate endeavors to advanced training and development programs. Additionally, this space celebrates the awards and achievements I've garnered along the way.
+A collection of my educational journey and a space celebrates the awards and achievements I've garnered along the way.

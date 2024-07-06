@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sports | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/sports/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/sports/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sports</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Sports</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/sports/</link>
+    </image>
+    
+    <item>
+      <title>Development and Application of Statistical Frameworks in Sports Analytics</title>
+      <link>https://prof-thiagooliveira.netlify.com/project/sports-project/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/project/sports-project/</guid>
+      <description>&lt;p align=&#34;justify&#34;&gt;
+Utilizing statistical frameworks in sports analytics enables more precise evaluations of athlete performance and team dynamics. This advancement provides coaches and stakeholders with deeper insights, fostering informed decisions that can significantly elevate a team&#39;s competitive edge.
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

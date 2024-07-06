@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Directed Acyclic Graph (DAG) | Thiago Oliveira</title>
+    <link>https://prof-thiagooliveira.netlify.com/tags/directed-acyclic-graph-dag/</link>
+      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/directed-acyclic-graph-dag/index.xml" rel="self" type="application/rss+xml" />
+    <description>Directed Acyclic Graph (DAG)</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <title>Directed Acyclic Graph (DAG)</title>
+      <link>https://prof-thiagooliveira.netlify.com/tags/directed-acyclic-graph-dag/</link>
+    </image>
+    
+    <item>
+      <title>Pedigree-based Animal Models Using Directed Acyclic Graphs</title>
+      <link>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://prof-thiagooliveira.netlify.com/publication/2023-dag/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

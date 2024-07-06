@@ -48,3 +48,7 @@ color: #f00000;
 font-style: normal;
 color: #3b80d1;
 }
+
+.article-content {
+  text-align: justify;
+}
