@@ -1,7 +1,7 @@
 ---
 title: Comparing data read and write performance in R
 author: Thiago de Paula Oliveira
-date: '2024-07-10'
+date: '2024-07-06'
 slug: data-read-write-performance
 categories:
   - R Programming
@@ -15,7 +15,7 @@ subtitle: 'Performance comparison of different data formats in R'
 summary: 'This post explores the performance of various data formats in R for reading and writing operations, highlighting file size, speed, and memory usage.'
 authors: 
 - admin
-lastmod: '2024-07-10T09:15:54Z'
+lastmod: '2024-07-06T09:15:54Z'
 featured: no
 image:
   caption: ''
