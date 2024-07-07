@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Computer Programs | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/computer-programs/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/computer-programs/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/computer-programs/</link>
+      <atom:link href="http://localhost:4321/tags/computer-programs/index.xml" rel="self" type="application/rss+xml" />
     <description>Computer Programs</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 16 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Computer Programs</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/computer-programs/</link>
+      <link>http://localhost:4321/tags/computer-programs/</link>
     </image>
     
     <item>
       <title>Expressions in C&#43;&#43;</title>
-      <link>https://prof-thiagooliveira.netlify.com/post/expressions/</link>
+      <link>http://localhost:4321/post/expressions/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/post/expressions/</guid>
+      <guid>http://localhost:4321/post/expressions/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -562,9 +562,9 @@ Oliveira T.P. (2020, Dec. 16). Expressions in C++
     
     <item>
       <title>Signed and Unsigned Binary Numbers</title>
-      <link>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</link>
+      <link>http://localhost:4321/post/signed-and-unsigned-binary-numbers/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/post/signed-and-unsigned-binary-numbers/</guid>
+      <guid>http://localhost:4321/post/signed-and-unsigned-binary-numbers/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {

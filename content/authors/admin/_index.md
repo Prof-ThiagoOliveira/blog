@@ -147,10 +147,6 @@ work:
 skills:
   - name: Programming Languages
     items:
-      - name: Python
-        description: Advanced proficiency
-        percent: 85
-        icon: devicon/python
       - name: R
         description: Advanced proficiency
         percent: 96
@@ -164,9 +160,13 @@ skills:
         percent: 70
         icon: devicon/matlab
       - name: Bash/Shell
-        description: Intermediate proficiency
+        description: Advanced proficiency
         percent: 70
         icon: devicon/bash
+      - name: Python
+        description: Beginner proficiency
+        percent: 25
+        icon: devicon/python
 
   - name: Statistical Software
     items:
@@ -210,7 +210,7 @@ skills:
         percent: 75
         icon: devicon/visualstudio
       - name: Jupyter
-        description: Advanced proficiency
+        description: Intermediate proficiency
         percent: 85
         icon: devicon/jupyter
       - name: GitHub

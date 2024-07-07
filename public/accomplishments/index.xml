@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Accomplishments | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/accomplishments/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/accomplishments/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/accomplishments/</link>
+      <atom:link href="http://localhost:4321/accomplishments/index.xml" rel="self" type="application/rss+xml" />
     <description>Accomplishments</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 13 Mar 2020 09:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Accomplishments</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/</link>
+      <link>http://localhost:4321/accomplishments/</link>
     </image>
     
     <item>
       <title>Completed &amp; Discontinued Projects</title>
-      <link>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</link>
-      <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/accomplishments/projects/</guid>
+      <link>http://localhost:4321/accomplishments/projects/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/accomplishments/projects/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
@@ -157,6 +157,34 @@ img {
   margin-bottom: 1.5em;
 }
 &lt;/style&gt;
+&lt;h2 id=&#34;2024&#34;&gt;2024&lt;/h2&gt;
+&lt;h3 id=&#34;quantifying-the-drivers-of-genetic-change-in-plant-breeding&#34;&gt;Quantifying the drivers of genetic change in plant breeding&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+Plant breeding programmes are a complex network of a multitude of operations and decisions. Therefore quantifying which operations and decisions drive genetic change in plant breeding is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these trends measure only change in the mean. To understand genetic change and its drivers more comprehensively, we also need to measure changes in genetic mean and variance and evaluate drivers of changes in mean and variance.&lt;/p&gt;
+&lt;br&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2023&#34;&gt;2023&lt;/h2&gt;
+&lt;h3 id=&#34;developing-high-performance-black-soldier-fly-breeds-for-insects-as-feed-sector&#34;&gt;Developing high performance black soldier fly breeds for insects-as-feed sector&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+The rising demand for livestock and aquaculture protein necessitates sustainable alternatives to soy and fishmeal, with the black soldier fly emerging as a key solution. This project aims to develop a breeding program and tools to enhance the genetics and production efficiency of black soldier fly, supporting the growing number of global producers.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;a-hierarchical-approach-for-evaluating-athlete-performance&#34;&gt;A hierarchical approach for evaluating athlete performance&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+The hierarchical approach for evaluating athlete performance utilizes mixed-effects regression models and principal component analysis to create the ON score, a comprehensive metric that captures an athlete’s overall contribution to their team. This method, validated on NBA data, offers a reliable and efficient tool for coaches and managers to assess and compare athlete performance across seasons and games, enhancing decision-making in sports analytics by providing deeper insights into individual and team dynamics.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nature.com/articles/s41598-024-51232-2&#34;&gt;A hierarchical approach for evaluating athlete performance with an application in elite basketball&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;a-comparative-study-of-markerless-and-marker-based-systems&#34;&gt;A comparative study of markerless and marker-based systems&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+This project aims to evaluate the agreement between markerless and marker-based motion capture systems using 95% functional limits of agreement within a linear mixed-effects modeling framework. By comparing these systems, the study seeks to determine the reliability and applicability of markerless technology in biomechanical analysis, which could significantly streamline data collection and reduce setup time while maintaining accuracy. This research will provide valuable insights for improving motion capture methods used in sports and clinical biomechanics.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nature.com/articles/s41598-023-49360-2&#34;&gt;Comparison of markerless and marker-based motion capture systems using 95% functional limits of agreement in a linear mixed-effects modelling framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;2022&#34;&gt;2022&lt;/h2&gt;
 &lt;h3 id=&#34;alphapart---partition-of-breeding-values-by-paths-of-information&#34;&gt;AlphaPart - Partition of Breeding Values by Paths of Information&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
@@ -174,6 +202,7 @@ The partitioning method is described in Garcia-Cortes et al. (2008). The package
 &lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
 Develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle&lt;/p&gt;
 &lt;br&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;2021&#34;&gt;2021&lt;/h2&gt;
 &lt;h3 id=&#34;the-use-of-biostatistics-for-optimizing-athletes-performance&#34;&gt;The use of biostatistics for optimizing athletes performance&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
@@ -192,11 +221,19 @@ Predictive modelling is a commonly used statistical technique to predict future 
 &lt;li&gt;&lt;a href=&#34;https://www.nature.com/articles/s41598-021-95960-1&#34;&gt;Modelling menstrual cycle length in athletes using state-space models, 2021&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;br&gt;
+&lt;h3 id=&#34;optimising-selection-and-management-of-diversity-in-plant-breeding&#34;&gt;Optimising selection and management of diversity in plant breeding&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
+This project aims to quantify and manage genetic variation in plant breeding programs, ensuring long-term competitiveness by measuring and distributing genetic diversity across different stages and years.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nature.com/articles/s41437-021-00485-y&#34;&gt;Temporal and genomic analysis of additive genetic variance in breeding programmes&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;2020&#34;&gt;2020&lt;/h2&gt;
 &lt;h3 id=&#34;the-lcc-package&#34;&gt;The lcc Package&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;:
-Estimating longitudinal concordance correlation function&lt;/p&gt;
+Longitudinal concordance correlation (LCC) is a statistical measure used to assess the agreement between two methods of measurement over time. It combines aspects of precision and accuracy to evaluate the consistency and accuracy of longitudinal data, accounting for both within-subject correlation and temporal changes. LCC is particularly useful in fields where repeated measurements are essential, such as medical research, to ensure that methods produce reliable and consistent results across different time points.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/lcc/lcc.pdf&#34;&gt;lcc: Longitudinal Concordance Correlation, 2019&lt;/a&gt;&lt;/li&gt;

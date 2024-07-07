@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gallery | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/gallery/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/gallery/</link>
+      <atom:link href="http://localhost:4321/gallery/index.xml" rel="self" type="application/rss+xml" />
     <description>Gallery</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 13 Apr 2024 09:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Gallery</title>
-      <link>https://prof-thiagooliveira.netlify.com/gallery/</link>
+      <link>http://localhost:4321/gallery/</link>
     </image>
     
   </channel>

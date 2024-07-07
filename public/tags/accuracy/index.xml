@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Accuracy | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/accuracy/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/accuracy/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/accuracy/</link>
+      <atom:link href="http://localhost:4321/tags/accuracy/index.xml" rel="self" type="application/rss+xml" />
     <description>Accuracy</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Accuracy</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/accuracy/</link>
+      <link>http://localhost:4321/tags/accuracy/</link>
     </image>
     
     <item>
       <title>lcc: an R package to estimate the concordance correlation, Pearson correlation, and accuracy over time</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</link>
+      <link>http://localhost:4321/publication/2020-lccpeerj/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2020-lccpeerj/</guid>
+      <guid>http://localhost:4321/publication/2020-lccpeerj/</guid>
       <description>&lt;p&gt;Supplementary notes were added here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;lcc package
@@ -31,17 +31,17 @@
     
     <item>
       <title>lcc: Longitudinal Concordance Correlation</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</link>
+      <link>http://localhost:4321/publication/2019-lcc-package/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2019-lcc-package/</guid>
+      <guid>http://localhost:4321/publication/2019-lcc-package/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Longitudinal concordance correlation function based on variance components: an application in fruit color analysis</title>
-      <link>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</link>
+      <link>http://localhost:4321/publication/2018-lcc/</link>
       <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/publication/2018-lcc/</guid>
+      <guid>http://localhost:4321/publication/2018-lcc/</guid>
       <description>&lt;p&gt;Supplementary notes were added here, including &lt;a href=&#34;https://link.springer.com/article/10.1007%2Fs13253-018-0321-1&#34;&gt;code and data&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>

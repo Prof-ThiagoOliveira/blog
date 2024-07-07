@@ -159,6 +159,51 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, error=FALSE, warning = FALSE
                       class.source = "lineAnchors")
 ```
 
+## 2024
+
+### Quantifying the drivers of genetic change in plant breeding
+
+**Summary**:
+Plant breeding programmes are a complex network of a multitude of operations and decisions. Therefore quantifying which operations and decisions drive genetic change in plant breeding is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these trends measure only change in the mean. To understand genetic change and its drivers more comprehensively, we also need to measure changes in genetic mean and variance and evaluate drivers of changes in mean and variance.
+
+<br>
+
+<hr>
+
+## 2023
+
+### Developing high performance black soldier fly breeds for insects-as-feed sector
+
+**Summary**: 
+The rising demand for livestock and aquaculture protein necessitates sustainable alternatives to soy and fishmeal, with the black soldier fly emerging as a key solution. This project aims to develop a breeding program and tools to enhance the genetics and production efficiency of black soldier fly, supporting the growing number of global producers.
+
+<br>
+
+### A hierarchical approach for evaluating athlete performance  
+
+**Summary**: 
+The hierarchical approach for evaluating athlete performance utilizes mixed-effects regression models and principal component analysis to create the ON score, a comprehensive metric that captures an athlete’s overall contribution to their team. This method, validated on NBA data, offers a reliable and efficient tool for coaches and managers to assess and compare athlete performance across seasons and games, enhancing decision-making in sports analytics by providing deeper insights into individual and team dynamics.
+
+
+**Publications**:
+
+1. [A hierarchical approach for evaluating athlete performance with an application in elite basketball](https://www.nature.com/articles/s41598-024-51232-2)
+
+<br>
+
+### A comparative study of markerless and marker-based systems
+
+**Summary**: 
+This project aims to evaluate the agreement between markerless and marker-based motion capture systems using 95% functional limits of agreement within a linear mixed-effects modeling framework. By comparing these systems, the study seeks to determine the reliability and applicability of markerless technology in biomechanical analysis, which could significantly streamline data collection and reduce setup time while maintaining accuracy. This research will provide valuable insights for improving motion capture methods used in sports and clinical biomechanics.
+
+**Publications**:
+
+1. [Comparison of markerless and marker-based motion capture systems using 95% functional limits of agreement in a linear mixed-effects modelling framework](https://www.nature.com/articles/s41598-023-49360-2)
+
+<br>
+
+<hr>
+
 ## 2022
 
 ### AlphaPart - Partition of Breeding Values by Paths of Information
@@ -182,6 +227,8 @@ The partitioning method is described in Garcia-Cortes et al. (2008). The package
 Develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle
 
 <br>
+
+<hr>
 
 ## 2021
 
@@ -208,6 +255,17 @@ Predictive modelling is a commonly used statistical technique to predict future 
 
 <br>
 
+### Optimising selection and management of diversity in plant breeding
+
+**Summary**: 
+This project aims to quantify and manage genetic variation in plant breeding programs, ensuring long-term competitiveness by measuring and distributing genetic diversity across different stages and years.
+
+**Publications**: 
+
+1. [Temporal and genomic analysis of additive genetic variance in breeding programmes](https://www.nature.com/articles/s41437-021-00485-y)
+
+<br>
+
 <hr>
 
 ## 2020
@@ -215,7 +273,7 @@ Predictive modelling is a commonly used statistical technique to predict future 
 ### The lcc Package
 
 **Summary**: 
-Estimating longitudinal concordance correlation function
+Longitudinal concordance correlation (LCC) is a statistical measure used to assess the agreement between two methods of measurement over time. It combines aspects of precision and accuracy to evaluate the consistency and accuracy of longitudinal data, accounting for both within-subject correlation and temporal changes. LCC is particularly useful in fields where repeated measurements are essential, such as medical research, to ensure that methods produce reliable and consistent results across different time points.
 
 **Publications**:
 

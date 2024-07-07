@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Agreement | Thiago Oliveira</title>
-    <link>https://prof-thiagooliveira.netlify.com/tags/agreement/</link>
-      <atom:link href="https://prof-thiagooliveira.netlify.com/tags/agreement/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tags/agreement/</link>
+      <atom:link href="http://localhost:4321/tags/agreement/index.xml" rel="self" type="application/rss+xml" />
     <description>Agreement</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 17 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://prof-thiagooliveira.netlify.com/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
       <title>Agreement</title>
-      <link>https://prof-thiagooliveira.netlify.com/tags/agreement/</link>
+      <link>http://localhost:4321/tags/agreement/</link>
     </image>
     
     <item>
       <title>Precision &amp; Accuracy - The Role of Concordance Correlation in Research</title>
-      <link>https://prof-thiagooliveira.netlify.com/post/precision-and-accuracy/</link>
+      <link>http://localhost:4321/post/precision-and-accuracy/</link>
       <pubDate>Wed, 17 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://prof-thiagooliveira.netlify.com/post/precision-and-accuracy/</guid>
+      <guid>http://localhost:4321/post/precision-and-accuracy/</guid>
       <description>&lt;style&gt;
 /* Blog post container */
 body {
