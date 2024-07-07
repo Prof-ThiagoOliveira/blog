@@ -493,7 +493,16 @@ img {
 &lt;p&gt;The results of benchmarking study on various data formats in &lt;code&gt;R&lt;/code&gt; include read and write time, file size, and memory usage. The results are visualized in graphs and tables, which show the performance trends as the data set size increases.&lt;/p&gt;
 &lt;h2 id=&#34;file-sizes&#34;&gt;File sizes&lt;/h2&gt;
 &lt;p&gt;The first graph illustrates the file sizes for each data format across different data set sizes. Smaller file sizes are generally preferable as they require less disk space and can be more efficient for data transfer. The formats compared include RDS, CSV (using &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;readr&lt;/code&gt;), FST, Feather, Parquet, and QS.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;post/2024-07-03-read_write_big_data/p_file_sizes.html&#34;&gt;Interactive Plotly Plot&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;div id=&#34;plotly-div&#34; style=&#34;height: 500px&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+fetch(&#39;p_file_sizes_interactive.json&#39;)
+  .then(response =&gt; response.json())
+  .then(data =&gt; Plotly.newPlot(&#39;plotly-div&#39;, data.data, data.layout));
+&lt;/script&gt;
+
+
 &lt;p&gt;From the graph, we can observe:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;QS consistently produces the smallest file sizes across all data set sizes.&lt;/li&gt;

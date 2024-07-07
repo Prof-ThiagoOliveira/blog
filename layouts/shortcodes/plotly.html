@@ -1,0 +1,9 @@
+{{ $json := .Get "json" }}
+{{ $height := .Get "height" | default "500px" }}
+<div id="{{ .Get "id" | default "plotly-div" }}" style="height: {{ $height }}"></div>
+<script>
+fetch('{{ $json }}')
+  .then(response => response.json())
+  .then(data => Plotly.newPlot('{{ .Get "id" | default "plotly-div" }}', data.data, data.layout));
+</script>
+

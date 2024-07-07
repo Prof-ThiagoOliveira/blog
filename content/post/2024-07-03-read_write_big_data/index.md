@@ -267,7 +267,7 @@ The results of benchmarking study on various data formats in `R` include read an
 
 The first graph illustrates the file sizes for each data format across different data set sizes. Smaller file sizes are generally preferable as they require less disk space and can be more efficient for data transfer. The formats compared include RDS, CSV (using `data.table` and `readr`), FST, Feather, Parquet, and QS.
 
-[Interactive Plotly Plot](post/2024-07-03-read_write_big_data/p_file_sizes.html)
+{{< plotly json="p_file_sizes_interactive.json" height="500px" >}}
 
 
 From the graph, we can observe:
