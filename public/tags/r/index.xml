@@ -7,7 +7,7 @@
     <description>R</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 06 Jul 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/logo_hu79b57d1cb18e719812a49f2a6d8a26be_34849_300x300_fit_lanczos_3.png</url>
+      <url>http://localhost:4321/media/logo_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_300x300_fit_lanczos_3.png</url>
       <title>R</title>
       <link>http://localhost:4321/tags/r/</link>
     </image>
@@ -151,12 +151,21 @@ th {
 
 /* Image styling */
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
   margin-bottom: 1.5em;
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 &lt;/style&gt;
+&lt;script&gt;
+  function openImageInNewWindow(imgSrc) {
+    const newWindow = window.open();
+    newWindow.document.write(`&lt;img src=&#34;${imgSrc}&#34; style=&#34;width:100%; height:auto;&#34;&gt;`);
+    newWindow.document.close();
+  }
+&lt;/script&gt;
 &lt;h1 id=&#34;post-summary&#34;&gt;Post Summary&lt;/h1&gt;
 &lt;p&gt;Efficient data handling is crucial for daily data analysis tasks. In this post, we will compare the performance of various data formats in &lt;code&gt;R&lt;/code&gt; for reading and writing operations. The formats considered include RDS, CSV (using &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;readr&lt;/code&gt;), FST, Feather, Parquet, and QS. We will benchmark the speed, file sizes, and memory usage of each format across different data sizes.&lt;/p&gt;
 &lt;h1 id=&#34;database-definition&#34;&gt;Database Definition&lt;/h1&gt;
@@ -222,8 +231,10 @@ img {
 &lt;p&gt;The results of the benchmarking study on various data formats in &lt;code&gt;R&lt;/code&gt; include read and write time, file size, and memory usage. The results are visualized in graphs and tables, which show the performance trends as the data set size increases.&lt;/p&gt;
 &lt;h2 id=&#34;file-sizes&#34;&gt;File sizes&lt;/h2&gt;
 &lt;p&gt;The first graph illustrates the file sizes for each data format across different data set sizes. Smaller file sizes are generally preferable as they require less disk space and can be more efficient for data transfer. The formats compared include RDS, CSV (using &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;readr&lt;/code&gt;), FST, Feather, Parquet, and QS.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## &amp;lt;img src=&amp;#34;p_file_sizes.png&amp;#34; style=&amp;#34;width:650px; cursor: pointer;&amp;#34; onclick=&amp;#34;this.style.width = this.style.width === &amp;amp;#39;650px&amp;amp;#39; ? &amp;amp;#39;100%&amp;amp;#39; : &amp;amp;#39;650px&amp;amp;#39;;&amp;#34;/&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From the graph, we can observe:&lt;/p&gt;
+&lt;div style=&#34;text-align:center;&#34;&gt;
+  &lt;img src=&#34;p_file_sizes.png&#34; onclick=&#34;openImageInNewWindow(this.src)&#34;&gt;
+&lt;/div&gt;
+&lt;p&gt;From the graph, we can observe:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;QS consistently produces the smallest file sizes across all data set sizes.&lt;/li&gt;
   &lt;li&gt;RDS and FST also perform well, producing relatively small file sizes.&lt;/li&gt;
@@ -234,9 +245,8 @@ img {
 &lt;p&gt;For small to medium-sized data sets where disk space and data transfer efficiency are critical, QS and RDS formats are recommended. For larger data sets, Feather and Parquet are preferable due to their balance of file size and compatibility, especially when interoperability with other tools is necessary.&lt;/p&gt;
 &lt;h2 id=&#34;write-performance&#34;&gt;Write performance&lt;/h2&gt;
 &lt;p&gt;The second graph shows the write performance for each data format. Faster write times are beneficial for efficiently saving data, particularly in workflows involving frequent data saving operations.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;img src=&#34;p_write_benchmark.png&#34; alt=&#34;Write performance by format and dataset size&#34; width=&#34;650px&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Write performance by format and dataset size&lt;/p&gt;
+&lt;div style=&#34;text-align:center;&#34;&gt;
+  &lt;img src=&#34;p_write_benchmark.png&#34; onclick=&#34;openImageInNewWindow(this.src)&#34;&gt;
 &lt;/div&gt;
 &lt;p&gt;Key observations from the graph include:&lt;/p&gt;
 &lt;ul&gt;
@@ -251,9 +261,8 @@ img {
 &lt;p&gt;For small to medium-sized data sets, &lt;code&gt;dt&lt;/code&gt;, QS, Feather, and FST are recommended due to their fast write times. For larger data sets, Feather is preferable for its close performance to &lt;code&gt;dt&lt;/code&gt;, while Parquet can also be considered for its balance of write speed and compatibility. &lt;code&gt;readr&lt;/code&gt; should be avoided for large-scale data operations due to its slower write times, although it shows improved performance for data sets from sizes of 1,000 onward.&lt;/p&gt;
 &lt;h2 id=&#34;read-performance&#34;&gt;Read performance&lt;/h2&gt;
 &lt;p&gt;The third graph displays the read performance for each data format. Fast read times are critical for efficient data analysis, especially when working with large data sets that need to be frequently loaded into memory.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;img src=&#34;p_read_benchmark.png&#34; alt=&#34;Read performance by format and dataset size&#34; width=&#34;650px&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Read performance by format and dataset size&lt;/p&gt;
+&lt;div style=&#34;text-align:center;&#34;&gt;
+  &lt;img src=&#34;p_read_benchmark.png&#34; onclick=&#34;openImageInNewWindow(this.src)&#34;&gt;
 &lt;/div&gt;
 &lt;p&gt;Key observations from the graph include:&lt;/p&gt;
 &lt;ul&gt;
@@ -266,9 +275,8 @@ img {
 &lt;p&gt;For small to medium-sized data sets (up to 10,000 rows), QS is recommended due to its superior read performance. For larger data sets, Feather is the preferred format for its fastest read times, followed by Parquet, data.table (&lt;code&gt;dt&lt;/code&gt;), and FST. RDS should only be used for very small data sets, while readr should be avoided due to its consistently poor performance.&lt;/p&gt;
 &lt;h2 id=&#34;memory-usage&#34;&gt;Memory usage&lt;/h2&gt;
 &lt;p&gt;The final graph compares the memory usage of each data format during read operations. Efficient memory usage is important for handling large data sets without encountering memory constraints.&lt;/p&gt;
-&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;
-&lt;img src=&#34;p_memory_usage.png&#34; alt=&#34;Memory usage by format and dataset size&#34; width=&#34;650px&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;Memory usage by format and dataset size&lt;/p&gt;
+&lt;div style=&#34;text-align:center;&#34;&gt;
+  &lt;img src=&#34;p_memory_usage.png&#34; onclick=&#34;openImageInNewWindow(this.src)&#34;&gt;
 &lt;/div&gt;
 &lt;p&gt;Key points from the graph include:&lt;/p&gt;
 &lt;ul&gt;
