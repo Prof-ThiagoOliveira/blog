@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: July 7, 2024 --><html lang="en-us" dir="ltr"
+<!-- Last Published: July 8, 2024 --><html lang="en-us" dir="ltr"
       data-wc-theme-default="light">
   
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
@@ -1714,14 +1714,23 @@
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#file-sizes">File sizes</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#recommendations">Recommendations</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#write-performance">Write performance</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#recommendations-1">Recommendations</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#read-performance">Read performance</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#recommendations-2">Recommendations</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
         <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#memory-usage">Memory usage</a>
-      </li></ul>
+      </li></ul><ul></ul>
 
   
   
@@ -1770,7 +1779,7 @@
         
         <span class="mx-1">·</span>
         <span class="mx-1">
-          9 min read
+          12 min read
         </span>
         
         </div>
@@ -1954,8 +1963,8 @@ img {
 <h3 id="parquet">Parquet</h3>
 <p>Parquet is a columnar storage file format optimized for large-scale data processing and is part of the Apache Hadoop ecosystem. Parquet is widely supported across different programming languages and big data tools, including <code>R</code>, Python, Spark, and more, facilitating seamless data exchange. It uses highly efficient data compression and encoding schemes to reduce file sizes significantly while maintaining performance. The columnar storage format is optimized for read performance on large data sets, especially when querying specific columns, making it ideal for big data applications. However, Parquet is more complex to handle due to advanced features and options for compression, encoding, and storage management.</p>
 <h1 id="data-simulation">Data Simulation</h1>
-<p>To evaluate the performance of various data formats, we generated sample datasets of varying sizes using a custom data generation function. This function creates data frames with three columns: an <code>ID</code> column with sequential integers, a <code>Value</code> column with random normal values, and a <code>Group</code> column with randomly selected letters. The sizes of the datasets range from 100 to 10 million rows, allowing us to assess the performance across different scales. The random seed is set to $123$ to ensure reproducibility of the generated data.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Function to generate sample datasets
+<p>To evaluate the performance of various data formats, we generated sample data sets of varying sizes using a custom data generation function. This function creates data frames with three columns: an <code>ID</code> column with sequential integers, a <code>Value</code> column with random normal values, and a <code>Group</code> column with randomly selected letters. The sizes of the data sets range from 100 to 10 million rows, allowing us to assess the performance across different scales. The random seed is set to $123$ to ensure reproducibility of the generated data.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Function to generate sample data sets
 </span></span><span class="line"><span class="cl">generate_sample_data &lt;- function(n) {
 </span></span><span class="line"><span class="cl">  set.seed(123)
 </span></span><span class="line"><span class="cl">  data.frame(
@@ -1997,19 +2006,13 @@ img {
   <li>The amount of memory consumed during the read operations. Efficient memory usage is important for handling large data sets without running into memory constraints.</li>
 </ul>
 <h1 id="results-and-analysis">Results and analysis</h1>
-<p>The results of benchmarking study on various data formats in <code>R</code> include read and write time, file size, and memory usage. The results are visualized in graphs and tables, which show the performance trends as the data set size increases.</p>
+<p>The results of the benchmarking study on various data formats in <code>R</code> include read and write time, file size, and memory usage. The results are visualized in graphs and tables, which show the performance trends as the data set size increases.</p>
 <h2 id="file-sizes">File sizes</h2>
 <p>The first graph illustrates the file sizes for each data format across different data set sizes. Smaller file sizes are generally preferable as they require less disk space and can be more efficient for data transfer. The formats compared include RDS, CSV (using <code>data.table</code> and <code>readr</code>), FST, Feather, Parquet, and QS.</p>
-
-
-<div id="plotly-div" style="height: 500px"></div>
-<script>
-fetch('p_file_sizes_interactive.json')
-  .then(response => response.json())
-  .then(data => Plotly.newPlot('plotly-div', data.data, data.layout));
-</script>
-
-
+<div class="figure" style="text-align: center">
+<img src="p_file_sizes.png" alt="File sizes by format and dataset size" width="650px" />
+<p class="caption">File sizes by format and dataset size</p>
+</div>
 <p>From the graph, we can observe:</p>
 <ul>
   <li>QS consistently produces the smallest file sizes across all data set sizes.</li>
@@ -2017,33 +2020,99 @@ fetch('p_file_sizes_interactive.json')
   <li>CSV formats (both `data.table` and `readr`) tend to produce the largest file sizes, particularly for larger data sets.</li>
   <li>Feather and Parquet offer a balance between file size and compatibility, but their sizes increase significantly with very large data sets.</li>
 </ul>
+<h3 id="recommendations">Recommendations</h3>
+<p>For small to medium-sized data sets where disk space and data transfer efficiency are critical, QS and RDS formats are recommended. For larger data sets, Feather and Parquet are preferable due to their balance of file size and compatibility, especially when interoperability with other tools is necessary.</p>
 <h2 id="write-performance">Write performance</h2>
 <p>The second graph shows the write performance for each data format. Faster write times are beneficial for efficiently saving data, particularly in workflows involving frequent data saving operations.</p>
+<div class="figure" style="text-align: center">
+<img src="p_write_benchmark.png" alt="Write performance by format and dataset size" width="650px" />
+<p class="caption">Write performance by format and dataset size</p>
+</div>
 <p>Key observations from the graph include:</p>
 <ul>
-  <li>QS and FST exhibit the fastest write times for smaller datasets, maintaining good performance even as dataset size increases.</li>
-  <li>RDS is also relatively fast, but its performance degrades more than QS and FST with larger datasets.</li>
-  <li>CSV formats, especially `readr`, show significantly slower write times, making them less suitable for large-scale data operations.</li>
-  <li>Feather and Parquet provide moderate write performance, balancing speed and compatibility with other data analysis tools.</li>
+  <li>data.table (`dt`) exhibits the fastest write times for smaller data sets, maintaining good performance even as dataset size increases.</li>
+  <li>QS, Feather, and FST follow closely with good write performance across various data set sizes.</li>
+  <li>Feather is quite close to `dt` in write performance for larger data sets.</li>
+  <li>RDS is relatively fast for small data sets, but its performance degrades more than `dt`, QS, and FST with larger data sets.</li>
+  <li>CSV formats, especially `readr`, show significantly slower write times, making them less suitable for large-scale data operations. Notably, `readr` has an interesting curvature, performing worst as data size increases but improving relative to Parquet and QS from data sizes of 1,000 onward.</li>
+  <li>Parquet provides moderate write performance, balancing speed and compatibility with other data analysis tools.</li>
 </ul>
+<h3 id="recommendations-1">Recommendations</h3>
+<p>For small to medium-sized data sets, <code>dt</code>, QS, Feather, and FST are recommended due to their fast write times. For larger data sets, Feather is preferable for its close performance to <code>dt</code>, while Parquet can also be considered for its balance of write speed and compatibility. <code>readr</code> should be avoided for large-scale data operations due to its slower write times, although it shows improved performance for data sets from sizes of 1,000 onward.</p>
 <h2 id="read-performance">Read performance</h2>
-<p>The third graph displays the read performance for each data format. Fast read times are critical for efficient data analysis, especially when working with large datasets that need to be frequently loaded into memory.</p>
-<p>From the graph, we note that:</p>
+<p>The third graph displays the read performance for each data format. Fast read times are critical for efficient data analysis, especially when working with large data sets that need to be frequently loaded into memory.</p>
+<div class="figure" style="text-align: center">
+<img src="p_read_benchmark.png" alt="Read performance by format and dataset size" width="650px" />
+<p class="caption">Read performance by format and dataset size</p>
+</div>
+<p>Key observations from the graph include:</p>
 <ul>
-  <li>QS, FST, and RDS offer the fastest read times, making them ideal for scenarios where quick data loading is essential.</li>
-  <li>CSV formats (both `data.table` and `readr`) have slower read times, particularly for larger datasets, which can hinder performance in large-scale analyses.</li>
-  <li>Feather and Parquet provide moderate read speeds, suitable for interoperability across different tools and languages.</li>
+  <li>For data sets ranging from 100 to 10,000 rows, QS performs the best, offering the fastest read times.</li>
+  <li>For data sets larger than 10,000 rows, Feather outperforms all other formats, followed by Parquet, data.table (`dt`), and FST.</li>
+  <li>RDS is only effective for very small data sets, with its performance significantly degrading for larger data sets.</li>
+  <li>readr is the worst performer overall, exhibiting the slowest read times across all dataset sizes.</li>
 </ul>
+<h3 id="recommendations-2">Recommendations</h3>
+<p>For small to medium-sized data sets (up to 10,000 rows), QS is recommended due to its superior read performance. For larger data sets, Feather is the preferred format for its fastest read times, followed by Parquet, data.table (<code>dt</code>), and FST. RDS should only be used for very small data sets, while readr should be avoided due to its consistently poor performance.</p>
 <h2 id="memory-usage">Memory usage</h2>
-<p>The final graph compares the memory usage of each data format during read operations. Efficient memory usage is important for handling large datasets without encountering memory constraints.</p>
+<p>The final graph compares the memory usage of each data format during read operations. Efficient memory usage is important for handling large data sets without encountering memory constraints.</p>
+<div class="figure" style="text-align: center">
+<img src="p_memory_usage.png" alt="Memory usage by format and dataset size" width="650px" />
+<p class="caption">Memory usage by format and dataset size</p>
+</div>
 <p>Key points from the graph include:</p>
 <ul>
-  <li>QS and RDS exhibit the lowest memory usage, making them suitable for environments with limited memory resources.</li>
-  <li>FST and Feather also show good memory efficiency, particularly for smaller to moderate-sized datasets.</li>
-  <li>CSV formats, especially `readr`, consume the most memory, which can be problematic for very large datasets.</li>
-  <li>Parquet offers a balance between memory usage and interoperability, although its memory consumption increases with larger datasets.</li>
+  <li>Feather and Parquet perform the best in terms of memory usage, consuming less than 50 MB for data sizes of 1e+07.</li>
+  <li>QS and RDS exhibit relatively low memory usage, making them suitable for environments with limited memory resources.</li>
+  <li>FST, data.table (`dt`), and readr have higher memory usage, with readr being the highest among all formats.</li>
 </ul>
-<p>Overall, these results provide a comprehensive comparison of different data formats in <code>R</code>, highlighting their respective strengths and weaknesses in terms of file size, read and write performance, and memory usage. This information can guide the selection of appropriate data formats based on specific analysis requirements.</p>
+<h1 id="final-considerations">Final Considerations</h1>
+<p>When selecting a data format in <code>R</code>, it is crucial to consider the specific requirements of your analysis. The following points summarize the key considerations for each format based on the benchmarking results:</p>
+<ol>
+<li>
+<p><strong>QS:</strong> excellent overall performance with the smallest file sizes, fastest read times, and lowest memory usage for small to medium-sized data sets.</p>
+<ul>
+<li><strong>Strengths:</strong> small file sizes, fast read times, low memory usage.</li>
+<li><strong>Best For:</strong> small to medium-sized data operations and environments with limited resources.</li>
+</ul>
+</li>
+<li>
+<p><strong>RDS:</strong> performs well with moderate file sizes, fast read times, and low memory usage, making it a strong general-purpose format within <code>R</code> for small to medium-sized data sets.</p>
+<ul>
+<li><strong>Strengths:</strong> moderate file sizes, fast read times, low memory usage.</li>
+<li><strong>Best For:</strong> small to medium-sized data sets, general-purpose use with a good balance of performance and compatibility within <code>R</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>FST:</strong> offers excellent read and write times and efficient memory usage, suitable for high-performance data operations, especially with small to moderately large data sets.</p>
+<ul>
+<li><strong>Strengths:</strong> fast read and write times, efficient memory usage.</li>
+<li><strong>Best For:</strong> high-performance data operations with small to moderately large data sets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Feather:</strong> provides the fastest read speeds for large data sets, close write performance to <code>dt</code> for large data, and good memory efficiency.</p>
+<ul>
+<li><strong>Strengths:</strong> fastest read speeds for large data sets, good memory efficiency.</li>
+<li><strong>Best For:</strong> interoperability across different programming languages and tools, handling large data sets efficiently.</li>
+</ul>
+</li>
+<li>
+<p><strong>Parquet:</strong> balances performance and interoperability, with efficient memory usage for very large data sets.</p>
+<ul>
+<li><strong>Strengths:</strong> balance between performance and interoperability, low memory usage for large data sets.</li>
+<li><strong>Best For:</strong> compatibility with big data tools and frameworks, handling large data sets.</li>
+</ul>
+</li>
+<li>
+<p><strong>CSV (data.table and readr):</strong> offers wide compatibility with various tools and platforms, but suffers from larger file sizes, slower read and write times, and higher memory usage, making it less ideal for large-scale data sets.</p>
+<ul>
+<li><strong>Strengths:</strong> wide compatibility with various tools and platforms.</li>
+<li><strong>Best For:</strong> small data sets or scenarios where maximum compatibility is needed, despite slower performance and higher memory usage for large data sets.</li>
+</ul>
+</li>
+</ol>
+<p>These results provide a comprehensive comparison of different data formats in <code>R</code>, highlighting their respective strengths and weaknesses in terms of file size, read and write performance, and memory usage.</p>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
 
       </div>
