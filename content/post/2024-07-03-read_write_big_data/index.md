@@ -162,12 +162,22 @@ th {
 
 /* Image styling */
 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
   margin-bottom: 1.5em;
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 </style>
+
+<script>
+  function openImageInNewWindow(imgSrc) {
+    const newWindow = window.open();
+    newWindow.document.write(`<img src="${imgSrc}" style="width:100%; height:auto;">`);
+    newWindow.document.close();
+  }
+</script>
 
 # Post Summary
 
@@ -267,9 +277,8 @@ The results of the benchmarking study on various data formats in `R` include rea
 
 The first graph illustrates the file sizes for each data format across different data set sizes. Smaller file sizes are generally preferable as they require less disk space and can be more efficient for data transfer. The formats compared include RDS, CSV (using `data.table` and `readr`), FST, Feather, Parquet, and QS.
 
-<div class="figure" style="text-align: center">
-<img src="p_file_sizes.png" alt="File sizes by format and dataset size" width="650px" />
-<p class="caption">File sizes by format and dataset size</p>
+<div style="text-align:center;">
+  <img src="p_file_sizes.png" onclick="openImageInNewWindow(this.src)">
 </div>
 
 From the graph, we can observe:
@@ -288,9 +297,8 @@ For small to medium-sized data sets where disk space and data transfer efficienc
 
 The second graph shows the write performance for each data format. Faster write times are beneficial for efficiently saving data, particularly in workflows involving frequent data saving operations.
 
-<div class="figure" style="text-align: center">
-<img src="p_write_benchmark.png" alt="Write performance by format and dataset size" width="650px" />
-<p class="caption">Write performance by format and dataset size</p>
+<div style="text-align:center;">
+  <img src="p_write_benchmark.png" onclick="openImageInNewWindow(this.src)">
 </div>
 
 Key observations from the graph include:
@@ -311,9 +319,8 @@ For small to medium-sized data sets, `dt`, QS, Feather, and FST are recommended 
 
 The third graph displays the read performance for each data format. Fast read times are critical for efficient data analysis, especially when working with large data sets that need to be frequently loaded into memory.
 
-<div class="figure" style="text-align: center">
-<img src="p_read_benchmark.png" alt="Read performance by format and dataset size" width="650px" />
-<p class="caption">Read performance by format and dataset size</p>
+<div style="text-align:center;">
+  <img src="p_read_benchmark.png" onclick="openImageInNewWindow(this.src)">
 </div>
 
 Key observations from the graph include:
@@ -332,9 +339,8 @@ For small to medium-sized data sets (up to 10,000 rows), QS is recommended due t
 
 The final graph compares the memory usage of each data format during read operations. Efficient memory usage is important for handling large data sets without encountering memory constraints.
 
-<div class="figure" style="text-align: center">
-<img src="p_memory_usage.png" alt="Memory usage by format and dataset size" width="650px" />
-<p class="caption">Memory usage by format and dataset size</p>
+<div style="text-align:center;">
+  <img src="p_memory_usage.png" onclick="openImageInNewWindow(this.src)">
 </div>
 
 Key points from the graph include:
