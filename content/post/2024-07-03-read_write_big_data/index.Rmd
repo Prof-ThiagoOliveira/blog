@@ -230,8 +230,8 @@ generate_sample_data <- function(n) {
   )
 }
 
-# Define dataset sizes
-dataset_sizes <- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7)
+# Define data set sizes
+data set_sizes <- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7)
 ```
 
 ## Benchmarking read and write performance
@@ -303,11 +303,10 @@ The second graph shows the write performance for each data format. Faster write 
 
 Key observations from the graph include:
 <ul>
-  <li>data.table (`dt`) exhibits the fastest write times for smaller data sets, maintaining good performance even as dataset size increases.</li>
-  <li>QS, Feather, and FST follow closely with good write performance across various data set sizes.</li>
-  <li>Feather is quite close to `dt` in write performance for larger data sets.</li>
-  <li>RDS is relatively fast for small data sets, but its performance degrades more than `dt`, QS, and FST with larger data sets.</li>
-  <li>CSV formats, especially `readr`, show significantly slower write times, making them less suitable for large-scale data operations. Notably, `readr` has an interesting curvature, performing worst as data size increases but improving relative to Parquet and QS from data sizes of 1,000 onward.</li>
+  <li>data.table (`dt`) exhibits the fastest write times for smaller data sets, maintaining good performance even as data set size increases.</li>
+  <li> Feather and FST follow closely with good write performance across various data set sizes. </li>
+  <li>RDS is relatively fast for small data sets, but its performance degrades more than `dt`, QS, and FST withdata sets larger than 1000 MB.</li>
+  <li>CSV formats, especially `readr`, show significantly slower write times, making them less suitable for small to medium-scale data operations. Notably, `readr` has an interesting curvature, performing better as data size increases from `1e06` rows ahead.</li>
   <li>Parquet provides moderate write performance, balancing speed and compatibility with other data analysis tools.</li>
 </ul>
 
@@ -325,10 +324,10 @@ The third graph displays the read performance for each data format. Fast read ti
 
 Key observations from the graph include:
 <ul>
-  <li>For data sets ranging from 100 to 10,000 rows, QS performs the best, offering the fastest read times.</li>
-  <li>For data sets larger than 10,000 rows, Feather outperforms all other formats, followed by Parquet, data.table (`dt`), and FST.</li>
+  <li>For data sets ranging from 100 to 1,000 rows, QS performs the best, offering the fastest read times.</li>
+  <li>For data sets larger than 1,000 rows, Feather outperforms all other formats, followed by Parquet, data.table (`dt`), and FST.</li>
   <li>RDS is only effective for very small data sets, with its performance significantly degrading for larger data sets.</li>
-  <li>readr is the worst performer overall, exhibiting the slowest read times across all dataset sizes.</li>
+  <li>readr is the worst performer overall, exhibiting the slowest read times across all data set sizes.</li>
 </ul>
 
 ### Recommendations
@@ -346,8 +345,8 @@ The final graph compares the memory usage of each data format during read operat
 Key points from the graph include:
 <ul>
   <li>Feather and Parquet perform the best in terms of memory usage, consuming less than 50 MB for data sizes of 1e+07.</li>
-  <li>QS and RDS exhibit relatively low memory usage, making them suitable for environments with limited memory resources.</li>
-  <li>FST, data.table (`dt`), and readr have higher memory usage, with readr being the highest among all formats.</li>
+  <li>QS, FTS and RDS exhibit relatively high memory usage, but lower than data.table (`dt`) and readr.</li>
+  <li>data.table (`dt`), and readr have higher memory usage, with readr being the highest among all formats.</li>
 </ul>
 
 # Final Considerations
@@ -367,11 +366,11 @@ When selecting a data format in `R`, it is crucial to consider the specific requ
    - **Best For:** high-performance data operations with small to moderately large data sets.
 
 4. **Feather:** provides the fastest read speeds for large data sets, close write performance to `dt` for large data, and good memory efficiency.
-   - **Strengths:** fastest read speeds for large data sets, good memory efficiency.
+   - **Strengths:** fastest read speeds for large data sets, excellent memory efficiency.
    - **Best For:** interoperability across different programming languages and tools, handling large data sets efficiently.
 
 5. **Parquet:** balances performance and interoperability, with efficient memory usage for very large data sets.
-   - **Strengths:** balance between performance and interoperability, low memory usage for large data sets.
+   - **Strengths:** balance between performance and interoperability, excellent memory usage for large data sets.
    - **Best For:** compatibility with big data tools and frameworks, handling large data sets.
 
 6. **CSV (data.table and readr):** offers wide compatibility with various tools and platforms, but suffers from larger file sizes, slower read and write times, and higher memory usage, making it less ideal for large-scale data sets.
