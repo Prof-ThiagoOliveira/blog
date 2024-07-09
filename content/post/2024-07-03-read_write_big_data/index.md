@@ -217,7 +217,7 @@ Parquet is a columnar storage file format optimized for large-scale data process
 
 # Data Simulation
 
-To evaluate the performance of various data formats, we generated sample data sets of varying sizes using a custom data generation function. This function creates data frames with three columns: an `ID` column with sequential integers, a `Value` column with random normal values, and a `Group` column with randomly selected letters. The sizes of the data sets range from 100 to 10 million rows, allowing us to assess the performance across different scales. The random seed is set to $123$ to ensure reproducibility of the generated data.
+To evaluate the performance of various data formats, we generated sample data sets of varying sizes using a custom data generation function. This function creates data frames with three columns: an `ID` column with sequential integers, a `Value` column with random normal values, and a `Group` column with randomly selected letters. The sizes of the data sets range from 100 to 100 million rows, allowing us to assess the performance across different scales. The random seed is set to 123 to ensure reproducibility of the generated data.
 
 ```
 # Function to generate sample data sets
@@ -231,34 +231,46 @@ generate_sample_data <- function(n) {
 }
 
 # Define data set sizes
-data set_sizes <- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7)
+data set_sizes <- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8)
 ```
 
 ## Benchmarking read and write performance
 
-The benchmarking process involves measuring the time taken to read from and write to different data formats. We used the `microbenchmark` package in `R` to perform these measurements, ensuring that each operation is repeated 30 times to obtain reliable statistics.
+The benchmarking process involves measuring the time taken to read from and write to different data formats. We used the `microbenchmark` package in `R` to perform these measurements, ensuring that each operation is repeated 100 times to obtain reliable statistics. Additionally, we considered multi-threading capabilities where applicable, leveraging the maximum number of available cores to enhance performance.
 
-For writing operations, we utilized the following functions:
-<ul>
-  <li>`saveRDS()` for RDS files</li>
-  <li>`fwrite()` from the `data.table` package for CSV files</li>
-  <li>`write_fst()` from the `fst` package for FST files</li>
-  <li>`write_feather()` from the `arrow` package for Feather files</li>
-  <li>`qsave()` from the `qs` package for QS files</li>
-  <li>`write_csv()` from the `readr` package for CSV files</li>
-  <li>`write_parquet()` from the `arrow` package for Parquet files</li>
-</ul>
+Multi-threading can also significantly impact the performance of read and write operations. We determined the number of available threads using `parallel::detectCores()` and configured the relevant functions to use this information. For instance, the `fwrite` function from `data.table` and `qsave` from the `qs` package support multi-threading, which we enabled in our benchmarking process. Other packages can handle it internally or there are no options. 
 
-For reading operations, we used the following functions:
-<ul>
-  <li>`readRDS()` for RDS files</li>
-  <li>`fread()` from the `data.table` package for CSV files</li>
-  <li>`read_fst()` from the `fst` package for FST files</li>
-  <li>`read_feather()` from the `arrow` package for Feather files</li>
-  <li>`qread()` from the `qs` package for QS files</li>
-  <li>`read_csv()` from the `readr` package for CSV files</li>
-  <li>`read_parquet()` from the `arrow` package for Parquet files</li>
-</ul>
+```
+# Determine and print the number of threads
+num_threads <- parallel::detectCores()
+cat("Number of threads available:", num_threads, "\n")
+# Setting threads for data.table
+setDTthreads(num_threads)
+```
+
+Thus, we defined functions for writing to and reading from each data format, incorporating multi-threading where supported. These functions were then used in the benchmarking process.
+
+```
+# Define file writing and reading functions with threading support
+write_rds <- function(data, file) saveRDS(data, file)
+write_dt <- function(data, file) data.table::fwrite(data, file, nThread = num_threads)
+write_fst <- function(data, file) fst::write_fst(data, file)
+write_feather <- function(data, file) arrow::write_feather(data, file)
+write_qs <- function(data, file) qs::qsave(data, file, nthreads = num_threads)
+write_readr <- function(data, file) readr::write_csv(data, file, num_threads = num_threads)
+write_parquet <- function(data, file) arrow::write_parquet(data, file)
+
+read_rds <- function(file) readRDS(file)
+read_dt <- function(file) data.table::fread(file, nThread = num_threads)
+read_fst <- function(file) fst::read_fst(file, as.data.table = TRUE)
+read_feather <- function(file) arrow::read_feather(file)
+read_qs <- function(file) qs::qread(file, nthreads = num_threads)
+read_readr <- function(file) readr::read_csv(file, show_col_types = FALSE, num_threads = num_threads)
+read_parquet <- function(file) arrow::read_parquet(file)
+```
+
+We looped over different data set sizes, writing the sample data to each format and measuring the file sizes, write times, read times, and memory usage. The results were stored in data frames for later analysis and visualization.
+
 
 ## Performance metrics
 

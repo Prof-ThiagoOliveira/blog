@@ -456,7 +456,7 @@ img {
 &lt;h3 id=&#34;parquet&#34;&gt;Parquet&lt;/h3&gt;
 &lt;p&gt;Parquet is a columnar storage file format optimized for large-scale data processing and is part of the Apache Hadoop ecosystem. Parquet is widely supported across different programming languages and big data tools, including &lt;code&gt;R&lt;/code&gt;, Python, Spark, and more, facilitating seamless data exchange. It uses highly efficient data compression and encoding schemes to reduce file sizes significantly while maintaining performance. The columnar storage format is optimized for read performance on large data sets, especially when querying specific columns, making it ideal for big data applications. However, Parquet is more complex to handle due to advanced features and options for compression, encoding, and storage management.&lt;/p&gt;
 &lt;h1 id=&#34;data-simulation&#34;&gt;Data Simulation&lt;/h1&gt;
-&lt;p&gt;To evaluate the performance of various data formats, we generated sample data sets of varying sizes using a custom data generation function. This function creates data frames with three columns: an &lt;code&gt;ID&lt;/code&gt; column with sequential integers, a &lt;code&gt;Value&lt;/code&gt; column with random normal values, and a &lt;code&gt;Group&lt;/code&gt; column with randomly selected letters. The sizes of the data sets range from 100 to 10 million rows, allowing us to assess the performance across different scales. The random seed is set to $123$ to ensure reproducibility of the generated data.&lt;/p&gt;
+&lt;p&gt;To evaluate the performance of various data formats, we generated sample data sets of varying sizes using a custom data generation function. This function creates data frames with three columns: an &lt;code&gt;ID&lt;/code&gt; column with sequential integers, a &lt;code&gt;Value&lt;/code&gt; column with random normal values, and a &lt;code&gt;Group&lt;/code&gt; column with randomly selected letters. The sizes of the data sets range from 100 to 100 million rows, allowing us to assess the performance across different scales. The random seed is set to 123 to ensure reproducibility of the generated data.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Function to generate sample data sets
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;generate_sample_data &amp;lt;- function(n) {
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  set.seed(123)
@@ -468,29 +468,33 @@ img {
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Define data set sizes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;data set_sizes &amp;lt;- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;data set_sizes &amp;lt;- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;benchmarking-read-and-write-performance&#34;&gt;Benchmarking read and write performance&lt;/h2&gt;
-&lt;p&gt;The benchmarking process involves measuring the time taken to read from and write to different data formats. We used the &lt;code&gt;microbenchmark&lt;/code&gt; package in &lt;code&gt;R&lt;/code&gt; to perform these measurements, ensuring that each operation is repeated 30 times to obtain reliable statistics.&lt;/p&gt;
-&lt;p&gt;For writing operations, we utilized the following functions:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;`saveRDS()` for RDS files&lt;/li&gt;
-  &lt;li&gt;`fwrite()` from the `data.table` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`write_fst()` from the `fst` package for FST files&lt;/li&gt;
-  &lt;li&gt;`write_feather()` from the `arrow` package for Feather files&lt;/li&gt;
-  &lt;li&gt;`qsave()` from the `qs` package for QS files&lt;/li&gt;
-  &lt;li&gt;`write_csv()` from the `readr` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`write_parquet()` from the `arrow` package for Parquet files&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For reading operations, we used the following functions:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;`readRDS()` for RDS files&lt;/li&gt;
-  &lt;li&gt;`fread()` from the `data.table` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`read_fst()` from the `fst` package for FST files&lt;/li&gt;
-  &lt;li&gt;`read_feather()` from the `arrow` package for Feather files&lt;/li&gt;
-  &lt;li&gt;`qread()` from the `qs` package for QS files&lt;/li&gt;
-  &lt;li&gt;`read_csv()` from the `readr` package for CSV files&lt;/li&gt;
-  &lt;li&gt;`read_parquet()` from the `arrow` package for Parquet files&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;The benchmarking process involves measuring the time taken to read from and write to different data formats. We used the &lt;code&gt;microbenchmark&lt;/code&gt; package in &lt;code&gt;R&lt;/code&gt; to perform these measurements, ensuring that each operation is repeated 100 times to obtain reliable statistics. Additionally, we considered multi-threading capabilities where applicable, leveraging the maximum number of available cores to enhance performance.&lt;/p&gt;
+&lt;p&gt;Multi-threading can also significantly impact the performance of read and write operations. We determined the number of available threads using &lt;code&gt;parallel::detectCores()&lt;/code&gt; and configured the relevant functions to use this information. For instance, the &lt;code&gt;fwrite&lt;/code&gt; function from &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;qsave&lt;/code&gt; from the &lt;code&gt;qs&lt;/code&gt; package support multi-threading, which we enabled in our benchmarking process. Other packages can handle it internally or there are no options.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Determine and print the number of threads
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;num_threads &amp;lt;- parallel::detectCores()
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat(&amp;#34;Number of threads available:&amp;#34;, num_threads, &amp;#34;\n&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Setting threads for data.table
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;setDTthreads(num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Thus, we defined functions for writing to and reading from each data format, incorporating multi-threading where supported. These functions were then used in the benchmarking process.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Define file writing and reading functions with threading support
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_rds &amp;lt;- function(data, file) saveRDS(data, file)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_dt &amp;lt;- function(data, file) data.table::fwrite(data, file, nThread = num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_fst &amp;lt;- function(data, file) fst::write_fst(data, file)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_feather &amp;lt;- function(data, file) arrow::write_feather(data, file)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_qs &amp;lt;- function(data, file) qs::qsave(data, file, nthreads = num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_readr &amp;lt;- function(data, file) readr::write_csv(data, file, num_threads = num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;write_parquet &amp;lt;- function(data, file) arrow::write_parquet(data, file)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_rds &amp;lt;- function(file) readRDS(file)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_dt &amp;lt;- function(file) data.table::fread(file, nThread = num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_fst &amp;lt;- function(file) fst::read_fst(file, as.data.table = TRUE)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_feather &amp;lt;- function(file) arrow::read_feather(file)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_qs &amp;lt;- function(file) qs::qread(file, nthreads = num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_readr &amp;lt;- function(file) readr::read_csv(file, show_col_types = FALSE, num_threads = num_threads)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;read_parquet &amp;lt;- function(file) arrow::read_parquet(file)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We looped over different data set sizes, writing the sample data to each format and measuring the file sizes, write times, read times, and memory usage. The results were stored in data frames for later analysis and visualization.&lt;/p&gt;
 &lt;h2 id=&#34;performance-metrics&#34;&gt;Performance metrics&lt;/h2&gt;
 &lt;p&gt;The performance metrics considered in our analysis are:&lt;/p&gt;
 &lt;ul&gt;
