@@ -250,9 +250,7 @@ generate_sample_data &lt;- function(n) {
 }
 
 # Define dataset sizes
-dataset_sizes &lt;- c(1e2, 1e3
-
-, 1e4, 1e5, 1e6, 1e7, 1e8)</code></pre>
+dataset_sizes &lt;- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8)</code></pre>
 <div id="benchmarking-read-and-write-performance" class="section level2">
 <h2>Benchmarking Read and Write Performance</h2>
 <p>The benchmarking process involves measuring the time taken to read from and write to different data formats. We used the <code>microbenchmark</code> package in <code>R</code> to perform these measurements, ensuring that each operation is repeated 100 times to obtain reliable statistics. Additionally, we considered multi-threading capabilities where applicable, leveraging the maximum number of available cores to enhance performance.</p>
@@ -263,7 +261,7 @@ cat(&quot;Number of threads available:&quot;, num_threads, &quot;\n&quot;)
 # Setting threads for data.table
 setDTthreads(num_threads)</code></pre>
 <p>Thus, we defined functions for writing to and reading from each data format, incorporating multi-threading where supported. These functions were then used in the benchmarking process.</p>
-<pre class="r"><code># Define file writing and reading functions with threading support
+<pre class="r"><code># Definition of writing and reading functions with threading support
 write_rds &lt;- function(data, file) saveRDS(data, file)
 write_dt &lt;- function(data, file) data.table::fwrite(data, file, nThread = num_threads)
 write_fst &lt;- function(data, file) fst::write_fst(data, file)

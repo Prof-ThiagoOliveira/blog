@@ -250,9 +250,7 @@ generate_sample_data <- function(n) {
 }
 
 # Define dataset sizes
-dataset_sizes <- c(1e2, 1e3
-
-, 1e4, 1e5, 1e6, 1e7, 1e8)
+dataset_sizes <- c(1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8)
 ```
 
 ## Benchmarking Read and Write Performance
@@ -272,7 +270,7 @@ setDTthreads(num_threads)
 Thus, we defined functions for writing to and reading from each data format, incorporating multi-threading where supported. These functions were then used in the benchmarking process.
 
 ```r
-# Define file writing and reading functions with threading support
+# Definition of writing and reading functions with threading support
 write_rds <- function(data, file) saveRDS(data, file)
 write_dt <- function(data, file) data.table::fwrite(data, file, nThread = num_threads)
 write_fst <- function(data, file) fst::write_fst(data, file)
