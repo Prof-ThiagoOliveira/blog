@@ -438,7 +438,8 @@ img {
   }
 &lt;/script&gt;
 &lt;h1 id=&#34;post-summary&#34;&gt;Post Summary&lt;/h1&gt;
-&lt;p&gt;Efficient data handling is crucial for daily data analysis tasks. In this post, we will compare the performance of various data formats in &lt;code&gt;R&lt;/code&gt; for reading and writing operations. The formats considered include RDS, CSV (using &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;readr&lt;/code&gt;), FST, Feather, Parquet, and QS. We will benchmark the speed, file sizes, and memory usage of each format across different data sizes.&lt;/p&gt;
+&lt;p&gt;Efficient data handling is crucial for daily data analysis tasks. In this post, we compare the performance of various data formats in &lt;code&gt;R&lt;/code&gt; for reading and writing operations, including RDS, CSV (using &lt;code&gt;data.table&lt;/code&gt; and &lt;code&gt;readr&lt;/code&gt;), FST, Feather, Parquet, and QS. We benchmark the speed, file sizes, and memory usage of each format across different data sizes.&lt;/p&gt;
+&lt;p&gt;QS offers the fastest read and write times, the smallest file sizes, and low memory usage, making it best suited for small to medium-sized data sets. FST delivers excellent read and write times along with efficient memory usage, which is suitable for high-performance tasks with small to moderately large data sets. Feather provides the fastest read times for large data sets, good write performance, and efficient memory usage, making it great for interoperability across different programming languages.&lt;/p&gt;
 &lt;h1 id=&#34;database-definition&#34;&gt;Database Definition&lt;/h1&gt;
 &lt;p&gt;In this section, we will describe each of the data formats in detail, highlighting their strengths and weaknesses. We will provide insights into the specific use cases where each format excels. The choice of format will depend on the specific needs of the data analysis tasks.&lt;/p&gt;
 &lt;h2 id=&#34;rds&#34;&gt;RDS&lt;/h2&gt;

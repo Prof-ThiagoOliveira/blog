@@ -181,7 +181,9 @@ img {
 
 # Post Summary
 
-Efficient data handling is crucial for daily data analysis tasks. In this post, we will compare the performance of various data formats in `R` for reading and writing operations. The formats considered include RDS, CSV (using `data.table` and `readr`), FST, Feather, Parquet, and QS. We will benchmark the speed, file sizes, and memory usage of each format across different data sizes.
+Efficient data handling is crucial for daily data analysis tasks. In this post, we compare the performance of various data formats in `R` for reading and writing operations, including RDS, CSV (using `data.table` and `readr`), FST, Feather, Parquet, and QS. We benchmark the speed, file sizes, and memory usage of each format across different data sizes.
+
+QS offers the fastest read and write times, the smallest file sizes, and low memory usage, making it best suited for small to medium-sized data sets. FST delivers excellent read and write times along with efficient memory usage, which is suitable for high-performance tasks with small to moderately large data sets. Feather provides the fastest read times for large data sets, good write performance, and efficient memory usage, making it great for interoperability across different programming languages. 
 
 # Database Definition
 
