@@ -1,0 +1,12 @@
+<!-- layouts/_default/baseof.html or other relevant template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "header.html" . }}
+    {{ partial "custom-head.html" . }} <!-- Include the custom-head partial here -->
+</head>
+<body>
+    {{ block "main" . }}
+    {{ end }}
+</body>
+</html>

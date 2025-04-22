@@ -1,0 +1,378 @@
+---
+title: Effects of compression techniques on data read/write performance
+author: Thiago de Paula Oliveira
+date: '2024-07-15'
+slug: compression-data-read-write-performance
+categories:
+  - R Programming
+  - Data handling
+tags:
+  - Data compression
+  - Data read
+  - Data write
+  - Benchmarking
+  - R
+subtitle: 'Performance comparison of different compression techniques in R'
+summary: 'This post explores the performance of various compression techniques in R for reading and writing operations, highlighting file size, speed, and memory usage.'
+authors: 
+- admin
+lastmod: '2024-07-15T09:15:54Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+---
+
+<style>
+/* Blog post container */
+body {
+   font-family: 'Helvetica Neue', Arial, sans-serif;
+   font-size: 1rem;
+   line-height: 1.8;
+   color: #333;
+   text-align: justify;
+   background-color: #fafafa;
+   margin: 0;
+   padding: 0 20px;
+}
+
+/* Header styling */
+h0, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-weight: 600; /* Semi-bold for a professional look */
+  margin-bottom: 0.75em; /* Slightly reduced bottom margin */
+  color: #0d0d0d;
+  line-height: 1.2;
+  margin-top: 1.5em; /* Added top margin for consistency */
+}
+
+h0 {
+  font-size: 2rem; /* New heading size for h0 */
+  border-bottom: 3px solid #3b80d1;
+  padding-bottom: 0.3em; /* Padding for visual separation */
+  margin-top: 1em; 
+}
+
+h1 {
+  font-size: 1.75rem; /* Adjusted size for larger heading */
+  border-bottom: 2px solid #3b80d1;
+  padding-bottom: 0.3em; /* Padding for visual separation */
+  margin-top: 1em; 
+}
+
+h2 {
+  font-size: 1.5rem; /* Adjusted size for second-level heading */
+  color: #3b80d1;
+  padding-bottom: 0.2em; /* Padding for visual separation */
+}
+
+h3 {
+  font-size: 1.25rem; /* Adjusted size for third-level heading */
+  color: #333;
+}
+
+h4 {
+  font-size: 1.125rem; /* Adjusted size for fourth-level heading */
+  color: #333;
+}
+
+h5 {
+  font-size: 1rem; /* Adjusted size for fifth-level heading */
+  color: #333;
+}
+
+h6 {
+  font-size: 0.875rem; /* Adjusted size for sixth-level heading */
+  color: #333;
+}
+
+/* Link styling */
+a {
+  color: #3b80d0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #1a57a0;
+}
+
+/* Code styling */
+pre, 
+.code-input {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+code {
+  font-size: 0.9rem;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+
+th, 
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #3b80d1;
+  color: white;
+}
+
+/* Div options - color box text */
+.div-1 {
+  color: black;
+  background-color: #d6edd3;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.div-2 {
+  color: black;
+  background-color: #cfbe7e;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+/* Article content */
+.article-content {
+  text-align: justify;
+}
+
+/* Image styling */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+</style>
+
+
+<script>
+  function openImageInNewWindow(imgSrc) {
+    const newWindow = window.open();
+    newWindow.document.write(`<img src="${imgSrc}" style="width:100%; height:auto;">`);
+    newWindow.document.close();
+  }
+</script>
+
+
+# Post summary
+
+Following our previous exploration of data read/write performance, we now delve into the effects of different compression techniques on these processes. Compression is vital for optimizing storage efficiency and access speed. This post covers the definitions of compression methods, factors influencing compression efficiency, guidelines for using higher or lower compression, and detailed empirical testing results.
+
+# Purpose and Motivation
+
+Compression is essential for reducing storage requirements and improving data access times. By understanding the impact of different compression techniques, we can optimize data handling in R, making it more efficient and effective. This study explores various compression methods to provide insights into their performance in different scenarios.
+
+# Detailed Overview of Compression Techniques
+
+Understanding the specific characteristics and use cases of various compression techniques is crucial for optimizing data storage and access. Below, we delve deeper into the most commonly used compression methods, detailing their strengths, weaknesses, and ideal applications.
+
+## Gzip (GNU zip)
+
+Gzip uses the DEFLATE algorithm, which balances speed and compression ratio. It is widely supported across different platforms and programming languages, making it effective for both text and binary data. Its primary strength lies in providing a good compromise between compression speed and ratio, making it a popular choice for general-purpose compression. However, Gzip is not the fastest in terms of compression or decompression speeds, and its compression ratios are moderate compared to newer algorithms. It is ideal for general-purpose compression where compatibility and ease of use are important, such as web servers for compressing HTTP responses and archiving files where space saving is needed but not critical.
+
+## Snappy
+
+Snappy is optimized for speed, making it ideal for applications requiring rapid read/write operations. It excels in scenarios where quick compression and decompression are more critical than achieving the highest compression ratio. Snappy's primary strength is its high speed, both in compression and decompression, which minimizes latency in data processing. However, this comes at the cost of lower compression ratios compared to other algorithms. Snappy is best suited for real-time data processing, log compression, and systems where performance is a higher priority than storage efficiency.
+
+## Zstandard (Zstd)
+
+Zstandard, or Zstd, offers high compression ratios and fast decompression, making it excellent for scenarios that need high compression without significant speed loss. Zstd is highly versatile, providing various compression levels to balance speed and compression ratio according to the application's needs. Its strengths include superior compression ratios and efficient decompression speeds, often outperforming older algorithms like Gzip. One downside is that higher compression levels can be resource-intensive in terms of CPU and memory usage. Zstd is ideal for large-scale data storage, backup solutions, and systems where both speed and storage efficiency are critical.
+
+## Brotli
+
+Brotli achieves high compression ratios, especially for text data, making it perfect for web content. Developed by Google, Brotli provides excellent compression efficiency for web fonts and other web assets, significantly reducing file sizes and improving load times. Its primary strength lies in its ability to achieve superior compression ratios for text data, which is crucial for optimizing web performance. However, Brotli can be slower than other algorithms in both compression and decompression, particularly at higher compression levels. Brotli is best used for web content delivery, where minimizing bandwidth usage and improving load times are paramount.
+
+## LZ4
+
+LZ4 prioritizes speed over compression ratio, making it ideal for real-time data processing. It is designed to provide extremely fast compression and decompression, which is critical in performance-sensitive environments. LZ4's strengths include its lightning-fast speeds, which make it suitable for scenarios where data needs to be processed in real-time. However, its compression ratios are lower than those of more advanced algorithms like Zstd or Brotli. LZ4 is particularly useful for in-memory compression, real-time logging, and applications where speed is more important than achieving the highest compression ratio.
+
+## Uncompressed
+
+Storing data in its original format without compression ensures the fastest possible read and write speeds, as there is no overhead from compression or decompression processes. This approach is best when speed is crucial, and storage space is not a concern. The primary advantage of uncompressed data is the elimination of latency related to compression algorithms, providing immediate access to data. However, the downside is the significantly larger storage requirement. Uncompressed storage is ideal for applications where performance is paramount and storage costs are negligible, such as temporary data storage and real-time data analytics.
+
+By understanding these compression techniques' specific advantages and limitations, you can make informed decisions to optimize data storage and access for various applications.
+
+# Factors influencing compression efficiency
+
+Several critical factors influence the efficiency of compression techniques, determining their suitability for different scenarios.
+
+Data type and structure play a significant role in compression efficiency. Text data typically compresses well with algorithms like `Brotli`, which are designed to handle repetitive patterns in text efficiently. Conversely, numerical data often benefits more from algorithms like `Zstandard` (`Zstd`), which can provide higher compression ratios for such data types due to its sophisticated encoding mechanisms.
+
+Compression levels are another crucial factor. Higher compression levels generally increase the compression ratio, resulting in smaller file sizes. However, this improvement comes at the cost of reduced speed and increased CPU and memory resource requirements. Therefore, selecting an appropriate compression level involves balancing the need for smaller file sizes against the available computational resources and required processing speeds.
+
+CPU and memory capabilities of the hardware significantly impact compression and decompression speeds. Devices with higher processing power and more available memory can handle more intensive compression tasks more efficiently. In contrast, limited resources can bottleneck the performance, making it essential to choose a compression method that aligns with the hardware's capabilities.
+
+Application needs also dictate the choice of compression technique. Real-time processing environments demand speed, necessitating the use of algorithms optimized for quick compression and decompression, such as Snappy or LZ4. On the other hand, archival purposes benefit from higher compression ratios to minimize storage space, making algorithms like Brotli or Zstd more suitable due to their superior compression efficiency.
+
+Understanding these factors allows for a more informed selection of compression techniques, optimizing performance and efficiency according to specific data handling requirements and resource constraints.
+
+
+# Database Structure and Compression
+
+The structure of the database plays a crucial role in determining the efficiency of compression. For this study, we use a generated dataset that simulates real-world data complexity, enabling a comprehensive assessment of various compression techniques on read/write performance.
+
+## Setup and Dataset Generation
+
+To evaluate the impact of different compression techniques, we generate datasets of varying sizes (100k, 1M, and 10M rows) and structures (numeric, character, and mixed). This variety allows for a detailed analysis of how different data types and volumes influence compression efficiency.
+
+We utilize several R libraries to facilitate data generation and compression:
+
+```r
+# Generate sample datasets
+generate_sample_data <- function(n, type = "mixed") {
+  set.seed(123)
+  if (type == "numeric") {
+    data.frame(
+      ID = 1:n,
+      Value = rnorm(n)
+    )
+  } else if (type == "character") {
+    data.frame(
+      ID = 1:n,
+      Description = replicate(n, paste0(sample(letters, 20, replace = TRUE), collapse = ""))
+    )
+  } else { # mixed
+    data.frame(
+      ID = 1:n,
+      Value = rnorm(n),
+      Category = sample(letters[1:5], n, replace = TRUE),
+      Description = replicate(n, paste0(sample(letters, 20, replace = TRUE), collapse = ""))
+    )
+  }
+}
+
+# Determine the number of threads
+setDTthreads(parallel::detectCores())
+```
+
+This dataset generation function produces data frames with unique IDs, random numerical values, categorical data, and text descriptions. The mixed-type datasets allow us to evaluate the performance of different compression algorithms across various data structures.
+
+For numerical data, the function generates a simple data frame with an ID and a random normal value. For character data, it produces a data frame with an ID and a randomly generated string description. The mixed-type data combines numerical values, categorical data, and text descriptions, providing a complex dataset that mimics real-world scenarios.
+
+By generating datasets of different sizes and structures, we ensure a robust analysis of how each compression technique performs under various conditions. This comprehensive setup allows us to draw meaningful conclusions about the efficiency and suitability of different compression methods for diverse data types and application needs.
+
+### Device Specifications
+
+The benchmarking was conducted on a system with the following specifications:
+
+- **Processor**: 13th Gen Intel(R) Core(TM) i7-13620H, 2.40 GHz
+- **Installed RAM**: 32.0 GB (31.7 GB usable)
+- **System type**: 64-bit operating system, x64-based processor
+
+# Compression Techniques Testing
+
+To evaluate the efficiency of various compression techniques, we define specific file writing and reading functions with different compression options. This systematic approach allows us to comprehensively assess the performance of each method.
+
+## Defining File Writing Functions with Compression Options
+
+We establish a set of functions to write data files using different compression methods. This setup enables a consistent comparison of the performance characteristics of each technique.
+
+```r
+write_funcs <- list(
+  parquet_gzip = function(data, file) arrow::write_parquet(data, file, compression = "gzip"),
+  parquet_snappy = function(data, file) arrow::write_parquet(data, file, compression = "snappy"),
+  parquet_zstd = function(data, file) arrow::write_parquet(data, file, compression = "zstd"),
+  parquet_uncompressed = function(data, file) arrow::write_parquet(data, file, compression = "uncompressed"),
+  
+  qs_fast = function(data, file) qs::qsave(data, file, preset = "fast"),
+  fst_uncompressed = function(data, file) fst::write_fst(data, file, compress = 0),
+  dt_gzip = function(data, file) fwrite(data, file, compress = "gzip"),
+  dt_none = function(data, file) fwrite(data, file, compress = "none")
+)
+```
+
+## Defining File Reading Functions
+
+Similarly, we create functions for reading files that have been compressed using different methods. This approach ensures that we can measure both the compression and decompression performance.
+
+```r
+read_funcs <- list(
+  parquet_gzip = function(file) arrow::read_parquet(file),
+  parquet_snappy = function(file) arrow::read_parquet(file),
+  parquet_zstd = function(file) arrow::read_parquet(file),
+  parquet_uncompressed = function(file) arrow::read_parquet(file),
+  
+  qs_fast = function(file) qs::qread(file),
+  fst_uncompressed = function(file) fst::read_fst(file),
+  dt_gzip = function(file) fread(file),
+  dt_none = function(file) fread(file)
+)
+```
+
+## Benchmarking Procedure
+
+Our benchmarking methodology follows a structured approach to comprehensively evaluate each compression technique:
+
+1. **Data Generation**: We generate datasets of varying sizes (100k, 1M, 10M rows) and structures (numeric, character, mixed) to simulate different data scenarios. This step allows us to observe how compression methods perform with different data types and sizes.
+2. **Compression Application**: We apply various compression techniques (Gzip, Snappy, Zstd, Brotli, LZ4, uncompressed) using different tools (Parquet, QS, FST, data.table). The performance of each method is assessed based on file size reduction and read/write times.
+3. **Benchmarking**: We measure the read/write times using the `microbenchmark` package, file sizes, compression ratios, and memory usage with `profmem`. This detailed benchmarking helps us quantify the performance impact of each compression technique.
+4. **Analysis**: We combine and visualize the results to compare the performance of each compression method across different data types and sizes. This analysis provides actionable insights into the efficiency of each technique.
+
+### Sample Code for Benchmarking
+
+The following sample code demonstrates how we benchmark and analyze the performance of different compression techniques:
+
+```r
+# Sample code to benchmark and analyze results
+benchmark_write_results <- microbenchmark(
+  write_parquet_gzip = write_funcs$parquet_gzip(sample_data_dt, file_paths$parquet_gzip),
+  write_parquet_snappy = write_funcs$parquet_snappy(sample_data_dt, file_paths$parquet_snappy),
+  write_parquet_zstd = write_funcs$parquet_zstd(sample_data_dt, file_paths$parquet_zstd),
+  write_qs_fast = write_funcs$qs_fast(sample_data_dt, file_paths$qs_fast),
+  write_fst_uncompressed = write_funcs$fst_uncompressed(sample_data_dt, file_paths$fst_uncompressed),
+  write_dt_gzip = write_funcs$dt_gzip(sample_data_dt, file_paths$dt_gzip),
+  times = 50,
+  unit = "milliseconds"
+)
+
+benchmark_read_results <- microbenchmark(
+  read_parquet_gzip = read_funcs$parquet_gzip(file_paths$parquet_gzip),
+  read_parquet_snappy = read_funcs$parquet_snappy(file_paths$parquet_snappy),
+  read_parquet_zstd = read_funcs$parquet_zstd(file_paths$parquet_zstd),
+  read_qs_fast = read_funcs$qs_fast(file_paths$qs_fast),
+  read_fst_uncompressed = read_funcs$fst_uncompressed(file_paths$fst_uncompressed),
+  read_dt_gzip = read_funcs$dt_gzip(file_paths$dt_gzip),
+  times = 50,
+  unit = "milliseconds"
+)
+```
+
+By systematically benchmarking these compression techniques, we aim to provide comprehensive insights into their performance. This detailed analysis will enable informed decisions for optimizing data storage and access in various applications, ensuring the best balance between speed, efficiency, and resource utilization.
+
+**Did you find this page helpful? Consider sharing it 🙌**
