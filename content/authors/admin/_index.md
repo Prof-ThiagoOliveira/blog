@@ -83,7 +83,7 @@ work:
     company_name: AbacusBio
     company_url: https://abacusbio.com/
     company_logo: ''
-    date_start: 2023-01-01
+    date_start: 2023-04-01
     date_end: ''
     summary: |
       - Develop advanced statistical models and economic selection indexes for breeding programs.
@@ -97,7 +97,7 @@ work:
     company_url: https://www.ed.ac.uk/roslin
     company_logo: ''
     date_start: 2020-01-01
-    date_end: 2023-12-31
+    date_end: 2023-03-31
     summary: |
       - Developed statistical models for quantitative genetics and genomics of plant breeding.
       - Conducted research on genetic improvement and trait selection in crops.
@@ -257,7 +257,7 @@ languages:
     percent: 100
 
   - name: English
-    percent: 90
+    percent: 85
     
   - name: Spanish
     percent: 30    
@@ -285,5 +285,5 @@ awards:
 ## About Me
 
 <div style="text-align: justify;">
-I am Thiago de Paula Oliveira, a statistician at AbacusBio. My research interests encompass statistical modelling, agriculture, genetics, and sports. I lead the development of advanced statistical models, economic selection indexes, and data visualization dashboards. My work is focused on providing actionable insights to drive impactful research and practical applications across various fields, including agriculture and sports performance.
+I am Thiago de Paula Oliveira, a statistician at AbacusBio. My work spans statistical modelling across agriculture, genetics, and sports analytics. I design and implement advanced mixed‑model and Bayesian methods, develop economic and sustainability selection indices, and build reproducible, interactive data‑visualisation dashboards. I also develop production‑quality code in R, C++, Bash, and other languages, including package development and workflow automation, to ensure scalable, transparent analyses. My focus is on delivering decision‑ready outputs that improve agricultural productivity, accelerate genetic gain, and enhance athletic performance.
 </div>
