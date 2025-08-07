@@ -14,7 +14,7 @@ sections:
       title: Selected Projects
       text: |-
         <p align="justify">
-          As a seasoned statistician with a passion for innovation, I have led and contributed to a variety of impactful projects over the years. These projects span across statistical modelling, agriculture, genetics, sports analytics, and more. Below is a selection of some of the key projects that highlight my expertise and commitment to advancing the field of statistics and biostatistics.
+          I lead and contribute to projects that translate rigorous statistical methods into decision‑ready insights. My portfolio spans statistical modelling, agriculture, genetics and sports analytics, with outputs ranging from spatial and longitudinal models to genetic evaluation pipelines, economic and sustainability selection indices, and decision‑support dashboards. The projects below illustrate this breadth and the impact delivered with industry and academic partners.
         </p>
       filters:
         folders:
