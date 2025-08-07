@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: July 26, 2025 --><html lang="en-us" dir="ltr"
+<!-- Last Published: August 7, 2025 --><html lang="en-us" dir="ltr"
       data-wc-theme-default="light">
   
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
@@ -41,7 +41,7 @@
   
     
   
-  <meta name="description" content="This post explores the performance of various compression techniques in R for reading and writing operations, highlighting file size, speed, and memory usage." />
+  <meta name="description" content="what each tool solves, when to reach for it, and ready-to-paste code." />
 
   
   <link rel="alternate" hreflang="en-us" href="http://localhost:4321/post/compression-data-read-write-performance/" />
@@ -186,17 +186,14 @@
   
   <meta property="og:site_name" content="Thiago Oliveira" />
   <meta property="og:url" content="http://localhost:4321/post/compression-data-read-write-performance/" />
-  <meta property="og:title" content="Effects of compression techniques on data read/write performance | Thiago Oliveira" />
-  <meta property="og:description" content="This post explores the performance of various compression techniques in R for reading and writing operations, highlighting file size, speed, and memory usage." /><meta property="og:image" content="http://localhost:4321/media/logo_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_300x300_fit_lanczos_3.png" />
+  <meta property="og:title" content="From prototype to production, choosing the right R and C&#43;&#43; tool in Rcpp | Thiago Oliveira" />
+  <meta property="og:description" content="what each tool solves, when to reach for it, and ready-to-paste code." /><meta property="og:image" content="http://localhost:4321/media/logo_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_300x300_fit_lanczos_3.png" />
     <meta property="twitter:image" content="http://localhost:4321/media/logo_hua8192a3d26f52862b6ecd0fa00b0dcdd_44669_300x300_fit_lanczos_3.png" /><meta property="og:locale" content="en-us" />
   
     
-      <meta
-        property="article:published_time"
-        content="2024-07-15T00:00:00&#43;00:00"
-      />
+      <meta property="article:published_time" content="2025-08-06T09:15:54&#43;00:00" />
     
-    <meta property="article:modified_time" content="2024-07-15T09:15:54&#43;00:00">
+    <meta property="article:modified_time" content="2025-08-06T09:15:54&#43;00:00">
   
 
   
@@ -206,7 +203,7 @@
   
 
 
-  <title>Effects of compression techniques on data read/write performance | Thiago Oliveira</title>
+  <title>From prototype to production, choosing the right R and C&#43;&#43; tool in Rcpp | Thiago Oliveira</title>
 
   
   
@@ -396,42 +393,6 @@
   
   
   
-    
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -454,23 +415,26 @@
         
       
     
-      
-      
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-        
-      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     
       
       
@@ -508,6 +472,42 @@
         
       
     
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
   
   
   
@@ -532,7 +532,6 @@
         
       
     
-  
   
   
   
@@ -1231,6 +1230,198 @@
               
             </li></ul>
       </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/experimental_design/"
+    
+  >Main elements and questions of a good experimental plan.
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/post/compression-data-read-write-performance/"
+    
+  >From prototype to production, choosing the right R and C&#43;&#43; tool in Rcpp
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#level-up-with-plugins-and-rcpp-attributes"
+                class="hb-docs-link"
+              >Level-up with plugins and &lt;strong&gt;Rcpp attributes&lt;/strong&gt;</a>
+            </li>
+          <li>
+              <a
+                href="#quick-decision-guide"
+                class="hb-docs-link"
+              >Quick decision guide</a>
+            </li>
+          <li>
+              <a
+                href="#take-aways"
+                class="hb-docs-link"
+              >Take-aways</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/post/compression-data-read-write-performance/"
+    
+  >Effects of compression techniques on data read/write performance
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#gzip-gnu-zip"
+                class="hb-docs-link"
+              >Gzip (GNU zip)</a>
+            </li>
+          <li>
+              <a
+                href="#snappy"
+                class="hb-docs-link"
+              >Snappy</a>
+            </li>
+          <li>
+              <a
+                href="#zstandard-zstd"
+                class="hb-docs-link"
+              >Zstandard (Zstd)</a>
+            </li>
+          <li>
+              <a
+                href="#brotli"
+                class="hb-docs-link"
+              >Brotli</a>
+            </li>
+          <li>
+              <a
+                href="#lz4"
+                class="hb-docs-link"
+              >LZ4</a>
+            </li>
+          <li>
+              <a
+                href="#uncompressed"
+                class="hb-docs-link"
+              >Uncompressed</a>
+            </li>
+          <li>
+              <a
+                href="#setup-and-dataset-generation"
+                class="hb-docs-link"
+              >Setup and Dataset Generation</a>
+            </li>
+          <li>
+              <a
+                href="#defining-file-writing-functions-with-compression-options"
+                class="hb-docs-link"
+              >Defining File Writing Functions with Compression Options</a>
+            </li>
+          <li>
+              <a
+                href="#defining-file-reading-functions"
+                class="hb-docs-link"
+              >Defining File Reading Functions</a>
+            </li>
+          <li>
+              <a
+                href="#benchmarking-procedure"
+                class="hb-docs-link"
+              >Benchmarking Procedure</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/data-read-write-performance/"
+    
+  >Comparing data read and write performance in R
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/spline-models/"
+    
+  >Exploring Polynomial, Fractional Polynomial, and Spline Models
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/precision-and-accuracy/"
+    
+  >Precision &amp; Accuracy - The Role of Concordance Correlation in Research
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/r-programming/"
+    
+  >R Programming with Efficient Snippets
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/golem-package/"
+    
+  >Navigating the Shiny Universe with Golem
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/how-hard-is-it-to-predict-covid-19-cases/"
+    
+  >How hard is it to predict COVID-19 cases?
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/the-seven-steps-of-a-programer/"
+    
+  >The seven steps of a programer
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/expressions/"
+    
+  >Expressions in C&#43;&#43;
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/signed-and-unsigned-binary-numbers/"
+    
+  >Signed and Unsigned Binary Numbers
+    </a>
+              
+            </li></ul>
+      </div></li>
         <li class=""><a
     class="hb-sidebar-custom-link
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
@@ -1375,169 +1566,6 @@
     href="/publication/2017-papaya/"
     
   >Measuring color hue in &#39;Sunrise Solo&#39; papaya using a flatbed scanner
-    </a>
-              
-            </li></ul>
-      </div></li>
-        <li class="open"><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/"
-    
-  >Blog
-        <span data-hb-sidebar-toggle>
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
-        </span>
-    </a><div class="ltr:pr-0 overflow-hidden">
-        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/experimental_design/"
-    
-  >Main elements and questions of a good experimental plan.
-    </a>
-              
-            </li><li class="flex flex-col open"><a
-    class="hb-sidebar-custom-link
-      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
-    href="/post/compression-data-read-write-performance/"
-    
-  >Effects of compression techniques on data read/write performance
-    </a>
-  
-    <ul class="hb-sidebar-mobile-toc"><li>
-              <a
-                href="#gzip-gnu-zip"
-                class="hb-docs-link"
-              >Gzip (GNU zip)</a>
-            </li>
-          <li>
-              <a
-                href="#snappy"
-                class="hb-docs-link"
-              >Snappy</a>
-            </li>
-          <li>
-              <a
-                href="#zstandard-zstd"
-                class="hb-docs-link"
-              >Zstandard (Zstd)</a>
-            </li>
-          <li>
-              <a
-                href="#brotli"
-                class="hb-docs-link"
-              >Brotli</a>
-            </li>
-          <li>
-              <a
-                href="#lz4"
-                class="hb-docs-link"
-              >LZ4</a>
-            </li>
-          <li>
-              <a
-                href="#uncompressed"
-                class="hb-docs-link"
-              >Uncompressed</a>
-            </li>
-          <li>
-              <a
-                href="#setup-and-dataset-generation"
-                class="hb-docs-link"
-              >Setup and Dataset Generation</a>
-            </li>
-          <li>
-              <a
-                href="#defining-file-writing-functions-with-compression-options"
-                class="hb-docs-link"
-              >Defining File Writing Functions with Compression Options</a>
-            </li>
-          <li>
-              <a
-                href="#defining-file-reading-functions"
-                class="hb-docs-link"
-              >Defining File Reading Functions</a>
-            </li>
-          <li>
-              <a
-                href="#benchmarking-procedure"
-                class="hb-docs-link"
-              >Benchmarking Procedure</a>
-            </li>
-          </ul>
-  
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/data-read-write-performance/"
-    
-  >Comparing data read and write performance in R
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/spline-models/"
-    
-  >Exploring Polynomial, Fractional Polynomial, and Spline Models
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/precision-and-accuracy/"
-    
-  >Precision &amp; Accuracy - The Role of Concordance Correlation in Research
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/r-programming/"
-    
-  >R Programming with Efficient Snippets
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/golem-package/"
-    
-  >Navigating the Shiny Universe with Golem
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/how-hard-is-it-to-predict-covid-19-cases/"
-    
-  >How hard is it to predict COVID-19 cases?
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/the-seven-steps-of-a-programer/"
-    
-  >The seven steps of a programer
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/expressions/"
-    
-  >Expressions in C&#43;&#43;
-    </a>
-              
-            </li><li class="flex flex-col "><a
-    class="hb-sidebar-custom-link
-      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
-    href="/post/signed-and-unsigned-binary-numbers/"
-    
-  >Signed and Unsigned Binary Numbers
     </a>
               
             </li></ul>
@@ -1716,42 +1744,21 @@
 
 
 
-  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul></ul><ul></ul><ul>
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#gzip-gnu-zip">Gzip (GNU zip)</a>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#level-up-with-plugins-and-rcpp-attributes">Level-up with plugins and Rcpp attributes</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#snappy">Snappy</a>
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#41-plugins">4.1 Plugins</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#zstandard-zstd">Zstandard (Zstd)</a>
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#42-rcpp-attributes">4.2 Rcpp Attributes</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#brotli">Brotli</a>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#quick-decision-guide">Quick decision guide</a>
       </li>
       <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#lz4">LZ4</a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#uncompressed">Uncompressed</a>
-      </li></ul><ul></ul><ul>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#setup-and-dataset-generation">Setup and Dataset Generation</a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#device-specifications">Device Specifications</a>
-      </li></ul><ul>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#defining-file-writing-functions-with-compression-options">Defining File Writing Functions with Compression Options</a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#defining-file-reading-functions">Defining File Reading Functions</a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#benchmarking-procedure">Benchmarking Procedure</a>
-      </li>
-      <li class="my-2 scroll-my-6 scroll-py-6">
-        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#sample-code-for-benchmarking">Sample Code for Benchmarking</a>
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#take-aways">Take-aways</a>
       </li></ul>
 
   
@@ -1781,10 +1788,10 @@
 
       
 
-      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Effects of compression techniques on data read/write performance</h1>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">From prototype to production, choosing the right R and C&#43;&#43; tool in Rcpp</h1>
 
       <div class="mt-4 mb-16">
-      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">Jul 15, 2024</span><span class="mx-1">·</span>
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">Aug 6, 2025</span><span class="mx-1">·</span>
         
           
           
@@ -1801,7 +1808,7 @@
         
         <span class="mx-1">·</span>
         <span class="mx-1">
-          9 min read
+          4 min read
         </span>
         
         </div>
@@ -1983,141 +1990,186 @@ img {
     newWindow.document.close();
   }
 </script>
-<h1 id="post-summary">Post summary</h1>
-<p>Following our previous exploration of data read/write performance, we now delve into the effects of different compression techniques on these processes. Compression is vital for optimizing storage efficiency and access speed. This post covers the definitions of compression methods, factors influencing compression efficiency, guidelines for using higher or lower compression, and detailed empirical testing results.</p>
-<h1 id="purpose-and-motivation">Purpose and Motivation</h1>
-<p>Compression is essential for reducing storage requirements and improving data access times. By understanding the impact of different compression techniques, we can optimize data handling in R, making it more efficient and effective. This study explores various compression methods to provide insights into their performance in different scenarios.</p>
-<h1 id="detailed-overview-of-compression-techniques">Detailed Overview of Compression Techniques</h1>
-<p>Understanding the specific characteristics and use cases of various compression techniques is crucial for optimizing data storage and access. Below, we delve deeper into the most commonly used compression methods, detailing their strengths, weaknesses, and ideal applications.</p>
-<h2 id="gzip-gnu-zip">Gzip (GNU zip)</h2>
-<p>Gzip uses the DEFLATE algorithm, which balances speed and compression ratio. It is widely supported across different platforms and programming languages, making it effective for both text and binary data. Its primary strength lies in providing a good compromise between compression speed and ratio, making it a popular choice for general-purpose compression. However, Gzip is not the fastest in terms of compression or decompression speeds, and its compression ratios are moderate compared to newer algorithms. It is ideal for general-purpose compression where compatibility and ease of use are important, such as web servers for compressing HTTP responses and archiving files where space saving is needed but not critical.</p>
-<h2 id="snappy">Snappy</h2>
-<p>Snappy is optimized for speed, making it ideal for applications requiring rapid read/write operations. It excels in scenarios where quick compression and decompression are more critical than achieving the highest compression ratio. Snappy&rsquo;s primary strength is its high speed, both in compression and decompression, which minimizes latency in data processing. However, this comes at the cost of lower compression ratios compared to other algorithms. Snappy is best suited for real-time data processing, log compression, and systems where performance is a higher priority than storage efficiency.</p>
-<h2 id="zstandard-zstd">Zstandard (Zstd)</h2>
-<p>Zstandard, or Zstd, offers high compression ratios and fast decompression, making it excellent for scenarios that need high compression without significant speed loss. Zstd is highly versatile, providing various compression levels to balance speed and compression ratio according to the application&rsquo;s needs. Its strengths include superior compression ratios and efficient decompression speeds, often outperforming older algorithms like Gzip. One downside is that higher compression levels can be resource-intensive in terms of CPU and memory usage. Zstd is ideal for large-scale data storage, backup solutions, and systems where both speed and storage efficiency are critical.</p>
-<h2 id="brotli">Brotli</h2>
-<p>Brotli achieves high compression ratios, especially for text data, making it perfect for web content. Developed by Google, Brotli provides excellent compression efficiency for web fonts and other web assets, significantly reducing file sizes and improving load times. Its primary strength lies in its ability to achieve superior compression ratios for text data, which is crucial for optimizing web performance. However, Brotli can be slower than other algorithms in both compression and decompression, particularly at higher compression levels. Brotli is best used for web content delivery, where minimizing bandwidth usage and improving load times are paramount.</p>
-<h2 id="lz4">LZ4</h2>
-<p>LZ4 prioritizes speed over compression ratio, making it ideal for real-time data processing. It is designed to provide extremely fast compression and decompression, which is critical in performance-sensitive environments. LZ4&rsquo;s strengths include its lightning-fast speeds, which make it suitable for scenarios where data needs to be processed in real-time. However, its compression ratios are lower than those of more advanced algorithms like Zstd or Brotli. LZ4 is particularly useful for in-memory compression, real-time logging, and applications where speed is more important than achieving the highest compression ratio.</p>
-<h2 id="uncompressed">Uncompressed</h2>
-<p>Storing data in its original format without compression ensures the fastest possible read and write speeds, as there is no overhead from compression or decompression processes. This approach is best when speed is crucial, and storage space is not a concern. The primary advantage of uncompressed data is the elimination of latency related to compression algorithms, providing immediate access to data. However, the downside is the significantly larger storage requirement. Uncompressed storage is ideal for applications where performance is paramount and storage costs are negligible, such as temporary data storage and real-time data analytics.</p>
-<p>By understanding these compression techniques&rsquo; specific advantages and limitations, you can make informed decisions to optimize data storage and access for various applications.</p>
-<h1 id="factors-influencing-compression-efficiency">Factors influencing compression efficiency</h1>
-<p>Several critical factors influence the efficiency of compression techniques, determining their suitability for different scenarios.</p>
-<p>Data type and structure play a significant role in compression efficiency. Text data typically compresses well with algorithms like <code>Brotli</code>, which are designed to handle repetitive patterns in text efficiently. Conversely, numerical data often benefits more from algorithms like <code>Zstandard</code> (<code>Zstd</code>), which can provide higher compression ratios for such data types due to its sophisticated encoding mechanisms.</p>
-<p>Compression levels are another crucial factor. Higher compression levels generally increase the compression ratio, resulting in smaller file sizes. However, this improvement comes at the cost of reduced speed and increased CPU and memory resource requirements. Therefore, selecting an appropriate compression level involves balancing the need for smaller file sizes against the available computational resources and required processing speeds.</p>
-<p>CPU and memory capabilities of the hardware significantly impact compression and decompression speeds. Devices with higher processing power and more available memory can handle more intensive compression tasks more efficiently. In contrast, limited resources can bottleneck the performance, making it essential to choose a compression method that aligns with the hardware&rsquo;s capabilities.</p>
-<p>Application needs also dictate the choice of compression technique. Real-time processing environments demand speed, necessitating the use of algorithms optimized for quick compression and decompression, such as Snappy or LZ4. On the other hand, archival purposes benefit from higher compression ratios to minimize storage space, making algorithms like Brotli or Zstd more suitable due to their superior compression efficiency.</p>
-<p>Understanding these factors allows for a more informed selection of compression techniques, optimizing performance and efficiency according to specific data handling requirements and resource constraints.</p>
-<h1 id="database-structure-and-compression">Database Structure and Compression</h1>
-<p>The structure of the database plays a crucial role in determining the efficiency of compression. For this study, we use a generated dataset that simulates real-world data complexity, enabling a comprehensive assessment of various compression techniques on read/write performance.</p>
-<h2 id="setup-and-dataset-generation">Setup and Dataset Generation</h2>
-<p>To evaluate the impact of different compression techniques, we generate datasets of varying sizes (100k, 1M, and 10M rows) and structures (numeric, character, and mixed). This variety allows for a detailed analysis of how different data types and volumes influence compression efficiency.</p>
-<p>We utilize several R libraries to facilitate data generation and compression:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Generate sample datasets</span>
-</span></span><span class="line"><span class="cl"><span class="n">generate_sample_data</span> <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&#34;mixed&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="s">&#34;numeric&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">data.frame</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ID</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">Value</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="s">&#34;character&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">data.frame</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ID</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">Description</span> <span class="o">=</span> <span class="nf">replicate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="nf">sample</span><span class="p">(</span><span class="kc">letters</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span> <span class="c1"># mixed</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">data.frame</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">      <span class="n">ID</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="n">Value</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="n">Category</span> <span class="o">=</span> <span class="nf">sample</span><span class="p">(</span><span class="kc">letters</span><span class="n">[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="n">Description</span> <span class="o">=</span> <span class="nf">replicate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nf">paste0</span><span class="p">(</span><span class="nf">sample</span><span class="p">(</span><span class="kc">letters</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<h1 id="prototype-at-light-speed-with-inline">Prototype at light-speed with <strong>inline</strong></h1>
+<p><code>inline::cxxfunction()</code> compiles, links and returns an <code>R</code> function from a character string, ideal for quick sketches or teaching.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">inline</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">Rcpp</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">## Attaching package: &#39;Rcpp&#39;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## The following object is masked from &#39;package:inline&#39;:
+</span></span><span class="line"><span class="cl">## 
+</span></span><span class="line"><span class="cl">##     registerPlugin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">src</span> <span class="o">&lt;-</span> <span class="s">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">  // Declare two Rcpp numeric vectors, populated from the R arguments `a` and `b`
+</span></span></span><span class="line"><span class="cl"><span class="s">  Rcpp::NumericVector xa(a), xb(b);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  // Cache the lengths of those vectors in plain C++ ints for fast reuse
+</span></span></span><span class="line"><span class="cl"><span class="s">  int na = xa.size(), nb = xb.size();
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  // Pre-allocate the output vector, with length (na + nb − 1) for a full 
+</span></span></span><span class="line"><span class="cl"><span class="s">  // discrete convolution
+</span></span></span><span class="line"><span class="cl"><span class="s">  Rcpp::NumericVector out(na + nb - 1);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  // Walk over every element of the first vector
+</span></span></span><span class="line"><span class="cl"><span class="s">  for (int i = 0; i &lt; na; ++i)
+</span></span></span><span class="line"><span class="cl"><span class="s">    // Multiply the i-th element of `a` with every element of `b`
+</span></span></span><span class="line"><span class="cl"><span class="s">    for (int j = 0; j &lt; nb; ++j)
+</span></span></span><span class="line"><span class="cl"><span class="s">        // Accumulate the product at the correct lag/index in the result
+</span></span></span><span class="line"><span class="cl"><span class="s">        out[i + j] += xa[i] * xb[j];
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  // Return the filled result vector back to R
+</span></span></span><span class="line"><span class="cl"><span class="s">  return out;
+</span></span></span><span class="line"><span class="cl"><span class="s">&#39;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Determine the number of threads</span>
-</span></span><span class="line"><span class="cl"><span class="nf">setDTthreads</span><span class="p">(</span><span class="n">parallel</span><span class="o">::</span><span class="nf">detectCores</span><span class="p">())</span>
-</span></span></code></pre></div><p>This dataset generation function produces data frames with unique IDs, random numerical values, categorical data, and text descriptions. The mixed-type datasets allow us to evaluate the performance of different compression algorithms across various data structures.</p>
-<p>For numerical data, the function generates a simple data frame with an ID and a random normal value. For character data, it produces a data frame with an ID and a randomly generated string description. The mixed-type data combines numerical values, categorical data, and text descriptions, providing a complex dataset that mimics real-world scenarios.</p>
-<p>By generating datasets of different sizes and structures, we ensure a robust analysis of how each compression technique performs under various conditions. This comprehensive setup allows us to draw meaningful conclusions about the efficiency and suitability of different compression methods for diverse data types and application needs.</p>
-<h3 id="device-specifications">Device Specifications</h3>
-<p>The benchmarking was conducted on a system with the following specifications:</p>
+</span></span><span class="line"><span class="cl"><span class="n">conv</span> <span class="o">&lt;-</span> <span class="nf">cxxfunction</span><span class="p">(</span><span class="nf">signature</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="s">&#34;numeric&#34;</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&#34;numeric&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">body</span> <span class="o">=</span> <span class="n">src</span><span class="p">,</span> <span class="n">plugin</span> <span class="o">=</span> <span class="s">&#34;Rcpp&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">conv</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## [1]  2  7 16 30 34 31 20
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1">#&gt; [1]  2  7 16 30 34 31 20</span>
+</span></span></code></pre></div><p>Choose <strong>inline</strong> when:</p>
 <ul>
-<li><strong>Processor</strong>: 13th Gen Intel(R) Core(TM) i7-13620H, 2.40 GHz</li>
-<li><strong>Installed RAM</strong>: 32.0 GB (31.7 GB usable)</li>
-<li><strong>System type</strong>: 64-bit operating system, x64-based processor</li>
+<li>you need an answer <em>now</em> without creating extra files;</li>
+<li>you are benchmarking or exploring an API shape;</li>
+<li>you want to inject ad-hoc <code>#include</code> blocks or compiler flags.</li>
 </ul>
-<h1 id="compression-techniques-testing">Compression Techniques Testing</h1>
-<p>To evaluate the efficiency of various compression techniques, we define specific file writing and reading functions with different compression options. This systematic approach allows us to comprehensively assess the performance of each method.</p>
-<h2 id="defining-file-writing-functions-with-compression-options">Defining File Writing Functions with Compression Options</h2>
-<p>We establish a set of functions to write data files using different compression methods. This setup enables a consistent comparison of the performance characteristics of each technique.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">write_funcs</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_gzip</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">write_parquet</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s">&#34;gzip&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_snappy</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">write_parquet</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s">&#34;snappy&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_zstd</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">write_parquet</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s">&#34;zstd&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_uncompressed</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">write_parquet</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s">&#34;uncompressed&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="n">qs_fast</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="n">qs</span><span class="o">::</span><span class="nf">qsave</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">preset</span> <span class="o">=</span> <span class="s">&#34;fast&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">fst_uncompressed</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="n">fst</span><span class="o">::</span><span class="nf">write_fst</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="m">0</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">dt_gzip</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="nf">fwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="s">&#34;gzip&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">dt_none</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="nf">fwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="s">&#34;none&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></div><h2 id="defining-file-reading-functions">Defining File Reading Functions</h2>
-<p>Similarly, we create functions for reading files that have been compressed using different methods. This approach ensures that we can measure both the compression and decompression performance.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">read_funcs</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_gzip</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">read_parquet</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_snappy</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">read_parquet</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_zstd</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">read_parquet</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">parquet_uncompressed</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">arrow</span><span class="o">::</span><span class="nf">read_parquet</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="n">qs_fast</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">qs</span><span class="o">::</span><span class="nf">qread</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">fst_uncompressed</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="n">fst</span><span class="o">::</span><span class="nf">read_fst</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">dt_gzip</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="nf">fread</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">dt_none</span> <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="nf">fread</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></div><h2 id="benchmarking-procedure">Benchmarking Procedure</h2>
-<p>Our benchmarking methodology follows a structured approach to comprehensively evaluate each compression technique:</p>
-<ol>
-<li><strong>Data Generation</strong>: We generate datasets of varying sizes (100k, 1M, 10M rows) and structures (numeric, character, mixed) to simulate different data scenarios. This step allows us to observe how compression methods perform with different data types and sizes.</li>
-<li><strong>Compression Application</strong>: We apply various compression techniques (Gzip, Snappy, Zstd, Brotli, LZ4, uncompressed) using different tools (Parquet, QS, FST, data.table). The performance of each method is assessed based on file size reduction and read/write times.</li>
-<li><strong>Benchmarking</strong>: We measure the read/write times using the <code>microbenchmark</code> package, file sizes, compression ratios, and memory usage with <code>profmem</code>. This detailed benchmarking helps us quantify the performance impact of each compression technique.</li>
-<li><strong>Analysis</strong>: We combine and visualize the results to compare the performance of each compression method across different data types and sizes. This analysis provides actionable insights into the efficiency of each technique.</li>
-</ol>
-<h3 id="sample-code-for-benchmarking">Sample Code for Benchmarking</h3>
-<p>The following sample code demonstrates how we benchmark and analyze the performance of different compression techniques:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Sample code to benchmark and analyze results</span>
-</span></span><span class="line"><span class="cl"><span class="n">benchmark_write_results</span> <span class="o">&lt;-</span> <span class="nf">microbenchmark</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write_parquet_gzip</span> <span class="o">=</span> <span class="n">write_funcs</span><span class="o">$</span><span class="nf">parquet_gzip</span><span class="p">(</span><span class="n">sample_data_dt</span><span class="p">,</span> <span class="n">file_paths</span><span class="o">$</span><span class="n">parquet_gzip</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write_parquet_snappy</span> <span class="o">=</span> <span class="n">write_funcs</span><span class="o">$</span><span class="nf">parquet_snappy</span><span class="p">(</span><span class="n">sample_data_dt</span><span class="p">,</span> <span class="n">file_paths</span><span class="o">$</span><span class="n">parquet_snappy</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write_parquet_zstd</span> <span class="o">=</span> <span class="n">write_funcs</span><span class="o">$</span><span class="nf">parquet_zstd</span><span class="p">(</span><span class="n">sample_data_dt</span><span class="p">,</span> <span class="n">file_paths</span><span class="o">$</span><span class="n">parquet_zstd</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write_qs_fast</span> <span class="o">=</span> <span class="n">write_funcs</span><span class="o">$</span><span class="nf">qs_fast</span><span class="p">(</span><span class="n">sample_data_dt</span><span class="p">,</span> <span class="n">file_paths</span><span class="o">$</span><span class="n">qs_fast</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write_fst_uncompressed</span> <span class="o">=</span> <span class="n">write_funcs</span><span class="o">$</span><span class="nf">fst_uncompressed</span><span class="p">(</span><span class="n">sample_data_dt</span><span class="p">,</span> <span class="n">file_paths</span><span class="o">$</span><span class="n">fst_uncompressed</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">write_dt_gzip</span> <span class="o">=</span> <span class="n">write_funcs</span><span class="o">$</span><span class="nf">dt_gzip</span><span class="p">(</span><span class="n">sample_data_dt</span><span class="p">,</span> <span class="n">file_paths</span><span class="o">$</span><span class="n">dt_gzip</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">times</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="n">unit</span> <span class="o">=</span> <span class="s">&#34;milliseconds&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
+<h2 id="level-up-with-plugins-and-rcpp-attributes">Level-up with plugins and <strong>Rcpp attributes</strong></h2>
+<h3 id="41-plugins">4.1 Plugins</h3>
+<p>Plugins bolt extra headers and libraries onto an <code>inline</code> or attributes build—no manual <code>-I</code>/<code>-L</code> juggling.
+The built-in <code>RcppArmadillo</code> plugin lets you write BLAS-backed linear algebra on the fly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">RcppArmadillo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">src</span> <span class="o">&lt;-</span> <span class="s">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">  // Armadillo + Rcpp headers are supplied automatically by the plugin
+</span></span></span><span class="line"><span class="cl"><span class="s">  using namespace Rcpp;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  /* ---- 1. Map the inputs -------------------------------------------------- */
+</span></span></span><span class="line"><span class="cl"><span class="s">  Rcpp::NumericVector  yr_(yr);            // wrap SEXP as NumericVector
+</span></span></span><span class="line"><span class="cl"><span class="s">  Rcpp::NumericMatrix  Xr_(Xr);            // wrap SEXP as NumericMatrix
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  int n = Xr_.nrow();                      // rows  = #obs
+</span></span></span><span class="line"><span class="cl"><span class="s">  int k = Xr_.ncol();                      // cols  = #predictors
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  // zero-copy Armadillo views
+</span></span></span><span class="line"><span class="cl"><span class="s">  arma::colvec y( yr_.begin(), yr_.size(), false );
+</span></span></span><span class="line"><span class="cl"><span class="s">  arma::mat    X( Xr_.begin(), n, k,       false );
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  /* ---- 2. OLS -------------------------------------------------------------- */
+</span></span></span><span class="line"><span class="cl"><span class="s">  arma::colvec coef = arma::solve(X, y);
+</span></span></span><span class="line"><span class="cl"><span class="s">  arma::colvec res  = y - X * coef;
+</span></span></span><span class="line"><span class="cl"><span class="s">  double s2         = arma::dot(res, res) / (n - k);
+</span></span></span><span class="line"><span class="cl"><span class="s">  arma::colvec se   = arma::sqrt( s2 * arma::diagvec( arma::inv(X.t() * X) ) );
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">  /* ---- 3. Ship results back to R ------------------------------------------ */
+</span></span></span><span class="line"><span class="cl"><span class="s">  return List::create(_[&#34;coef&#34;] = coef,
+</span></span></span><span class="line"><span class="cl"><span class="s">                      _[&#34;se&#34;]   = se,
+</span></span></span><span class="line"><span class="cl"><span class="s">                      _[&#34;df&#34;]   = n - k);
+</span></span></span><span class="line"><span class="cl"><span class="s">&#39;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">benchmark_read_results</span> <span class="o">&lt;-</span> <span class="nf">microbenchmark</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="n">read_parquet_gzip</span> <span class="o">=</span> <span class="n">read_funcs</span><span class="o">$</span><span class="nf">parquet_gzip</span><span class="p">(</span><span class="n">file_paths</span><span class="o">$</span><span class="n">parquet_gzip</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">read_parquet_snappy</span> <span class="o">=</span> <span class="n">read_funcs</span><span class="o">$</span><span class="nf">parquet_snappy</span><span class="p">(</span><span class="n">file_paths</span><span class="o">$</span><span class="n">parquet_snappy</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">read_parquet_zstd</span> <span class="o">=</span> <span class="n">read_funcs</span><span class="o">$</span><span class="nf">parquet_zstd</span><span class="p">(</span><span class="n">file_paths</span><span class="o">$</span><span class="n">parquet_zstd</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">read_qs_fast</span> <span class="o">=</span> <span class="n">read_funcs</span><span class="o">$</span><span class="nf">qs_fast</span><span class="p">(</span><span class="n">file_paths</span><span class="o">$</span><span class="n">qs_fast</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">read_fst_uncompressed</span> <span class="o">=</span> <span class="n">read_funcs</span><span class="o">$</span><span class="nf">fst_uncompressed</span><span class="p">(</span><span class="n">file_paths</span><span class="o">$</span><span class="n">fst_uncompressed</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">read_dt_gzip</span> <span class="o">=</span> <span class="n">read_funcs</span><span class="o">$</span><span class="nf">dt_gzip</span><span class="p">(</span><span class="n">file_paths</span><span class="o">$</span><span class="n">dt_gzip</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">  <span class="n">times</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="n">unit</span> <span class="o">=</span> <span class="s">&#34;milliseconds&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">fastLm</span> <span class="o">&lt;-</span> <span class="nf">cxxfunction</span><span class="p">(</span><span class="nf">signature</span><span class="p">(</span><span class="n">yr</span> <span class="o">=</span> <span class="s">&#34;numeric&#34;</span><span class="p">,</span> <span class="n">Xr</span> <span class="o">=</span> <span class="s">&#34;numeric&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">body</span>   <span class="o">=</span> <span class="n">src</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">plugin</span> <span class="o">=</span> <span class="s">&#34;RcppArmadillo&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Usage </span>
+</span></span><span class="line"><span class="cl"><span class="nf">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">1000</span>
+</span></span><span class="line"><span class="cl"><span class="n">k</span> <span class="o">&lt;-</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>  <span class="c1"># 1st col = intercept</span>
+</span></span><span class="line"><span class="cl"><span class="n">beta</span>  <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">0.8</span><span class="p">,</span> <span class="m">-1.2</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span>                 <span class="c1"># true coefficients</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span>  <span class="o">&lt;-</span> <span class="n">X</span> <span class="o">%*%</span> <span class="n">beta</span> <span class="o">+</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>           <span class="c1"># synthetic data</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">&lt;-</span> <span class="nf">fastLm</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">str</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## List of 3
+</span></span><span class="line"><span class="cl">##  $ coef: num [1:4, 1] 4.984 0.797 -1.216 0.603
+</span></span><span class="line"><span class="cl">##  $ se  : num [1:4, 1] 0.0628 0.0636 0.0625 0.0642
+</span></span><span class="line"><span class="cl">##  $ df  : int 996
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">X[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="o">+</span> <span class="n">X[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="o">+</span> <span class="n">X[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">)</span>  <span class="c1"># lm() adds its own intercept</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">cbind</span><span class="p">(</span><span class="n">fastLm</span> <span class="o">=</span> <span class="n">res</span><span class="o">$</span><span class="n">coef</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">lm</span>     <span class="o">=</span> <span class="nf">coef</span><span class="p">(</span><span class="n">fit</span><span class="p">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">##                                lm
+</span></span><span class="line"><span class="cl">## (Intercept)  4.9844816  4.9844816
+</span></span><span class="line"><span class="cl">## X[, 2]       0.7974000  0.7974000
+</span></span><span class="line"><span class="cl">## X[, 3]      -1.2162403 -1.2162403
+</span></span><span class="line"><span class="cl">## X[, 4]       0.6029614  0.6029614
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">microbenchmark</span><span class="o">::</span><span class="nf">microbenchmark</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">fastLm</span> <span class="o">=</span> <span class="nf">fastLm</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">lm</span>     <span class="o">=</span> <span class="p">{</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">X[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span> <span class="o">+</span> <span class="n">X[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="o">+</span> <span class="n">X[</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">)</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="n">times</span>  <span class="o">=</span> <span class="m">100</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span></code></pre></div><p>By systematically benchmarking these compression techniques, we aim to provide comprehensive insights into their performance. This detailed analysis will enable informed decisions for optimizing data storage and access in various applications, ensuring the best balance between speed, efficiency, and resource utilization.</p>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## Unit: microseconds
+</span></span><span class="line"><span class="cl">##    expr   min     lq     mean  median     uq    max neval cld
+</span></span><span class="line"><span class="cl">##  fastLm  43.4  67.05   88.657   79.95  104.2  177.3   100  a 
+</span></span><span class="line"><span class="cl">##      lm 838.4 937.90 1301.784 1386.60 1509.3 2374.2   100   b
+</span></span></code></pre></div><h3 id="42-rcpp-attributes">4.2 Rcpp Attributes</h3>
+<ul>
+<li>Attributes internalise <em>inline</em>’s magic behind <code>[[Rcpp::export]]</code>.</li>
+<li><code>sourceCpp()</code> compiles a file;</li>
+<li><code>cppFunction()</code> compiles from a string;</li>
+<li><code>evalCpp()</code> runs an expression, all while caching builds transparently.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">cpp_src</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;#include &lt;Rcpp.h&gt;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;using namespace Rcpp;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;// [[Rcpp::export]]&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;int fibonacci(int x) {&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;  return (x &lt; 2) ? x : fibonacci(x - 1) + fibonacci(x - 2);&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#39;}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">writeLines</span><span class="p">(</span><span class="n">cpp_src</span><span class="p">,</span> <span class="s">&#34;fibonacci.cpp&#34;</span><span class="p">)</span>   <span class="c1"># main copy</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">Rcpp</span><span class="o">::</span><span class="nf">sourceCpp</span><span class="p">(</span><span class="s">&#34;fibonacci.cpp&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">fibonacci</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>     <span class="c1">#&gt; 6765</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## [1] 6765
+</span></span></code></pre></div><p>Use attributes for almost everything once you move beyond exploratory work.</p>
+<h2 id="quick-decision-guide">Quick decision guide</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Reach for …</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Package / production code</td>
+<td><strong>Rcpp Attributes</strong></td>
+</tr>
+<tr>
+<td>One-off sketches, benchmarks, Stack Overflow post</td>
+<td><strong>inline::cxxfunction()</strong></td>
+</tr>
+<tr>
+<td>Extra C++ libraries (Armadillo, Eigen, GSL, &hellip;)</td>
+<td><strong>Plugins</strong> (built-in or custom)</td>
+</tr>
+<tr>
+<td>Low-level debugging with <code>gdb</code></td>
+<td>Manual <code>R CMD SHLIB</code> + helper flags</td>
+</tr>
+<tr>
+<td>Propagate C++ exceptions cleanly</td>
+<td>Ensure <code>BEGIN_RCPP/END_RCPP</code> are present (added automatically by <code>inline</code> / Attributes)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="take-aways">Take-aways</h2>
+<ul>
+<li><strong>Match R’s compiler</strong> or live with hard-to-trace crashes.</li>
+<li><strong><code>.Call()</code> via Rcpp</strong> is the modern native interface—type-safe and header-driven.</li>
+<li><strong>inline</strong> and <strong>Attributes</strong> shrink the compile–link–load loop to a single line.</li>
+<li><strong>Plugins</strong> keep code portable while tapping heavy <code>C++</code> libraries.</li>
+<li><strong>BEGIN_RCPP/END_RCPP</strong> keep your<code> C++</code> errors readable from R.</li>
+</ul>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
 
       </div>
 
       
-  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2024-07-15T09:15:54.000Z">
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2025-08-06T09:15:54.000Z">
     <span>Last updated on</span>
-    Jul 15, 2024</time>
+    Aug 6, 2025</time>
 
       <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
         
@@ -2129,13 +2181,9 @@ img {
 
 <div class="flex justify-center">
   
-  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/data-compression/">Data Compression</a>
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
   
-  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/data-read/">Data Read</a>
-  
-  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/data-write/">Data Write</a>
-  
-  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/benchmarking/">Benchmarking</a>
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/rcpp/">Rcpp</a>
   
   <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/r/">R</a>
   
@@ -2155,7 +2203,7 @@ img {
   <a
     target="_blank" rel="noopener"
     class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-    href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F&amp;text=Effects&#43;of&#43;compression&#43;techniques&#43;on&#43;data&#43;read%2Fwrite&#43;performance"
+    href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F&amp;text=From&#43;prototype&#43;to&#43;production%2C&#43;choosing&#43;the&#43;right&#43;R&#43;and&#43;C%2B%2B&#43;tool&#43;in&#43;Rcpp"
     title="X"
     aria-label="X"
     id="share-link-x"
@@ -2173,7 +2221,7 @@ img {
   <a
     target="_blank" rel="noopener"
     class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-    href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F&amp;t=Effects&#43;of&#43;compression&#43;techniques&#43;on&#43;data&#43;read%2Fwrite&#43;performance"
+    href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F&amp;t=From&#43;prototype&#43;to&#43;production%2C&#43;choosing&#43;the&#43;right&#43;R&#43;and&#43;C%2B%2B&#43;tool&#43;in&#43;Rcpp"
     title="Facebook"
     aria-label="Facebook"
     id="share-link-facebook"
@@ -2193,7 +2241,7 @@ img {
   <a
     target="_blank" rel="noopener"
     class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-    href="mailto:?subject=Effects%20of%20compression%20techniques%20on%20data%20read%2Fwrite%20performance&amp;body=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F"
+    href="mailto:?subject=From%20prototype%20to%20production%2C%20choosing%20the%20right%20R%20and%20C%2B%2B%20tool%20in%20Rcpp&amp;body=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F"
     title="Email"
     aria-label="Email"
     id="share-link-email"
@@ -2211,7 +2259,7 @@ img {
   <a
     target="_blank" rel="noopener"
     class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-    href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F&amp;title=Effects&#43;of&#43;compression&#43;techniques&#43;on&#43;data&#43;read%2Fwrite&#43;performance"
+    href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F&amp;title=From&#43;prototype&#43;to&#43;production%2C&#43;choosing&#43;the&#43;right&#43;R&#43;and&#43;C%2B%2B&#43;tool&#43;in&#43;Rcpp"
     title="LinkedIn"
     aria-label="LinkedIn"
     id="share-link-linkedin"
@@ -2229,7 +2277,7 @@ img {
   <a
     target="_blank" rel="noopener"
     class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-    href="whatsapp://send?text=Effects&#43;of&#43;compression&#43;techniques&#43;on&#43;data&#43;read%2Fwrite&#43;performance%20http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F"
+    href="whatsapp://send?text=From&#43;prototype&#43;to&#43;production%2C&#43;choosing&#43;the&#43;right&#43;R&#43;and&#43;C%2B%2B&#43;tool&#43;in&#43;Rcpp%20http%3A%2F%2Flocalhost%3A4321%2Fpost%2Fcompression-data-read-write-performance%2F"
     title="WhatsApp"
     aria-label="WhatsApp"
     id="share-link-whatsapp"
@@ -2414,15 +2462,15 @@ img {
     </div>
     <div class="">
       
-        <a class="group flex text-right no-underline" href="/post/data-read-write-performance/">
+        <a class="group flex text-right no-underline" href="/post/compression-data-read-write-performance/">
           <span class="flex flex-col">
             <span
               class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-            >Comparing data read and write performance in R</span
+            >Effects of compression techniques on data read/write performance</span
             >
             <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
               
-                Jul 6, 2024
+                Jul 15, 2024
               
             </span>
           </span>

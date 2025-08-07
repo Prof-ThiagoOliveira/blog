@@ -1,5 +1,5 @@
 ---
-title: From prototype to production, choosing the right `R` and `C++` tool in Rcpp
+title: From prototype to production, choosing the right R and C++ tool in Rcpp
 author: Thiago de Paula Oliveira
 date:  "`r format(Sys.Date(), '%B %d, %Y')`"
 slug: compression-data-read-write-performance
@@ -14,7 +14,7 @@ subtitle: ''
 summary: 'what each tool solves, when to reach for it, and ready-to-paste code.'
 authors: 
 - admin
-lastmod: "`r format(Sys.Date(), '%B %d, %Y')`"
+lastmod: '2025-08-06T09:15:54Z'
 featured: no
 image:
   caption: ''

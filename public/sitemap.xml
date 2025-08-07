@@ -19,7 +19,31 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:4321/</loc>
-    <lastmod>2025-03-20T00:00:00+00:00</lastmod>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:4321/post/</loc>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:4321/tags/c&#43;&#43;/</loc>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:4321/post/compression-data-read-write-performance/</loc>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:4321/tags/r/</loc>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:4321/tags/rcpp/</loc>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:4321/tags/</loc>
+    <lastmod>2025-08-06T09:15:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:4321/publication_types/2/</loc>
@@ -58,15 +82,7 @@
     <lastmod>2025-03-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>http://localhost:4321/tags/</loc>
-    <lastmod>2025-03-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>http://localhost:4321/tags/benchmarking/</loc>
-    <lastmod>2024-07-15T09:15:54+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:4321/post/</loc>
     <lastmod>2024-07-15T09:15:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -83,10 +99,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:4321/post/compression-data-read-write-performance/</loc>
-    <lastmod>2024-07-15T09:15:54+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:4321/tags/r/</loc>
     <lastmod>2024-07-15T09:15:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -428,10 +440,6 @@
   </url><url>
     <loc>http://localhost:4321/publication_types/0/</loc>
     <lastmod>2021-04-10T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:4321/tags/c&#43;&#43;/</loc>
-    <lastmod>2024-01-06T12:15:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:4321/publication/2021-alphapart-package/</loc>
