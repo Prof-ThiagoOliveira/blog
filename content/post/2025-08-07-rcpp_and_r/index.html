@@ -619,9 +619,9 @@ cbind(fastLm = res$coef,
   times  = 100
 )</code></pre>
 <pre><code>## Unit: microseconds
-##    expr   min     lq    mean median     uq    max neval cld
-##  fastLm  43.1  49.25  66.608  60.35  80.00  143.7   100  a 
-##      lm 776.2 859.85 968.767 893.35 964.15 1743.6   100   b</code></pre>
+##    expr   min      lq     mean median      uq    max neval cld
+##  fastLm  38.5   77.45  107.131   90.9  131.70  263.8   100  a 
+##      lm 773.0 1449.30 1650.958 1595.4 1822.15 3155.6   100   b</code></pre>
 </div>
 <div id="rcpp-attributes" class="section level3">
 <h3>4.2 Rcpp Attributes</h3>
@@ -684,7 +684,7 @@ work.</p>
 <tr>
 <td>Propagate C++ exceptions cleanly</td>
 <td>Ensure <code>BEGIN_RCPP/END_RCPP</code> are present (added
-automatically by inline / Attributes)</td>
+automatically by <code>inline</code> / Attributes)</td>
 </tr>
 </tbody>
 </table>
@@ -699,14 +699,11 @@ crashes.</li>
 interface—type-safe and header-driven.</li>
 <li><strong>inline</strong> and <strong>Attributes</strong> shrink the
 compile–link–load loop to a single line.</li>
-<li><strong>Plugins</strong> keep code portable while tapping heavy C++
-libraries.</li>
-<li><strong>BEGIN_RCPP/END_RCPP</strong> keep your C++ errors readable
-from R.</li>
+<li><strong>Plugins</strong> keep code portable while tapping heavy
+<code>C++</code> libraries.</li>
+<li><strong>BEGIN_RCPP/END_RCPP</strong> keep your<code>C++</code>
+errors readable from R.</li>
 </ul>
-<p>Master these patterns and you can move fluidly between 🟦 R scripts
-and ⚙️ high-performance C++—without ever leaving R’s build system or
-worrying about ABI gremlins.</p>
 <p><strong>Did you find this page helpful? Consider sharing it
 🙌</strong></p>
 </div>

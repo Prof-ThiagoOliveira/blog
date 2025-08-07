@@ -336,9 +336,9 @@ microbenchmark::microbenchmark(
 
 ```
 ## Unit: microseconds
-##    expr   min     lq    mean median     uq    max neval cld
-##  fastLm  43.1  49.25  66.608  60.35  80.00  143.7   100  a 
-##      lm 776.2 859.85 968.767 893.35 964.15 1743.6   100   b
+##    expr   min      lq     mean median      uq    max neval cld
+##  fastLm  38.5   77.45  107.131   90.9  131.70  263.8   100  a 
+##      lm 773.0 1449.30 1650.958 1595.4 1822.15 3155.6   100   b
 ```
 
 
@@ -383,9 +383,9 @@ Use attributes for almost everything once you move beyond exploratory work.
 | ------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | Package / production code                         | **Rcpp Attributes**                                                                   |
 | One-off sketches, benchmarks, Stack Overflow post | **inline::cxxfunction()**                                                             |
-| Extra C++ libraries (Armadillo, Eigen, GSL, …)    | **Plugins** (built-in or custom)                                                      |
+| Extra C++ libraries (Armadillo, Eigen, GSL, ...)    | **Plugins** (built-in or custom)                                                      |
 | Low-level debugging with `gdb`                    | Manual `R CMD SHLIB` + helper flags                                                   |
-| Propagate C++ exceptions cleanly                  | Ensure `BEGIN_RCPP/END_RCPP` are present (added automatically by inline / Attributes) |
+| Propagate C++ exceptions cleanly                  | Ensure `BEGIN_RCPP/END_RCPP` are present (added automatically by `inline` / Attributes) |
 
 ---
 
@@ -394,10 +394,8 @@ Use attributes for almost everything once you move beyond exploratory work.
 * **Match R’s compiler** or live with hard-to-trace crashes.
 * **`.Call()` via Rcpp** is the modern native interface—type-safe and header-driven.
 * **inline** and **Attributes** shrink the compile–link–load loop to a single line.
-* **Plugins** keep code portable while tapping heavy C++ libraries.
-* **BEGIN\_RCPP/END\_RCPP** keep your C++ errors readable from R.
-
-Master these patterns and you can move fluidly between 🟦 R scripts and ⚙️ high-performance C++—without ever leaving R’s build system or worrying about ABI gremlins.
+* **Plugins** keep code portable while tapping heavy `C++` libraries.
+* **BEGIN\_RCPP/END\_RCPP** keep your` C++` errors readable from R.
 
 
 **Did you find this page helpful? Consider sharing it 🙌**
