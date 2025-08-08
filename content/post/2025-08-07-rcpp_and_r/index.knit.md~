@@ -29,17 +29,29 @@ output:
 
 
 
-<div id="prototype-at-light-speed-with-inline" class="section level1">
-<h1>Prototype at light-speed with <strong>inline</strong></h1>
-<p><code>inline::cxxfunction()</code> compiles, links and returns an <code>R</code> function from a character string, ideal for quick sketches or teaching.</p>
-<pre class="r"><code>library(inline)
-library(Rcpp)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;Rcpp&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:inline&#39;:
+#  Prototype at light-speed with **inline**
+
+`inline::cxxfunction()` compiles, links and returns an `R` function from a character string, ideal for quick sketches or teaching. 
+
+
+``` r
+library(inline)
+library(Rcpp)
+```
+
+```
 ## 
-##     registerPlugin</code></pre>
-<pre class="r"><code>src &lt;- &#39;
+## Attaching package: 'Rcpp'
+```
+
+```
+## The following object is masked from 'package:inline':
+## 
+##     registerPlugin
+```
+
+``` r
+src <- '
   // Declare two Rcpp numeric vectors, populated from the R arguments `a` and `b`
   Rcpp::NumericVector xa(a), xb(b);
 
@@ -51,35 +63,46 @@ library(Rcpp)</code></pre>
   Rcpp::NumericVector out(na + nb - 1);
 
   // Walk over every element of the first vector
-  for (int i = 0; i &lt; na; ++i)
+  for (int i = 0; i < na; ++i)
     // Multiply the i-th element of `a` with every element of `b`
-    for (int j = 0; j &lt; nb; ++j)
+    for (int j = 0; j < nb; ++j)
         // Accumulate the product at the correct lag/index in the result
         out[i + j] += xa[i] * xb[j];
 
   // Return the filled result vector back to R
   return out;
-&#39;
+'
 
-conv &lt;- cxxfunction(signature(a = &quot;numeric&quot;, b = &quot;numeric&quot;),
-                    body = src, plugin = &quot;Rcpp&quot;)
-conv(1:4, 2:5)</code></pre>
-<pre><code>## [1]  2  7 16 30 34 31 20</code></pre>
-<pre class="r"><code>#&gt; [1]  2  7 16 30 34 31 20</code></pre>
-<p>Choose <strong>inline</strong> when:</p>
-<ul>
-<li>you need an answer <em>now</em> without creating extra files;</li>
-<li>you are benchmarking or exploring an API shape;</li>
-<li>you want to inject ad-hoc <code>#include</code> blocks or compiler flags.</li>
-</ul>
-<div id="level-up-with-plugins-and-rcpp-attributes" class="section level2">
-<h2>Level-up with plugins and <strong>Rcpp attributes</strong></h2>
-<div id="plugins" class="section level3">
-<h3>4.1 Plugins</h3>
-<p>Plugins bolt extra headers and libraries onto an <code>inline</code> or attributes build—no manual <code>-I</code>/<code>-L</code> juggling.
-The built-in <code>RcppArmadillo</code> plugin lets you write BLAS-backed linear algebra on the fly:</p>
-<pre class="r"><code>library(RcppArmadillo)
-src &lt;- &#39;
+conv <- cxxfunction(signature(a = "numeric", b = "numeric"),
+                    body = src, plugin = "Rcpp")
+conv(1:4, 2:5)
+```
+
+```
+## [1]  2  7 16 30 34 31 20
+```
+
+``` r
+#> [1]  2  7 16 30 34 31 20
+```
+
+Choose **inline** when:
+
+* you need an answer *now* without creating extra files;
+* you are benchmarking or exploring an API shape;
+* you want to inject ad-hoc `#include` blocks or compiler flags.
+
+## Level-up with plugins and **Rcpp attributes**
+
+### 4.1 Plugins
+
+Plugins bolt extra headers and libraries onto an `inline` or attributes build—no manual `-I`/`-L` juggling.
+The built-in `RcppArmadillo` plugin lets you write BLAS-backed linear algebra on the fly:
+
+
+``` r
+library(RcppArmadillo)
+src <- '
   // Armadillo + Rcpp headers are supplied automatically by the plugin
   using namespace Rcpp;
 
@@ -101,121 +124,124 @@ src &lt;- &#39;
   arma::colvec se   = arma::sqrt( s2 * arma::diagvec( arma::inv(X.t() * X) ) );
 
   /* ---- 3. Ship results back to R ------------------------------------------ */
-  return List::create(_[&quot;coef&quot;] = coef,
-                      _[&quot;se&quot;]   = se,
-                      _[&quot;df&quot;]   = n - k);
-&#39;
+  return List::create(_["coef"] = coef,
+                      _["se"]   = se,
+                      _["df"]   = n - k);
+'
 
-fastLm &lt;- cxxfunction(signature(yr = &quot;numeric&quot;, Xr = &quot;numeric&quot;),
+fastLm <- cxxfunction(signature(yr = "numeric", Xr = "numeric"),
                       body   = src,
-                      plugin = &quot;RcppArmadillo&quot;)
+                      plugin = "RcppArmadillo")
 
 # Usage 
 set.seed(123)
 
-n &lt;- 1000
-k &lt;- 3
-X &lt;- cbind(1, matrix(rnorm(n * k), n, k))  # 1st col = intercept
-beta  &lt;- c(5, 0.8, -1.2, 0.5)                 # true coefficients
-y  &lt;- X %*% beta + rnorm(n, sd = 2)           # synthetic data
-res &lt;- fastLm(y, X)
-str(res)</code></pre>
-<pre><code>## List of 3
+n <- 1000
+k <- 3
+X <- cbind(1, matrix(rnorm(n * k), n, k))  # 1st col = intercept
+beta  <- c(5, 0.8, -1.2, 0.5)                 # true coefficients
+y  <- X %*% beta + rnorm(n, sd = 2)           # synthetic data
+res <- fastLm(y, X)
+str(res)
+```
+
+```
+## List of 3
 ##  $ coef: num [1:4, 1] 4.984 0.797 -1.216 0.603
 ##  $ se  : num [1:4, 1] 0.0628 0.0636 0.0625 0.0642
-##  $ df  : int 996</code></pre>
-<pre class="r"><code>fit &lt;- lm(y ~ X[,2] + X[,3] + X[,4])  # lm() adds its own intercept
+##  $ df  : int 996
+```
+
+``` r
+fit <- lm(y ~ X[,2] + X[,3] + X[,4])  # lm() adds its own intercept
 
 cbind(fastLm = res$coef,
-      lm     = coef(fit))</code></pre>
-<pre><code>##                                lm
+      lm     = coef(fit))
+```
+
+```
+##                                lm
 ## (Intercept)  4.9844816  4.9844816
 ## X[, 2]       0.7974000  0.7974000
 ## X[, 3]      -1.2162403 -1.2162403
-## X[, 4]       0.6029614  0.6029614</code></pre>
-<pre class="r"><code>microbenchmark::microbenchmark(
+## X[, 4]       0.6029614  0.6029614
+```
+
+``` r
+microbenchmark::microbenchmark(
   fastLm = fastLm(y, X),
   lm     = { lm(y ~ X[,2] + X[,3] + X[,4]) },
   times  = 100
-)</code></pre>
-<pre><code>## Unit: microseconds
-##    expr   min    lq    mean median      uq    max neval cld
-##  fastLm  43.2  47.2   74.10   68.0   96.10  157.9   100  a 
-##      lm 805.1 905.1 1249.86 1299.2 1496.55 2267.7   100   b</code></pre>
-</div>
-<div id="rcpp-attributes" class="section level3">
-<h3>4.2 Rcpp Attributes</h3>
-<ul>
-<li>Attributes internalise <em>inline</em>’s magic behind <code>[[Rcpp::export]]</code>.</li>
-<li><code>sourceCpp()</code> compiles a file;</li>
-<li><code>cppFunction()</code> compiles from a string;</li>
-<li><code>evalCpp()</code> runs an expression, all while caching builds transparently.</li>
-</ul>
-<pre class="r"><code>cpp_src &lt;- paste(
-  &#39;#include &lt;Rcpp.h&gt;&#39;,
-  &#39;using namespace Rcpp;&#39;,
-  &#39;&#39;,
-  &#39;// [[Rcpp::export]]&#39;,
-  &#39;int fibonacci(int x) {&#39;,
-  &#39;  return (x &lt; 2) ? x : fibonacci(x - 1) + fibonacci(x - 2);&#39;,
-  &#39;}&#39;,
-  sep = &quot;\n&quot;
 )
-writeLines(cpp_src, &quot;fibonacci.cpp&quot;)   # main copy</code></pre>
-<pre class="r"><code>Rcpp::sourceCpp(&quot;fibonacci.cpp&quot;)
-fibonacci(20)     #&gt; 6765</code></pre>
-<pre><code>## [1] 6765</code></pre>
-<p>Use attributes for almost everything once you move beyond exploratory work.</p>
-</div>
-</div>
-<div id="quick-decision-guide" class="section level2">
-<h2>Quick decision guide</h2>
-<table>
-<colgroup>
-<col width="36%" />
-<col width="63%" />
-</colgroup>
-<thead>
-<tr>
-<th>Task</th>
-<th>Reach for …</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Package / production code</td>
-<td><strong>Rcpp Attributes</strong></td>
-</tr>
-<tr>
-<td>One-off sketches, benchmarks, Stack Overflow post</td>
-<td><strong>inline::cxxfunction()</strong></td>
-</tr>
-<tr>
-<td>Extra C++ libraries (Armadillo, Eigen, GSL, …)</td>
-<td><strong>Plugins</strong> (built-in or custom)</td>
-</tr>
-<tr>
-<td>Low-level debugging with <code>gdb</code></td>
-<td>Manual <code>R CMD SHLIB</code> + helper flags</td>
-</tr>
-<tr>
-<td>Propagate C++ exceptions cleanly</td>
-<td>Ensure <code>BEGIN_RCPP/END_RCPP</code> are present (added automatically by <code>inline</code> / Attributes)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-</div>
-<div id="take-aways" class="section level2">
-<h2>Take-aways</h2>
-<ul>
-<li><strong>Match R’s compiler</strong> or live with hard-to-trace crashes.</li>
-<li><strong><code>.Call()</code> via Rcpp</strong> is the modern native interface—type, which is safe and header-driven.</li>
-<li><strong>inline</strong> and <strong>Attributes</strong> shrink the compile–link–load loop to a single line.</li>
-<li><strong>Plugins</strong> keep code portable while tapping heavy <code>C++</code> libraries.</li>
-<li><strong>BEGIN_RCPP/END_RCPP</strong> keep your<code>C++</code> errors readable from R.</li>
-</ul>
-<p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
+```
+
+```
+## Unit: microseconds
+##    expr   min     lq     mean median      uq    max neval cld
+##  fastLm  43.2  53.25   77.273  73.90   87.85  238.5   100  a 
+##      lm 821.9 900.05 1045.602 956.25 1121.10 2174.8   100   b
+```
+
+
+### 4.2 Rcpp Attributes
+
+* Attributes internalise *inline*’s magic behind `[[Rcpp::export]]`.
+* `sourceCpp()` compiles a file; 
+* `cppFunction()` compiles from a string; 
+* `evalCpp()` runs an expression, all while caching builds transparently.
+
+
+``` r
+cpp_src <- paste(
+  '#include <Rcpp.h>',
+  'using namespace Rcpp;',
+  '',
+  '// [[Rcpp::export]]',
+  'int fibonacci(int x) {',
+  '  return (x < 2) ? x : fibonacci(x - 1) + fibonacci(x - 2);',
+  '}',
+  sep = "\n"
+)
+writeLines(cpp_src, "fibonacci.cpp")   # main copy
+```
+
+
+``` r
+Rcpp::sourceCpp("fibonacci.cpp")
+fibonacci(20)     #> 6765
+```
+
+```
+## [1] 6765
+```
+
+Use attributes for almost everything once you move beyond exploratory work.
+
+
+## Quick decision guide
+
+| Task                                              | Reach for …                                                                           |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Package / production code                         | **Rcpp Attributes**                                                                   |
+| One-off sketches, benchmarks, Stack Overflow post | **inline::cxxfunction()**                                                             |
+| Extra C++ libraries (Armadillo, Eigen, GSL, ...)    | **Plugins** (built-in or custom)                                                      |
+| Low-level debugging with `gdb`                    | Manual `R CMD SHLIB` + helper flags                                                   |
+| Propagate C++ exceptions cleanly                  | Ensure `BEGIN_RCPP/END_RCPP` are present (added automatically by `inline` / Attributes) |
+
+---
+
+## Take-aways
+
+* **Match R’s compiler** or live with hard-to-trace crashes.
+* **`.Call()` via Rcpp** is the modern native interface—type, which is safe and header-driven.
+* **inline** and **Attributes** shrink the compile–link–load loop to a single line.
+* **Plugins** keep code portable while tapping heavy `C++` libraries.
+* **BEGIN\_RCPP/END\_RCPP** keep your` C++` errors readable from R.
+
+
+**Did you find this page helpful? Consider sharing it 🙌**
+
+
 <style>
 /* Let the outer wrapper use the full viewport width */
 .page-body > .mx-auto{
@@ -284,6 +310,7 @@ html.dark .page-body article .prose code{
   border-color: #253041;
 }
 </style>
+
 <style>
 /* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
 /* Place this at the very end of the post so it wins the cascade. */
@@ -438,5 +465,3 @@ html.dark .page-body article .prose code{
 }
 html.dark .page-body article .prose thead th{ background: #5aa0ff; }
 </style>
-</div>
-</div>

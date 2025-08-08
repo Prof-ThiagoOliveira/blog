@@ -1,55 +1,85 @@
 # Configuration of Hugo
-# Guide: https://docs.hugoblox.com/tutorial/
-# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
-
-# Website name
 title: Thiago Oliveira
-# Website URL
-baseURL: 'https://prof-thiagooliveira.netlify.com/'
-
-############################
-## LANGUAGE
-############################
+baseURL: 'https://prof-thiagooliveira.netlify.app/'
+canonifyURLs: true
 
 defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 
-############################
-## ADVANCED
-############################
-
 build:
   writeStats: true
+
 enableGitInfo: false
 summaryLength: 30
 paginate: 10
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
+
 ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+
 permalinks:
+  post: '/post/:slug/'
   authors: '/author/:slug/'
+
+rssLimit: 50
 disableAliases: true
+
 outputs:
   home: [HTML, RSS, headers, redirects, backlinks]
   section: [HTML, RSS]
+
 imaging:
   resampleFilter: lanczos
-  quality: 80
+  quality: 85
   anchor: smart
+
 timeout: 600000
+
 taxonomies:
   author: authors
   tag: tags
   publication_type: publication_types
+
 markup:
-  _merge: deep
+  goldmark:
+    renderer:
+      unsafe: true     # allow raw HTML in Markdown (for your inline <style> etc.)
   highlight:
+    noClasses: true    # keep Chromas' inline styles (simple, works well with HB)
+    style: github      # pleasant light style; HB auto-switches for dark mode
     lineNos: false
+
 security:
   _merge: deep
+
 sitemap:
   _merge: deep
+
+minify:
+  disableXML: true
+  tdewolff:
+    html:
+      keepWhitespace: false
+    css:
+      keepCSS2: false
+    js:
+      mangle: true
+
+related:
+  threshold: 80
+  includeNewer: true
+  toLower: true
+  indices:
+    - name: tags
+      weight: 100
+    - name: date
+      weight: 10
+
+privacy:
+  youtube:
+    privacyEnhanced: true
+  twitter:
+    enableDNT: true

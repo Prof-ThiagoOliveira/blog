@@ -27,105 +27,7 @@ output:
     toc: true
 ---
 
-<style>
-/* ---------- CSS variables: change in one place ---------- */
-:root{
-  --font-main: 'Helvetica Neue',Arial,sans-serif;
-  --font-mono: 'Courier New',Courier,monospace;
-  --clr-bg:    #fafafa;
-  --clr-text:  #333;
-  --clr-brand: #2f6ab5;      /* darker → better contrast */
-  --clr-brand-light: #3b80d1;
-  --radius:    5px;
-}
 
-/* ---------- Page base ---------- */
-body{
-  font-family:var(--font-main);
-  font-size:1rem;line-height:1.8;
-  colour:var(--clr-text);
-  background:var(--clr-bg);
-  margin:0;padding:0 20px;
-  text-align:justify;
-}
-
-/* ---------- Headings ---------- */
-h1,h2,h3,h4,h5,h6{
-  font-weight:600;
-  margin:1.5em 0 .75em;
-  line-height:1.2;
-  colour:#0d0d0d;
-}
-h1{font-size:2rem;   border-bottom:3px solid var(--clr-brand);  padding-bottom:.3em;}
-h2{font-size:1.75rem;border-bottom:2px solid var(--clr-brand);  padding-bottom:.3em;}
-h3{font-size:1.5rem; colour:var(--clr-brand-light);            padding-bottom:.2em;}
-h4{font-size:1.25rem;} h5{font-size:1.125rem;} h6{font-size:1rem;}
-
-/* ---------- Links ---------- */
-a{
-  colour:var(--clr-brand-light);text-decoration:none;
-  transition:colour .3s;
-}
-a:hover, a:focus-visible{colour:var(--clr-brand);text-decoration:underline;}
-:focus-visible{outline:3px dashed var(--clr-brand);outline-offset:3px;}
-
-/* ---------- Code Blocks ---------- */
-pre,.code-input{
-  background:#f5f5f5;border:1px solid #ddd;
-  padding:10px;margin:20px 0;
-  border-radius:var(--radius);overflow-x:auto;
-  font-family:var(--font-mono);font-size:.9rem;
-}
-code{background:#f5f5f5;padding:2px 4px;border-radius:3px;font-family:var(--font-mono);}
-
-/* ---------- Tables ---------- */
-table{width:100%;border-collapse:collapse;margin-bottom:1.5em;text-align:left;}
-th,td{padding:12px;border:1px solid #ddd;}
-th{background:var(--clr-brand-light);colour:#fff;}
-
-/* ---------- Highlight boxes ---------- */
-.note-success,.note-warning{
-  padding:10px;margin-bottom:1.5em;
-  border-radius:var(--radius);colour:#000;
-}
-.note-success{background:#d6edd3;}
-.note-warning{background:#cfbe7e;}
-
-/* ---------- Images & CSS light-box ---------- */
-img{
-  display:block;max-width:100%;height:auto;
-  border-radius:var(--radius);margin-bottom:1.5em;
-  cursor:zoom-in;transition:transform .4s;
-}
-img:hover{transform:scale(1.02);}
-
-/* container for the overlay created by JS */
-#lightbox-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.85);
-  display:flex;align-items:center;justify-content:center;
-  z-index:1000;cursor:zoom-out;
-}
-#lightbox-overlay img{max-width:90%;max-height:90%;border-radius:var(--radius);}
-</style>
-
-<script>
-/* minimal, pop-up-safe light-box */
-document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('img').forEach(img=>{
-    img.addEventListener('click',()=>{
-      /* build overlay only once */
-      let ov=document.getElementById('lightbox-overlay');
-      if(!ov){
-        ov=document.createElement('div');
-        ov.id='lightbox-overlay';
-        ov.addEventListener('click',e=>e.currentTarget.remove());
-        document.body.appendChild(ov);
-      }
-      ov.innerHTML=`<img src="${img.src}" alt="">`;
-    });
-  });
-});
-</script>
 
 #  Prototype at light-speed with **inline**
 
@@ -284,3 +186,228 @@ Use attributes for almost everything once you move beyond exploratory work.
 
 
 **Did you find this page helpful? Consider sharing it 🙌**
+
+
+<style>
+/* Let the outer wrapper use the full viewport width */
+.page-body > .mx-auto{
+  max-width: 100vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Let the main column use all available space (beats Tailwind max-w-6xl) */
+.page-body article > main{
+  max-width: 100% !important;
+}
+
+/* Widen the reading column while keeping lines readable */
+.page-body article .prose{
+  max-width: 92ch !important;   /* tweak to taste: 80–105ch */
+  margin-inline: auto;
+  font-size: 1.075rem;
+  line-height: 1.75;
+  text-align: left;
+}
+
+/* Phones: full width with comfy padding */
+@media (max-width: 768px){
+  .page-body article .prose{
+    max-width: 100% !important;
+    padding-inline: 1rem;
+  }
+}
+
+/* Optional: make sidebars slimmer on XL screens */
+@media (min-width: 1280px){
+  .hb-sidebar-container, .hb-toc { width: 12rem !important; } /* was 16rem */
+}
+
+/* Minimal type polish */
+.page-body article .prose h1{
+  font-size: 2.1rem;
+  margin: 1.2em 0 .5em;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: .3em;
+}
+.page-body article .prose h2{
+  font-size: 1.5rem;
+  margin: 1.35em 0 .4em;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: .2em;
+}
+.page-body article .prose pre{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow: auto;
+}
+.page-body article .prose code{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  padding: .15em .35em;
+  font-size: .95em;
+}
+html.dark .page-body article .prose pre,
+html.dark .page-body article .prose code{
+  background: #111826;
+  border-color: #253041;
+}
+</style>
+
+<style>
+/* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
+/* Place this at the very end of the post so it wins the cascade. */
+
+/* 0) Widen the page shell Hugo Blox uses around articles */
+.page-body > .mx-auto,
+.page-body .max-w-screen-xl{
+  max-width: 100vw !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 1) Remove the Tailwind max-w cap on the <main> inside <article> */
+.page-body article > main{
+  max-width: none !important;  /* beats .max-w-6xl */
+  width: 100% !important;
+}
+
+/* 2) Control the actual reading width (fluid per breakpoint) */
+.page-body article .prose{
+  /* Base: a touch larger with comfy line height */
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+  line-height: 1.75;
+  text-align: left;
+  margin-inline: auto;
+
+  /* Reading width: scale up on big screens, but keep lines readable */
+  max-width: 86ch !important; /* default desktop */
+}
+@media (min-width: 1024px){  /* lg */
+  .page-body article .prose{ max-width: 96ch !important; }
+}
+@media (min-width: 1280px){  /* xl */
+  .page-body article .prose{ max-width: 102ch !important; }
+}
+@media (min-width: 1536px){  /* 2xl / very wide */
+  .page-body article .prose{ max-width: 108ch !important; }
+}
+
+/* 3) Phones/tablets: full width with side padding */
+@media (max-width: 768px){
+  .page-body article .prose{
+    max-width: 100% !important;
+    padding-inline: 1rem;
+  }
+}
+
+/* 4) Give the article more room by slimming sidebars on wide screens */
+@media (min-width: 1280px){
+  .hb-sidebar-container, .hb-toc { width: 12rem !important; } /* was 16rem */
+}
+@media (max-width: 1279.98px){
+  .hb-sidebar-container{ display:none !important; } /* hide sidebar under xl */
+}
+
+/* --------- Clean, professional type polish (scoped to post content) -------- */
+.page-body article .prose p{
+  margin: 0 0 1.15em;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.page-body article .prose h1{
+  font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.3rem);
+  margin: 1.2em 0 .5em;
+  padding-bottom: .25em;
+  border-bottom: 2px solid #e5e7eb;
+}
+.page-body article .prose h2{
+  font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.7rem);
+  margin: 1.35em 0 .4em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.page-body article .prose h3{
+  font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
+  margin: 1.1em 0 .3em;
+}
+
+/* Links: subtle underline-on-hover */
+.page-body article .prose a{
+  color: #2f6ab5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,106,181,.25);
+}
+.page-body article .prose a:hover{
+  color: #1f4f8f;
+  border-bottom-color: currentColor;
+}
+
+/* Code blocks & inline code */
+.page-body article .prose pre{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow: auto;
+}
+.page-body article .prose code{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  padding: .15em .35em;
+  font-size: .95em;
+}
+.page-body article .prose pre code{
+  background: none; border: 0; padding: 0; font-size: 0.95em;
+}
+
+/* Tables */
+.page-body article .prose table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.page-body article .prose th,
+.page-body article .prose td{
+  border: 1px solid #e5e7eb;
+  padding: .6rem .75rem;
+}
+.page-body article .prose thead th{
+  background: #2f6ab5;
+  color: #fff;
+  text-align: left;
+}
+
+/* Images & figures */
+.page-body article .prose img{ border-radius: 6px; }
+
+/* Optional: allow “full-bleed” wide elements
+   Add class="wide" to a block (table/pre/img wrapper) to span the viewport. */
+.page-body article .prose .wide{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-inline: clamp(12px, 4vw, 36px);
+}
+
+/* Footer timestamp spacing */
+.page-body article time{ margin-top: 2rem; display: block; }
+
+/* Dark mode tweaks */
+html.dark .page-body article .prose pre,
+html.dark .page-body article .prose code{
+  background: #111826;
+  border-color: #253041;
+}
+html.dark .page-body article .prose thead th{ background: #5aa0ff; }
+</style>

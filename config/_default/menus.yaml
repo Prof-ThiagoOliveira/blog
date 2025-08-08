@@ -5,26 +5,43 @@
 
 main:
   - name: Bio
-    url: /
+    pageRef: /
     weight: 10
+
   - name: Publications
-    url: /#papers
+    pageRef: publication      # -> /publication/
     weight: 11
+
   - name: Talks
-    url: /#talks
+    pageRef: event            # -> /event/
     weight: 12
+
+  # Dropdown for posts (optional)
   - name: Posts
-    url: /#news
+    identifier: posts
+    pageRef: post             # -> /post/
     weight: 13
+  - name: All posts
+    parent: posts
+    pageRef: post
+    weight: 14
+  - name: Tags
+    parent: posts
+    url: /tags/               # taxonomy
+    weight: 15
+
   - name: Experience
-    url: experience/
+    pageRef: experience       # -> /experience/
     weight: 20
+
   - name: Projects
-    url: projects/
+    pageRef: project          # -> /project/
     weight: 30
+
   - name: Accomplishments
-    url: accomplishments/
+    pageRef: accomplishments  # -> /accomplishments/
     weight: 40
+
   - name: Gallery
-    url: gallery/
+    pageRef: gallery          # -> /gallery/
     weight: 50

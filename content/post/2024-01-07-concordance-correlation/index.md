@@ -27,146 +27,6 @@ output:
     toc: true
 ---
 
-<style>
-/* Blog post container */
-body {
-   font-family: 'Helvetica Neue', Arial, sans-serif;
-   font-size: 1rem;
-   line-height: 1.8;
-   color: #333;
-   text-align: justify;
-   background-color: #fafafa;
-   margin: 0;
-   padding: 0 20px;
-}
-
-/* Header styling */
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 {
-  font-weight: 600; /* Semi-bold for a professional look */
-  margin-bottom: 0.75em; /* Slightly reduced bottom margin */
-  color: #0d0d0d;
-  line-height: 1.2;
-  margin-top: 1.5em; /* Added top margin for consistency */
-}
-
-h1 {
-  font-size: 1.75rem; 
-  border-bottom: 2px solid #3b80d1;
-  padding-bottom: 0.3em; /* Padding for visual separation */
-  margin-top: 1em; 
-}
-
-h2 {
-  font-size: 1.5rem; 
-  color: #3b80d1;
-  padding-bottom: 0.2em; /* Padding for visual separation */
-}
-
-h3 {
-  font-size: 1.25rem; 
-  color: #333;
-}
-
-h4 {
-  font-size: 1.125rem; 
-  color: #333;
-}
-
-h5 {
-  font-size: 1rem; 
-  color: #333;
-}
-
-h6 {
-  font-size: 0.875rem; 
-  color: #333;
-}
-
-/* Link styling */
-a {
-  color: #3b80d0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #1a57a0;
-}
-
-/* Code styling */
-pre, 
-.code-input {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 10px;
-  font-size: 0.9rem;
-  border-radius: 5px;
-  margin: 20px 0;
-  overflow-x: auto;
-}
-
-code {
-  font-size: 0.9rem;
-  background-color: #f5f5f5;
-  padding: 2px 4px;
-  border-radius: 3px;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5em;
-  text-align: left;
-}
-
-th, 
-td {
-  padding: 12px;
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #3b80d1;
-  color: white;
-}
-
-/* Div options - color box text */
-.div-1 {
-  color: black;
-  background-color: #d6edd3;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-
-.div-2 {
-  color: black;
-  background-color: #cfbe7e;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-
-/* Article content */
-.article-content {
-  text-align: justify;
-}
-
-/* Image styling */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-</style>
 
 # General idea
 
@@ -412,3 +272,159 @@ Oliveira T.P. (2024, Jan. 10). Precision & Accuracy - The Role of Concordance Co
 ```
 
 **Did you find this page helpful? Consider sharing it 🙌**
+
+<style>
+/* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
+/* Place this at the very end of the post so it wins the cascade. */
+
+/* 0) Widen the page shell Hugo Blox uses around articles */
+.page-body > .mx-auto,
+.page-body .max-w-screen-xl{
+  max-width: 100vw !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 1) Remove the Tailwind max-w cap on the <main> inside <article> */
+.page-body article > main{
+  max-width: none !important;  /* beats .max-w-6xl */
+  width: 100% !important;
+}
+
+/* 2) Control the actual reading width (fluid per breakpoint) */
+.page-body article .prose{
+  /* Base: a touch larger with comfy line height */
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+  line-height: 1.75;
+  text-align: left;
+  margin-inline: auto;
+
+  /* Reading width: scale up on big screens, but keep lines readable */
+  max-width: 86ch !important; /* default desktop */
+}
+@media (min-width: 1024px){  /* lg */
+  .page-body article .prose{ max-width: 96ch !important; }
+}
+@media (min-width: 1280px){  /* xl */
+  .page-body article .prose{ max-width: 102ch !important; }
+}
+@media (min-width: 1536px){  /* 2xl / very wide */
+  .page-body article .prose{ max-width: 108ch !important; }
+}
+
+/* 3) Phones/tablets: full width with side padding */
+@media (max-width: 768px){
+  .page-body article .prose{
+    max-width: 100% !important;
+    padding-inline: 1rem;
+  }
+}
+
+/* 4) Give the article more room by slimming sidebars on wide screens */
+@media (min-width: 1280px){
+  .hb-sidebar-container, .hb-toc { width: 12rem !important; } /* was 16rem */
+}
+@media (max-width: 1279.98px){
+  .hb-sidebar-container{ display:none !important; } /* hide sidebar under xl */
+}
+
+/* --------- Clean, professional type polish (scoped to post content) -------- */
+.page-body article .prose p{
+  margin: 0 0 1.15em;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.page-body article .prose h1{
+  font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.3rem);
+  margin: 1.2em 0 .5em;
+  padding-bottom: .25em;
+  border-bottom: 2px solid #e5e7eb;
+}
+.page-body article .prose h2{
+  font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.7rem);
+  margin: 1.35em 0 .4em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.page-body article .prose h3{
+  font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
+  margin: 1.1em 0 .3em;
+}
+
+/* Links: subtle underline-on-hover */
+.page-body article .prose a{
+  color: #2f6ab5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,106,181,.25);
+}
+.page-body article .prose a:hover{
+  color: #1f4f8f;
+  border-bottom-color: currentColor;
+}
+
+/* Code blocks & inline code */
+.page-body article .prose pre{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow: auto;
+}
+.page-body article .prose code{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  padding: .15em .35em;
+  font-size: .95em;
+}
+.page-body article .prose pre code{
+  background: none; border: 0; padding: 0; font-size: 0.95em;
+}
+
+/* Tables */
+.page-body article .prose table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.page-body article .prose th,
+.page-body article .prose td{
+  border: 1px solid #e5e7eb;
+  padding: .6rem .75rem;
+}
+.page-body article .prose thead th{
+  background: #2f6ab5;
+  color: #fff;
+  text-align: left;
+}
+
+/* Images & figures */
+.page-body article .prose img{ border-radius: 6px; }
+
+/* Optional: allow “full-bleed” wide elements
+   Add class="wide" to a block (table/pre/img wrapper) to span the viewport. */
+.page-body article .prose .wide{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-inline: clamp(12px, 4vw, 36px);
+}
+
+/* Footer timestamp spacing */
+.page-body article time{ margin-top: 2rem; display: block; }
+
+/* Dark mode tweaks */
+html.dark .page-body article .prose pre,
+html.dark .page-body article .prose code{
+  background: #111826;
+  border-color: #253041;
+}
+html.dark .page-body article .prose thead th{ background: #5aa0ff; }
+</style>
+

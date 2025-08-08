@@ -1,4 +1,12 @@
-.Rproj.user
+ni -Type File .gitignore -Force
+@"
+public/
+resources/
+**/index_files/
+.DS_Store
+.Rproj.user/
 .Rhistory
 .RData
-.Ruserdata
+*.knit.md
+*.utf8.md
+"@ | Out-File -Encoding utf8 -Append .gitignore

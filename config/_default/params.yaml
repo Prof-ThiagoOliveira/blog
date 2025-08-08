@@ -1,32 +1,29 @@
 # SITE SETUP
 # Guide: https://docs.hugoblox.com/tutorial/
 # Documentation: https://docs.hugoblox.com/
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# YAML refresher: https://learnxinyminutes.com/docs/yaml/
 
-# Appearance
+# SITE SETUP
+
 appearance:
-  mode: light
+  mode: system            # respect user's OS dark/light preference
   color: blue
-  
-# SEO
+
 marketing:
   seo:
     site_type: Person
-    local_business_type: 'University'
-    org_name: 'AbacusBio'
-    description: 'Edinburgh Office, UK'
-    twitter: ''
+    org_name: "AbacusBio"
+    description: "Statistician—quantitative genetics, R/C++, dashboards, and reproducible workflows."
   analytics:
-    google_analytics: 'G-F170NVYBW1'
-    baidu_tongji: ''
-    plausible: ''
-    fathom: ''
-    pirsch: ''
+    google_analytics: "G-F170NVYBW1"
+    baidu_tongji: ""
+    plausible: ""
+    fathom: ""
+    pirsch: ""
   verification:
-    google: ''
-    baidu: ''
+    google: ""
+    baidu: ""
 
-# Site header
 header:
   navbar:
     enable: true
@@ -46,23 +43,20 @@ header:
     show_translations: true
     hide_language_name: false
 
-# Site footer
 footer:
   copyright:
-    notice: '© {year} Thiago Oliviera. This work is licensed under {license}'
+    notice: "© {year} Thiago Oliveira. This work is licensed under {license}"
     license:
       enable: true
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
 
-# Localization
 locale:
-  date_format: 'Jan 2, 2006'
-  time_format: '3:04 PM'
+  date_format: "Jan 2, 2006"
+  time_format: "3:04 PM"
   address_format: en-us
 
-# Site features
 features:
   math:
     enable: true
@@ -70,5 +64,10 @@ features:
     enable: true
   map:
     provider: mapnik
-    api_key: ''
+    api_key: ""
     zoom: 15
+
+# Load your CSS via the asset pipeline (preferred over /static)
+custom:
+  css:
+    - css/custom.css

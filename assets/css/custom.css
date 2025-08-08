@@ -1,0 +1,188 @@
+/* =========================================================
+  Hugo Blox polish: wider posts, better readability
+File: assets/css/custom.css
+========================================================= */
+  
+  /* --- Design tokens (auto-toggles with HB's dark class) --- */
+:root{
+  --text:      #0f172a;
+  --muted:     #64748b;
+  --bg:        #fafafa;
+  --brand:     #3b80d1;
+  --brand-dk:  #1a57a0;
+  --border:    #e5e7eb;
+  --codebg:    #f6f8fa;
+  --radius:    10px;
+}
+html.dark {
+  --text:   #e5e7eb;
+  --muted:  #94a3b8;
+  --bg:     #0e1116;
+  --brand:  #78a7ff;
+  --brand-dk:#a9c4ff;
+  --border: #253041;
+  --codebg: #0f172a;
+}
+
+/* --- Base type --- */
+body{
+  color: var(--text);
+  background: var(--bg);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   WIDTH: let post content breathe without going edge-to-edge
+   ========================================================= */
+
+/* HB caps main to max-w-6xl; relax it site-wide but keep margins */
+.page-body article > main{
+  max-width: min(96vw, 1400px) !important;
+}
+
+/* The prose container is where the running text lives.
+   Use an optimal reading width, not the full screen. */
+.page-body article .prose{
+  max-width: 90ch !important;          /* tweak 80–105ch to taste */
+  margin-inline: auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* On very wide screens, give code/tables a little extra room */
+@media (min-width: 1280px){
+  .page-body article .prose pre,
+  .page-body article .prose table{
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+/* Phones: edge padding and full-width prose */
+@media (max-width: 768px){
+  .page-body article > main{ max-width: 100% !important; }
+  .page-body article .prose{
+    max-width: 100% !important;
+    padding-inline: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+/* Optional: slim the left sidebar and right ToC a bit on XL */
+@media (min-width: 1280px){
+  .hb-sidebar-container, .hb-toc { width: 13rem !important; }
+}
+
+/* =========================================================
+   TYPOGRAPHY & ELEMENTS
+   ========================================================= */
+
+.page-body article .prose p{ margin: 0 0 1.1em; }
+
+.page-body article .prose h1,
+.page-body article .prose h2,
+.page-body article .prose h3,
+.page-body article .prose h4{
+  color: var(--text);
+  line-height: 1.25;
+  font-weight: 750;
+}
+.page-body article .prose h1{
+  font-size: clamp(2rem, 2vw + 1.2rem, 2.6rem);
+  margin: 1.2em 0 .5em;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: .35em;
+}
+.page-body article .prose h2{
+  font-size: clamp(1.4rem, 1.2vw + 1rem, 1.8rem);
+  margin: 1.35em 0 .4em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .25em;
+}
+.page-body article .prose h3{
+  font-size: 1.25rem;
+  margin: 1.1em 0 .3em;
+}
+
+/* Links */
+.page-body article .prose a{
+  color: var(--brand);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--brand) 30%, transparent);
+}
+.page-body article .prose a:hover{
+  color: var(--brand-dk);
+  border-bottom-color: currentColor;
+}
+
+/* Code (inline & blocks) */
+.page-body article .prose code{
+  background: var(--codebg);
+  border: 1px solid var(--border);
+  padding: .15em .4em;
+  border-radius: 6px;
+  font-size: .95em;
+}
+.page-body article .prose pre{
+  background: var(--codebg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  overflow: auto;
+}
+.page-body article .prose pre code{
+  background: none; border: 0; padding: 0; font-size: .95em;
+}
+html.dark .page-body article .prose pre,
+html.dark .page-body article .prose code{
+  background: var(--codebg);
+  border-color: var(--border);
+}
+
+/* Tables */
+.page-body article .prose table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.page-body article .prose thead th{
+  background: var(--brand);
+  color: #fff;
+  text-align: left;
+  padding: 10px 12px;
+}
+.page-body article .prose td,
+.page-body article .prose th{
+  border-bottom: 1px solid var(--border);
+  padding: 10px 12px;
+}
+
+/* Blockquotes */
+.page-body article .prose blockquote{
+  border-left: 4px solid var(--brand);
+  background: color-mix(in oklab, var(--brand) 6%, transparent);
+  padding: .8rem 1rem;
+  margin: 1.2rem 0;
+  color: var(--text);
+  border-radius: 6px;
+}
+
+/* Images & figures */
+.page-body article .prose img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Timestamp spacing */
+.page-body article time{ margin-top: 2rem; display: block; }
