@@ -1,9 +1,9 @@
 /* =========================================================
-  Hugo Blox polish: wider posts, better readability
-File: assets/css/custom.css
-========================================================= */
-  
-  /* --- Design tokens (auto-toggles with HB's dark class) --- */
+   Hugo Blox polish: wider posts, better readability
+   File: assets/css/custom.css
+   ========================================================= */
+
+/* --- Design tokens (auto-toggle with html.dark) --- */
 :root{
   --text:      #0f172a;
   --muted:     #64748b;
@@ -14,7 +14,7 @@ File: assets/css/custom.css
   --codebg:    #f6f8fa;
   --radius:    10px;
 }
-html.dark {
+html.dark{
   --text:   #e5e7eb;
   --muted:  #94a3b8;
   --bg:     #0e1116;
@@ -24,7 +24,8 @@ html.dark {
   --codebg: #0f172a;
 }
 
-/* --- Base type --- */
+/* --- Base type (slightly larger, scales down on phones) --- */
+html { font-size: clamp(16px, 0.9vw + 14px, 18px); }
 body{
   color: var(--text);
   background: var(--bg);
@@ -38,32 +39,37 @@ body{
 
 /* =========================================================
    WIDTH: let post content breathe without going edge-to-edge
+   (HB wraps the article in .max-w-screen-xl)
    ========================================================= */
 
-/* HB caps main to max-w-6xl; relax it site-wide but keep margins */
-.page-body article > main{
-  max-width: min(96vw, 1400px) !important;
+/* Loosen the outer container so the article can grow */
+.page-body .max-w-screen-xl{
+  max-width: min(98vw, 1680px) !important;
 }
 
-/* The prose container is where the running text lives.
-   Use an optimal reading width, not the full screen. */
+/* HB caps main at max-w-6xl; relax it */
+.page-body article > main{
+  max-width: min(96vw, 1500px) !important;
+}
+
+/* The prose container holds the running text — use ideal line length */
 .page-body article .prose{
-  max-width: 90ch !important;          /* tweak 80–105ch to taste */
+  max-width: 92ch !important;         /* try 85–105ch to taste */
   margin-inline: auto;
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   line-height: 1.8;
 }
 
-/* On very wide screens, give code/tables a little extra room */
+/* On very wide screens, give code/tables a touch more room */
 @media (min-width: 1280px){
   .page-body article .prose pre,
   .page-body article .prose table{
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
   }
 }
 
-/* Phones: edge padding and full-width prose */
+/* Phones: full width with comfy padding and tighter leading */
 @media (max-width: 768px){
   .page-body article > main{ max-width: 100% !important; }
   .page-body article .prose{
@@ -83,38 +89,44 @@ body{
    TYPOGRAPHY & ELEMENTS
    ========================================================= */
 
-.page-body article .prose p{ margin: 0 0 1.1em; }
+/* Paragraph rhythm + readable paragraphs */
+.page-body article .prose p{ margin: 0 0 1.05em; }
+.page-body article .prose p,
+.page-body article .prose li{
+  hyphens: auto;
+  text-wrap: pretty;
+}
 
-.page-body article .prose h1,
-.page-body article .prose h2,
-.page-body article .prose h3,
-.page-body article .prose h4{
+/* Headings */
+.page-body article .prose :where(h1,h2,h3,h4){
   color: var(--text);
   line-height: 1.25;
   font-weight: 750;
+  scroll-margin-top: 6rem; /* nicer anchor jump */
 }
 .page-body article .prose h1{
   font-size: clamp(2rem, 2vw + 1.2rem, 2.6rem);
-  margin: 1.2em 0 .5em;
+  margin: 1.1em 0 .5em;
   border-bottom: 2px solid var(--border);
   padding-bottom: .35em;
 }
 .page-body article .prose h2{
-  font-size: clamp(1.4rem, 1.2vw + 1rem, 1.8rem);
-  margin: 1.35em 0 .4em;
+  font-size: clamp(1.45rem, 1.1vw + 1rem, 1.9rem);
+  margin: 1.25em 0 .45em;
   border-bottom: 1px solid var(--border);
   padding-bottom: .25em;
 }
 .page-body article .prose h3{
   font-size: 1.25rem;
-  margin: 1.1em 0 .3em;
+  margin: 1.05em 0 .3em;
 }
 
 /* Links */
 .page-body article .prose a{
   color: var(--brand);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in oklab, var(--brand) 30%, transparent);
+  border-bottom: 1px solid rgba(59,128,209,.3);
+  transition: color .15s ease, border-color .15s ease;
 }
 .page-body article .prose a:hover{
   color: var(--brand-dk);
@@ -135,6 +147,7 @@ body{
   border-radius: var(--radius);
   padding: 14px 16px;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .page-body article .prose pre code{
   background: none; border: 0; padding: 0; font-size: .95em;
@@ -176,6 +189,9 @@ html.dark .page-body article .prose code{
   color: var(--text);
   border-radius: 6px;
 }
+@supports not (color-mix: in oklab, white 10%, black){
+  .page-body article .prose blockquote{ background: rgba(59,128,209,.06); }
+}
 
 /* Images & figures */
 .page-body article .prose img{
@@ -183,6 +199,26 @@ html.dark .page-body article .prose code{
   height: auto;
   border-radius: 8px;
 }
+.page-body article .prose figure{ margin: 1rem 0 1.4rem; }
+.page-body article .prose figure figcaption{
+  margin-top: .4rem;
+  color: var(--muted);
+  font-size: .9em;
+  text-align: center;
+}
+
+/* Lists: a bit more breathing room */
+.page-body article .prose ul,
+.page-body article .prose ol{ padding-left: 1.25rem; }
+.page-body article .prose li + li{ margin-top: .35em; }
+
+/* Footnotes */
+.page-body article .prose .footnotes{ color: var(--muted); }
+.page-body article .prose .footnotes hr{ border-top: 1px solid var(--border); }
 
 /* Timestamp spacing */
 .page-body article time{ margin-top: 2rem; display: block; }
+
+/* Selection */
+::selection{ background: rgba(59,128,209,.18); }
+html.dark ::selection{ background: rgba(120,167,255,.25); }

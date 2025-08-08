@@ -46,7 +46,7 @@ taxonomies:
 markup:
   goldmark:
     renderer:
-      unsafe: true     # allow raw HTML in Markdown (for your inline <style> etc.)
+      unsafe: true     # allow raw HTML in Markdown (for inline <style> etc.)
   highlight:
     noClasses: true    # keep Chromas' inline styles (simple, works well with HB)
     style: github      # pleasant light style; HB auto-switches for dark mode
