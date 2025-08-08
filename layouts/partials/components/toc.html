@@ -1,0 +1,16 @@
+{{/* Local override: render ToC only if headings exist */}}
+{{- $p := . -}}
+{{- if and $p $p.Fragments $p.Fragments.Headings (gt (len $p.Fragments.Headings) 0) -}}
+  <nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+    <div class="hb-scrollbar text-sm sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height))] -mr-4 rtl:-ml-4">
+      <p class="mb-4 font-semibold tracking-tight">On this page</p>
+      <ul>
+        {{- range $p.Fragments.Headings -}}
+          <li class="my-2 scroll-my-6 scroll-py-6">
+            <a class="inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 break-words" href="#{{ .ID }}">{{ .Title }}</a>
+          </li>
+        {{- end -}}
+      </ul>
+    </div>
+  </nav>
+{{- end -}}
