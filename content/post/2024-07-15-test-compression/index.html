@@ -11,7 +11,7 @@
 
 <meta name="author" content="Thiago de Paula Oliveira" />
 
-<meta name="date" content="2024-07-15" />
+<meta name="date" content="2025-03-15" />
 
 <title>Effects of compression techniques on data read/write performance</title>
 
@@ -355,7 +355,7 @@ read/write performance</h1>
 <h3 class="subtitle">Performance comparison of different compression
 techniques in R</h3>
 <h4 class="author">Thiago de Paula Oliveira</h4>
-<h4 class="date">2024-07-15</h4>
+<h4 class="date">2025-03-15</h4>
 
 </div>
 
@@ -380,22 +380,24 @@ compression efficiency</a></li>
 <li><a href="#database-structure-and-compression" id="toc-database-structure-and-compression">Database Structure and
 Compression</a>
 <ul>
-<li><a href="#setup-and-dataset-generation" id="toc-setup-and-dataset-generation">Setup and Dataset Generation</a>
-<ul>
-<li><a href="#device-specifications" id="toc-device-specifications">Device Specifications</a></li>
+<li><a href="#device-specifications" id="toc-device-specifications">Device specifications</a></li>
+<li><a href="#dataset-generation" id="toc-dataset-generation">Dataset
+generation</a></li>
+<li><a href="#output-locations" id="toc-output-locations">Output
+locations</a></li>
+<li><a href="#io-helper-functions" id="toc-io-helper-functions">I/O
+helper functions</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#compression-techniques-testing" id="toc-compression-techniques-testing">Compression Techniques
-Testing</a>
+<li><a href="#benchmarking" id="toc-benchmarking">Benchmarking</a></li>
+<li><a href="#results" id="toc-results">Results</a>
 <ul>
-<li><a href="#defining-file-writing-functions-with-compression-options" id="toc-defining-file-writing-functions-with-compression-options">Defining
-File Writing Functions with Compression Options</a></li>
-<li><a href="#defining-file-reading-functions" id="toc-defining-file-reading-functions">Defining File Reading
-Functions</a></li>
-<li><a href="#benchmarking-procedure" id="toc-benchmarking-procedure">Benchmarking Procedure</a>
+<li><a href="#writetime-ms" id="toc-writetime-ms">Write‑time
+(ms)</a></li>
+<li><a href="#readtime-ms" id="toc-readtime-ms">Read‑time (ms)</a></li>
+<li><a href="#throughput-plot" id="toc-throughput-plot">Throughput
+plot</a>
 <ul>
-<li><a href="#sample-code-for-benchmarking" id="toc-sample-code-for-benchmarking">Sample Code for
-Benchmarking</a></li>
+<li><a href="#interpretation" id="toc-interpretation">Interpretation</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -403,131 +405,93 @@ Benchmarking</a></li>
 
 <style>
 
-body {
-font-family: 'Helvetica Neue', Arial, sans-serif;
-font-size: 1rem;
-line-height: 1.8;
-color: #333;
-text-align: justify;
-background-color: #fafafa;
-margin: 0;
-padding: 0 20px;
+:root{
+--font-main: 'Helvetica Neue',Arial,sans-serif;
+--font-mono: 'Courier New',Courier,monospace;
+--clr-bg: #fafafa;
+--clr-text: #333;
+--clr-brand: #2f6ab5; 
+--clr-brand-light: #3b80d1;
+--radius: 5px;
 }
 
-h0, h1, h2, h3, h4, h5, h6 {
-font-weight: 600; 
-margin-bottom: 0.75em; 
-color: #0d0d0d;
-line-height: 1.2;
-margin-top: 1.5em; 
-}
-h0 {
-font-size: 2rem; 
-border-bottom: 3px solid #3b80d1;
-padding-bottom: 0.3em; 
-margin-top: 1em; }
-h1 {
-font-size: 1.75rem; 
-border-bottom: 2px solid #3b80d1;
-padding-bottom: 0.3em; 
-margin-top: 1em; }
-h2 {
-font-size: 1.5rem; 
-color: #3b80d1;
-padding-bottom: 0.2em; 
-}
-h3 {
-font-size: 1.25rem; 
-color: #333;
-}
-h4 {
-font-size: 1.125rem; 
-color: #333;
-}
-h5 {
-font-size: 1rem; 
-color: #333;
-}
-h6 {
-font-size: 0.875rem; 
-color: #333;
+body{
+font-family:var(--font-main);
+font-size:1rem;line-height:1.8;
+colour:var(--clr-text);
+background:var(--clr-bg);
+margin:0;padding:0 20px;
+text-align:justify;
 }
 
-a {
-color: #3b80d0;
-text-decoration: none;
-transition: color 0.3s ease;
+h1,h2,h3,h4,h5,h6{
+font-weight:600;
+margin:1.5em 0 .75em;
+line-height:1.2;
+colour:#0d0d0d;
 }
-a:hover {
-text-decoration: underline;
-color: #1a57a0;
-}
+h1{font-size:2rem; border-bottom:3px solid var(--clr-brand); padding-bottom:.3em;}
+h2{font-size:1.75rem;border-bottom:2px solid var(--clr-brand); padding-bottom:.3em;}
+h3{font-size:1.5rem; colour:var(--clr-brand-light); padding-bottom:.2em;}
+h4{font-size:1.25rem;} h5{font-size:1.125rem;} h6{font-size:1rem;}
 
-pre, .code-input {
-background-color: #f5f5f5;
-border: 1px solid #ddd;
-padding: 10px;
-font-size: 0.9rem;
-border-radius: 5px;
-margin: 20px 0;
-overflow-x: auto;
+a{
+colour:var(--clr-brand-light);text-decoration:none;
+transition:colour .3s;
 }
-code {
-font-size: 0.9rem;
-background-color: #f5f5f5;
-padding: 2px 4px;
-border-radius: 3px;
-}
+a:hover, a:focus-visible{colour:var(--clr-brand);text-decoration:underline;}
+:focus-visible{outline:3px dashed var(--clr-brand);outline-offset:3px;}
 
-table {
-width: 100%;
-border-collapse: collapse;
-margin-bottom: 1.5em;
-text-align: left;
+pre,.code-input{
+background:#f5f5f5;border:1px solid #ddd;
+padding:10px;margin:20px 0;
+border-radius:var(--radius);overflow-x:auto;
+font-family:var(--font-mono);font-size:.9rem;
 }
-th, td {
-padding: 12px;
-border: 1px solid #ddd;
-}
-th {
-background-color: #3b80d1;
-color: white;
-}
+code{background:#f5f5f5;padding:2px 4px;border-radius:3px;font-family:var(--font-mono);}
 
-.div-1 {
-color: black;
-background-color: #d6edd3;
-padding: 10px;
-border-radius: 5px;
-margin-bottom: 1.5em;
-}
-.div-2 {
-color: black;
-background-color: #cfbe7e;
-padding: 10px;
-border-radius: 5px;
-margin-bottom: 1.5em;
-}
+table{width:100%;border-collapse:collapse;margin-bottom:1.5em;text-align:left;}
+th,td{padding:12px;border:1px solid #ddd;}
+th{background:var(--clr-brand-light);colour:#fff;}
 
-.article-content {
-text-align: justify;
+.note-success,.note-warning{
+padding:10px;margin-bottom:1.5em;
+border-radius:var(--radius);colour:#000;
 }
+.note-success{background:#d6edd3;}
+.note-warning{background:#cfbe7e;}
 
-img {
-width: 100%;
-height: auto;
-border-radius: 5px;
-margin-bottom: 1.5em;
-cursor: pointer;
-transition: transform 0.5s;
+img{
+display:block;max-width:100%;height:auto;
+border-radius:var(--radius);margin-bottom:1.5em;
+cursor:zoom-in;transition:transform .4s;
 }
+img:hover{transform:scale(1.02);}
+
+#lightbox-overlay{
+position:fixed;inset:0;background:rgba(0,0,0,.85);
+display:flex;align-items:center;justify-content:center;
+z-index:1000;cursor:zoom-out;
+}
+#lightbox-overlay img{max-width:90%;max-height:90%;border-radius:var(--radius);}
 </style>
 <script>
-  function openImageInNewWindow(imgSrc) {
-    const newWindow = window.open();
-    newWindow.document.write(`<img src="${imgSrc}" style="width:100%; height:auto;">`);
-    newWindow.document.close();
-  }
+/* minimal, pop-up-safe light-box */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      /* build overlay only once */
+      let ov=document.getElementById('lightbox-overlay');
+      if(!ov){
+        ov=document.createElement('div');
+        ov.id='lightbox-overlay';
+        ov.addEventListener('click',e=>e.currentTarget.remove());
+        document.body.appendChild(ov);
+      }
+      ov.innerHTML=`<img src="${img.src}" alt="">`;
+    });
+  });
+});
 </script>
 <div id="post-summary" class="section level1">
 <h1>Post summary</h1>
@@ -678,164 +642,334 @@ efficiency of compression. For this study, we use a generated dataset
 that simulates real-world data complexity, enabling a comprehensive
 assessment of various compression techniques on read/write
 performance.</p>
-<div id="setup-and-dataset-generation" class="section level2">
-<h2>Setup and Dataset Generation</h2>
-<p>To evaluate the impact of different compression techniques, we
-generate datasets of varying sizes (100k, 1M, and 10M rows) and
-structures (numeric, character, and mixed). This variety allows for a
-detailed analysis of how different data types and volumes influence
-compression efficiency.</p>
-<p>We utilize several R libraries to facilitate data generation and
-compression:</p>
-<pre class="r"><code># Generate sample datasets
-generate_sample_data &lt;- function(n, type = &quot;mixed&quot;) {
+<div id="device-specifications" class="section level2">
+<h2>Device specifications</h2>
+<p>13th‑Gen Intel Core i7‑13620H 32 GB RAM - Windows 64‑bit</p>
+</div>
+<div id="dataset-generation" class="section level2">
+<h2>Dataset generation</h2>
+<p>We benchmark three row counts (<span class="math inline">\(10^5,\;10^6,\;10^7\)</span>) and three structures
+(numeric, character, mixed). The helper below fabricates a mixed‑type
+frame:</p>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+library(data.table)
+library(arrow)
+library(qs)
+library(fst)
+library(microbenchmark)
+library(parallel)
+setDTthreads(detectCores())
+
+generate_sample_data &lt;- function(n, type = &quot;mixed&quot;){
   set.seed(123)
-  if (type == &quot;numeric&quot;) {
+  if(type == &quot;numeric&quot;){
+    data.frame(ID = seq_len(n), Value = rnorm(n))
+  } else if(type == &quot;character&quot;){
+    data.frame(ID = seq_len(n),
+               Description = replicate(n, paste0(sample(letters,20,TRUE), 
+                                                 collapse=&quot;&quot;)))
+  } else {
     data.frame(
-      ID = 1:n,
-      Value = rnorm(n)
-    )
-  } else if (type == &quot;character&quot;) {
-    data.frame(
-      ID = 1:n,
-      Description = replicate(n, paste0(sample(letters, 20, replace = TRUE), collapse = &quot;&quot;))
-    )
-  } else { # mixed
-    data.frame(
-      ID = 1:n,
-      Value = rnorm(n),
-      Category = sample(letters[1:5], n, replace = TRUE),
-      Description = replicate(n, paste0(sample(letters, 20, replace = TRUE), collapse = &quot;&quot;))
+      ID          = seq_len(n),
+      Value       = rnorm(n),
+      Category    = sample(letters[1:5], n, TRUE),
+      Description = replicate(n, paste0(sample(letters,20,TRUE), collapse=&quot;&quot;))
     )
   }
 }
 
-# Determine the number of threads
-setDTthreads(parallel::detectCores())</code></pre>
-<p>This dataset generation function produces data frames with unique
-IDs, random numerical values, categorical data, and text descriptions.
-The mixed-type datasets allow us to evaluate the performance of
-different compression algorithms across various data structures.</p>
-<p>For numerical data, the function generates a simple data frame with
-an ID and a random normal value. For character data, it produces a data
-frame with an ID and a randomly generated string description. The
-mixed-type data combines numerical values, categorical data, and text
-descriptions, providing a complex dataset that mimics real-world
-scenarios.</p>
-<p>By generating datasets of different sizes and structures, we ensure a
-robust analysis of how each compression technique performs under various
-conditions. This comprehensive setup allows us to draw meaningful
-conclusions about the efficiency and suitability of different
-compression methods for diverse data types and application needs.</p>
-<div id="device-specifications" class="section level3">
-<h3>Device Specifications</h3>
-<p>The benchmarking was conducted on a system with the following
-specifications:</p>
-<ul>
-<li><strong>Processor</strong>: 13th Gen Intel(R) Core(TM) i7-13620H,
-2.40 GHz</li>
-<li><strong>Installed RAM</strong>: 32.0 GB (31.7 GB usable)</li>
-<li><strong>System type</strong>: 64-bit operating system, x64-based
-processor</li>
-</ul>
+sample_size    &lt;- 1e6
+sample_data_dt &lt;- as.data.table(generate_sample_data(sample_size, &quot;mixed&quot;))</code></pre>
 </div>
+<div id="output-locations" class="section level2">
+<h2>Output locations</h2>
+<pre class="r"><code>bench_dir &lt;- &quot;benchmark-files&quot;   # persistent folder in project root
+if(!dir.exists(bench_dir)) dir.create(bench_dir)
+
+file_paths &lt;- list(
+  parquet_gzip         = file.path(bench_dir, &quot;parquet_gzip.parquet&quot;),
+  parquet_snappy       = file.path(bench_dir, &quot;parquet_snappy.parquet&quot;),
+  parquet_zstd         = file.path(bench_dir, &quot;parquet_zstd.parquet&quot;),
+  parquet_uncompressed = file.path(bench_dir, &quot;parquet_uncompressed.parquet&quot;),
+  qs_fast              = file.path(bench_dir, &quot;qs_fast.qs&quot;),
+  fst_uncompressed     = file.path(bench_dir, &quot;fst_uncompressed.fst&quot;),
+  dt_gzip              = file.path(bench_dir, &quot;data_table_gzip.csv&quot;),
+  dt_none              = file.path(bench_dir, &quot;data_table_uncompressed.csv&quot;)
+)</code></pre>
 </div>
-</div>
-<div id="compression-techniques-testing" class="section level1">
-<h1>Compression Techniques Testing</h1>
-<p>To evaluate the efficiency of various compression techniques, we
-define specific file writing and reading functions with different
-compression options. This systematic approach allows us to
-comprehensively assess the performance of each method.</p>
-<div id="defining-file-writing-functions-with-compression-options" class="section level2">
-<h2>Defining File Writing Functions with Compression Options</h2>
-<p>We establish a set of functions to write data files using different
-compression methods. This setup enables a consistent comparison of the
-performance characteristics of each technique.</p>
+<div id="io-helper-functions" class="section level2">
+<h2>I/O helper functions</h2>
 <pre class="r"><code>write_funcs &lt;- list(
-  parquet_gzip = function(data, file) arrow::write_parquet(data, file, compression = &quot;gzip&quot;),
-  parquet_snappy = function(data, file) arrow::write_parquet(data, file, compression = &quot;snappy&quot;),
-  parquet_zstd = function(data, file) arrow::write_parquet(data, file, compression = &quot;zstd&quot;),
-  parquet_uncompressed = function(data, file) arrow::write_parquet(data, file, compression = &quot;uncompressed&quot;),
-  
-  qs_fast = function(data, file) qs::qsave(data, file, preset = &quot;fast&quot;),
-  fst_uncompressed = function(data, file) fst::write_fst(data, file, compress = 0),
-  dt_gzip = function(data, file) fwrite(data, file, compress = &quot;gzip&quot;),
-  dt_none = function(data, file) fwrite(data, file, compress = &quot;none&quot;)
-)</code></pre>
-</div>
-<div id="defining-file-reading-functions" class="section level2">
-<h2>Defining File Reading Functions</h2>
-<p>Similarly, we create functions for reading files that have been
-compressed using different methods. This approach ensures that we can
-measure both the compression and decompression performance.</p>
-<pre class="r"><code>read_funcs &lt;- list(
-  parquet_gzip = function(file) arrow::read_parquet(file),
-  parquet_snappy = function(file) arrow::read_parquet(file),
-  parquet_zstd = function(file) arrow::read_parquet(file),
-  parquet_uncompressed = function(file) arrow::read_parquet(file),
-  
-  qs_fast = function(file) qs::qread(file),
-  fst_uncompressed = function(file) fst::read_fst(file),
-  dt_gzip = function(file) fread(file),
-  dt_none = function(file) fread(file)
-)</code></pre>
-</div>
-<div id="benchmarking-procedure" class="section level2">
-<h2>Benchmarking Procedure</h2>
-<p>Our benchmarking methodology follows a structured approach to
-comprehensively evaluate each compression technique:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Data Generation</strong>: We generate datasets of varying
-sizes (100k, 1M, 10M rows) and structures (numeric, character, mixed) to
-simulate different data scenarios. This step allows us to observe how
-compression methods perform with different data types and sizes.</li>
-<li><strong>Compression Application</strong>: We apply various
-compression techniques (Gzip, Snappy, Zstd, Brotli, LZ4, uncompressed)
-using different tools (Parquet, QS, FST, data.table). The performance of
-each method is assessed based on file size reduction and read/write
-times.</li>
-<li><strong>Benchmarking</strong>: We measure the read/write times using
-the <code>microbenchmark</code> package, file sizes, compression ratios,
-and memory usage with <code>profmem</code>. This detailed benchmarking
-helps us quantify the performance impact of each compression
-technique.</li>
-<li><strong>Analysis</strong>: We combine and visualize the results to
-compare the performance of each compression method across different data
-types and sizes. This analysis provides actionable insights into the
-efficiency of each technique.</li>
-</ol>
-<div id="sample-code-for-benchmarking" class="section level3">
-<h3>Sample Code for Benchmarking</h3>
-<p>The following sample code demonstrates how we benchmark and analyze
-the performance of different compression techniques:</p>
-<pre class="r"><code># Sample code to benchmark and analyze results
-benchmark_write_results &lt;- microbenchmark(
-  write_parquet_gzip = write_funcs$parquet_gzip(sample_data_dt, file_paths$parquet_gzip),
-  write_parquet_snappy = write_funcs$parquet_snappy(sample_data_dt, file_paths$parquet_snappy),
-  write_parquet_zstd = write_funcs$parquet_zstd(sample_data_dt, file_paths$parquet_zstd),
-  write_qs_fast = write_funcs$qs_fast(sample_data_dt, file_paths$qs_fast),
-  write_fst_uncompressed = write_funcs$fst_uncompressed(sample_data_dt, file_paths$fst_uncompressed),
-  write_dt_gzip = write_funcs$dt_gzip(sample_data_dt, file_paths$dt_gzip),
-  times = 50,
-  unit = &quot;milliseconds&quot;
+  parquet_gzip         = function(d,f) arrow::write_parquet(d,f,compression=&quot;gzip&quot;),
+  parquet_snappy       = function(d,f) arrow::write_parquet(d,f,compression=&quot;snappy&quot;),
+  parquet_zstd         = function(d,f) arrow::write_parquet(d,f,compression=&quot;zstd&quot;),
+  parquet_uncompressed = function(d,f) arrow::write_parquet(d,f,compression=&quot;uncompressed&quot;),
+  qs_fast              = function(d,f) qs::qsave(d,f,preset=&quot;fast&quot;),
+  fst_uncompressed     = function(d,f) fst::write_fst(d,f,compress=0),
+  dt_gzip              = function(d,f) fwrite(d,f,compress=&quot;gzip&quot;),
+  dt_none              = function(d,f) fwrite(d,f,compress=&quot;none&quot;)
 )
 
-benchmark_read_results &lt;- microbenchmark(
-  read_parquet_gzip = read_funcs$parquet_gzip(file_paths$parquet_gzip),
-  read_parquet_snappy = read_funcs$parquet_snappy(file_paths$parquet_snappy),
-  read_parquet_zstd = read_funcs$parquet_zstd(file_paths$parquet_zstd),
-  read_qs_fast = read_funcs$qs_fast(file_paths$qs_fast),
-  read_fst_uncompressed = read_funcs$fst_uncompressed(file_paths$fst_uncompressed),
-  read_dt_gzip = read_funcs$dt_gzip(file_paths$dt_gzip),
-  times = 50,
-  unit = &quot;milliseconds&quot;
+read_funcs &lt;- list(
+  parquet_gzip         = function(f) arrow::read_parquet(f),
+  parquet_snappy       = function(f) arrow::read_parquet(f),
+  parquet_zstd         = function(f) arrow::read_parquet(f),
+  parquet_uncompressed = function(f) arrow::read_parquet(f),
+  qs_fast              = function(f) qs::qread(f),
+  fst_uncompressed     = function(f) fst::read_fst(f),
+  dt_gzip              = function(f) fread(f),
+  dt_none              = function(f) fread(f)
 )</code></pre>
-<p>By systematically benchmarking these compression techniques, we aim
-to provide comprehensive insights into their performance. This detailed
-analysis will enable informed decisions for optimizing data storage and
-access in various applications, ensuring the best balance between speed,
-efficiency, and resource utilization.</p>
+</div>
+</div>
+<div id="benchmarking" class="section level1">
+<h1>Benchmarking</h1>
+<pre class="r"><code>bench_write &lt;- microbenchmark(
+  write_parquet_gzip  = write_funcs$parquet_gzip(sample_data_dt, 
+                                                 file_paths$parquet_gzip),
+  write_parquet_snappy= write_funcs$parquet_snappy(sample_data_dt, file_paths$parquet_snappy),
+  write_parquet_zstd  = write_funcs$parquet_zstd(sample_data_dt, 
+                                                 file_paths$parquet_zstd),
+  write_qs_fast       = write_funcs$qs_fast(sample_data_dt, 
+                                            file_paths$qs_fast),
+  write_fst_none      = write_funcs$fst_uncompressed(sample_data_dt,
+                                                     file_paths$fst_uncompressed),
+  write_dt_gzip       = write_funcs$dt_gzip(sample_data_dt, 
+                                            file_paths$dt_gzip),
+  write_dt_none       = write_funcs$dt_none(sample_data_dt, 
+                                            file_paths$dt_none),
+  times = 50,
+  unit  = &quot;milliseconds&quot;)</code></pre>
+<pre class="r"><code>bench_read &lt;- microbenchmark(
+  read_parquet_gzip   = read_funcs$parquet_gzip(file_paths$parquet_gzip),
+  read_parquet_snappy = read_funcs$parquet_snappy(file_paths$parquet_snappy),
+  read_parquet_zstd   = read_funcs$parquet_zstd(file_paths$parquet_zstd),
+  read_qs_fast        = read_funcs$qs_fast(file_paths$qs_fast),
+  read_fst_none       = read_funcs$fst_uncompressed(file_paths$fst_uncompressed),
+  read_dt_gzip        = read_funcs$dt_gzip(file_paths$dt_gzip),
+  read_dt_none        = read_funcs$dt_gzip(file_paths$dt_none),
+  times = 50,
+  unit  = &quot;milliseconds&quot;)</code></pre>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="writetime-ms" class="section level2">
+<h2>Write‑time (ms)</h2>
+<pre class="r"><code>library(dplyr)
+write_summary &lt;- bench_write %&gt;%
+  group_by(expr) %&gt;%
+  summarise(
+    median = median(time) / 1e6,
+    mean   = mean(time) / 1e6,
+    sd     = sd(time) / 1e6,
+    .groups = &quot;drop&quot;
+  ) %&gt;%
+  arrange(median)
+
+knitr::kable(write_summary, digits = 1,
+             caption = &quot;Write‑time benchmark (50 replicates)&quot;)</code></pre>
+<table>
+<caption>Write‑time benchmark (50 replicates)</caption>
+<thead>
+<tr>
+<th align="left">expr</th>
+<th align="right">median</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">write_fst_none</td>
+<td align="right">74.6</td>
+<td align="right">77.6</td>
+<td align="right">11.4</td>
+</tr>
+<tr>
+<td align="left">write_dt_none</td>
+<td align="right">86.7</td>
+<td align="right">85.7</td>
+<td align="right">13.9</td>
+</tr>
+<tr>
+<td align="left">write_qs_fast</td>
+<td align="right">127.6</td>
+<td align="right">128.9</td>
+<td align="right">11.6</td>
+</tr>
+<tr>
+<td align="left">write_parquet_snappy</td>
+<td align="right">316.3</td>
+<td align="right">313.2</td>
+<td align="right">34.6</td>
+</tr>
+<tr>
+<td align="left">write_parquet_zstd</td>
+<td align="right">346.5</td>
+<td align="right">348.1</td>
+<td align="right">31.0</td>
+</tr>
+<tr>
+<td align="left">write_dt_gzip</td>
+<td align="right">421.0</td>
+<td align="right">430.2</td>
+<td align="right">43.7</td>
+</tr>
+<tr>
+<td align="left">write_parquet_gzip</td>
+<td align="right">2941.0</td>
+<td align="right">2968.0</td>
+<td align="right">117.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="readtime-ms" class="section level2">
+<h2>Read‑time (ms)</h2>
+<pre class="r"><code>read_summary &lt;- bench_read %&gt;%
+  group_by(expr) %&gt;%
+  summarise(
+    median = median(time) / 1e6,
+    mean   = mean(time) / 1e6,
+    sd     = sd(time) / 1e6,
+    .groups = &quot;drop&quot;
+  ) %&gt;%
+  arrange(median)
+
+knitr::kable(read_summary, digits = 1,
+             caption = &quot;Read‑time benchmark (50 replicates)&quot;)</code></pre>
+<table>
+<caption>Read‑time benchmark (50 replicates)</caption>
+<thead>
+<tr>
+<th align="left">expr</th>
+<th align="right">median</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">read_parquet_snappy</td>
+<td align="right">112.6</td>
+<td align="right">115.8</td>
+<td align="right">20.7</td>
+</tr>
+<tr>
+<td align="left">read_parquet_zstd</td>
+<td align="right">119.8</td>
+<td align="right">125.5</td>
+<td align="right">25.8</td>
+</tr>
+<tr>
+<td align="left">read_parquet_gzip</td>
+<td align="right">352.5</td>
+<td align="right">372.7</td>
+<td align="right">69.1</td>
+</tr>
+<tr>
+<td align="left">read_fst_none</td>
+<td align="right">368.5</td>
+<td align="right">390.7</td>
+<td align="right">60.5</td>
+</tr>
+<tr>
+<td align="left">read_qs_fast</td>
+<td align="right">424.8</td>
+<td align="right">431.0</td>
+<td align="right">64.0</td>
+</tr>
+<tr>
+<td align="left">read_dt_none</td>
+<td align="right">428.6</td>
+<td align="right">439.4</td>
+<td align="right">64.2</td>
+</tr>
+<tr>
+<td align="left">read_dt_gzip</td>
+<td align="right">1200.8</td>
+<td align="right">1216.8</td>
+<td align="right">105.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="throughput-plot" class="section level2">
+<h2>Throughput plot</h2>
+<pre class="r"><code>library(ggplot2)
+plot_df &lt;- bind_rows(
+  mutate(write_summary, phase = &quot;write&quot;),
+  mutate(read_summary,  phase = &quot;read&quot;)
+)
+
+ggplot(plot_df, aes(reorder(expr, median), median, fill = phase)) +
+  geom_col(position = position_dodge()) +
+  labs(x = NULL, y = &quot;Median time (ms)&quot;) +
+  coord_flip() +
+  theme_minimal(base_family = &quot;Helvetica&quot;)</code></pre>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --> #
+Conclusions</p>
+<p><strong>Key take‑aways from the 1 M‑row mixed dataset (50
+replicates).</strong></p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="33%" />
+<col width="35%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Fastest median (ms)</th>
+<th>Slowest median (ms)</th>
+<th>Spread (×)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Write</strong></td>
+<td><code>fst</code> (uncompressed) <span class="math inline">\(\approx 73\)</span> ms</td>
+<td>Parquet + Gzip <span class="math inline">\(\approx
+3983\)</span> ms</td>
+<td><span class="math inline">\(55 \times\)</span></td>
+</tr>
+<tr>
+<td><strong>Read</strong></td>
+<td>Parquet + Snappy <span class="math inline">\(\approx 109\)</span> ms</td>
+<td>data.table + Gzip <span class="math inline">\(\approx 1249\)</span> ms</td>
+<td><span class="math inline">\(11 \times\)</span></td>
+</tr>
+</tbody>
+</table>
+<div id="interpretation" class="section level3">
+<h3>Interpretation</h3>
+<ul>
+<li><strong>Write path</strong>
+<ul>
+<li><em>fst</em> with no compression is an order of magnitude faster
+than every compressed alternative.</li>
+<li><code>qs</code> (preset =“fast”) achieves respectable speed (<span class="math inline">\(\approx 135\)</span> ms) with modest size
+reduction, a sensible default when you need some compression but
+prioritise throughput.</li>
+<li>Parquet + Gzip is the outlier with <span class="math inline">\(\approx 4\)</span> s per file, avoid for
+high‑frequency writes.</li>
+</ul></li>
+<li><strong>Read path</strong>
+<ul>
+<li>Parquet + Snappy is unequivocally the fastest reader (<span class="math inline">\(\approx 109\)</span> ms) and even outperforms
+uncompressed <em>fst</em> (<span class="math inline">\(\approx 421\)</span> ms) because the smaller
+on‑disk footprint offsets decompression cost.</li>
+<li>Parquet + Zstd remains competitive (<span class="math inline">\(\approx 135\)</span> ms) while delivering higher
+compression ratios.</li>
+<li>Gzip again exhibits the highest latency, especially when accessed
+through <code>fread</code> (<span class="math inline">\(\approx 1.25\)</span> s).</li>
+</ul></li>
+</ul>
+<p>Compression choice is therefore contextual, so use
+<code>Snappy</code> or uncompressed formats for low‑latency ingestion,
+<code>Zstd</code> or <code>Brotli</code> for space‑optimised archives,
+and always evaluate with production, like workload samples.</p>
 <p><strong>Did you find this page helpful? Consider sharing it
 🙌</strong></p>
 </div>

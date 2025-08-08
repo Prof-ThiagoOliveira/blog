@@ -28,165 +28,104 @@ output:
 ---
 
 <style>
-/* Blog post container */
-body {
-   font-family: 'Helvetica Neue', Arial, sans-serif;
-   font-size: 1rem;
-   line-height: 1.8;
-   color: #333;
-   text-align: justify;
-   background-color: #fafafa;
-   margin: 0;
-   padding: 0 20px;
+/* ---------- CSS variables: change in one place ---------- */
+:root{
+  --font-main: 'Helvetica Neue',Arial,sans-serif;
+  --font-mono: 'Courier New',Courier,monospace;
+  --clr-bg:    #fafafa;
+  --clr-text:  #333;
+  --clr-brand: #2f6ab5;      /* darker → better contrast */
+  --clr-brand-light: #3b80d1;
+  --radius:    5px;
 }
 
-/* Header styling */
-h0, 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 {
-  font-weight: 600; /* Semi-bold for a professional look */
-  margin-bottom: 0.75em; /* Slightly reduced bottom margin */
-  color: #0d0d0d;
-  line-height: 1.2;
-  margin-top: 1.5em; /* Added top margin for consistency */
+/* ---------- Page base ---------- */
+body{
+  font-family:var(--font-main);
+  font-size:1rem;line-height:1.8;
+  colour:var(--clr-text);
+  background:var(--clr-bg);
+  margin:0;padding:0 20px;
+  text-align:justify;
 }
 
-h0 {
-  font-size: 2rem; /* New heading size for h0 */
-  border-bottom: 3px solid #3b80d1;
-  padding-bottom: 0.3em; /* Padding for visual separation */
-  margin-top: 1em; 
+/* ---------- Headings ---------- */
+h1,h2,h3,h4,h5,h6{
+  font-weight:600;
+  margin:1.5em 0 .75em;
+  line-height:1.2;
+  colour:#0d0d0d;
 }
+h1{font-size:2rem;   border-bottom:3px solid var(--clr-brand);  padding-bottom:.3em;}
+h2{font-size:1.75rem;border-bottom:2px solid var(--clr-brand);  padding-bottom:.3em;}
+h3{font-size:1.5rem; colour:var(--clr-brand-light);            padding-bottom:.2em;}
+h4{font-size:1.25rem;} h5{font-size:1.125rem;} h6{font-size:1rem;}
 
-h1 {
-  font-size: 1.75rem; /* Adjusted size for larger heading */
-  border-bottom: 2px solid #3b80d1;
-  padding-bottom: 0.3em; /* Padding for visual separation */
-  margin-top: 1em; 
+/* ---------- Links ---------- */
+a{
+  colour:var(--clr-brand-light);text-decoration:none;
+  transition:colour .3s;
 }
+a:hover, a:focus-visible{colour:var(--clr-brand);text-decoration:underline;}
+:focus-visible{outline:3px dashed var(--clr-brand);outline-offset:3px;}
 
-h2 {
-  font-size: 1.5rem; /* Adjusted size for second-level heading */
-  color: #3b80d1;
-  padding-bottom: 0.2em; /* Padding for visual separation */
+/* ---------- Code Blocks ---------- */
+pre,.code-input{
+  background:#f5f5f5;border:1px solid #ddd;
+  padding:10px;margin:20px 0;
+  border-radius:var(--radius);overflow-x:auto;
+  font-family:var(--font-mono);font-size:.9rem;
 }
+code{background:#f5f5f5;padding:2px 4px;border-radius:3px;font-family:var(--font-mono);}
 
-h3 {
-  font-size: 1.25rem; /* Adjusted size for third-level heading */
-  color: #333;
-}
+/* ---------- Tables ---------- */
+table{width:100%;border-collapse:collapse;margin-bottom:1.5em;text-align:left;}
+th,td{padding:12px;border:1px solid #ddd;}
+th{background:var(--clr-brand-light);colour:#fff;}
 
-h4 {
-  font-size: 1.125rem; /* Adjusted size for fourth-level heading */
-  color: #333;
+/* ---------- Highlight boxes ---------- */
+.note-success,.note-warning{
+  padding:10px;margin-bottom:1.5em;
+  border-radius:var(--radius);colour:#000;
 }
+.note-success{background:#d6edd3;}
+.note-warning{background:#cfbe7e;}
 
-h5 {
-  font-size: 1rem; /* Adjusted size for fifth-level heading */
-  color: #333;
+/* ---------- Images & CSS light-box ---------- */
+img{
+  display:block;max-width:100%;height:auto;
+  border-radius:var(--radius);margin-bottom:1.5em;
+  cursor:zoom-in;transition:transform .4s;
 }
+img:hover{transform:scale(1.02);}
 
-h6 {
-  font-size: 0.875rem; /* Adjusted size for sixth-level heading */
-  color: #333;
+/* container for the overlay created by JS */
+#lightbox-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.85);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;cursor:zoom-out;
 }
-
-/* Link styling */
-a {
-  color: #3b80d0;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #1a57a0;
-}
-
-/* Code styling */
-pre, 
-.code-input {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 10px;
-  font-size: 0.9rem;
-  border-radius: 5px;
-  margin: 20px 0;
-  overflow-x: auto;
-}
-
-code {
-  font-size: 0.9rem;
-  background-color: #f5f5f5;
-  padding: 2px 4px;
-  border-radius: 3px;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5em;
-  text-align: left;
-}
-
-th, 
-td {
-  padding: 12px;
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #3b80d1;
-  color: white;
-}
-
-/* Div options - color box text */
-.div-1 {
-  color: black;
-  background-color: #d6edd3;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-
-.div-2 {
-  color: black;
-  background-color: #cfbe7e;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-}
-
-/* Article content */
-.article-content {
-  text-align: justify;
-}
-
-/* Image styling */
-img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 1.5em;
-  cursor: pointer;
-  transition: transform 0.5s;
-}
+#lightbox-overlay img{max-width:90%;max-height:90%;border-radius:var(--radius);}
 </style>
 
-
 <script>
-  function openImageInNewWindow(imgSrc) {
-    const newWindow = window.open();
-    newWindow.document.write(`<img src="${imgSrc}" style="width:100%; height:auto;">`);
-    newWindow.document.close();
-  }
+/* minimal, pop-up-safe light-box */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      /* build overlay only once */
+      let ov=document.getElementById('lightbox-overlay');
+      if(!ov){
+        ov=document.createElement('div');
+        ov.id='lightbox-overlay';
+        ov.addEventListener('click',e=>e.currentTarget.remove());
+        document.body.appendChild(ov);
+      }
+      ov.innerHTML=`<img src="${img.src}" alt="">`;
+    });
+  });
+});
 </script>
-
 
 #  Prototype at light-speed with **inline**
 
@@ -336,9 +275,9 @@ microbenchmark::microbenchmark(
 
 ```
 ## Unit: microseconds
-##    expr   min     lq     mean  median     uq    max neval cld
-##  fastLm  43.4  67.05   88.657   79.95  104.2  177.3   100  a 
-##      lm 838.4 937.90 1301.784 1386.60 1509.3 2374.2   100   b
+##    expr   min     lq     mean median      uq    max neval cld
+##  fastLm  36.5  61.25   75.696  71.10   87.35  133.6   100  a 
+##      lm 640.3 737.30 1044.260 872.35 1386.45 1896.7   100   b
 ```
 
 
@@ -392,7 +331,7 @@ Use attributes for almost everything once you move beyond exploratory work.
 ## Take-aways
 
 * **Match R’s compiler** or live with hard-to-trace crashes.
-* **`.Call()` via Rcpp** is the modern native interface—type-safe and header-driven.
+* **`.Call()` via Rcpp** is the modern native interface—type, which is safe and header-driven.
 * **inline** and **Attributes** shrink the compile–link–load loop to a single line.
 * **Plugins** keep code portable while tapping heavy `C++` libraries.
 * **BEGIN\_RCPP/END\_RCPP** keep your` C++` errors readable from R.
