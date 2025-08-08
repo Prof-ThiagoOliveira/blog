@@ -1,0 +1,612 @@
+---
+title: "Benchmarking Kendall's Tau in R and Rcpp"
+date:  "`r format(Sys.Date(), '%B %d, %Y')`"
+slug: "benchmarking-kendalls-tau-r-rcpp"
+categories:
+  - "R Programming"
+  - "Statistical Computing"
+tags:
+  - "Rcpp"
+  - "C++"
+  - "Kendall's tau"
+  - "rank correlation"
+  - "microbenchmarking"
+  - "performance"
+subtitle: "R vs Rcpp with a fast inversion-count implementation"
+summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
+authors:
+  - admin
+lastmod: "`r format(as.POSIXct(Sys.time(), tz = 'UTC'), '%Y-%m-%dT%H:%M:%SZ')`"
+featured: false
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+projects: []
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 3
+---
+
+# Overview
+
+This post demonstrates how to move from a prototype in R to a compiled implementation with **Rcpp**, using **Kendall’s rank correlation** as a worked example. We implement a fast **tau-a** and **tau-b** estimator in `C++` (merge-sort inversion count), validate it against `stats::cor(..., method = "kendall")` on tie-free and non-tie-free data, and microbenchmark all approaches.
+
+# Setup
+
+```{r setup, results='hide', message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(cache = TRUE, autodep = TRUE)
+
+library(Rcpp)
+library(microbenchmark)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+set.seed(1)
+```
+
+# Kendall’s tau definitions
+
+Let $\{(x_i,y_i)\}_{i=1}^n$ be paired observations. For each unordered pair $(i,j)$ with $i<j$. Now we can define the following:
+
+-   **Concordant** if $(x_i-x_j)(y_i-y_j)>0$\
+-   **Discordant** if $(x_i-x_j)(y_i-y_j)<0$\
+-   **Tie in** $x$ if $x_i=x_j$ (irrespective of $y$)\
+-   **Tie in** $y$ if $y_i=y_j$ (irrespective of $x$)
+
+Define the counts
+
+$$
+C = \sum_{1\le i<j\le n} \mathbf{1}\!\left((x_i - x_j)(y_i - y_j) > 0\right)
+$$
+
+$$
+D = \sum_{1\le i<j\le n} \mathbf{1}\!\left((x_i - x_j)(y_i - y_j) < 0\right), \text{ and}
+$$
+
+$$
+n_0 = \binom{n}{2}
+$$
+
+Let the $x$-values contain tie groups of sizes $\{t_{x,g}\}$ and the $y$-values tie groups $\{t_{y,h}\}$. The numbers of tied pairs are
+
+$$
+T_x = \sum_g \binom{t_{x,g}}{2}, \qquad
+T_y = \sum_h \binom{t_{y,h}}{2}.
+$$
+
+## Tau-a (no tie correction)
+
+$$
+\tau_a = \frac{C - D}{n_0}.
+$$
+
+Appropriate when ties are absent or negligible.
+
+## Tau-b (tie-adjusted)
+
+$$
+\tau_b = \frac{C - D}{\sqrt{(n_0 - T_x)\,(n_0 - T_y)}}.
+$$
+
+Adjusts the normalisation for ties in $x$ and $y$, preserving the $[-1,1]$ range. When there are no ties ($T_x=T_y=0$), consequently, $\tau_b=\tau_a$.
+
+> **Convention.** Pairs tied on both variables are included in both $T_x$ and $T_y$, matching common software implementations of $\tau_b$.
+
+# Rcpp inline implementation (tau-a)
+
+The `C++` function below computes Kendall’s **tau-a** (no tie correction). For practical datasets with ties, tau-b is usually preferable; see the caveats.
+
+```{r rcpp_inline, warning = FALSE, message=FALSE, cache=FALSE}
+Rcpp::cppFunction(code = '
+#include <Rcpp.h>
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+using namespace Rcpp;
+
+// Merge step that counts inversions while sorting.
+long long merge_count(IntegerVector& arr, IntegerVector& temp,
+                      int left, int mid, int right) {
+  int i = left, j = mid, k = left;
+  long long inv_count = 0;
+
+  while (i < mid && j <= right) {
+    if (arr[i] <= arr[j]) {
+      temp[k++] = arr[i++];
+    } else {
+      temp[k++] = arr[j++];
+      inv_count += (mid - i); // elements i..mid-1 are > arr[j-1]
+    }
+  }
+  while (i < mid)    temp[k++] = arr[i++];
+  while (j <= right) temp[k++] = arr[j++];
+
+  for (int idx = left; idx <= right; ++idx) arr[idx] = temp[idx];
+  return inv_count;
+}
+
+// Recursive sort that returns inversion count.
+long long sort_count(IntegerVector& arr, IntegerVector& temp, int left, int right) {
+  if (right - left < 1) return 0LL;
+  int mid = left + (right - left) / 2;
+  long long inv = sort_count(arr, temp, left, mid);
+  inv += sort_count(arr, temp, mid + 1, right);
+  inv += merge_count(arr, temp, left, mid + 1, right);
+  return inv;
+}
+
+// [[Rcpp::export]]
+double kendall_tau_a_cpp(NumericVector x, NumericVector y) {
+  int n = x.size();
+  if (n < 2) return NA_REAL;
+
+  // Indices that sort x.
+  IntegerVector idx(n);
+  std::iota(idx.begin(), idx.end(), 0);
+  std::sort(idx.begin(), idx.end(),
+            [&x](int i, int j){ return x[i] < x[j]; });
+
+  // y reordered by sorted x; discretise for stable comparison.
+  IntegerVector y_ord(n);
+  for (int i = 0; i < n; ++i) {
+    y_ord[i] = (int) std::floor(y[idx[i]] * 1e8);
+  }
+
+  // Count discordances as inversions in y_ord.
+  IntegerVector temp(n);
+  long long discord = sort_count(y_ord, temp, 0, n - 1);
+
+  // tau-a.
+  double n0 = double(n) * double(n - 1) / 2.0;
+  return (n0 - 2.0 * discord) / n0;
+}
+', rebuild = TRUE)
+```
+
+# Rcpp inline implementation (tau-b)
+
+This C++ routine computes Kendall’s **tau-b** (tie-adjusted). It first orders observations by $x$ (breaking ties by $y$), then uses a Fenwick tree to accumulate $S=C-D$ by comparing each group (equal $x$) only to previously seen values (so pairs tied on either variable do not enter the numerator). The tie counts $T_x$ and $T_y$ are computed explicitly and used in the denominator $\sqrt{(n_0-T_x)(n_0-T_y)}$, yielding a coefficient in $[-1,1]$ that matches `stats::cor(..., method = "kendall")` on tied data. Time complexity is $O(n\log n)$. Floating inputs are discretised (scale factor $10^8$) to stabilise equality checks; for heavily discretised data we may prefer pre-ranking to integers.
+
+```{r rcpp_inline_taub, warning = FALSE, message=FALSE, cache=FALSE}
+Rcpp::cppFunction(code = "
+#include <Rcpp.h>
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+#include <vector>
+using namespace Rcpp;
+
+struct Fenwick {
+  std::vector<long long> t;
+  int n;
+  Fenwick(int n) : t(n + 1, 0), n(n) {}
+  void add(int i, long long v){
+    for(; i <= n; i += i & -i) t[i] += v;
+  }
+  long long sum(int i) const {
+    long long s = 0;
+    for(; i > 0; i -= i & -i) s += t[i];
+    return s;
+  }
+};  // 
+
+// [[Rcpp::export]]
+double kendall_tau_b_cpp(NumericVector x, NumericVector y) {
+  const int n = x.size();
+  if (n < 2) return NA_REAL;
+
+  // Discretise to integers for stable tie detetion with floating inputs.
+  std::vector<long long> xi(n), yi(n);
+  for (int i = 0; i < n; ++i) {
+    xi[i] = (long long) std::floor(x[i] * 1e8);
+    yi[i] = (long long) std::floor(y[i] * 1e8);
+  }
+
+  // Order by x then y
+  std::vector<int> ord(n);
+  std::iota(ord.begin(), ord.end(), 0);
+  std::sort(ord.begin(), ord.end(), [&](int a, int b){
+    if (xi[a] != xi[b]) return xi[a] < xi[b];
+    return yi[a] < yi[b];
+  });
+
+  // Create T_x (pairs tied on x)
+  long long T_x = 0;
+  for (int i = 0; i < n; ){
+    int j = i + 1;
+    while (j < n && xi[ord[j]] == xi[ord[i]]) ++j;
+    long long g = j - i;
+    T_x += g * (g - 1) / 2;
+    i = j;
+  }
+
+  // Create T_y (pairs tied on y)
+  std::vector<long long> y_sorted = yi;
+  std::sort(y_sorted.begin(), y_sorted.end());
+  long long T_y = 0;
+  for (int i = 0; i < n; ){
+    int j = i + 1;
+    while (j < n && y_sorted[j] == y_sorted[i]) ++j;
+    long long g = j - i;
+    T_y += g * (g - 1) / 2;
+    i = j;
+  }
+
+  // Coordinate-compress y
+  std::vector<long long> y_unique = y_sorted;
+  y_unique.erase(std::unique(y_unique.begin(), y_unique.end()), y_unique.end());
+  auto rank_of = [&](long long v){
+    return (int)(std::lower_bound(y_unique.begin(), y_unique.end(), v) - 
+                                  y_unique.begin()) + 1; // 1-based
+  };
+
+  // S = C - D via BIT; group by equal x so x-ties contribute zero
+  Fenwick bit((int) y_unique.size());
+  long long processed = 0;
+  long long S = 0;
+
+  for (int i = 0; i < n; ){
+    int j = i + 1;
+    while (j < n && xi[ord[j]] == xi[ord[i]]) ++j;
+
+    // Compare current x-group against all prior items (strict < and >)
+    for (int k = i; k < j; ++k) {
+      int idx = ord[k];
+      int r = rank_of(yi[idx]);
+      // y_prev < y
+      long long less    = bit.sum(r - 1);   
+      // y_prev <= y
+      long long leq     = bit.sum(r);       
+      // y_prev > y
+      long long greater = processed - leq;  
+      // +1 for concordant, -1 for discordant
+      S += (less - greater);
+    }
+
+    // Insert current group into the tree
+    for (int k = i; k < j; ++k) {
+      int r = rank_of(yi[ord[k]]);
+      bit.add(r, 1);
+    }
+    processed += (j - i);
+    i = j;
+  }
+
+  const double n0      = (double) n * (double) (n - 1) / 2.0;
+  const double denom_x = n0 - (double) T_x;
+  const double denom_y = n0 - (double) T_y;
+  if (denom_x <= 0.0 || denom_y <= 0.0) return NA_REAL;
+
+  const double denom = std::sqrt(denom_x * denom_y);
+  return (double) S / denom;
+}
+")
+```
+
+# Sanity checks considering tie-free vs tie-heavy data
+
+In practice, Kendall’s rank correlation behaves differently depending on the prevalence of ties. The **tau-a** normalisation uses the total number of unordered pairs $n_0=\binom{n}{2}$ and does not adjust for ties, whereas **tau-b** rescales by $\sqrt{(n_0-T_x)(n_0-T_y)}$ to remove the influence of ties in $x$ and $y$. Base R’s `cor(..., method = "kendall")` implements a tie-aware estimator (tau-b–type normalisation). The aim of this section is therefore twofold (i) to show agreement amongst implementations when ties are essentially absent, and (ii) to illustrate the expected divergence of tau-a from tie-aware estimators when ties are pervasive—typical of discretised scores or coarse measurements in breeding datasets.
+
+
+## Tie-free (continuous) data
+
+With continuous, independent draws (here, Gaussian), ties are virtually absent. Under this regime, tau-a and tau-b coincide up to Monte Carlo error, and both agree with base `R`. Any residual differences are due to finite-sample variability and numerical details (e.g., discretisation safeguards in the `C++` code). This scenario serves as a basic correctness check before considering tie handling.
+
+
+```{r sanity_noties}
+set.seed(1)
+n_noties <- 5000L
+x0 <- rnorm(n_noties)
+y0 <- rnorm(n_noties)
+
+tau_a_noties  <- kendall_tau_a_cpp(x0, y0)
+tau_b_noties  <- kendall_tau_b_cpp(x0, y0)
+tau_r_noties  <- suppressWarnings(stats::cor(x0, y0, method = "kendall"))
+
+dplyr::tibble(
+  scenario   = "no ties",
+  tau_a_cpp  = tau_a_noties,
+  tau_b_cpp  = tau_b_noties,
+  tau_baseR  = tau_r_noties,
+  abs_diff_a_vs_base = abs(tau_a_noties - tau_r_noties),
+  abs_diff_b_vs_base = abs(tau_b_noties - tau_r_noties)
+) |>
+  knitr::kable(digits = 6, caption = "Tie-free data: Kendall estimates (tau-a, tau-b, base R)")
+```
+
+## Tie-heavy data we have $\tau_b \approx$ base R, $\tau_a$ differs
+
+When many observations share identical values (here enforced by sampling small integers), a substantial fraction of pairs are tied on $x$, on $y$, or on both. Tau-b explicitly discounts such tied pairs in the denominator and therefore remains on the same scale as base `R`. In contrast, tau-a retains $n_0$ in the denominator while excluding tied pairs from the numerator, pulling estimates towards zero as ties increase. In applied settings (e.g., ordinal disease scores, rounded phenotypes, or coarsened environmental indices), a tie-adjusted coefficient such as tau-b is generally preferable.
+
+```{r sanity_ties}
+set.seed(2)
+n_ties <- 5000L
+# Create many ties by sampling integers (stronger ties than rounding)
+x1 <- sample.int(40L, n_ties, replace = TRUE)
+y1 <- sample.int(50L, n_ties, replace = TRUE)
+
+tau_a_ties  <- kendall_tau_a_cpp(x1, y1)
+tau_b_ties  <- kendall_tau_b_cpp(x1, y1)
+tau_r_ties  <- suppressWarnings(stats::cor(x1, y1, method = "kendall"))
+
+dplyr::tibble(
+  scenario   = "many ties",
+  tau_a_cpp  = tau_a_ties,
+  tau_b_cpp  = tau_b_ties,
+  tau_baseR  = tau_r_ties,
+  abs_diff_a_vs_base = abs(tau_a_ties - tau_r_ties),
+  abs_diff_b_vs_base = abs(tau_b_ties - tau_r_ties)
+) |>
+  knitr::kable(digits = 6, 
+               caption = "Tie-heavy data: Kendall estimates (tau-a, tau-b, base R)")
+```
+
+
+# Benchmark design & microbenchmarks (no ties vs many ties)
+
+We benchmark three implementations on $n=10{,}000$ pairs. A `C++` **tau-a** (merge-sort inversion count), a `C++` **tau-b** (Fenwick tree with explicit tie counts), and base `R`’s Kendall (tie-aware, $O(n\log n)$). Each method is run 50 times after a warm-up to amortise compilation and jit effects. Results are summarised by the median and IQR of wall-clock times. Absolute timings will depend on hardware and compilation flags. Note that the principal comparison is relative performance under differing tie structures.
+
+```{r bench_setup, message=FALSE}
+set.seed(3)
+n_bench <- 10000L
+
+# No-ties benchmark data
+xb <- rnorm(n_bench)
+yb <- rnorm(n_bench)
+
+# Many-ties benchmark data
+xbt <- sample.int(200L, n_bench, replace = TRUE)
+ybt <- sample.int(220L, n_bench, replace = TRUE)
+
+# Warm-up (compile and JIT call paths)
+invisible(kendall_tau_a_cpp(xb,  yb))
+invisible(kendall_tau_b_cpp(xbt, ybt))
+invisible(stats::cor(xb,  yb,  method = "kendall"))
+invisible(stats::cor(xbt, ybt, method = "kendall"))
+```
+
+### Microbenchmark: tie-free data
+
+On essentially tie-free inputs, all algorithms are $O(n\log n)$ but differ in constants. The tau-a routine often has a slight advantage because it avoids tie searching. Agreement in estimates alongside stable timing indicates the implementations are behaving as expected in the, let's say, ``easy" regime.
+
+```{r bench_noties, warning=FALSE}
+mb_noties <- microbenchmark::microbenchmark(
+  cpp_tau_a  = kendall_tau_a_cpp(xb, yb),
+  cpp_tau_b  = kendall_tau_b_cpp(xb, yb),
+  base_kendall = stats::cor(xb, yb, method = "kendall"),
+  times = 50L
+)
+
+mb_noties_sum <- as.data.frame(mb_noties) |>
+  dplyr::group_by(expr) |>
+  dplyr::summarise(
+    median_ms = median(time) / 1e6,
+    iqr_ms    = IQR(time) / 1e6,
+    min_ms    = min(time) / 1e6,
+    max_ms    = max(time) / 1e6,
+    .groups = "drop"
+  ) |>
+  dplyr::arrange(median_ms)
+
+knitr::kable(mb_noties_sum, digits = 2,
+             caption = "Microbenchmark (no ties, n = 10,000): tau-a (C++), tau-b (C++), base R")
+```
+
+```{r plot_bench_noties, fig.width=7, fig.height=4}
+ggplot2::ggplot(as.data.frame(mb_noties),
+                ggplot2::aes(x = expr, y = time/1e6)) +
+  ggplot2::geom_boxplot(outlier.alpha = 0.15) +
+  ggplot2::labs(x = NULL, y = "Time (ms)",
+       title = "No ties: kendall_tau_a_cpp / kendall_tau_b_cpp / base R") +
+  ggplot2::theme_minimal(base_size = 12)
+```
+
+### Microbenchmark: many ties
+
+With many ties, tie-aware methods incur modest overhead for counting and handling groups, yet remain $O(n\log n)$. The tau-a routine may be fastest but is estimating a different quantity in this regime; its computational advantage should not be traded off against interpretability when ties matter. In most breeding or agricultural datasets with discrete or rounded measures, the tau-b (or base `R`) path is the appropriate comparator.
+
+```{r bench_ties, warning=FALSE}
+mb_ties <- microbenchmark::microbenchmark(
+  cpp_tau_a    = kendall_tau_a_cpp(xbt, ybt),
+  cpp_tau_b    = kendall_tau_b_cpp(xbt, ybt),
+  base_kendall = stats::cor(xbt, ybt, method = "kendall"),
+  times = 50L
+)
+
+mb_ties_sum <- as.data.frame(mb_ties) |>
+  dplyr::group_by(expr) |>
+  dplyr::summarise(
+    median_ms = median(time) / 1e6,
+    iqr_ms    = IQR(time) / 1e6,
+    min_ms    = min(time) / 1e6,
+    max_ms    = max(time) / 1e6,
+    .groups = "drop"
+  ) |>
+  dplyr::arrange(median_ms)
+
+knitr::kable(mb_ties_sum, digits = 2,
+             caption = "Microbenchmark (many ties, n = 10,000): tau-a (C++), tau-b (C++), base R")
+```
+
+```{r plot_bench_ties, fig.width=7, fig.height=4}
+ggplot2::ggplot(as.data.frame(mb_ties),
+                ggplot2::aes(x = expr, y = time/1e6)) +
+  ggplot2::geom_boxplot(outlier.alpha = 0.15) +
+  ggplot2::labs(x = NULL, y = "Time (ms)",
+       title = "Many ties: kendall_tau_a_cpp / kendall_tau_b_cpp / base R") +
+  ggplot2::theme_minimal(base_size = 12)
+```
+As you probably noted until here, in both scenarios $(n=10{,}000)$, the `C++` implementations are orders of magnitude faster than base R. Specifically in the last scenario:
+
+* **cpp tau-a** has a median $1.21$ ms being $\approx 1,269 \times$ faster than base `R` ($1,535.89$ ms).
+* **cpp tau-b:** has median $2.38$ ms being $\approx 645 \times$ faster than base `R`.
+* **tau-b vs tau-a:** tau-b is $\approx 2.0 \times$ slower than tau-a, reflecting the extra work needed for tie handling.
+
+The IQRs (0.18 ms for tau-a; 0.46 ms for tau-b; 214.89 ms for base `R`) indicate the `C++` timings are not only faster but also far more stable. Practically, this means we can use the tie-adjusted **tau-b C++** routine without sacrificing performance; the $\approx 2.0 \times$ overhead relative to tau-a is negligible in absolute terms, while the gap to base `R` remains several orders of magnitude.
+
+# Reproducibility
+
+```{r session}
+sessionInfo()
+```
+
+**Did you find this page helpful? Consider sharing it 🙌**
+
+<style>
+/* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
+/* Place this at the very end of the post so it wins the cascade. */
+
+/* 0) Widen the page shell Hugo Blox uses around articles */
+.page-body > .mx-auto,
+.page-body .max-w-screen-xl{
+  max-width: 100vw !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 1) Remove the Tailwind max-w cap on the <main> inside <article> */
+.page-body article > main{
+  max-width: none !important;  /* beats .max-w-6xl */
+  width: 100% !important;
+}
+
+/* 2) Control the actual reading width (fluid per breakpoint) */
+.page-body article .prose{
+  /* Base: a touch larger with comfy line height */
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+  line-height: 1.75;
+  text-align: left;
+  margin-inline: auto;
+
+  /* Reading width: scale up on big screens, but keep lines readable */
+  max-width: 86ch !important; /* default desktop */
+}
+@media (min-width: 1024px){  /* lg */
+  .page-body article .prose{ max-width: 96ch !important; }
+}
+@media (min-width: 1280px){  /* xl */
+  .page-body article .prose{ max-width: 102ch !important; }
+}
+@media (min-width: 1536px){  /* 2xl / very wide */
+  .page-body article .prose{ max-width: 108ch !important; }
+}
+
+/* 3) Phones/tablets: full width with side padding */
+@media (max-width: 768px){
+  .page-body article .prose{
+    max-width: 100% !important;
+    padding-inline: 1rem;
+  }
+}
+
+/* 4) Give the article more room by slimming sidebars on wide screens */
+@media (min-width: 1280px){
+  .hb-sidebar-container, .hb-toc { width: 12rem !important; } /* was 16rem */
+}
+@media (max-width: 1279.98px){
+  .hb-sidebar-container{ display:none !important; } /* hide sidebar under xl */
+}
+
+/* --------- Clean, professional type polish (scoped to post content) -------- */
+.page-body article .prose p{
+  margin: 0 0 1.15em;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.page-body article .prose h1{
+  font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.3rem);
+  margin: 1.2em 0 .5em;
+  padding-bottom: .25em;
+  border-bottom: 2px solid #e5e7eb;
+}
+.page-body article .prose h2{
+  font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.7rem);
+  margin: 1.35em 0 .4em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.page-body article .prose h3{
+  font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
+  margin: 1.1em 0 .3em;
+}
+
+/* Links: subtle underline-on-hover */
+.page-body article .prose a{
+  color: #2f6ab5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,106,181,.25);
+}
+.page-body article .prose a:hover{
+  color: #1f4f8f;
+  border-bottom-color: currentColor;
+}
+
+/* Code blocks & inline code */
+.page-body article .prose pre{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow: auto;
+}
+.page-body article .prose code{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  padding: .15em .35em;
+  font-size: .95em;
+}
+.page-body article .prose pre code{
+  background: none; border: 0; padding: 0; font-size: 0.95em;
+}
+
+/* Tables */
+.page-body article .prose table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.page-body article .prose th,
+.page-body article .prose td{
+  border: 1px solid #e5e7eb;
+  padding: .6rem .75rem;
+}
+.page-body article .prose thead th{
+  background: #2f6ab5;
+  color: #fff;
+  text-align: left;
+}
+
+/* Images & figures */
+.page-body article .prose img{ border-radius: 6px; }
+
+/* Optional: allow “full-bleed” wide elements
+   Add class="wide" to a block (table/pre/img wrapper) to span the viewport. */
+.page-body article .prose .wide{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-inline: clamp(12px, 4vw, 36px);
+}
+
+/* Footer timestamp spacing */
+.page-body article time{ margin-top: 2rem; display: block; }
+
+/* Dark mode tweaks */
+html.dark .page-body article .prose pre,
+html.dark .page-body article .prose code{
+  background: #111826;
+  border-color: #253041;
+}
+html.dark .page-body article .prose thead th{ background: #5aa0ff; }
+</style>
+

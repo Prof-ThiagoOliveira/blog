@@ -1,32 +1,25 @@
 ---
-title: Effects of compression techniques on data read/write performance
-author: Thiago de Paula Oliveira
-date: '2025-03-15'
+title: "Effects of compression techniques on data read/write performance"
+author: "Thiago de Paula Oliveira"
+date: "2025-03-15"
 slug: compression-data-read-write-performance
-categories:
-  - R Programming
-  - Data handling
-tags:
-  - Data compression
-  - Data read
-  - Data write
-  - Benchmarking
-  - R
-subtitle: 'Performance comparison of different compression techniques in R'
-summary: 'This post explores the performance of various compression techniques in R for reading and writing operations, highlighting file size, speed, and memory usage.'
-authors: 
-- admin
-lastmod: '2025-03-15T09:15:54Z'
-featured: no
+categories: ["R Programming", "Data handling"]
+tags: ["Data compression", "Data read", "Data write", "Benchmarking", "R"]
+subtitle: "Performance comparison of different compression techniques in R"
+summary: "This post explores the performance of various compression techniques in R for reading and writing operations, highlighting file size, speed, and memory usage."
+authors: ["admin"]
+lastmod: "2025-03-15T09:15:54Z"
+featured: false
 image:
-  caption: ''
-  focal_point: ''
-  preview_only: no
+  caption: ""
+  focal_point: ""
+  preview_only: false
 projects: []
 output:
-  html_document:
-    keep_md: yes
+  blogdown::html_page:
     toc: true
+    number_sections: true
+    toc_depth: 3
 ---
 
 # Post summary
@@ -81,7 +74,6 @@ Application needs also dictate the choice of compression technique. Real-time pr
 
 Understanding these factors allows for a more informed selection of compression techniques, optimizing performance and efficiency according to specific data handling requirements and resource constraints.
 
-
 # Database Structure and Compression
 
 The structure of the database plays a crucial role in determining the efficiency of compression. For this study, we use a generated dataset that simulates real-world data complexity, enabling a comprehensive assessment of various compression techniques on read/write performance.
@@ -92,7 +84,7 @@ The structure of the database plays a crucial role in determining the efficiency
 
 ## Dataset generation
 
-We benchmark row counts 10^6, and three structures (numeric, character, mixed).  The helper below fabricates a mixed‑type frame:
+We benchmark row counts 10\^6, and three structures (numeric, character, mixed). The helper below fabricates a mixed‑type frame:
 
 ```{r setup, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
@@ -124,7 +116,7 @@ dt_list <- list(
 )
 ```
 
-#  I/O function lists
+# I/O function lists
 
 ```{r}
 ## I/O function lists
@@ -240,7 +232,6 @@ knitr::kable(size_wide, digits = 2,
              caption = "File size (MB) by method and structure")
 ```
 
-
 ```{r}
 method_from_expr <- function(expr) sub("^write_|^read_", "", expr)
 
@@ -299,42 +290,31 @@ unique(plot_df$structure) %>%
 
 # Conclusions
 
-**Key take-aways from the 1 M-row datasets (50 replicates; three structures: numeric, character, mixed).**
+## Interpretation
 
-| Phase   | Structure   | Fastest median (ms)                 | Slowest median (ms)            | Spread (×) |
-|:--------|:------------|:------------------------------------|:-------------------------------|-----------:|
-| Write   | numeric     | `fst` (uncompressed) $\approx 10.4$     | Parquet + Gzip $\approx 1033.5$    | 103×       |
-| Write   | character   | `fst` (uncompressed) $\approx 56.4$     | Parquet + Gzip $\approx 2727.7$    | 49×        |
-| Write   | mixed       | `fst` (uncompressed) $\approx 71.6$     | Parquet + Gzip $\approx 3265.9$    | 45×        |
-| Read    | numeric     | `fst` (uncompressed) $\approx 5.8$      | CSV + Gzip $\approx 404.1$         | 69×        |
-| Read    | character   | Parquet (uncompressed) $\approx 51.9$   | CSV + Gzip $\approx 791.6$         | 15×        |
-| Read    | mixed       | Parquet (uncompressed) $\approx 123.8$  | CSV + Gzip $\approx 1655.1$        | 13×        |
+-   **Write path**
+    -   Uncompressed `fst` is one of the fastest writer across all structures.\
+    -   `qs` (`preset = "fast"`) is consistently the next best, offering strong throughput with modest size reduction.\
+    -   `data.table` is equivalent to `fst` in mixed scenario.
+    -   Parquet with Gzip is the slowest writer by a large margin in all cases.
+-   **Read path**
+    -   For **numeric** data, uncompressed `fst` is the fastest reader.
+    -   For **character** and **mixed** data, **Parquet (uncompressed)** yields the lowest read latency, with **Snappy** and **Zstd** close behind; these formats benefit from reduced on-disk size that offsets decompression overhead.\
+    -   `CSV` + `Gzip` is consistently the slowest reader, particularly for mixed data.
+-   **File size**
+    -   **Zstd** and **Gzip** deliver the smallest files across structures.\
+    -   **Snappy** and **qs** strike a practical balance, with much smaller than uncompressed, and materially better write/read performance than Gzip.\
+    -   `CSV` is largest on disk; `CSV` + `Gzip` is smaller but slow to read.
 
-### Interpretation
+## Practical perspective
 
-- **Write path**
-  - Uncompressed `fst` is the fastest writer across all structures.  
-  - `qs` (`preset = "fast"`) is consistently the next best, offering strong throughput with modest size reduction.  
-  - Parquet with Gzip is the slowest writer by a large margin in all cases.
-
-- **Read path**
-  - For **numeric** data, uncompressed `fst` is the fastest reader.
-  - For **character** and **mixed** data, **Parquet (uncompressed)** yields the lowest read latency, with **Snappy** and **Zstd** close behind; these formats benefit from reduced on-disk size that offsets decompression overhead.  
-  - `CSV` + `Gzip` is consistently the slowest reader, particularly for mixed data.
-
-- **File size**
-  - **Zstd** and **Gzip** deliver the smallest files across structures.  
-  - **Snappy** and **qs** strike a practical balance, with much smaller than uncompressed, and materially better write/read performance than Gzip.  
-  - `CSV` is largest on disk; `CSV` + `Gzip` is smaller but slow to read.
-
-### Practical perspective
-
-- **High-frequency writes** should prefer uncompressed `fst` (numeric-heavy) or `qs` (mixed/character) to maximise throughput.  
-- **Read-optimised pipelines** should prefer Parquet (uncompressed) for minimum latency, or Parquet + Snappy/Zstd when storage reduction matters with minimal read-time penalty.  
-- **Archival or size-constrained storage** should favour Parquet + Zstd (or Gzip when maximum compression is required and slower I/O is acceptable).
+-   **High-frequency writes** should prefer uncompressed `fst` (numeric-heavy) or `qs` (mixed/character) to maximise throughput.\
+-   **Read-optimised pipelines** should prefer Parquet (uncompressed) for minimum latency, or Parquet + Snappy/Zstd when storage reduction matters with minimal read-time penalty.\
+-   **Archival or size-constrained storage** should favour Parquet + Zstd (or Gzip when maximum compression is required and slower I/O is acceptable).
 
 **Did you find this page helpful? Consider sharing it 🙌**
 
+```{=html}
 <style>
 /* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
 /* Place this at the very end of the post so it wins the cascade. */
@@ -489,3 +469,4 @@ html.dark .page-body article .prose code{
 }
 html.dark .page-body article .prose thead th{ background: #5aa0ff; }
 </style>
+```

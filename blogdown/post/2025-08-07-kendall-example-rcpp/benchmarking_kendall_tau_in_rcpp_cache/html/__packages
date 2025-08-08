@@ -1,0 +1,5 @@
+Rcpp
+microbenchmark
+dplyr
+ggplot2
+knitr

@@ -1,0 +1,8 @@
+sanity_noties	n_noties	tau_a_noties	tau_b_noties	tau_r_noties	x0	y0
+sanity_ties	n_ties	tau_a_ties	tau_b_ties	tau_r_ties	x1	y1
+bench_setup	n_bench	xb	xbt	yb	ybt
+bench_noties	mb_noties	mb_noties_sum
+plot_bench_noties	
+bench_ties	mb_ties	mb_ties_sum
+plot_bench_ties	
+session	

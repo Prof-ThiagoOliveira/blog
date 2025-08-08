@@ -14,7 +14,7 @@ subtitle: ''
 summary: 'what each tool solves, when to reach for it, and ready-to-paste code.'
 authors: 
 - admin
-lastmod: '2025-08-06T09:15:54Z'
+lastmod: '2025-07-06T09:15:54Z'
 featured: no
 image:
   caption: ''
@@ -22,15 +22,30 @@ image:
   preview_only: no
 projects: []
 output:
-  html_document:
-    keep_md: yes
+  blogdown::html_page:
     toc: true
+    number_sections: true
+    toc_depth: 3
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#prototype-at-light-speed-with-inline" id="toc-prototype-at-light-speed-with-inline"><span class="toc-section-number">1</span> Prototype at light-speed with <strong>inline</strong></a>
+<ul>
+<li><a href="#level-up-with-plugins-and-rcpp-attributes" id="toc-level-up-with-plugins-and-rcpp-attributes"><span class="toc-section-number">1.1</span> Level-up with plugins and <strong>Rcpp attributes</strong></a>
+<ul>
+<li><a href="#plugins" id="toc-plugins"><span class="toc-section-number">1.1.1</span> 4.1 Plugins</a></li>
+<li><a href="#rcpp-attributes" id="toc-rcpp-attributes"><span class="toc-section-number">1.1.2</span> 4.2 Rcpp Attributes</a></li>
+</ul></li>
+<li><a href="#quick-decision-guide" id="toc-quick-decision-guide"><span class="toc-section-number">1.2</span> Quick decision guide</a></li>
+<li><a href="#take-aways" id="toc-take-aways"><span class="toc-section-number">1.3</span> Take-aways</a></li>
+</ul></li>
+</ul>
+</div>
 
-<div id="prototype-at-light-speed-with-inline" class="section level1">
-<h1>Prototype at light-speed with <strong>inline</strong></h1>
+<div id="prototype-at-light-speed-with-inline" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Prototype at light-speed with <strong>inline</strong></h1>
 <p><code>inline::cxxfunction()</code> compiles, links and returns an <code>R</code> function from a character string, ideal for quick sketches or teaching.</p>
 <pre class="r"><code>library(inline)
 library(Rcpp)</code></pre>
@@ -72,10 +87,10 @@ conv(1:4, 2:5)</code></pre>
 <li>you are benchmarking or exploring an API shape;</li>
 <li>you want to inject ad-hoc <code>#include</code> blocks or compiler flags.</li>
 </ul>
-<div id="level-up-with-plugins-and-rcpp-attributes" class="section level2">
-<h2>Level-up with plugins and <strong>Rcpp attributes</strong></h2>
-<div id="plugins" class="section level3">
-<h3>4.1 Plugins</h3>
+<div id="level-up-with-plugins-and-rcpp-attributes" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Level-up with plugins and <strong>Rcpp attributes</strong></h2>
+<div id="plugins" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> 4.1 Plugins</h3>
 <p>Plugins bolt extra headers and libraries onto an <code>inline</code> or attributes build—no manual <code>-I</code>/<code>-L</code> juggling.
 The built-in <code>RcppArmadillo</code> plugin lets you write BLAS-backed linear algebra on the fly:</p>
 <pre class="r"><code>library(RcppArmadillo)
@@ -139,12 +154,12 @@ cbind(fastLm = res$coef,
   times  = 100
 )</code></pre>
 <pre><code>## Unit: microseconds
-##    expr   min    lq    mean median      uq    max neval cld
-##  fastLm  43.2  47.2   74.10   68.0   96.10  157.9   100  a 
-##      lm 805.1 905.1 1249.86 1299.2 1496.55 2267.7   100   b</code></pre>
+##    expr   min     lq    mean median     uq    max neval cld
+##  fastLm  34.6  38.55  53.044   53.1  63.40   95.6   100  a 
+##      lm 642.4 700.25 757.264  715.0 757.05 1109.3   100   b</code></pre>
 </div>
-<div id="rcpp-attributes" class="section level3">
-<h3>4.2 Rcpp Attributes</h3>
+<div id="rcpp-attributes" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> 4.2 Rcpp Attributes</h3>
 <ul>
 <li>Attributes internalise <em>inline</em>’s magic behind <code>[[Rcpp::export]]</code>.</li>
 <li><code>sourceCpp()</code> compiles a file;</li>
@@ -168,37 +183,37 @@ fibonacci(20)     #&gt; 6765</code></pre>
 <p>Use attributes for almost everything once you move beyond exploratory work.</p>
 </div>
 </div>
-<div id="quick-decision-guide" class="section level2">
-<h2>Quick decision guide</h2>
+<div id="quick-decision-guide" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Quick decision guide</h2>
 <table>
 <colgroup>
 <col width="36%" />
 <col width="63%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Task</th>
 <th>Reach for …</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Package / production code</td>
 <td><strong>Rcpp Attributes</strong></td>
 </tr>
-<tr>
+<tr class="even">
 <td>One-off sketches, benchmarks, Stack Overflow post</td>
 <td><strong>inline::cxxfunction()</strong></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Extra C++ libraries (Armadillo, Eigen, GSL, …)</td>
 <td><strong>Plugins</strong> (built-in or custom)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Low-level debugging with <code>gdb</code></td>
 <td>Manual <code>R CMD SHLIB</code> + helper flags</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Propagate C++ exceptions cleanly</td>
 <td>Ensure <code>BEGIN_RCPP/END_RCPP</code> are present (added automatically by <code>inline</code> / Attributes)</td>
 </tr>
@@ -206,8 +221,8 @@ fibonacci(20)     #&gt; 6765</code></pre>
 </table>
 <hr />
 </div>
-<div id="take-aways" class="section level2">
-<h2>Take-aways</h2>
+<div id="take-aways" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Take-aways</h2>
 <ul>
 <li><strong>Match R’s compiler</strong> or live with hard-to-trace crashes.</li>
 <li><strong><code>.Call()</code> via Rcpp</strong> is the modern native interface—type, which is safe and header-driven.</li>

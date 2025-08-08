@@ -1,0 +1,949 @@
+---
+title: "Effects of compression techniques on data read/write performance"
+author: "Thiago de Paula Oliveira"
+date: "2025-03-15"
+slug: compression-data-read-write-performance
+categories: ["R Programming", "Data handling"]
+tags: ["Data compression", "Data read", "Data write", "Benchmarking", "R"]
+subtitle: "Performance comparison of different compression techniques in R"
+summary: "This post explores the performance of various compression techniques in R for reading and writing operations, highlighting file size, speed, and memory usage."
+authors: ["admin"]
+lastmod: "2025-03-15T09:15:54Z"
+featured: false
+image:
+  caption: ""
+  focal_point: ""
+  preview_only: false
+projects: []
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 3
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#post-summary" id="toc-post-summary"><span class="toc-section-number">1</span> Post summary</a></li>
+<li><a href="#purpose-and-motivation" id="toc-purpose-and-motivation"><span class="toc-section-number">2</span> Purpose and Motivation</a></li>
+<li><a href="#detailed-overview-of-compression-techniques" id="toc-detailed-overview-of-compression-techniques"><span class="toc-section-number">3</span> Detailed Overview of Compression Techniques</a>
+<ul>
+<li><a href="#gzip-gnu-zip" id="toc-gzip-gnu-zip"><span class="toc-section-number">3.1</span> Gzip (GNU zip)</a></li>
+<li><a href="#snappy" id="toc-snappy"><span class="toc-section-number">3.2</span> Snappy</a></li>
+<li><a href="#zstandard-zstd" id="toc-zstandard-zstd"><span class="toc-section-number">3.3</span> Zstandard (Zstd)</a></li>
+<li><a href="#brotli" id="toc-brotli"><span class="toc-section-number">3.4</span> Brotli</a></li>
+<li><a href="#lz4" id="toc-lz4"><span class="toc-section-number">3.5</span> LZ4</a></li>
+<li><a href="#uncompressed" id="toc-uncompressed"><span class="toc-section-number">3.6</span> Uncompressed</a></li>
+</ul></li>
+<li><a href="#factors-influencing-compression-efficiency" id="toc-factors-influencing-compression-efficiency"><span class="toc-section-number">4</span> Factors influencing compression efficiency</a></li>
+<li><a href="#database-structure-and-compression" id="toc-database-structure-and-compression"><span class="toc-section-number">5</span> Database Structure and Compression</a>
+<ul>
+<li><a href="#device-specifications" id="toc-device-specifications"><span class="toc-section-number">5.1</span> Device specifications</a></li>
+<li><a href="#dataset-generation" id="toc-dataset-generation"><span class="toc-section-number">5.2</span> Dataset generation</a></li>
+</ul></li>
+<li><a href="#io-function-lists" id="toc-io-function-lists"><span class="toc-section-number">6</span> I/O function lists</a></li>
+<li><a href="#results" id="toc-results"><span class="toc-section-number">7</span> Results</a>
+<ul>
+<li><a href="#summarising" id="toc-summarising"><span class="toc-section-number">7.1</span> Summarising</a></li>
+<li><a href="#throughput-plot" id="toc-throughput-plot"><span class="toc-section-number">7.2</span> Throughput plot</a></li>
+</ul></li>
+<li><a href="#conclusions" id="toc-conclusions"><span class="toc-section-number">8</span> Conclusions</a>
+<ul>
+<li><a href="#interpretation" id="toc-interpretation"><span class="toc-section-number">8.1</span> Interpretation</a></li>
+<li><a href="#practical-perspective" id="toc-practical-perspective"><span class="toc-section-number">8.2</span> Practical perspective</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="post-summary" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Post summary</h1>
+<p>Following our previous exploration of data read/write performance, we now delve into the effects of different compression techniques on these processes. Compression is vital for optimizing storage efficiency and access speed. This post covers the definitions of compression methods, factors influencing compression efficiency, guidelines for using higher or lower compression, and detailed empirical testing results.</p>
+</div>
+<div id="purpose-and-motivation" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Purpose and Motivation</h1>
+<p>Compression is essential for reducing storage requirements and improving data access times. By understanding the impact of different compression techniques, we can optimize data handling in R, making it more efficient and effective. This study explores various compression methods to provide insights into their performance in different scenarios.</p>
+</div>
+<div id="detailed-overview-of-compression-techniques" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Detailed Overview of Compression Techniques</h1>
+<p>Understanding the specific characteristics and use cases of various compression techniques is crucial for optimizing data storage and access. Below, we delve deeper into the most commonly used compression methods, detailing their strengths, weaknesses, and ideal applications.</p>
+<div id="gzip-gnu-zip" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Gzip (GNU zip)</h2>
+<p>Gzip uses the DEFLATE algorithm, which balances speed and compression ratio. It is widely supported across different platforms and programming languages, making it effective for both text and binary data. Its primary strength lies in providing a good compromise between compression speed and ratio, making it a popular choice for general-purpose compression. However, Gzip is not the fastest in terms of compression or decompression speeds, and its compression ratios are moderate compared to newer algorithms. It is ideal for general-purpose compression where compatibility and ease of use are important, such as web servers for compressing HTTP responses and archiving files where space saving is needed but not critical.</p>
+</div>
+<div id="snappy" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Snappy</h2>
+<p>Snappy is optimized for speed, making it ideal for applications requiring rapid read/write operations. It excels in scenarios where quick compression and decompression are more critical than achieving the highest compression ratio. Snappy’s primary strength is its high speed, both in compression and decompression, which minimizes latency in data processing. However, this comes at the cost of lower compression ratios compared to other algorithms. Snappy is best suited for real-time data processing, log compression, and systems where performance is a higher priority than storage efficiency.</p>
+</div>
+<div id="zstandard-zstd" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Zstandard (Zstd)</h2>
+<p>Zstandard, or Zstd, offers high compression ratios and fast decompression, making it excellent for scenarios that need high compression without significant speed loss. Zstd is highly versatile, providing various compression levels to balance speed and compression ratio according to the application’s needs. Its strengths include superior compression ratios and efficient decompression speeds, often outperforming older algorithms like Gzip. One downside is that higher compression levels can be resource-intensive in terms of CPU and memory usage. Zstd is ideal for large-scale data storage, backup solutions, and systems where both speed and storage efficiency are critical.</p>
+</div>
+<div id="brotli" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Brotli</h2>
+<p>Brotli achieves high compression ratios, especially for text data, making it perfect for web content. Developed by Google, Brotli provides excellent compression efficiency for web fonts and other web assets, significantly reducing file sizes and improving load times. Its primary strength lies in its ability to achieve superior compression ratios for text data, which is crucial for optimizing web performance. However, Brotli can be slower than other algorithms in both compression and decompression, particularly at higher compression levels. Brotli is best used for web content delivery, where minimizing bandwidth usage and improving load times are paramount.</p>
+</div>
+<div id="lz4" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> LZ4</h2>
+<p>LZ4 prioritizes speed over compression ratio, making it ideal for real-time data processing. It is designed to provide extremely fast compression and decompression, which is critical in performance-sensitive environments. LZ4’s strengths include its lightning-fast speeds, which make it suitable for scenarios where data needs to be processed in real-time. However, its compression ratios are lower than those of more advanced algorithms like Zstd or Brotli. LZ4 is particularly useful for in-memory compression, real-time logging, and applications where speed is more important than achieving the highest compression ratio.</p>
+</div>
+<div id="uncompressed" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Uncompressed</h2>
+<p>Storing data in its original format without compression ensures the fastest possible read and write speeds, as there is no overhead from compression or decompression processes. This approach is best when speed is crucial, and storage space is not a concern. The primary advantage of uncompressed data is the elimination of latency related to compression algorithms, providing immediate access to data. However, the downside is the significantly larger storage requirement. Uncompressed storage is ideal for applications where performance is paramount and storage costs are negligible, such as temporary data storage and real-time data analytics.</p>
+<p>By understanding these compression techniques’ specific advantages and limitations, you can make informed decisions to optimize data storage and access for various applications.</p>
+</div>
+</div>
+<div id="factors-influencing-compression-efficiency" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Factors influencing compression efficiency</h1>
+<p>Several critical factors influence the efficiency of compression techniques, determining their suitability for different scenarios.</p>
+<p>Data type and structure play a significant role in compression efficiency. Text data typically compresses well with algorithms like <code>Brotli</code>, which are designed to handle repetitive patterns in text efficiently. Conversely, numerical data often benefits more from algorithms like <code>Zstandard</code> (<code>Zstd</code>), which can provide higher compression ratios for such data types due to its sophisticated encoding mechanisms.</p>
+<p>Compression levels are another crucial factor. Higher compression levels generally increase the compression ratio, resulting in smaller file sizes. However, this improvement comes at the cost of reduced speed and increased CPU and memory resource requirements. Therefore, selecting an appropriate compression level involves balancing the need for smaller file sizes against the available computational resources and required processing speeds.</p>
+<p>CPU and memory capabilities of the hardware significantly impact compression and decompression speeds. Devices with higher processing power and more available memory can handle more intensive compression tasks more efficiently. In contrast, limited resources can bottleneck the performance, making it essential to choose a compression method that aligns with the hardware’s capabilities.</p>
+<p>Application needs also dictate the choice of compression technique. Real-time processing environments demand speed, necessitating the use of algorithms optimized for quick compression and decompression, such as Snappy or LZ4. On the other hand, archival purposes benefit from higher compression ratios to minimize storage space, making algorithms like Brotli or Zstd more suitable due to their superior compression efficiency.</p>
+<p>Understanding these factors allows for a more informed selection of compression techniques, optimizing performance and efficiency according to specific data handling requirements and resource constraints.</p>
+</div>
+<div id="database-structure-and-compression" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Database Structure and Compression</h1>
+<p>The structure of the database plays a crucial role in determining the efficiency of compression. For this study, we use a generated dataset that simulates real-world data complexity, enabling a comprehensive assessment of various compression techniques on read/write performance.</p>
+<div id="device-specifications" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Device specifications</h2>
+<p>13th‑Gen Intel Core i7‑13620H 32 GB RAM - Windows 64‑bit</p>
+</div>
+<div id="dataset-generation" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Dataset generation</h2>
+<p>We benchmark row counts 10^6, and three structures (numeric, character, mixed). The helper below fabricates a mixed‑type frame:</p>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+source(&quot;utils.R&quot;)
+
+generate_sample_data &lt;- function(n, type = &quot;mixed&quot;){
+  set.seed(123)
+  if(type == &quot;numeric&quot;){
+    data.frame(ID = seq_len(n), Value = rnorm(n))
+  } else if(type == &quot;character&quot;){
+    data.frame(ID = seq_len(n),
+               Description = replicate(n, paste0(sample(letters,20,TRUE), 
+                                                 collapse=&quot;&quot;)))
+  } else {
+    data.frame(
+      ID          = seq_len(n),
+      Value       = rnorm(n),
+      Category    = sample(letters[1:5], n, TRUE),
+      Description = replicate(n, paste0(sample(letters,20,TRUE), collapse=&quot;&quot;))
+    )
+  }
+}
+
+sample_size &lt;- 1e6
+dt_list &lt;- list(
+  numeric   = as.data.table(generate_sample_data(sample_size, &quot;numeric&quot;)),
+  character = as.data.table(generate_sample_data(sample_size, &quot;character&quot;)),
+  mixed     = as.data.table(generate_sample_data(sample_size, &quot;mixed&quot;))
+)</code></pre>
+</div>
+</div>
+<div id="io-function-lists" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> I/O function lists</h1>
+<pre class="r"><code>## I/O function lists
+write_funcs &lt;- list(
+  parquet_gzip = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;gzip&quot;),
+  parquet_snappy = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;snappy&quot;),
+  parquet_zstd = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;zstd&quot;),
+  parquet_uncompressed = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;uncompressed&quot;),
+  qs_fast = 
+    function(d,f) qs::qsave(d, f, preset = &quot;fast&quot;),
+  fst_uncompressed = 
+    function(d,f) fst::write_fst(d, f, compress = 0),
+  dt_gzip = 
+    function(d,f) data.table::fwrite(d, f, compress = &quot;gzip&quot;),
+  dt_none = 
+    function(d,f) data.table::fwrite(d, f, compress = &quot;none&quot;)
+)
+
+read_funcs &lt;- list(
+  parquet_gzip         = function(f) arrow::read_parquet(f),
+  parquet_snappy       = function(f) arrow::read_parquet(f),
+  parquet_zstd         = function(f) arrow::read_parquet(f),
+  parquet_uncompressed = function(f) arrow::read_parquet(f),
+  qs_fast              = function(f) qs::qread(f),
+  fst_uncompressed     = function(f) fst::read_fst(f),
+  dt_gzip              = function(f) data.table::fread(f),
+  dt_none              = function(f) data.table::fread(f)
+)</code></pre>
+</div>
+<div id="results" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Results</h1>
+<pre class="r"><code>results &lt;- lapply(names(dt_list), function(structure) {
+  paths &lt;- get_paths(structure)
+  out   &lt;- run_benchmarks_one(dt_list[[structure]], paths, write_funcs, 
+                              read_funcs)
+  out$write_summary$structure &lt;- structure
+  out$read_summary$structure  &lt;- structure
+  out$size_summary$structure  &lt;- structure
+  out
+})
+
+write_summary_all &lt;- dplyr::bind_rows(lapply(results, `[[`, &quot;write_summary&quot;))
+read_summary_all  &lt;- dplyr::bind_rows(lapply(results, `[[`, &quot;read_summary&quot;))
+size_summary_all  &lt;- dplyr::bind_rows(lapply(results, `[[`, &quot;size_summary&quot;))</code></pre>
+<div id="summarising" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Summarising</h2>
+<pre class="r"><code>pretty_method &lt;- c(
+  fst_uncompressed      = &quot;fst (uncompressed)&quot;,
+  qs_fast               = &quot;qs (preset = &#39;fast&#39;)&quot;,
+  parquet_snappy        = &quot;Parquet + Snappy&quot;,
+  parquet_zstd          = &quot;Parquet + Zstd&quot;,
+  parquet_uncompressed  = &quot;Parquet (uncompressed)&quot;,
+  parquet_gzip          = &quot;Parquet + Gzip&quot;,
+  dt_none               = &quot;CSV via data.table (none)&quot;,
+  dt_gzip               = &quot;CSV via data.table (gzip)&quot;
+)
+
+write_s &lt;- write_summary_all %&gt;%
+  dplyr::mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method,
+         write_median_ms = median,
+         write_mean_ms   = mean,
+         write_sd_ms     = sd)
+
+read_s &lt;- read_summary_all %&gt;%
+  dplyr::mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method,
+         read_median_ms = median,
+         read_mean_ms   = mean,
+         read_sd_ms     = sd)
+
+cons &lt;- write_s %&gt;%
+  inner_join(read_s, by = c(&quot;structure&quot;,&quot;method&quot;)) %&gt;%
+  left_join(size_summary_all %&gt;%
+              select(structure, method, size_MB, relative_size),
+            by = c(&quot;structure&quot;,&quot;method&quot;)) %&gt;%
+  dplyr::mutate(Method = recode(method, !!!pretty_method)) %&gt;%
+  arrange(structure, write_median_ms)
+
+unique(cons$structure) %&gt;%
+  walk(~ print_per_structure(cons, .x))
+
+write_wide &lt;- cons %&gt;%
+  select(structure, Method, `Write (ms)` = write_median_ms) %&gt;%
+  pivot_wider(names_from = structure, values_from = `Write (ms)`) %&gt;%
+  arrange(`mixed`)  # or order by &#39;numeric&#39; etc.
+
+knitr::kable(write_wide, digits = 1,
+             caption = &quot;Median write time (ms) by storage method and data structure&quot;)</code></pre>
+<table>
+<caption>(#tab:table_read)Median write time (ms) by storage method and data structure</caption>
+<thead>
+<tr class="header">
+<th align="left">Method</th>
+<th align="right">character</th>
+<th align="right">mixed</th>
+<th align="right">numeric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CSV via data.table (none)</td>
+<td align="right">41.2</td>
+<td align="right">61.1</td>
+<td align="right">28.6</td>
+</tr>
+<tr class="even">
+<td align="left">fst (uncompressed)</td>
+<td align="right">44.7</td>
+<td align="right">67.3</td>
+<td align="right">8.1</td>
+</tr>
+<tr class="odd">
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">62.2</td>
+<td align="right">107.1</td>
+<td align="right">11.9</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">127.1</td>
+<td align="right">203.5</td>
+<td align="right">47.9</td>
+</tr>
+<tr class="odd">
+<td align="left">Parquet + Snappy</td>
+<td align="right">191.2</td>
+<td align="right">261.6</td>
+<td align="right">48.5</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet + Zstd</td>
+<td align="right">216.0</td>
+<td align="right">292.2</td>
+<td align="right">73.1</td>
+</tr>
+<tr class="odd">
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">212.0</td>
+<td align="right">331.2</td>
+<td align="right">270.8</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet + Gzip</td>
+<td align="right">2134.4</td>
+<td align="right">2461.4</td>
+<td align="right">829.0</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Wide table: read medians
+read_wide &lt;- cons %&gt;%
+  select(structure, Method, `Read (ms)` = read_median_ms) %&gt;%
+  pivot_wider(names_from = structure, values_from = `Read (ms)`) %&gt;%
+  arrange(`mixed`)
+knitr::kable(read_wide, digits = 1,
+             caption = &quot;Median read time (ms) by storage method and data structure&quot;)</code></pre>
+<table>
+<caption>(#tab:table_read)Median read time (ms) by storage method and data structure</caption>
+<thead>
+<tr class="header">
+<th align="left">Method</th>
+<th align="right">character</th>
+<th align="right">mixed</th>
+<th align="right">numeric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">61.6</td>
+<td align="right">80.8</td>
+<td align="right">28.2</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet + Snappy</td>
+<td align="right">76.4</td>
+<td align="right">91.7</td>
+<td align="right">28.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Parquet + Zstd</td>
+<td align="right">87.5</td>
+<td align="right">110.8</td>
+<td align="right">45.1</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet + Gzip</td>
+<td align="right">228.6</td>
+<td align="right">338.3</td>
+<td align="right">93.7</td>
+</tr>
+<tr class="odd">
+<td align="left">fst (uncompressed)</td>
+<td align="right">288.7</td>
+<td align="right">443.4</td>
+<td align="right">6.2</td>
+</tr>
+<tr class="even">
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">306.9</td>
+<td align="right">464.1</td>
+<td align="right">15.8</td>
+</tr>
+<tr class="odd">
+<td align="left">CSV via data.table (none)</td>
+<td align="right">336.8</td>
+<td align="right">491.1</td>
+<td align="right">16.9</td>
+</tr>
+<tr class="even">
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">846.8</td>
+<td align="right">1169.3</td>
+<td align="right">440.3</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Wide table: sizes
+size_wide &lt;- cons %&gt;%
+  select(structure, Method, `Size (MB)` = size_MB) %&gt;%
+  pivot_wider(names_from = structure, values_from = `Size (MB)`)
+knitr::kable(size_wide, digits = 2,
+             caption = &quot;File size (MB) by method and structure&quot;)</code></pre>
+<table>
+<caption>(#tab:table_read)File size (MB) by method and structure</caption>
+<thead>
+<tr class="header">
+<th align="left">Method</th>
+<th align="right">character</th>
+<th align="right">mixed</th>
+<th align="right">numeric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CSV via data.table (none)</td>
+<td align="right">27.55</td>
+<td align="right">46.78</td>
+<td align="right">24.84</td>
+</tr>
+<tr class="even">
+<td align="left">fst (uncompressed)</td>
+<td align="right">26.83</td>
+<td align="right">39.35</td>
+<td align="right">11.44</td>
+</tr>
+<tr class="odd">
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">23.94</td>
+<td align="right">32.49</td>
+<td align="right">11.49</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">27.35</td>
+<td align="right">35.61</td>
+<td align="right">12.28</td>
+</tr>
+<tr class="odd">
+<td align="left">Parquet + Snappy</td>
+<td align="right">25.28</td>
+<td align="right">33.54</td>
+<td align="right">12.28</td>
+</tr>
+<tr class="even">
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">15.80</td>
+<td align="right">26.64</td>
+<td align="right">10.53</td>
+</tr>
+<tr class="odd">
+<td align="left">Parquet + Zstd</td>
+<td align="right">15.46</td>
+<td align="right">23.35</td>
+<td align="right">10.67</td>
+</tr>
+<tr class="even">
+<td align="left">Parquet + Gzip</td>
+<td align="right">15.30</td>
+<td align="right">23.19</td>
+<td align="right">9.41</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>method_from_expr &lt;- function(expr) sub(&quot;^write_|^read_&quot;, &quot;&quot;, expr)
+
+# Prepare write and read with ratios
+write_s &lt;- write_summary_all %&gt;%
+  mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method, write_median_ms = median) %&gt;%
+  normalise_ratio(&quot;write_median_ms&quot;)
+
+read_s &lt;- read_summary_all %&gt;%
+  mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method, read_median_ms = median) %&gt;%
+  normalise_ratio(&quot;read_median_ms&quot;)
+
+# Prepare sizes with ratio to smallest
+size_s &lt;- size_summary_all %&gt;%
+  normalise_ratio(&quot;size_MB&quot;) %&gt;%
+  select(structure, method, size_MB, size_MB_ratio)
+
+# Join all
+consolidated_ratio &lt;- write_s %&gt;%
+  inner_join(read_s,  by = c(&quot;structure&quot;, &quot;method&quot;)) %&gt;%
+  left_join(size_s,   by = c(&quot;structure&quot;, &quot;method&quot;)) %&gt;%
+  mutate(Method = recode(method, !!!pretty_method)) %&gt;%
+  arrange(structure, write_median_ms)
+
+knitr::kable(
+  consolidated_ratio %&gt;%
+    select(structure, Method,
+           `Write (ms)` = write_median_ms,
+           `Write (×)`  = write_median_ms_ratio,
+           `Read (ms)`  = read_median_ms,
+           `Read (×)`   = read_median_ms_ratio,
+           `Size (MB)`  = size_MB,
+           `Size (×)`   = size_MB_ratio),
+  digits = 2,
+  caption = &quot;Median write/read times and file size with ratios (from fastest/smallest) by method and structure&quot;
+)</code></pre>
+<table style="width:100%;">
+<caption><span id="tab:unnamed-chunk-2">Table 7.1: </span>Median write/read times and file size with ratios (from fastest/smallest) by method and structure</caption>
+<colgroup>
+<col width="10%" />
+<col width="27%" />
+<col width="11%" />
+<col width="10%" />
+<col width="10%" />
+<col width="9%" />
+<col width="10%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">structure</th>
+<th align="left">Method</th>
+<th align="right">Write (ms)</th>
+<th align="right">Write (×)</th>
+<th align="right">Read (ms)</th>
+<th align="right">Read (×)</th>
+<th align="right">Size (MB)</th>
+<th align="right">Size (×)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">41.22</td>
+<td align="right">1.00</td>
+<td align="right">336.81</td>
+<td align="right">5.46</td>
+<td align="right">27.55</td>
+<td align="right">1.80</td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">44.67</td>
+<td align="right">1.08</td>
+<td align="right">288.73</td>
+<td align="right">4.68</td>
+<td align="right">26.83</td>
+<td align="right">1.75</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">62.17</td>
+<td align="right">1.51</td>
+<td align="right">306.94</td>
+<td align="right">4.98</td>
+<td align="right">23.94</td>
+<td align="right">1.56</td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">127.14</td>
+<td align="right">3.08</td>
+<td align="right">61.63</td>
+<td align="right">1.00</td>
+<td align="right">27.35</td>
+<td align="right">1.79</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">191.23</td>
+<td align="right">4.64</td>
+<td align="right">76.40</td>
+<td align="right">1.24</td>
+<td align="right">25.28</td>
+<td align="right">1.65</td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">211.96</td>
+<td align="right">5.14</td>
+<td align="right">846.76</td>
+<td align="right">13.74</td>
+<td align="right">15.80</td>
+<td align="right">1.03</td>
+</tr>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">216.01</td>
+<td align="right">5.24</td>
+<td align="right">87.53</td>
+<td align="right">1.42</td>
+<td align="right">15.46</td>
+<td align="right">1.01</td>
+</tr>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">2134.44</td>
+<td align="right">51.79</td>
+<td align="right">228.64</td>
+<td align="right">3.71</td>
+<td align="right">15.30</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="odd">
+<td align="left">mixed</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">61.15</td>
+<td align="right">1.00</td>
+<td align="right">491.09</td>
+<td align="right">6.08</td>
+<td align="right">46.78</td>
+<td align="right">2.02</td>
+</tr>
+<tr class="even">
+<td align="left">mixed</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">67.34</td>
+<td align="right">1.10</td>
+<td align="right">443.37</td>
+<td align="right">5.49</td>
+<td align="right">39.35</td>
+<td align="right">1.70</td>
+</tr>
+<tr class="odd">
+<td align="left">mixed</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">107.14</td>
+<td align="right">1.75</td>
+<td align="right">464.14</td>
+<td align="right">5.75</td>
+<td align="right">32.49</td>
+<td align="right">1.40</td>
+</tr>
+<tr class="even">
+<td align="left">mixed</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">203.47</td>
+<td align="right">3.33</td>
+<td align="right">80.78</td>
+<td align="right">1.00</td>
+<td align="right">35.61</td>
+<td align="right">1.54</td>
+</tr>
+<tr class="odd">
+<td align="left">mixed</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">261.62</td>
+<td align="right">4.28</td>
+<td align="right">91.66</td>
+<td align="right">1.13</td>
+<td align="right">33.54</td>
+<td align="right">1.45</td>
+</tr>
+<tr class="even">
+<td align="left">mixed</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">292.15</td>
+<td align="right">4.78</td>
+<td align="right">110.82</td>
+<td align="right">1.37</td>
+<td align="right">23.35</td>
+<td align="right">1.01</td>
+</tr>
+<tr class="odd">
+<td align="left">mixed</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">331.21</td>
+<td align="right">5.42</td>
+<td align="right">1169.32</td>
+<td align="right">14.47</td>
+<td align="right">26.64</td>
+<td align="right">1.15</td>
+</tr>
+<tr class="even">
+<td align="left">mixed</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">2461.44</td>
+<td align="right">40.26</td>
+<td align="right">338.26</td>
+<td align="right">4.19</td>
+<td align="right">23.19</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">8.06</td>
+<td align="right">1.00</td>
+<td align="right">6.19</td>
+<td align="right">1.00</td>
+<td align="right">11.44</td>
+<td align="right">1.22</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">11.85</td>
+<td align="right">1.47</td>
+<td align="right">15.79</td>
+<td align="right">2.55</td>
+<td align="right">11.49</td>
+<td align="right">1.22</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">28.60</td>
+<td align="right">3.55</td>
+<td align="right">16.88</td>
+<td align="right">2.73</td>
+<td align="right">24.84</td>
+<td align="right">2.64</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">47.86</td>
+<td align="right">5.94</td>
+<td align="right">28.17</td>
+<td align="right">4.55</td>
+<td align="right">12.28</td>
+<td align="right">1.30</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">48.46</td>
+<td align="right">6.01</td>
+<td align="right">28.77</td>
+<td align="right">4.65</td>
+<td align="right">12.28</td>
+<td align="right">1.31</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">73.13</td>
+<td align="right">9.07</td>
+<td align="right">45.09</td>
+<td align="right">7.29</td>
+<td align="right">10.67</td>
+<td align="right">1.13</td>
+</tr>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">270.75</td>
+<td align="right">33.58</td>
+<td align="right">440.26</td>
+<td align="right">71.17</td>
+<td align="right">10.53</td>
+<td align="right">1.12</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">829.00</td>
+<td align="right">102.82</td>
+<td align="right">93.75</td>
+<td align="right">15.16</td>
+<td align="right">9.41</td>
+<td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="throughput-plot" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Throughput plot</h2>
+<pre class="r"><code># Plot labels
+plot_df &lt;- bind_rows(
+  dplyr::mutate(write_summary_all, phase = &quot;write&quot;),
+  dplyr::mutate(read_summary_all,  phase = &quot;read&quot;)
+) %&gt;%
+  dplyr::mutate(method = sub(&quot;^(write|read)_&quot;, &quot;&quot;, expr),
+         Method = dplyr::recode(method, !!!pretty_method))
+
+unique(plot_df$structure) %&gt;%
+  walk(~ print(make_structure_plot(.x, log_scale = FALSE)))</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/plot_throughput-1.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/plot_throughput-2.png" width="672" /><img src="{{< blogdown/postref >}}index_files/figure-html/plot_throughput-3.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusions" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Conclusions</h1>
+<div id="interpretation" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Interpretation</h2>
+<ul>
+<li><strong>Write path</strong>
+<ul>
+<li>Uncompressed <code>fst</code> is one of the fastest writer across all structures.<br />
+</li>
+<li><code>qs</code> (<code>preset = "fast"</code>) is consistently the next best, offering strong throughput with modest size reduction.<br />
+</li>
+<li><code>data.table</code> is equivalent to <code>fst</code> in mixed scenario.</li>
+<li>Parquet with Gzip is the slowest writer by a large margin in all cases.</li>
+</ul></li>
+<li><strong>Read path</strong>
+<ul>
+<li>For <strong>numeric</strong> data, uncompressed <code>fst</code> is the fastest reader.</li>
+<li>For <strong>character</strong> and <strong>mixed</strong> data, <strong>Parquet (uncompressed)</strong> yields the lowest read latency, with <strong>Snappy</strong> and <strong>Zstd</strong> close behind; these formats benefit from reduced on-disk size that offsets decompression overhead.<br />
+</li>
+<li><code>CSV</code> + <code>Gzip</code> is consistently the slowest reader, particularly for mixed data.</li>
+</ul></li>
+<li><strong>File size</strong>
+<ul>
+<li><strong>Zstd</strong> and <strong>Gzip</strong> deliver the smallest files across structures.<br />
+</li>
+<li><strong>Snappy</strong> and <strong>qs</strong> strike a practical balance, with much smaller than uncompressed, and materially better write/read performance than Gzip.<br />
+</li>
+<li><code>CSV</code> is largest on disk; <code>CSV</code> + <code>Gzip</code> is smaller but slow to read.</li>
+</ul></li>
+</ul>
+</div>
+<div id="practical-perspective" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Practical perspective</h2>
+<ul>
+<li><strong>High-frequency writes</strong> should prefer uncompressed <code>fst</code> (numeric-heavy) or <code>qs</code> (mixed/character) to maximise throughput.<br />
+</li>
+<li><strong>Read-optimised pipelines</strong> should prefer Parquet (uncompressed) for minimum latency, or Parquet + Snappy/Zstd when storage reduction matters with minimal read-time penalty.<br />
+</li>
+<li><strong>Archival or size-constrained storage</strong> should favour Parquet + Zstd (or Gzip when maximum compression is required and slower I/O is acceptable).</li>
+</ul>
+<p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
+<style>
+/* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
+/* Place this at the very end of the post so it wins the cascade. */
+
+/* 0) Widen the page shell Hugo Blox uses around articles */
+.page-body > .mx-auto,
+.page-body .max-w-screen-xl{
+  max-width: 100vw !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 1) Remove the Tailwind max-w cap on the <main> inside <article> */
+.page-body article > main{
+  max-width: none !important;  /* beats .max-w-6xl */
+  width: 100% !important;
+}
+
+/* 2) Control the actual reading width (fluid per breakpoint) */
+.page-body article .prose{
+  /* Base: a touch larger with comfy line height */
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.12rem);
+  line-height: 1.75;
+  text-align: left;
+  margin-inline: auto;
+
+  /* Reading width: scale up on big screens, but keep lines readable */
+  max-width: 86ch !important; /* default desktop */
+}
+@media (min-width: 1024px){  /* lg */
+  .page-body article .prose{ max-width: 96ch !important; }
+}
+@media (min-width: 1280px){  /* xl */
+  .page-body article .prose{ max-width: 102ch !important; }
+}
+@media (min-width: 1536px){  /* 2xl / very wide */
+  .page-body article .prose{ max-width: 108ch !important; }
+}
+
+/* 3) Phones/tablets: full width with side padding */
+@media (max-width: 768px){
+  .page-body article .prose{
+    max-width: 100% !important;
+    padding-inline: 1rem;
+  }
+}
+
+/* 4) Give the article more room by slimming sidebars on wide screens */
+@media (min-width: 1280px){
+  .hb-sidebar-container, .hb-toc { width: 12rem !important; } /* was 16rem */
+}
+@media (max-width: 1279.98px){
+  .hb-sidebar-container{ display:none !important; } /* hide sidebar under xl */
+}
+
+/* --------- Clean, professional type polish (scoped to post content) -------- */
+.page-body article .prose p{
+  margin: 0 0 1.15em;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.page-body article .prose h1{
+  font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.3rem);
+  margin: 1.2em 0 .5em;
+  padding-bottom: .25em;
+  border-bottom: 2px solid #e5e7eb;
+}
+.page-body article .prose h2{
+  font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.7rem);
+  margin: 1.35em 0 .4em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid #e5e7eb;
+}
+.page-body article .prose h3{
+  font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
+  margin: 1.1em 0 .3em;
+}
+
+/* Links: subtle underline-on-hover */
+.page-body article .prose a{
+  color: #2f6ab5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,106,181,.25);
+}
+.page-body article .prose a:hover{
+  color: #1f4f8f;
+  border-bottom-color: currentColor;
+}
+
+/* Code blocks & inline code */
+.page-body article .prose pre{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  overflow: auto;
+}
+.page-body article .prose code{
+  background: #f6f8fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  padding: .15em .35em;
+  font-size: .95em;
+}
+.page-body article .prose pre code{
+  background: none; border: 0; padding: 0; font-size: 0.95em;
+}
+
+/* Tables */
+.page-body article .prose table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.page-body article .prose th,
+.page-body article .prose td{
+  border: 1px solid #e5e7eb;
+  padding: .6rem .75rem;
+}
+.page-body article .prose thead th{
+  background: #2f6ab5;
+  color: #fff;
+  text-align: left;
+}
+
+/* Images & figures */
+.page-body article .prose img{ border-radius: 6px; }
+
+/* Optional: allow “full-bleed” wide elements
+   Add class="wide" to a block (table/pre/img wrapper) to span the viewport. */
+.page-body article .prose .wide{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-inline: clamp(12px, 4vw, 36px);
+}
+
+/* Footer timestamp spacing */
+.page-body article time{ margin-top: 2rem; display: block; }
+
+/* Dark mode tweaks */
+html.dark .page-body article .prose pre,
+html.dark .page-body article .prose code{
+  background: #111826;
+  border-color: #253041;
+}
+html.dark .page-body article .prose thead th{ background: #5aa0ff; }
+</style>
+</div>
+</div>

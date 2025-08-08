@@ -9,8 +9,8 @@ library(microbenchmark)
 library(parallel)
 setDTthreads(detectCores())
 
-bench_dir <- "benchmark-files"
-if (!dir.exists(bench_dir)) dir.create(bench_dir)
+bench_dir <- file.path(tempdir(), "hb_bench")  # local temp, not synced
+if (!dir.exists(bench_dir)) dir.create(bench_dir, showWarnings = FALSE, recursive = TRUE)
 
 get_paths <- function(structure) {
   subdir <- file.path(bench_dir, structure)
