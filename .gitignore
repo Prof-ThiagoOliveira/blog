@@ -10,3 +10,10 @@ resources/
 *.knit.md
 *.utf8.md
 "@ | Out-File -Encoding utf8 -Append .gitignore
+resources/_gen/
+/public/
+/resources/
+/.hugo_build.lock
+/.Rproj.user/
+/.DS_Store
+Thumbs.db

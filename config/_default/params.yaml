@@ -1,73 +1,59 @@
-# SITE SETUP
-# Guide: https://docs.hugoblox.com/tutorial/
-# Documentation: https://docs.hugoblox.com/
-# YAML refresher: https://learnxinyminutes.com/docs/yaml/
-
-# SITE SETUP
-
 appearance:
-  mode: system            # respect user's OS dark/light preference
+  mode: system
   color: blue
-
 marketing:
   seo:
     site_type: Person
-    org_name: "AbacusBio"
-    description: "Statistician—quantitative genetics, R/C++, dashboards, and reproducible workflows."
+    org_name: AbacusBio
+    description: Statistician—quantitative genetics, R/C++, dashboards, and reproducible
+      workflows.
   analytics:
-    google_analytics: "G-F170NVYBW1"
-    baidu_tongji: ""
-    plausible: ""
-    fathom: ""
-    pirsch: ""
+    google_analytics: G-F170NVYBW1
+    baidu_tongji: ''
+    plausible: ''
+    fathom: ''
+    pirsch: ''
   verification:
-    google: ""
-    baidu: ""
-
+    google: ''
+    baidu: ''
 header:
   navbar:
-    enable: true
-    blox: "navbar"
-    align: "center"
-    fixed_to_top: true
+    enable: yes
+    blox: navbar
+    align: center
+    fixed_to_top: yes
     logo:
-      text: "Thiago Oliveira"
-      filename: "logo.png"
+      text: Thiago Oliveira
+      filename: logo.png
     button:
-      enable: true
-      text: "Contact me"
-      url: "mailto:toliveira@abacusbio.com"
-    show_theme_chooser: true
-    show_search: true
-    highlight_active_link: true
-    show_translations: true
-    hide_language_name: false
-
+      enable: yes
+      text: Contact me
+      url: mailto:toliveira@abacusbio.com
+    show_theme_chooser: yes
+    show_search: yes
+    highlight_active_link: yes
+    show_translations: yes
+    hide_language_name: no
 footer:
   copyright:
-    notice: "© {year} Thiago Oliveira. This work is licensed under {license}"
+    notice: © {year} Thiago Oliveira. This work is licensed under {license}
     license:
-      enable: true
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
-
+      enable: yes
+      allow_derivatives: no
+      share_alike: yes
+      allow_commercial: no
 locale:
-  date_format: "Jan 2, 2006"
-  time_format: "3:04 PM"
+  date_format: Jan 2, 2006
+  time_format: 3:04 PM
   address_format: en-us
-
 features:
   math:
-    enable: true
+    enable: yes
   privacy_pack:
-    enable: true
+    enable: yes
   map:
     provider: mapnik
-    api_key: ""
+    api_key: ''
     zoom: 15
-
-# Load your CSS via the asset pipeline (preferred over /static)
 custom:
-  css:
-    - css/custom.css
+  css: css/custom.css
