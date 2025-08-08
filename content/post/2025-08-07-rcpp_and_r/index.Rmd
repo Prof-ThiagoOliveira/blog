@@ -2,7 +2,7 @@
 title: From prototype to production, choosing the right R and C++ tool in Rcpp
 author: Thiago de Paula Oliveira
 date:  "`r format(Sys.Date(), '%B %d, %Y')`"
-slug: compression-data-read-write-performance
+slug: rcpp-start-with-r
 categories:
   - R Programming
   - Data handling

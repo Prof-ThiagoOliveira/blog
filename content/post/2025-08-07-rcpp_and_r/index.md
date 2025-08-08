@@ -1,8 +1,8 @@
 ---
 title: From prototype to production, choosing the right R and C++ tool in Rcpp
 author: Thiago de Paula Oliveira
-date:  "August 07, 2025"
-slug: compression-data-read-write-performance
+date:  "August 08, 2025"
+slug: rcpp-start-with-r
 categories:
   - R Programming
   - Data handling
@@ -275,9 +275,9 @@ microbenchmark::microbenchmark(
 
 ```
 ## Unit: microseconds
-##    expr   min     lq     mean median      uq    max neval cld
-##  fastLm  36.5  61.25   75.696  71.10   87.35  133.6   100  a 
-##      lm 640.3 737.30 1044.260 872.35 1386.45 1896.7   100   b
+##    expr   min     lq     mean median     uq    max neval cld
+##  fastLm  42.7  45.50   70.827   64.0   85.1  156.5   100  a 
+##      lm 778.2 886.15 1121.447 1021.8 1369.1 1877.6   100   b
 ```
 
 
