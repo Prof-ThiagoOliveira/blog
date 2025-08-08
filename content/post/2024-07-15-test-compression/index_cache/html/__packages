@@ -1,8 +1,16 @@
+dplyr
+tidyr
+purrr
 data.table
 arrow
 qs
 fst
 microbenchmark
 fstcore
-dplyr
+tidyverse
 ggplot2
+tibble
+readr
+stringr
+forcats
+lubridate

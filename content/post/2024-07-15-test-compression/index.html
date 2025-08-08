@@ -383,22 +383,19 @@ Compression</a>
 <li><a href="#device-specifications" id="toc-device-specifications">Device specifications</a></li>
 <li><a href="#dataset-generation" id="toc-dataset-generation">Dataset
 generation</a></li>
-<li><a href="#output-locations" id="toc-output-locations">Output
-locations</a></li>
-<li><a href="#io-helper-functions" id="toc-io-helper-functions">I/O
-helper functions</a></li>
 </ul></li>
-<li><a href="#benchmarking" id="toc-benchmarking">Benchmarking</a></li>
+<li><a href="#io-function-lists" id="toc-io-function-lists">I/O function
+lists</a></li>
 <li><a href="#results" id="toc-results">Results</a>
 <ul>
-<li><a href="#writetime-ms" id="toc-writetime-ms">Write‑time
-(ms)</a></li>
-<li><a href="#readtime-ms" id="toc-readtime-ms">Read‑time (ms)</a></li>
+<li><a href="#summarising" id="toc-summarising">Summarising</a></li>
 <li><a href="#throughput-plot" id="toc-throughput-plot">Throughput
-plot</a>
+plot</a></li>
+</ul></li>
+<li><a href="#conclusions" id="toc-conclusions">Conclusions</a>
 <ul>
 <li><a href="#interpretation" id="toc-interpretation">Interpretation</a></li>
-</ul></li>
+<li><a href="#practical-perspective" id="toc-practical-perspective">Practical perspective</a></li>
 </ul></li>
 </ul>
 </div>
@@ -648,17 +645,10 @@ performance.</p>
 </div>
 <div id="dataset-generation" class="section level2">
 <h2>Dataset generation</h2>
-<p>We benchmark three row counts (<span class="math inline">\(10^5,\;10^6,\;10^7\)</span>) and three structures
-(numeric, character, mixed). The helper below fabricates a mixed‑type
-frame:</p>
+<p>We benchmark row counts 10^6, and three structures (numeric,
+character, mixed). The helper below fabricates a mixed‑type frame:</p>
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
-library(data.table)
-library(arrow)
-library(qs)
-library(fst)
-library(microbenchmark)
-library(parallel)
-setDTthreads(detectCores())
+source(&quot;utils.R&quot;)
 
 generate_sample_data &lt;- function(n, type = &quot;mixed&quot;){
   set.seed(123)
@@ -678,36 +668,34 @@ generate_sample_data &lt;- function(n, type = &quot;mixed&quot;){
   }
 }
 
-sample_size    &lt;- 1e6
-sample_data_dt &lt;- as.data.table(generate_sample_data(sample_size, &quot;mixed&quot;))</code></pre>
-</div>
-<div id="output-locations" class="section level2">
-<h2>Output locations</h2>
-<pre class="r"><code>bench_dir &lt;- &quot;benchmark-files&quot;   # persistent folder in project root
-if(!dir.exists(bench_dir)) dir.create(bench_dir)
-
-file_paths &lt;- list(
-  parquet_gzip         = file.path(bench_dir, &quot;parquet_gzip.parquet&quot;),
-  parquet_snappy       = file.path(bench_dir, &quot;parquet_snappy.parquet&quot;),
-  parquet_zstd         = file.path(bench_dir, &quot;parquet_zstd.parquet&quot;),
-  parquet_uncompressed = file.path(bench_dir, &quot;parquet_uncompressed.parquet&quot;),
-  qs_fast              = file.path(bench_dir, &quot;qs_fast.qs&quot;),
-  fst_uncompressed     = file.path(bench_dir, &quot;fst_uncompressed.fst&quot;),
-  dt_gzip              = file.path(bench_dir, &quot;data_table_gzip.csv&quot;),
-  dt_none              = file.path(bench_dir, &quot;data_table_uncompressed.csv&quot;)
+sample_size &lt;- 1e6
+dt_list &lt;- list(
+  numeric   = as.data.table(generate_sample_data(sample_size, &quot;numeric&quot;)),
+  character = as.data.table(generate_sample_data(sample_size, &quot;character&quot;)),
+  mixed     = as.data.table(generate_sample_data(sample_size, &quot;mixed&quot;))
 )</code></pre>
 </div>
-<div id="io-helper-functions" class="section level2">
-<h2>I/O helper functions</h2>
-<pre class="r"><code>write_funcs &lt;- list(
-  parquet_gzip         = function(d,f) arrow::write_parquet(d,f,compression=&quot;gzip&quot;),
-  parquet_snappy       = function(d,f) arrow::write_parquet(d,f,compression=&quot;snappy&quot;),
-  parquet_zstd         = function(d,f) arrow::write_parquet(d,f,compression=&quot;zstd&quot;),
-  parquet_uncompressed = function(d,f) arrow::write_parquet(d,f,compression=&quot;uncompressed&quot;),
-  qs_fast              = function(d,f) qs::qsave(d,f,preset=&quot;fast&quot;),
-  fst_uncompressed     = function(d,f) fst::write_fst(d,f,compress=0),
-  dt_gzip              = function(d,f) fwrite(d,f,compress=&quot;gzip&quot;),
-  dt_none              = function(d,f) fwrite(d,f,compress=&quot;none&quot;)
+</div>
+<div id="io-function-lists" class="section level1">
+<h1>I/O function lists</h1>
+<pre class="r"><code>## I/O function lists
+write_funcs &lt;- list(
+  parquet_gzip = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;gzip&quot;),
+  parquet_snappy = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;snappy&quot;),
+  parquet_zstd = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;zstd&quot;),
+  parquet_uncompressed = 
+    function(d,f) arrow::write_parquet(d, f, compression = &quot;uncompressed&quot;),
+  qs_fast = 
+    function(d,f) qs::qsave(d, f, preset = &quot;fast&quot;),
+  fst_uncompressed = 
+    function(d,f) fst::write_fst(d, f, compress = 0),
+  dt_gzip = 
+    function(d,f) data.table::fwrite(d, f, compress = &quot;gzip&quot;),
+  dt_none = 
+    function(d,f) data.table::fwrite(d, f, compress = &quot;none&quot;)
 )
 
 read_funcs &lt;- list(
@@ -717,228 +705,658 @@ read_funcs &lt;- list(
   parquet_uncompressed = function(f) arrow::read_parquet(f),
   qs_fast              = function(f) qs::qread(f),
   fst_uncompressed     = function(f) fst::read_fst(f),
-  dt_gzip              = function(f) fread(f),
-  dt_none              = function(f) fread(f)
+  dt_gzip              = function(f) data.table::fread(f),
+  dt_none              = function(f) data.table::fread(f)
 )</code></pre>
-</div>
-</div>
-<div id="benchmarking" class="section level1">
-<h1>Benchmarking</h1>
-<pre class="r"><code>bench_write &lt;- microbenchmark(
-  write_parquet_gzip  = write_funcs$parquet_gzip(sample_data_dt, 
-                                                 file_paths$parquet_gzip),
-  write_parquet_snappy= write_funcs$parquet_snappy(sample_data_dt, file_paths$parquet_snappy),
-  write_parquet_zstd  = write_funcs$parquet_zstd(sample_data_dt, 
-                                                 file_paths$parquet_zstd),
-  write_qs_fast       = write_funcs$qs_fast(sample_data_dt, 
-                                            file_paths$qs_fast),
-  write_fst_none      = write_funcs$fst_uncompressed(sample_data_dt,
-                                                     file_paths$fst_uncompressed),
-  write_dt_gzip       = write_funcs$dt_gzip(sample_data_dt, 
-                                            file_paths$dt_gzip),
-  write_dt_none       = write_funcs$dt_none(sample_data_dt, 
-                                            file_paths$dt_none),
-  times = 50,
-  unit  = &quot;milliseconds&quot;)</code></pre>
-<pre class="r"><code>bench_read &lt;- microbenchmark(
-  read_parquet_gzip   = read_funcs$parquet_gzip(file_paths$parquet_gzip),
-  read_parquet_snappy = read_funcs$parquet_snappy(file_paths$parquet_snappy),
-  read_parquet_zstd   = read_funcs$parquet_zstd(file_paths$parquet_zstd),
-  read_qs_fast        = read_funcs$qs_fast(file_paths$qs_fast),
-  read_fst_none       = read_funcs$fst_uncompressed(file_paths$fst_uncompressed),
-  read_dt_gzip        = read_funcs$dt_gzip(file_paths$dt_gzip),
-  read_dt_none        = read_funcs$dt_gzip(file_paths$dt_none),
-  times = 50,
-  unit  = &quot;milliseconds&quot;)</code></pre>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<div id="writetime-ms" class="section level2">
-<h2>Write‑time (ms)</h2>
-<pre class="r"><code>library(dplyr)
-write_summary &lt;- bench_write %&gt;%
-  group_by(expr) %&gt;%
-  summarise(
-    median = median(time) / 1e6,
-    mean   = mean(time) / 1e6,
-    sd     = sd(time) / 1e6,
-    .groups = &quot;drop&quot;
-  ) %&gt;%
-  arrange(median)
+<pre class="r"><code>results &lt;- lapply(names(dt_list), function(structure) {
+  paths &lt;- get_paths(structure)
+  out   &lt;- run_benchmarks_one(dt_list[[structure]], paths, write_funcs, 
+                              read_funcs)
+  out$write_summary$structure &lt;- structure
+  out$read_summary$structure  &lt;- structure
+  out$size_summary$structure  &lt;- structure
+  out
+})
 
-knitr::kable(write_summary, digits = 1,
-             caption = &quot;Write‑time benchmark (50 replicates)&quot;)</code></pre>
+write_summary_all &lt;- dplyr::bind_rows(lapply(results, `[[`, &quot;write_summary&quot;))
+read_summary_all  &lt;- dplyr::bind_rows(lapply(results, `[[`, &quot;read_summary&quot;))
+size_summary_all  &lt;- dplyr::bind_rows(lapply(results, `[[`, &quot;size_summary&quot;))</code></pre>
+<div id="summarising" class="section level2">
+<h2>Summarising</h2>
+<pre class="r"><code>pretty_method &lt;- c(
+  fst_uncompressed      = &quot;fst (uncompressed)&quot;,
+  qs_fast               = &quot;qs (preset = &#39;fast&#39;)&quot;,
+  parquet_snappy        = &quot;Parquet + Snappy&quot;,
+  parquet_zstd          = &quot;Parquet + Zstd&quot;,
+  parquet_uncompressed  = &quot;Parquet (uncompressed)&quot;,
+  parquet_gzip          = &quot;Parquet + Gzip&quot;,
+  dt_none               = &quot;CSV via data.table (none)&quot;,
+  dt_gzip               = &quot;CSV via data.table (gzip)&quot;
+)
+
+write_s &lt;- write_summary_all %&gt;%
+  dplyr::mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method,
+         write_median_ms = median,
+         write_mean_ms   = mean,
+         write_sd_ms     = sd)
+
+read_s &lt;- read_summary_all %&gt;%
+  dplyr::mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method,
+         read_median_ms = median,
+         read_mean_ms   = mean,
+         read_sd_ms     = sd)
+
+cons &lt;- write_s %&gt;%
+  inner_join(read_s, by = c(&quot;structure&quot;,&quot;method&quot;)) %&gt;%
+  left_join(size_summary_all %&gt;%
+              select(structure, method, size_MB, relative_size),
+            by = c(&quot;structure&quot;,&quot;method&quot;)) %&gt;%
+  dplyr::mutate(Method = recode(method, !!!pretty_method)) %&gt;%
+  arrange(structure, write_median_ms)
+
+unique(cons$structure) %&gt;%
+  walk(~ print_per_structure(cons, .x))
+
+write_wide &lt;- cons %&gt;%
+  select(structure, Method, `Write (ms)` = write_median_ms) %&gt;%
+  pivot_wider(names_from = structure, values_from = `Write (ms)`) %&gt;%
+  arrange(`mixed`)  # or order by &#39;numeric&#39; etc.
+
+knitr::kable(write_wide, digits = 1,
+             caption = &quot;Median write time (ms) by storage method and data structure&quot;)</code></pre>
 <table>
-<caption>Write‑time benchmark (50 replicates)</caption>
+<caption>Median write time (ms) by storage method and data
+structure</caption>
 <thead>
 <tr>
-<th align="left">expr</th>
-<th align="right">median</th>
-<th align="right">mean</th>
-<th align="right">sd</th>
+<th align="left">Method</th>
+<th align="right">character</th>
+<th align="right">mixed</th>
+<th align="right">numeric</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">write_fst_none</td>
-<td align="right">74.6</td>
-<td align="right">77.6</td>
-<td align="right">11.4</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">51.2</td>
+<td align="right">79.3</td>
+<td align="right">39.8</td>
 </tr>
 <tr>
-<td align="left">write_dt_none</td>
-<td align="right">86.7</td>
-<td align="right">85.7</td>
-<td align="right">13.9</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">49.1</td>
+<td align="right">84.1</td>
+<td align="right">9.4</td>
 </tr>
 <tr>
-<td align="left">write_qs_fast</td>
-<td align="right">127.6</td>
-<td align="right">128.9</td>
-<td align="right">11.6</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">68.2</td>
+<td align="right">132.2</td>
+<td align="right">13.2</td>
 </tr>
 <tr>
-<td align="left">write_parquet_snappy</td>
-<td align="right">316.3</td>
-<td align="right">313.2</td>
-<td align="right">34.6</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">153.9</td>
+<td align="right">263.9</td>
+<td align="right">57.3</td>
 </tr>
 <tr>
-<td align="left">write_parquet_zstd</td>
-<td align="right">346.5</td>
-<td align="right">348.1</td>
-<td align="right">31.0</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">231.0</td>
+<td align="right">337.0</td>
+<td align="right">61.6</td>
 </tr>
 <tr>
-<td align="left">write_dt_gzip</td>
-<td align="right">421.0</td>
-<td align="right">430.2</td>
-<td align="right">43.7</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">261.8</td>
+<td align="right">378.2</td>
+<td align="right">87.1</td>
 </tr>
 <tr>
-<td align="left">write_parquet_gzip</td>
-<td align="right">2941.0</td>
-<td align="right">2968.0</td>
-<td align="right">117.3</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">272.1</td>
+<td align="right">430.7</td>
+<td align="right">351.1</td>
+</tr>
+<tr>
+<td align="left">Parquet + Gzip</td>
+<td align="right">2554.5</td>
+<td align="right">3118.9</td>
+<td align="right">1064.5</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="readtime-ms" class="section level2">
-<h2>Read‑time (ms)</h2>
-<pre class="r"><code>read_summary &lt;- bench_read %&gt;%
-  group_by(expr) %&gt;%
-  summarise(
-    median = median(time) / 1e6,
-    mean   = mean(time) / 1e6,
-    sd     = sd(time) / 1e6,
-    .groups = &quot;drop&quot;
-  ) %&gt;%
-  arrange(median)
-
-knitr::kable(read_summary, digits = 1,
-             caption = &quot;Read‑time benchmark (50 replicates)&quot;)</code></pre>
+<pre class="r"><code># Wide table: read medians
+read_wide &lt;- cons %&gt;%
+  select(structure, Method, `Read (ms)` = read_median_ms) %&gt;%
+  pivot_wider(names_from = structure, values_from = `Read (ms)`) %&gt;%
+  arrange(`mixed`)
+knitr::kable(read_wide, digits = 1,
+             caption = &quot;Median read time (ms) by storage method and data structure&quot;)</code></pre>
 <table>
-<caption>Read‑time benchmark (50 replicates)</caption>
+<caption>Median read time (ms) by storage method and data
+structure</caption>
 <thead>
 <tr>
-<th align="left">expr</th>
-<th align="right">median</th>
-<th align="right">mean</th>
-<th align="right">sd</th>
+<th align="left">Method</th>
+<th align="right">character</th>
+<th align="right">mixed</th>
+<th align="right">numeric</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">read_parquet_snappy</td>
-<td align="right">112.6</td>
-<td align="right">115.8</td>
-<td align="right">20.7</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">70.5</td>
+<td align="right">89.1</td>
+<td align="right">23.4</td>
 </tr>
 <tr>
-<td align="left">read_parquet_zstd</td>
-<td align="right">119.8</td>
-<td align="right">125.5</td>
-<td align="right">25.8</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">90.6</td>
+<td align="right">111.5</td>
+<td align="right">29.2</td>
 </tr>
 <tr>
-<td align="left">read_parquet_gzip</td>
-<td align="right">352.5</td>
-<td align="right">372.7</td>
-<td align="right">69.1</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">90.6</td>
+<td align="right">128.3</td>
+<td align="right">44.6</td>
 </tr>
 <tr>
-<td align="left">read_fst_none</td>
-<td align="right">368.5</td>
-<td align="right">390.7</td>
-<td align="right">60.5</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">279.4</td>
+<td align="right">373.4</td>
+<td align="right">102.9</td>
 </tr>
 <tr>
-<td align="left">read_qs_fast</td>
-<td align="right">424.8</td>
-<td align="right">431.0</td>
-<td align="right">64.0</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">284.3</td>
+<td align="right">504.5</td>
+<td align="right">7.4</td>
 </tr>
 <tr>
-<td align="left">read_dt_none</td>
-<td align="right">428.6</td>
-<td align="right">439.4</td>
-<td align="right">64.2</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">316.6</td>
+<td align="right">543.1</td>
+<td align="right">15.3</td>
 </tr>
 <tr>
-<td align="left">read_dt_gzip</td>
-<td align="right">1200.8</td>
-<td align="right">1216.8</td>
-<td align="right">105.5</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">351.0</td>
+<td align="right">579.7</td>
+<td align="right">22.1</td>
+</tr>
+<tr>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">860.3</td>
+<td align="right">1423.7</td>
+<td align="right">513.9</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Wide table: sizes
+size_wide &lt;- cons %&gt;%
+  select(structure, Method, `Size (MB)` = size_MB) %&gt;%
+  pivot_wider(names_from = structure, values_from = `Size (MB)`)
+knitr::kable(size_wide, digits = 2,
+             caption = &quot;File size (MB) by method and structure&quot;)</code></pre>
+<table>
+<caption>File size (MB) by method and structure</caption>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="right">character</th>
+<th align="right">mixed</th>
+<th align="right">numeric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fst (uncompressed)</td>
+<td align="right">26.83</td>
+<td align="right">39.35</td>
+<td align="right">11.44</td>
+</tr>
+<tr>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">27.55</td>
+<td align="right">46.78</td>
+<td align="right">24.84</td>
+</tr>
+<tr>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">23.94</td>
+<td align="right">32.49</td>
+<td align="right">11.49</td>
+</tr>
+<tr>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">27.35</td>
+<td align="right">35.61</td>
+<td align="right">12.28</td>
+</tr>
+<tr>
+<td align="left">Parquet + Snappy</td>
+<td align="right">25.28</td>
+<td align="right">33.54</td>
+<td align="right">12.28</td>
+</tr>
+<tr>
+<td align="left">Parquet + Zstd</td>
+<td align="right">15.46</td>
+<td align="right">23.35</td>
+<td align="right">10.67</td>
+</tr>
+<tr>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">15.80</td>
+<td align="right">26.64</td>
+<td align="right">10.53</td>
+</tr>
+<tr>
+<td align="left">Parquet + Gzip</td>
+<td align="right">15.30</td>
+<td align="right">23.19</td>
+<td align="right">9.41</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>method_from_expr &lt;- function(expr) sub(&quot;^write_|^read_&quot;, &quot;&quot;, expr)
+
+# Prepare write and read with ratios
+write_s &lt;- write_summary_all %&gt;%
+  mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method, write_median_ms = median) %&gt;%
+  normalise_ratio(&quot;write_median_ms&quot;)
+
+read_s &lt;- read_summary_all %&gt;%
+  mutate(method = method_from_expr(expr)) %&gt;%
+  select(structure, method, read_median_ms = median) %&gt;%
+  normalise_ratio(&quot;read_median_ms&quot;)
+
+# Prepare sizes with ratio to smallest
+size_s &lt;- size_summary_all %&gt;%
+  normalise_ratio(&quot;size_MB&quot;) %&gt;%
+  select(structure, method, size_MB, size_MB_ratio)
+
+# Join all
+consolidated_ratio &lt;- write_s %&gt;%
+  inner_join(read_s,  by = c(&quot;structure&quot;, &quot;method&quot;)) %&gt;%
+  left_join(size_s,   by = c(&quot;structure&quot;, &quot;method&quot;)) %&gt;%
+  mutate(Method = recode(method, !!!pretty_method)) %&gt;%
+  arrange(structure, write_median_ms)
+
+knitr::kable(
+  consolidated_ratio %&gt;%
+    select(structure, Method,
+           `Write (ms)` = write_median_ms,
+           `Write (×)`  = write_median_ms_ratio,
+           `Read (ms)`  = read_median_ms,
+           `Read (×)`   = read_median_ms_ratio,
+           `Size (MB)`  = size_MB,
+           `Size (×)`   = size_MB_ratio),
+  digits = 2,
+  caption = &quot;Median write/read times and file size with ratios (from fastest/smallest) by method and structure&quot;
+)</code></pre>
+<table style="width:100%;">
+<caption>Median write/read times and file size with ratios (from
+fastest/smallest) by method and structure</caption>
+<colgroup>
+<col width="10%" />
+<col width="27%" />
+<col width="11%" />
+<col width="10%" />
+<col width="10%" />
+<col width="9%" />
+<col width="10%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr>
+<th align="left">structure</th>
+<th align="left">Method</th>
+<th align="right">Write (ms)</th>
+<th align="right">Write (×)</th>
+<th align="right">Read (ms)</th>
+<th align="right">Read (×)</th>
+<th align="right">Size (MB)</th>
+<th align="right">Size (×)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">character</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">49.09</td>
+<td align="right">1.00</td>
+<td align="right">284.26</td>
+<td align="right">4.03</td>
+<td align="right">26.83</td>
+<td align="right">1.75</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">51.24</td>
+<td align="right">1.04</td>
+<td align="right">351.03</td>
+<td align="right">4.98</td>
+<td align="right">27.55</td>
+<td align="right">1.80</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">68.24</td>
+<td align="right">1.39</td>
+<td align="right">316.63</td>
+<td align="right">4.49</td>
+<td align="right">23.94</td>
+<td align="right">1.56</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">153.93</td>
+<td align="right">3.14</td>
+<td align="right">70.46</td>
+<td align="right">1.00</td>
+<td align="right">27.35</td>
+<td align="right">1.79</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">231.00</td>
+<td align="right">4.71</td>
+<td align="right">90.58</td>
+<td align="right">1.29</td>
+<td align="right">25.28</td>
+<td align="right">1.65</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">261.80</td>
+<td align="right">5.33</td>
+<td align="right">90.57</td>
+<td align="right">1.29</td>
+<td align="right">15.46</td>
+<td align="right">1.01</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">272.08</td>
+<td align="right">5.54</td>
+<td align="right">860.33</td>
+<td align="right">12.21</td>
+<td align="right">15.80</td>
+<td align="right">1.03</td>
+</tr>
+<tr>
+<td align="left">character</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">2554.47</td>
+<td align="right">52.03</td>
+<td align="right">279.42</td>
+<td align="right">3.97</td>
+<td align="right">15.30</td>
+<td align="right">1.00</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">79.29</td>
+<td align="right">1.00</td>
+<td align="right">579.71</td>
+<td align="right">6.50</td>
+<td align="right">46.78</td>
+<td align="right">2.02</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">84.08</td>
+<td align="right">1.06</td>
+<td align="right">504.49</td>
+<td align="right">5.66</td>
+<td align="right">39.35</td>
+<td align="right">1.70</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">132.15</td>
+<td align="right">1.67</td>
+<td align="right">543.09</td>
+<td align="right">6.09</td>
+<td align="right">32.49</td>
+<td align="right">1.40</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">263.93</td>
+<td align="right">3.33</td>
+<td align="right">89.12</td>
+<td align="right">1.00</td>
+<td align="right">35.61</td>
+<td align="right">1.54</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">336.95</td>
+<td align="right">4.25</td>
+<td align="right">111.47</td>
+<td align="right">1.25</td>
+<td align="right">33.54</td>
+<td align="right">1.45</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">378.18</td>
+<td align="right">4.77</td>
+<td align="right">128.35</td>
+<td align="right">1.44</td>
+<td align="right">23.35</td>
+<td align="right">1.01</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">430.68</td>
+<td align="right">5.43</td>
+<td align="right">1423.70</td>
+<td align="right">15.97</td>
+<td align="right">26.64</td>
+<td align="right">1.15</td>
+</tr>
+<tr>
+<td align="left">mixed</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">3118.90</td>
+<td align="right">39.33</td>
+<td align="right">373.41</td>
+<td align="right">4.19</td>
+<td align="right">23.19</td>
+<td align="right">1.00</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">fst (uncompressed)</td>
+<td align="right">9.36</td>
+<td align="right">1.00</td>
+<td align="right">7.39</td>
+<td align="right">1.00</td>
+<td align="right">11.44</td>
+<td align="right">1.22</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">qs (preset = ‘fast’)</td>
+<td align="right">13.25</td>
+<td align="right">1.42</td>
+<td align="right">15.32</td>
+<td align="right">2.07</td>
+<td align="right">11.49</td>
+<td align="right">1.22</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">CSV via data.table (none)</td>
+<td align="right">39.76</td>
+<td align="right">4.25</td>
+<td align="right">22.10</td>
+<td align="right">2.99</td>
+<td align="right">24.84</td>
+<td align="right">2.64</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">Parquet (uncompressed)</td>
+<td align="right">57.26</td>
+<td align="right">6.12</td>
+<td align="right">23.37</td>
+<td align="right">3.16</td>
+<td align="right">12.28</td>
+<td align="right">1.30</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">Parquet + Snappy</td>
+<td align="right">61.60</td>
+<td align="right">6.58</td>
+<td align="right">29.18</td>
+<td align="right">3.95</td>
+<td align="right">12.28</td>
+<td align="right">1.31</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">Parquet + Zstd</td>
+<td align="right">87.07</td>
+<td align="right">9.30</td>
+<td align="right">44.65</td>
+<td align="right">6.04</td>
+<td align="right">10.67</td>
+<td align="right">1.13</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">CSV via data.table (gzip)</td>
+<td align="right">351.07</td>
+<td align="right">37.51</td>
+<td align="right">513.90</td>
+<td align="right">69.52</td>
+<td align="right">10.53</td>
+<td align="right">1.12</td>
+</tr>
+<tr>
+<td align="left">numeric</td>
+<td align="left">Parquet + Gzip</td>
+<td align="right">1064.50</td>
+<td align="right">113.74</td>
+<td align="right">102.87</td>
+<td align="right">13.92</td>
+<td align="right">9.41</td>
+<td align="right">1.00</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="throughput-plot" class="section level2">
 <h2>Throughput plot</h2>
-<pre class="r"><code>library(ggplot2)
+<pre class="r"><code># Plot labels
 plot_df &lt;- bind_rows(
-  mutate(write_summary, phase = &quot;write&quot;),
-  mutate(read_summary,  phase = &quot;read&quot;)
-)
+  dplyr::mutate(write_summary_all, phase = &quot;write&quot;),
+  dplyr::mutate(read_summary_all,  phase = &quot;read&quot;)
+) %&gt;%
+  dplyr::mutate(method = sub(&quot;^(write|read)_&quot;, &quot;&quot;, expr),
+         Method = dplyr::recode(method, !!!pretty_method))
 
-ggplot(plot_df, aes(reorder(expr, median), median, fill = phase)) +
-  geom_col(position = position_dodge()) +
-  labs(x = NULL, y = &quot;Median time (ms)&quot;) +
-  coord_flip() +
-  theme_minimal(base_family = &quot;Helvetica&quot;)</code></pre>
-<p><img role="img" src="data:image/png;base64,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" /><!-- --> #
-Conclusions</p>
-<p><strong>Key take‑aways from the 1 M‑row mixed dataset (50
-replicates).</strong></p>
+unique(plot_df$structure) %&gt;%
+  walk(~ print(make_structure_plot(.x, log_scale = FALSE)))</code></pre>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAGACAMAAABFpiBcAAABcVBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrYAv8Q6AAA6ADo6AGY6OgA6OmY6OpA6ZmY6ZpA6ZrY6kNtNTU1NTW5NTY5Nbo5NbqtNjo5NjqtNjshmAABmADpmAGZmOgBmOjpmOmZmOpBmZjpmZmZmkJBmkLZmkNtmtrZmtttmtv9uTU1uTW5uTY5ubo5ubqtujo5ujshuq6tuq8huq+SOTU2OTW6OTY6Obk2Obm6ObquOjm6Ojo6OyMiOyP+QOgCQOjqQOmaQZjqQZmaQkDqQkGaQkLaQtpCQttuQ27aQ2/+rbk2rbm6rbo6rjk2rq26rq46ryKur5Mir5P+2ZgC2Zjq2kGa2tpC2ttu225C229u22/+2/7a2/9u2///Ijk3Ijm7I5KvI///bkDrbkGbbtmbbtpDb25Db29vb/7bb/9vb///kq27k5Kvk/+Tk///r6+v4dm3/tmb/yI7/25D/27b/29v/5Kv//7b//8j//9v//+T///9BuzepAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAZf0lEQVR4nO2di3/b1nmGKcdW1CRtKkp1ItXeunZdpCTaMvmyxJPSbV5TS0maSl2XpjVTa+7WmK1miplu+Ot3vnMBQPIDAYgE8YJ6n19sELfDTzpPDg4o41UrIgSYVt0FEDIOCkqgoaAEGgpKoKGgBBoKSqChoAQaCkqggRX08I1P/Ks//tXyyN6L3UXz59aLzNP9zp78ffEfr7dar/xtcnD/r5+OP3uqzO6d5hFcQVsLT+yL/lLr6oIeLkbRt3dblptfhZ1HNyhoU8AVdOF15+XRK0u6oGNxVpytb5hXrTeNmt/+Syv2RAQlzQBX0Bv/ZoW62P2JFVTGwTfsGPh8qXXzt/EI+txcvhd+ao38zev2lcXt7BkTj8IAHF4YY1utZTmgv7T8fMmc0ltqvfli4D2ySd7HvYX8r5LVjtl31LrxW1enqfpJFd+oOQdY0C+/Ix3af+1LEdRc6A1y1T+yl+u7XtAjd/necNrZVxZnz5EcFYbLs3U3hKYF/Z5pduHn0vZi+j3GkLxPWlC9nYvdV5Zat76R43oFmiYKwIL+fldGvMNFMz6Zrl54x9wuLS0azRY+ib7dbTlBjX5fiRGy1loUX/2l39pzYVo4W19MmvSqhjmoMemd6Lmx1bQgbYX3GEfyPmlB9XbMscuRr9PI+VyZTJMcgAV9emgEMLNIEbTv5qHGLPfKKWlHxP/5zb8utcJIGetod/bNGDxe0EU/sPoLftg5huR90oLq7bhjU9tIaZAF7ZlRp+eU7LnrqrlI9uxFPL6Ld5fTgfHMYld71vBxgi4Hp83/DMl7yDFn660h3NnJ+wzMQdV2whHyThsz/e7ND8iCnq0vy+dE4wQ1Gn3v3//zT+u6oIfLYcQTwhyUgjYJZEHlRsl0rLvEhw52F8twiXXbkwv+gKDyIVM0ehefJWgxiVLvcxgu9lntpAXlJf5qQAvaW/gb87e/SfokMvdGMqyaW5CLcJNk1Hwhn+rIbciIoD075mmfg9o77GFBk/cYV1da0NZPXSVZ7SSC2pukfjyEk8JAC2ous4t+zPTXzfAqfMwUPvRRBT1yr89Gf5KUfA6aEiv1HmNIvU9cSVY7iaB+G6/zpYEW1IxRG+Gi3jeavfKO7Pnj3dbN34c5oHwmfvOTw2S0SgT9ZterNvKzeKPs4jejgqbeI5v0+/zXUuvNb0bmoEk7KUHlg/qFnKaJAqyghAgUlEBDQQk0FJRAQ0EJNBSUQENBCTQUlEBDQQk0FJRAQ0EJNBSUQENBCTQUlEBDQQk0FJRAQ0EJNBSUQENBq+SlRvHTX9WorlpIKGiVUNCJoaBVQkEnhoJWCQWdGApaJRR0YiholVDQiaGgVUJBJ4aCVgkFnRgKWiVXEfRiN05wKi5o/7Wn5r9plo4CBa2SmQkaWUenVjcQFLRKxgvaf+OuxEnaZFxJit6wsbk37xYSVDyWiPPerf82zXz52u+kHd/YPEFBqyRHUEm6PVyW30Vy9sMndgg8lDDpYiPokTnRHHq0LM34S7xrbK6goFWSI6hRSsw8u2NHPbOQV0Uv8f3vvvj148WLj59IM07QVGNzAwWtkgKCrvtU/EMJwbfzyMNigp7d+d0dc2W/8zQlaGhsjqCgVVJAUD96rtvLdJkRNDr8yfcvPn68GKUEnbPRU6CgVZIvqJ113nphJTO3PCXmoOZANwtNBPWNzfZrrBgKWiUFBDWXZf8LHuX2/WK36F185O7hbzwNgl7Y3zAxb1d4Clop4wXNZbyg1wMKWiUUdGIoaJVQ0ImhoFVCQSeGglYJBZ0YCkqgoaAEGgpKoKGgBBoKSqChoAQaCkqgoaAEGgpKoKGgBBoKSqChoAQaCkqgoaAEGgpKoKGgBBoKSqChoAQaCkqgoaAEGgpKoKGgBJqmCfq/tTeA0AJACbNqgYI2sQWAEiioDvsWpAQKqsO+BSmBguqwb0FKoKA67FuQEiioDvsWpAQKqsO+BSmBgupMHEDYmJ4BL4GC6lBQkBIoqA4FBSmBgupQUJASKKgOBQUpgYLqUFCQEiioDgUFKYGC6lBQkBKwBL3ca2+7V6fvPbPL7vbVihr7JjunW8c5B1FQkBKwBA1axq/yTSqPETTfewoKUgKUoOf32isHJ+326jPzalUM7exYVc2f063P2u0df0zk9l/u/7Ld3jYnbEfnDz6X7afvP4xPtg3FC7/RLH7wcMcc/mx8KRQUpAQoQUVEUae75kdQWQmCbm5HJ7ePZfgzi45fMQdu2oPP790+Plk1RxmHzU7Tgm/IL/xGWZyI58Z8V3wGL1++zNpF5onygt4/8K8id4UPgiYLJ6458HL/IJI/5uX5vR15KbulBXOAbyi1kI3mRHE89xpf6lcJajRm6AAvAW4ENUOivVZbEc0oOSyonZTKitExLah42Nmxgt5rt20TtiG/8Bttsx0K2pwS8ASNrJelR9D7B/EImswvRXC38Bs5gjatBDhBxalYUC9i1F0NgopdZuHnoOlL/Fp8mtvpG/ILv3FkDpoFBQUpAU7QqGPvui/3wl181G23P3gQBB26i0+NoB/FMwN3iG8oLPzGy71id/EUFKQELEFHKPw5qL8XKkru56AUFKQEcEEL/ySpnKD53lNQkBLQBa0LCgpSAgXVoaAgJVBQHQoKUgIF1WHfgpRAQXXYtyAlUFAd9i1ICRRUh30LUgIF1WHfgpRAQXXYtyAlUFAd9i1ICRRUh30LUgIF1WHfgpRAQXVenfSpucb0DHgJFFSHgoKUQEF1KChICRRUh4KClEBBdSgoSAkUVIeCgpRAQXUoKEgJFFSHgoKU0CRB8x+gS9LxwhlJoGNySHe7WPwiBQUooUGCFngEeVTQ4S1O0GLxixQUoARcQc/vtd/ePwjpiZENccgOWbRrIbQxpvvPEtdwummDG+Ncx88Lxi9SUIASYAW93DPj3MpBSE/0MThZIYt+zUeOtQWXbePz8oZzHYvELzKB8TpwZUF9LFMSyCBX+LEhi+cPno1c0IOPyZF+Q4HwsMke7GzM0AFeAuwIKj5K7pIPUXRJdZkhi+l0xcFm3ovjmdK5jhS0KSXAChqC7aIQomhH0KyQRb+mX+Lv7YzkOlLQppQAK6idVa4chPTEMAfNCFn0a+oIanPx3j0YyHUsEr9IQRFKwBXUXLXfMgNmZ+AuPjNk0a350MYUcmi3bSMX07mOReIXKShCCbiCRsORdeYaXzJkMZsi8YsUFKGEBglqrJqWoIXiFykoQgnQgtYIBQUpgYLqUFCQEiioDgUFKYGC6rBvQUqgoDrsW5ASKKgO+xakBAqqw74FKYGC6rBvQUqgoDrsW5ASKKgO+xakBAqqw74FKYGC6rBvQUqgoDqvDlO2gcb0DHgJFFSHgoKUQEF1KChICRRUh4KClEBBdSgoSAkUVIeCgpRAQXUoKEgJFFSHgoKUMHtBJVZBHnSXMJDVZ5d78oB68hDbyJPt7oCRXakV94j70InjH9ssGL9IQesvYeaCduWx9M7tY8n7iLq3j61JY3S6mqB5BhaLX6Sg9Zcwa0Hdg8PGOhe+cP8gZDD5MKYv3rMhSj64xoyyErlgN9hsxbArvdJ5JAuf15SEPJxufWZ3u42DawXjFylo/SXMWlAXYxOJo+6VDQiT8c69+HMclyg7JdDGqOk2nKZ3pVY6Ns/GvtpORTWebm6nQ3GSNXtIsfhFJjDOPSOCrsXOnth0uijOO7YvkrhE/7e/xCfZim5XakVcs4l3PoMxcqOxjWRysaAyUPu1cEix8LAJHuxszNABXsKsR9DByeHpuzJq/mXfJXfKi1RcYshO3PEblF125esQyRgSGd047ZWUhQ/ESx9CQRtSQm1zUDeUGvsuP/3Dlr/Yf7F1PBCX6EdQv2FgV2pF2rBz2mRimT2ChkMoaENKqPcu3urafeRl6ba3U3GJssXNQf2GgV2plc5aWHPTzcjPQZ2SqWDG9CHF4hcp6LVpQf8c1F6PvYz+gp/EJUYy0tpXboMEJ7pX5qBkRe7ifSSjT2SM3F28V9LfxSdrckjB+EUKem1amPFPkib+HJSCgpQwp4JO/JMkCgpSwrwKOikUFKQECqpDQUFKoKA6FBSkBAqqw74FKYGC6rBvQUqgoDrsW5ASKKgO+xakBAqqw74FKYGC6rBvQUqgoDrsW5ASKKgO+xakBAqqw74FKYGC6ow8NFf24bnG9Ax4CRRUh4KClEBBdSgoSAkUVIeCgpRAQXUoKEgJFFSHgoKUQEF1KChICRRUh4KClDBrQSXwq93Oe6YyCavLffyyPJLyUD5+kYLOdwuxoD7ULu94L2i+SeWRtKfy8YsUdL5bGBBUFHHZiafvP1yVwKS34/QkF7QQghSTAIZUfuLKgU9juNz/pRmNT2REPn/wuY1v8O3JySft9CLkLrpAx/LxixR0vlsYEPT03YMQqbgpwUrbUXflIBVO011LhTMFQV1+orhtFh2/Yg7cXHNBTbePT1Zte74FOTdZhNxFF6aTH79Irgkjgto5qI+ndZGKakCijwjbGkip84sonCKRovLHvJSoJx9i51vw84jUQjaGQMfC4WFXfayzMUMHeAm1jKCWOFLRZywPBiS644ZiFO2V/ti3Yk5JC3o/hDBGIWLR/L8gMUxukW62Q0GbU0JdgiaRisMjqJsdlh5B7x/EI2gyv/R5zmbhN3IEbVoJdQmaRCq66eGKVUyyGZO4xFhE2e4FtfdX7z3zc9D0JX4tPs3tFDmTRchdHJ6DZkFBQUqo7RIfBynaO+u3xMJ2+4MHISBR4hUjfzW22wfzE8NdfGoE/SiEMIaIRR/G3Inv4mWjD3QsHr9IQa9HCzk/Scr6ZLTw56AFPlpNUzx+kYJejxauKGjhnySVE7RE/CIFvR4tNO1n8RQUpAQKqkNBQUqgoDoUFKQECqrDvgUpgYLqsG9BSqCgOuxbkBIoqA77FqQECqrDvgUpgYLqsG9BSqCgOuxbkBIoqA77FqQECqrDvgUpgYLqZD40V/Sxucb0DHgJFFSHgoKUQEF1KChICRRUh4KClEBBdSgoSAkUVIeCgpRAQXUoKEgJFFSHgoKUACto2ZzGGMkQWc15qDgfCgpSAq6g5XIaYySyJOrenjS1kYKClIAtaPGcxjiKIYgd4hrd6T6d0S8k1DHnwWMKClICtqCFcxoTQS/33Ojp4xr96T6d0S9OzC4/eag7/Y/UzNUFLZXTeNJOZqwn7RCC4+WV2EWXzhgWHx5/nTN3ePlywuc6GzN0gJeAPYJaiuQ0RoNpSz6WzEWJyek+ndEvLvd/9WHOJJWCgpQAL2ixnMZE0JM1+dslhVqNd8JwK0OnW0TdR8WzmSjotWjhyoIWy2lMsHfxicb+dJ/O6BeyJeftKShICfCCFsxpTJBLf2oO6k736Yx+EV1+mvdBKQUFKQFW0AxKxiwOnRbOPv2HvBMoKEgJ11LQ7kpuIxQUpISmCTorKChICRRUh4KClEBBdSgoSAkUVId9C1ICBdVh34KUQEF12LcgJVBQHfYtSAkUVId9C1ICBdVh34KUQEF12LcgJVBQHfYtSAkUVId9C1ICBdUZ89BcsefnGtMz4CVQUB0KClICBdWhoCAlUFAdCgpSAgXVoaAgJVBQHQoKUgIF1aGgICVQUB0KClJCcwS9ah5jOhUn3iupZGOhoCAlNEjQK+Yx2m1xUAMFbVgJDRP0CnmMUWRj8WQk9XvNXz94SEGbUULDBL1CHmPk8mxl1e+VzByfm8f4xevOFAW9eh7jajI58KljuZf4l6OUK7cxQwd4CQ0bQS0l8xhtnJgV3EU2uRwyCtqMEponaNk8xqizFppwYXgcQZtUQvMELZvHeOIiwWXh96bnoFlQUJASmidoyTzGyz07G11zEwO712zKvYunoCAlNEfQDK4Yd5cHBQUpgYLqUFCQEhovaEVQUJASKKgOBQUpgYLqUFCQEiioDvsWpAQKqsO+BSmBguqwb0FKoKA67FuQEiioDvsWpAQKqsO+BSmBguqwb0FKoKA67FuQEiioDvsWpAQKqlPsobkaKPNFUNDiLVDQKVHmi6CgxVugoFOizBdBQYu3QEGnRJkvgoIWb4GCTokyXwQFLd4CBZ0SZb4IClq8BQo6Jcp8ERS0eAsUdEqU+SIoaPEWhgWVaBp5YF3iQORBYHkKWIJCHCMJdUnQwsCu1IqLChk6sTuQ1pjsTN4pi7o9zCSn7gEoaPEWhgSVnIWoc/vYxtJ0bx9bk7rZ4Z9XEzTbwzFv5ajbw0xy6h6AghZvYVBQ96ywsS6EfvqUpcjHLX0h6SGbcVSYi0u0G2x+YtiVXuk8sqGMIYXRnijSysn/dNCR7AYbe/O5hDuko+906vYwk6n3TKUNNKeFQUF9HI046l6JnHa8cy/+7LLq/HjoompC7GJ6V2qlY2NtkhTGyFsoJ4uSLmTs/N7tYxt212H8IhEyBF1LXrbtkGauue6ya194M904lwr7itMV/a7UihjX2UlSGCM3GtuT990bWEF34tWxKE91zhdFRpXmjH+TtzAo6ODkUAK6T7f+su8CPOWFSwZru0t1HJcYxy4O7bIrXx8EQV0KY+TG6TB3kKW317ZFQafWtfPRQsYc1A2lxpjLT/+w5S/2X2wd+7HODZB+BE1iF5NdqRVpw85pk+llagR181snKEdQYXpdOx8tjLuLt7p2H3lluu3tkP/pf/eBm4MmsYvJrtRKZy1K5qBujpuag1ofrc5rbucVAmzni+l17Xy0MO5zUHs9jn8Rh73gG89cyqJs8XGJboPkJ8YBjMmK3MW7AGWfwij4u/i3938ll/3238sI+lGxu/i6/amc6XXtfLRQy0+S/FQ39eFoyMLL/Ry0bn8qp9A3sDF6Td5CPT/q7G5Lfu1KEtAYfpVC7k+S6vancgp9/xqj1+QtNO1n8XX7UzmFvguN0WvyFigoGIW+C43Ra/IWKCgYhb4LjdFr8hYoKBiFvguN0WvyFpomKP+dBUgJFFSHfQtSAgXVYd+ClEBBddi3ICVQUB32LUgJFFSHfQtSAgXVYd+ClEBBddi3ICVQUJ26n40j0yanwykoqZecDqegpF5yOpyCknrJ6XAKSuolp8MpKKmXnA6noKRecjqcgpJ6yenwyQWVkLB2O+9pTCW60T7ivJa5V6fubyeZNjkdPgVBfRBeoePSSFjY5V6+2QPU/e0k0yanw6ckqISIubzF0/cfrj6zqQw2ySnOXYzDF0M2QxyOOxzBSEGvFbMR9PTdgxDDuLljx8XuSiyoy10MI2gQNDWiDkUwCnWn/5GamaKgdg66E+SzQ6ZxUNJvnaA+d9EJKfNON2NNhTQMRTCOY+IH0BrzryTAS2jOPxZJRsI4htFnKwZBXe6iNoIauVdGIxjHQUFBSmieoEkM4/AI6owcFtTNQc1hIxGM46CgICU0T9AkhtFmK5o5qBgneY4ud3H0Ll7uiLQIxnFQUJASmidoFIcv2mzFt8TOdvuDByF3USIZh87cbLvb+8EIxrFQUJASmiNoBgU+Gb3KGRQUpAQKqkNBQUpovKAVQUFBSqCgOhQUpAQKqkNBQUqgoDoUFKQECqrDvgUpgYLqsG9BSqCgOuxbkBIoqA77FqQECqrDvgUpgYLqsG9BSqCgOuxbkBIoKCERBSXgUFACDQUl0FBQAg0FJdBQUAINBSXQUFACTaMEPb/XzntuvjJO2jb8zJdQSyWXe/ax7DpLkEfFZ/ttaJKgkkXSXcs/rgrkcX/z3r6Eeirp7EiwRa0lSHxMd6Y1NElQCc0pGnRbBT7GJ1nM9u19ZlCdJdgYrfP7BzOsoUmC+u9Obe8vGZKuhFoqOd36LESt1VXC0JvPooYmCSrBTfUJerpp7PAl1FKJJK8aJeoswV3iVw5mWEOTBK17BJ3t0DHC7EcvrYjN9j/ucwTVqXsOau5Sap2Dfjjr+V9GHQ9mORVvkqA2Wbymu3h/NfMl1FNJx17iay3BJmrGbz6LGpokaK2fg3bbtX8I6X8PRa2fg56002/Oz0HJdYeCEmgoKIGGghJoKCiBhoISaChotfSXbjw1i7P1Wy8GtvduPO1/54l6yrdfRVm7HBe7G+r2sx+OO6uhUNBq6S8tPLGLUUGzzhgrp3C0mLGjN/Qm8wAFrZb+0o+XzeLox9MTNHugzBpamwwFrZb+0t/96EV08fFjI+jFbqslXp6ttxYeu0t8f6nVai0bKX9uXmy4E8wGs8ttWu677eFU4cg0NbjXtiJnz+EQSkGrpb/0zs+eRv3vPr/14mJ30dp1tr5sHLWCnq0brY7MS5kBHDkDrbdGULup5baHU2X/xe6ynzKEvXbM7S9tFJkeNA4KWi3Gm6ONqLdsxraeGz037NJ59X+inLUxsSsWdCOxLpwq++1iYG//tTBd8IfMExS0WoxEvcXocMMIetSyLNuR0EhlheyZLQtP3Bg4KGi8yfwVTpX9TtD03uiw1XL3TXZ0nS8oaLUYQc9+9Kc7T0VQP0FMCXq2vjBkY4agqbmlIqid1sogS0FJSeQy/OvHi3L70ltwE0R7vXafg9qbml7+CBpOFVRB/WZe4klJRNAjc23uyU2S0dGodra+GG6SRDz5pDStmkg2LGg41TZ5uDwkqDV+wNY5goJWiwgq2vT8x0wiWepjJjN7XPjF+saAXYetxWFB41OFnv2YKb3XTWSj+EZ/nqCgjYMf1BNs+KNOAg3/sQghKFBQAg0FJdBQUAINBSXQUFACDQUl0Pw/qUVuvqQRdgcAAAAASUVORK5CYII=" /><!-- --><img role="img" src="data:image/png;base64,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" /><!-- --><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+</div>
+</div>
+<div id="conclusions" class="section level1">
+<h1>Conclusions</h1>
+<p><strong>Key take-aways from the 1 M-row datasets (50 replicates;
+three structures: numeric, character, mixed).</strong></p>
 <table>
 <colgroup>
-<col width="11%" />
-<col width="33%" />
+<col width="8%" />
+<col width="12%" />
 <col width="35%" />
-<col width="20%" />
+<col width="31%" />
+<col width="11%" />
 </colgroup>
 <thead>
 <tr>
-<th>Phase</th>
-<th>Fastest median (ms)</th>
-<th>Slowest median (ms)</th>
-<th>Spread (×)</th>
+<th align="left">Phase</th>
+<th align="left">Structure</th>
+<th align="left">Fastest median (ms)</th>
+<th align="left">Slowest median (ms)</th>
+<th align="right">Spread (×)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Write</strong></td>
-<td><code>fst</code> (uncompressed) <span class="math inline">\(\approx 73\)</span> ms</td>
-<td>Parquet + Gzip <span class="math inline">\(\approx
-3983\)</span> ms</td>
-<td><span class="math inline">\(55 \times\)</span></td>
+<td align="left">Write</td>
+<td align="left">numeric</td>
+<td align="left"><code>fst</code> (uncompressed) <span class="math inline">\(\approx 10.4\)</span></td>
+<td align="left">Parquet + Gzip <span class="math inline">\(\approx
+1033.5\)</span></td>
+<td align="right">103×</td>
 </tr>
 <tr>
-<td><strong>Read</strong></td>
-<td>Parquet + Snappy <span class="math inline">\(\approx 109\)</span> ms</td>
-<td>data.table + Gzip <span class="math inline">\(\approx 1249\)</span> ms</td>
-<td><span class="math inline">\(11 \times\)</span></td>
+<td align="left">Write</td>
+<td align="left">character</td>
+<td align="left"><code>fst</code> (uncompressed) <span class="math inline">\(\approx 56.4\)</span></td>
+<td align="left">Parquet + Gzip <span class="math inline">\(\approx
+2727.7\)</span></td>
+<td align="right">49×</td>
+</tr>
+<tr>
+<td align="left">Write</td>
+<td align="left">mixed</td>
+<td align="left"><code>fst</code> (uncompressed) <span class="math inline">\(\approx 71.6\)</span></td>
+<td align="left">Parquet + Gzip <span class="math inline">\(\approx
+3265.9\)</span></td>
+<td align="right">45×</td>
+</tr>
+<tr>
+<td align="left">Read</td>
+<td align="left">numeric</td>
+<td align="left"><code>fst</code> (uncompressed) <span class="math inline">\(\approx 5.8\)</span></td>
+<td align="left">CSV + Gzip <span class="math inline">\(\approx
+404.1\)</span></td>
+<td align="right">69×</td>
+</tr>
+<tr>
+<td align="left">Read</td>
+<td align="left">character</td>
+<td align="left">Parquet (uncompressed) <span class="math inline">\(\approx 51.9\)</span></td>
+<td align="left">CSV + Gzip <span class="math inline">\(\approx
+791.6\)</span></td>
+<td align="right">15×</td>
+</tr>
+<tr>
+<td align="left">Read</td>
+<td align="left">mixed</td>
+<td align="left">Parquet (uncompressed) <span class="math inline">\(\approx 123.8\)</span></td>
+<td align="left">CSV + Gzip <span class="math inline">\(\approx
+1655.1\)</span></td>
+<td align="right">13×</td>
 </tr>
 </tbody>
 </table>
@@ -947,32 +1365,59 @@ replicates).</strong></p>
 <ul>
 <li><strong>Write path</strong>
 <ul>
-<li><em>fst</em> with no compression is an order of magnitude faster
-than every compressed alternative.</li>
-<li><code>qs</code> (preset =“fast”) achieves respectable speed (<span class="math inline">\(\approx 135\)</span> ms) with modest size
-reduction, a sensible default when you need some compression but
-prioritise throughput.</li>
-<li>Parquet + Gzip is the outlier with <span class="math inline">\(\approx 4\)</span> s per file, avoid for
-high‑frequency writes.</li>
+<li>Uncompressed <code>fst</code> is the fastest writer across all
+structures.<br />
+</li>
+<li><code>qs</code> (<code>preset = &quot;fast&quot;</code>) is consistently the
+next best, offering strong throughput with modest size reduction.<br />
+</li>
+<li>Parquet with Gzip is the slowest writer by a large margin in all
+cases.</li>
 </ul></li>
 <li><strong>Read path</strong>
 <ul>
-<li>Parquet + Snappy is unequivocally the fastest reader (<span class="math inline">\(\approx 109\)</span> ms) and even outperforms
-uncompressed <em>fst</em> (<span class="math inline">\(\approx 421\)</span> ms) because the smaller
-on‑disk footprint offsets decompression cost.</li>
-<li>Parquet + Zstd remains competitive (<span class="math inline">\(\approx 135\)</span> ms) while delivering higher
-compression ratios.</li>
-<li>Gzip again exhibits the highest latency, especially when accessed
-through <code>fread</code> (<span class="math inline">\(\approx 1.25\)</span> s).</li>
+<li>For <strong>numeric</strong> data, uncompressed <code>fst</code> is
+the fastest reader.</li>
+<li>For <strong>character</strong> and <strong>mixed</strong> data,
+<strong>Parquet (uncompressed)</strong> yields the lowest read latency,
+with <strong>Snappy</strong> and <strong>Zstd</strong> close behind;
+these formats benefit from reduced on-disk size that offsets
+decompression overhead.<br />
+</li>
+<li><code>CSV</code> + <code>Gzip</code> is consistently the slowest
+reader, particularly for mixed data.</li>
+</ul></li>
+<li><strong>File size</strong>
+<ul>
+<li><strong>Zstd</strong> and <strong>Gzip</strong> deliver the smallest
+files across structures.<br />
+</li>
+<li><strong>Snappy</strong> and <strong>qs</strong> strike a practical
+balance, with much smaller than uncompressed, and materially better
+write/read performance than Gzip.<br />
+</li>
+<li><code>CSV</code> is largest on disk; <code>CSV</code> +
+<code>Gzip</code> is smaller but slow to read.</li>
 </ul></li>
 </ul>
-<p>Compression choice is therefore contextual, so use
-<code>Snappy</code> or uncompressed formats for low‑latency ingestion,
-<code>Zstd</code> or <code>Brotli</code> for space‑optimised archives,
-and always evaluate with production, like workload samples.</p>
+</div>
+<div id="practical-perspective" class="section level3">
+<h3>Practical perspective</h3>
+<ul>
+<li><strong>High-frequency writes</strong> should prefer uncompressed
+<code>fst</code> (numeric-heavy) or <code>qs</code> (mixed/character) to
+maximise throughput.<br />
+</li>
+<li><strong>Read-optimised pipelines</strong> should prefer Parquet
+(uncompressed) for minimum latency, or Parquet + Snappy/Zstd when
+storage reduction matters with minimal read-time penalty.<br />
+</li>
+<li><strong>Archival or size-constrained storage</strong> should favour
+Parquet + Zstd (or Gzip when maximum compression is required and slower
+I/O is acceptable).</li>
+</ul>
 <p><strong>Did you find this page helpful? Consider sharing it
 🙌</strong></p>
-</div>
 </div>
 </div>
 

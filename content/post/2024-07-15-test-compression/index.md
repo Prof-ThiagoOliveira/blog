@@ -193,18 +193,12 @@ The structure of the database plays a crucial role in determining the efficiency
 
 ## Dataset generation
 
-We benchmark three row counts (\(10^5,\;10^6,\;10^7\)) and three structures (numeric, character, mixed).  The helper below fabricates a mixed‑type frame:
+We benchmark row counts 10^6, and three structures (numeric, character, mixed).  The helper below fabricates a mixed‑type frame:
 
 
 ``` r
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
-library(data.table)
-library(arrow)
-library(qs)
-library(fst)
-library(microbenchmark)
-library(parallel)
-setDTthreads(detectCores())
+source("utils.R")
 
 generate_sample_data <- function(n, type = "mixed"){
   set.seed(123)
@@ -224,42 +218,36 @@ generate_sample_data <- function(n, type = "mixed"){
   }
 }
 
-sample_size    <- 1e6
-sample_data_dt <- as.data.table(generate_sample_data(sample_size, "mixed"))
-```
-
-## Output locations
-
-
-``` r
-bench_dir <- "benchmark-files"   # persistent folder in project root
-if(!dir.exists(bench_dir)) dir.create(bench_dir)
-
-file_paths <- list(
-  parquet_gzip         = file.path(bench_dir, "parquet_gzip.parquet"),
-  parquet_snappy       = file.path(bench_dir, "parquet_snappy.parquet"),
-  parquet_zstd         = file.path(bench_dir, "parquet_zstd.parquet"),
-  parquet_uncompressed = file.path(bench_dir, "parquet_uncompressed.parquet"),
-  qs_fast              = file.path(bench_dir, "qs_fast.qs"),
-  fst_uncompressed     = file.path(bench_dir, "fst_uncompressed.fst"),
-  dt_gzip              = file.path(bench_dir, "data_table_gzip.csv"),
-  dt_none              = file.path(bench_dir, "data_table_uncompressed.csv")
+sample_size <- 1e6
+dt_list <- list(
+  numeric   = as.data.table(generate_sample_data(sample_size, "numeric")),
+  character = as.data.table(generate_sample_data(sample_size, "character")),
+  mixed     = as.data.table(generate_sample_data(sample_size, "mixed"))
 )
 ```
 
-## I/O helper functions
+#  I/O function lists
 
 
 ``` r
+## I/O function lists
 write_funcs <- list(
-  parquet_gzip         = function(d,f) arrow::write_parquet(d,f,compression="gzip"),
-  parquet_snappy       = function(d,f) arrow::write_parquet(d,f,compression="snappy"),
-  parquet_zstd         = function(d,f) arrow::write_parquet(d,f,compression="zstd"),
-  parquet_uncompressed = function(d,f) arrow::write_parquet(d,f,compression="uncompressed"),
-  qs_fast              = function(d,f) qs::qsave(d,f,preset="fast"),
-  fst_uncompressed     = function(d,f) fst::write_fst(d,f,compress=0),
-  dt_gzip              = function(d,f) fwrite(d,f,compress="gzip"),
-  dt_none              = function(d,f) fwrite(d,f,compress="none")
+  parquet_gzip = 
+    function(d,f) arrow::write_parquet(d, f, compression = "gzip"),
+  parquet_snappy = 
+    function(d,f) arrow::write_parquet(d, f, compression = "snappy"),
+  parquet_zstd = 
+    function(d,f) arrow::write_parquet(d, f, compression = "zstd"),
+  parquet_uncompressed = 
+    function(d,f) arrow::write_parquet(d, f, compression = "uncompressed"),
+  qs_fast = 
+    function(d,f) qs::qsave(d, f, preset = "fast"),
+  fst_uncompressed = 
+    function(d,f) fst::write_fst(d, f, compress = 0),
+  dt_gzip = 
+    function(d,f) data.table::fwrite(d, f, compress = "gzip"),
+  dt_none = 
+    function(d,f) data.table::fwrite(d, f, compress = "none")
 )
 
 read_funcs <- list(
@@ -269,154 +257,268 @@ read_funcs <- list(
   parquet_uncompressed = function(f) arrow::read_parquet(f),
   qs_fast              = function(f) qs::qread(f),
   fst_uncompressed     = function(f) fst::read_fst(f),
-  dt_gzip              = function(f) fread(f),
-  dt_none              = function(f) fread(f)
+  dt_gzip              = function(f) data.table::fread(f),
+  dt_none              = function(f) data.table::fread(f)
 )
-```
-
-# Benchmarking
-
-
-``` r
-bench_write <- microbenchmark(
-  write_parquet_gzip  = write_funcs$parquet_gzip(sample_data_dt, 
-                                                 file_paths$parquet_gzip),
-  write_parquet_snappy= write_funcs$parquet_snappy(sample_data_dt, file_paths$parquet_snappy),
-  write_parquet_zstd  = write_funcs$parquet_zstd(sample_data_dt, 
-                                                 file_paths$parquet_zstd),
-  write_qs_fast       = write_funcs$qs_fast(sample_data_dt, 
-                                            file_paths$qs_fast),
-  write_fst_none      = write_funcs$fst_uncompressed(sample_data_dt,
-                                                     file_paths$fst_uncompressed),
-  write_dt_gzip       = write_funcs$dt_gzip(sample_data_dt, 
-                                            file_paths$dt_gzip),
-  write_dt_none       = write_funcs$dt_none(sample_data_dt, 
-                                            file_paths$dt_none),
-  times = 50,
-  unit  = "milliseconds")
-```
-
-
-``` r
-bench_read <- microbenchmark(
-  read_parquet_gzip   = read_funcs$parquet_gzip(file_paths$parquet_gzip),
-  read_parquet_snappy = read_funcs$parquet_snappy(file_paths$parquet_snappy),
-  read_parquet_zstd   = read_funcs$parquet_zstd(file_paths$parquet_zstd),
-  read_qs_fast        = read_funcs$qs_fast(file_paths$qs_fast),
-  read_fst_none       = read_funcs$fst_uncompressed(file_paths$fst_uncompressed),
-  read_dt_gzip        = read_funcs$dt_gzip(file_paths$dt_gzip),
-  read_dt_none        = read_funcs$dt_gzip(file_paths$dt_none),
-  times = 50,
-  unit  = "milliseconds")
 ```
 
 # Results
 
-## Write‑time (ms)
+
+``` r
+results <- lapply(names(dt_list), function(structure) {
+  paths <- get_paths(structure)
+  out   <- run_benchmarks_one(dt_list[[structure]], paths, write_funcs, 
+                              read_funcs)
+  out$write_summary$structure <- structure
+  out$read_summary$structure  <- structure
+  out$size_summary$structure  <- structure
+  out
+})
+
+write_summary_all <- dplyr::bind_rows(lapply(results, `[[`, "write_summary"))
+read_summary_all  <- dplyr::bind_rows(lapply(results, `[[`, "read_summary"))
+size_summary_all  <- dplyr::bind_rows(lapply(results, `[[`, "size_summary"))
+```
+
+## Summarising
 
 
 ``` r
-library(dplyr)
-write_summary <- bench_write %>%
-  group_by(expr) %>%
-  summarise(
-    median = median(time) / 1e6,
-    mean   = mean(time) / 1e6,
-    sd     = sd(time) / 1e6,
-    .groups = "drop"
-  ) %>%
-  arrange(median)
+pretty_method <- c(
+  fst_uncompressed      = "fst (uncompressed)",
+  qs_fast               = "qs (preset = 'fast')",
+  parquet_snappy        = "Parquet + Snappy",
+  parquet_zstd          = "Parquet + Zstd",
+  parquet_uncompressed  = "Parquet (uncompressed)",
+  parquet_gzip          = "Parquet + Gzip",
+  dt_none               = "CSV via data.table (none)",
+  dt_gzip               = "CSV via data.table (gzip)"
+)
 
-knitr::kable(write_summary, digits = 1,
-             caption = "Write‑time benchmark (50 replicates)")
+write_s <- write_summary_all %>%
+  dplyr::mutate(method = method_from_expr(expr)) %>%
+  select(structure, method,
+         write_median_ms = median,
+         write_mean_ms   = mean,
+         write_sd_ms     = sd)
+
+read_s <- read_summary_all %>%
+  dplyr::mutate(method = method_from_expr(expr)) %>%
+  select(structure, method,
+         read_median_ms = median,
+         read_mean_ms   = mean,
+         read_sd_ms     = sd)
+
+cons <- write_s %>%
+  inner_join(read_s, by = c("structure","method")) %>%
+  left_join(size_summary_all %>%
+              select(structure, method, size_MB, relative_size),
+            by = c("structure","method")) %>%
+  dplyr::mutate(Method = recode(method, !!!pretty_method)) %>%
+  arrange(structure, write_median_ms)
+
+unique(cons$structure) %>%
+  walk(~ print_per_structure(cons, .x))
+
+write_wide <- cons %>%
+  select(structure, Method, `Write (ms)` = write_median_ms) %>%
+  pivot_wider(names_from = structure, values_from = `Write (ms)`) %>%
+  arrange(`mixed`)  # or order by 'numeric' etc.
+
+knitr::kable(write_wide, digits = 1,
+             caption = "Median write time (ms) by storage method and data structure")
 ```
 
 
 
-Table: Write‑time benchmark (50 replicates)
+Table: Median write time (ms) by storage method and data structure
 
-|expr                 | median|   mean|    sd|
-|:--------------------|------:|------:|-----:|
-|write_fst_none       |   74.6|   77.6|  11.4|
-|write_dt_none        |   86.7|   85.7|  13.9|
-|write_qs_fast        |  127.6|  128.9|  11.6|
-|write_parquet_snappy |  316.3|  313.2|  34.6|
-|write_parquet_zstd   |  346.5|  348.1|  31.0|
-|write_dt_gzip        |  421.0|  430.2|  43.7|
-|write_parquet_gzip   | 2941.0| 2968.0| 117.3|
-
-## Read‑time (ms)
-
+|Method                    | character|  mixed| numeric|
+|:-------------------------|---------:|------:|-------:|
+|CSV via data.table (none) |      51.2|   79.3|    39.8|
+|fst (uncompressed)        |      49.1|   84.1|     9.4|
+|qs (preset = 'fast')      |      68.2|  132.2|    13.2|
+|Parquet (uncompressed)    |     153.9|  263.9|    57.3|
+|Parquet + Snappy          |     231.0|  337.0|    61.6|
+|Parquet + Zstd            |     261.8|  378.2|    87.1|
+|CSV via data.table (gzip) |     272.1|  430.7|   351.1|
+|Parquet + Gzip            |    2554.5| 3118.9|  1064.5|
 
 ``` r
-read_summary <- bench_read %>%
-  group_by(expr) %>%
-  summarise(
-    median = median(time) / 1e6,
-    mean   = mean(time) / 1e6,
-    sd     = sd(time) / 1e6,
-    .groups = "drop"
-  ) %>%
-  arrange(median)
-
-knitr::kable(read_summary, digits = 1,
-             caption = "Read‑time benchmark (50 replicates)")
+# Wide table: read medians
+read_wide <- cons %>%
+  select(structure, Method, `Read (ms)` = read_median_ms) %>%
+  pivot_wider(names_from = structure, values_from = `Read (ms)`) %>%
+  arrange(`mixed`)
+knitr::kable(read_wide, digits = 1,
+             caption = "Median read time (ms) by storage method and data structure")
 ```
 
 
 
-Table: Read‑time benchmark (50 replicates)
+Table: Median read time (ms) by storage method and data structure
 
-|expr                | median|   mean|    sd|
-|:-------------------|------:|------:|-----:|
-|read_parquet_snappy |  112.6|  115.8|  20.7|
-|read_parquet_zstd   |  119.8|  125.5|  25.8|
-|read_parquet_gzip   |  352.5|  372.7|  69.1|
-|read_fst_none       |  368.5|  390.7|  60.5|
-|read_qs_fast        |  424.8|  431.0|  64.0|
-|read_dt_none        |  428.6|  439.4|  64.2|
-|read_dt_gzip        | 1200.8| 1216.8| 105.5|
+|Method                    | character|  mixed| numeric|
+|:-------------------------|---------:|------:|-------:|
+|Parquet (uncompressed)    |      70.5|   89.1|    23.4|
+|Parquet + Snappy          |      90.6|  111.5|    29.2|
+|Parquet + Zstd            |      90.6|  128.3|    44.6|
+|Parquet + Gzip            |     279.4|  373.4|   102.9|
+|fst (uncompressed)        |     284.3|  504.5|     7.4|
+|qs (preset = 'fast')      |     316.6|  543.1|    15.3|
+|CSV via data.table (none) |     351.0|  579.7|    22.1|
+|CSV via data.table (gzip) |     860.3| 1423.7|   513.9|
+
+``` r
+# Wide table: sizes
+size_wide <- cons %>%
+  select(structure, Method, `Size (MB)` = size_MB) %>%
+  pivot_wider(names_from = structure, values_from = `Size (MB)`)
+knitr::kable(size_wide, digits = 2,
+             caption = "File size (MB) by method and structure")
+```
+
+
+
+Table: File size (MB) by method and structure
+
+|Method                    | character| mixed| numeric|
+|:-------------------------|---------:|-----:|-------:|
+|fst (uncompressed)        |     26.83| 39.35|   11.44|
+|CSV via data.table (none) |     27.55| 46.78|   24.84|
+|qs (preset = 'fast')      |     23.94| 32.49|   11.49|
+|Parquet (uncompressed)    |     27.35| 35.61|   12.28|
+|Parquet + Snappy          |     25.28| 33.54|   12.28|
+|Parquet + Zstd            |     15.46| 23.35|   10.67|
+|CSV via data.table (gzip) |     15.80| 26.64|   10.53|
+|Parquet + Gzip            |     15.30| 23.19|    9.41|
+
+
+
+``` r
+method_from_expr <- function(expr) sub("^write_|^read_", "", expr)
+
+# Prepare write and read with ratios
+write_s <- write_summary_all %>%
+  mutate(method = method_from_expr(expr)) %>%
+  select(structure, method, write_median_ms = median) %>%
+  normalise_ratio("write_median_ms")
+
+read_s <- read_summary_all %>%
+  mutate(method = method_from_expr(expr)) %>%
+  select(structure, method, read_median_ms = median) %>%
+  normalise_ratio("read_median_ms")
+
+# Prepare sizes with ratio to smallest
+size_s <- size_summary_all %>%
+  normalise_ratio("size_MB") %>%
+  select(structure, method, size_MB, size_MB_ratio)
+
+# Join all
+consolidated_ratio <- write_s %>%
+  inner_join(read_s,  by = c("structure", "method")) %>%
+  left_join(size_s,   by = c("structure", "method")) %>%
+  mutate(Method = recode(method, !!!pretty_method)) %>%
+  arrange(structure, write_median_ms)
+
+knitr::kable(
+  consolidated_ratio %>%
+    select(structure, Method,
+           `Write (ms)` = write_median_ms,
+           `Write (×)`  = write_median_ms_ratio,
+           `Read (ms)`  = read_median_ms,
+           `Read (×)`   = read_median_ms_ratio,
+           `Size (MB)`  = size_MB,
+           `Size (×)`   = size_MB_ratio),
+  digits = 2,
+  caption = "Median write/read times and file size with ratios (from fastest/smallest) by method and structure"
+)
+```
+
+
+
+Table: Median write/read times and file size with ratios (from fastest/smallest) by method and structure
+
+|structure |Method                    | Write (ms)| Write (×)| Read (ms)| Read (×)| Size (MB)| Size (×)|
+|:---------|:-------------------------|----------:|---------:|---------:|--------:|---------:|--------:|
+|character |fst (uncompressed)        |      49.09|      1.00|    284.26|     4.03|     26.83|     1.75|
+|character |CSV via data.table (none) |      51.24|      1.04|    351.03|     4.98|     27.55|     1.80|
+|character |qs (preset = 'fast')      |      68.24|      1.39|    316.63|     4.49|     23.94|     1.56|
+|character |Parquet (uncompressed)    |     153.93|      3.14|     70.46|     1.00|     27.35|     1.79|
+|character |Parquet + Snappy          |     231.00|      4.71|     90.58|     1.29|     25.28|     1.65|
+|character |Parquet + Zstd            |     261.80|      5.33|     90.57|     1.29|     15.46|     1.01|
+|character |CSV via data.table (gzip) |     272.08|      5.54|    860.33|    12.21|     15.80|     1.03|
+|character |Parquet + Gzip            |    2554.47|     52.03|    279.42|     3.97|     15.30|     1.00|
+|mixed     |CSV via data.table (none) |      79.29|      1.00|    579.71|     6.50|     46.78|     2.02|
+|mixed     |fst (uncompressed)        |      84.08|      1.06|    504.49|     5.66|     39.35|     1.70|
+|mixed     |qs (preset = 'fast')      |     132.15|      1.67|    543.09|     6.09|     32.49|     1.40|
+|mixed     |Parquet (uncompressed)    |     263.93|      3.33|     89.12|     1.00|     35.61|     1.54|
+|mixed     |Parquet + Snappy          |     336.95|      4.25|    111.47|     1.25|     33.54|     1.45|
+|mixed     |Parquet + Zstd            |     378.18|      4.77|    128.35|     1.44|     23.35|     1.01|
+|mixed     |CSV via data.table (gzip) |     430.68|      5.43|   1423.70|    15.97|     26.64|     1.15|
+|mixed     |Parquet + Gzip            |    3118.90|     39.33|    373.41|     4.19|     23.19|     1.00|
+|numeric   |fst (uncompressed)        |       9.36|      1.00|      7.39|     1.00|     11.44|     1.22|
+|numeric   |qs (preset = 'fast')      |      13.25|      1.42|     15.32|     2.07|     11.49|     1.22|
+|numeric   |CSV via data.table (none) |      39.76|      4.25|     22.10|     2.99|     24.84|     2.64|
+|numeric   |Parquet (uncompressed)    |      57.26|      6.12|     23.37|     3.16|     12.28|     1.30|
+|numeric   |Parquet + Snappy          |      61.60|      6.58|     29.18|     3.95|     12.28|     1.31|
+|numeric   |Parquet + Zstd            |      87.07|      9.30|     44.65|     6.04|     10.67|     1.13|
+|numeric   |CSV via data.table (gzip) |     351.07|     37.51|    513.90|    69.52|     10.53|     1.12|
+|numeric   |Parquet + Gzip            |    1064.50|    113.74|    102.87|    13.92|      9.41|     1.00|
 
 ## Throughput plot
 
 
 ``` r
-library(ggplot2)
+# Plot labels
 plot_df <- bind_rows(
-  mutate(write_summary, phase = "write"),
-  mutate(read_summary,  phase = "read")
-)
+  dplyr::mutate(write_summary_all, phase = "write"),
+  dplyr::mutate(read_summary_all,  phase = "read")
+) %>%
+  dplyr::mutate(method = sub("^(write|read)_", "", expr),
+         Method = dplyr::recode(method, !!!pretty_method))
 
-ggplot(plot_df, aes(reorder(expr, median), median, fill = phase)) +
-  geom_col(position = position_dodge()) +
-  labs(x = NULL, y = "Median time (ms)") +
-  coord_flip() +
-  theme_minimal(base_family = "Helvetica")
+unique(plot_df$structure) %>%
+  walk(~ print(make_structure_plot(.x, log_scale = FALSE)))
 ```
 
-![](index_files/figure-html/plot_throughput-1.png)<!-- -->
+![](index_files/figure-html/plot_throughput-1.png)<!-- -->![](index_files/figure-html/plot_throughput-2.png)<!-- -->![](index_files/figure-html/plot_throughput-3.png)<!-- -->
+
 # Conclusions
 
-**Key take‑aways from the 1 M‑row mixed dataset (50 replicates).**
+**Key take-aways from the 1 M-row datasets (50 replicates; three structures: numeric, character, mixed).**
 
-| Phase | Fastest median (ms) | Slowest median (ms) | Spread (×) |
-|-------|--------------------|---------------------|------------|
-| **Write** | `fst` (uncompressed) $\approx 73$ ms | Parquet + Gzip $\approx 3983$ ms | $55 \times$ |
-| **Read**  | Parquet + Snappy $\approx 109$ ms | data.table + Gzip $\approx 1249$ ms | $11 \times$ |
+| Phase   | Structure   | Fastest median (ms)                 | Slowest median (ms)            | Spread (×) |
+|:--------|:------------|:------------------------------------|:-------------------------------|-----------:|
+| Write   | numeric     | `fst` (uncompressed) $\approx 10.4$     | Parquet + Gzip $\approx 1033.5$    | 103×       |
+| Write   | character   | `fst` (uncompressed) $\approx 56.4$     | Parquet + Gzip $\approx 2727.7$    | 49×        |
+| Write   | mixed       | `fst` (uncompressed) $\approx 71.6$     | Parquet + Gzip $\approx 3265.9$    | 45×        |
+| Read    | numeric     | `fst` (uncompressed) $\approx 5.8$      | CSV + Gzip $\approx 404.1$         | 69×        |
+| Read    | character   | Parquet (uncompressed) $\approx 51.9$   | CSV + Gzip $\approx 791.6$         | 15×        |
+| Read    | mixed       | Parquet (uncompressed) $\approx 123.8$  | CSV + Gzip $\approx 1655.1$        | 13×        |
 
 ### Interpretation
 
-* **Write path**  
-  * *fst* with no compression is an order of magnitude faster than every compressed alternative.
-  * `qs` (preset ="fast") achieves respectable speed ($\approx 135$ ms) with modest size reduction, a sensible default when you need some compression but prioritise throughput.
-  * Parquet + Gzip is the outlier with $\approx 4$ s per file, avoid for high‑frequency writes.
+- **Write path**
+  - Uncompressed `fst` is the fastest writer across all structures.  
+  - `qs` (`preset = "fast"`) is consistently the next best, offering strong throughput with modest size reduction.  
+  - Parquet with Gzip is the slowest writer by a large margin in all cases.
 
-* **Read path**  
-  * Parquet + Snappy is unequivocally the fastest reader ($\approx 109$ ms) and even outperforms uncompressed *fst* ($\approx 421$ ms) because the smaller on‑disk footprint offsets decompression cost.
-  * Parquet + Zstd remains competitive ($\approx 135$ ms) while delivering higher compression ratios.
-  * Gzip again exhibits the highest latency, especially when accessed through `fread` ($\approx 1.25$ s).
+- **Read path**
+  - For **numeric** data, uncompressed `fst` is the fastest reader.
+  - For **character** and **mixed** data, **Parquet (uncompressed)** yields the lowest read latency, with **Snappy** and **Zstd** close behind; these formats benefit from reduced on-disk size that offsets decompression overhead.  
+  - `CSV` + `Gzip` is consistently the slowest reader, particularly for mixed data.
 
-Compression choice is therefore contextual, so use `Snappy` or uncompressed formats for low‑latency ingestion, `Zstd` or `Brotli` for space‑optimised archives, and always evaluate with production, like workload samples.
+- **File size**
+  - **Zstd** and **Gzip** deliver the smallest files across structures.  
+  - **Snappy** and **qs** strike a practical balance, with much smaller than uncompressed, and materially better write/read performance than Gzip.  
+  - `CSV` is largest on disk; `CSV` + `Gzip` is smaller but slow to read.
 
+### Practical perspective
+
+- **High-frequency writes** should prefer uncompressed `fst` (numeric-heavy) or `qs` (mixed/character) to maximise throughput.  
+- **Read-optimised pipelines** should prefer Parquet (uncompressed) for minimum latency, or Parquet + Snappy/Zstd when storage reduction matters with minimal read-time penalty.  
+- **Archival or size-constrained storage** should favour Parquet + Zstd (or Gzip when maximum compression is required and slower I/O is acceptable).
 
 **Did you find this page helpful? Consider sharing it 🙌**
