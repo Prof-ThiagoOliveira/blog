@@ -312,7 +312,7 @@ double kendall_tau_b_cpp(NumericVector x, NumericVector y) {
 
 # Sanity checks considering tie-free vs tie-heavy data
 
-In practice, Kendall’s rank correlation behaves differently depending on the prevalence of ties. The **tau-a** normalisation uses the total number of unordered pairs $n_0=\binom{n}{2}$ and does not adjust for ties, whereas **tau-b** rescales by $\sqrt{(n_0-T_x)(n_0-T_y)}$ to remove the influence of ties in $x$ and $y$. Base R’s `cor(..., method = "kendall")` implements a tie-aware estimator (tau-b–type normalisation). The aim of this section is therefore twofold (i) to show agreement amongst implementations when ties are essentially absent, and (ii) to illustrate the expected divergence of tau-a from tie-aware estimators when ties are pervasive—typical of discretised scores or coarse measurements in breeding datasets.
+In practice, Kendall’s rank correlation behaves differently depending on the prevalence of ties. The **tau-a** normalisation uses the total number of unordered pairs $n_0=\binom{n}{2}$ and does not adjust for ties, whereas **tau-b** rescales by $\sqrt{(n_0-T_x)(n_0-T_y)}$ to remove the influence of ties in $x$ and $y$. Base R’s `cor(..., method = "kendall")` implements a tie-aware estimator (tau-b–type normalisation). The aim of this section is therefore twofold (i) to show agreement amongst implementations when ties are essentially absent, and (ii) to illustrate the expected divergence of tau-a from tie-aware estimators when ties are pervasive, typical of discretised scores or coarse measurements in breeding datasets.
 
 
 ## Tie-free (continuous) data
@@ -323,8 +323,15 @@ With continuous, independent draws (here, Gaussian), ties are virtually absent. 
 ```{r sanity_noties}
 set.seed(1)
 n_noties <- 5000L
-x0 <- rnorm(n_noties)
-y0 <- rnorm(n_noties)
+rho   <- 0.6
+Sigma <- matrix(c(1, rho, rho, 1), 2, 2)
+
+Z <- matrix(rnorm(2L * n_noties), ncol = 2) 
+L <- chol(Sigma)
+XY <- Z %*% L
+
+x0 <- XY[, 1]
+y0 <- XY[, 2]
 
 tau_a_noties  <- kendall_tau_a_cpp(x0, y0)
 tau_b_noties  <- kendall_tau_b_cpp(x0, y0)

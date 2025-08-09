@@ -185,9 +185,18 @@ Use attributes for almost everything once you move beyond exploratory work.
 * **Plugins** keep code portable while tapping heavy `C++` libraries.
 * **BEGIN\_RCPP/END\_RCPP** keep your` C++` errors readable from R.
 
+# Reproducibility
+
+```{r session}
+sessionInfo()
+```
 
 **Did you find this page helpful? Consider sharing it 🙌**
 
+# How to cite this post
+
+Oliveira, T. de Paula. (2025, August 9). *From prototype to production, choosing the right R and C++ tool in Rcpp*.  
+<https://prof-thiagooliveira.netlify.app/post/rcpp-start-with-r/>
 
 <style>
 /* Let the outer wrapper use the full viewport width */

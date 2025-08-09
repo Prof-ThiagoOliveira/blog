@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-09T07:48:20Z"
+lastmod: "2025-08-09T07:59:50Z"
 featured: false
 image:
   caption: ""
@@ -325,14 +325,21 @@ double kendall_tau_b_cpp(NumericVector x, NumericVector y) {
 </div>
 <div id="sanity-checks-considering-tie-free-vs-tie-heavy-data" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Sanity checks considering tie-free vs tie-heavy data</h1>
-<p>In practice, Kendall’s rank correlation behaves differently depending on the prevalence of ties. The <strong>tau-a</strong> normalisation uses the total number of unordered pairs <span class="math inline">\(n_0=\binom{n}{2}\)</span> and does not adjust for ties, whereas <strong>tau-b</strong> rescales by <span class="math inline">\(\sqrt{(n_0-T_x)(n_0-T_y)}\)</span> to remove the influence of ties in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Base R’s <code>cor(..., method = "kendall")</code> implements a tie-aware estimator (tau-b–type normalisation). The aim of this section is therefore twofold (i) to show agreement amongst implementations when ties are essentially absent, and (ii) to illustrate the expected divergence of tau-a from tie-aware estimators when ties are pervasive—typical of discretised scores or coarse measurements in breeding datasets.</p>
+<p>In practice, Kendall’s rank correlation behaves differently depending on the prevalence of ties. The <strong>tau-a</strong> normalisation uses the total number of unordered pairs <span class="math inline">\(n_0=\binom{n}{2}\)</span> and does not adjust for ties, whereas <strong>tau-b</strong> rescales by <span class="math inline">\(\sqrt{(n_0-T_x)(n_0-T_y)}\)</span> to remove the influence of ties in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Base R’s <code>cor(..., method = "kendall")</code> implements a tie-aware estimator (tau-b–type normalisation). The aim of this section is therefore twofold (i) to show agreement amongst implementations when ties are essentially absent, and (ii) to illustrate the expected divergence of tau-a from tie-aware estimators when ties are pervasive, typical of discretised scores or coarse measurements in breeding datasets.</p>
 <div id="tie-free-continuous-data" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Tie-free (continuous) data</h2>
 <p>With continuous, independent draws (here, Gaussian), ties are virtually absent. Under this regime, tau-a and tau-b coincide up to Monte Carlo error, and both agree with base <code>R</code>. Any residual differences are due to finite-sample variability and numerical details (e.g., discretisation safeguards in the <code>C++</code> code). This scenario serves as a basic correctness check before considering tie handling.</p>
 <pre class="r"><code>set.seed(1)
 n_noties &lt;- 5000L
-x0 &lt;- rnorm(n_noties)
-y0 &lt;- rnorm(n_noties)
+rho   &lt;- 0.6
+Sigma &lt;- matrix(c(1, rho, rho, 1), 2, 2)
+
+Z &lt;- matrix(rnorm(2L * n_noties), ncol = 2) 
+L &lt;- chol(Sigma)
+XY &lt;- Z %*% L
+
+x0 &lt;- XY[, 1]
+y0 &lt;- XY[, 2]
 
 tau_a_noties  &lt;- kendall_tau_a_cpp(x0, y0)
 tau_b_noties  &lt;- kendall_tau_b_cpp(x0, y0)
@@ -370,9 +377,9 @@ dplyr::tibble(
 <tbody>
 <tr class="odd">
 <td align="left">no ties</td>
-<td align="right">-9.1e-05</td>
-<td align="right">-9.1e-05</td>
-<td align="right">-9.1e-05</td>
+<td align="right">0.417996</td>
+<td align="right">0.417996</td>
+<td align="right">0.417996</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>

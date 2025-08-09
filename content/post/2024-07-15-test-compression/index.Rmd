@@ -312,9 +312,23 @@ unique(plot_df$structure) %>%
 -   **Read-optimised pipelines** should prefer Parquet (uncompressed) for minimum latency, or Parquet + Snappy/Zstd when storage reduction matters with minimal read-time penalty.\
 -   **Archival or size-constrained storage** should favour Parquet + Zstd (or Gzip when maximum compression is required and slower I/O is acceptable).
 
+# Reproducibility
+
+```{r session}
+sessionInfo()
+```
+
+
 **Did you find this page helpful? Consider sharing it 🙌**
 
-```{=html}
+
+# How to cite this post
+
+Oliveira, T. de Paula. (2025, March 13). *Effects of compression techniques on data read/write performance*.  
+<https://prof-thiagooliveira.netlify.app/post/compression-data-read-write-performance/>
+
+
+
 <style>
 /* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
 /* Place this at the very end of the post so it wins the cascade. */
@@ -469,4 +483,4 @@ html.dark .page-body article .prose code{
 }
 html.dark .page-body article .prose thead th{ background: #5aa0ff; }
 </style>
-```
+

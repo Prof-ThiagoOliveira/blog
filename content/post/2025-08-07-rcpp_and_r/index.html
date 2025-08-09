@@ -1,7 +1,7 @@
 ---
 title: From prototype to production, choosing the right R and C++ tool in Rcpp
 author: Thiago de Paula Oliveira
-date:  "August 08, 2025"
+date:  "August 09, 2025"
 slug: rcpp-start-with-r
 categories:
   - R Programming
@@ -41,6 +41,8 @@ output:
 <li><a href="#quick-decision-guide" id="toc-quick-decision-guide"><span class="toc-section-number">1.2</span> Quick decision guide</a></li>
 <li><a href="#take-aways" id="toc-take-aways"><span class="toc-section-number">1.3</span> Take-aways</a></li>
 </ul></li>
+<li><a href="#reproducibility" id="toc-reproducibility"><span class="toc-section-number">2</span> Reproducibility</a></li>
+<li><a href="#how-to-cite-this-post" id="toc-how-to-cite-this-post"><span class="toc-section-number">3</span> How to cite this post</a></li>
 </ul>
 </div>
 
@@ -154,9 +156,9 @@ cbind(fastLm = res$coef,
   times  = 100
 )</code></pre>
 <pre><code>## Unit: microseconds
-##    expr   min     lq    mean median     uq    max neval cld
-##  fastLm  34.6  38.55  53.044   53.1  63.40   95.6   100  a 
-##      lm 642.4 700.25 757.264  715.0 757.05 1109.3   100   b</code></pre>
+##    expr    min      lq     mean median     uq    max neval cld
+##  fastLm   62.2   70.95  108.611  110.4  125.5  262.9   100  a 
+##      lm 1255.9 1434.35 1711.092 1553.5 1889.5 3099.4   100   b</code></pre>
 </div>
 <div id="rcpp-attributes" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> 4.2 Rcpp Attributes</h3>
@@ -230,7 +232,53 @@ fibonacci(20)     #&gt; 6765</code></pre>
 <li><strong>Plugins</strong> keep code portable while tapping heavy <code>C++</code> libraries.</li>
 <li><strong>BEGIN_RCPP/END_RCPP</strong> keep your<code>C++</code> errors readable from R.</li>
 </ul>
+</div>
+</div>
+<div id="reproducibility" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Reproducibility</h1>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 4.4.3 (2025-02-28 ucrt)
+## Platform: x86_64-w64-mingw32/x64
+## Running under: Windows 11 x64 (build 22631)
+## 
+## Matrix products: default
+## 
+## 
+## locale:
+## [1] LC_COLLATE=English_United Kingdom.utf8 
+## [2] LC_CTYPE=English_United Kingdom.utf8   
+## [3] LC_MONETARY=English_United Kingdom.utf8
+## [4] LC_NUMERIC=C                           
+## [5] LC_TIME=English_United Kingdom.utf8    
+## 
+## time zone: Europe/London
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] RcppArmadillo_14.6.0-1 Rcpp_1.1.0             inline_0.3.21         
+## 
+## loaded via a namespace (and not attached):
+##  [1] microbenchmark_1.4.10 cli_3.6.2             knitr_1.50           
+##  [4] TH.data_1.1-3         rlang_1.1.6           xfun_0.52            
+##  [7] jsonlite_1.8.8        zoo_1.8-12            htmltools_0.5.8.1    
+## [10] sass_0.4.9            rmarkdown_2.29        grid_4.4.3           
+## [13] evaluate_1.0.4        jquerylib_0.1.4       MASS_7.3-64          
+## [16] fastmap_1.2.0         mvtnorm_1.2-5         yaml_2.3.10          
+## [19] lifecycle_1.0.4       bookdown_0.40         compiler_4.4.3       
+## [22] multcomp_1.4-28       codetools_0.2-20      sandwich_3.1-1       
+## [25] rstudioapi_0.17.1     blogdown_1.21         lattice_0.22-6       
+## [28] digest_0.6.35         R6_2.6.1              splines_4.4.3        
+## [31] Matrix_1.7-2          bslib_0.7.0           tools_4.4.3          
+## [34] survival_3.8-3        cachem_1.1.0</code></pre>
 <p><strong>Did you find this page helpful? Consider sharing it 🙌</strong></p>
+</div>
+<div id="how-to-cite-this-post" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> How to cite this post</h1>
+<p>Oliveira, T. de Paula. (2025, August 9). <em>From prototype to production, choosing the right R and C++ tool in Rcpp</em>.<br />
+<a href="https://prof-thiagooliveira.netlify.app/post/rcpp-start-with-r/" class="uri">https://prof-thiagooliveira.netlify.app/post/rcpp-start-with-r/</a></p>
 <style>
 /* Let the outer wrapper use the full viewport width */
 .page-body > .mx-auto{
@@ -453,5 +501,4 @@ html.dark .page-body article .prose code{
 }
 html.dark .page-body article .prose thead th{ background: #5aa0ff; }
 </style>
-</div>
 </div>
