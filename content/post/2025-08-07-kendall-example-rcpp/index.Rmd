@@ -32,7 +32,7 @@ output:
 
 # Overview
 
-This post demonstrates how to move from a prototype in R to a compiled implementation with **Rcpp**, using **Kendall’s rank correlation** as a worked example. We implement a fast **tau-a** and **tau-b** estimator in `C++` (merge-sort inversion count), validate it against `stats::cor(..., method = "kendall")` on tie-free and non-tie-free data, and microbenchmark all approaches.
+This post shows how to go from a quick `R` prototype to a compiled implementation with `Rcpp`, using **Kendall’s rank correlation** as a worked example. We implement fast, $O(n\log n)$, estimators for both $\tau_a$ (via a merge-sort inversion count) and $\tau_b$ (via a Binary Indexed Tree/Fenwick tree with explicit tie counts), then check their accuracy and speed against `stats::cor(..., method = "kendall")`.
 
 # Setup
 
@@ -48,6 +48,8 @@ set.seed(1)
 ```
 
 # Kendall’s tau definitions
+
+Before diving into code and `C++` implementations, let’s understand what we’re computing. **Kendall’s tau** is a rank-based measure of monotonic association. It contrasts how often pairs of observations agree in order (**concordant**) versus disagree (**discordant**). Ties can be handled either by leaving the denominator as the total number of pairs defined here as $\tau_a$ or by rescaling to discount tied pairs defined here as $\tau_b$.
 
 Let $\{(x_i,y_i)\}_{i=1}^n$ be paired observations, and consider all unordered index pairs $(i,j)$ with $i<j$. For each pair define
 
@@ -113,6 +115,14 @@ It is important to keep in mind the following properties:
 * **Degenerate margins.** If all $x$ values are equal (so $T_x=n_0$) or all $y$ values are equal ($T_y=n_0$), the denominator of $\tau_b$ is zero and $\tau_b$ is undefined (software often returns `NaN`). In these cases, $\tau_a=0$.
 * **Invariance.** Both $\tau_a$ and $\tau_b$ are invariant to strictly monotone transformations of either variable.
 * **No ties.** If there are no ties, then $C+D=n_0$ and both measures coincide: $\tau=\frac{C-D}{n_0}$.
+
+## When should you use Kendall’s tau?
+
+Use Kendall’s tau when you need a **rank-based** measure of *monotonic* association that’s robust to outliers and monotone transforms. Specifically:
+
+- **Ordinal or coarsened data** including ratings/scores with few levels (Likert, grades, bins). Prefer $\tau_b$ when ties are common; $\tau_a$ only when ties are essentially absent.
+- **Monotonic but nonlinear relationships** when we care about direction/strength of monotonicity, **not linearity**.
+- **Outliers or heavy tails** when rank methods downweight extreme values relative to Pearson’s $\rho$.
 
 # Implementation in R (Rcpp)
 

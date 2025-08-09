@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-09T08:17:57Z"
+lastmod: "2025-08-09T10:16:06Z"
 featured: false
 image:
   caption: ""
@@ -40,6 +40,7 @@ output:
 <li><a href="#kendalls-tau_a-no-tie-correction" id="toc-kendalls-tau_a-no-tie-correction"><span class="toc-section-number">3.1</span> Kendall’s <span class="math inline">\(\tau_a\)</span> (no tie correction)</a></li>
 <li><a href="#kendalls-tau_b-tie-adjusted" id="toc-kendalls-tau_b-tie-adjusted"><span class="toc-section-number">3.2</span> Kendall’s <span class="math inline">\(\tau_b\)</span> (tie-adjusted)</a></li>
 <li><a href="#remarks-and-edge-cases" id="toc-remarks-and-edge-cases"><span class="toc-section-number">3.3</span> Remarks and edge cases</a></li>
+<li><a href="#when-should-you-use-kendalls-tau" id="toc-when-should-you-use-kendalls-tau"><span class="toc-section-number">3.4</span> When should you use Kendall’s tau?</a></li>
 </ul></li>
 <li><a href="#implementation-in-r-rcpp" id="toc-implementation-in-r-rcpp"><span class="toc-section-number">4</span> Implementation in R (Rcpp)</a>
 <ul>
@@ -64,7 +65,7 @@ output:
 
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Overview</h1>
-<p>This post demonstrates how to move from a prototype in R to a compiled implementation with <strong>Rcpp</strong>, using <strong>Kendall’s rank correlation</strong> as a worked example. We implement a fast <strong>tau-a</strong> and <strong>tau-b</strong> estimator in <code>C++</code> (merge-sort inversion count), validate it against <code>stats::cor(..., method = "kendall")</code> on tie-free and non-tie-free data, and microbenchmark all approaches.</p>
+<p>This post shows how to go from a quick <code>R</code> prototype to a compiled implementation with <code>Rcpp</code>, using <strong>Kendall’s rank correlation</strong> as a worked example. We implement fast, <span class="math inline">\(O(n\log n)\)</span> estimators for both <span class="math inline">\(\tau_a\)</span> (via a merge-sort inversion count) and <span class="math inline">\(\tau_b\)</span> (via a Binary Indexed Tree/Fenwick tree with explicit tie counts), then check their accuracy and speed against <code>stats::cor(..., method = "kendall")</code>.</p>
 </div>
 <div id="setup" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Setup</h1>
@@ -79,6 +80,7 @@ set.seed(1)</code></pre>
 </div>
 <div id="kendalls-tau-definitions" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Kendall’s tau definitions</h1>
+<p>Before diving into code and <code>C++</code> implementations, let’s understand what we’re computing. <strong>Kendall’s tau</strong> is a rank-based measure of monotonic association. It contrasts how often pairs of observations agree in order (<strong>concordant</strong>) versus disagree (<strong>discordant</strong>). Ties can be handled either by leaving the denominator as the total number of pairs defined here as <span class="math inline">\(\tau_a\)</span> or by rescaling to discount tied pairs defined here as <span class="math inline">\(\tau_b\)</span>.</p>
 <p>Let <span class="math inline">\(\{(x_i,y_i)\}_{i=1}^n\)</span> be paired observations, and consider all unordered index pairs <span class="math inline">\((i,j)\)</span> with <span class="math inline">\(i&lt;j\)</span>. For each pair define</p>
 <p><span class="math display">\[
   s_{ij} \,=\, \operatorname{sgn}(x_i-x_j)\,\operatorname{sgn}(y_i-y_j),
@@ -131,6 +133,15 @@ set.seed(1)</code></pre>
 <li><strong>Degenerate margins.</strong> If all <span class="math inline">\(x\)</span> values are equal (so <span class="math inline">\(T_x=n_0\)</span>) or all <span class="math inline">\(y\)</span> values are equal (<span class="math inline">\(T_y=n_0\)</span>), the denominator of <span class="math inline">\(\tau_b\)</span> is zero and <span class="math inline">\(\tau_b\)</span> is undefined (software often returns <code>NaN</code>). In these cases, <span class="math inline">\(\tau_a=0\)</span>.</li>
 <li><strong>Invariance.</strong> Both <span class="math inline">\(\tau_a\)</span> and <span class="math inline">\(\tau_b\)</span> are invariant to strictly monotone transformations of either variable.</li>
 <li><strong>No ties.</strong> If there are no ties, then <span class="math inline">\(C+D=n_0\)</span> and both measures coincide: <span class="math inline">\(\tau=\frac{C-D}{n_0}\)</span>.</li>
+</ul>
+</div>
+<div id="when-should-you-use-kendalls-tau" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> When should you use Kendall’s tau?</h2>
+<p>Use Kendall’s tau when you need a <strong>rank-based</strong> measure of <em>monotonic</em> association that’s robust to outliers and monotone transforms. Specifically:</p>
+<ul>
+<li><strong>Ordinal or coarsened data</strong> including ratings/scores with few levels (Likert, grades, bins). Prefer <span class="math inline">\(\tau_b\)</span> when ties are common; <span class="math inline">\(\tau_a\)</span> only when ties are essentially absent.</li>
+<li><strong>Monotonic but nonlinear relationships</strong> when we care about direction/strength of monotonicity, <strong>not linearity</strong>.</li>
+<li><strong>Outliers or heavy tails</strong> when rank methods downweight extreme values relative to Pearson’s <span class="math inline">\(\rho\)</span>.</li>
 </ul>
 </div>
 </div>
