@@ -1,8 +1,8 @@
 ---
 title: Exploring Polynomial, Fractional Polynomial, and Spline Models
 author: Thiago de Paula Oliveira
+slug: "polynomial-fractional-splines-models"
 date: '2024-01-19'
-slug: Spline Models
 categories:
   - Statistics
   - Statistical Models
