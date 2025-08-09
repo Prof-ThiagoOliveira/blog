@@ -2,6 +2,10 @@
 title: Exploring Polynomial, Fractional Polynomial, and Spline Models
 author: Thiago de Paula Oliveira
 slug: "polynomial-fractional-splines-models"
+url: /post/polynomial-fractional-splines-models/
+aliases:
+  - /posts/polynomial-fractional-splines-models/
+  - /post/polynomial-fractional-spline-models/
 date: '2024-01-19'
 categories:
   - Statistics
@@ -23,9 +27,10 @@ image:
   preview_only: no
 projects: []
 output:
-  html_document:
-    keep_md: yes
-    toc: false
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 3
 ---
 
 The ability to accurately model and interpret complex data sets is paramount. This technical exploration delves into three sophisticated modelling techniques:
