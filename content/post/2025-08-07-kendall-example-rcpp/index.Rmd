@@ -412,7 +412,7 @@ invisible(stats::cor(xb,  yb,  method = "kendall"))
 invisible(stats::cor(xbt, ybt, method = "kendall"))
 ```
 
-### Microbenchmark: tie-free data
+## Microbenchmark: tie-free data
 
 On essentially tie-free inputs, all algorithms are $O(n\log n)$ but differ in constants. The tau-a routine often has a slight advantage because it avoids tie searching. Agreement in estimates alongside stable timing indicates the implementations are behaving as expected in the, let's say, ``easy" regime.
 
@@ -448,7 +448,7 @@ ggplot2::ggplot(as.data.frame(mb_noties),
   ggplot2::theme_minimal(base_size = 12)
 ```
 
-### Microbenchmark: many ties
+## Microbenchmark: many ties
 
 With many ties, tie-aware methods incur modest overhead for counting and handling groups, yet remain $O(n\log n)$. The tau-a routine may be fastest but is estimating a different quantity in this regime; its computational advantage should not be traded off against interpretability when ties matter. In most breeding or agricultural datasets with discrete or rounded measures, the tau-b (or base `R`) path is the appropriate comparator.
 

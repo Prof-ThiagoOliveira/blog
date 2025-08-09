@@ -1,8 +1,6 @@
 ni -Type File .gitignore -Force
 @"
 /public/
-resources/
-**/index_files/
 .DS_Store
 .Rproj.user/
 .Rhistory
@@ -11,7 +9,6 @@ resources/
 *.utf8.md
 "@ | Out-File -Encoding utf8 -Append .gitignore
 resources/_gen/
-/public/
 /resources/
 /.hugo_build.lock
 /.Rproj.user/

@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-09T08:07:01Z"
+lastmod: "2025-08-09T08:17:57Z"
 featured: false
 image:
   caption: ""
@@ -53,8 +53,8 @@ output:
 </ul></li>
 <li><a href="#benchmark-design-microbenchmarks-no-ties-vs-many-ties" id="toc-benchmark-design-microbenchmarks-no-ties-vs-many-ties"><span class="toc-section-number">6</span> Benchmark design &amp; microbenchmarks (no ties vs many ties)</a>
 <ul>
-<li><a href="#microbenchmark-tie-free-data" id="toc-microbenchmark-tie-free-data"><span class="toc-section-number">6.0.1</span> Microbenchmark: tie-free data</a></li>
-<li><a href="#microbenchmark-many-ties" id="toc-microbenchmark-many-ties"><span class="toc-section-number">6.0.2</span> Microbenchmark: many ties</a></li>
+<li><a href="#microbenchmark-tie-free-data" id="toc-microbenchmark-tie-free-data"><span class="toc-section-number">6.1</span> Microbenchmark: tie-free data</a></li>
+<li><a href="#microbenchmark-many-ties" id="toc-microbenchmark-many-ties"><span class="toc-section-number">6.2</span> Microbenchmark: many ties</a></li>
 </ul></li>
 <li><a href="#reproducibility" id="toc-reproducibility"><span class="toc-section-number">7</span> Reproducibility</a></li>
 <li><a href="#references" id="toc-references"><span class="toc-section-number">8</span> References</a></li>
@@ -471,8 +471,8 @@ invisible(kendall_tau_a_cpp(xb,  yb))
 invisible(kendall_tau_b_cpp(xbt, ybt))
 invisible(stats::cor(xb,  yb,  method = &quot;kendall&quot;))
 invisible(stats::cor(xbt, ybt, method = &quot;kendall&quot;))</code></pre>
-<div id="microbenchmark-tie-free-data" class="section level3" number="6.0.1">
-<h3><span class="header-section-number">6.0.1</span> Microbenchmark: tie-free data</h3>
+<div id="microbenchmark-tie-free-data" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Microbenchmark: tie-free data</h2>
 <p>On essentially tie-free inputs, all algorithms are <span class="math inline">\(O(n\log n)\)</span> but differ in constants. The tau-a routine often has a slight advantage because it avoids tie searching. Agreement in estimates alongside stable timing indicates the implementations are behaving as expected in the, let’s say, ``easy” regime.</p>
 <pre class="r"><code>mb_noties &lt;- microbenchmark::microbenchmark(
   cpp_tau_a  = kendall_tau_a_cpp(xb, yb),
@@ -537,8 +537,8 @@ knitr::kable(mb_noties_sum, digits = 2,
   ggplot2::theme_minimal(base_size = 12)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/plot_bench_noties-1.png" width="672" /></p>
 </div>
-<div id="microbenchmark-many-ties" class="section level3" number="6.0.2">
-<h3><span class="header-section-number">6.0.2</span> Microbenchmark: many ties</h3>
+<div id="microbenchmark-many-ties" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Microbenchmark: many ties</h2>
 <p>With many ties, tie-aware methods incur modest overhead for counting and handling groups, yet remain <span class="math inline">\(O(n\log n)\)</span>. The tau-a routine may be fastest but is estimating a different quantity in this regime; its computational advantage should not be traded off against interpretability when ties matter. In most breeding or agricultural datasets with discrete or rounded measures, the tau-b (or base <code>R</code>) path is the appropriate comparator.</p>
 <pre class="r"><code>mb_ties &lt;- microbenchmark::microbenchmark(
   cpp_tau_a    = kendall_tau_a_cpp(xbt, ybt),
