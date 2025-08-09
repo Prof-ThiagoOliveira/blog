@@ -1,17 +1,13 @@
-ni -Type File .gitignore -Force
-@"
 /public/
-.DS_Store
+/resources/
+/resources/_gen/
+.hugo_build.lock
+
 .Rproj.user/
 .Rhistory
 .RData
+.DS_Store
+Thumbs.db
+
 *.knit.md
 *.utf8.md
-"@ | Out-File -Encoding utf8 -Append .gitignore
-resources/_gen/
-/resources/
-/.hugo_build.lock
-/.Rproj.user/
-/.DS_Store
-Thumbs.db
-.hugo_build.lock
