@@ -454,7 +454,7 @@ ggplot2::ggplot(as.data.frame(mb_noties),
                 ggplot2::aes(x = expr, y = time/1e6)) +
   ggplot2::geom_boxplot(outlier.alpha = 0.15) +
   ggplot2::labs(x = NULL, y = "Time (ms)",
-       title = "No ties: kendall_tau_a_cpp / kendall_tau_b_cpp / base R") +
+       title = "No ties case") +
   ggplot2::theme_minimal(base_size = 12)
 ```
 
@@ -490,7 +490,7 @@ ggplot2::ggplot(as.data.frame(mb_ties),
                 ggplot2::aes(x = expr, y = time/1e6)) +
   ggplot2::geom_boxplot(outlier.alpha = 0.15) +
   ggplot2::labs(x = NULL, y = "Time (ms)",
-       title = "Many ties: kendall_tau_a_cpp / kendall_tau_b_cpp / base R") +
+       title = "Many ties case") +
   ggplot2::theme_minimal(base_size = 12)
 ```
 As you probably noted until here, in both scenarios $(n=10{,}000)$, the `C++` implementations are orders of magnitude faster than base R. Specifically in the last scenario:

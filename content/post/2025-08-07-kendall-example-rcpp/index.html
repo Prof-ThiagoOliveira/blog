@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-09T10:16:06Z"
+lastmod: "2025-08-09T10:23:29Z"
 featured: false
 image:
   caption: ""
@@ -65,7 +65,7 @@ output:
 
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Overview</h1>
-<p>This post shows how to go from a quick <code>R</code> prototype to a compiled implementation with <code>Rcpp</code>, using <strong>Kendall’s rank correlation</strong> as a worked example. We implement fast, <span class="math inline">\(O(n\log n)\)</span> estimators for both <span class="math inline">\(\tau_a\)</span> (via a merge-sort inversion count) and <span class="math inline">\(\tau_b\)</span> (via a Binary Indexed Tree/Fenwick tree with explicit tie counts), then check their accuracy and speed against <code>stats::cor(..., method = "kendall")</code>.</p>
+<p>This post shows how to go from a quick <code>R</code> prototype to a compiled implementation with <code>Rcpp</code>, using <strong>Kendall’s rank correlation</strong> as a worked example. We implement fast, <span class="math inline">\(O(n\log n)\)</span>, estimators for both <span class="math inline">\(\tau_a\)</span> (via a merge-sort inversion count) and <span class="math inline">\(\tau_b\)</span> (via a Binary Indexed Tree/Fenwick tree with explicit tie counts), then check their accuracy and speed against <code>stats::cor(..., method = "kendall")</code>.</p>
 </div>
 <div id="setup" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Setup</h1>
@@ -544,7 +544,7 @@ knitr::kable(mb_noties_sum, digits = 2,
                 ggplot2::aes(x = expr, y = time/1e6)) +
   ggplot2::geom_boxplot(outlier.alpha = 0.15) +
   ggplot2::labs(x = NULL, y = &quot;Time (ms)&quot;,
-       title = &quot;No ties: kendall_tau_a_cpp / kendall_tau_b_cpp / base R&quot;) +
+       title = &quot;No ties case&quot;) +
   ggplot2::theme_minimal(base_size = 12)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/plot_bench_noties-1.png" width="672" /></p>
 </div>
@@ -610,7 +610,7 @@ knitr::kable(mb_ties_sum, digits = 2,
                 ggplot2::aes(x = expr, y = time/1e6)) +
   ggplot2::geom_boxplot(outlier.alpha = 0.15) +
   ggplot2::labs(x = NULL, y = &quot;Time (ms)&quot;,
-       title = &quot;Many ties: kendall_tau_a_cpp / kendall_tau_b_cpp / base R&quot;) +
+       title = &quot;Many ties case&quot;) +
   ggplot2::theme_minimal(base_size = 12)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/plot_bench_ties-1.png" width="672" />
 As you probably noted until here, in both scenarios <span class="math inline">\((n=10{,}000)\)</span>, the <code>C++</code> implementations are orders of magnitude faster than base R. Specifically in the last scenario:</p>
