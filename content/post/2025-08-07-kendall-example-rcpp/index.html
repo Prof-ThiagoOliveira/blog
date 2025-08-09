@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Kendall's Tau in R and Rcpp"
-date:  "August 08, 2025"
+date:  "August 09, 2025"
 slug: "benchmarking-kendalls-tau-r-rcpp"
 categories:
   - "R Programming"
@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-08T19:38:19Z"
+lastmod: "2025-08-09T07:32:32Z"
 featured: false
 image:
   caption: ""
@@ -37,22 +37,26 @@ output:
 <li><a href="#setup" id="toc-setup"><span class="toc-section-number">2</span> Setup</a></li>
 <li><a href="#kendalls-tau-definitions" id="toc-kendalls-tau-definitions"><span class="toc-section-number">3</span> Kendall’s tau definitions</a>
 <ul>
-<li><a href="#tau-a-no-tie-correction" id="toc-tau-a-no-tie-correction"><span class="toc-section-number">3.1</span> Tau-a (no tie correction)</a></li>
-<li><a href="#tau-b-tie-adjusted" id="toc-tau-b-tie-adjusted"><span class="toc-section-number">3.2</span> Tau-b (tie-adjusted)</a></li>
+<li><a href="#kendalls-tau_a-no-tie-correction" id="toc-kendalls-tau_a-no-tie-correction"><span class="toc-section-number">3.1</span> Kendall’s <span class="math inline">\(\tau_a\)</span> (no tie correction)</a></li>
+<li><a href="#kendalls-tau_b-tie-adjusted" id="toc-kendalls-tau_b-tie-adjusted"><span class="toc-section-number">3.2</span> Kendall’s <span class="math inline">\(\tau_b\)</span> (tie-adjusted)</a></li>
+<li><a href="#remarks-and-edge-cases" id="toc-remarks-and-edge-cases"><span class="toc-section-number">3.3</span> Remarks and edge cases</a></li>
 </ul></li>
-<li><a href="#rcpp-inline-implementation-tau-a" id="toc-rcpp-inline-implementation-tau-a"><span class="toc-section-number">4</span> Rcpp inline implementation (tau-a)</a></li>
-<li><a href="#rcpp-inline-implementation-tau-b" id="toc-rcpp-inline-implementation-tau-b"><span class="toc-section-number">5</span> Rcpp inline implementation (tau-b)</a></li>
-<li><a href="#sanity-checks-considering-tie-free-vs-tie-heavy-data" id="toc-sanity-checks-considering-tie-free-vs-tie-heavy-data"><span class="toc-section-number">6</span> Sanity checks considering tie-free vs tie-heavy data</a>
+<li><a href="#implementation-in-r-rcpp" id="toc-implementation-in-r-rcpp"><span class="toc-section-number">4</span> Implementation in R (Rcpp)</a>
 <ul>
-<li><a href="#tie-free-continuous-data" id="toc-tie-free-continuous-data"><span class="toc-section-number">6.1</span> Tie-free (continuous) data</a></li>
-<li><a href="#tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs" id="toc-tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs"><span class="toc-section-number">6.2</span> Tie-heavy data we have <span class="math inline">\(\tau_b \approx\)</span> base R, <span class="math inline">\(\tau_a\)</span> differs</a></li>
+<li><a href="#rcpp-inline-implementation-tau_a" id="toc-rcpp-inline-implementation-tau_a"><span class="toc-section-number">4.1</span> Rcpp inline implementation (<span class="math inline">\(\tau_a\)</span>)</a></li>
+<li><a href="#rcpp-inline-implementation-tau-b" id="toc-rcpp-inline-implementation-tau-b"><span class="toc-section-number">4.2</span> Rcpp inline implementation (tau-b)</a></li>
 </ul></li>
-<li><a href="#benchmark-design-microbenchmarks-no-ties-vs-many-ties" id="toc-benchmark-design-microbenchmarks-no-ties-vs-many-ties"><span class="toc-section-number">7</span> Benchmark design &amp; microbenchmarks (no ties vs many ties)</a>
+<li><a href="#sanity-checks-considering-tie-free-vs-tie-heavy-data" id="toc-sanity-checks-considering-tie-free-vs-tie-heavy-data"><span class="toc-section-number">5</span> Sanity checks considering tie-free vs tie-heavy data</a>
 <ul>
-<li><a href="#microbenchmark-tie-free-data" id="toc-microbenchmark-tie-free-data"><span class="toc-section-number">7.0.1</span> Microbenchmark: tie-free data</a></li>
-<li><a href="#microbenchmark-many-ties" id="toc-microbenchmark-many-ties"><span class="toc-section-number">7.0.2</span> Microbenchmark: many ties</a></li>
+<li><a href="#tie-free-continuous-data" id="toc-tie-free-continuous-data"><span class="toc-section-number">5.1</span> Tie-free (continuous) data</a></li>
+<li><a href="#tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs" id="toc-tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs"><span class="toc-section-number">5.2</span> Tie-heavy data we have <span class="math inline">\(\tau_b \approx\)</span> base R, <span class="math inline">\(\tau_a\)</span> differs</a></li>
 </ul></li>
-<li><a href="#reproducibility" id="toc-reproducibility"><span class="toc-section-number">8</span> Reproducibility</a></li>
+<li><a href="#benchmark-design-microbenchmarks-no-ties-vs-many-ties" id="toc-benchmark-design-microbenchmarks-no-ties-vs-many-ties"><span class="toc-section-number">6</span> Benchmark design &amp; microbenchmarks (no ties vs many ties)</a>
+<ul>
+<li><a href="#microbenchmark-tie-free-data" id="toc-microbenchmark-tie-free-data"><span class="toc-section-number">6.0.1</span> Microbenchmark: tie-free data</a></li>
+<li><a href="#microbenchmark-many-ties" id="toc-microbenchmark-many-ties"><span class="toc-section-number">6.0.2</span> Microbenchmark: many ties</a></li>
+</ul></li>
+<li><a href="#reproducibility" id="toc-reproducibility"><span class="toc-section-number">7</span> Reproducibility</a></li>
 </ul>
 </div>
 
@@ -73,52 +77,67 @@ set.seed(1)</code></pre>
 </div>
 <div id="kendalls-tau-definitions" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Kendall’s tau definitions</h1>
-<p>Let <span class="math inline">\(\{(x_i,y_i)\}_{i=1}^n\)</span> be paired observations. For each unordered pair <span class="math inline">\((i,j)\)</span> with <span class="math inline">\(i&lt;j\)</span>. Now we can define the following:</p>
+<p>Let <span class="math inline">\(\{(x_i,y_i)\}_{i=1}^n\)</span> be paired observations, and consider all unordered index pairs <span class="math inline">\((i,j)\)</span> with <span class="math inline">\(i&lt;j\)</span>. For each pair define</p>
+<p><span class="math display">\[
+  s_{ij} \,=\, \operatorname{sgn}(x_i-x_j)\,\operatorname{sgn}(y_i-y_j),
+\]</span></p>
+<p>with the convention <span class="math inline">\(\operatorname{sgn}(0)=0\)</span>. Thus, <span class="math inline">\(s_{ij}=+1\)</span> for concordant, <span class="math inline">\(-1\)</span> for discordant, and <span class="math inline">\(0\)</span> if the pair is tied in <span class="math inline">\(x\)</span> or in <span class="math inline">\(y\)</span> (or both).</p>
+<p>Classify pairs:</p>
 <ul>
-<li><strong>Concordant</strong> if <span class="math inline">\((x_i-x_j)(y_i-y_j)&gt;0\)</span><br />
-</li>
-<li><strong>Discordant</strong> if <span class="math inline">\((x_i-x_j)(y_i-y_j)&lt;0\)</span><br />
-</li>
-<li><strong>Tie in</strong> <span class="math inline">\(x\)</span> if <span class="math inline">\(x_i=x_j\)</span> (irrespective of <span class="math inline">\(y\)</span>)<br />
-</li>
-<li><strong>Tie in</strong> <span class="math inline">\(y\)</span> if <span class="math inline">\(y_i=y_j\)</span> (irrespective of <span class="math inline">\(x\)</span>)</li>
+<li><strong>Concordant</strong> if <span class="math inline">\((x_i-x_j)(y_i-y_j)&gt;0\)</span>.</li>
+<li><strong>Discordant</strong> if <span class="math inline">\((x_i-x_j)(y_i-y_j)&lt;0\)</span>.</li>
+<li><strong>Tie in</strong> <span class="math inline">\(x\)</span> if <span class="math inline">\(x_i=x_j\)</span> (regardless of <span class="math inline">\(y\)</span>).</li>
+<li><strong>Tie in</strong> <span class="math inline">\(y\)</span> if <span class="math inline">\(y_i=y_j\)</span> (regardless of <span class="math inline">\(x\)</span>).</li>
 </ul>
 <p>Define the counts</p>
 <p><span class="math display">\[
-C = \sum_{1\le i&lt;j\le n} \mathbf{1}\!\left((x_i - x_j)(y_i - y_j) &gt; 0\right)
+  C = \sum_{1\le i&lt;j\le n} \mathbf{1}\!\big((x_i-x_j)(y_i-y_j)&gt;0\big),\quad
+  D = \sum_{1\le i&lt;j\le n} \mathbf{1}\!\big((x_i-x_j)(y_i-y_j)&lt;0\big),
 \]</span></p>
+<p>and let <span class="math inline">\(n_0=\binom{n}{2}\)</span> be the total number of pairs.</p>
+<p>If the <span class="math inline">\(x\)</span>-values contain tie groups of sizes <span class="math inline">\(\{t_{x,g}\}\)</span> and the <span class="math inline">\(y\)</span>-values tie groups <span class="math inline">\(\{t_{y,h}\}\)</span>, the numbers of tied pairs (counting all ties, including pairs tied on both variables) are</p>
 <p><span class="math display">\[
-D = \sum_{1\le i&lt;j\le n} \mathbf{1}\!\left((x_i - x_j)(y_i - y_j) &lt; 0\right), \text{ and}
+  T_x = \sum_g \binom{t_{x,g}}{2}, \qquad
+  T_y = \sum_h \binom{t_{y,h}}{2}.
 \]</span></p>
+<p>Let <span class="math inline">\(T_{xy}\)</span> be the number of pairs tied <strong>on both</strong> variables. Then the calculating identities</p>
 <p><span class="math display">\[
-n_0 = \binom{n}{2}
+  n_0 = C + D + T_x + T_y - T_{xy}, \qquad \sum_{i&lt;j} s_{ij} = C - D
 \]</span></p>
-<p>Let the <span class="math inline">\(x\)</span>-values contain tie groups of sizes <span class="math inline">\(\{t_{x,g}\}\)</span> and the <span class="math inline">\(y\)</span>-values tie groups <span class="math inline">\(\{t_{y,h}\}\)</span>. The numbers of tied pairs are</p>
+<p>hold.</p>
+<div id="kendalls-tau_a-no-tie-correction" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Kendall’s <span class="math inline">\(\tau_a\)</span> (no tie correction)</h2>
 <p><span class="math display">\[
-T_x = \sum_g \binom{t_{x,g}}{2}, \qquad
-T_y = \sum_h \binom{t_{y,h}}{2}.
+  \tau_a \,=\, \frac{C - D}{n_0} \,=\, \frac{1}{n_0}\sum_{i&lt;j} s_{ij}.
 \]</span></p>
-<div id="tau-a-no-tie-correction" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Tau-a (no tie correction)</h2>
-<p><span class="math display">\[
-\tau_a = \frac{C - D}{n_0}.
-\]</span></p>
-<p>Appropriate when ties are absent or negligible.</p>
+<p>This coefficient lies in <span class="math inline">\([-1,1]\)</span>. It is appropriate when ties are absent or negligible; ties contribute <span class="math inline">\(s_{ij}=0\)</span> and therefore shrink <span class="math inline">\(|\tau_a|\)</span> toward 0.</p>
 </div>
-<div id="tau-b-tie-adjusted" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Tau-b (tie-adjusted)</h2>
+<div id="kendalls-tau_b-tie-adjusted" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Kendall’s <span class="math inline">\(\tau_b\)</span> (tie-adjusted)</h2>
 <p><span class="math display">\[
-\tau_b = \frac{C - D}{\sqrt{(n_0 - T_x)\,(n_0 - T_y)}}.
+  \tau_b \,=\, \frac{C - D}{\sqrt{\,(n_0 - T_x)\,(n_0 - T_y)\,}}.
 \]</span></p>
-<p>Adjusts the normalisation for ties in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, preserving the <span class="math inline">\([-1,1]\)</span> range. When there are no ties (<span class="math inline">\(T_x=T_y=0\)</span>), consequently, <span class="math inline">\(\tau_b=\tau_a\)</span>.</p>
+<p>This rescales by the numbers of <em>comparable</em> pairs in each margin and preserves the <span class="math inline">\([-1,1]\)</span> range. When there are no ties (<span class="math inline">\(T_x=T_y=0\)</span>), we have <span class="math inline">\(\tau_b=\tau_a\)</span>.</p>
 <blockquote>
-<p><strong>Convention.</strong> Pairs tied on both variables are included in both <span class="math inline">\(T_x\)</span> and <span class="math inline">\(T_y\)</span>, matching common software implementations of <span class="math inline">\(\tau_b\)</span>.</p>
+<p><strong>Convention on double ties.</strong> Pairs tied on both variables are included in <strong>both</strong> <span class="math inline">\(T_x\)</span> and <span class="math inline">\(T_y\)</span>, matching common software implementations of <span class="math inline">\(\tau_b\)</span>. The separate term <span class="math inline">\(T_{xy}\)</span> is used only in the calculating identity above.</p>
 </blockquote>
 </div>
+<div id="remarks-and-edge-cases" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Remarks and edge cases</h2>
+<p>It is important to keep in mind the following properties:</p>
+<ul>
+<li><strong>Degenerate margins.</strong> If all <span class="math inline">\(x\)</span> values are equal (so <span class="math inline">\(T_x=n_0\)</span>) or all <span class="math inline">\(y\)</span> values are equal (<span class="math inline">\(T_y=n_0\)</span>), the denominator of <span class="math inline">\(\tau_b\)</span> is zero and <span class="math inline">\(\tau_b\)</span> is undefined (software often returns <code>NaN</code>). In these cases, <span class="math inline">\(\tau_a=0\)</span>.</li>
+<li><strong>Invariance.</strong> Both <span class="math inline">\(\tau_a\)</span> and <span class="math inline">\(\tau_b\)</span> are invariant to strictly monotone transformations of either variable.</li>
+<li><strong>No ties.</strong> If there are no ties, then <span class="math inline">\(C+D=n_0\)</span> and both measures coincide: <span class="math inline">\(\tau=\frac{C-D}{n_0}\)</span>.</li>
+</ul>
 </div>
-<div id="rcpp-inline-implementation-tau-a" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Rcpp inline implementation (tau-a)</h1>
-<p>The <code>C++</code> function below computes Kendall’s <strong>tau-a</strong> (no tie correction). For practical datasets with ties, tau-b is usually preferable; see the caveats.</p>
+</div>
+<div id="implementation-in-r-rcpp" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Implementation in R (Rcpp)</h1>
+<p>With the definitions in place, we can move from notation to a compact implementation. To enumerate all <span class="math inline">\(n_0=\binom{n}{2}\)</span> pairs efficiently, we’ll use a small <code>C++</code> routine via <strong>Rcpp</strong>. The function below computes Kendall’s <span class="math inline">\(\tau_a\)</span> by tallying concordant and discordant pairs and returning <span class="math inline">\((C-D)/n_0\)</span>. When ties are common, <span class="math inline">\(\tau_b\)</span> is usually preferable; we present both approaches, but the reason to have <span class="math inline">\(\tau_a\)</span> here because it is simple and fast, and it coincides with <span class="math inline">\(\tau_b\)</span> when there are no ties.</p>
+<div id="rcpp-inline-implementation-tau_a" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Rcpp inline implementation (<span class="math inline">\(\tau_a\)</span>)</h2>
+<p>The C++ function below is intended to be compiled inline from <code>R</code> and called as a regular <code>R</code> function. (A short note on validation follows after the code.)</p>
 <pre class="r"><code>Rcpp::cppFunction(code = &#39;
 #include &lt;Rcpp.h&gt;
 #include &lt;algorithm&gt;
@@ -184,8 +203,8 @@ double kendall_tau_a_cpp(NumericVector x, NumericVector y) {
 }
 &#39;, rebuild = TRUE)</code></pre>
 </div>
-<div id="rcpp-inline-implementation-tau-b" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Rcpp inline implementation (tau-b)</h1>
+<div id="rcpp-inline-implementation-tau-b" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Rcpp inline implementation (tau-b)</h2>
 <p>This C++ routine computes Kendall’s <strong>tau-b</strong> (tie-adjusted). It first orders observations by <span class="math inline">\(x\)</span> (breaking ties by <span class="math inline">\(y\)</span>), then uses a Fenwick tree to accumulate <span class="math inline">\(S=C-D\)</span> by comparing each group (equal <span class="math inline">\(x\)</span>) only to previously seen values (so pairs tied on either variable do not enter the numerator). The tie counts <span class="math inline">\(T_x\)</span> and <span class="math inline">\(T_y\)</span> are computed explicitly and used in the denominator <span class="math inline">\(\sqrt{(n_0-T_x)(n_0-T_y)}\)</span>, yielding a coefficient in <span class="math inline">\([-1,1]\)</span> that matches <code>stats::cor(..., method = "kendall")</code> on tied data. Time complexity is <span class="math inline">\(O(n\log n)\)</span>. Floating inputs are discretised (scale factor <span class="math inline">\(10^8\)</span>) to stabilise equality checks; for heavily discretised data we may prefer pre-ranking to integers.</p>
 <pre class="r"><code>Rcpp::cppFunction(code = &quot;
 #include &lt;Rcpp.h&gt;
@@ -301,11 +320,12 @@ double kendall_tau_b_cpp(NumericVector x, NumericVector y) {
 }
 &quot;)</code></pre>
 </div>
-<div id="sanity-checks-considering-tie-free-vs-tie-heavy-data" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Sanity checks considering tie-free vs tie-heavy data</h1>
+</div>
+<div id="sanity-checks-considering-tie-free-vs-tie-heavy-data" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Sanity checks considering tie-free vs tie-heavy data</h1>
 <p>In practice, Kendall’s rank correlation behaves differently depending on the prevalence of ties. The <strong>tau-a</strong> normalisation uses the total number of unordered pairs <span class="math inline">\(n_0=\binom{n}{2}\)</span> and does not adjust for ties, whereas <strong>tau-b</strong> rescales by <span class="math inline">\(\sqrt{(n_0-T_x)(n_0-T_y)}\)</span> to remove the influence of ties in <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Base R’s <code>cor(..., method = "kendall")</code> implements a tie-aware estimator (tau-b–type normalisation). The aim of this section is therefore twofold (i) to show agreement amongst implementations when ties are essentially absent, and (ii) to illustrate the expected divergence of tau-a from tie-aware estimators when ties are pervasive—typical of discretised scores or coarse measurements in breeding datasets.</p>
-<div id="tie-free-continuous-data" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Tie-free (continuous) data</h2>
+<div id="tie-free-continuous-data" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Tie-free (continuous) data</h2>
 <p>With continuous, independent draws (here, Gaussian), ties are virtually absent. Under this regime, tau-a and tau-b coincide up to Monte Carlo error, and both agree with base <code>R</code>. Any residual differences are due to finite-sample variability and numerical details (e.g., discretisation safeguards in the <code>C++</code> code). This scenario serves as a basic correctness check before considering tie handling.</p>
 <pre class="r"><code>set.seed(1)
 n_noties &lt;- 5000L
@@ -357,8 +377,8 @@ dplyr::tibble(
 </tbody>
 </table>
 </div>
-<div id="tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Tie-heavy data we have <span class="math inline">\(\tau_b \approx\)</span> base R, <span class="math inline">\(\tau_a\)</span> differs</h2>
+<div id="tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Tie-heavy data we have <span class="math inline">\(\tau_b \approx\)</span> base R, <span class="math inline">\(\tau_a\)</span> differs</h2>
 <p>When many observations share identical values (here enforced by sampling small integers), a substantial fraction of pairs are tied on <span class="math inline">\(x\)</span>, on <span class="math inline">\(y\)</span>, or on both. Tau-b explicitly discounts such tied pairs in the denominator and therefore remains on the same scale as base <code>R</code>. In contrast, tau-a retains <span class="math inline">\(n_0\)</span> in the denominator while excluding tied pairs from the numerator, pulling estimates towards zero as ties increase. In applied settings (e.g., ordinal disease scores, rounded phenotypes, or coarsened environmental indices), a tie-adjusted coefficient such as tau-b is generally preferable.</p>
 <pre class="r"><code>set.seed(2)
 n_ties &lt;- 5000L
@@ -413,8 +433,8 @@ dplyr::tibble(
 </table>
 </div>
 </div>
-<div id="benchmark-design-microbenchmarks-no-ties-vs-many-ties" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Benchmark design &amp; microbenchmarks (no ties vs many ties)</h1>
+<div id="benchmark-design-microbenchmarks-no-ties-vs-many-ties" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Benchmark design &amp; microbenchmarks (no ties vs many ties)</h1>
 <p>We benchmark three implementations on <span class="math inline">\(n=10{,}000\)</span> pairs. A <code>C++</code> <strong>tau-a</strong> (merge-sort inversion count), a <code>C++</code> <strong>tau-b</strong> (Fenwick tree with explicit tie counts), and base <code>R</code>’s Kendall (tie-aware, <span class="math inline">\(O(n\log n)\)</span>). Each method is run 50 times after a warm-up to amortise compilation and jit effects. Results are summarised by the median and IQR of wall-clock times. Absolute timings will depend on hardware and compilation flags. Note that the principal comparison is relative performance under differing tie structures.</p>
 <pre class="r"><code>set.seed(3)
 n_bench &lt;- 10000L
@@ -432,8 +452,8 @@ invisible(kendall_tau_a_cpp(xb,  yb))
 invisible(kendall_tau_b_cpp(xbt, ybt))
 invisible(stats::cor(xb,  yb,  method = &quot;kendall&quot;))
 invisible(stats::cor(xbt, ybt, method = &quot;kendall&quot;))</code></pre>
-<div id="microbenchmark-tie-free-data" class="section level3" number="7.0.1">
-<h3><span class="header-section-number">7.0.1</span> Microbenchmark: tie-free data</h3>
+<div id="microbenchmark-tie-free-data" class="section level3" number="6.0.1">
+<h3><span class="header-section-number">6.0.1</span> Microbenchmark: tie-free data</h3>
 <p>On essentially tie-free inputs, all algorithms are <span class="math inline">\(O(n\log n)\)</span> but differ in constants. The tau-a routine often has a slight advantage because it avoids tie searching. Agreement in estimates alongside stable timing indicates the implementations are behaving as expected in the, let’s say, ``easy” regime.</p>
 <pre class="r"><code>mb_noties &lt;- microbenchmark::microbenchmark(
   cpp_tau_a  = kendall_tau_a_cpp(xb, yb),
@@ -498,8 +518,8 @@ knitr::kable(mb_noties_sum, digits = 2,
   ggplot2::theme_minimal(base_size = 12)</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/plot_bench_noties-1.png" width="672" /></p>
 </div>
-<div id="microbenchmark-many-ties" class="section level3" number="7.0.2">
-<h3><span class="header-section-number">7.0.2</span> Microbenchmark: many ties</h3>
+<div id="microbenchmark-many-ties" class="section level3" number="6.0.2">
+<h3><span class="header-section-number">6.0.2</span> Microbenchmark: many ties</h3>
 <p>With many ties, tie-aware methods incur modest overhead for counting and handling groups, yet remain <span class="math inline">\(O(n\log n)\)</span>. The tau-a routine may be fastest but is estimating a different quantity in this regime; its computational advantage should not be traded off against interpretability when ties matter. In most breeding or agricultural datasets with discrete or rounded measures, the tau-b (or base <code>R</code>) path is the appropriate comparator.</p>
 <pre class="r"><code>mb_ties &lt;- microbenchmark::microbenchmark(
   cpp_tau_a    = kendall_tau_a_cpp(xbt, ybt),
@@ -572,8 +592,8 @@ As you probably noted until here, in both scenarios <span class="math inline">\(
 <p>The IQRs (0.18 ms for tau-a; 0.46 ms for tau-b; 214.89 ms for base <code>R</code>) indicate the <code>C++</code> timings are not only faster but also far more stable. Practically, this means we can use the tie-adjusted <strong>tau-b C++</strong> routine without sacrificing performance; the <span class="math inline">\(\approx 2.0 \times\)</span> overhead relative to tau-a is negligible in absolute terms, while the gap to base <code>R</code> remains several orders of magnitude.</p>
 </div>
 </div>
-<div id="reproducibility" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Reproducibility</h1>
+<div id="reproducibility" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Reproducibility</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 4.4.3 (2025-02-28 ucrt)
 ## Platform: x86_64-w64-mingw32/x64

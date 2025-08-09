@@ -49,55 +49,79 @@ set.seed(1)
 
 # Kendall’s tau definitions
 
-Let $\{(x_i,y_i)\}_{i=1}^n$ be paired observations. For each unordered pair $(i,j)$ with $i<j$. Now we can define the following:
+Let $\{(x_i,y_i)\}_{i=1}^n$ be paired observations, and consider all unordered index pairs $(i,j)$ with $i<j$. For each pair define
 
--   **Concordant** if $(x_i-x_j)(y_i-y_j)>0$\
--   **Discordant** if $(x_i-x_j)(y_i-y_j)<0$\
--   **Tie in** $x$ if $x_i=x_j$ (irrespective of $y$)\
--   **Tie in** $y$ if $y_i=y_j$ (irrespective of $x$)
+$$
+  s_{ij} \,=\, \operatorname{sgn}(x_i-x_j)\,\operatorname{sgn}(y_i-y_j),
+$$
+
+with the convention $\operatorname{sgn}(0)=0$. Thus, $s_{ij}=+1$ for concordant, $-1$ for discordant, and $0$ if the pair is tied in $x$ or in $y$ (or both).
+
+Classify pairs:
+
+* **Concordant** if $(x_i-x_j)(y_i-y_j)>0$.
+* **Discordant** if $(x_i-x_j)(y_i-y_j)<0$.
+* **Tie in** $x$ if $x_i=x_j$ (regardless of $y$).
+* **Tie in** $y$ if $y_i=y_j$ (regardless of $x$).
 
 Define the counts
 
 $$
-C = \sum_{1\le i<j\le n} \mathbf{1}\!\left((x_i - x_j)(y_i - y_j) > 0\right)
+  C = \sum_{1\le i<j\le n} \mathbf{1}\!\big((x_i-x_j)(y_i-y_j)>0\big),\quad
+  D = \sum_{1\le i<j\le n} \mathbf{1}\!\big((x_i-x_j)(y_i-y_j)<0\big),
 $$
 
-$$
-D = \sum_{1\le i<j\le n} \mathbf{1}\!\left((x_i - x_j)(y_i - y_j) < 0\right), \text{ and}
-$$
+and let $n_0=\binom{n}{2}$ be the total number of pairs.
+
+If the $x$-values contain tie groups of sizes $\{t_{x,g}\}$ and the $y$-values tie groups $\{t_{y,h}\}$, the numbers of tied pairs (counting all ties, including pairs tied on both variables) are
 
 $$
-n_0 = \binom{n}{2}
+  T_x = \sum_g \binom{t_{x,g}}{2}, \qquad
+  T_y = \sum_h \binom{t_{y,h}}{2}.
 $$
 
-Let the $x$-values contain tie groups of sizes $\{t_{x,g}\}$ and the $y$-values tie groups $\{t_{y,h}\}$. The numbers of tied pairs are
+Let $T_{xy}$ be the number of pairs tied **on both** variables. Then the calculating identities
 
 $$
-T_x = \sum_g \binom{t_{x,g}}{2}, \qquad
-T_y = \sum_h \binom{t_{y,h}}{2}.
+  n_0 = C + D + T_x + T_y - T_{xy}, \qquad \sum_{i<j} s_{ij} = C - D
 $$
 
-## Tau-a (no tie correction)
+hold.
+
+## Kendall’s $\tau_a$ (no tie correction)
 
 $$
-\tau_a = \frac{C - D}{n_0}.
+  \tau_a \,=\, \frac{C - D}{n_0} \,=\, \frac{1}{n_0}\sum_{i<j} s_{ij}.
 $$
 
-Appropriate when ties are absent or negligible.
+This coefficient lies in $[-1,1]$. It is appropriate when ties are absent or negligible; ties contribute $s_{ij}=0$ and therefore shrink $|\tau_a|$ toward 0.
 
-## Tau-b (tie-adjusted)
+## Kendall’s $\tau_b$ (tie-adjusted)
 
 $$
-\tau_b = \frac{C - D}{\sqrt{(n_0 - T_x)\,(n_0 - T_y)}}.
+  \tau_b \,=\, \frac{C - D}{\sqrt{\,(n_0 - T_x)\,(n_0 - T_y)\,}}.
 $$
 
-Adjusts the normalisation for ties in $x$ and $y$, preserving the $[-1,1]$ range. When there are no ties ($T_x=T_y=0$), consequently, $\tau_b=\tau_a$.
+This rescales by the numbers of *comparable* pairs in each margin and preserves the $[-1,1]$ range. When there are no ties ($T_x=T_y=0$), we have $\tau_b=\tau_a$.
 
-> **Convention.** Pairs tied on both variables are included in both $T_x$ and $T_y$, matching common software implementations of $\tau_b$.
+> **Convention on double ties.** Pairs tied on both variables are included in **both** $T_x$ and $T_y$, matching common software implementations of $\tau_b$. The separate term $T_{xy}$ is used only in the calculating identity above.
 
-# Rcpp inline implementation (tau-a)
+## Remarks and edge cases
 
-The `C++` function below computes Kendall’s **tau-a** (no tie correction). For practical datasets with ties, tau-b is usually preferable; see the caveats.
+It is important to keep in mind the following properties:
+
+* **Degenerate margins.** If all $x$ values are equal (so $T_x=n_0$) or all $y$ values are equal ($T_y=n_0$), the denominator of $\tau_b$ is zero and $\tau_b$ is undefined (software often returns `NaN`). In these cases, $\tau_a=0$.
+* **Invariance.** Both $\tau_a$ and $\tau_b$ are invariant to strictly monotone transformations of either variable.
+* **No ties.** If there are no ties, then $C+D=n_0$ and both measures coincide: $\tau=\frac{C-D}{n_0}$.
+
+# Implementation in R (Rcpp)
+
+With the definitions in place, we can move from notation to a compact implementation. To enumerate all $n_0=\binom{n}{2}$ pairs efficiently, we’ll use a small `C++` routine via **Rcpp**. The function below computes Kendall’s $\tau_a$ by tallying concordant and discordant pairs and returning $(C-D)/n_0$. When ties are common, $\tau_b$ is usually preferable; we present both approaches, but the reason to have $\tau_a$ here because it is simple and fast, and it coincides with $\tau_b$ when there are no ties. 
+
+## Rcpp inline implementation ($\tau_a$)
+
+The C++ function below is intended to be compiled inline from `R` and called as a regular `R` function. (A short note on validation follows after the code.)
+
 
 ```{r rcpp_inline, warning = FALSE, message=FALSE, cache=FALSE}
 Rcpp::cppFunction(code = '
@@ -166,9 +190,9 @@ double kendall_tau_a_cpp(NumericVector x, NumericVector y) {
 ', rebuild = TRUE)
 ```
 
-# Rcpp inline implementation (tau-b)
+## Rcpp inline implementation (tau-b)
 
-This C++ routine computes Kendall’s **tau-b** (tie-adjusted). It first orders observations by $x$ (breaking ties by $y$), then uses a Fenwick tree to accumulate $S=C-D$ by comparing each group (equal $x$) only to previously seen values (so pairs tied on either variable do not enter the numerator). The tie counts $T_x$ and $T_y$ are computed explicitly and used in the denominator $\sqrt{(n_0-T_x)(n_0-T_y)}$, yielding a coefficient in $[-1,1]$ that matches `stats::cor(..., method = "kendall")` on tied data. Time complexity is $O(n\log n)$. Floating inputs are discretised (scale factor $10^8$) to stabilise equality checks; for heavily discretised data we may prefer pre-ranking to integers.
+This `C++` routine computes Kendall’s **tau-b** (tie-adjusted). It first orders observations by $x$ (breaking ties by $y$), then uses a Fenwick tree to accumulate $S=C-D$ by comparing each group (equal $x$) only to previously seen values (so pairs tied on either variable do not enter the numerator). The tie counts $T_x$ and $T_y$ are computed explicitly and used in the denominator $\sqrt{(n_0-T_x)(n_0-T_y)}$, yielding a coefficient in $[-1,1]$ that matches `stats::cor(..., method = "kendall")` on tied data. Time complexity is $O(n\log n)$. Floating inputs are discretised (scale factor $10^8$) to stabilise equality checks; for heavily discretised data we may prefer pre-ranking to integers.
 
 ```{r rcpp_inline_taub, warning = FALSE, message=FALSE, cache=FALSE}
 Rcpp::cppFunction(code = "
