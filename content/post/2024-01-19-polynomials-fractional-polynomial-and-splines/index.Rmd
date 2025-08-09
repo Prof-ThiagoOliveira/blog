@@ -84,7 +84,7 @@ The utility of fractional polynomials extends to various fields, notably in medi
 
 However, the complexity of fractional polynomials can pose interpretational challenges, and like their traditional counterparts, they are susceptible to overfitting. This risk is heightened with the inclusion of multiple fractional terms or higher degrees, necessitating careful model selection and validation processes. Methods such as cross-validation or the use of information criteria like AIC or BIC are often employed to balance model fit against the risk of overfitting.
 
-## Finding Optimal Power Values in Fractional Polynomials
+## Finding optimal power values in fractional polynomials
 
 The process of finding the best values for $p_1, p_2, \ldots, p_n$ is inherently iterative and may require a combination of statistical testing, validation techniques, and expert judgement. The goal is to have a balance between a model that fits the data well, is not overly complex, and is robust to variations in model parameters.
 
@@ -96,23 +96,23 @@ knitr::include_graphics('fractional_polynomial_fit_with_bic.gif')
 
 Below I have described some possible approaches to achieve this objective:
 
-**Initial Power Selection**: Start with a set of candidate powers, often including a mix of positive, negative, and fractional values. Common choices are \(-2, -1, -0.5, 0, 0.5, 1, 2, 3\). The selection of these initial powers is guided by prior knowledge about the data, theoretical considerations, or exploratory analysis.
+1. Start with a set of candidate powers, often including a mix of positive, negative, and fractional values. Common choices are \(-2, -1, -0.5, 0, 0.5, 1, 2, 3\). The selection of these initial powers is guided by prior knowledge about the data, theoretical considerations, or exploratory analysis.
 
-**Model Fitting and Comparison**: Fit fractional polynomial models using different combinations of these candidate powers. This fitting can be done using least squares regression or other suitable methods depending on the nature of the data. For each model, compute a goodness-of-fit statistic, such as the residual sum of squares (RSS) or the Akaike Information Criterion (AIC).
+2. Fit fractional polynomial models using different combinations of these candidate powers. This fitting can be done using least squares regression or other suitable methods depending on the nature of the data. For each model, compute a goodness-of-fit statistic, such as the residual sum of squares (RSS) or the Akaike Information Criterion (AIC).
 
-**Iterative Testing**: Employ an iterative approach to test various combinations of powers. This might involve starting with a simple model and gradually adding complexity (increasing the number of terms) while monitoring the improvement in the fit. 
+3. Employ an iterative approach to test various combinations of powers. This might involve starting with a simple model and gradually adding complexity (increasing the number of terms) while monitoring the improvement in the fit. 
 
-**Cross-Validation**: To guard against overfitting, especially in models with higher degrees or more terms, use cross-validation. Divide your data into training and testing sets. Fit the model to the training set and evaluate its performance on the testing set. This step helps in assessing the model's predictive accuracy.
+4. To guard against overfitting, especially in models with higher degrees or more terms, use cross-validation. Divide your data into training and testing sets. Fit the model to the training set and evaluate its performance on the testing set. This step helps in assessing the model's predictive accuracy.
 
-**Statistical Significance**: Assess the statistical significance of the coefficients associated with each term in the model. Non-significant terms might suggest that certain powers do not contribute meaningfully to the model and could be excluded.
+5. Assess the statistical significance of the coefficients associated with each term in the model. Non-significant terms might suggest that certain powers do not contribute meaningfully to the model and could be excluded.
 
-**Model Selection Criteria**: Use model selection criteria like AIC or BIC to compare models with different combinations of powers. These criteria balance the goodness of fit with the complexity of the model, helping to choose a model that is both accurate and parsimonious.
+6. Use model selection criteria like AIC or BIC to compare models with different combinations of powers. These criteria balance the goodness of fit with the complexity of the model, helping to choose a model that is both accurate and parsimonious.
 
-**Sensitivity Analysis**: Conduct sensitivity analyses by varying the powers slightly to see how robust the model is to changes in these parameters. This step is crucial to understand the stability and reliability of the model.
+7. Conduct sensitivity analyses by varying the powers slightly to see how robust the model is to changes in these parameters. This step is crucial to understand the stability and reliability of the model.
 
 While fractional polynomials offer enhanced modelling flexibility over traditional polynomials, they sometimes fall short in handling data with distinct behavioural changes across different segments. This limitation summed to the difficulty in determine $p_i$ are where spline models come into play. Spline models, constructed as piecewise polynomials, provide localized fitting capabilities, adapting seamlessly to variations within different data segments. Such adaptability is particularly useful in datasets with distinct phases or regimes. Thus, spline models emerge as a natural progression when fractional polynomials alone are insufficient to model the intricate patterns present in the data
 
-# Spline Models
+# Spline models
 
 [Splines](https://www.taylorfrancis.com/chapters/edit/10.1201/9780203738535-7/generalized-additive-models-trevor-hastie) are a class of mathematical functions used in statistical modeling, defined as piecewise polynomials that are joined at specific points called knots. Mathematically, if we denote a spline function by $S(x)$, it can be represented as:
 $$S(x) = \begin{cases} 
@@ -171,20 +171,20 @@ The primary challenge in using spline models lies in the selection of knots. The
 
 Splines are implemented through specialized algorithms that construct the piecewise polynomial functions and determine the appropriate knot positions, like in the `R` package `splines`. These algorithms often utilize basis functions, such as B-spline basis functions, which provide a stable and efficient way to represent spline curves. Computational techniques, like penalized least squares for smoothing splines, are employed to balance model fit and smoothness. Most statistical software packages offer built-in functions for spline modelling, simplifying their application in practical scenarios.
 
-## Selection Process for Spline Models
+## Selection process for spline models
 
 The selection process for spline models involves determining the optimal type and number of splines, along with the placement of knots, to best fit the data while avoiding overfitting. This process is a critical step in spline modelling and typically involves a blend of statistical techniques and domain expertise.
 
-**Type Selection**: The first step is choosing the type of spline (e.g., linear, cubic, B-spline, smoothing spline). The choice depends on the nature of the data and the smoothness required in the model. For instance, cubic splines are often chosen for their balance between flexibility and smoothness.
+1. The first step is choosing the type of spline (e.g., linear, cubic, B-spline, smoothing spline). The choice depends on the nature of the data and the smoothness required in the model. For instance, cubic splines are often chosen for their balance between flexibility and smoothness.
 
-**Number of Knots**: Deciding on the number of knots is crucial as it controls the flexibility of the spline model. As explained previously, fewer knots result in a smoother, but potentially underfit model, while more knots can capture finer details but risk overfitting. Methods like cross-validation can be used to determine an optimal number of knots (`caret` package in `R`). In cross-validation, the data is divided into subsets; the model is trained on some subsets and validated on others, with the goal of minimizing prediction error.
+2. Deciding on the number of knots is crucial as it controls the flexibility of the spline model. As explained previously, fewer knots result in a smoother, but potentially underfit model, while more knots can capture finer details but risk overfitting. Methods like cross-validation can be used to determine an optimal number of knots (`caret` package in `R`). In cross-validation, the data is divided into subsets; the model is trained on some subsets and validated on others, with the goal of minimizing prediction error.
 
-**Knot Placement**: The location of knots is equally important. Knots can be placed at quantiles of the independent variable, which is a common strategy for evenly distributing them across the range of data. Alternatively, adaptive methods can be used where knot placement is data-driven, focusing on regions where the function appears to change rapidly.
+3. The location of knots is equally important. Knots can be placed at quantiles of the independent variable, which is a common strategy for evenly distributing them across the range of data. Alternatively, adaptive methods can be used where knot placement is data-driven, focusing on regions where the function appears to change rapidly.
 
-**Model Complexity and Regularization**: For smoothing splines, the degree of smoothness is controlled by a smoothing parameter. Techniques like the Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC), or [generalized cross-validation (GCV)](https://www.sciencedirect.com/science/article/abs/pii/S0005109817306416)
+4. For smoothing splines, the degree of smoothness is controlled by a smoothing parameter. Techniques like the Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC), or [generalized cross-validation (GCV)](https://www.sciencedirect.com/science/article/abs/pii/S0005109817306416)
  are used to select this parameter. These methods aim to find a balance between the goodness of fit and the complexity of the model.
 
-**Model Validation**: After selecting the spline model, it is validated using unseen data or through resampling methods like bootstrapping. This step is crucial to ensure that the model generalizes well and does not merely capture the idiosyncrasies of the training data.
+5. After selecting the spline model, it is validated using unseen data or through resampling methods like bootstrapping. This step is crucial to ensure that the model generalizes well and does not merely capture the idiosyncrasies of the training data.
 
 # Citation
 
