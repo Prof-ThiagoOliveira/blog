@@ -479,6 +479,18 @@ sessionInfo()
 
 **Did you find this page helpful? Consider sharing it 🙌**
 
+# References
+
+Kendall, M. G., & Gibbons, J. D. (1990). \emph{Rank Correlation Methods} (5th ed.). Oxford University Press.
+
+Agresti, A. (2010). \emph{Analysis of Ordinal Categorical Data} (2nd ed.). Wiley. <https://doi.org/10.1002/9780470594001>
+
+# How to cite this post
+
+Oliveira, T. de paula. (2025, August 9). Benchmarking Kendall’s tau in R and Rcpp.
+<https://prof-thiagooliveira.netlify.app/post/benchmarking-kendalls-tau-r-rcpp/>
+
+
 <style>
 /* ====== Post-only layout + typography polish (Hugo Blox / Tailwind) ====== */
 /* Place this at the very end of the post so it wins the cascade. */
