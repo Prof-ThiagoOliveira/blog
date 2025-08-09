@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-09T07:59:50Z"
+lastmod: "2025-08-09T08:07:01Z"
 featured: false
 image:
   caption: ""
@@ -385,6 +385,16 @@ dplyr::tibble(
 </tr>
 </tbody>
 </table>
+<p>Note that for a <strong>bivariate normal</strong> with Pearson correlation <span class="math inline">\(\rho\)</span>, the population Kendall’s tau is</p>
+<p><span class="math display">\[
+\boxed{\;\tau \;=\; \frac{2}{\pi}\,\arcsin(\rho)\;}
+\]</span></p>
+<p>So with <span class="math inline">\(\rho=0.6\)</span>,</p>
+<p><span class="math display">\[
+\tau_{\text{theory}}
+= \frac{2}{\pi}\arcsin(0.6)
+\approx 0.409.
+\]</span></p>
 </div>
 <div id="tie-heavy-data-we-have-tau_b-approx-base-r-tau_a-differs" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Tie-heavy data we have <span class="math inline">\(\tau_b \approx\)</span> base R, <span class="math inline">\(\tau_a\)</span> differs</h2>
@@ -448,7 +458,7 @@ dplyr::tibble(
 <pre class="r"><code>set.seed(3)
 n_bench &lt;- 10000L
 
-# No-ties benchmark data
+# No-ties benchmark data (here we use a simple independent samples)
 xb &lt;- rnorm(n_bench)
 yb &lt;- rnorm(n_bench)
 
@@ -498,24 +508,24 @@ knitr::kable(mb_noties_sum, digits = 2,
 <tbody>
 <tr class="odd">
 <td align="left">cpp_tau_a</td>
-<td align="right">2.54</td>
-<td align="right">1.57</td>
+<td align="right">3.07</td>
+<td align="right">1.34</td>
 <td align="right">1.96</td>
-<td align="right">6.68</td>
+<td align="right">5.28</td>
 </tr>
 <tr class="even">
 <td align="left">cpp_tau_b</td>
-<td align="right">4.30</td>
-<td align="right">2.39</td>
-<td align="right">3.49</td>
-<td align="right">7.76</td>
+<td align="right">4.45</td>
+<td align="right">1.34</td>
+<td align="right">3.42</td>
+<td align="right">7.51</td>
 </tr>
 <tr class="odd">
 <td align="left">base_kendall</td>
-<td align="right">1843.07</td>
-<td align="right">357.48</td>
-<td align="right">1522.52</td>
-<td align="right">2327.39</td>
+<td align="right">2071.52</td>
+<td align="right">195.81</td>
+<td align="right">1649.89</td>
+<td align="right">2433.77</td>
 </tr>
 </tbody>
 </table>
@@ -564,24 +574,24 @@ knitr::kable(mb_ties_sum, digits = 2,
 <tbody>
 <tr class="odd">
 <td align="left">cpp_tau_a</td>
-<td align="right">1.38</td>
-<td align="right">0.89</td>
-<td align="right">1.07</td>
-<td align="right">4.06</td>
+<td align="right">1.43</td>
+<td align="right">0.30</td>
+<td align="right">1.30</td>
+<td align="right">2.66</td>
 </tr>
 <tr class="even">
 <td align="left">cpp_tau_b</td>
-<td align="right">2.75</td>
-<td align="right">1.86</td>
-<td align="right">2.17</td>
-<td align="right">6.15</td>
+<td align="right">3.06</td>
+<td align="right">1.10</td>
+<td align="right">2.60</td>
+<td align="right">6.37</td>
 </tr>
 <tr class="odd">
 <td align="left">base_kendall</td>
-<td align="right">1690.84</td>
-<td align="right">144.63</td>
-<td align="right">1543.99</td>
-<td align="right">2041.61</td>
+<td align="right">2077.38</td>
+<td align="right">222.32</td>
+<td align="right">1746.39</td>
+<td align="right">2384.43</td>
 </tr>
 </tbody>
 </table>

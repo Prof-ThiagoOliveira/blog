@@ -347,6 +347,19 @@ dplyr::tibble(
 ) |>
   knitr::kable(digits = 6, caption = "Tie-free data: Kendall estimates (tau-a, tau-b, base R)")
 ```
+Note that for a **bivariate normal** with Pearson correlation $\rho$, the population Kendall’s tau is
+
+$$
+\boxed{\;\tau \;=\; \frac{2}{\pi}\,\arcsin(\rho)\;}
+$$
+
+So with $\rho=0.6$,
+
+$$
+\tau_{\text{theory}}
+= \frac{2}{\pi}\arcsin(0.6)
+\approx 0.409.
+$$
 
 ## Tie-heavy data we have $\tau_b \approx$ base R, $\tau_a$ differs
 
@@ -384,7 +397,7 @@ We benchmark three implementations on $n=10{,}000$ pairs. A `C++` **tau-a** (mer
 set.seed(3)
 n_bench <- 10000L
 
-# No-ties benchmark data
+# No-ties benchmark data (here we use a simple independent samples)
 xb <- rnorm(n_bench)
 yb <- rnorm(n_bench)
 
