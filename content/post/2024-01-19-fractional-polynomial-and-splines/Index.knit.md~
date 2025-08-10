@@ -79,9 +79,10 @@ higher-degree models, such as cubic ($n = 3$) or quartic ($n = 4$),
 enable the representation of more complex and varied behaviours (Figure
 1).
 
-```{r,echo=FALSE,fig.cap="Comparative Visualization of Polynomial Fits: Degrees 1 to 4", out.width = "650px", fig.align='center'}
-knitr::include_graphics('polynomial.png')
-```
+<div class="figure" style="text-align: center">
+<img src="polynomial.png" alt="Comparative Visualization of Polynomial Fits: Degrees 1 to 4" width="650px" />
+<p class="caption">(\#fig:unnamed-chunk-1)Comparative Visualization of Polynomial Fits: Degrees 1 to 4</p>
+</div>
 
 However, increasing the degree $n$ also increases the risk of
 overfitting, a phenomenon where the model adapts too closely to the
@@ -90,9 +91,10 @@ generalizability to new data (Figure 2). Overfitting leads to models
 that perform poorly in predictive scenarios, failing to capture the true
 underlying trend.
 
-```{r,echo=FALSE,fig.cap="Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits", out.width = "650px", fig.align='center'}
-knitr::include_graphics('poly_overfit.png')
-```
+<div class="figure" style="text-align: center">
+<img src="poly_overfit.png" alt="Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits" width="650px" />
+<p class="caption">(\#fig:unnamed-chunk-2)Visualizing Model Complexity: Parsimonious vs Overfit Polynomial Fits</p>
+</div>
 
 Polynomial models are extensively applied across various disciplines. In
 physics, they are instrumental in [modelling
@@ -111,9 +113,10 @@ sign of $a$ determines the direction in which the parabola opens,
 offering crucial information about the nature of the relationship being
 modelled (Figure 3).
 
-```{r,echo=FALSE,fig.cap="Parabola Opening Upwards and Downwards", out.width = "500px", fig.align='center'}
-knitr::include_graphics('parabola.png')
-```
+<div class="figure" style="text-align: center">
+<img src="parabola.png" alt="Parabola Opening Upwards and Downwards" width="500px" />
+<p class="caption">(\#fig:unnamed-chunk-3)Parabola Opening Upwards and Downwards</p>
+</div>
 
 In practical applications, the selection of the polynomial degree $n$ is
 critical. It is a balance between capturing the complexity of the data
@@ -158,9 +161,10 @@ respectively, enable the modeling of relationships that exhibit dramatic
 changes over different ranges of $x$, a task challenging for standard
 polynomial models with integer exponents.
 
-```{r,echo=FALSE,fig.cap="Comparative Visualization of Fractional Polynomial Fits", out.width = "650px", fig.align='center'}
-knitr::include_graphics('frac_poly.png')
-```
+<div class="figure" style="text-align: center">
+<img src="frac_poly.png" alt="Comparative Visualization of Fractional Polynomial Fits" width="650px" />
+<p class="caption">(\#fig:unnamed-chunk-4)Comparative Visualization of Fractional Polynomial Fits</p>
+</div>
 
 The utility of fractional polynomials extends to various fields, notably
 in medical statistics and biological data analysis, where data patterns
@@ -196,9 +200,10 @@ $$E(y) = \beta_0 + \beta_1 x^{1.13},$$
 and the corresponding BIC value
 for this model is denoted as $-144.34$.
 
-```{r echo=FALSE, fig.cap="Comparative Visualisation of Fractional Polynomial Fits", fig.align='center', out.width='650px', fig.alt='Animated GIF comparing fractional polynomial fits with the selected model by BIC.'}
-knitr::include_graphics('fractional_polynomial_fit_with_bic.gif')
-```
+<div class="figure" style="text-align: center">
+<img src="fractional_polynomial_fit_with_bic.gif" alt="Animated GIF comparing fractional polynomial fits with the selected model by BIC." width="650px" />
+<p class="caption">(\#fig:unnamed-chunk-5)Comparative Visualisation of Fractional Polynomial Fits</p>
+</div>
 
 Below I have described some possible approaches to achieve this
 objective:
@@ -356,9 +361,10 @@ dataset:
 The explanatory variable is shown along the x-axis, while the response
 variable is on the y-axis.
 
-```{r,echo=FALSE,fig.cap="Comparison of Different Fitting Models", out.width = "650px", fig.align='center'}
-knitr::include_graphics('splines.png')
-```
+<div class="figure" style="text-align: center">
+<img src="splines.png" alt="Comparison of Different Fitting Models" width="650px" />
+<p class="caption">(\#fig:unnamed-chunk-6)Comparison of Different Fitting Models</p>
+</div>
 
 The plot provides a comparative visualization of four distinct
 statistical models applied to the same data set, with the cubic

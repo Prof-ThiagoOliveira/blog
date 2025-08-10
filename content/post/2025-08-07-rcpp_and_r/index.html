@@ -1,7 +1,7 @@
 ---
 title: From prototype to production, choosing the right R and C++ tool in Rcpp
 author: Thiago de Paula Oliveira
-date:  "August 09, 2025"
+date:  "August 10, 2025"
 slug: rcpp-start-with-r
 categories:
   - R Programming
@@ -156,9 +156,9 @@ cbind(fastLm = res$coef,
   times  = 100
 )</code></pre>
 <pre><code>## Unit: microseconds
-##    expr    min      lq     mean median     uq    max neval cld
-##  fastLm   62.2   70.95  108.611  110.4  125.5  262.9   100  a 
-##      lm 1255.9 1434.35 1711.092 1553.5 1889.5 3099.4   100   b</code></pre>
+##    expr     min       lq      mean   median       uq      max neval cld
+##  fastLm  43.001  46.6515  64.69696  59.2515   80.051  130.201   100  a 
+##      lm 856.101 923.0515 995.95507 944.1510 1004.351 1445.001   100   b</code></pre>
 </div>
 <div id="rcpp-attributes" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> 4.2 Rcpp Attributes</h3>
