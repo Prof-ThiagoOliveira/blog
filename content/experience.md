@@ -22,7 +22,13 @@ sections:
     content:
       title: Skills & Hobbies
       username: admin
-    design:
+      text: |-
+        <p align="justify">
+          I rely on a mix of programming languages, statistical methods, and creative outlets. 
+          <strong>Programming:</strong> R (packages, pipelines, Shiny), C++ (performance-critical code), Bash/Python (automation), Docker/CI/git for reproducible stacks. 
+          <strong>Statistical tools:</strong> mixed models, Bayesian workflows, spatial/longitudinal analytics, concordance/causal analysis. 
+          <strong>Creative balance:</strong> photography, hiking, and travel fuel the observational skills I bring to analytic work.
+        </p>
       show_skill_percentage: false
   - block: resume-awards
     content:

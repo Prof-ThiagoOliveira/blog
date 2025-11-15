@@ -1,45 +1,35 @@
 ---
-title: 'Projects'
+title: 'Project Portfolio'
 date: "2024-05-19"
-type: landing
-
-design:
-  # Section spacing
-  spacing: '5rem'
-  background:
-    image:
-      filename: background.svg
-      size: cover
-      position: center
-    text_color_light: true
-
-# Page sections
-sections:
-  - block: markdown
-    content:
-      title: Impact Snapshots
-      text: |-
-        <ul>
-        <li>Delivered greenhouse-gas decision dashboards and genetic indexes that cut projected emissions by <strong>168&nbsp;kg CO₂e per cow</strong>.</li>
-        <li>Built reproducible analytics stacks (R/C++/Docker) for spatial, longitudinal, and genomic pipelines used by breeders and sports-performance teams.</li>
-        <li>Co-designed selection tools with partners across Canada, Brazil, New Zealand, and the UK to keep agriculture productive and resilient.</li>
-        </ul>
-    design:
-      columns: '2'
-
-  - block: collection
-    content:
-      title: Selected Projects
-      text: |-
-        <p align="justify">
-          I lead and contribute to initiatives that translate rigorous statistical methods into decision-ready insights. My portfolio spans statistical modelling, agriculture, genetics, and sports analytics, producing outputs such as spatial and longitudinal models, genetic-evaluation pipelines, economic and sustainability selection indices, and decision-support dashboards. The projects below highlight this breadth and the impact achieved with industry and academic partners.
-        </p>
-      filters:
-        folders:
-          - project
-    design:
-      view: article-grid
-      fill_image: false
-      columns: 3
-
+type: page
+toc: false
+show_breadcrumb: false
+show_meta: false
+show_toc: false
 ---
+
+My project work spans breeding analytics, reproducible software, and sports/public-health modelling. The table below highlights recurring domains, while the later sections point to specific deliverables and where to find code or publications.
+
+## Snapshot
+
+| Domain | What I deliver the most |
+| --- | --- |
+| **Agriculture & genetics** | Spatial/multilevel models, genetic-evaluation pipelines, economic & sustainability selection indexes. |
+| **Sports & health** | Athlete-performance analytics, ON score dashboards, COVID-19 forecasting pipelines. |
+| **Tooling** | Reproducible analytics stacks (R/C++/Docker), R packages (matrixCorr, AlphaPart, AGHmatrix), Shiny apps. |
+
+## Current highlights
+
+| Project | Theme | Outcome & references |
+| ------- | ----- | --------------------- |
+| Correlation & concordance research (matrixCorr + lcc) | Statistical methods | Unified correlation/association package and longitudinal agreement framework. → **R Packages** section |
+| Drivers of genetic change | Breeding analytics | Partitioned genetic mean/variance, delivered management scenarios. → **Pipelines** section |
+| Reads2Map & AlphaPart tooling | GBS pipelines | Package + Docker image adopted in linkage-map studies. → **R Packages** / **Pipelines** |
+| Sustainability indexes | GHG & methane | Decision-ready dashboards and indexes for breeding clients. |
+| Oliveira–Newell score | Sports analytics | Multilevel NBA evaluation framework validated across seasons. |
+
+## How to explore
+
+- **R Packages:** matrixCorr, AlphaPart, AGHmatrix, AlphaSimR, lcc, Reads2Map Tools.
+- **Pipelines:** DAG-based animal models, Additive-variance analysis, COVID-19 forecasting, ON score scripts, AlphaPart variance workflows.
+- **Completed/Discontinued:** Historical detail and publications for archived initiatives.

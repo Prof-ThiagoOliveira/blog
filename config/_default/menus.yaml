@@ -35,7 +35,7 @@ main:
     weight: 20
 
   - name: Projects
-    pageRef: project          # -> /project/
+    pageRef: projects         # -> /projects/
     weight: 30
 
   - name: Accomplishments
