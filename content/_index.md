@@ -67,6 +67,19 @@ sections:
     design:
       view: citation
 
+  - block: markdown
+    content:
+      title: 'Cited by'
+      text: |-
+        <div id="cited-by-chart" data-src="/data/citations.json" style="max-width:700px; margin: .5rem 0 1rem;">
+          <!-- optional: inline fallback data
+          <script type="application/json">
+            {"years":[2018,2019,2020,2021,2022,2023,2024,2025], "counts":[1,12,22,34,28,35,52,69]}
+          </script>
+          -->
+        </div>
+        <script defer src="/js/citation-graph.js"></script>
+
   - block: collection
     id: talks
     content:
