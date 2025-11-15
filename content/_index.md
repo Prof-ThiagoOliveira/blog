@@ -33,34 +33,13 @@ sections:
       subtitle: ''
       text: |-
         <div style="text-align: justify;">
-          I am a seasoned statistician with <strong>over 14 years of 
-          experience</strong> in experimental statistics and statistical 
-          modelling. 
-          I also specialise in the <strong>development of economic and 
-          sustainability selection indices</strong> to support breeding and 
-          systems optimisation.
+          I am a statistician with <strong>14+ years of experience</strong> turning noisy experimental, genomic, and performance data into decisions. After completing my PhD in Statistics at the University of São Paulo, I specialised in advanced mixed-model/Bayesian analytics and in the development of <strong>economic and sustainability selection indices</strong> that keep breeding programmes accountable.
           
-          My research interests include <strong>statistical modelling</strong>,
-          <strong>selection indeces</strong>,
-          <strong>agriculture</strong>, <strong>genetics</strong>, and sports.
+          As a <strong>Consultant Statistician at <a href="https://www.abacusbio.com/">AbacusBio</a></strong>, I lead cross-functional teams that deliver genetic-evaluation pipelines, automated QC/ETL workflows, and decision dashboards for livestock, crop, and agri-tech partners. That work depends on production-grade code in R/C++/Bash, Docker-based reproducible environments, and early collaboration between domain scientists and data engineers.
           
-          Currently, I am <strong>Consultant Statistician at 
-          <a href="https://www.abacusbio.com/">AbacusBio</a></strong>, 
-          where I leverage my expertise in statistical methods and data 
-          analysis to drive impactful research and innovative solutions. 
-  
-          My career has been marked by the application of both qualitative 
-          and quantitative methods to explore the role of science and technology 
-          across various sectors.
+          Earlier, I held a Marie Skłodowska-Curie COFUND fellowship at the Roslin Institute (University of Edinburgh), built predictive health and sports-analytics products at the Insight Centre (NUI Galway) and Orreco, and lectured in statistics at USP. Along the way I have published across Nature-branded journals, advised national breeding programmes, and mentored teams on delivering transparent, auditable analyses.
 
-          I am passionate about using data to uncover insights and support 
-          decision‑making. Whether it is improving agricultural outcomes or 
-          enhancing athletic performance, my goal is to apply rigorous 
-          statistical techniques to solve real‑world problems.
-
-          Please review my publications and 
-          get in touch if you are interested in 
-          collaboration or have any enquiries.
+          Whether the brief is accelerating genetic gain, improving farm-system resilience, or supporting athlete health, my bias is toward rigour, reproducibility, and decision-ready outputs. Browse my recent publications and projects, and get in touch if you would like to collaborate or have a specific challenge in mind.
         </div>
     design:
       columns: '1'
@@ -128,18 +107,18 @@ sections:
       title: "🎓 Connect with an expert statistician"
       text: |-
         <div style="text-align: justify; font-family: Arial, sans-serif; line-height: 1.6;">
-          <p>My work focuses on advanced statistical modelling, the development of <strong>economic and sustainability selection indices</strong>, interactive dashboards, and reproducible pipelines (Docker), delivering decision‑ready insights in agriculture and sports performance.</p>
+          <p>I focus on advanced statistical modelling, <strong>economic and sustainability selection indices</strong>, interactive dashboards, and reproducible (Dockerised) pipelines that deliver decision-ready insights for agriculture and sports performance.</p>
 
           <h3>Areas of impact:</h3>
           <ul>
-          <li><strong>Agriculture:</strong> Designed and analysed agronomic and farm‑systems experiments, including multi‑environment trials and spatial models, to <em>optimise</em> yield, resource use, and sustainability.</li>
-          <li><strong>Genetics:</strong> Built genetic evaluation pipelines and <em>economic and sustainability selection indices</em> to maximise genetic gain and inform breeding objectives.</li>
-          <li><strong>Sports analytics:</strong> Developed tools and applications that enhance athlete performance through data‑driven insights.</li>
+          <li><strong>Agriculture:</strong> Design and analyse agronomic and farm-systems experiments—including multi-environment trials and spatial models—to optimise yield, resource use, and sustainability.</li>
+          <li><strong>Genetics:</strong> Build genetic-evaluation pipelines and <em>economic and sustainability selection indices</em> that maximise genetic gain and inform breeding objectives.</li>
+          <li><strong>Sports analytics:</strong> Develop tools and applications that enhance athlete performance through data-driven insights.</li>
           </ul>
 
-          <p>Explore my publications, upcoming talks, and recent work. If you are interested in collaboration or would like to learn more, please get in touch.</p>
+          <p>Explore my publications, upcoming talks, and recent work. If you are interested in collaborating or would like to learn more, please get in touch.</p>
 
-          <p>Stay connected and follow my journey in statistical modelling and data analysis:</p>
+          <p>Stay connected and follow my work in statistical modelling and data analysis:</p>
           <ul>
             <li><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ" target="_blank">Google Scholar</a></li>
             <li><a href="https://github.com/Prof-ThiagoOliveira" target="_blank">GitHub</a></li>
@@ -155,4 +134,3 @@ sections:
         css_class: "bg-primary-700"
         css_style: ""
 ---
-

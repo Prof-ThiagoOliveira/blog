@@ -153,13 +153,22 @@ img {
 </style>
 
 
+![Project collage](/media/projects-hero.svg)
+
+> **Highlights**
+>
+> - Benchmarked GBS pipelines (Reads2Map) and delivered reproducible tooling for linkage-map construction.
+> - Built sustainability indexes (GHG, methane efficiency) that link emissions targets with breeding goals.
+> - Led analytics for sports and public-health applications, from NBA performance metrics to COVID-19 forecasting.
+
+
 
 ## 2024
 
 ### Quantifying the drivers of genetic change in plant breeding
 
 **Summary**:
-Plant breeding programmes are a complex network of a multitude of operations and decisions. Therefore quantifying which operations and decisions drive genetic change in plant breeding is challenging. Traditionally we measure the genetic change with a phenotypic or genetic trend, but these trends measure only change in the mean. To understand genetic change and its drivers more comprehensively, we also need to measure changes in genetic mean and variance and evaluate drivers of changes in mean and variance.
+Plant breeding programmes involve a web of interconnected operations and decisions, making it difficult to pinpoint which levers drive progress. This project extends traditional phenotypic or genetic-trend analyses by partitioning changes in both genetic mean and variance, allowing us to identify the management practices that accelerate—or hinder—genetic gain.
 
 <br>
 
@@ -167,17 +176,17 @@ Plant breeding programmes are a complex network of a multitude of operations and
 
 ## 2023
 
-### Developing high performance black soldier fly breeds for insects-as-feed sector
+### Developing high-performance black soldier fly breeds for the insects-as-feed sector
 
 **Summary**: 
-The rising demand for livestock and aquaculture protein necessitates sustainable alternatives to soy and fishmeal, with the black soldier fly emerging as a key solution. This project aims to develop a breeding program and tools to enhance the genetics and production efficiency of black soldier fly, supporting the growing number of global producers.
+Livestock and aquaculture systems need alternatives to soy and fishmeal, positioning the black soldier fly as a scalable protein source. This work establishes a breeding programme, genetic tools, and decision dashboards that improve the fly’s productivity and resilience for a fast-growing global producer base.
 
 <br>
 
 ### A hierarchical approach for evaluating athlete performance  
 
 **Summary**: 
-The hierarchical approach for evaluating athlete performance utilizes mixed-effects regression models and principal component analysis to create the ON score, a comprehensive metric that captures an athlete’s overall contribution to their team. This method, validated on NBA data, offers a reliable and efficient tool for coaches and managers to assess and compare athlete performance across seasons and games, enhancing decision-making in sports analytics by providing deeper insights into individual and team dynamics.
+We combined mixed-effects regression and principal component analysis to build the ON score—a holistic indicator of an athlete’s contribution to team performance. Validated on NBA tracking data, the framework helps coaches and analysts compare athletes across games and seasons and understand the drivers of their impact.
 
 
 **Publications**:
@@ -189,7 +198,7 @@ The hierarchical approach for evaluating athlete performance utilizes mixed-effe
 ### A comparative study of markerless and marker-based systems
 
 **Summary**: 
-This project aims to evaluate the agreement between markerless and marker-based motion capture systems using 95% functional limits of agreement within a linear mixed-effects modeling framework. By comparing these systems, the study seeks to determine the reliability and applicability of markerless technology in biomechanical analysis, which could significantly streamline data collection and reduce setup time while maintaining accuracy. This research will provide valuable insights for improving motion capture methods used in sports and clinical biomechanics.
+We evaluate agreement between markerless and marker-based motion-capture systems using 95% functional limits of agreement within a linear mixed-effects framework. The analysis quantifies how close the systems are in biomechanical applications, providing evidence on when markerless solutions can streamline data collection without sacrificing accuracy.
 
 **Publications**:
 
@@ -204,7 +213,7 @@ This project aims to evaluate the agreement between markerless and marker-based 
 ### AlphaPart - Partition of Breeding Values by Paths of Information
 
 **Summary**: 
-The partitioning method is described in Garcia-Cortes et al. (2008). The package includes the main function AlphaPart for partitioning breeding values and auxiliary functions for manipulating data and summarizing, visualizing, and saving results.
+Based on Garcia-Cortés et al. (2008), AlphaPart partitions breeding values by paths of information so breeders can diagnose where gains originate. The R package includes the core partitioning function plus utilities for data wrangling, visualisation, and automated reporting.
 
 **Publications**:
 
@@ -219,7 +228,7 @@ The partitioning method is described in Garcia-Cortes et al. (2008). The package
 ### Genomic strategies for optimal crossbreeding in African dairy cattle
 
 **Summary**: 
-Develop genomic strategies to optimise crossbreeding in livestock breeding programmes with focus on East African crossbred dairy cattle
+We design genomic strategies that optimise crossbreeding decisions in East African dairy systems, ensuring that locally adapted cattle benefit from genomic selection while maintaining resilience to regional production constraints.
 
 <br>
 
@@ -230,7 +239,7 @@ Develop genomic strategies to optimise crossbreeding in livestock breeding progr
 ### The use of biostatistics for optimizing athletes performance
 
 **Summary**: 
-Uniquely blending Data Science and Sports Science to generate customized strategies by athlete
+This work blends data science and sports science to deliver athlete-specific insights, covering readiness monitoring, injury-risk profiling, and performance optimisation for elite teams.
 
 **Publications**:
 
@@ -241,7 +250,7 @@ Uniquely blending Data Science and Sports Science to generate customized strateg
 ### Development of predictive models and analytics techniques to forecast historical data-driven outcomes
 
 **Summary**: 
-Predictive modelling is a commonly used statistical technique to predict future behavior. Predictive modelling solutions are a form of data-mining technology that analyses historical and current data and generates a model to help predict future outcomes. In predictive modelling, data is collected, a statistical model is formulated, predictions are made, and the model is validated as additional data becomes available.
+We build predictive-modelling pipelines that ingest historical and streaming data, fit statistical and machine-learning models, and validate forecasts as new data arrives. The work spans infectious-disease forecasting, athlete health monitoring, and other high-frequency decision environments.
 
 **Publications**:
 
@@ -253,7 +262,7 @@ Predictive modelling is a commonly used statistical technique to predict future 
 ### Optimising selection and management of diversity in plant breeding
 
 **Summary**: 
-This project aims to quantify and manage genetic variation in plant breeding programs, ensuring long-term competitiveness by measuring and distributing genetic diversity across different stages and years.
+This project quantifies and manages additive genetic variance across the breeding pipeline, ensuring that short-term gains do not erode the diversity needed for long-term competitiveness.
 
 **Publications**: 
 
@@ -268,7 +277,7 @@ This project aims to quantify and manage genetic variation in plant breeding pro
 ### The lcc Package
 
 **Summary**: 
-Longitudinal concordance correlation (LCC) is a statistical measure used to assess the agreement between two methods of measurement over time. It combines aspects of precision and accuracy to evaluate the consistency and accuracy of longitudinal data, accounting for both within-subject correlation and temporal changes. LCC is particularly useful in fields where repeated measurements are essential, such as medical research, to ensure that methods produce reliable and consistent results across different time points.
+Longitudinal concordance correlation (LCC) evaluates agreement between two measurement methods over time by combining precision and accuracy in a single statistic. The package implements this measure with support for within-subject correlation, temporal trends, and reporting tools widely used in medical and agronomic research.
 
 **Publications**:
 
@@ -284,7 +293,7 @@ Longitudinal concordance correlation (LCC) is a statistical measure used to asse
 ### Transmission efficiency of *xylella fastidiosa*
 
 **Summary**:
-*Xylella fastidiosa* is genetically diverse and has many vector species. However, there is limited information on vector specificity and efficiency for different sequence types (STs) Both STs of X. fastidiosa and vectors differ in their associations with plants
+*Xylella fastidiosa* is genetically diverse and transmitted by numerous vector species, yet vector specificity and efficiency across sequence types (STs) remain poorly understood. We combine controlled inoculation trials and behavioural studies to characterise how different ST–vector pairs interact with host plants.
 
 **Publications**:
 
@@ -299,7 +308,7 @@ Longitudinal concordance correlation (LCC) is a statistical measure used to asse
 ### Sugarcane straw management for bioenergy
 
 **Summary**:
-Global warming can intensify the soil organic matter (SOM) turnover, damaging soil health. Crop residues left on the soil are important to maintain a positive SOM budget and nutrient cycling. But, sugarcane (Saccharum officinarum) straw has been removed from the field for bioenergy purposes. We hypothesize that global warming, together with straw removal, will negatively impact Brazil’s ethanol carbon footprint.
+Warming accelerates soil organic-matter turnover, threatening long-term soil health. Sugarcane straw—normally a key residue for nutrient cycling—is increasingly removed for bioenergy, so we evaluated how combined warming and straw removal affect greenhouse-gas emissions and Brazil’s ethanol carbon footprint.
 
 **Publications**:
 
@@ -310,7 +319,7 @@ Global warming can intensify the soil organic matter (SOM) turnover, damaging so
 ### Measuring color using image analysis
 
 **Summary**: 
-Promote the usage of image analysis as well as development of statistical methodologies for that purpose.
+Promote the adoption of image-analysis workflows and develop the statistical methodologies required to extract consistent colour metrics from high-throughput phenotyping data.
 
 **Publications**:
 

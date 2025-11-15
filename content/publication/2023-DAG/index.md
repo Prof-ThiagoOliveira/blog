@@ -22,7 +22,7 @@ publication: "*Under consideration in Livestock Science*"
 
 abstract: <p align="justify">This paper introduces a versatile graphical model for animal models, adaptable to various animal model variants in JAGS and NIMBLE using the BUGS language. The proposed model represents the animal model as a directed acyclic graph (DAG), enabling a computationally efficient implementation that is conceptually equivalent to mixed model equations. The model offers several benefits, serving as a foundation for numerous animal model extensions and applicability in other environments. Quantitative geneticists can utilize this graphical model to clarify and discuss ideas about the underlying data generation process and propose novel statistical models or associations. The animal model, frequently employed in quantitative genetics, estimates individual breeding values based on observed phenotypic data and known relationships between individuals. It is especially useful in animal breeding programs aiming to enhance desirable traits, such as milk production in dairy cattle or meat quality in swine, which are often complex and influenced by multiple genes and environmental factors. By incorporating DAGs in the implementation of the animal model, the results become more reproducible, which is vital for constructing animal models and using DAGs to communicate outcomes or justify covariate selection. The model has the potential to improve the accuracy of breeding value estimates and inform breeding programs targeting desirable trait enhancement in animal populations. Additionally, its generic form can be used with MCMC methods to infer changes in additive genetic variance across generations due to the Bulmer effect, applicable in evolutionary studies. However, some initial programming experience is necessary for effective model utilization. In summary, this paper emphasizes the importance of reproducibility in constructing animal models and using DAGs for result communication, crucial for advancing quantitative genetic research. The proposed graphical model offers a flexible environment for quantitative genetics researchers, facilitating a deeper understanding of the underlying data structure and enabling informed decisions about covariate selection and new statistical model development. Moreover, the model has the potential to increase the accuracy of breeding value estimates and inform breeding programs focused on enhancing desirable traits in animal populations.</p>
 
-# Summary. Graphical model using DAGs improves animal model construction in quantitative genetics for better breeding value accuracy and research clarity.
+summary: Graphical DAG-based formulations help quantitative geneticists prototype, extend, and explain animal models with transparent assumptions.
 
 tags:
 - Quantitative Genetics
@@ -37,8 +37,8 @@ tags:
 featured: true
 
 links:
- - name: "Journal Link"
-   url: "https://www.sciencedirect.com/journal/livestock-science"
+ - name: "Preprint"
+   url: "https://www.researchsquare.com/article/rs-3057436/v1"
 
 url_pdf: ''
 url_code: ''

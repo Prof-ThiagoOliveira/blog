@@ -7,4 +7,4 @@ toc: false
 weight: 1
 ---
 
-A collection of my educational journey and a space celebrates the awards and achievements I've garnered along the way.
+A curated record of my academic journey and a space to celebrate the awards and milestones that shaped it.

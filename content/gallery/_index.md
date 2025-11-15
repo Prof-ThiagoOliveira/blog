@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-It's great to have co-workers who support your goals and inspire you, and the line between colleagues and friends can often blur.
+I am grateful for colleagues who foster ambitious ideas, share knowledge generously, and blur the line between teammate and friend.
 
 {{< gallery >}}
 

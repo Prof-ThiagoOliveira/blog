@@ -1,23 +1,23 @@
 ---
 title: "Breeding for sustainability: Development of an index to reduce greenhouse gas in dairy cattle"
 authors:
-- Richardson C.
-- Amer P
-- Post M
+- C. Richardson
+- P. Amer
+- M. Post
 - admin
-- Grant K.
-- Crowley J.
-- Quinton C.
-- Miglior F.
-- Fleming A.
-- Baes C. F.
-- Malchiodi F.
+- K. Grant
+- J. Crowley
+- C. Quinton
+- F. Miglior
+- A. Fleming
+- C. F. Baes
+- F. Malchiodi
 
-date: "2025-03-20T00:00:00Z"
-doi: "https://doi.org/10.1016/j.animal.2025.101491"
+date: "2025-03-14T00:00:00Z"
+doi: "10.1016/j.animal.2025.101491"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2025-03-20T00:00:00Z"
+publishDate: "2025-03-14T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -26,25 +26,27 @@ publishDate: "2025-03-20T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*The international journal of animal biosciences (animal)*"
+publication: "*Animal*"
 
-abstract: <p align="justify">Genetic selection strategies in dairy cattle breeding can effectively reduce greenhouse gas (GHG) emissions with minimal additional cost or labor. This can be achieved by selecting for specific traits like methane emissions or by using selection indexes that combine economic and environmental goals. Canada is at the forefront, having released the first methane breeding value and a GHG index, which includes traits like Methane Efficiency and Body Maintenance, leading to an estimated reduction of 168 kg CO₂e per cow per year. Other countries such as Spain, the Netherlands, and Denmark are also developing methane estimated breeding values (EBVs). The inclusion of direct methane traits in selection indexes is crucial, as omitting them can lead to unfavorable genetic outcomes. The adoption of GHG-focused breeding is growing, particularly in high-income countries, and would benefit further from the development of transparent, auditable methods to measure emissions reductions from genetic improvements.</p>
+abstract: <p align="justify">We partnered with Lactanet, Genome Canada, and international collaborators to formalise a greenhouse-gas (GHG) selection index that balances economic merit with the imperative to cut dairy emissions. The paper documents the data streams (mid-infrared methane proxies, GreenFeed phenotypes, feed efficiency, body maintenance requirements), the scaling of Canadian economic values to CO₂e, and the scenario testing used to weight traits under different policy levers. We show that including a direct methane trait alongside Herd Life, Feed Efficiency, and Body Maintenance Requirements avoids undesirable responses and delivers an expected 168&nbsp;kg CO₂e reduction per cow per year per SD of index. The work also outlines how other breeding programmes can plug local methane EBVs into the framework to report transparent, auditable sustainability gains.</p>
 
 # Summary. An optional shortened abstract.
-summary: Dairy cattle breeding can reduce GHG emissions through genetic selection. Canada leads with a methane index; global interest grows, driven by sustainability goals and the need for reliable emissions tracking.
+summary: Documents the Canadian GHG selection index for dairy cattle, showing how methane, feed efficiency, and maintenance traits are weighted to cut emissions without sacrificing profit.
 
 tags:
-- Greenhouse Gas Emissions
-- Genetic Selection
-- Methane Breeding Value
-- Dairy Cattle
-- Sustainability Index
+- Greenhouse gas mitigation
+- Dairy cattle genetics
+- Methane efficiency
+- Sustainability index
+- Selection index design
 
 featured: true
 
 links:
- - name: "Journal Link"
-   url: "https://www.sciencedirect.com/journal/animal"
+ - name: "Journal article"
+   url: "https://www.sciencedirect.com/science/article/pii/S1751731125000746"
+ - name: "DOI"
+   url: "https://doi.org/10.1016/j.animal.2025.101491"
 
 url_pdf: 'https://www.sciencedirect.com/science/article/pii/S1751731125000746?via%3Dihub'
 url_code: ''
