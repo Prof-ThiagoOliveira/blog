@@ -102,27 +102,22 @@ sections:
         padding: [0, 0, 0, 0]
 
   - block: markdown
-    demo: false # This section is not just for the demo site
+    demo: false
     content:
       title: "🎓 Connect with an expert statistician"
       text: |-
         <div style="text-align: justify; font-family: Arial, sans-serif; line-height: 1.6;">
-          <p>I focus on advanced statistical modelling, <strong>economic and sustainability selection indices</strong>, interactive dashboards, and reproducible (Dockerised) pipelines that deliver decision-ready insights for agriculture and sports performance.</p>
+          <p>I focus on advanced statistical modelling, <strong>economic and sustainability selection indices</strong>, interactive dashboards, and reproducible (Dockerised) pipelines that deliver decision-ready insights for agriculture, genetics, and sports performance.</p>
 
-          <h3>Areas of impact:</h3>
-          <ul>
-          <li><strong>Agriculture:</strong> Design and analyse agronomic and farm-systems experiments—including multi-environment trials and spatial models—to optimise yield, resource use, and sustainability.</li>
-          <li><strong>Genetics:</strong> Build genetic-evaluation pipelines and <em>economic and sustainability selection indices</em> that maximise genetic gain and inform breeding objectives.</li>
-          <li><strong>Sports analytics:</strong> Develop tools and applications that enhance athlete performance through data-driven insights.</li>
-          </ul>
+          <h3>Areas of impact</h3>
+          <p><strong>Agriculture.</strong> Design and analyse agronomic and farm-systems experiments, including multi-environment trials and spatial models, to optimise yield, resource use, and sustainability.</p>
+          <p><strong>Genetics.</strong> Build genetic-evaluation pipelines and <em>economic and sustainability selection indices</em> that maximise genetic gain and inform breeding objectives.</p>
+          <p><strong>Sports analytics.</strong> Develop tools and applications that enhance athlete performance through data-driven insights.</p>
 
-          <p>Explore my publications, upcoming talks, and recent work. If you are interested in collaborating or would like to learn more, please get in touch.</p>
+          <p>Explore my publications, projects, and recent work. If you are interested in collaborating or would like to learn more, please get in touch.</p>
 
           <p>Stay connected and follow my work in statistical modelling and data analysis:</p>
-          <ul>
-            <li><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ" target="_blank">Google Scholar</a></li>
-            <li><a href="https://github.com/Prof-ThiagoOliveira" target="_blank">GitHub</a></li>
-          </ul>
+          <p><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ" target="_blank">Google Scholar</a> · <a href="https://github.com/Prof-ThiagoOliveira" target="_blank">GitHub</a></p>
 
           <a class="github-button" href="https://github.com/Prof-ThiagoOliveira" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Prof-ThiagoOliveira on GitHub">Star</a>
         </div>

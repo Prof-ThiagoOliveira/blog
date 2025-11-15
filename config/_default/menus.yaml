@@ -12,8 +12,8 @@ main:
     pageRef: publication      # -> /publication/
     weight: 11
 
-  - name: Talks
-    pageRef: event            # -> /event/
+  - name: R Packages
+    pageRef: rpackage
     weight: 12
 
   # Dropdown for posts (optional)

@@ -199,6 +199,93 @@ html.dark .page-body article .prose code{
   height: auto;
   border-radius: 8px;
 }
+
+/* =========================================================
+   INTERACTIVE ELEMENTS (buttons, cards, tags)
+   ========================================================= */
+
+/* Buttons */
+.btn, .button, .btn-primary{
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: var(--brand);
+  color: #fff !important;
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  box-shadow: 0 8px 20px rgba(59,128,209,.18);
+}
+.btn:hover, .button:hover, .btn-primary:hover{
+  background: var(--brand-dk);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(26,87,160,.28);
+}
+.btn-outline, .btn-secondary{
+  border-color: var(--brand);
+  color: var(--brand) !important;
+  background: transparent;
+}
+.btn-outline:hover, .btn-secondary:hover{
+  background: color-mix(in oklab, var(--brand) 12%, transparent);
+  color: var(--brand-dk) !important;
+}
+
+/* Cards/grid items */
+.hb-card, .article-card, .card, .project-card, .feature-card{
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 90%, #fff);
+  box-shadow: 0 8px 30px rgba(15,23,42,.06);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.hb-card:hover, .article-card:hover, .card:hover, .project-card:hover, .feature-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(15,23,42,.12);
+  border-color: color-mix(in oklab, var(--brand) 35%, var(--border));
+}
+
+/* Tag chips */
+.taxonomy-tag, .tag, .post-tag a{
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  border-radius: 999px;
+  padding: .2rem .85rem;
+  background: color-mix(in oklab, var(--brand) 9%, transparent);
+  color: var(--brand);
+  border: 1px solid color-mix(in oklab, var(--brand) 25%, transparent);
+  font-size: .9em;
+  text-decoration: none;
+}
+.taxonomy-tag:hover, .tag:hover, .post-tag a:hover{
+  color: var(--brand-dk);
+  border-color: var(--brand-dk);
+}
+
+/* Tables of contents / side widgets */
+.hb-toc, .hb-widget{
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  background: color-mix(in oklab, var(--bg) 85%, #fff);
+  box-shadow: 0 10px 30px rgba(15,23,42,.08);
+}
+.hb-toc a{
+  color: var(--muted);
+}
+.hb-toc a:hover{
+  color: var(--brand);
+}
+
+/* Utility: subtle section dividers */
+.section-heading::after{
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: .4rem;
+  background: var(--brand);
+  border-radius: 2px;
+}
 .page-body article .prose figure{ margin: 1rem 0 1.4rem; }
 .page-body article .prose figure figcaption{
   margin-top: .4rem;
