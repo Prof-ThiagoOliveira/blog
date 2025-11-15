@@ -57,88 +57,90 @@ sections:
       columns: 2
 
   - block: collection
-    content:
-      title: Recent Publications
-      text: ""
-      filters:
-        folders:
-          - publication
-        exclude_featured: false
-    design:
-      view: citation
+        - block: hero
+          content:
+            title: "Thiago Oliveira"
+            subtitle: "Statistician — quantitative genetics, R/C++, dashboards, reproducible workflows"
+            text: "I help teams turn experimental and genomic data into decision-ready insights."
+            button:
+              text: "Download CV"
+              url: uploads/Oliveira_Thiago_Company_CV.pdf
+          design:
+            css_class: hero-compact
 
-  - block: markdown
-    content:
-      title: 'Cited by'
-      text: |-
-        <div id="cited-by-chart" data-src="/data/citations.json" style="max-width:700px; margin: .5rem 0 1rem;">
-          <!-- optional: inline fallback data
-          <script type="application/json">
-            {"years":[2018,2019,2020,2021,2022,2023,2024,2025], "counts":[1,12,22,34,28,35,52,69]}
-          </script>
-          -->
-        </div>
-        <script defer src="/js/citation-graph.js"></script>
+        - block: markdown
+          content:
+            title: '📈 Expertise and Research'
+            text: |-
+              I focus on applied statistics, model-based inference, and reproducible pipelines. Below you'll find featured publications, recent work, talks, and posts — quick ways to judge fit and recent activity.
+          design:
+            columns: '1'
 
-  - block: collection
-    id: talks
-    content:
-      title: Recent & Upcoming Talks
-      filters:
-        folders:
-          - event
-    design:
-      view: article-grid
-      columns: 1
+        - block: collection
+          id: papers
+          content:
+            title: Featured Publications
+            filters:
+              folders:
+                - publication
+              featured_only: true
+          design:
+            view: article-grid
+            columns: 2
 
-  - block: collection
-    id: news
-    content:
-      title: Recent Posts
-      subtitle: ''
-      text: ''
-      page_type: post
-      count: 5
-      filters:
-        author: ""
-        category: ""
-        tag: ""
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ""
-      offset: 0
-      order: desc
-    design:
-      view: date-title-summary
-      spacing:
-        padding: [0, 0, 0, 0]
+        - block: markdown
+          content:
+            title: 'Cited by'
+            text: |-
+              <div id="cited-by-chart" data-src="/data/citations.json" style="max-width:700px; margin: .5rem 0 1rem;"></div>
+              <script defer src="/js/citation-graph.js"></script>
+          design:
+            columns: '1'
 
-  - block: markdown
-    demo: false
-    content:
-      title: "🎓 Connect with an expert statistician"
-      text: |-
-        <div style="text-align: justify; font-family: Arial, sans-serif; line-height: 1.6;">
-          <p>I focus on advanced statistical modelling, <strong>economic and sustainability selection indices</strong>, interactive dashboards, and reproducible (Dockerised) pipelines that deliver decision-ready insights for agriculture, genetics, and sports performance.</p>
+        - block: collection
+          id: talks
+          content:
+            title: Recent & Upcoming Talks
+            filters:
+              folders:
+                - event
+          design:
+            view: article-grid
+            columns: 1
 
-          <h3>Areas of impact</h3>
-          <p><strong>Agriculture.</strong> Design and analyse agronomic and farm-systems experiments, including multi-environment trials and spatial models, to optimise yield, resource use, and sustainability.</p>
-          <p><strong>Genetics.</strong> Build genetic-evaluation pipelines and <em>economic and sustainability selection indices</em> that maximise genetic gain and inform breeding objectives.</p>
-          <p><strong>Sports analytics.</strong> Develop tools and applications that enhance athlete performance through data-driven insights.</p>
+        - block: collection
+          id: news
+          content:
+            title: Recent Posts
+            subtitle: ''
+            text: ''
+            page_type: post
+            count: 5
+            filters:
+              author: ""
+              category: ""
+              tag: ""
+              exclude_featured: false
+              exclude_future: false
+              exclude_past: false
+              publication_type: ""
+            offset: 0
+            order: desc
+          design:
+            view: date-title-summary
+            spacing:
+              padding: [0, 0, 0, 0]
 
-          <p>Explore my publications, projects, and recent work. If you are interested in collaborating or would like to learn more, please get in touch.</p>
-
-          <p>Stay connected and follow my work in statistical modelling and data analysis:</p>
-          <p><a href="https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ" target="_blank">Google Scholar</a> · <a href="https://github.com/Prof-ThiagoOliveira" target="_blank">GitHub</a></p>
-
-          <a class="github-button" href="https://github.com/Prof-ThiagoOliveira" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Prof-ThiagoOliveira on GitHub">Star</a>
-        </div>
-    button:
-      text: "Contact Me"
-      url: "mailto:thiago.oliveira@ed.ac.uk"
-    design:
-      card:
-        css_class: "bg-primary-700"
-        css_style: ""
----
+        - block: markdown
+          demo: false
+          content:
+            title: "🎓 Connect with an expert statistician"
+            text: |-
+              <div style="text-align: justify; font-family: Arial, sans-serif; line-height: 1.6;">
+                <p>If you'd like to discuss collaborations, consulting, or supervision, please get in touch.</p>
+                <p><a class="btn" href="mailto:thiago.oliveira@ed.ac.uk">Contact Me</a></p>
+              </div>
+          design:
+            card:
+              css_class: "bg-primary-700"
+              css_style: ""

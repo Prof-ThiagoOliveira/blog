@@ -1,0 +1,6 @@
+{
+  "source": "manual",
+  "notes": "Replace these sample values with your actual Google Scholar yearly citation counts.",
+  "years": [2018,2019,2020,2021,2022,2023,2024,2025],
+  "counts": [1,12,22,34,28,35,52,69]
+}
