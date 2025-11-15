@@ -21,4 +21,19 @@ sections:
       view: article-grid
       fill_image: false
       columns: 3
+
+  - block: collection
+    content:
+      title: Pipelines & Scripts
+      text: |-
+        <p align="justify">
+          Reproducible R workflows (not full packages) that I rely on for simulations, benchmarking, and method demonstrations.
+        </p>
+      filters:
+        folders:
+          - pipeline
+    design:
+      view: article-grid
+      fill_image: false
+      columns: 3
 ---
