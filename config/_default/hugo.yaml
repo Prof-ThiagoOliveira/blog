@@ -3,6 +3,9 @@ title: "Thiago Oliveira"
 baseURL: "https://prof-thiagooliveira.netlify.app/"
 canonifyURLs: true
 
+# Site icon (favicon) - replace Hugo logo in browser tab
+favicon: favicon.png
+
 # Internationalisation
 defaultContentLanguage: en
 hasCJKLanguage: false
