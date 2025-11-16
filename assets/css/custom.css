@@ -398,6 +398,61 @@ html.dark ::selection{ background: rgba(120,167,255,.25); }
 
 /* Publication title (APA-style italic venues) */
 .pub-citation .title,
+
+/* =========================================================
+   HOMEPAGE HERO + PROFILE (merged from draft stylesheet)
+   These rules are intentionally global (assets/css) so they apply
+   when the draft is promoted to site root.
+   ========================================================= */
+
+.homepage-hero{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+  margin: 0 0 2.25rem 0;
+}
+.hero-left{ padding: .25rem 0; }
+.hero-title{
+  font-size: clamp(2rem, 2vw + 1.2rem, 2.6rem);
+  margin: 0 0 .35rem 0;
+  color: var(--brand);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.hero-sub{ color: var(--muted); line-height: 1.5; margin: .25rem 0 1rem; }
+.hero-cta .btn{ margin-right: .6rem; }
+
+.hero-aside .profile-card{
+  background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 96%, #fff) 0%, color-mix(in oklab, var(--bg) 92%, var(--brand) 2%) 100%);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,.06);
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.profile-card .avatar{ width:72px; height:72px; border-radius:999px; display:block; margin:0 auto .6rem; object-fit:cover; }
+.profile-card .role{ font-weight:700; margin:0; }
+.profile-card .location{ color:var(--muted); font-size:.92rem; margin:.25rem 0 0; }
+.profile-card .quick-links a{ color:var(--brand); text-decoration:none; margin:0 .25rem; }
+
+.work-with-me{ padding:.6rem 0; }
+
+@media (max-width: 880px){
+  .homepage-hero{ grid-template-columns: 1fr; }
+  .hero-aside{ order: -1; }
+  .hero-title{ font-size: 1.6rem; }
+}
+
+/* Accessibility + focus states */
+.profile-card a:focus, .hero-cta .btn:focus{ outline: 3px solid color-mix(in oklab, var(--brand) 30%, transparent); outline-offset: 2px; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hb-card, .article-card, .card, .project-card, .feature-card,
+  .btn, .button, .btn-primary{ transition: none !important; animation: none !important; }
+}
+
 .citation-item .title {
   font-size: 1.05rem;
   font-weight: 700;
