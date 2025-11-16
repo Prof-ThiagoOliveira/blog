@@ -415,14 +415,20 @@ section.section-markdown .prose {
   padding-left: 2.4rem;
 }
 .home-section-bg .section-heading::before{
-  content: '📈';
+  content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1.15rem;
-  line-height: 1;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.06));
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* Inline SVG using currentColor so it respects theme color */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='3' y='10' width='4' height='11' fill='currentColor'/><rect x='10' y='6' width='4' height='15' fill='currentColor'/><rect x='17' y='2' width='4' height='19' fill='currentColor'/></svg>");
+  color: var(--brand-dk);
 }
 
 @media (max-width: 640px){
