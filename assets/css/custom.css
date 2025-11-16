@@ -391,6 +391,46 @@ section.section-markdown .prose {
   section.section-markdown .prose { border-left-color: color-mix(in oklab, var(--brand) 6%, transparent); padding-left: 1.3rem; }
 }
 
+/* -----------------------------------------------------------------
+   Homepage: subtle card + icon for Expertise block
+   Scoped under `.home-section-bg` so we don't broadly change layout.
+   ----------------------------------------------------------------- */
+
+.home-section-bg section.section-markdown .prose {
+  background: color-mix(in oklab, var(--bg) 94%, var(--brand) 6%);
+  border-radius: 12px;
+  padding: clamp(1rem, 2vw, 2rem);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  border: 1px solid color-mix(in oklab, var(--brand) 6%, transparent);
+}
+
+.home-section-bg section.section-markdown .prose a { word-break: break-word; }
+
+/* Stronger accent for the section heading and add a small icon */
+.home-section-bg .section-heading::after{
+  background: linear-gradient(90deg, color-mix(in oklab, var(--brand) 70%, transparent) 0%, rgba(0,0,0,0) 100%);
+}
+.home-section-bg .section-heading{
+  position: relative;
+  padding-left: 2.4rem;
+}
+.home-section-bg .section-heading::before{
+  content: '📈';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.15rem;
+  line-height: 1;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.06));
+}
+
+@media (max-width: 640px){
+  .home-section-bg section.section-markdown .prose{ padding: 1rem; }
+  .home-section-bg .section-heading{ padding-left: 2rem; }
+  .home-section-bg .section-heading::before{ left: .3rem; }
+}
+
 
 /* =========================================================
    PUBLICATION/CITATION VIEW POLISH
