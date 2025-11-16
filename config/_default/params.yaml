@@ -1,21 +1,37 @@
+# =====================================================
+# Appearance & Theme
+# =====================================================
 appearance:
+  # mode: 'light', 'dark', or 'system' (user preference)
   mode: system
+  # color: name of built-in color (blue, green, coral, etc.)
   color: blue
+
+# =====================================================
+# Marketing, SEO & Analytics
+# =====================================================
 marketing:
   seo:
-    site_type: Person
-    org_name: AbacusBio
-    description: Statistician—quantitative genetics, R/C++, dashboards, and reproducible
-      workflows.
+    site_type: Person              # structured data type
+    org_name: AbacusBio            # affiliated organization
+    description: Statistician—quantitative genetics, R/C++, dashboards, and reproducible workflows.
+  
+  # Analytics tracking (uncomment the service you use)
   analytics:
-    google_analytics: G-F170NVYBW1
-    baidu_tongji: ''
-    plausible: ''
-    fathom: ''
-    pirsch: ''
+    google_analytics: G-F170NVYBW1 # Google Analytics 4 ID
+    baidu_tongji: ''               # Baidu Analytics (China)
+    plausible: ''                  # Plausible Analytics
+    fathom: ''                     # Fathom Analytics
+    pirsch: ''                     # Pirsch Analytics
+  
+  # Site verification (add tokens from search engines)
   verification:
-    google: ''
-    baidu: ''
+    google: ''                     # Google Search Console
+    baidu: ''                      # Baidu Webmaster
+
+# =====================================================
+# Header & Navigation
+# =====================================================
 header:
   navbar:
     enable: yes
@@ -25,15 +41,21 @@ header:
     logo:
       text: Thiago Oliveira
       filename: logo.png
+    # Call-to-action button in header
     button:
       enable: yes
       text: Contact me
       url: mailto:toliveira@abacusbio.com
-    show_theme_chooser: yes
-    show_search: yes
-    highlight_active_link: yes
-    show_translations: yes
-    hide_language_name: no
+    # UI toggles
+    show_theme_chooser: yes        # light/dark mode toggle
+    show_search: yes               # search functionality
+    highlight_active_link: yes     # highlight current page
+    show_translations: yes         # language switcher
+    hide_language_name: no         # show language label
+
+# =====================================================
+# Footer & Copyright
+# =====================================================
 footer:
   copyright:
     notice: © {year} Thiago Oliveira. This work is licensed under {license}
@@ -42,18 +64,30 @@ footer:
       allow_derivatives: no
       share_alike: yes
       allow_commercial: no
+
+# =====================================================
+# Localization
+# =====================================================
 locale:
-  date_format: Jan 2, 2006
-  time_format: 3:04 PM
-  address_format: en-us
+  date_format: Jan 2, 2006         # RFC3339 format
+  time_format: 3:04 PM             # 12-hour format
+  address_format: en-us            # postal address standard
+
+# =====================================================
+# Optional Features
+# =====================================================
 features:
   math:
-    enable: yes
+    enable: yes                    # KaTeX/MathJax for equations
   privacy_pack:
-    enable: yes
+    enable: yes                    # GDPR-compliant privacy features
   map:
-    provider: mapnik
-    api_key: ''
-    zoom: 15
+    provider: mapnik               # map provider (mapnik, mapbox, etc.)
+    api_key: ''                    # API key if needed
+    zoom: 15                       # default zoom level
+
+# =====================================================
+# Custom Styling
+# =====================================================
 custom:
-  css: css/custom.css
+  css: css/custom.css              # path to custom CSS override file

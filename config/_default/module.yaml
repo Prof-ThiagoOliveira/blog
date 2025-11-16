@@ -1,25 +1,38 @@
-############################
-## HUGO MODULES
-## Install or uninstall themes and plugins here.
-## Docs: https://gohugo.io/hugo-modules/
-############################
+# =====================================================
+# Hugo Modules & Theme Configuration
+# =====================================================
+# Manages theme imports, plugins, and file mounts.
+# Docs: https://gohugo.io/hugo-modules/
 
+# Module imports: Theme and plugin dependencies
 imports:
+  # Netlify deployment plugin (CMS support, redirects, headers)
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
+  # Tailwind CSS framework integration
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
 
-# Install any Hugo Blox within the `hugo-blox/blox/` folder
+# File mounts: Map theme and local files to Hugo's lookup paths
+# Order matters — later mounts take precedence for overwrites.
 mounts:
+  # Community Hugo Blox components (HTML partials)
   - source: hugo-blox/blox/community
     target: layouts/partials/blox/community/
     includeFiles: '**.html'
+  
+  # All-access Hugo Blox partials
   - source: hugo-blox/blox/all-access
     target: layouts/partials/blox/
     includeFiles: '**.html'
+  
+  # Hugo Blox CSS assets
   - source: hugo-blox/blox
     target: assets/dist/community/blox/
     includeFiles: '**.css'
+  
+  # Local layouts (custom partials/templates) — override theme
   - source: layouts
     target: layouts
+  
+  # Local assets (custom CSS, JS, images) — override theme
   - source: assets
     target: assets

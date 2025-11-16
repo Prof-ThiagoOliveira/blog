@@ -1,47 +1,54 @@
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-  #     desired widget in your `content/home/` folder.
-  #   The weight parameter defines the order that the links will appear in.
+# =====================================================
+# Navigation Menu Configuration
+# =====================================================
+# Weight: Lower numbers appear first (10 = primary, 20+ = secondary)
+# pageRef: links to content folders (/publication, /post, etc.)
+# identifier: used for dropdown grouping (parent/child relationships)
+# url: direct links (e.g., /tags/ for taxonomy pages)
 
 main:
+  # Primary sections (weight 10-12): identity and research
   - name: Bio
     pageRef: /
     weight: 10
 
   - name: Publications
-    pageRef: publication      # -> /publication/
+    pageRef: publication
     weight: 11
 
   - name: R Packages
     pageRef: rpackage
     weight: 12
 
-  # Dropdown for posts (optional)
+  # Nested Posts menu (weight 13-15): grouped under "Posts"
   - name: Posts
     identifier: posts
-    pageRef: post             # -> /post/
+    pageRef: post
     weight: 13
+  
   - name: All posts
     parent: posts
     pageRef: post
     weight: 14
+  
   - name: Tags
     parent: posts
-    url: /tags/               # taxonomy
+    url: /tags/
     weight: 15
 
+  # Secondary sections (weight 20+): professional timeline and projects
   - name: Experience
-    pageRef: experience       # -> /experience/
+    pageRef: experience
     weight: 20
 
   - name: Projects
-    pageRef: projects         # -> /projects/
+    pageRef: projects
     weight: 30
 
   - name: Accomplishments
-    pageRef: accomplishments  # -> /accomplishments/
+    pageRef: accomplishments
     weight: 40
 
   - name: Gallery
-    pageRef: gallery          # -> /gallery/
+    pageRef: gallery
     weight: 50
