@@ -844,6 +844,22 @@ html.dark .pub-citation {
   margin-top: 1rem;
 }
 
+/* Publication metadata grid: wider layout for abstract + details */
+.page-wrapper article .max-w-prose.grid {
+  max-width: min(95vw, 1200px);
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .page-wrapper article .max-w-prose.grid {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: flex-start;
+  }
+  .page-wrapper article .max-w-prose.grid > div:nth-child(odd) {
+    justify-self: start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
