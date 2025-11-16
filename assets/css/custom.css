@@ -398,6 +398,50 @@ html.dark ::selection{ background: rgba(120,167,255,.25); }
 
 /* Publication title (APA-style italic venues) */
 .pub-citation .title,
+
+/* =========================================================
+   Homepage: Expertise & Research block tuning
+   Improve readability and spacing for the "Expertise and Research"
+   markdown block used on the homepage (responsive, mobile-first).
+   ========================================================= */
+
+.home-section-bg .prose,
+section.section-markdown .prose,
+.page-body .home-section-bg .prose {
+  max-width: 68ch !important; /* comfortable line length */
+  margin-inline: auto;
+  padding-inline: 0.5rem;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  hyphens: auto;
+}
+
+/* Slightly stronger contrast on important phrases and better spacing */
+.home-section-bg .prose strong,
+.home-section-bg .prose b { font-weight: 700; color: var(--text); }
+
+/* Mobile: ensure comfortable padding and prevent overflow */
+@media (max-width: 768px) {
+  .home-section-bg .prose,
+  section.section-markdown .prose {
+    padding-inline: 1rem;
+    font-size: 1rem;
+    line-height: 1.9;
+    max-width: 100% !important;
+  }
+
+  /* Reduce excessive margins from nested containers on small viewports */
+  .home-section-bg .home-section-bg, .home-section-bg .page-body { padding: 0; }
+}
+
+/* Larger screens: a touch more width for prose */
+@media (min-width: 1024px) {
+  .home-section-bg .prose { max-width: 72ch !important; font-size: 1.06rem; }
+}
+
+/* Make inline links wrap cleanly inside this block */
+.home-section-bg .prose a { word-break: break-word; }
+
 .citation-item .title {
   font-size: 1.05rem;
   font-weight: 700;
