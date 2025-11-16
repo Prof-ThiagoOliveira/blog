@@ -1,63 +1,81 @@
-# Configuration of Hugo
-title: Thiago Oliveira
-baseURL: 'https://prof-thiagooliveira.netlify.app/'
+# Hugo configuration — enhanced for clarity, SEO and accessibility
+title: "Thiago Oliveira"
+baseURL: "https://prof-thiagooliveira.netlify.app/"
 canonifyURLs: true
 
+# Internationalisation
 defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 
+# Build options
 build:
   writeStats: true
 
-enableGitInfo: false
-summaryLength: 30
+# Use Git metadata for lastmod (helps SEO and caching when available)
+enableGitInfo: true
+
+# Site behaviour
+summaryLength: 70        # slightly longer summaries for previews
 paginate: 10
 enableEmoji: true
 enableRobotsTXT: true
-footnotereturnlinkcontents: <sup>^</sup>
+footnotereturnlinkcontents: "<sup>^</sup>"
 
-ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+# Files to ignore when building
+ignoreFiles: [\.ipynb$, \.ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
 
+# Pretty permalinks
 permalinks:
   post: '/post/:slug/'
   authors: '/author/:slug/'
 
+# Feeds and outputs
 rssLimit: 50
 disableAliases: true
-
 outputs:
   home: [HTML, RSS, headers, redirects, backlinks]
   section: [HTML, RSS]
 
+# Image processing defaults
 imaging:
   resampleFilter: lanczos
   quality: 85
   anchor: smart
 
+# Long-running builds (Netlify sometimes needs higher timeouts)
 timeout: 600000
 
+# Taxonomies
 taxonomies:
   author: authors
   tag: tags
   publication_type: publication_types
 
+# Markup settings — Goldmark + syntax highlighting
 markup:
   goldmark:
     renderer:
-      unsafe: true     # allow raw HTML in Markdown (for inline <style> etc.)
+      unsafe: true     # allow raw HTML in Markdown (used sparingly)
+    extensions:
+      footnote: true
+      linkify: true
+      typographer: true
   highlight:
-    noClasses: true    # keep Chromas' inline styles (simple, works well with HB)
-    style: github      # pleasant light style; HB auto-switches for dark mode
+    noClasses: true    # inline styles — compatible with current theme
+    style: github
     lineNos: false
 
+# Security / merged fragments
 security:
   _merge: deep
 
+# Sitemap merging (keep defaults but allow theme to extend)
 sitemap:
   _merge: deep
 
+# Minification settings (tdewolff)
 minify:
   disableXML: true
   tdewolff:
@@ -68,6 +86,7 @@ minify:
     js:
       mangle: true
 
+# Related content defaults
 related:
   threshold: 80
   includeNewer: true
@@ -78,8 +97,26 @@ related:
     - name: date
       weight: 10
 
+# Privacy defaults
 privacy:
   youtube:
     privacyEnhanced: true
   twitter:
     enableDNT: true
+
+# Site params: used by theme/templates to improve SEO and visual polish
+params:
+  siteTitle: "Thiago Oliveira"
+  description: "Statistician — quantitative genetics, agritech & sports analytics. Reproducible pipelines, R/C++ development, decision-ready outputs."
+  author:
+    name: "Thiago de Paula Oliveira"
+    email: "thiago.oliveira@ed.ac.uk"
+  themeColor: "#3b80d1"
+  social:
+    twitter: "_OliveiraTP_"
+    github: "Prof-ThiagoOliveira"
+  # Default image for social cards (place an image in static/media/ or assets)
+  socialImage: "/media/brand/social-card.png"
+  # Accessibility
+  defaultAlt: "Site image"
+  enableSkipLink: true
