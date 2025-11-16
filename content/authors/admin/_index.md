@@ -55,7 +55,7 @@ interests:
 
 education:
   - area: PhD in Statistics
-    institution: University of São Paulo
+    institution: University of S├úo Paulo
     date_start: 2014-01-01
     date_end: 2018-12-31
     summary: |
@@ -65,14 +65,14 @@ education:
       url: 'https://www.teses.usp.br/teses/disponiveis/11/11134/tde-01082018-184101/publico/Thiago_de_Paula_Oliveira_versao_simplificada.pdf'
 
   - area: MSc in Statistics
-    institution: University of São Paulo
+    institution: University of S├úo Paulo
     date_start: 2012-01-01
     date_end: 2014-12-31
     summary: |
       Thesis on statistical methods for concordance analysis with a GPA of 3.9/4.0.
 
   - area: BSc in Agricultural Engineering
-    institution: University of São Paulo
+    institution: University of S├úo Paulo
     date_start: 2007-01-01
     date_end: 2012-12-31
     summary: |
@@ -98,7 +98,7 @@ work:
     date_start: 2020-01-01
     date_end: 2023-03-31
     summary: |
-      - Held a Marie Skłodowska-Curie COFUND fellowship focused on quantitative genetics and sustainability-focused breeding.
+      - Held a Marie Sk┼éodowska-Curie COFUND fellowship focused on quantitative genetics and sustainability-focused breeding.
       - Developed mixed-model, Bayesian, and simulation frameworks for plant-breeding pipelines and collaborated with international partners.
       - Published and presented across high-impact venues while mentoring PhD students and early-career scientists.
 
@@ -114,7 +114,7 @@ work:
       - Partnered with clinicians, sports scientists, and data engineers to productize analytics outputs.
 
   - position: Lecturer in statistics
-    company_name: University of São Paulo
+    company_name: University of S├úo Paulo
     company_url: https://www5.usp.br/
     company_logo: ''
     date_start: 2017-01-01
@@ -260,7 +260,7 @@ languages:
 # Only `title`, `awarder`, and `date` are required.
 # Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Marie Skłodowska-Curie Actions (MSCA) COFOUND Fellowship (Train@Ed)
+  - title: Marie Sk┼éodowska-Curie Actions (MSCA) COFOUND Fellowship (Train@Ed)
     url: https://www.ed.ac.uk/roslin
     date: 2020-04-01
     awarder: The Roslin Institute, University of Edinburgh
@@ -269,7 +269,7 @@ awards:
 
   - title: Research Excellence Award
     date: 2014-01-01
-    awarder: University of São Paulo
+    awarder: University of S├úo Paulo
     summary: |
       Recognized for outstanding contributions to statistical modelling and data analysis.
 
@@ -278,5 +278,5 @@ awards:
 ## About Me
 
 <div style="text-align: justify;">
-I am Thiago de Paula Oliveira, a statistician at AbacusBio with 14+ years of experience turning experimental, genomic, and performance data into decisions. I specialise in advanced mixed-model and Bayesian analytics, the development of economic and sustainability selection indexes, and the delivery of reproducible analytics products—from R/C++ codebases to Dockerised dashboards. Whether the brief is accelerating genetic gain, improving farm-system resilience, or supporting athlete health, I focus on rigour, transparency, and decision-ready outputs.
+I am Thiago de Paula Oliveira, a statistician at AbacusBio with 14+ years of experience turning experimental, genomic, and performance data into decisions. I specialise in advanced mixed-model and Bayesian analytics, the development of economic and sustainability selection indexes, and the delivery of reproducible analytics productsΓÇöfrom R/C++ codebases to Dockerised dashboards. Whether the brief is accelerating genetic gain, improving farm-system resilience, or supporting athlete health, I focus on rigour, transparency, and decision-ready outputs.
 </div>
