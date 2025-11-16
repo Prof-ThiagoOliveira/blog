@@ -398,49 +398,59 @@ html.dark ::selection{ background: rgba(120,167,255,.25); }
 
 /* Publication title (APA-style italic venues) */
 .pub-citation .title,
-
 /* =========================================================
-   Homepage: Expertise & Research block tuning
-   Improve readability and spacing for the "Expertise and Research"
-   markdown block used on the homepage (responsive, mobile-first).
+   Homepage: Expertise & Research — fluid & adaptive rules
+   Uses clamp() and grid layout to create a dynamic fit across
+   devices while keeping a comfortable measure and readable type.
    ========================================================= */
 
+/* Layout: a two-column hero (content + aside) that collapses on small screens */
+.homepage-hero, .section-resume-biography-3, section#section-resume-biography-3 {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 32%);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .homepage-hero, .section-resume-biography-3, section#section-resume-biography-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Prose: fluid width and type that adapt to viewport */
 .home-section-bg .prose,
 section.section-markdown .prose,
 .page-body .home-section-bg .prose {
-  max-width: 68ch !important; /* comfortable line length */
-  margin-inline: auto;
-  padding-inline: 0.5rem;
-  font-size: 1.02rem;
-  line-height: 1.85;
+  box-sizing: border-box;
+  /* Prefer a readable measure, but allow fluid growth */
+  max-width: min(72ch, calc(40vw + 22ch));
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: clamp(0.75rem, 2vw, 2rem);
+  font-size: clamp(1rem, 1vw + 0.2rem, 1.08rem);
+  line-height: clamp(1.6, 1.7, 1.95);
   hyphens: auto;
 }
 
-/* Slightly stronger contrast on important phrases and better spacing */
+/* Emphasis: keep strong text clear but not overpowering */
 .home-section-bg .prose strong,
 .home-section-bg .prose b { font-weight: 700; color: var(--text); }
 
-/* Mobile: ensure comfortable padding and prevent overflow */
-@media (max-width: 768px) {
+/* Links: allow natural wrapping inside the block */
+.home-section-bg .prose a { overflow-wrap: anywhere; word-break: break-word; }
+
+/* Mobile small tweaks */
+@media (max-width: 640px) {
   .home-section-bg .prose,
-  section.section-markdown .prose {
-    padding-inline: 1rem;
-    font-size: 1rem;
-    line-height: 1.9;
-    max-width: 100% !important;
-  }
-
-  /* Reduce excessive margins from nested containers on small viewports */
-  .home-section-bg .home-section-bg, .home-section-bg .page-body { padding: 0; }
+  section.section-markdown .prose { padding-inline: 1rem; font-size: 1rem; line-height: 1.9; }
+  .homepage-hero img, .section-resume-biography-3 img { max-width: 46vw; }
 }
 
-/* Larger screens: a touch more width for prose */
-@media (min-width: 1024px) {
-  .home-section-bg .prose { max-width: 72ch !important; font-size: 1.06rem; }
+/* Larger screens: slightly increase measure for comfort */
+@media (min-width: 1280px) {
+  .home-section-bg .prose { max-width: min(78ch, calc(48vw + 24ch)); font-size: 1.1rem; }
 }
-
-/* Make inline links wrap cleanly inside this block */
-.home-section-bg .prose a { word-break: break-word; }
 
 .citation-item .title {
   font-size: 1.05rem;
