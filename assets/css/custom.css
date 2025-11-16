@@ -362,6 +362,36 @@ html.dark .page-body article .prose code{
 ::selection{ background: rgba(59,128,209,.18); }
 html.dark ::selection{ background: rgba(120,167,255,.25); }
 
+/* -----------------------------------------------------------------
+   Gentle responsive typography for page sections (non-layout)
+   These rules improve readability across widths without altering
+   the hero/aside layout or moving the About block.
+   ----------------------------------------------------------------- */
+
+/* Apply to prose containers on pages (keeps measure comfortable) */
+.page-body article .prose {
+  max-width: min(92ch, calc(44vw + 18ch)) !important;
+  font-size: clamp(1rem, 0.9vw + 0.2rem, 1.06rem);
+  line-height: clamp(1.65, 1.7, 1.95);
+  padding-inline: clamp(0.6rem, 1.5vw, 1.25rem);
+}
+
+/* Slightly tighter measure for very small viewports */
+@media (max-width: 480px) {
+  .page-body article .prose { padding-inline: 1rem; font-size: 1rem; line-height: 1.9; }
+}
+
+/* Accent: subtle left border for the Expertise block (non-intrusive) */
+section.section-markdown .prose {
+  border-left: 3px solid transparent;
+  padding-left: 1rem;
+}
+
+@media (min-width: 980px) {
+  section.section-markdown .prose { border-left-color: color-mix(in oklab, var(--brand) 6%, transparent); padding-left: 1.3rem; }
+}
+
+
 /* =========================================================
    PUBLICATION/CITATION VIEW POLISH
    ========================================================= */
