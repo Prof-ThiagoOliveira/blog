@@ -135,6 +135,7 @@
       "course",
       "cursor-default",
       "cursor-pointer",
+      "cv-downloads",
       "dark",
       "dark:[&.active]:text-white",
       "dark:bg-gray-800",

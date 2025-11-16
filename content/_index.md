@@ -12,9 +12,6 @@ sections:
     content:
       username: admin
       text: ""
-      button:
-        text: Download Short CV
-        url: uploads/Oliveira_Thiago_Company_CV.pdf
     design:
       css_class: dark
       background:

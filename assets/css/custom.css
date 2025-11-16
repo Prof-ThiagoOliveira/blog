@@ -912,6 +912,14 @@ html.dark .pub-citation {
   }
 }
 
+/* CV buttons on hero biography block */
+.cv-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
