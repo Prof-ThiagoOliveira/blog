@@ -1,13 +1,43 @@
-{{/* Local override: render ToC only if headings exist */}}
-{{- $p := . -}}
-{{- if and $p $p.Fragments $p.Fragments.Headings (gt (len $p.Fragments.Headings) 0) -}}
-  <nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
-    <div class="hb-scrollbar text-sm sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height))] -mr-4 rtl:-ml-4">
+{{/* ============================================================
+    Table of Contents Partial: Sticky Sidebar Navigation
+    ============================================================
+    Renders a sticky navigation sidebar with links to page headings.
+    Only displays if the page has multiple headings (Fragments).
+    
+    Features:
+    - Sticky positioning at top-16 (below navbar)
+    - Responsive: hidden on mobile/tablet, visible on xl+ screens
+    - Print-hidden: excludes from printed pages
+    - Dark mode support with Tailwind classes
+    - Accessibility: semantic <nav> with aria-label
+    - Auto-scrolling with max-height constraint
+    
+    Usage: {{ partial "components/toc.html" . }}
+*/}}
+
+{{- /* Only render if page has headings */ -}}
+{{- $page := . -}}
+{{- if and $page $page.Fragments $page.Fragments.Headings (gt (len $page.Fragments.Headings) 0) -}}
+  <nav 
+    class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" 
+    aria-label="table of contents"
+  >
+    <div 
+      class="hb-scrollbar text-sm sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height))] -mr-4 rtl:-ml-4"
+    >
+      {{/* Section Header */}}
       <p class="mb-4 font-semibold tracking-tight">On this page</p>
+      
+      {{/* Heading Links */}}
       <ul>
-        {{- range $p.Fragments.Headings -}}
+        {{- range $page.Fragments.Headings -}}
           <li class="my-2 scroll-my-6 scroll-py-6">
-            <a class="inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 break-words" href="#{{ .ID }}">{{ .Title }}</a>
+            <a 
+              class="inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 break-words transition-colors" 
+              href="#{{ .ID }}"
+            >
+              {{- .Title -}}
+            </a>
           </li>
         {{- end -}}
       </ul>

@@ -1,7 +1,32 @@
-<!-- Explicit favicon references to replace Hugo logo -->
+{{/* ============================================================
+    Head Partial: Favicon, Metadata, Stylesheets, and Scripts
+    ============================================================
+    Consolidates:
+    - Favicon configuration (PNG, ICO, Apple touch icon)
+    - Custom stylesheets (theme overrides and enhancements)
+    - Publication and analytics scripts (deferred for performance)
+    - Theme metadata (color scheme, Windows tiles)
+*/}}
+
+{{/* Favicon Configuration */}}
 <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}favicon.png?v={{ now.Unix }}" />
 <link rel="icon" type="image/x-icon" href="{{ .Site.BaseURL }}favicon.ico?v={{ now.Unix }}" />
 <link rel="shortcut icon" href="{{ .Site.BaseURL }}favicon.ico?v={{ now.Unix }}" />
 <link rel="apple-touch-icon" href="{{ .Site.BaseURL }}icon.png?v={{ now.Unix }}" />
+
+{{/* Theme & OS Integration */}}
 <meta name="theme-color" content="#0066cc" />
 <meta name="msapplication-TileColor" content="#0066cc" />
+
+{{/* Custom Stylesheets */}}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}" />
+
+{{/* Deferred Scripts for Performance */}}
+{{/* Publication enhancements: tag filtering, copy-to-clipboard, export functionality */}}
+<script defer src="{{ "js/publications-enhancements.js" | relURL }}"></script>
+
+{{/* Visitor analytics: lightweight client-side counter using CountAPI */}}
+<script defer src="{{ "js/visitor-count.js" | relURL }}"></script>
+
+{{/* GitHub social buttons (async for non-blocking load) */}}
+<script async defer src="https://buttons.github.io/buttons.js"></script>

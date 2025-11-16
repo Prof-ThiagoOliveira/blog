@@ -1,12 +1,17 @@
-<!-- layouts/_default/baseof.html or other relevant template -->
+{{/* ============================================================
+    Base Template: Site HTML Structure
+    ============================================================
+    Defines the outer HTML structure for all pages.
+    Hugo Blox theme will override this with its own base if needed,
+    but this provides a sensible fallback.
+*/}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Site.LanguageCode | default "en" }}">
 <head>
-    {{ partial "header.html" . }}
-    {{ partial "custom-head.html" . }} <!-- Include the custom-head partial here -->
+    {{/* Theme partials are loaded by Hugo Blox */}}
+    {{/* This template is primarily a structure container */}}
 </head>
 <body>
-    {{ block "main" . }}
-    {{ end }}
+    {{ block "main" . }}{{ end }}
 </body>
 </html>

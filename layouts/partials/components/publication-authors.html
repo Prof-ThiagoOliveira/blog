@@ -1,0 +1,26 @@
+{{/* ============================================================
+    Publication Authors Partial: Author List with Admin Highlighting
+    ============================================================
+    Renders a comma-separated list of authors with special formatting
+    for the admin (site owner) to highlight their role.
+    
+    Parameters:
+    - authors: array of author names/slugs
+    
+    Usage: {{ partial "components/publication-authors.html" .Params.authors }}
+    
+    Output: "Author 1, You, Author 3"
+*/}}
+
+{{- if . -}}
+  <div class="pub-authors">
+    {{- range $index, $author := . -}}
+      {{- if eq $author "admin" -}}
+        <strong class="author-admin text-blue-600 dark:text-blue-400">You</strong>
+      {{- else -}}
+        {{- $author -}}
+      {{- end -}}
+      {{- if lt $index (sub (len .) 1) -}}, {{ end -}}
+    {{- end -}}
+  </div>
+{{- end -}}
