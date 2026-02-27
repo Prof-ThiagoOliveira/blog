@@ -11,3 +11,11 @@ Thumbs.db
 
 *.knit.md
 *.utf8.md
+
+# blogdown generated artifacts
+/blogdown/
+/content/**/index.html
+/content/**/index_files/
+/content/**/index_cache/
+/content/**/index.Rmd.lock~
+/tmp-index-*.md

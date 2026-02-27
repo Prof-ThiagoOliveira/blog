@@ -38,7 +38,7 @@ profiles:
   - icon: brands/github
     url: https://github.com/Prof-ThiagoOliveira
   - icon: academicons/google-scholar
-    url: https://scholar.google.com.br/citations?hl=pt-BR&user=KKY2ynUAAAAJ
+    url: https://scholar.google.com/citations?user=K_MD1nsAAAAJ&hl=en
   - icon: academicons/orcid
     url: https://orcid.org/0000-0002-4555-2584
 
@@ -55,7 +55,7 @@ interests:
 
 education:
   - area: PhD in Statistics
-    institution: University of São Paulo
+    institution: University of Sao Paulo
     date_start: 2014-01-01
     date_end: 2018-12-31
     summary: |
@@ -65,14 +65,14 @@ education:
       url: 'https://www.teses.usp.br/teses/disponiveis/11/11134/tde-01082018-184101/publico/Thiago_de_Paula_Oliveira_versao_simplificada.pdf'
 
   - area: MSc in Statistics
-    institution: University of São Paulo
+    institution: University of Sao Paulo
     date_start: 2012-01-01
     date_end: 2014-12-31
     summary: |
       Thesis on statistical methods for concordance analysis with a GPA of 3.9/4.0.
 
   - area: BSc in Agricultural Engineering
-    institution: University of São Paulo
+    institution: University of Sao Paulo
     date_start: 2007-01-01
     date_end: 2012-12-31
     summary: |
@@ -88,7 +88,7 @@ work:
     summary: |
       - Lead cross-functional teams delivering genetic-evaluation pipelines, QC/ETL workflows, and interactive dashboards for livestock, crop, and agri-tech partners.
       - Design economic and sustainability selection indexes that translate breeding-policy goals into actionable metrics.
-      - Build reproducible R/C++/Bash codebases (Docker, CI) that keep analytics auditable and production-ready.
+      - Build reproducible R, C++, bash, SQL codebases (Docker, CI) that keep analytics auditable and production-ready.
       - Coach scientists and engineers on best practices for statistical modelling, automation, and decision-support communication.
 
   - position: Research fellow in quantitative genetics
@@ -98,7 +98,7 @@ work:
     date_start: 2020-01-01
     date_end: 2023-03-31
     summary: |
-      - Held a Marie Skłodowska-Curie COFUND fellowship focused on quantitative genetics and sustainability-focused breeding.
+      - Held a Marie Sklodowska-Curie COFUND fellowship focused on quantitative genetics and sustainability-focused breeding.
       - Developed mixed-model, Bayesian, and simulation frameworks for plant-breeding pipelines and collaborated with international partners.
       - Published and presented across high-impact venues while mentoring PhD students and early-career scientists.
 
@@ -114,7 +114,7 @@ work:
       - Partnered with clinicians, sports scientists, and data engineers to productize analytics outputs.
 
   - position: Lecturer in statistics
-    company_name: University of São Paulo
+    company_name: University of Sao Paulo
     company_url: https://www5.usp.br/
     company_logo: ''
     date_start: 2017-01-01
@@ -135,7 +135,7 @@ work:
       - Delivered bespoke analytics consulting for professional teams, bridging biomarker, GPS, and wellness data.
       - Embedded with sports-science staff to translate insights into day-to-day decision tools.
 
-# Skills
+# Skills & Hobbies
 # Add your own SVG icons to `assets/media/icons/`
 skills:
   - name: Programming Languages
@@ -156,6 +156,10 @@ skills:
         description: Advanced proficiency
         percent: 70
         icon: devicon/bash
+      - name: SQL
+        description: Intermediate proficiency
+        percent: 65
+        icon: hero/circle-stack
       - name: Python
         description: Beginner proficiency
         percent: 25
@@ -260,7 +264,7 @@ languages:
 # Only `title`, `awarder`, and `date` are required.
 # Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Marie Skłodowska-Curie Actions (MSCA) COFOUND Fellowship (Train@Ed)
+  - title: Marie Sklodowska-Curie Actions (MSCA) COFUND Fellowship (Train@Ed)
     url: https://www.ed.ac.uk/roslin
     date: 2020-04-01
     awarder: The Roslin Institute, University of Edinburgh
@@ -269,7 +273,7 @@ awards:
 
   - title: Research Excellence Award
     date: 2014-01-01
-    awarder: University of São Paulo
+    awarder: University of Sao Paulo
     summary: |
       Recognized for outstanding contributions to statistical modelling and data analysis.
 
@@ -278,7 +282,7 @@ awards:
 ## About Me
 
 <div style="text-align: justify;">
-I am Thiago de Paula Oliveira, a statistician at AbacusBio with 14+ years of experience turning experimental, genomic, and performance data into decisions. I specialise in advanced mixed-model and Bayesian analytics, the development of economic and sustainability selection indexes, and the delivery of reproducible analytics products—from R/C++ codebases to Dockerised dashboards. Whether the brief is accelerating genetic gain, improving farm-system resilience, or supporting athlete health, I focus on rigour, transparency, and decision-ready outputs.
+I am Thiago de Paula Oliveira, a statistician at AbacusBio with 14+ years of experience turning experimental, genomic, and performance data into decisions. I specialise in advanced mixed-model and Bayesian analytics, the development of economic and sustainability selection indexes, and the delivery of reproducible analytics products, from R, C++, bash, SQL codebases to Dockerised dashboards. Whether the brief is accelerating genetic gain, improving farm-system resilience, or strengthening agricultural production systems, I focus on rigour, transparency, and decision-ready outputs.
 </div>
 
 <div class="cv-downloads">
@@ -297,3 +301,4 @@ I am Thiago de Paula Oliveira, a statistician at AbacusBio with 14+ years of exp
     Download Long CV
   </a>
 </div>
+
