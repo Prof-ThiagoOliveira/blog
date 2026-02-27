@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Kendall's Tau in R and Rcpp"
-date:  "August 09, 2025"
+date:  "February 27, 2026"
 slug: "benchmarking-kendalls-tau-r-rcpp"
 categories:
   - "R Programming"
@@ -16,12 +16,13 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "2025-08-09T10:23:29Z"
+lastmod: "2026-02-27T21:22:58Z"
 featured: false
 image:
   caption: ""
   focal_point: ""
   preview_only: false
+math: true
 projects: []
 output:
   blogdown::html_page:
@@ -56,6 +57,9 @@ output:
 <ul>
 <li><a href="#microbenchmark-tie-free-data" id="toc-microbenchmark-tie-free-data"><span class="toc-section-number">6.1</span> Microbenchmark: tie-free data</a></li>
 <li><a href="#microbenchmark-many-ties" id="toc-microbenchmark-many-ties"><span class="toc-section-number">6.2</span> Microbenchmark: many ties</a></li>
+<li><a href="#final-benchmark-with-additional-optimized-implementations" id="toc-final-benchmark-with-additional-optimized-implementations"><span class="toc-section-number">6.3</span> Final benchmark with additional optimized implementations</a></li>
+<li><a href="#where-matrixcorr-starts-to-shine-with-a-10-column-matrix-benchmark" id="toc-where-matrixcorr-starts-to-shine-with-a-10-column-matrix-benchmark"><span class="toc-section-number">6.4</span> Where matrixCorr starts to shine with a 10-column matrix benchmark</a></li>
+<li><a href="#conclusion" id="toc-conclusion"><span class="toc-section-number">6.5</span> Conclusion</a></li>
 </ul></li>
 <li><a href="#reproducibility" id="toc-reproducibility"><span class="toc-section-number">7</span> Reproducibility</a></li>
 <li><a href="#references" id="toc-references"><span class="toc-section-number">8</span> References</a></li>
@@ -76,6 +80,8 @@ library(microbenchmark)
 library(dplyr)
 library(ggplot2)
 library(knitr)
+library(matrixCorr)
+library(pcaPP)
 set.seed(1)</code></pre>
 </div>
 <div id="kendalls-tau-definitions" class="section level1" number="3">
@@ -620,6 +626,265 @@ As you probably noted until here, in both scenarios <span class="math inline">\(
 <li><strong>tau-b vs tau-a:</strong> tau-b is <span class="math inline">\(\approx 2.0 \times\)</span> slower than tau-a, reflecting the extra work needed for tie handling.</li>
 </ul>
 <p>The IQRs (0.18 ms for tau-a; 0.46 ms for tau-b; 214.89 ms for base <code>R</code>) indicate the <code>C++</code> timings are not only faster but also far more stable. Practically, this means we can use the tie-adjusted <strong>tau-b C++</strong> routine without sacrificing performance; the <span class="math inline">\(\approx 2.0 \times\)</span> overhead relative to tau-a is negligible in absolute terms, while the gap to base <code>R</code> remains several orders of magnitude.</p>
+</div>
+<div id="final-benchmark-with-additional-optimized-implementations" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Final benchmark with additional optimized implementations</h2>
+<p>To close, we benchmark the same many-ties dataset using all fast implementations together:</p>
+<ul>
+<li><code>kendall_tau_b_cpp(x, y)</code></li>
+<li><code>matrixCorr::kendall_tau(data, y = NULL, check_na = TRUE)</code></li>
+<li><code>pcaPP::cor.fk(x, y = NULL)</code></li>
+</ul>
+<p><code>matrixCorr::kendall_tau()</code> is a dedicated high-performance Kendall implementation from the <strong>matrixCorr</strong> package, while <code>pcaPP::cor.fk()</code> comes from <strong>pcaPP</strong> and is widely used as a fast Kendall option in robust-statistics workflows.</p>
+<pre class="r"><code>has_matrixCorr &lt;- requireNamespace(&quot;matrixCorr&quot;, quietly = TRUE)
+has_pcaPP &lt;- requireNamespace(&quot;pcaPP&quot;, quietly = TRUE)
+
+if (!has_matrixCorr || !has_pcaPP) {
+  message(&quot;Install &#39;matrixCorr&#39; and &#39;pcaPP&#39; to run this final benchmark section.&quot;)
+} else {
+  # Fairness precondition: same complete input for all methods.
+  stopifnot(!anyNA(xbt), !anyNA(ybt))
+
+  final_vals &lt;- dplyr::tibble(
+    method = c(&quot;cpp_tau_b&quot;, &quot;matrixCorr_tau&quot;, &quot;pcaPP_cor_fk&quot;, &quot;base_kendall&quot;),
+    estimate = c(
+      kendall_tau_b_cpp(xbt, ybt),
+      matrixCorr::kendall_tau(xbt, ybt, check_na = FALSE),
+      pcaPP::cor.fk(xbt, ybt),
+      stats::cor(xbt, ybt, method = &quot;kendall&quot;)
+    )
+  ) |&gt;
+    dplyr::mutate(
+      abs_diff_vs_base = abs(estimate - estimate[method == &quot;base_kendall&quot;])
+    )
+
+  knitr::kable(
+    final_vals,
+    digits = 8,
+    caption = &quot;Fairness check (many ties, n = 10,000): estimates across implementations&quot;
+  )
+
+  invisible(gc())
+
+  mb_final &lt;- microbenchmark::microbenchmark(
+    cpp_tau_b      = kendall_tau_b_cpp(xbt, ybt),
+    matrixCorr_tau = matrixCorr::kendall_tau(xbt, ybt, check_na = FALSE),
+    pcaPP_cor_fk   = pcaPP::cor.fk(xbt, ybt),
+    base_kendall   = stats::cor(xbt, ybt, method = &quot;kendall&quot;),
+    times = 70L,
+    control = list(order = &quot;random&quot;, warmup = 5L)
+  )
+
+  mb_final_sum &lt;- as.data.frame(mb_final) |&gt;
+    dplyr::group_by(expr) |&gt;
+    dplyr::summarise(
+      median_ms = median(time) / 1e6,
+      iqr_ms    = IQR(time) / 1e6,
+      min_ms    = min(time) / 1e6,
+      max_ms    = max(time) / 1e6,
+      .groups = &quot;drop&quot;
+    ) |&gt;
+    dplyr::arrange(median_ms)
+
+  base_median &lt;- mb_final_sum$median_ms[mb_final_sum$expr == &quot;base_kendall&quot;]
+  mb_final_sum &lt;- mb_final_sum |&gt;
+    dplyr::mutate(speedup_vs_base = base_median / median_ms)
+
+  knitr::kable(
+    mb_final_sum,
+    digits = 2,
+    caption = &quot;Final microbenchmark (many ties, n = 10,000): cpp tau-b, matrixCorr::kendall_tau, pcaPP::cor.fk, and base R&quot;
+  )
+}</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-1">Table 6.1: </span>Final microbenchmark (many ties, n = 10,000): cpp tau-b, matrixCorr::kendall_tau, pcaPP::cor.fk, and base R</caption>
+<thead>
+<tr class="header">
+<th align="left">expr</th>
+<th align="right">median_ms</th>
+<th align="right">iqr_ms</th>
+<th align="right">min_ms</th>
+<th align="right">max_ms</th>
+<th align="right">speedup_vs_base</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">pcaPP_cor_fk</td>
+<td align="right">1.26</td>
+<td align="right">0.64</td>
+<td align="right">0.99</td>
+<td align="right">2.18</td>
+<td align="right">1428.42</td>
+</tr>
+<tr class="even">
+<td align="left">matrixCorr_tau</td>
+<td align="right">2.00</td>
+<td align="right">0.95</td>
+<td align="right">1.60</td>
+<td align="right">3.53</td>
+<td align="right">901.13</td>
+</tr>
+<tr class="odd">
+<td align="left">cpp_tau_b</td>
+<td align="right">3.00</td>
+<td align="right">1.37</td>
+<td align="right">2.24</td>
+<td align="right">12.49</td>
+<td align="right">599.05</td>
+</tr>
+<tr class="even">
+<td align="left">base_kendall</td>
+<td align="right">1798.03</td>
+<td align="right">427.73</td>
+<td align="right">1513.63</td>
+<td align="right">2295.65</td>
+<td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+<p>In this fair setup, <code>matrixCorr::kendall_tau()</code> uses <code>check_na = FALSE</code> because we assert complete data once before benchmarking. If your real data may contain missing values, keep <code>check_na = TRUE</code>.</p>
+<p>In this rerun, <code>pcaPP::cor.fk()</code> achieved the lowest median time, <code>matrixCorr::kendall_tau()</code> came second, and <code>kendall_tau_b_cpp()</code> remained very fast. <code>stats::cor(..., method = "kendall")</code> stayed orders of magnitude slower. This ranking is compatible with all methods being roughly <span class="math inline">\(O(n\log n)\)</span> because implementation constants, memory behavior, and runtime noise can change which fast implementation comes first.</p>
+<p>Also note that medians are the most informative timing summary here. The large <code>max_ms</code> values seen for <code>pcaPP</code> and <code>matrixCorr</code> usually reflect occasional GC/OS scheduling outliers, not typical runtime.</p>
+<p>A fair comparison uses the same data, the same tie structure, the same NA policy (for example <code>check_na = FALSE</code> when completeness is guaranteed), and enough repetitions.</p>
+</div>
+<div id="where-matrixcorr-starts-to-shine-with-a-10-column-matrix-benchmark" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Where matrixCorr starts to shine with a 10-column matrix benchmark</h2>
+<p>To highlight matrix-mode performance, we benchmark a 10-column tied dataset and compute the full Kendall matrix using <code>matrixCorr</code> matrix mode, <code>pcaPP::cor.fk()</code> matrix mode, and a pairwise loop based on <code>kendall_tau_b_cpp()</code>.</p>
+<pre class="r"><code>set.seed(11)
+n_mat &lt;- 10000L
+p_mat &lt;- 10L
+X_mat &lt;- replicate(p_mat, sample.int(300L, n_mat, replace = TRUE))
+colnames(X_mat) &lt;- paste0(&quot;V&quot;, seq_len(p_mat))
+storage.mode(X_mat) &lt;- &quot;double&quot;
+stopifnot(!anyNA(X_mat))
+
+cpp_tau_b_matrix &lt;- function(M) {
+  p &lt;- ncol(M)
+  out &lt;- diag(1, p)
+  dimnames(out) &lt;- list(colnames(M), colnames(M))
+  for (i in seq_len(p)) {
+    if (i &lt; p) {
+      for (j in (i + 1):p) {
+        tau &lt;- kendall_tau_b_cpp(M[, i], M[, j])
+        out[i, j] &lt;- tau
+        out[j, i] &lt;- tau
+      }
+    }
+  }
+  out
+}
+
+mc_mat &lt;- matrixCorr::kendall_tau(X_mat, check_na = FALSE)
+pp_mat &lt;- pcaPP::cor.fk(X_mat)
+cpp_mat &lt;- cpp_tau_b_matrix(X_mat)
+
+invisible(gc())
+mb_mat10 &lt;- microbenchmark::microbenchmark(
+  matrixCorr_matrix = matrixCorr::kendall_tau(X_mat, check_na = FALSE),
+  pcaPP_matrix = pcaPP::cor.fk(X_mat),
+  cpp_tau_b_pairwise = cpp_tau_b_matrix(X_mat),
+  times = 20L,
+  control = list(order = &quot;random&quot;, warmup = 3L)
+)
+
+mb_mat10_sum &lt;- as.data.frame(mb_mat10) |&gt;
+  dplyr::group_by(expr) |&gt;
+  dplyr::summarise(
+    median_ms = median(time) / 1e6,
+    iqr_ms    = IQR(time) / 1e6,
+    min_ms    = min(time) / 1e6,
+    max_ms    = max(time) / 1e6,
+    .groups = &quot;drop&quot;
+  ) |&gt;
+  dplyr::arrange(median_ms)
+
+best_mat &lt;- min(mb_mat10_sum$median_ms)
+mb_mat10_sum &lt;- mb_mat10_sum |&gt;
+  dplyr::mutate(
+    Implementation = dplyr::recode(
+      as.character(expr),
+      matrixCorr_matrix = &quot;matrixCorr matrix mode&quot;,
+      pcaPP_matrix = &quot;pcaPP matrix mode&quot;,
+      cpp_tau_b_pairwise = &quot;cpp tau-b pairwise loop&quot;
+    ),
+    Rank = dplyr::row_number(),
+    `x slower vs best` = median_ms / best_mat
+  ) |&gt;
+  dplyr::select(
+    Rank,
+    Implementation,
+    `Median (ms)` = median_ms,
+    `IQR (ms)` = iqr_ms,
+    `Best run (ms)` = min_ms,
+    `Worst run (ms)` = max_ms,
+    `x slower vs best`
+  )
+
+knitr::kable(
+  mb_mat10_sum,
+  digits = 2,
+  caption = &quot;Table 6.2. 10-column matrix microbenchmark (n = 10,000) with ranked implementations&quot;
+)</code></pre>
+<table>
+<caption>Table 6.2. 10-column matrix microbenchmark (n = 10,000) with ranked implementations</caption>
+<colgroup>
+<col width="5%" />
+<col width="25%" />
+<col width="12%" />
+<col width="9%" />
+<col width="14%" />
+<col width="15%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Rank</th>
+<th align="left">Implementation</th>
+<th align="right">Median (ms)</th>
+<th align="right">IQR (ms)</th>
+<th align="right">Best run (ms)</th>
+<th align="right">Worst run (ms)</th>
+<th align="right">x slower vs best</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">matrixCorr matrix mode</td>
+<td align="right">15.36</td>
+<td align="right">4.13</td>
+<td align="right">10.16</td>
+<td align="right">19.94</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">pcaPP matrix mode</td>
+<td align="right">64.99</td>
+<td align="right">10.77</td>
+<td align="right">51.37</td>
+<td align="right">81.44</td>
+<td align="right">4.23</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">cpp tau-b pairwise loop</td>
+<td align="right">184.81</td>
+<td align="right">17.58</td>
+<td align="right">144.55</td>
+<td align="right">219.71</td>
+<td align="right">12.03</td>
+</tr>
+</tbody>
+</table>
+<p>In this matrix benchmark, <code>matrixCorr::kendall_tau()</code> is markedly faster because it computes the whole matrix in one dedicated matrix-oriented call, while the other two approaches effectively assemble results pair by pair.</p>
+</div>
+<div id="conclusion" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Conclusion</h2>
+<p>In conclusion, the statistical results are coherent with Kendall theory and tie handling. On essentially tie-free data, tau-a and tau-b agree up to Monte Carlo noise and align with the base implementation. On tie-heavy data, tau-b stays aligned with <code>stats::cor(..., method = "kendall")</code>, while tau-a is expected to move closer to zero because it keeps the full-pair denominator without tie correction.</p>
+<p>The computational results show that optimized implementations can reduce runtime by orders of magnitude while preserving the intended estimator. In the many-ties two-vector benchmark with <code>n = 10,000</code>, <code>pcaPP::cor.fk()</code>, <code>matrixCorr::kendall_tau()</code>, and <code>kendall_tau_b_cpp()</code> run in the low millisecond range, while base R remains in the thousand millisecond range. This pattern supports using median time as the main summary and reading large maximum values mainly as outlier behavior from runtime and memory management effects.</p>
+<p>This confirms that the simple <code>cpp_tau_a</code> version introduced earlier is not necessarily the fastest in absolute terms, but it remains clearly faster than base R in the earlier many-ties benchmark at about 1455.1 times faster. Performance ranking also depends on data type and task shape. For one pair of vectors, fast specialized routines can alternate leadership depending on constants and runtime noise, and in this case <code>pcaPP::cor.fk()</code> was the best. For a multi-column matrix task, <code>matrixCorr</code> matrix mode was best in this post, while <code>pcaPP</code> and pairwise C++ loops were slower because they effectively build the matrix pair by pair.</p>
 </div>
 </div>
 <div id="reproducibility" class="section level1" number="7">

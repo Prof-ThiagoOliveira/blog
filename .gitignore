@@ -19,3 +19,8 @@ Thumbs.db
 /content/**/index_cache/
 /content/**/index.Rmd.lock~
 /tmp-index-*.md
+
+# Keep rendered blog posts deployable (Hugo ignores .Rmd files in this repo)
+!/content/post/**/index.html
+!/content/post/**/index_files/
+!/content/post/**/index_files/**

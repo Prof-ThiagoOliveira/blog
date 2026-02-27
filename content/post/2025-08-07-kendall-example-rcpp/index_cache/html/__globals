@@ -6,3 +6,7 @@ plot_bench_noties	mb_noties
 bench_ties	kendall_tau_a_cpp	kendall_tau_b_cpp	xbt	ybt
 plot_bench_ties	mb_ties
 session	
+bench_final_extra	kendall_tau_b_cpp	xbt	ybt
+bench_final_note	mb_ties_sum
+unnamed-chunk-1	kendall_tau_b_cpp	xbt	ybt
+bench_matrix10	kendall_tau_b_cpp

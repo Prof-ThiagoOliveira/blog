@@ -1,0 +1,1513 @@
+---
+title: "SQL for beginners - an example in field-trial"
+author: Thiago de Paula Oliveira
+date: '2026-02-26'
+slug: sql-for-complete-beginners-field-trials
+categories:
+  - SQL
+  - Agriculture Analytics
+  - Data Education
+tags:
+  - SQL
+  - PostgreSQL
+  - Oracle
+  - Field Trials
+  - Beginners
+subtitle: 'A beginner-friendly SQL tutorial using realistic farm trial data, with line-by-line explanations and practical analysis.'
+summary: 'As a statistician, I teach SQL from zero using a realistic agriculture dataset: tables, keys, joins, summaries, quality checks, and a mini treatment-effect analysis.'
+authors:
+  - admin
+lastmod: '2026-02-26T10:00:00Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+output:
+  html_document:
+    keep_md: yes
+    toc: true
+---
+
+
+
+<div id="why-sql-matters-in-agriculture-analytics" class="section level1">
+<h1>1) Why SQL matters in agriculture analytics</h1>
+<p>As a statistician working with agriculture and breeding data, I can tell you that SQL is one of the most useful skills you can learn if you work with yield, field trials, weather, soil, or farm performance.</p>
+<p>If spreadsheets are your current home, think of SQL as the next level for at least two main reasons</p>
+<ul>
+<li>A spreadsheet is great for a few tabs and a few thousand rows.</li>
+<li>SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.</li>
+</ul>
+<p>In agriculture, this happens quickly. Examples:</p>
+<ul>
+<li>One farm becomes multiple farms.</li>
+<li>One season becomes multi-year comparisons.</li>
+<li>One file becomes many sources (harvests, weather, field metadata, treatments).</li>
+</ul>
+<p>Without SQL, people copy-paste and make accidental mistakes.
+With SQL, you ask clear questions and get reproducible answers.</p>
+<p>A few real questions SQL helps you answer would be</p>
+<ul>
+<li>Which treatment had the best average yield in 2025?</li>
+<li>Did the response differ by region?</li>
+<li>Which fields are missing weather data?</li>
+<li>Are there duplicate harvest records?</li>
+</ul>
+<p>I also want to prevent a common beginner frustration such as writing queries that “kind of work” but return the wrong rows. I will show you exactly how to avoid the classic pitfalls (especially forgetting <code>WHERE</code>, confusing <code>NULL</code>, and using the wrong type of join).</p>
+</div>
+<div id="the-data-story-as-an-illustrative-simple-field-trial-dataset" class="section level1">
+<h1>2) The data story as an illustrative simple field-trial dataset</h1>
+<p>Let us imagine a realistic but small trial program. You manage three farms in different regions. Each farm has fields. In each field, you test fertilizer treatments across seasons. You also collect daily weather at farm level.</p>
+<p>Our dataset has five tables:</p>
+<ol style="list-style-type: decimal">
+<li><code>farms</code>: one row per farm.</li>
+<li><code>fields</code>: one row per field (each field belongs to a farm).</li>
+<li><code>treatments</code>: one row per treatment level.</li>
+<li><code>harvests</code>: one row per harvested field-treatment-season result.</li>
+<li><code>weather_daily</code>: one row per farm-day weather record.</li>
+</ol>
+<p>This structure is very common in production analytics, and can be seen as</p>
+<ul>
+<li>“Entity” tables (farm, field, treatment) describe the system.</li>
+<li>“Event” tables (harvest, daily weather) store repeated observations over time.</li>
+</ul>
+</div>
+<div id="what-is-a-table-row-column-what-is-a-key" class="section level1">
+<h1>3) What is a table, row, column? What is a key?</h1>
+<p>Before writing SQL, let us define the core concepts in plain language.</p>
+<div id="table" class="section level2">
+<h2>Table</h2>
+<p>A table is like a spreadsheet tab.</p>
+<ul>
+<li>Example: <code>fields</code> table.</li>
+<li>It stores one type of thing (fields).</li>
+</ul>
+</div>
+<div id="row" class="section level2">
+<h2>Row</h2>
+<p>A row is one record.</p>
+<ul>
+<li>Example: one row in <code>fields</code> might be <code>field_id = 101</code>, <code>field_name = 'North-01'</code>.</li>
+</ul>
+</div>
+<div id="column" class="section level2">
+<h2>Column</h2>
+<p>A column is one variable.</p>
+<ul>
+<li>Example: <code>soil_type</code> is a column.</li>
+</ul>
+</div>
+<div id="primary-key" class="section level2">
+<h2>Primary key</h2>
+<p>A primary key is a column (or combination of columns) that uniquely identifies each row.</p>
+<ul>
+<li>Example: <code>farm_id</code> in <code>farms</code>.</li>
+<li>No duplicates, no missing values.</li>
+<li>Think of it like a unique ID card.</li>
+</ul>
+</div>
+<div id="foreign-key" class="section level2">
+<h2>Foreign key</h2>
+<p>A foreign key links one table to another.</p>
+<ul>
+<li>Example: <code>fields.farm_id</code> points to <code>farms.farm_id</code>.</li>
+<li>It enforces consistency: every field must belong to a real farm.</li>
+</ul>
+<p>A possible analogy would be when we are filing cabinets.</p>
+<ul>
+<li>Primary key = unique folder number inside one cabinet.</li>
+<li>Foreign key = reference to a folder in another cabinet.</li>
+</ul>
+<p><strong>This is what allows us to connect tables correctly with joins.</strong></p>
+</div>
+</div>
+<div id="create-the-schema-postgresql" class="section level1">
+<h1>4) Create the schema (PostgreSQL)</h1>
+<p>Below is a clean schema for the five required tables. I will use PostgreSQL syntax and keep it beginner-friendly.</p>
+<pre class="sql"><code>-- Optional cleanup if you are re-running this tutorial script.
+-- Drop child tables first (they depend on parent tables).
+DROP TABLE IF EXISTS harvests;
+DROP TABLE IF EXISTS weather_daily;
+DROP TABLE IF EXISTS fields;
+DROP TABLE IF EXISTS treatments;
+DROP TABLE IF EXISTS farms;
+
+-- 1) Farms table
+CREATE TABLE farms (
+    farm_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    farm_name TEXT NOT NULL,
+    region TEXT NOT NULL
+);
+
+-- 2) Fields table
+CREATE TABLE fields (
+    field_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    farm_id INT NOT NULL,
+    field_name TEXT NOT NULL,
+    area_ha NUMERIC(8,2) NOT NULL,
+    soil_type TEXT NOT NULL,
+    CONSTRAINT fk_fields_farm
+        FOREIGN KEY (farm_id) REFERENCES farms (farm_id)
+);
+
+-- 3) Treatments table
+CREATE TABLE treatments (
+    treatment_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    treatment_name TEXT NOT NULL,
+    fertilizer_kg_ha NUMERIC(8,2) NOT NULL
+);
+
+-- 4) Harvests table
+CREATE TABLE harvests (
+    harvest_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    field_id INT NOT NULL,
+    treatment_id INT NOT NULL,
+    season_year INT NOT NULL,
+    yield_t_ha NUMERIC(8,2) NOT NULL,
+    harvest_date DATE NOT NULL,
+    CONSTRAINT fk_harvests_field
+        FOREIGN KEY (field_id) REFERENCES fields (field_id),
+    CONSTRAINT fk_harvests_treatment
+        FOREIGN KEY (treatment_id) REFERENCES treatments (treatment_id),
+    CONSTRAINT chk_nonnegative_yield
+        CHECK (yield_t_ha &gt;= 0)
+);
+
+-- 5) Daily weather table
+CREATE TABLE weather_daily (
+    weather_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    farm_id INT NOT NULL,
+    day DATE NOT NULL,
+    rainfall_mm NUMERIC(8,2) NOT NULL,
+    tmean_c NUMERIC(5,2),
+    CONSTRAINT fk_weather_farm
+        FOREIGN KEY (farm_id) REFERENCES farms (farm_id)
+);</code></pre>
+<div id="line-by-line-explanation-key-points" class="section level3">
+<h3>Line-by-line explanation (key points)</h3>
+<ol style="list-style-type: decimal">
+<li><code>GENERATED ALWAYS AS IDENTITY</code>: auto-incrementing IDs.</li>
+<li><code>PRIMARY KEY</code>: unique row identity.</li>
+<li><code>NOT NULL</code>: value must be present.</li>
+<li><code>FOREIGN KEY (...) REFERENCES ...</code>: links tables and protects data integrity.</li>
+<li><code>CHECK (yield_t_ha &gt;= 0)</code>: prevents impossible negative yield values.</li>
+</ol>
+</div>
+<div id="postgresql-vs-oracle-notes-schema" class="section level3">
+<h3>PostgreSQL vs Oracle notes (schema)</h3>
+<ul>
+<li>PostgreSQL and Oracle both support identity columns (<code>GENERATED ... AS IDENTITY</code>).</li>
+<li>Older PostgreSQL tutorials often use <code>SERIAL</code>; Oracle does not use <code>SERIAL</code>.</li>
+<li><code>TEXT</code> is PostgreSQL-specific; in Oracle you usually use <code>VARCHAR2(...)</code>.</li>
+</ul>
+</div>
+</div>
+<div id="insert-a-small-sample-dataset" class="section level1">
+<h1>5) Insert a small sample dataset</h1>
+<p>Now we load enough rows to practice filtering, joining, grouping, and quality checks.</p>
+<pre class="sql"><code>-- Farms
+INSERT INTO farms (farm_name, region) VALUES
+(&#39;Green Valley Farm&#39;, &#39;North&#39;),
+(&#39;Riverbend Farm&#39;, &#39;Central&#39;),
+(&#39;Sunrise Farm&#39;, &#39;South&#39;);
+
+-- Fields
+INSERT INTO fields (farm_id, field_name, area_ha, soil_type) VALUES
+(1, &#39;North-01&#39;,   12.50, &#39;clay_loam&#39;),
+(1, &#39;North-02&#39;,   10.00, &#39;sandy_loam&#39;),
+(2, &#39;Central-01&#39;, 15.20, &#39;silt_loam&#39;),
+(2, &#39;Central-02&#39;,  9.80, &#39;clay&#39;),
+(3, &#39;South-01&#39;,   14.10, &#39;sandy&#39;),
+(3, &#39;South-02&#39;,   11.40, &#39;loam&#39;);
+
+-- Treatments
+INSERT INTO treatments (treatment_name, fertilizer_kg_ha) VALUES
+(&#39;Control&#39;, 0),
+(&#39;Nitrogen_Low&#39;, 60),
+(&#39;Nitrogen_Medium&#39;, 120),
+(&#39;Nitrogen_High&#39;, 180);
+
+-- Harvests
+INSERT INTO harvests (field_id, treatment_id, season_year, yield_t_ha, harvest_date) VALUES
+(1, 1, 2024, 6.20, &#39;2024-10-05&#39;),
+(1, 3, 2024, 7.00, &#39;2024-10-05&#39;),
+(1, 1, 2025, 6.10, &#39;2025-10-06&#39;),
+(1, 4, 2025, 7.40, &#39;2025-10-06&#39;),
+
+(2, 1, 2024, 5.50, &#39;2024-10-07&#39;),
+(2, 3, 2024, 6.40, &#39;2024-10-07&#39;),
+(2, 1, 2025, 5.40, &#39;2025-10-07&#39;),
+(2, 4, 2025, 6.80, &#39;2025-10-07&#39;),
+
+(3, 1, 2024, 7.10, &#39;2024-10-10&#39;),
+(3, 2, 2024, 7.60, &#39;2024-10-10&#39;),
+(3, 1, 2025, 6.90, &#39;2025-10-11&#39;),
+(3, 3, 2025, 7.90, &#39;2025-10-11&#39;),
+
+(4, 1, 2024, 6.80, &#39;2024-10-09&#39;),
+(4, 2, 2024, 7.20, &#39;2024-10-09&#39;),
+(4, 1, 2025, 6.70, &#39;2025-10-10&#39;),
+(4, 3, 2025, 7.60, &#39;2025-10-10&#39;),
+
+(5, 1, 2024, 4.90, &#39;2024-10-12&#39;),
+(5, 2, 2024, 5.60, &#39;2024-10-12&#39;),
+(5, 1, 2025, 4.70, &#39;2025-10-12&#39;),
+(5, 3, 2025, 5.90, &#39;2025-10-12&#39;),
+
+(6, 1, 2024, 5.30, &#39;2024-10-13&#39;),
+(6, 2, 2024, 5.90, &#39;2024-10-13&#39;),
+(6, 1, 2025, 5.10, &#39;2025-10-13&#39;),
+(6, 3, 2025, 6.20, &#39;2025-10-13&#39;);
+
+-- Weather daily (with some missing tmean_c to teach NULL handling)
+INSERT INTO weather_daily (farm_id, day, rainfall_mm, tmean_c) VALUES
+(1, &#39;2024-06-01&#39;, 12.4, 18.5),
+(1, &#39;2024-06-02&#39;,  0.0, 19.1),
+(1, &#39;2024-06-03&#39;,  5.2, NULL),
+(1, &#39;2025-06-01&#39;, 18.0, 17.9),
+(1, &#39;2025-06-02&#39;,  2.5, 18.4),
+(1, &#39;2025-06-03&#39;,  0.0, 20.2),
+
+(2, &#39;2024-06-01&#39;,  8.1, 20.0),
+(2, &#39;2024-06-02&#39;,  1.2, 21.3),
+(2, &#39;2024-06-03&#39;,  0.0, 22.1),
+(2, &#39;2025-06-01&#39;, 10.5, 19.4),
+(2, &#39;2025-06-02&#39;,  3.0, NULL),
+(2, &#39;2025-06-03&#39;,  0.0, 20.1),
+
+(3, &#39;2024-06-01&#39;,  2.0, 23.8),
+(3, &#39;2024-06-02&#39;,  0.0, 24.5),
+(3, &#39;2024-06-03&#39;,  0.0, 25.0),
+(3, &#39;2025-06-01&#39;,  1.0, 24.1),
+(3, &#39;2025-06-02&#39;,  0.0, NULL),
+(3, &#39;2025-06-03&#39;,  0.0, 24.9);</code></pre>
+</div>
+<div id="sql-queries-in-increasing-difficulty" class="section level1">
+<h1>6) SQL queries in increasing difficulty</h1>
+<p>From this point, every query has:</p>
+<ul>
+<li>SQL code</li>
+<li>line-by-line explanation</li>
+<li>a small illustrative expected result</li>
+</ul>
+<div id="select-columns-and-select" class="section level2">
+<h2>6.1 SELECT columns and SELECT *</h2>
+<div id="query-a-specific-columns" class="section level3">
+<h3>Query A: specific columns</h3>
+<pre class="sql"><code>SELECT farm_id, farm_name, region
+FROM farms;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>SELECT farm_id, farm_name, region</code>: choose exactly the columns you want.</li>
+<li><code>FROM farms</code>: read rows from the <code>farms</code> table.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">farm_id</th>
+<th>farm_name</th>
+<th>region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>Green Valley Farm</td>
+<td>North</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>Riverbend Farm</td>
+<td>Central</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>Sunrise Farm</td>
+<td>South</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-b-all-columns-with" class="section level3">
+<h3>Query B: all columns with <code>*</code></h3>
+<pre class="sql"><code>SELECT *
+FROM treatments;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>SELECT *</code>: return all columns in the table.</li>
+<li><code>FROM treatments</code>: source table.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">treatment_id</th>
+<th>treatment_name</th>
+<th align="right">fertilizer_kg_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>Control</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>Nitrogen_Low</td>
+<td align="right">60</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>Nitrogen_Medium</td>
+<td align="right">120</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td>Nitrogen_High</td>
+<td align="right">180</td>
+</tr>
+</tbody>
+</table>
+<p>Beginner tip:</p>
+<ul>
+<li><code>SELECT *</code> is fine for quick exploration.</li>
+<li>For analysis scripts, prefer explicit columns so your query is stable if table structure changes.</li>
+</ul>
+</div>
+</div>
+<div id="where-filters-numbers-text-dates-and-andor" class="section level2">
+<h2>6.2 WHERE filters (numbers, text, dates) and AND/OR</h2>
+<div id="query-c-numeric-filter" class="section level3">
+<h3>Query C: numeric filter</h3>
+<pre class="sql"><code>SELECT field_id, field_name, area_ha
+FROM fields
+WHERE area_ha &gt;= 12.0;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>SELECT ...</code>: keep only key columns for this question.</li>
+<li><code>FROM fields</code>: table with field attributes.</li>
+<li><code>WHERE area_ha &gt;= 12.0</code>: keep only fields at least 12 hectares.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">field_id</th>
+<th>field_name</th>
+<th align="right">area_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>North-01</td>
+<td align="right">12.50</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td>Central-01</td>
+<td align="right">15.20</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td>South-01</td>
+<td align="right">14.10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-d-text-date-and" class="section level3">
+<h3>Query D: text + date + AND</h3>
+<pre class="sql"><code>SELECT harvest_id, field_id, season_year, yield_t_ha, harvest_date
+FROM harvests
+WHERE season_year = 2025
+  AND harvest_date &gt;= &#39;2025-10-10&#39;;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>season_year = 2025</code>: keep records from 2025 season.</li>
+<li><code>AND</code>: both conditions must be true.</li>
+<li><code>harvest_date &gt;= '2025-10-10'</code>: keep later harvest dates.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">field_id</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+<th>harvest_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">3</td>
+<td align="right">2025</td>
+<td align="right">7.90</td>
+<td>2025-10-11</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">4</td>
+<td align="right">2025</td>
+<td align="right">7.60</td>
+<td>2025-10-10</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">5</td>
+<td align="right">2025</td>
+<td align="right">5.90</td>
+<td>2025-10-12</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-e-or-condition" class="section level3">
+<h3>Query E: OR condition</h3>
+<pre class="sql"><code>SELECT farm_id, farm_name, region
+FROM farms
+WHERE region = &#39;North&#39;
+   OR region = &#39;South&#39;;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>region = 'North' OR region = 'South'</code>: either condition can match.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">farm_id</th>
+<th>farm_name</th>
+<th>region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>Green Valley Farm</td>
+<td>North</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td>Sunrise Farm</td>
+<td>South</td>
+</tr>
+</tbody>
+</table>
+<p>Common mistake warning:</p>
+<ul>
+<li><code>OR</code> can return many more rows than expected.</li>
+<li>Always sanity-check row counts after broad filters.</li>
+</ul>
+</div>
+<div id="postgresql-vs-oracle-notes-where" class="section level3">
+<h3>PostgreSQL vs Oracle notes (WHERE)</h3>
+<ul>
+<li>Text comparison with <code>=</code> works similarly in both.</li>
+<li>Date literals are safest as <code>DATE 'YYYY-MM-DD'</code> in Oracle.</li>
+<li>PostgreSQL accepts <code>'YYYY-MM-DD'</code> directly for a <code>DATE</code> column.</li>
+</ul>
+</div>
+</div>
+<div id="order-by-and-limit" class="section level2">
+<h2>6.3 ORDER BY and LIMIT</h2>
+<div id="query-f-top-yields" class="section level3">
+<h3>Query F: top yields</h3>
+<pre class="sql"><code>SELECT harvest_id, field_id, season_year, yield_t_ha
+FROM harvests
+ORDER BY yield_t_ha DESC
+LIMIT 5;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>ORDER BY yield_t_ha DESC</code>: sort from highest yield to lowest.</li>
+<li><code>LIMIT 5</code>: keep only first 5 rows after sorting.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">field_id</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">3</td>
+<td align="right">2025</td>
+<td align="right">7.90</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">2024</td>
+<td align="right">7.60</td>
+</tr>
+<tr class="odd">
+<td align="right">16</td>
+<td align="right">4</td>
+<td align="right">2025</td>
+<td align="right">7.60</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">2025</td>
+<td align="right">7.40</td>
+</tr>
+<tr class="odd">
+<td align="right">14</td>
+<td align="right">4</td>
+<td align="right">2024</td>
+<td align="right">7.20</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="postgresql-vs-oracle-notes-order-bylimit" class="section level3">
+<h3>PostgreSQL vs Oracle notes (ORDER BY/LIMIT)</h3>
+<ul>
+<li>PostgreSQL: <code>LIMIT 5</code>.</li>
+<li>Oracle: <code>FETCH FIRST 5 ROWS ONLY</code> (after <code>ORDER BY</code>).</li>
+</ul>
+</div>
+</div>
+<div id="aggregates-count-avg-sum-group-by-having" class="section level2">
+<h2>6.4 Aggregates: COUNT, AVG, SUM, GROUP BY, HAVING</h2>
+<div id="query-g-average-yield-by-treatment" class="section level3">
+<h3>Query G: average yield by treatment</h3>
+<pre class="sql"><code>SELECT
+    t.treatment_name,
+    COUNT(*) AS n_harvests,
+    ROUND(AVG(h.yield_t_ha), 2) AS avg_yield_t_ha,
+    ROUND(SUM(h.yield_t_ha), 2) AS total_yield_t_ha
+FROM harvests h
+JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+GROUP BY t.treatment_name
+ORDER BY avg_yield_t_ha DESC;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>COUNT(*)</code>: number of rows in each group.</li>
+<li><code>AVG(...)</code>: average yield in each group.</li>
+<li><code>SUM(...)</code>: total yield in each group.</li>
+<li><code>JOIN treatments</code>: bring treatment names.</li>
+<li><code>GROUP BY t.treatment_name</code>: one summary row per treatment.</li>
+<li><code>ORDER BY avg_yield_t_ha DESC</code>: best average first.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th>treatment_name</th>
+<th align="right">n_harvests</th>
+<th align="right">avg_yield_t_ha</th>
+<th align="right">total_yield_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nitrogen_High</td>
+<td align="right">2</td>
+<td align="right">7.10</td>
+<td align="right">14.20</td>
+</tr>
+<tr class="even">
+<td>Nitrogen_Medium</td>
+<td align="right">6</td>
+<td align="right">6.83</td>
+<td align="right">40.99</td>
+</tr>
+<tr class="odd">
+<td>Nitrogen_Low</td>
+<td align="right">6</td>
+<td align="right">6.33</td>
+<td align="right">37.90</td>
+</tr>
+<tr class="even">
+<td>Control</td>
+<td align="right">10</td>
+<td align="right">5.87</td>
+<td align="right">58.70</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-h-having-after-group-by" class="section level3">
+<h3>Query H: HAVING after GROUP BY</h3>
+<pre class="sql"><code>SELECT
+    season_year,
+    COUNT(*) AS n_records,
+    ROUND(AVG(yield_t_ha), 2) AS avg_yield
+FROM harvests
+GROUP BY season_year
+HAVING AVG(yield_t_ha) &gt; 6.0
+ORDER BY season_year;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>GROUP BY season_year</code>: one row per season.</li>
+<li><code>HAVING AVG(yield_t_ha) &gt; 6.0</code>: filter groups after aggregation.</li>
+<li><code>WHERE</code> filters rows before grouping; <code>HAVING</code> filters grouped results.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">season_year</th>
+<th align="right">n_records</th>
+<th align="right">avg_yield</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2024</td>
+<td align="right">12</td>
+<td align="right">6.13</td>
+</tr>
+<tr class="even">
+<td align="right">2025</td>
+<td align="right">12</td>
+<td align="right">6.42</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="joins-inner-join-and-left-join" class="section level2">
+<h2>6.5 JOINs: INNER JOIN and LEFT JOIN</h2>
+<p>Before the queries, quick definitions:</p>
+<ul>
+<li><code>INNER JOIN</code>: keep only matching rows in both tables.</li>
+<li><code>LEFT JOIN</code>: keep all rows from the left table, even if there is no match on the right.</li>
+</ul>
+<div id="query-i-inner-join-matched-rows-only" class="section level3">
+<h3>Query I: INNER JOIN (matched rows only)</h3>
+<pre class="sql"><code>SELECT
+    h.harvest_id,
+    f.field_name,
+    fm.farm_name,
+    t.treatment_name,
+    h.season_year,
+    h.yield_t_ha
+FROM harvests h
+INNER JOIN fields f
+    ON h.field_id = f.field_id
+INNER JOIN farms fm
+    ON f.farm_id = fm.farm_id
+INNER JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+ORDER BY h.harvest_id;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Start from <code>harvests</code> because that is the main event table.</li>
+<li>Join to <code>fields</code> using <code>field_id</code>.</li>
+<li>Join to <code>farms</code> through fields.</li>
+<li>Join to <code>treatments</code> using <code>treatment_id</code>.</li>
+<li>Result: one rich analysis table with names instead of only IDs.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="18%" />
+<col width="31%" />
+<col width="30%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th>field_name</th>
+<th>farm_name</th>
+<th>treatment_name</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>North-01</td>
+<td>Green Valley Farm</td>
+<td>Control</td>
+<td align="right">2024</td>
+<td align="right">6.20</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>North-01</td>
+<td>Green Valley Farm</td>
+<td>Nitrogen_Medium</td>
+<td align="right">2024</td>
+<td align="right">7.00</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>North-01</td>
+<td>Green Valley Farm</td>
+<td>Control</td>
+<td align="right">2025</td>
+<td align="right">6.10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-j-left-join-keep-all-fields-even-if-no-2026-harvest" class="section level3">
+<h3>Query J: LEFT JOIN (keep all fields even if no 2026 harvest)</h3>
+<pre class="sql"><code>SELECT
+    f.field_id,
+    f.field_name,
+    h.harvest_id,
+    h.season_year,
+    h.yield_t_ha
+FROM fields f
+LEFT JOIN harvests h
+    ON f.field_id = h.field_id
+   AND h.season_year = 2026
+ORDER BY f.field_id;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Left table is <code>fields</code>, so every field must appear.</li>
+<li>Right table is <code>harvests</code> filtered to 2026 in the <code>ON</code> clause.</li>
+<li>Since we have no 2026 rows, harvest columns become <code>NULL</code>.</li>
+<li>This is useful to detect missing records.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">field_id</th>
+<th>field_name</th>
+<th align="right">harvest_id</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>North-01</td>
+<td align="right">NULL</td>
+<td align="right">NULL</td>
+<td align="right">NULL</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>North-02</td>
+<td align="right">NULL</td>
+<td align="right">NULL</td>
+<td align="right">NULL</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>Central-01</td>
+<td align="right">NULL</td>
+<td align="right">NULL</td>
+<td align="right">NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Common mistake warning:</p>
+<ul>
+<li>If you put <code>h.season_year = 2026</code> in <code>WHERE</code> instead of <code>ON</code>, you can accidentally turn your <code>LEFT JOIN</code> into INNER JOIN behavior.</li>
+</ul>
+</div>
+</div>
+<div id="cte-with-to-build-a-clean-analysis-table" class="section level2">
+<h2>6.6 CTE (<code>WITH</code>) to build a clean analysis table</h2>
+<p>A CTE (Common Table Expression) is a temporary named query. It helps you write readable SQL in steps.</p>
+<div id="query-k-build-a-clean-table-for-yield-analysis" class="section level3">
+<h3>Query K: build a clean table for yield analysis</h3>
+<pre class="sql"><code>WITH weather_by_farm_year AS (
+    SELECT
+        farm_id,
+        EXTRACT(YEAR FROM day)::INT AS season_year,
+        ROUND(SUM(rainfall_mm), 2) AS total_rain_mm,
+        ROUND(AVG(tmean_c), 2) AS avg_tmean_c
+    FROM weather_daily
+    GROUP BY farm_id, EXTRACT(YEAR FROM day)
+),
+analysis_table AS (
+    SELECT
+        h.harvest_id,
+        h.season_year,
+        h.harvest_date,
+        h.yield_t_ha,
+        f.field_id,
+        f.field_name,
+        f.area_ha,
+        f.soil_type,
+        fm.farm_id,
+        fm.farm_name,
+        fm.region,
+        t.treatment_id,
+        t.treatment_name,
+        t.fertilizer_kg_ha,
+        w.total_rain_mm,
+        w.avg_tmean_c
+    FROM harvests h
+    JOIN fields f
+        ON h.field_id = f.field_id
+    JOIN farms fm
+        ON f.farm_id = fm.farm_id
+    JOIN treatments t
+        ON h.treatment_id = t.treatment_id
+    LEFT JOIN weather_by_farm_year w
+        ON fm.farm_id = w.farm_id
+       AND h.season_year = w.season_year
+)
+SELECT *
+FROM analysis_table
+ORDER BY harvest_id;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>weather_by_farm_year</code>: aggregate weather from daily to farm-year level.</li>
+<li><code>analysis_table</code>: join harvest + field + farm + treatment + weather summary.</li>
+<li><code>LEFT JOIN</code> with weather: keep harvest rows even if weather summary is missing.</li>
+<li>Final <code>SELECT * FROM analysis_table</code>: inspect the clean combined dataset.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table style="width:100%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="28%" />
+<col width="16%" />
+<col width="25%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">season_year</th>
+<th>farm_name</th>
+<th>field_name</th>
+<th>treatment_name</th>
+<th align="right">yield_t_ha</th>
+<th align="right">total_rain_mm</th>
+<th align="right">avg_tmean_c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2024</td>
+<td>Green Valley Farm</td>
+<td>North-01</td>
+<td>Control</td>
+<td align="right">6.20</td>
+<td align="right">17.60</td>
+<td align="right">18.80</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2024</td>
+<td>Green Valley Farm</td>
+<td>North-01</td>
+<td>Nitrogen_Medium</td>
+<td align="right">7.00</td>
+<td align="right">17.60</td>
+<td align="right">18.80</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2025</td>
+<td>Green Valley Farm</td>
+<td>North-01</td>
+<td>Control</td>
+<td align="right">6.10</td>
+<td align="right">20.50</td>
+<td align="right">18.83</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="postgresql-vs-oracle-notes-cte" class="section level3">
+<h3>PostgreSQL vs Oracle notes (CTE)</h3>
+<ul>
+<li>CTE syntax is very similar.</li>
+<li>PostgreSQL casting often uses <code>::INT</code>; Oracle uses <code>CAST(... AS NUMBER)</code> style.</li>
+</ul>
+</div>
+</div>
+<div id="basic-statistics-in-postgresql" class="section level2">
+<h2>6.7 Basic statistics in PostgreSQL</h2>
+<p>We can compute basic descriptive statistics directly in SQL.</p>
+<div id="query-l-mean-sd-min-max-median-by-treatment" class="section level3">
+<h3>Query L: mean, SD, min, max, median by treatment</h3>
+<pre class="sql"><code>SELECT
+    t.treatment_name,
+    COUNT(*) AS n,
+    ROUND(AVG(h.yield_t_ha), 2) AS mean_yield,
+    ROUND(STDDEV_SAMP(h.yield_t_ha), 3) AS sd_yield,
+    ROUND(MIN(h.yield_t_ha), 2) AS min_yield,
+    ROUND(MAX(h.yield_t_ha), 2) AS max_yield,
+    ROUND(
+      PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY h.yield_t_ha)::NUMERIC,
+      2
+    ) AS median_yield
+FROM harvests h
+JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+GROUP BY t.treatment_name
+ORDER BY mean_yield DESC;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>AVG</code>: arithmetic mean.</li>
+<li><code>STDDEV_SAMP</code>: sample standard deviation.</li>
+<li><code>MIN</code> and <code>MAX</code>: range endpoints.</li>
+<li><code>PERCENTILE_CONT(0.5) WITHIN GROUP</code>: median.</li>
+<li>Grouping by treatment gives one summary row per treatment.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table style="width:100%;">
+<colgroup>
+<col width="41%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>treatment_name</th>
+<th align="right">n</th>
+<th align="right">mean_yield</th>
+<th align="right">sd_yield</th>
+<th align="right">min_yield</th>
+<th align="right">max_yield</th>
+<th align="right">median_yield</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nitrogen_High</td>
+<td align="right">2</td>
+<td align="right">7.10</td>
+<td align="right">0.424</td>
+<td align="right">6.80</td>
+<td align="right">7.40</td>
+<td align="right">7.10</td>
+</tr>
+<tr class="even">
+<td>Nitrogen_Medium</td>
+<td align="right">6</td>
+<td align="right">6.83</td>
+<td align="right">0.703</td>
+<td align="right">5.90</td>
+<td align="right">7.90</td>
+<td align="right">6.90</td>
+</tr>
+<tr class="odd">
+<td>Nitrogen_Low</td>
+<td align="right">6</td>
+<td align="right">6.32</td>
+<td align="right">0.839</td>
+<td align="right">5.60</td>
+<td align="right">7.60</td>
+<td align="right">6.25</td>
+</tr>
+<tr class="even">
+<td>Control</td>
+<td align="right">10</td>
+<td align="right">5.87</td>
+<td align="right">0.835</td>
+<td align="right">4.70</td>
+<td align="right">7.10</td>
+<td align="right">5.95</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="postgresql-vs-oracle-notes-stats" class="section level3">
+<h3>PostgreSQL vs Oracle notes (stats)</h3>
+<ul>
+<li><code>AVG</code>, <code>MIN</code>, <code>MAX</code>, <code>COUNT</code> are equivalent.</li>
+<li><code>STDDEV_SAMP</code> exists in both.</li>
+<li><code>PERCENTILE_CONT</code> exists in both, but formatting/casting style differs slightly.</li>
+</ul>
+</div>
+</div>
+<div id="handling-missingness-null-is-null-coalesce" class="section level2">
+<h2>6.8 Handling missingness: <code>NULL</code>, <code>IS NULL</code>, <code>COALESCE</code></h2>
+<p><code>NULL</code> means missing/unknown. It is not the same as zero.</p>
+<div id="query-m-find-missing-temperature-rows" class="section level3">
+<h3>Query M: find missing temperature rows</h3>
+<pre class="sql"><code>SELECT weather_id, farm_id, day, rainfall_mm, tmean_c
+FROM weather_daily
+WHERE tmean_c IS NULL
+ORDER BY weather_id;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>IS NULL</code> is the correct way to test missing values.</li>
+<li><code>tmean_c = NULL</code> is wrong and will not work as expected.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">weather_id</th>
+<th align="right">farm_id</th>
+<th>day</th>
+<th align="right">rainfall_mm</th>
+<th align="right">tmean_c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td>2024-06-03</td>
+<td align="right">5.20</td>
+<td align="right">NULL</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">2</td>
+<td>2025-06-02</td>
+<td align="right">3.00</td>
+<td align="right">NULL</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="right">3</td>
+<td>2025-06-02</td>
+<td align="right">0.00</td>
+<td align="right">NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-n-replace-null-with-fallback-value" class="section level3">
+<h3>Query N: replace NULL with fallback value</h3>
+<pre class="sql"><code>SELECT
+    weather_id,
+    farm_id,
+    day,
+    rainfall_mm,
+    COALESCE(tmean_c, 20.0) AS tmean_filled_c
+FROM weather_daily
+ORDER BY weather_id;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>COALESCE(tmean_c, 20.0)</code>: if <code>tmean_c</code> is NULL, use <code>20.0</code>.</li>
+<li>Very useful for simple reporting, but be careful for scientific analysis.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">weather_id</th>
+<th align="right">tmean_filled_c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">18.5</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">19.1</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">20.0</td>
+</tr>
+</tbody>
+</table>
+<p>Warning:</p>
+<ul>
+<li>Replacing NULL can hide data quality issues.</li>
+<li>For inference models, decide imputation strategy carefully.</li>
+</ul>
+</div>
+<div id="postgresql-vs-oracle-notes-null" class="section level3">
+<h3>PostgreSQL vs Oracle notes (NULL)</h3>
+<ul>
+<li><code>COALESCE</code> works in both.</li>
+<li>Oracle also has <code>NVL</code>, which is Oracle-specific.</li>
+</ul>
+</div>
+</div>
+<div id="quality-checks-for-duplicates-impossible-values-outliers" class="section level2">
+<h2>6.9 Quality checks for duplicates, impossible values, outliers</h2>
+<div id="query-o-duplicate-checks-in-harvests" class="section level3">
+<h3>Query O: duplicate checks in harvests</h3>
+<pre class="sql"><code>SELECT
+    field_id,
+    treatment_id,
+    season_year,
+    COUNT(*) AS n_rows
+FROM harvests
+GROUP BY field_id, treatment_id, season_year
+HAVING COUNT(*) &gt; 1;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Group by the key combination that should be unique.</li>
+<li><code>HAVING COUNT(*) &gt; 1</code> returns only duplicate combinations.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">field_id</th>
+<th align="right">treatment_id</th>
+<th align="right">season_year</th>
+<th align="right">n_rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">(no rows)</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-p-impossible-values" class="section level3">
+<h3>Query P: impossible values</h3>
+<pre class="sql"><code>SELECT *
+FROM harvests
+WHERE yield_t_ha &lt; 0
+   OR yield_t_ha &gt; 20;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Yield lower than 0 is impossible.</li>
+<li>Yield above 20 t/ha may be impossible for this crop context.</li>
+<li>These thresholds depend on your agronomic reality.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="12%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">field_id</th>
+<th align="right">treatment_id</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+<th>harvest_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">(no rows)</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-q-outlier-flags-using-iqr-rule" class="section level3">
+<h3>Query Q: outlier flags using IQR rule</h3>
+<pre class="sql"><code>WITH q AS (
+    SELECT
+      PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY yield_t_ha) AS q1,
+      PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY yield_t_ha) AS q3
+    FROM harvests
+),
+bounds AS (
+    SELECT
+      q1,
+      q3,
+      (q3 - q1) AS iqr,
+      (q1 - 1.5 * (q3 - q1)) AS lower_bound,
+      (q3 + 1.5 * (q3 - q1)) AS upper_bound
+    FROM q
+)
+SELECT
+    h.harvest_id,
+    h.field_id,
+    h.season_year,
+    h.yield_t_ha,
+    b.lower_bound,
+    b.upper_bound
+FROM harvests h
+CROSS JOIN bounds b
+WHERE h.yield_t_ha &lt; b.lower_bound
+   OR h.yield_t_ha &gt; b.upper_bound
+ORDER BY h.yield_t_ha;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>First CTE computes quartiles (<code>q1</code>, <code>q3</code>).</li>
+<li>Second CTE computes IQR and outlier bounds.</li>
+<li>Final query flags rows outside bounds.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">field_id</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+<th align="right">lower_bound</th>
+<th align="right">upper_bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">(maybe no rows in this tiny dataset)</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p>Important interpretation note:</p>
+<ul>
+<li>Outlier flag does not mean “wrong”.</li>
+<li>It means “investigate”.</li>
+</ul>
+</div>
+</div>
+<div id="mini-analysis-question" class="section level2">
+<h2>6.10 Mini analysis question</h2>
+<p>Question:</p>
+<p>Which fertilizer treatment improved yield the most, while controlling for farm/field as simply as possible?</p>
+<p>Simple strategy would be</p>
+<ul>
+<li>For each <code>field_id</code> and <code>season_year</code>, find the control yield (<code>fertilizer_kg_ha = 0</code>).</li>
+<li>Compare non-control treatments against that same field-season control.</li>
+<li>Then average gains by treatment and region.</li>
+</ul>
+<p>This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQL’s main objective. SQL is mainly designed to:</p>
+<ul>
+<li>store and organize structured data safely,</li>
+<li>filter and join data efficiently,</li>
+<li>produce clean analysis tables.</li>
+</ul>
+<p>For deeper statistical work (models, diagnostics, visualization, resampling, mixed models), tools like <code>R</code> are usually better because they are designed for statistical inference and scientific workflows.</p>
+<p>A practical workflow I would use is:</p>
+<ol style="list-style-type: decimal">
+<li>Use SQL to extract and clean the analysis-ready table.</li>
+<li>Pull that table into <code>R</code>.</li>
+<li>Do advanced statistics and plots in <code>R</code>.</li>
+<li>Optionally write summarized outputs back to SQL tables.</li>
+</ol>
+<p>Example (<code>R</code> + PostgreSQL):</p>
+<pre class="r"><code># install.packages(c(&quot;DBI&quot;, &quot;RPostgres&quot;, &quot;dplyr&quot;))
+library(DBI)
+library(RPostgres)
+
+con &lt;- dbConnect(
+  RPostgres::Postgres(),
+  dbname = &quot;farm_trials_db&quot;,
+  host = &quot;localhost&quot;,
+  port = 5432,
+  user = &quot;your_user&quot;,
+  password = &quot;your_password&quot;
+)
+
+sql_query &lt;- &quot;
+WITH weather_by_farm_year AS (
+  SELECT
+    farm_id,
+    EXTRACT(YEAR FROM day)::INT AS season_year,
+    SUM(rainfall_mm) AS total_rain_mm,
+    AVG(tmean_c) AS avg_tmean_c
+  FROM weather_daily
+  GROUP BY farm_id, EXTRACT(YEAR FROM day)
+)
+SELECT
+  h.harvest_id,
+  h.season_year,
+  h.yield_t_ha,
+  f.field_name,
+  fm.farm_name,
+  fm.region,
+  t.treatment_name,
+  t.fertilizer_kg_ha,
+  w.total_rain_mm,
+  w.avg_tmean_c
+FROM harvests h
+JOIN fields f ON h.field_id = f.field_id
+JOIN farms fm ON f.farm_id = fm.farm_id
+JOIN treatments t ON h.treatment_id = t.treatment_id
+LEFT JOIN weather_by_farm_year w
+  ON fm.farm_id = w.farm_id
+ AND h.season_year = w.season_year
+&quot;
+
+analysis_df &lt;- dbGetQuery(con, sql_query)
+
+# Then continue in R:
+# - descriptive stats
+# - plots
+# - models (for example: lm(), lme4::lmer(), etc.)
+
+dbDisconnect(con)</code></pre>
+<p>This split keeps your workflow robust, where SQL for data engineering, <code>R</code> for statistical depth.</p>
+<div id="query-r-field-season-control-adjusted-gains" class="section level3">
+<h3>Query R: field-season control-adjusted gains</h3>
+<pre class="sql"><code>WITH baseline AS (
+    SELECT
+        h.field_id,
+        h.season_year,
+        h.yield_t_ha AS control_yield_t_ha
+    FROM harvests h
+    JOIN treatments t
+      ON h.treatment_id = t.treatment_id
+    WHERE t.fertilizer_kg_ha = 0
+),
+comparisons AS (
+    SELECT
+        fm.region,
+        fm.farm_name,
+        f.field_name,
+        h.field_id,
+        h.season_year,
+        t.treatment_name,
+        t.fertilizer_kg_ha,
+        h.yield_t_ha,
+        b.control_yield_t_ha,
+        (h.yield_t_ha - b.control_yield_t_ha) AS gain_vs_control_t_ha
+    FROM harvests h
+    JOIN treatments t
+      ON h.treatment_id = t.treatment_id
+    JOIN baseline b
+      ON h.field_id = b.field_id
+     AND h.season_year = b.season_year
+    JOIN fields f
+      ON h.field_id = f.field_id
+    JOIN farms fm
+      ON f.farm_id = fm.farm_id
+    WHERE t.fertilizer_kg_ha &gt; 0
+)
+SELECT
+    region,
+    treatment_name,
+    COUNT(*) AS n_field_seasons,
+    ROUND(AVG(gain_vs_control_t_ha), 2) AS avg_gain_t_ha,
+    ROUND(MIN(gain_vs_control_t_ha), 2) AS min_gain_t_ha,
+    ROUND(MAX(gain_vs_control_t_ha), 2) AS max_gain_t_ha
+FROM comparisons
+GROUP BY region, treatment_name
+ORDER BY avg_gain_t_ha DESC;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>baseline</code>: one control value per field-season.</li>
+<li><code>comparisons</code>: compute gain = treatment yield - control yield for same field-season.</li>
+<li>Final aggregation by <code>region</code> and <code>treatment_name</code>.</li>
+<li>We report average and range of gains.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="40%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>region</th>
+<th>treatment_name</th>
+<th align="right">n_field_seasons</th>
+<th align="right">avg_gain_t_ha</th>
+<th align="right">min_gain_t_ha</th>
+<th align="right">max_gain_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>North</td>
+<td>Nitrogen_High</td>
+<td align="right">2</td>
+<td align="right">1.35</td>
+<td align="right">1.30</td>
+<td align="right">1.40</td>
+</tr>
+<tr class="even">
+<td>South</td>
+<td>Nitrogen_Medium</td>
+<td align="right">2</td>
+<td align="right">1.15</td>
+<td align="right">1.10</td>
+<td align="right">1.20</td>
+</tr>
+<tr class="odd">
+<td>Central</td>
+<td>Nitrogen_Medium</td>
+<td align="right">2</td>
+<td align="right">0.95</td>
+<td align="right">0.90</td>
+<td align="right">1.00</td>
+</tr>
+<tr class="even">
+<td>South</td>
+<td>Nitrogen_Low</td>
+<td align="right">2</td>
+<td align="right">0.65</td>
+<td align="right">0.60</td>
+<td align="right">0.70</td>
+</tr>
+<tr class="odd">
+<td>Central</td>
+<td>Nitrogen_Low</td>
+<td align="right">2</td>
+<td align="right">0.45</td>
+<td align="right">0.40</td>
+<td align="right">0.50</td>
+</tr>
+</tbody>
+</table>
+<p>Interpretation in plain language:</p>
+<ul>
+<li>In this sample, higher fertilizer rates show larger gains, especially in the North.</li>
+<li>But this is still observational comparison inside a simple dataset.</li>
+</ul>
+<p>Note that <strong>confounding</strong> means other factors may influence both treatment assignment and yield (for example soil class, rainfall timing, pest pressure, planting date). Even with field-season control subtraction, we are not proving causality.</p>
+</div>
+</div>
+</div>
+<div id="quick-recap-of-common-mistakes" class="section level1">
+<h1>7) Quick recap of common mistakes</h1>
+<p>As a statistician teaching SQL, these are the mistakes I see most often:</p>
+<ol style="list-style-type: decimal">
+<li>Forgetting <code>WHERE</code> and accidentally selecting all rows.</li>
+<li>Using <code>= NULL</code> instead of <code>IS NULL</code>.</li>
+<li>Using <code>LEFT JOIN</code> but then filtering right-table columns in <code>WHERE</code> and accidentally dropping missing rows.</li>
+<li>Mixing row-level and grouped logic (<code>WHERE</code> vs <code>HAVING</code>).</li>
+<li>Trusting outputs without running quality checks first.</li>
+</ol>
+<p>If you are brand new to SQL and reached this point, you already did excellent work. You now know how to define tables, enforce key constraints, join data safely, summarize results, handle missing values, run quality checks, and ask a real agronomic question with transparent logic.</p>
+</div>
