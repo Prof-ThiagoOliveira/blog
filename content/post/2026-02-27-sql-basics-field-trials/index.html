@@ -17,7 +17,7 @@ subtitle: 'A beginner friendly SQL tutorial using realistic farm trial data with
 summary: 'As a statistician I teach SQL from zero using a realistic agriculture dataset with tables keys joins summaries quality checks and a simple treatment effect analysis.'
 authors:
   - admin
-lastmod: "2026-02-28T09:27:44Z"
+lastmod: "2026-02-28T09:34:47Z"
 featured: no
 image:
   caption: ''
@@ -33,26 +33,44 @@ output:
 
 
 
+<div id="table-of-contents" class="section level1">
+<h1>Table of contents</h1>
+<ul>
+<li><a href="#why-sql-matters-in-agriculture-analytics">1) Why SQL matters in agriculture analytics</a></li>
+<li><a href="#what-is-a-table-row-column-what-is-a-key">2) What is a table, row, column? What is a key?</a></li>
+<li><a href="#the-data-story-as-an-illustrative-simple-field-trial-dataset">3) The data story as an illustrative simple field trial dataset</a></li>
+<li><a href="#create-the-schema-postgresql">4) Create the schema (PostgreSQL)</a></li>
+<li><a href="#insert-a-small-sample-dataset">5) Insert a small sample dataset</a></li>
+<li><a href="#sql-queries-in-increasing-difficulty">6) SQL queries in increasing difficulty</a></li>
+<li><a href="#quick-recap-of-common-mistakes">7) Quick recap of common mistakes</a></li>
+</ul>
 <p>General summary
 In this post we move from SQL fundamentals to a practical farm trial workflow. We cover tables and keys, schema design, data loading, core queries, quality checks, and clear interpretation limits.</p>
+</div>
 <div id="why-sql-matters-in-agriculture-analytics" class="section level1">
 <h1>1) Why SQL matters in agriculture analytics</h1>
 <p>As a statistician working with agriculture and breeding data, I can tell you that SQL is one of the most useful skills you can learn if you work with yield, field trials, weather, soil, or farm performance.</p>
-<p>If spreadsheets are your current home, think of SQL as the next level for at least two main reasons</p>
-<p>A spreadsheet is great for a few tabs and a few thousand rows.
-SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.</p>
-<p>In agriculture, this happens quickly. Examples</p>
-<p>One farm becomes multiple farms.
-One season becomes multi year comparisons.
-One file becomes many sources (harvests, weather, field metadata, treatments).</p>
-<p>Without SQL, people copy paste and make accidental mistakes.
+<p>If spreadsheets are your current home, think of SQL as the next level for at least two main reasons:</p>
+<ul>
+<li>A spreadsheet is great for a few tabs and a few thousand rows.</li>
+<li>SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.</li>
+</ul>
+<p>In agriculture, this happens quickly. Examples:</p>
+<ul>
+<li>One farm becomes multiple farms.</li>
+<li>One season becomes multi year comparisons.</li>
+<li>One file becomes many sources (harvests, weather, field metadata, treatments).</li>
+</ul>
+<p>Without SQL, people copy-paste and make accidental mistakes.
 With SQL, you ask clear questions and get reproducible answers.</p>
 <p>Another reason this matters in field trial work is that your SQL query becomes a transparent analysis recipe. If someone asks “how did you compute that treatment average?”, you can show the exact logic instead of manually reconstructing spreadsheet steps.</p>
-<p>A few real questions SQL helps you answer are</p>
-<p>Which treatment had the best average yield in 2025?
-Did the response differ by region?
-Which fields are missing weather data?
-Are there duplicate harvest records?</p>
+<p>A few real questions SQL helps you answer are:</p>
+<ul>
+<li>Which treatment had the best average yield in 2025?</li>
+<li>Did the response differ by region?</li>
+<li>Which fields are missing weather data?</li>
+<li>Are there duplicate harvest records?</li>
+</ul>
 <p>I also want to prevent a common beginner frustration such as writing queries that “kind of work” but return the wrong rows. I will show you exactly how to avoid the classic pitfalls (especially forgetting <code>WHERE</code>, confusing <code>NULL</code>, and using the wrong type of join).</p>
 </div>
 <div id="what-is-a-table-row-column-what-is-a-key" class="section level1">
@@ -90,6 +108,8 @@ It enforces consistency every field must belong to a real farm.</p>
 <p>Primary key = unique folder number inside one cabinet.
 Foreign key = reference to a folder in another cabinet.</p>
 <p><strong>This is what allows us to connect tables correctly with joins.</strong></p>
+<p><img src="foreign-key-link.svg" /></p>
+<p><em>Figure. Foreign key relationship example. <code>fields.farm_id</code> must match an existing <code>farms.farm_id</code>, creating a reliable one-to-many link for joins.</em></p>
 </div>
 </div>
 <div id="the-data-story-as-an-illustrative-simple-field-trial-dataset" class="section level1">

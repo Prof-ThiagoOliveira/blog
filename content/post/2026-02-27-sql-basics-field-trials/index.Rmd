@@ -31,6 +31,16 @@ output:
     toc_depth: 1
 ---
 
+# Table of contents
+
+- [1) Why SQL matters in agriculture analytics](#why-sql-matters-in-agriculture-analytics)
+- [2) What is a table, row, column? What is a key?](#what-is-a-table-row-column-what-is-a-key)
+- [3) The data story as an illustrative simple field trial dataset](#the-data-story-as-an-illustrative-simple-field-trial-dataset)
+- [4) Create the schema (PostgreSQL)](#create-the-schema-postgresql)
+- [5) Insert a small sample dataset](#insert-a-small-sample-dataset)
+- [6) SQL queries in increasing difficulty](#sql-queries-in-increasing-difficulty)
+- [7) Quick recap of common mistakes](#quick-recap-of-common-mistakes)
+
 General summary
 In this post we move from SQL fundamentals to a practical farm trial workflow. We cover tables and keys, schema design, data loading, core queries, quality checks, and clear interpretation limits.
 
@@ -38,28 +48,28 @@ In this post we move from SQL fundamentals to a practical farm trial workflow. W
 
 As a statistician working with agriculture and breeding data, I can tell you that SQL is one of the most useful skills you can learn if you work with yield, field trials, weather, soil, or farm performance.
 
-If spreadsheets are your current home, think of SQL as the next level for at least two main reasons
+If spreadsheets are your current home, think of SQL as the next level for at least two main reasons:
 
-A spreadsheet is great for a few tabs and a few thousand rows.
-SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.
+- A spreadsheet is great for a few tabs and a few thousand rows.
+- SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.
 
-In agriculture, this happens quickly. Examples
+In agriculture, this happens quickly. Examples:
 
-One farm becomes multiple farms.
-One season becomes multi year comparisons.
-One file becomes many sources (harvests, weather, field metadata, treatments).
+- One farm becomes multiple farms.
+- One season becomes multi year comparisons.
+- One file becomes many sources (harvests, weather, field metadata, treatments).
 
-Without SQL, people copy paste and make accidental mistakes.
+Without SQL, people copy-paste and make accidental mistakes.
 With SQL, you ask clear questions and get reproducible answers.
 
 Another reason this matters in field trial work is that your SQL query becomes a transparent analysis recipe. If someone asks "how did you compute that treatment average?", you can show the exact logic instead of manually reconstructing spreadsheet steps.
 
-A few real questions SQL helps you answer are
+A few real questions SQL helps you answer are:
 
-Which treatment had the best average yield in 2025?
-Did the response differ by region?
-Which fields are missing weather data?
-Are there duplicate harvest records?
+- Which treatment had the best average yield in 2025?
+- Did the response differ by region?
+- Which fields are missing weather data?
+- Are there duplicate harvest records?
 
 I also want to prevent a common beginner frustration such as writing queries that "kind of work" but return the wrong rows. I will show you exactly how to avoid the classic pitfalls (especially forgetting `WHERE`, confusing `NULL`, and using the wrong type of join).
 
@@ -107,6 +117,10 @@ Primary key = unique folder number inside one cabinet.
 Foreign key = reference to a folder in another cabinet.
 
 **This is what allows us to connect tables correctly with joins.**
+
+![](foreign-key-link.svg)
+
+*Figure. Foreign key relationship example. `fields.farm_id` must match an existing `farms.farm_id`, creating a reliable one-to-many link for joins.*
 
 # 3) The data story as an illustrative simple field trial dataset
 
