@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 420" role="img" aria-labelledby="title desc">
+  <title id="title">CTE flow for analysis table</title>
+  <desc id="desc">Diagram showing weather_daily aggregated into weather_by_farm_year then joined with harvest tables into analysis_table.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#edf8ef"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#425d83"/>
+    </marker>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1d3455; }
+      .box { fill: #ffffff; stroke: #5b78a3; stroke-width: 2.4; rx: 12; }
+      .cte { fill: #fff1dc; stroke: #c8871f; }
+      .result { fill: #e1f5e6; stroke: #4b9962; }
+      .txt { font: 600 18px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2a446c; }
+      .sub { font: 500 16px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #37517a; }
+      .line { fill: none; stroke: #425d83; stroke-width: 2.8; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1500" height="420" fill="url(#bg)"/>
+  <text x="750" y="44" text-anchor="middle" class="title">CTE Flow: Build Analysis Table in Steps</text>
+
+  <rect x="60" y="120" width="260" height="120" class="box"/>
+  <text x="190" y="164" text-anchor="middle" class="txt">weather_daily</text>
+  <text x="190" y="194" text-anchor="middle" class="sub">daily farm weather</text>
+
+  <rect x="410" y="100" width="330" height="160" class="box cte"/>
+  <text x="575" y="145" text-anchor="middle" class="txt">CTE: weather_by_farm_year</text>
+  <text x="575" y="176" text-anchor="middle" class="sub">GROUP BY farm_id + year</text>
+  <text x="575" y="206" text-anchor="middle" class="sub">SUM rain, AVG temp</text>
+
+  <rect x="820" y="70" width="220" height="90" class="box"/>
+  <text x="930" y="118" text-anchor="middle" class="txt">harvests</text>
+  <rect x="820" y="180" width="220" height="90" class="box"/>
+  <text x="930" y="228" text-anchor="middle" class="txt">fields + farms</text>
+  <rect x="820" y="290" width="220" height="90" class="box"/>
+  <text x="930" y="338" text-anchor="middle" class="txt">treatments</text>
+
+  <rect x="1120" y="130" width="320" height="160" class="box result"/>
+  <text x="1280" y="176" text-anchor="middle" class="txt">CTE: analysis_table</text>
+  <text x="1280" y="206" text-anchor="middle" class="sub">joined clean dataset</text>
+  <text x="1280" y="236" text-anchor="middle" class="sub">ready for analysis</text>
+
+  <path d="M 320 180 L 410 180" class="line"/>
+  <path d="M 740 180 L 820 115" class="line"/>
+  <path d="M 740 180 L 820 225" class="line"/>
+  <path d="M 740 180 L 820 335" class="line"/>
+  <path d="M 1040 115 L 1120 170" class="line"/>
+  <path d="M 1040 225 L 1120 210" class="line"/>
+  <path d="M 1040 335 L 1120 250" class="line"/>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 420" role="img" aria-labelledby="title desc">
+  <title id="title">NULL handling quick visual</title>
+  <desc id="desc">Comparison of IS NULL, equals NULL, and COALESCE behaviors.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#f4f8ff"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1e3456; }
+      .panel { fill: #ffffff; stroke: #5c79a4; stroke-width: 2.2; rx: 12; }
+      .head { font: 700 21px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #22395f; }
+      .txt { font: 500 17px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2d456f; }
+      .ok { fill: #e2f6e6; stroke: #4b9a63; stroke-width: 1.6; }
+      .bad { fill: #ffe7e7; stroke: #be5555; stroke-width: 1.6; }
+      .fill { fill: #fff4dd; stroke: #c78823; stroke-width: 1.6; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1400" height="420" fill="url(#bg)"/>
+  <text x="700" y="44" text-anchor="middle" class="title">NULL Handling: What Works and What Does Not</text>
+
+  <rect x="50" y="90" width="400" height="280" class="panel"/>
+  <text x="250" y="128" text-anchor="middle" class="head">IS NULL (correct)</text>
+  <rect x="75" y="146" width="350" height="58" class="ok"/>
+  <text x="250" y="182" text-anchor="middle" class="txt">WHERE tmean_c IS NULL</text>
+  <text x="250" y="228" text-anchor="middle" class="txt">Finds missing rows</text>
+
+  <rect x="500" y="90" width="400" height="280" class="panel"/>
+  <text x="700" y="128" text-anchor="middle" class="head">= NULL (incorrect)</text>
+  <rect x="525" y="146" width="350" height="58" class="bad"/>
+  <text x="700" y="182" text-anchor="middle" class="txt">WHERE tmean_c = NULL</text>
+  <text x="700" y="228" text-anchor="middle" class="txt">Does not match as expected</text>
+
+  <rect x="950" y="90" width="400" height="280" class="panel"/>
+  <text x="1150" y="128" text-anchor="middle" class="head">COALESCE (replace for reporting)</text>
+  <rect x="975" y="146" width="350" height="58" class="fill"/>
+  <text x="1150" y="182" text-anchor="middle" class="txt">COALESCE(tmean_c, 20.0)</text>
+  <text x="1150" y="228" text-anchor="middle" class="txt">Returns fallback when NULL</text>
+</svg>

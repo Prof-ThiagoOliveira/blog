@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 280" role="img" aria-labelledby="title desc">
+  <title id="title">Transaction safety timeline</title>
+  <desc id="desc">Timeline showing BEGIN, UPDATE or DELETE, CHECK, then COMMIT or ROLLBACK.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#eef8ef"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#425c82"/>
+    </marker>
+    <style>
+      .title { font: 700 29px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1f3558; }
+      .box { fill: #ffffff; stroke: #5a78a2; stroke-width: 2.1; rx: 12; }
+      .good { fill: #e3f7e6; stroke: #4d9b64; }
+      .stop { fill: #ffe8e8; stroke: #bf5555; }
+      .txt { font: 600 17px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2b446b; }
+      .line { fill: none; stroke: #425c82; stroke-width: 2.8; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="280" fill="url(#bg)"/>
+  <text x="700" y="42" text-anchor="middle" class="title">Safe Edit Workflow with Transactions</text>
+
+  <rect x="60" y="100" width="180" height="70" class="box"/>
+  <text x="150" y="142" text-anchor="middle" class="txt">BEGIN</text>
+
+  <rect x="300" y="100" width="240" height="70" class="box"/>
+  <text x="420" y="142" text-anchor="middle" class="txt">UPDATE / DELETE</text>
+
+  <rect x="600" y="100" width="220" height="70" class="box"/>
+  <text x="710" y="142" text-anchor="middle" class="txt">CHECK RESULT</text>
+
+  <rect x="920" y="72" width="200" height="70" class="box good"/>
+  <text x="1020" y="114" text-anchor="middle" class="txt">COMMIT</text>
+
+  <rect x="920" y="156" width="220" height="70" class="box stop"/>
+  <text x="1030" y="198" text-anchor="middle" class="txt">ROLLBACK</text>
+
+  <path d="M 240 135 L 300 135" class="line"/>
+  <path d="M 540 135 L 600 135" class="line"/>
+  <path d="M 820 116 L 920 106" class="line"/>
+  <path d="M 820 154 L 920 190" class="line"/>
+</svg>
