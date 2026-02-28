@@ -17,7 +17,7 @@ subtitle: 'A beginner-friendly SQL tutorial using realistic farm trial data, wit
 summary: 'As a statistician, I teach SQL from zero using a realistic agriculture dataset: tables, keys, joins, summaries, quality checks, and a mini treatment-effect analysis.'
 authors:
   - admin
-lastmod: "2026-02-28T09:00:09Z"
+lastmod: "2026-02-28T09:07:25Z"
 featured: no
 image:
   caption: ''
@@ -28,10 +28,24 @@ output:
   html_document:
     keep_md: yes
     toc: true
+    toc_depth: 1
 ---
 
 
 
+<div id="table-of-contents" class="section level1">
+<h1>Table of contents</h1>
+<ul>
+<li><a href="#id_1-why-sql-matters-in-agriculture-analytics">1) Why SQL matters in agriculture analytics</a></li>
+<li><a href="#id_2-what-is-a-table-row-column-what-is-a-key">2) What is a table, row, column? What is a key?</a></li>
+<li><a href="#id_3-the-data-story-as-an-illustrative-simple-field-trial-dataset">3) The data story as an illustrative simple field-trial dataset</a></li>
+<li><a href="#id_4-create-the-schema-postgresql">4) Create the schema (PostgreSQL)</a></li>
+<li><a href="#id_5-insert-a-small-sample-dataset">5) Insert a small sample dataset</a></li>
+<li><a href="#id_6-sql-queries-in-increasing-difficulty">6) SQL queries in increasing difficulty</a></li>
+<li><a href="#id_7-quick-recap-of-common-mistakes">7) Quick recap of common mistakes</a></li>
+</ul>
+<p>In this post, we go from SQL fundamentals to a practical farm trial workflow. Focusing in understanding tables and keys, designing a clean schema, creating and loading sample data, running core SQL queries, checking data quality, and interpreting results with clear limits.</p>
+</div>
 <div id="why-sql-matters-in-agriculture-analytics" class="section level1">
 <h1>1) Why SQL matters in agriculture analytics</h1>
 <p>As a statistician working with agriculture and breeding data, I can tell you that SQL is one of the most useful skills you can learn if you work with yield, field trials, weather, soil, or farm performance.</p>
@@ -58,8 +72,57 @@ With SQL, you ask clear questions and get reproducible answers.</p>
 </ul>
 <p>I also want to prevent a common beginner frustration such as writing queries that “kind of work” but return the wrong rows. I will show you exactly how to avoid the classic pitfalls (especially forgetting <code>WHERE</code>, confusing <code>NULL</code>, and using the wrong type of join).</p>
 </div>
+<div id="what-is-a-table-row-column-what-is-a-key" class="section level1">
+<h1>2) What is a table, row, column? What is a key?</h1>
+<p>Before writing SQL, let us define the core concepts in plain language.</p>
+<div id="table" class="section level2">
+<h2>Table</h2>
+<p>A table is like a spreadsheet tab.</p>
+<ul>
+<li>Example: <code>fields</code> table.</li>
+<li>It stores one type of thing (fields).</li>
+</ul>
+</div>
+<div id="row" class="section level2">
+<h2>Row</h2>
+<p>A row is one record.</p>
+<ul>
+<li>Example: one row in <code>fields</code> might be <code>field_id = 101</code>, <code>field_name = 'North-01'</code>.</li>
+</ul>
+</div>
+<div id="column" class="section level2">
+<h2>Column</h2>
+<p>A column is one variable.</p>
+<ul>
+<li>Example: <code>soil_type</code> is a column.</li>
+</ul>
+</div>
+<div id="primary-key" class="section level2">
+<h2>Primary key</h2>
+<p>A primary key is a column (or combination of columns) that uniquely identifies each row.</p>
+<ul>
+<li>Example: <code>farm_id</code> in <code>farms</code>.</li>
+<li>No duplicates, no missing values.</li>
+<li>Think of it like a unique ID card.</li>
+</ul>
+</div>
+<div id="foreign-key" class="section level2">
+<h2>Foreign key</h2>
+<p>A foreign key links one table to another.</p>
+<ul>
+<li>Example: <code>fields.farm_id</code> points to <code>farms.farm_id</code>.</li>
+<li>It enforces consistency: every field must belong to a real farm.</li>
+</ul>
+<p>A possible analogy is to think about filing cabinets.</p>
+<ul>
+<li>Primary key = unique folder number inside one cabinet.</li>
+<li>Foreign key = reference to a folder in another cabinet.</li>
+</ul>
+<p><strong>This is what allows us to connect tables correctly with joins.</strong></p>
+</div>
+</div>
 <div id="the-data-story-as-an-illustrative-simple-field-trial-dataset" class="section level1">
-<h1>2) The data story as an illustrative simple field-trial dataset</h1>
+<h1>3) The data story as an illustrative simple field-trial dataset</h1>
 <p>Let us imagine a realistic but small trial program. You manage three farms in different regions. Each farm has fields. In each field, you test fertilizer treatments across seasons. You also collect daily weather at farm level.</p>
 <p>Our dataset has five tables:</p>
 <ol style="list-style-type: decimal">
@@ -81,7 +144,7 @@ With SQL, you ask clear questions and get reproducible answers.</p>
 <li>good schema design is one of the easiest ways to reduce analysis mistakes before they happen.</li>
 </ul>
 <div id="how-to-design-an-sql-schema-using-this-farm-example" class="section level2">
-<h2>2.1) How to design an SQL schema (using this farm example)</h2>
+<h2>3.1) How to design an SQL schema (using this farm example)</h2>
 <p>If you are just starting, schema design may feel abstract. A practical way to think is to answer these questions first:</p>
 <ol style="list-style-type: decimal">
 <li>What decisions/questions do I need to answer?</li>
@@ -261,7 +324,6 @@ With SQL, you ask clear questions and get reproducible answers.</p>
 <li><code>weather_daily.farm_id -&gt; farms.farm_id</code></li>
 </ul>
 <p>The core idea is that <code>harvests</code> connects agronomic outcomes to both location (<code>fields</code>/<code>farms</code>) and treatment (<code>treatments</code>), while <code>weather_daily</code> connects environmental context to the same farms.</p>
-<p>Now let’s describe step-by-step.</p>
 </div>
 <div id="step-a-define-table-grain-first" class="section level3">
 <h3>Step A: define table grain first</h3>
@@ -341,55 +403,6 @@ UNIQUE (farm_id, day);</code></pre>
 <li>Can you answer your main trial questions with straightforward joins?</li>
 </ul>
 </div>
-</div>
-</div>
-<div id="what-is-a-table-row-column-what-is-a-key" class="section level1">
-<h1>3) What is a table, row, column? What is a key?</h1>
-<p>Before writing SQL, let us define the core concepts in plain language.</p>
-<div id="table" class="section level2">
-<h2>Table</h2>
-<p>A table is like a spreadsheet tab.</p>
-<ul>
-<li>Example: <code>fields</code> table.</li>
-<li>It stores one type of thing (fields).</li>
-</ul>
-</div>
-<div id="row" class="section level2">
-<h2>Row</h2>
-<p>A row is one record.</p>
-<ul>
-<li>Example: one row in <code>fields</code> might be <code>field_id = 101</code>, <code>field_name = 'North-01'</code>.</li>
-</ul>
-</div>
-<div id="column" class="section level2">
-<h2>Column</h2>
-<p>A column is one variable.</p>
-<ul>
-<li>Example: <code>soil_type</code> is a column.</li>
-</ul>
-</div>
-<div id="primary-key" class="section level2">
-<h2>Primary key</h2>
-<p>A primary key is a column (or combination of columns) that uniquely identifies each row.</p>
-<ul>
-<li>Example: <code>farm_id</code> in <code>farms</code>.</li>
-<li>No duplicates, no missing values.</li>
-<li>Think of it like a unique ID card.</li>
-</ul>
-</div>
-<div id="foreign-key" class="section level2">
-<h2>Foreign key</h2>
-<p>A foreign key links one table to another.</p>
-<ul>
-<li>Example: <code>fields.farm_id</code> points to <code>farms.farm_id</code>.</li>
-<li>It enforces consistency: every field must belong to a real farm.</li>
-</ul>
-<p>A possible analogy is to think about filing cabinets.</p>
-<ul>
-<li>Primary key = unique folder number inside one cabinet.</li>
-<li>Foreign key = reference to a folder in another cabinet.</li>
-</ul>
-<p><strong>This is what allows us to connect tables correctly with joins.</strong></p>
 </div>
 </div>
 <div id="create-the-schema-postgresql" class="section level1">
