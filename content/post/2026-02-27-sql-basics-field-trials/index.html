@@ -17,7 +17,7 @@ subtitle: 'A beginner friendly SQL tutorial using realistic farm trial data with
 summary: 'As a statistician I teach SQL from zero using a realistic agriculture dataset with tables keys joins summaries quality checks and a simple treatment effect analysis.'
 authors:
   - admin
-lastmod: "2026-02-28T10:03:47Z"
+lastmod: "2026-02-28T13:16:38Z"
 featured: no
 image:
   caption: ''
@@ -126,9 +126,11 @@ Foreign key = reference to a folder in another cabinet.</p>
 <p>“Entity” tables (farm, field, treatment) describe the system.
 “Event” tables (harvest, daily weather) store repeated observations over time.</p>
 <p>Note that this structure is not only “database theory”. It directly affects analysis quality because</p>
-<p>if farm/field metadata are separated cleanly from events, joins are simpler and less error prone.
-if everything is in one giant table, duplicates and inconsistent updates become much more likely.
-good schema design is one of the easiest ways to reduce analysis mistakes before they happen.</p>
+<ul>
+<li>if farm/field metadata are separated cleanly from events, joins are simpler and less error prone.</li>
+<li>if everything is in one giant table, duplicates and inconsistent updates become much more likely.</li>
+<li>good schema design is one of the easiest ways to reduce analysis mistakes before they happen.</li>
+</ul>
 <div id="how-to-design-an-sql-schema-using-this-farm-example" class="section level2">
 <h2>3.1) How to design an SQL schema (using this farm example)</h2>
 <p>If you are just starting, schema design may feel abstract. A practical way to think is to answer these questions first</p>
@@ -190,11 +192,25 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td>clay_loam</td>
 </tr>
 <tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td>North-02</td>
+<td align="right">10.00</td>
+<td>sandy_loam</td>
+</tr>
+<tr class="odd">
 <td align="right">3</td>
 <td align="right">2</td>
 <td>Central-01</td>
 <td align="right">15.20</td>
 <td>silt_loam</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2</td>
+<td>Central-02</td>
+<td align="right">9.80</td>
+<td>clay</td>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
@@ -202,6 +218,13 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td>South-01</td>
 <td align="right">14.10</td>
 <td>sandy</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">3</td>
+<td>South-02</td>
+<td align="right">11.40</td>
+<td>loam</td>
 </tr>
 </tbody>
 </table>
@@ -230,6 +253,11 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td>Nitrogen_Medium</td>
 <td align="right">120</td>
 </tr>
+<tr class="even">
+<td align="right">4</td>
+<td>Nitrogen_High</td>
+<td align="right">180</td>
+</tr>
 </tbody>
 </table>
 <p><code>harvests</code> (event table linking <code>field_id</code> + <code>treatment_id</code>)</p>
@@ -252,11 +280,39 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td align="right">6.20</td>
 </tr>
 <tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2024</td>
+<td align="right">7.00</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2025</td>
+<td align="right">6.10</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2025</td>
+<td align="right">7.40</td>
+</tr>
+<tr class="odd">
 <td align="right">10</td>
 <td align="right">3</td>
 <td align="right">2</td>
 <td align="right">2024</td>
 <td align="right">7.60</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">2025</td>
+<td align="right">6.90</td>
 </tr>
 <tr class="odd">
 <td align="right">12</td>
@@ -264,6 +320,20 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td align="right">3</td>
 <td align="right">2025</td>
 <td align="right">7.90</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">2024</td>
+<td align="right">5.60</td>
+</tr>
+<tr class="odd">
+<td align="right">24</td>
+<td align="right">6</td>
+<td align="right">3</td>
+<td align="right">2025</td>
+<td align="right">6.20</td>
 </tr>
 </tbody>
 </table>
@@ -287,6 +357,20 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td align="right">18.5</td>
 </tr>
 <tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td>2024-06-02</td>
+<td align="right">0.0</td>
+<td align="right">19.1</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">1</td>
+<td>2025-06-01</td>
+<td align="right">18.0</td>
+<td align="right">17.9</td>
+</tr>
+<tr class="even">
 <td align="right">7</td>
 <td align="right">2</td>
 <td>2024-06-01</td>
@@ -294,19 +378,49 @@ good schema design is one of the easiest ways to reduce analysis mistakes before
 <td align="right">20.0</td>
 </tr>
 <tr class="odd">
+<td align="right">8</td>
+<td align="right">2</td>
+<td>2024-06-02</td>
+<td align="right">1.2</td>
+<td align="right">21.3</td>
+</tr>
+<tr class="even">
 <td align="right">10</td>
 <td align="right">2</td>
 <td>2025-06-01</td>
 <td align="right">10.5</td>
 <td align="right">19.4</td>
 </tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">2</td>
+<td>2025-06-02</td>
+<td align="right">3.0</td>
+<td align="right">NULL</td>
+</tr>
+<tr class="even">
+<td align="right">13</td>
+<td align="right">3</td>
+<td>2024-06-01</td>
+<td align="right">2.0</td>
+<td align="right">23.8</td>
+</tr>
+<tr class="odd">
+<td align="right">16</td>
+<td align="right">3</td>
+<td>2025-06-01</td>
+<td align="right">1.0</td>
+<td align="right">24.1</td>
+</tr>
 </tbody>
 </table>
 <p>Link summary</p>
-<p><code>fields.farm_id</code> links with <code>farms.farm_id</code>.
-<code>harvests.field_id</code> links with <code>fields.field_id</code>.
-<code>harvests.treatment_id</code> links with <code>treatments.treatment_id</code>.
-<code>weather_daily.farm_id</code> links with <code>farms.farm_id</code>.</p>
+<ul>
+<li><code>fields.farm_id</code> links with <code>farms.farm_id</code>.</li>
+<li><code>harvests.field_id</code> links with <code>fields.field_id</code>.</li>
+<li><code>harvests.treatment_id</code> links with <code>treatments.treatment_id</code>.</li>
+<li><code>weather_daily.farm_id</code> links with <code>farms.farm_id</code>.</li>
+</ul>
 <p>The core idea is that <code>harvests</code> connects agronomic outcomes to both location (<code>fields</code>/<code>farms</code>) and treatment (<code>treatments</code>), while <code>weather_daily</code> connects environmental context to the same farms.</p>
 </div>
 <div id="step-a-define-table-grain-first" class="section level3">
@@ -325,8 +439,10 @@ Event tables (<code>harvests</code>, <code>weather_daily</code>) one row per tim
 <h3>Step C define business uniqueness with constraints</h3>
 <p>Primary keys identify rows technically, but you also need domain level uniqueness.</p>
 <p>Examples for this project</p>
-<p>in <code>harvests</code>, you usually expect one row per <code>field_id + treatment_id + season_year</code>.
-in <code>weather_daily</code>, you usually expect one row per <code>farm_id + day</code>.</p>
+<ul>
+<li>in <code>harvests</code>, you usually expect one row per <code>field_id + treatment_id + season_year</code>.</li>
+<li>in <code>weather_daily</code>, you usually expect one row per <code>farm_id + day</code>.</li>
+</ul>
 <p>That can be enforced with unique constraints</p>
 <pre class="sql"><code>ALTER TABLE harvests
 ADD CONSTRAINT uq_harvest_field_treat_year
@@ -363,7 +479,7 @@ numeric types for quantities (<code>yield_t_ha</code>, <code>rainfall_mm</code>,
 <p>A practical habit is to sketch the schema on a piece of paper first. Writing it by hand is often the best way to think through table grain and links before coding.</p>
 <p><img src="schema-extension-sketch.svg" /></p>
 <p><em>Figure. Extension ready schema sketch with added event tables (for example <code>pest_scouting</code> and <code>soil_tests</code>).</em></p>
-<p>new treatment levels can be added without redesigning harvest table.
+<p>New treatment levels can be added without redesigning harvest table.
 new farms/fields can be inserted without touching historical records.
 additional event tables (for example pest scouting, soil tests) can be linked by keys.</p>
 <p>Good schema design makes future extension easier and safer.</p>
@@ -1538,19 +1654,24 @@ It means “investigate”.</p>
 <div id="mini-analysis-question" class="section level2">
 <h2>6.10 Mini analysis question</h2>
 <p>Question</p>
-<p>Which fertilizer treatment improved yield the most, while controlling for farm/field as simply as possible?</p>
-<p>Simple strategy would be</p>
-<p>For each <code>field_id</code> and <code>season_year</code>, find the control yield (<code>fertilizer_kg_ha = 0</code>).
-Compare non control treatments against that same field season control.
-Then average gains by treatment and region.</p>
+<p>Which fertilizer treatment improved yield the most, while controlling for farm/field as simply as possible? Simple strategy would be</p>
+<ul>
+<li>for each <code>field_id</code> and <code>season_year</code>, find the control yield (<code>fertilizer_kg_ha = 0</code>).</li>
+<li>compare non control treatments against that same field season control.</li>
+<li>lastly average gains by treatment and region.</li>
+</ul>
 <p>Why this question is interesting in real field trials</p>
-<p>Raw treatment means mix treatment effect with site/season differences.
-Field season control subtraction is a simple way to reduce that bias.
-It still does not fully solve confounding, but it is already a stronger comparison than global raw means.</p>
+<ul>
+<li>raw treatment means mix treatment effect with site/season differences.</li>
+<li>field season control subtraction is a simple way to reduce that bias.</li>
+<li>it still does not fully solve confounding, but it is already a stronger comparison than global raw means.</li>
+</ul>
 <p>This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQL’s main objective. SQL is mainly designed to</p>
-<p>store and organize structured data safely,
-filter and join data efficiently,
-produce clean analysis tables.</p>
+<ul>
+<li>store and organize structured data safely,</li>
+<li>filter and join data efficiently,</li>
+<li>produce clean analysis tables.</li>
+</ul>
 <p>For deeper statistical work (models, diagnostics, visualization, resampling, mixed models), tools like <code>R</code> are usually better because they are designed for statistical inference and scientific workflows.</p>
 <p>A practical workflow I would use is</p>
 <ol style="list-style-type: decimal">

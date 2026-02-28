@@ -140,9 +140,9 @@ This structure is very common in production analytics, and can be seen as
 
 Note that this structure is not only "database theory". It directly affects analysis quality because
 
-if farm/field metadata are separated cleanly from events, joins are simpler and less error prone.
-if everything is in one giant table, duplicates and inconsistent updates become much more likely.
-good schema design is one of the easiest ways to reduce analysis mistakes before they happen.
+- if farm/field metadata are separated cleanly from events, joins are simpler and less error prone.
+- if everything is in one giant table, duplicates and inconsistent updates become much more likely.
+- good schema design is one of the easiest ways to reduce analysis mistakes before they happen.
 
 ## 3.1) How to design an SQL schema (using this farm example)
 
@@ -174,8 +174,11 @@ In this farm trial example, we separate entities from events and focus on treatm
 | field_id | farm_id | field_name  | area_ha | soil_type  |
 |---:|---:|-----------|---:|------------|
 | 1 | 1 | North-01   | 12.50 | clay_loam  |
+| 2 | 1 | North-02   | 10.00 | sandy_loam |
 | 3 | 2 | Central-01 | 15.20 | silt_loam  |
+| 4 | 2 | Central-02 | 9.80  | clay       |
 | 5 | 3 | South-01   | 14.10 | sandy      |
+| 6 | 3 | South-02   | 11.40 | loam       |
 
 `treatments` (reference table for treatment definitions)
 
@@ -184,29 +187,42 @@ In this farm trial example, we separate entities from events and focus on treatm
 | 1 | Control         | 0   |
 | 2 | Nitrogen_Low    | 60  |
 | 3 | Nitrogen_Medium | 120 |
+| 4 | Nitrogen_High   | 180 |
 
 `harvests` (event table linking `field_id` + `treatment_id`)
 
 | harvest_id | field_id | treatment_id | season_year | yield_t_ha |
 |---:|---:|---:|---:|---:|
 | 1  | 1 | 1 | 2024 | 6.20 |
+| 2  | 1 | 3 | 2024 | 7.00 |
+| 3  | 1 | 1 | 2025 | 6.10 |
+| 4  | 1 | 4 | 2025 | 7.40 |
 | 10 | 3 | 2 | 2024 | 7.60 |
+| 11 | 3 | 1 | 2025 | 6.90 |
 | 12 | 3 | 3 | 2025 | 7.90 |
+| 18 | 5 | 2 | 2024 | 5.60 |
+| 24 | 6 | 3 | 2025 | 6.20 |
 
 `weather_daily` (event table linked to farms by `farm_id`)
 
 | weather_id | farm_id | day        | rainfall_mm | tmean_c |
 |---:|---:|------------|---:|---:|
 | 1  | 1 | 2024-06-01 | 12.4 | 18.5 |
+| 2  | 1 | 2024-06-02 | 0.0  | 19.1 |
+| 4  | 1 | 2025-06-01 | 18.0 | 17.9 |
 | 7  | 2 | 2024-06-01 | 8.1  | 20.0 |
+| 8  | 2 | 2024-06-02 | 1.2  | 21.3 |
 | 10 | 2 | 2025-06-01 | 10.5 | 19.4 |
+| 11 | 2 | 2025-06-02 | 3.0  | NULL |
+| 13 | 3 | 2024-06-01 | 2.0  | 23.8 |
+| 16 | 3 | 2025-06-01 | 1.0  | 24.1 |
 
 Link summary
 
-`fields.farm_id` links with `farms.farm_id`.
-`harvests.field_id` links with `fields.field_id`.
-`harvests.treatment_id` links with `treatments.treatment_id`.
-`weather_daily.farm_id` links with `farms.farm_id`.
+- `fields.farm_id` links with `farms.farm_id`.
+- `harvests.field_id` links with `fields.field_id`.
+- `harvests.treatment_id` links with `treatments.treatment_id`.
+- `weather_daily.farm_id` links with `farms.farm_id`.
 
 The core idea is that `harvests` connects agronomic outcomes to both location (`fields`/`farms`) and treatment (`treatments`), while `weather_daily` connects environmental context to the same farms.
 
@@ -231,8 +247,8 @@ Primary keys identify rows technically, but you also need domain level uniquenes
 
 Examples for this project
 
-in `harvests`, you usually expect one row per `field_id + treatment_id + season_year`.
-in `weather_daily`, you usually expect one row per `farm_id + day`.
+- in `harvests`, you usually expect one row per `field_id + treatment_id + season_year`.
+- in `weather_daily`, you usually expect one row per `farm_id + day`.
 
 That can be enforced with unique constraints
 
@@ -280,7 +296,7 @@ A practical habit is to sketch the schema on a piece of paper first. Writing it 
 
 *Figure. Extension ready schema sketch with added event tables (for example `pest_scouting` and `soil_tests`).*
 
-new treatment levels can be added without redesigning harvest table.
+New treatment levels can be added without redesigning harvest table.
 new farms/fields can be inserted without touching historical records.
 additional event tables (for example pest scouting, soil tests) can be linked by keys.
 
@@ -1055,25 +1071,23 @@ It means "investigate".
 
 Question
 
-Which fertilizer treatment improved yield the most, while controlling for farm/field as simply as possible?
+Which fertilizer treatment improved yield the most, while controlling for farm/field as simply as possible? Simple strategy would be
 
-Simple strategy would be
-
-For each `field_id` and `season_year`, find the control yield (`fertilizer_kg_ha = 0`).
-Compare non control treatments against that same field season control.
-Then average gains by treatment and region.
+- for each `field_id` and `season_year`, find the control yield (`fertilizer_kg_ha = 0`).
+- compare non control treatments against that same field season control.
+- lastly average gains by treatment and region.
 
 Why this question is interesting in real field trials
 
-Raw treatment means mix treatment effect with site/season differences.
-Field season control subtraction is a simple way to reduce that bias.
-It still does not fully solve confounding, but it is already a stronger comparison than global raw means.
+- raw treatment means mix treatment effect with site/season differences.
+- field season control subtraction is a simple way to reduce that bias.
+- it still does not fully solve confounding, but it is already a stronger comparison than global raw means.
 
 This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQL's main objective. SQL is mainly designed to
 
-store and organize structured data safely,
-filter and join data efficiently,
-produce clean analysis tables.
+- store and organize structured data safely,
+- filter and join data efficiently,
+- produce clean analysis tables.
 
 For deeper statistical work (models, diagnostics, visualization, resampling, mixed models), tools like `R` are usually better because they are designed for statistical inference and scientific workflows.
 
