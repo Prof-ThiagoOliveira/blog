@@ -1,7 +1,7 @@
 ---
 title: "SQL for beginners - an example in field-trial"
 author: Thiago de Paula Oliveira
-date: '2026-02-26'
+date:  "February 28, 2026"
 slug: sql-for-complete-beginners-field-trials
 categories:
   - SQL
@@ -17,7 +17,7 @@ subtitle: 'A beginner-friendly SQL tutorial using realistic farm trial data, wit
 summary: 'As a statistician, I teach SQL from zero using a realistic agriculture dataset: tables, keys, joins, summaries, quality checks, and a mini treatment-effect analysis.'
 authors:
   - admin
-lastmod: '2026-02-26T10:00:00Z'
+lastmod: "2026-02-28T08:58:31Z"
 featured: no
 image:
   caption: ''
@@ -35,7 +35,7 @@ output:
 <div id="why-sql-matters-in-agriculture-analytics" class="section level1">
 <h1>1) Why SQL matters in agriculture analytics</h1>
 <p>As a statistician working with agriculture and breeding data, I can tell you that SQL is one of the most useful skills you can learn if you work with yield, field trials, weather, soil, or farm performance.</p>
-<p>If spreadsheets are your current home, think of SQL as the next level for at least two main reasons</p>
+<p>If spreadsheets are your current home, think of SQL as the next level for at least two main reasons:</p>
 <ul>
 <li>A spreadsheet is great for a few tabs and a few thousand rows.</li>
 <li>SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.</li>
@@ -48,7 +48,8 @@ output:
 </ul>
 <p>Without SQL, people copy-paste and make accidental mistakes.
 With SQL, you ask clear questions and get reproducible answers.</p>
-<p>A few real questions SQL helps you answer would be</p>
+<p>Another reason this matters in field-trial work is that your SQL query becomes a transparent analysis recipe. If someone asks “how did you compute that treatment average?”, you can show the exact logic instead of manually reconstructing spreadsheet steps.</p>
+<p>A few real questions SQL helps you answer are:</p>
 <ul>
 <li>Which treatment had the best average yield in 2025?</li>
 <li>Did the response differ by region?</li>
@@ -73,6 +74,274 @@ With SQL, you ask clear questions and get reproducible answers.</p>
 <li>“Entity” tables (farm, field, treatment) describe the system.</li>
 <li>“Event” tables (harvest, daily weather) store repeated observations over time.</li>
 </ul>
+<p>Note that this structure is not only “database theory”. It directly affects analysis quality because</p>
+<ul>
+<li>if farm/field metadata are separated cleanly from events, joins are simpler and less error-prone.</li>
+<li>if everything is in one giant table, duplicates and inconsistent updates become much more likely.</li>
+<li>good schema design is one of the easiest ways to reduce analysis mistakes before they happen.</li>
+</ul>
+<div id="how-to-design-an-sql-schema-using-this-farm-example" class="section level2">
+<h2>2.1) How to design an SQL schema (using this farm example)</h2>
+<p>If you are just starting, schema design may feel abstract. A practical way to think is to answer these questions first:</p>
+<ol style="list-style-type: decimal">
+<li>What decisions/questions do I need to answer?</li>
+<li>What “things” exist in my system?</li>
+<li>What events happen over time?</li>
+<li>What should be unique, and what should be linked?</li>
+</ol>
+<p>In this farm trial example, we separate entities from events and focus on treatment response, missing records, and weather context.</p>
+<p><img src="schema-design-mind-map.svg" /></p>
+<p><em>Figure. Schema design mind map for this tutorial. Blue labels indicate the variables that link tables.</em></p>
+<div id="how-each-table-looks-and-how-they-connect" class="section level3">
+<h3>How each table looks (and how they connect)</h3>
+<p><code>farms</code> (parent table)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">farm_id</th>
+<th>farm_name</th>
+<th>region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>Green Valley Farm</td>
+<td>North</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>Riverbend Farm</td>
+<td>Central</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>Sunrise Farm</td>
+<td>South</td>
+</tr>
+</tbody>
+</table>
+<p><code>fields</code> (each field belongs to a farm through <code>farm_id</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">field_id</th>
+<th align="right">farm_id</th>
+<th>field_name</th>
+<th align="right">area_ha</th>
+<th>soil_type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td>North-01</td>
+<td align="right">12.50</td>
+<td>clay_loam</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2</td>
+<td>Central-01</td>
+<td align="right">15.20</td>
+<td>silt_loam</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3</td>
+<td>South-01</td>
+<td align="right">14.10</td>
+<td>sandy</td>
+</tr>
+</tbody>
+</table>
+<p><code>treatments</code> (reference table for treatment definitions)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">treatment_id</th>
+<th>treatment_name</th>
+<th align="right">fertilizer_kg_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td>Control</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td>Nitrogen_Low</td>
+<td align="right">60</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td>Nitrogen_Medium</td>
+<td align="right">120</td>
+</tr>
+</tbody>
+</table>
+<p><code>harvests</code> (event table linking <code>field_id</code> + <code>treatment_id</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">field_id</th>
+<th align="right">treatment_id</th>
+<th align="right">season_year</th>
+<th align="right">yield_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2024</td>
+<td align="right">6.20</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2024</td>
+<td align="right">7.60</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2025</td>
+<td align="right">7.90</td>
+</tr>
+</tbody>
+</table>
+<p><code>weather_daily</code> (event table linked to farms by <code>farm_id</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">weather_id</th>
+<th align="right">farm_id</th>
+<th>day</th>
+<th align="right">rainfall_mm</th>
+<th align="right">tmean_c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td>2024-06-01</td>
+<td align="right">12.4</td>
+<td align="right">18.5</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">2</td>
+<td>2024-06-01</td>
+<td align="right">8.1</td>
+<td align="right">20.0</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">2</td>
+<td>2025-06-01</td>
+<td align="right">10.5</td>
+<td align="right">19.4</td>
+</tr>
+</tbody>
+</table>
+<p>Link summary:</p>
+<ul>
+<li><code>fields.farm_id -&gt; farms.farm_id</code></li>
+<li><code>harvests.field_id -&gt; fields.field_id</code></li>
+<li><code>harvests.treatment_id -&gt; treatments.treatment_id</code></li>
+<li><code>weather_daily.farm_id -&gt; farms.farm_id</code></li>
+</ul>
+<p>The core idea is that <code>harvests</code> connects agronomic outcomes to both location (<code>fields</code>/<code>farms</code>) and treatment (<code>treatments</code>), while <code>weather_daily</code> connects environmental context to the same farms.</p>
+<p>Now let’s describe step-by-step.</p>
+</div>
+<div id="step-a-define-table-grain-first" class="section level3">
+<h3>Step A: define table grain first</h3>
+<p><code>Grain</code> means “what one row represents”.</p>
+<ul>
+<li>Entity tables (<code>farms</code>, <code>fields</code>, <code>treatments</code>): one row per entity.</li>
+<li>Event tables (<code>harvests</code>, <code>weather_daily</code>): one row per time-based observation.</li>
+</ul>
+<p>If grain is unclear, everything after that gets messy (duplicates, wrong joins, wrong counts).</p>
+</div>
+<div id="step-b-choose-primary-keys-and-foreign-keys" class="section level3">
+<h3>Step B: choose primary keys and foreign keys</h3>
+<p>Use the same linking variables shown above and enforce them with primary keys (IDs in parent tables) and foreign keys (matching IDs in child/event tables).</p>
+<p>This gives you safe joins and enforces referential integrity.</p>
+</div>
+<div id="step-c-define-business-uniqueness-with-constraints" class="section level3">
+<h3>Step C: define business uniqueness with constraints</h3>
+<p>Primary keys identify rows technically, but you also need domain-level uniqueness.</p>
+<p>Examples for this project:</p>
+<ul>
+<li>in <code>harvests</code>, you usually expect one row per <code>field_id + treatment_id + season_year</code>.</li>
+<li>in <code>weather_daily</code>, you usually expect one row per <code>farm_id + day</code>.</li>
+</ul>
+<p>That can be enforced with unique constraints:</p>
+<pre class="sql"><code>ALTER TABLE harvests
+ADD CONSTRAINT uq_harvest_field_treat_year
+UNIQUE (field_id, treatment_id, season_year);
+
+ALTER TABLE weather_daily
+ADD CONSTRAINT uq_weather_farm_day
+UNIQUE (farm_id, day);</code></pre>
+<p>This protects your analysis from duplicate event records.</p>
+</div>
+<div id="step-d-pick-data-types-and-validation-rules" class="section level3">
+<h3>Step D: pick data types and validation rules</h3>
+<p>Use types and constraints to prevent bad data early.</p>
+<ul>
+<li><code>DATE</code> for dates (<code>harvest_date</code>, <code>day</code>).</li>
+<li>numeric types for quantities (<code>yield_t_ha</code>, <code>rainfall_mm</code>, <code>area_ha</code>).</li>
+<li><code>NOT NULL</code> for required fields.</li>
+<li><code>CHECK</code> for physical logic (for example non-negative yield).</li>
+</ul>
+<p>Your schema is the first quality-control layer.</p>
+</div>
+<div id="step-e-separate-raw-ingestion-from-clean-analytics" class="section level3">
+<h3>Step E: separate raw ingestion from clean analytics</h3>
+<p>A practical production pattern:</p>
+<ol style="list-style-type: decimal">
+<li>Load external files into staging tables.</li>
+<li>Validate and standardize.</li>
+<li>Insert into core relational tables (<code>farms</code>, <code>fields</code>, <code>harvests</code>, <code>weather_daily</code>).</li>
+<li>Build analysis views/CTEs from the clean core.</li>
+</ol>
+<p>This keeps raw import problems away from final reporting.</p>
+</div>
+<div id="step-f-design-for-change" class="section level3">
+<h3>Step F: design for change</h3>
+<p>Field-trial data evolves. Plan for that.</p>
+<p>A practical habit is to sketch the schema on a piece of paper first. Writing it by hand is often the best way to think through table grain and links before coding.</p>
+<p><img src="schema-extension-sketch.svg" /></p>
+<p><em>Figure. Extension-ready schema sketch with added event tables (for example <code>pest_scouting</code> and <code>soil_tests</code>).</em></p>
+<ul>
+<li>new treatment levels can be added without redesigning harvest table.</li>
+<li>new farms/fields can be inserted without touching historical records.</li>
+<li>additional event tables (for example pest scouting, soil tests) can be linked by keys.</li>
+</ul>
+<p>Good schema design makes future extension easier and safer.</p>
+</div>
+<div id="mini-design-checklist-farm-trial-version" class="section level3">
+<h3>Mini design checklist (farm trial version)</h3>
+<ul>
+<li>Is each table grain explicit?</li>
+<li>Are primary and foreign keys defined?</li>
+<li>Are business-level uniqueness constraints present?</li>
+<li>Are required columns <code>NOT NULL</code> where appropriate?</li>
+<li>Are sanity checks (<code>CHECK</code>) defined for critical numeric values?</li>
+<li>Can you answer your main trial questions with straightforward joins?</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="what-is-a-table-row-column-what-is-a-key" class="section level1">
 <h1>3) What is a table, row, column? What is a key?</h1>
@@ -115,7 +384,7 @@ With SQL, you ask clear questions and get reproducible answers.</p>
 <li>Example: <code>fields.farm_id</code> points to <code>farms.farm_id</code>.</li>
 <li>It enforces consistency: every field must belong to a real farm.</li>
 </ul>
-<p>A possible analogy would be when we are filing cabinets.</p>
+<p>A possible analogy is to think about filing cabinets.</p>
 <ul>
 <li>Primary key = unique folder number inside one cabinet.</li>
 <li>Foreign key = reference to a folder in another cabinet.</li>
@@ -420,8 +689,8 @@ WHERE area_ha &gt;= 12.0;</code></pre>
 </tbody>
 </table>
 </div>
-<div id="query-d-text-date-and" class="section level3">
-<h3>Query D: text + date + AND</h3>
+<div id="query-d-year-date-and" class="section level3">
+<h3>Query D: year + date + AND</h3>
 <pre class="sql"><code>SELECT harvest_id, field_id, season_year, yield_t_ha, harvest_date
 FROM harvests
 WHERE season_year = 2025
@@ -640,6 +909,13 @@ ORDER BY avg_yield_t_ha DESC;</code></pre>
 </tr>
 </tbody>
 </table>
+<p>Interesting interpretation note:</p>
+<ul>
+<li>Do not rank treatments using only <code>avg_yield_t_ha</code>.</li>
+<li>Also check <code>n_harvests</code> because very small sample sizes can look “best” by chance.</li>
+<li>In this toy dataset, <code>Nitrogen_High</code> has high mean but only 2 rows, so uncertainty is larger.</li>
+<li>In real programs, always inspect balance before drawing conclusions.</li>
+</ul>
 </div>
 <div id="query-h-having-after-group-by" class="section level3">
 <h3>Query H: HAVING after GROUP BY</h3>
@@ -1307,6 +1583,12 @@ ORDER BY h.yield_t_ha;</code></pre>
 <li>Compare non-control treatments against that same field-season control.</li>
 <li>Then average gains by treatment and region.</li>
 </ul>
+<p>Why this question is interesting in real field trials:</p>
+<ul>
+<li>Raw treatment means mix treatment effect with site/season differences.</li>
+<li>Field-season control subtraction is a simple way to reduce that bias.</li>
+<li>It still does not fully solve confounding, but it is already a stronger comparison than global raw means.</li>
+</ul>
 <p>This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQL’s main objective. SQL is mainly designed to:</p>
 <ul>
 <li>store and organize structured data safely,</li>
@@ -1373,7 +1655,7 @@ analysis_df &lt;- dbGetQuery(con, sql_query)
 # - models (for example: lm(), lme4::lmer(), etc.)
 
 dbDisconnect(con)</code></pre>
-<p>This split keeps your workflow robust, where SQL for data engineering, <code>R</code> for statistical depth.</p>
+<p>This split keeps your workflow robust since we use <strong>SQL for data engineering</strong>, <code>R</code> <strong>for statistical depth</strong>.</p>
 <div id="query-r-field-season-control-adjusted-gains" class="section level3">
 <h3>Query R: field-season control-adjusted gains</h3>
 <pre class="sql"><code>WITH baseline AS (
@@ -1490,12 +1772,245 @@ ORDER BY avg_gain_t_ha DESC;</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Interpretation in plain language:</p>
+<p>Interpretation would be</p>
 <ul>
-<li>In this sample, higher fertilizer rates show larger gains, especially in the North.</li>
-<li>But this is still observational comparison inside a simple dataset.</li>
+<li>in this sample, higher fertilizer rates show larger gains, especially in the North.</li>
+<li>this is still observational comparison inside a simple dataset.</li>
 </ul>
 <p>Note that <strong>confounding</strong> means other factors may influence both treatment assignment and yield (for example soil class, rainfall timing, pest pressure, planting date). Even with field-season control subtraction, we are not proving causality.</p>
+</div>
+</div>
+<div id="a-practical-interpretation-check-beginners-often-skip" class="section level2">
+<h2>6.11 A practical interpretation check beginners often skip</h2>
+<p>Before deciding that “Treatment X is better”, check balance across regions and years. If one treatment appears mostly in stronger environments, it can look better even when its true effect is smaller.</p>
+<div id="query-s-treatment-representation-by-region-and-season" class="section level3">
+<h3>Query S: treatment representation by region and season</h3>
+<pre class="sql"><code>SELECT
+    fm.region,
+    h.season_year,
+    t.treatment_name,
+    COUNT(*) AS n_field_seasons
+FROM harvests h
+JOIN fields f
+    ON h.field_id = f.field_id
+JOIN farms fm
+    ON f.farm_id = fm.farm_id
+JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+GROUP BY fm.region, h.season_year, t.treatment_name
+ORDER BY fm.region, h.season_year, t.treatment_name;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>We count how often each treatment appears in each region-season.</li>
+<li>This is not a yield summary; it is a design summary.</li>
+<li>If counts are highly unbalanced, interpret treatment means with caution.</li>
+</ol>
+<p>Expected result (illustrative):</p>
+<table>
+<thead>
+<tr class="header">
+<th>region</th>
+<th align="right">season_year</th>
+<th>treatment_name</th>
+<th align="right">n_field_seasons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Central</td>
+<td align="right">2024</td>
+<td>Control</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td>Central</td>
+<td align="right">2024</td>
+<td>Nitrogen_Low</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Central</td>
+<td align="right">2024</td>
+<td>Nitrogen_Medium</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>North</td>
+<td align="right">2025</td>
+<td>Control</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td>North</td>
+<td align="right">2025</td>
+<td>Nitrogen_High</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="query-t-area-weighted-average-yield-by-treatment" class="section level3">
+<h3>Query T: area-weighted average yield by treatment</h3>
+<pre class="sql"><code>SELECT
+    t.treatment_name,
+    ROUND(
+      SUM(h.yield_t_ha * f.area_ha) / NULLIF(SUM(f.area_ha), 0),
+      2
+    ) AS area_weighted_mean_yield_t_ha
+FROM harvests h
+JOIN fields f
+    ON h.field_id = f.field_id
+JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+GROUP BY t.treatment_name
+ORDER BY area_weighted_mean_yield_t_ha DESC;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Multiply each yield by field area (<code>yield * area</code>).</li>
+<li>Divide by total area for that treatment.</li>
+<li>This gives an area-weighted mean, which can be more realistic for farm-level decisions.</li>
+</ol>
+<p>Discussion:</p>
+<ul>
+<li>Unweighted means treat each field equally.</li>
+<li>Weighted means give more influence to larger fields.</li>
+<li>Neither is always “right”; the right choice depends on your decision question.</li>
+<li>If you are making logistics or tonnage decisions, weighted summaries are often more relevant.</li>
+</ul>
+</div>
+</div>
+<div id="data-manipulation-essentials-beginners-should-know" class="section level2">
+<h2>6.12 Data manipulation essentials beginners should know</h2>
+<p>So far we used SQL mostly to read and summarize data. In real projects, you will also need to correct, append, and safely maintain tables.</p>
+<p>These commands are the most useful next step after <code>SELECT</code>, <code>JOIN</code>, and <code>GROUP BY</code>.</p>
+<div id="query-u-update-to-correct-values" class="section level3">
+<h3>Query U: <code>UPDATE</code> to correct values</h3>
+<pre class="sql"><code>UPDATE harvests
+SET yield_t_ha = 6.95
+WHERE harvest_id = 11;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>UPDATE harvests</code>: target table to modify.</li>
+<li><code>SET yield_t_ha = 6.95</code>: new value.</li>
+<li><code>WHERE harvest_id = 11</code>: only this row.</li>
+</ol>
+<p>Important warning:</p>
+<ul>
+<li>Never run <code>UPDATE</code> without <code>WHERE</code> unless you truly want to modify all rows.</li>
+</ul>
+</div>
+<div id="query-v-delete-to-remove-wrong-rows" class="section level3">
+<h3>Query V: <code>DELETE</code> to remove wrong rows</h3>
+<pre class="sql"><code>DELETE FROM harvests
+WHERE harvest_id = 999;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>DELETE FROM</code>: remove rows from table.</li>
+<li><code>WHERE ...</code>: define exactly which rows to remove.</li>
+</ol>
+<p>Important warning:</p>
+<ul>
+<li>Always run the matching <code>SELECT</code> first to verify which rows will be deleted.</li>
+</ul>
+</div>
+<div id="query-w-insert-...-select-to-load-transformed-data" class="section level3">
+<h3>Query W: <code>INSERT ... SELECT</code> to load transformed data</h3>
+<pre class="sql"><code>INSERT INTO weather_daily (farm_id, day, rainfall_mm, tmean_c)
+SELECT
+    farm_id,
+    day,
+    rainfall_mm,
+    tmean_c
+FROM weather_daily_staging;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Target columns are listed explicitly.</li>
+<li>Source rows come from another table or query.</li>
+<li>This is very common in ETL pipelines.</li>
+</ol>
+</div>
+<div id="query-x-upsert-in-postgresql-insert-...-on-conflict" class="section level3">
+<h3>Query X: upsert in PostgreSQL (<code>INSERT ... ON CONFLICT</code>)</h3>
+<pre class="sql"><code>INSERT INTO treatments (treatment_id, treatment_name, fertilizer_kg_ha)
+VALUES (4, &#39;Nitrogen_High&#39;, 180)
+ON CONFLICT (treatment_id)
+DO UPDATE SET
+    treatment_name = EXCLUDED.treatment_name,
+    fertilizer_kg_ha = EXCLUDED.fertilizer_kg_ha;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Try to insert a row.</li>
+<li>If key already exists (<code>treatment_id</code>), update instead.</li>
+<li>Useful when syncing reference tables.</li>
+</ol>
+<p>PostgreSQL vs Oracle note:</p>
+<ul>
+<li>PostgreSQL commonly uses <code>ON CONFLICT</code>.</li>
+<li>Oracle workflows often use <code>MERGE</code> for similar behavior.</li>
+</ul>
+</div>
+<div id="query-y-case-when-for-recoding-inside-queries" class="section level3">
+<h3>Query Y: <code>CASE WHEN</code> for recoding inside queries</h3>
+<pre class="sql"><code>SELECT
+    field_id,
+    field_name,
+    area_ha,
+    CASE
+        WHEN area_ha &gt;= 12 THEN &#39;large_field&#39;
+        WHEN area_ha &gt;= 10 THEN &#39;medium_field&#39;
+        ELSE &#39;small_field&#39;
+    END AS field_size_class
+FROM fields;</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li><code>CASE</code> creates a derived category.</li>
+<li>Conditions are evaluated from top to bottom.</li>
+<li>Very useful for reporting and rule-based labels.</li>
+</ol>
+</div>
+<div id="query-z-not-exists-for-missing-link-checks" class="section level3">
+<h3>Query Z: <code>NOT EXISTS</code> for missing-link checks</h3>
+<pre class="sql"><code>SELECT
+    f.field_id,
+    f.field_name
+FROM fields f
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM harvests h
+    WHERE h.field_id = f.field_id
+);</code></pre>
+<p>Line-by-line:</p>
+<ol style="list-style-type: decimal">
+<li>Start from all fields.</li>
+<li>Keep only fields with no matching harvest rows.</li>
+<li>This is one of the best QA patterns for relational data.</li>
+</ol>
+</div>
+<div id="safe-workflow-transactions-for-batch-edits" class="section level3">
+<h3>Safe workflow: transactions for batch edits</h3>
+<pre class="sql"><code>BEGIN;
+
+UPDATE harvests
+SET yield_t_ha = yield_t_ha + 0.10
+WHERE season_year = 2025
+  AND field_id IN (1, 2);
+
+-- Check your result before finalizing:
+SELECT *
+FROM harvests
+WHERE season_year = 2025
+  AND field_id IN (1, 2);
+
+-- If correct:
+COMMIT;
+
+-- If not correct:
+-- ROLLBACK;</code></pre>
+<p>Practical habit:</p>
+<ul>
+<li>For any non-trivial <code>UPDATE</code> or <code>DELETE</code>, use a transaction.</li>
+<li>It gives you a safety net while learning and in production.</li>
+</ul>
 </div>
 </div>
 </div>

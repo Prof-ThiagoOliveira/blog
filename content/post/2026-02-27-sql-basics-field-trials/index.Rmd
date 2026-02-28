@@ -1,7 +1,7 @@
 ---
 title: "SQL for beginners - an example in field-trial"
 author: Thiago de Paula Oliveira
-date: '2026-02-26'
+date:  "`r format(Sys.Date(), '%B %d, %Y')`"
 slug: sql-for-complete-beginners-field-trials
 categories:
   - SQL
@@ -17,7 +17,7 @@ subtitle: 'A beginner-friendly SQL tutorial using realistic farm trial data, wit
 summary: 'As a statistician, I teach SQL from zero using a realistic agriculture dataset: tables, keys, joins, summaries, quality checks, and a mini treatment-effect analysis.'
 authors:
   - admin
-lastmod: '2026-02-26T10:00:00Z'
+lastmod: "`r format(as.POSIXct(Sys.time(), tz = 'UTC'), '%Y-%m-%dT%H:%M:%SZ')`"
 featured: no
 image:
   caption: ''
@@ -34,7 +34,7 @@ output:
 
 As a statistician working with agriculture and breeding data, I can tell you that SQL is one of the most useful skills you can learn if you work with yield, field trials, weather, soil, or farm performance.
 
-If spreadsheets are your current home, think of SQL as the next level for at least two main reasons
+If spreadsheets are your current home, think of SQL as the next level for at least two main reasons:
 
 - A spreadsheet is great for a few tabs and a few thousand rows.
 - SQL databases are better when data grows, when multiple people use the same data, and when you need repeatable analysis.
@@ -48,7 +48,9 @@ In agriculture, this happens quickly. Examples:
 Without SQL, people copy-paste and make accidental mistakes.
 With SQL, you ask clear questions and get reproducible answers.
 
-A few real questions SQL helps you answer would be
+Another reason this matters in field-trial work is that your SQL query becomes a transparent analysis recipe. If someone asks "how did you compute that treatment average?", you can show the exact logic instead of manually reconstructing spreadsheet steps.
+
+A few real questions SQL helps you answer are:
 
 - Which treatment had the best average yield in 2025?
 - Did the response differ by region?
@@ -73,6 +75,165 @@ This structure is very common in production analytics, and can be seen as
 
 - "Entity" tables (farm, field, treatment) describe the system.
 - "Event" tables (harvest, daily weather) store repeated observations over time.
+
+Note that this structure is not only "database theory". It directly affects analysis quality because
+
+- if farm/field metadata are separated cleanly from events, joins are simpler and less error-prone.
+- if everything is in one giant table, duplicates and inconsistent updates become much more likely.
+- good schema design is one of the easiest ways to reduce analysis mistakes before they happen.
+
+## 2.1) How to design an SQL schema (using this farm example)
+
+If you are just starting, schema design may feel abstract. A practical way to think is to answer these questions first:
+
+1. What decisions/questions do I need to answer?
+2. What "things" exist in my system?
+3. What events happen over time?
+4. What should be unique, and what should be linked?
+
+In this farm trial example, we separate entities from events and focus on treatment response, missing records, and weather context.
+
+![](schema-design-mind-map.svg)
+
+*Figure. Schema design mind map for this tutorial. Blue labels indicate the variables that link tables.*
+
+### How each table looks (and how they connect)
+
+`farms` (parent table)
+
+| farm_id | farm_name         | region  |
+|---:|-------------------|---------|
+| 1 | Green Valley Farm | North   |
+| 2 | Riverbend Farm    | Central |
+| 3 | Sunrise Farm      | South   |
+
+`fields` (each field belongs to a farm through `farm_id`)
+
+| field_id | farm_id | field_name  | area_ha | soil_type  |
+|---:|---:|-----------|---:|------------|
+| 1 | 1 | North-01   | 12.50 | clay_loam  |
+| 3 | 2 | Central-01 | 15.20 | silt_loam  |
+| 5 | 3 | South-01   | 14.10 | sandy      |
+
+`treatments` (reference table for treatment definitions)
+
+| treatment_id | treatment_name  | fertilizer_kg_ha |
+|---:|-----------------|---:|
+| 1 | Control         | 0   |
+| 2 | Nitrogen_Low    | 60  |
+| 3 | Nitrogen_Medium | 120 |
+
+`harvests` (event table linking `field_id` + `treatment_id`)
+
+| harvest_id | field_id | treatment_id | season_year | yield_t_ha |
+|---:|---:|---:|---:|---:|
+| 1  | 1 | 1 | 2024 | 6.20 |
+| 10 | 3 | 2 | 2024 | 7.60 |
+| 12 | 3 | 3 | 2025 | 7.90 |
+
+`weather_daily` (event table linked to farms by `farm_id`)
+
+| weather_id | farm_id | day        | rainfall_mm | tmean_c |
+|---:|---:|------------|---:|---:|
+| 1  | 1 | 2024-06-01 | 12.4 | 18.5 |
+| 7  | 2 | 2024-06-01 | 8.1  | 20.0 |
+| 10 | 2 | 2025-06-01 | 10.5 | 19.4 |
+
+Link summary:
+
+- `fields.farm_id -> farms.farm_id`
+- `harvests.field_id -> fields.field_id`
+- `harvests.treatment_id -> treatments.treatment_id`
+- `weather_daily.farm_id -> farms.farm_id`
+
+The core idea is that `harvests` connects agronomic outcomes to both location (`fields`/`farms`) and treatment (`treatments`), while `weather_daily` connects environmental context to the same farms.
+
+Now let's describe step-by-step.
+
+### Step A: define table grain first
+
+`Grain` means "what one row represents".
+
+- Entity tables (`farms`, `fields`, `treatments`): one row per entity.
+- Event tables (`harvests`, `weather_daily`): one row per time-based observation.
+
+If grain is unclear, everything after that gets messy (duplicates, wrong joins, wrong counts).
+
+### Step B: choose primary keys and foreign keys
+
+Use the same linking variables shown above and enforce them with primary keys (IDs in parent tables) and foreign keys (matching IDs in child/event tables).
+
+This gives you safe joins and enforces referential integrity.
+
+### Step C: define business uniqueness with constraints
+
+Primary keys identify rows technically, but you also need domain-level uniqueness.
+
+Examples for this project:
+
+- in `harvests`, you usually expect one row per `field_id + treatment_id + season_year`.
+- in `weather_daily`, you usually expect one row per `farm_id + day`.
+
+That can be enforced with unique constraints:
+
+```sql
+ALTER TABLE harvests
+ADD CONSTRAINT uq_harvest_field_treat_year
+UNIQUE (field_id, treatment_id, season_year);
+
+ALTER TABLE weather_daily
+ADD CONSTRAINT uq_weather_farm_day
+UNIQUE (farm_id, day);
+```
+
+This protects your analysis from duplicate event records.
+
+### Step D: pick data types and validation rules
+
+Use types and constraints to prevent bad data early.
+
+- `DATE` for dates (`harvest_date`, `day`).
+- numeric types for quantities (`yield_t_ha`, `rainfall_mm`, `area_ha`).
+- `NOT NULL` for required fields.
+- `CHECK` for physical logic (for example non-negative yield).
+
+Your schema is the first quality-control layer.
+
+### Step E: separate raw ingestion from clean analytics
+
+A practical production pattern:
+
+1. Load external files into staging tables.
+2. Validate and standardize.
+3. Insert into core relational tables (`farms`, `fields`, `harvests`, `weather_daily`).
+4. Build analysis views/CTEs from the clean core.
+
+This keeps raw import problems away from final reporting.
+
+### Step F: design for change
+
+Field-trial data evolves. Plan for that.
+
+A practical habit is to sketch the schema on a piece of paper first. Writing it by hand is often the best way to think through table grain and links before coding.
+
+![](schema-extension-sketch.svg)
+
+*Figure. Extension-ready schema sketch with added event tables (for example `pest_scouting` and `soil_tests`).*
+
+- new treatment levels can be added without redesigning harvest table.
+- new farms/fields can be inserted without touching historical records.
+- additional event tables (for example pest scouting, soil tests) can be linked by keys.
+
+Good schema design makes future extension easier and safer.
+
+### Mini design checklist (farm trial version)
+
+- Is each table grain explicit?
+- Are primary and foreign keys defined?
+- Are business-level uniqueness constraints present?
+- Are required columns `NOT NULL` where appropriate?
+- Are sanity checks (`CHECK`) defined for critical numeric values?
+- Can you answer your main trial questions with straightforward joins?
 
 # 3) What is a table, row, column? What is a key?
 
@@ -112,7 +273,7 @@ A foreign key links one table to another.
 - Example: `fields.farm_id` points to `farms.farm_id`.
 - It enforces consistency: every field must belong to a real farm.
 
-A possible analogy would be when we are filing cabinets.
+A possible analogy is to think about filing cabinets.
 
 - Primary key = unique folder number inside one cabinet.
 - Foreign key = reference to a folder in another cabinet.
@@ -362,7 +523,7 @@ Expected result (illustrative):
 | 3 | Central-01 | 15.20 |
 | 5 | South-01   | 14.10 |
 
-### Query D: text + date + AND
+### Query D: year + date + AND
 
 ```sql
 SELECT harvest_id, field_id, season_year, yield_t_ha, harvest_date
@@ -481,6 +642,13 @@ Expected result (illustrative):
 | Nitrogen_Medium | 6  | 6.83 | 40.99 |
 | Nitrogen_Low    | 6  | 6.33 | 37.90 |
 | Control         | 10 | 5.87 | 58.70 |
+
+Interesting interpretation note:
+
+- Do not rank treatments using only `avg_yield_t_ha`.
+- Also check `n_harvests` because very small sample sizes can look "best" by chance.
+- In this toy dataset, `Nitrogen_High` has high mean but only 2 rows, so uncertainty is larger.
+- In real programs, always inspect balance before drawing conclusions.
 
 ### Query H: HAVING after GROUP BY
 
@@ -874,6 +1042,12 @@ Simple strategy would be
 - Compare non-control treatments against that same field-season control.
 - Then average gains by treatment and region.
 
+Why this question is interesting in real field trials:
+
+- Raw treatment means mix treatment effect with site/season differences.
+- Field-season control subtraction is a simple way to reduce that bias.
+- It still does not fully solve confounding, but it is already a stronger comparison than global raw means.
+
 This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQL's main objective. SQL is mainly designed to:
 
 - store and organize structured data safely,
@@ -945,7 +1119,7 @@ analysis_df <- dbGetQuery(con, sql_query)
 dbDisconnect(con)
 ```
 
-This split keeps your workflow robust, where SQL for data engineering, `R` for statistical depth.
+This split keeps your workflow robust since we use **SQL for data engineering**, `R` **for statistical depth**.
 
 ### Query R: field-season control-adjusted gains
 
@@ -1013,12 +1187,231 @@ Expected result (illustrative):
 | South   | Nitrogen_Low    | 2 | 0.65 | 0.60 | 0.70 |
 | Central | Nitrogen_Low    | 2 | 0.45 | 0.40 | 0.50 |
 
-Interpretation in plain language:
+Interpretation would be 
 
-- In this sample, higher fertilizer rates show larger gains, especially in the North.
-- But this is still observational comparison inside a simple dataset.
+- in this sample, higher fertilizer rates show larger gains, especially in the North.
+- this is still observational comparison inside a simple dataset.
 
 Note that **confounding** means other factors may influence both treatment assignment and yield (for example soil class, rainfall timing, pest pressure, planting date). Even with field-season control subtraction, we are not proving causality.
+
+## 6.11 A practical interpretation check beginners often skip
+
+Before deciding that "Treatment X is better", check balance across regions and years. If one treatment appears mostly in stronger environments, it can look better even when its true effect is smaller.
+
+### Query S: treatment representation by region and season
+
+```sql
+SELECT
+    fm.region,
+    h.season_year,
+    t.treatment_name,
+    COUNT(*) AS n_field_seasons
+FROM harvests h
+JOIN fields f
+    ON h.field_id = f.field_id
+JOIN farms fm
+    ON f.farm_id = fm.farm_id
+JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+GROUP BY fm.region, h.season_year, t.treatment_name
+ORDER BY fm.region, h.season_year, t.treatment_name;
+```
+
+Line-by-line:
+
+1. We count how often each treatment appears in each region-season.
+2. This is not a yield summary; it is a design summary.
+3. If counts are highly unbalanced, interpret treatment means with caution.
+
+Expected result (illustrative):
+
+| region  | season_year | treatment_name  | n_field_seasons |
+|---------|---:|-----------------|---:|
+| Central | 2024 | Control         | 2 |
+| Central | 2024 | Nitrogen_Low    | 1 |
+| Central | 2024 | Nitrogen_Medium | 1 |
+| North   | 2025 | Control         | 2 |
+| North   | 2025 | Nitrogen_High   | 2 |
+
+### Query T: area-weighted average yield by treatment
+
+```sql
+SELECT
+    t.treatment_name,
+    ROUND(
+      SUM(h.yield_t_ha * f.area_ha) / NULLIF(SUM(f.area_ha), 0),
+      2
+    ) AS area_weighted_mean_yield_t_ha
+FROM harvests h
+JOIN fields f
+    ON h.field_id = f.field_id
+JOIN treatments t
+    ON h.treatment_id = t.treatment_id
+GROUP BY t.treatment_name
+ORDER BY area_weighted_mean_yield_t_ha DESC;
+```
+
+Line-by-line:
+
+1. Multiply each yield by field area (`yield * area`).
+2. Divide by total area for that treatment.
+3. This gives an area-weighted mean, which can be more realistic for farm-level decisions.
+
+Discussion:
+
+- Unweighted means treat each field equally.
+- Weighted means give more influence to larger fields.
+- Neither is always "right"; the right choice depends on your decision question.
+- If you are making logistics or tonnage decisions, weighted summaries are often more relevant.
+
+## 6.12 Data manipulation essentials beginners should know
+
+So far we used SQL mostly to read and summarize data. In real projects, you will also need to correct, append, and safely maintain tables.
+
+These commands are the most useful next step after `SELECT`, `JOIN`, and `GROUP BY`.
+
+### Query U: `UPDATE` to correct values
+
+```sql
+UPDATE harvests
+SET yield_t_ha = 6.95
+WHERE harvest_id = 11;
+```
+
+Line-by-line:
+
+1. `UPDATE harvests`: target table to modify.
+2. `SET yield_t_ha = 6.95`: new value.
+3. `WHERE harvest_id = 11`: only this row.
+
+Important warning:
+
+- Never run `UPDATE` without `WHERE` unless you truly want to modify all rows.
+
+### Query V: `DELETE` to remove wrong rows
+
+```sql
+DELETE FROM harvests
+WHERE harvest_id = 999;
+```
+
+Line-by-line:
+
+1. `DELETE FROM`: remove rows from table.
+2. `WHERE ...`: define exactly which rows to remove.
+
+Important warning:
+
+- Always run the matching `SELECT` first to verify which rows will be deleted.
+
+### Query W: `INSERT ... SELECT` to load transformed data
+
+```sql
+INSERT INTO weather_daily (farm_id, day, rainfall_mm, tmean_c)
+SELECT
+    farm_id,
+    day,
+    rainfall_mm,
+    tmean_c
+FROM weather_daily_staging;
+```
+
+Line-by-line:
+
+1. Target columns are listed explicitly.
+2. Source rows come from another table or query.
+3. This is very common in ETL pipelines.
+
+### Query X: upsert in PostgreSQL (`INSERT ... ON CONFLICT`)
+
+```sql
+INSERT INTO treatments (treatment_id, treatment_name, fertilizer_kg_ha)
+VALUES (4, 'Nitrogen_High', 180)
+ON CONFLICT (treatment_id)
+DO UPDATE SET
+    treatment_name = EXCLUDED.treatment_name,
+    fertilizer_kg_ha = EXCLUDED.fertilizer_kg_ha;
+```
+
+Line-by-line:
+
+1. Try to insert a row.
+2. If key already exists (`treatment_id`), update instead.
+3. Useful when syncing reference tables.
+
+PostgreSQL vs Oracle note:
+
+- PostgreSQL commonly uses `ON CONFLICT`.
+- Oracle workflows often use `MERGE` for similar behavior.
+
+### Query Y: `CASE WHEN` for recoding inside queries
+
+```sql
+SELECT
+    field_id,
+    field_name,
+    area_ha,
+    CASE
+        WHEN area_ha >= 12 THEN 'large_field'
+        WHEN area_ha >= 10 THEN 'medium_field'
+        ELSE 'small_field'
+    END AS field_size_class
+FROM fields;
+```
+
+Line-by-line:
+
+1. `CASE` creates a derived category.
+2. Conditions are evaluated from top to bottom.
+3. Very useful for reporting and rule-based labels.
+
+### Query Z: `NOT EXISTS` for missing-link checks
+
+```sql
+SELECT
+    f.field_id,
+    f.field_name
+FROM fields f
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM harvests h
+    WHERE h.field_id = f.field_id
+);
+```
+
+Line-by-line:
+
+1. Start from all fields.
+2. Keep only fields with no matching harvest rows.
+3. This is one of the best QA patterns for relational data.
+
+### Safe workflow: transactions for batch edits
+
+```sql
+BEGIN;
+
+UPDATE harvests
+SET yield_t_ha = yield_t_ha + 0.10
+WHERE season_year = 2025
+  AND field_id IN (1, 2);
+
+-- Check your result before finalizing:
+SELECT *
+FROM harvests
+WHERE season_year = 2025
+  AND field_id IN (1, 2);
+
+-- If correct:
+COMMIT;
+
+-- If not correct:
+-- ROLLBACK;
+```
+
+Practical habit:
+
+- For any non-trivial `UPDATE` or `DELETE`, use a transaction.
+- It gives you a safety net while learning and in production.
 
 # 7) Quick recap of common mistakes
 

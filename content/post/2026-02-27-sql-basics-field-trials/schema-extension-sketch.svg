@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 700" role="img" aria-labelledby="title desc">
+  <title id="title">Extension-ready farm trial schema sketch</title>
+  <desc id="desc">Core farm trial tables with future extension tables such as pest scouting and soil tests.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#eef7f1"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#455b7b"/>
+    </marker>
+    <style>
+      .title { font: 700 40px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1b2d4a; }
+      .subtitle { font: 500 22px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2f466f; }
+      .box-title { font: 700 25px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #13294b; }
+      .txt { font: 500 19px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #284062; }
+      .pkfk { font: 700 18px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #0a67d8; }
+      .core { fill: #dceeff; stroke: #2f73b8; stroke-width: 3; rx: 16; }
+      .event { fill: #ffe7e7; stroke: #bf4d4d; stroke-width: 3; rx: 16; }
+      .new { fill: #fff4dc; stroke: #c7861f; stroke-width: 3; stroke-dasharray: 10 8; rx: 16; }
+      .line { fill: none; stroke: #455b7b; stroke-width: 3; marker-end: url(#arrow); }
+      .line-new { fill: none; stroke: #9a6a1d; stroke-width: 3; stroke-dasharray: 7 6; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="700" fill="url(#bg)"/>
+  <text x="900" y="62" text-anchor="middle" class="title">Step F - Design For Change</text>
+  <text x="900" y="97" text-anchor="middle" class="subtitle">Keep core tables stable and add new event tables through keys</text>
+
+  <rect x="120" y="170" width="300" height="140" class="core"/>
+  <text x="270" y="215" text-anchor="middle" class="box-title">farms</text>
+  <text x="145" y="250" class="pkfk">PK farm_id</text>
+  <text x="145" y="278" class="txt">farm_name, region</text>
+
+  <rect x="500" y="170" width="320" height="160" class="core"/>
+  <text x="660" y="215" text-anchor="middle" class="box-title">fields</text>
+  <text x="525" y="250" class="pkfk">PK field_id</text>
+  <text x="525" y="278" class="pkfk">FK farm_id -&gt; farms</text>
+  <text x="525" y="306" class="txt">field_name, area_ha</text>
+
+  <rect x="900" y="170" width="330" height="140" class="core"/>
+  <text x="1065" y="215" text-anchor="middle" class="box-title">treatments</text>
+  <text x="925" y="250" class="pkfk">PK treatment_id</text>
+  <text x="925" y="278" class="txt">treatment_name, rate</text>
+
+  <rect x="500" y="400" width="360" height="180" class="event"/>
+  <text x="680" y="445" text-anchor="middle" class="box-title">harvests</text>
+  <text x="525" y="480" class="pkfk">FK field_id -&gt; fields</text>
+  <text x="525" y="508" class="pkfk">FK treatment_id -&gt; treatments</text>
+  <text x="525" y="536" class="txt">season_year, yield_t_ha</text>
+
+  <rect x="120" y="400" width="300" height="160" class="event"/>
+  <text x="270" y="445" text-anchor="middle" class="box-title">weather_daily</text>
+  <text x="145" y="480" class="pkfk">FK farm_id -&gt; farms</text>
+  <text x="145" y="508" class="txt">day, rainfall_mm</text>
+  <text x="145" y="536" class="txt">tmean_c</text>
+
+  <rect x="1010" y="420" width="340" height="170" class="new"/>
+  <text x="1180" y="465" text-anchor="middle" class="box-title">pest_scouting (new)</text>
+  <text x="1035" y="500" class="pkfk">FK field_id -&gt; fields</text>
+  <text x="1035" y="528" class="txt">day, pest_score</text>
+  <text x="1035" y="556" class="txt">notes</text>
+
+  <rect x="1390" y="420" width="300" height="170" class="new"/>
+  <text x="1540" y="465" text-anchor="middle" class="box-title">soil_tests (new)</text>
+  <text x="1415" y="500" class="pkfk">FK field_id -&gt; fields</text>
+  <text x="1415" y="528" class="txt">sample_day, pH</text>
+  <text x="1415" y="556" class="txt">organic_matter</text>
+
+
+  <path d="M 420 240 L 500 240" class="line"/>
+  <path d="M 1065 310 L 860 430" class="line"/>
+  <path d="M 660 330 L 680 400" class="line"/>
+  <path d="M 270 310 L 270 400" class="line"/>
+
+  <path d="M 820 250 L 1010 250 L 1010 420" class="line-new"/>
+  <path d="M 820 250 L 1390 250 L 1390 420" class="line-new"/>
+  <text x="900" y="654" text-anchor="middle" class="subtitle">Sketching this on paper first helps you think through relationships before coding.</text>
+</svg>
