@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Grain and uniqueness cheatsheet</title>
+  <desc id="desc">Three boxes showing row grain and matching unique constraints for trial_plots, harvests, and weather_daily.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef7f1"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 38px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1b2d4a; }
+      .box { fill: #ffffff; stroke: #5e7ea9; stroke-width: 2.6; rx: 14; }
+      .head { font: 700 26px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1f3659; }
+      .line1 { font: 600 20px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2a446c; }
+      .line2 { font: 600 20px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #0a67d8; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1800" height="520" fill="url(#bg)"/>
+  <text x="900" y="62" text-anchor="middle" class="title">Table Grain and Uniqueness Cheatsheet</text>
+
+  <rect x="70" y="110" width="520" height="340" class="box"/>
+  <text x="330" y="160" text-anchor="middle" class="head">trial_plots</text>
+  <text x="100" y="225" class="line1">Grain one row per</text>
+  <text x="100" y="260" class="line1">field × treatment × season × replicate</text>
+  <text x="100" y="335" class="line2">Uniqueness UNIQUE(field_id, treatment_id,</text>
+  <text x="100" y="370" class="line2">season_year, replicate_no)</text>
+
+  <rect x="640" y="110" width="520" height="340" class="box"/>
+  <text x="900" y="160" text-anchor="middle" class="head">harvests</text>
+  <text x="670" y="225" class="line1">Grain one row per plot</text>
+  <text x="670" y="335" class="line2">Uniqueness UNIQUE(plot_id)</text>
+
+  <rect x="1210" y="110" width="520" height="340" class="box"/>
+  <text x="1470" y="160" text-anchor="middle" class="head">weather_daily</text>
+  <text x="1240" y="225" class="line1">Grain one row per farm × day</text>
+  <text x="1240" y="335" class="line2">Uniqueness UNIQUE(farm_id, day)</text>
+</svg>

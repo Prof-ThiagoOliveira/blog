@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1600 520"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="join-row-explosion.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.17375"
+     inkscape:cx="800"
+     inkscape:cy="260.27689"
+     inkscape:window-width="2400"
+     inkscape:window-height="1261"
+     inkscape:window-x="2391"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg18" />
+  <title
+     id="title">Join row explosion visual</title>
+  <desc
+     id="desc">Many-to-many join example where 2 rows on one side and 3 rows on the other side produce 6 rows after join.</desc>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="bg"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="100%">
+      <stop
+         offset="0%"
+         stop-color="#f8fbff"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#f1f9ef"
+         id="stop2" />
+    </linearGradient>
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto">
+      <path
+         d="M 0 0 L 10 5 L 0 10 z"
+         fill="#425d83"
+         id="path2" />
+    </marker>
+    <style
+       id="style2">&#10;      .title { font: 700 36px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1b2d4a; }&#10;      .box { fill: #ffffff; stroke: #5e7ea9; stroke-width: 2.4; rx: 12; }&#10;      .head { font: 700 24px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1f3659; }&#10;      .txt { font: 600 18px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2a446c; }&#10;      .note { font: 600 20px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #0b67d9; }&#10;      .line { fill: none; stroke: #425d83; stroke-width: 2.8; marker-end: url(#arrow); }&#10;      .rowA { fill: #eaf2ff; stroke: #6f90bc; stroke-width: 1.4; }&#10;      .rowB { fill: #ffe8e8; stroke: #c27979; stroke-width: 1.4; }&#10;      .rowOut { fill: #e4f7e7; stroke: #50996a; stroke-width: 1.4; }&#10;    </style>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="1600"
+     height="520"
+     fill="url(#bg)"
+     id="rect2" />
+  <text
+     x="800"
+     y="58"
+     text-anchor="middle"
+     class="title"
+     id="text2">Join Row Explosion (Many × Many)</text>
+  <rect
+     x="70"
+     y="110"
+     width="380"
+     height="280"
+     class="box"
+     id="rect3" />
+  <text
+     x="260"
+     y="154"
+     text-anchor="middle"
+     class="head"
+     id="text3">Left table (many)</text>
+  <text
+     x="260"
+     y="182"
+     text-anchor="middle"
+     class="txt"
+     id="text4">key A has 2 rows</text>
+  <rect
+     x="110"
+     y="210"
+     width="300"
+     height="45"
+     class="rowA"
+     id="rect4" />
+  <text
+     x="260"
+     y="239"
+     text-anchor="middle"
+     class="txt"
+     id="text5">A, weather_day_1</text>
+  <rect
+     x="110"
+     y="268"
+     width="300"
+     height="45"
+     class="rowA"
+     id="rect5" />
+  <text
+     x="260"
+     y="297"
+     text-anchor="middle"
+     class="txt"
+     id="text6">A, weather_day_2</text>
+  <rect
+     x="520"
+     y="110"
+     width="380"
+     height="280"
+     class="box"
+     id="rect6" />
+  <text
+     x="710"
+     y="154"
+     text-anchor="middle"
+     class="head"
+     id="text7">Right table (many)</text>
+  <text
+     x="710"
+     y="182"
+     text-anchor="middle"
+     class="txt"
+     id="text8">key A has 3 rows</text>
+  <rect
+     x="560"
+     y="210"
+     width="300"
+     height="40"
+     class="rowB"
+     id="rect8" />
+  <text
+     x="710"
+     y="236"
+     text-anchor="middle"
+     class="txt"
+     id="text9">A, harvest_1</text>
+  <rect
+     x="560"
+     y="258"
+     width="300"
+     height="40"
+     class="rowB"
+     id="rect9" />
+  <text
+     x="710"
+     y="284"
+     text-anchor="middle"
+     class="txt"
+     id="text10">A, harvest_2</text>
+  <rect
+     x="560"
+     y="306"
+     width="300"
+     height="40"
+     class="rowB"
+     id="rect10" />
+  <text
+     x="710"
+     y="332"
+     text-anchor="middle"
+     class="txt"
+     id="text11">A, harvest_3</text>
+  <rect
+     x="980"
+     y="90"
+     width="540"
+     height="320"
+     class="box"
+     id="rect11" />
+  <text
+     x="1250"
+     y="134"
+     text-anchor="middle"
+     class="head"
+     id="text12">Join output (many × many)</text>
+  <text
+     x="1250"
+     y="162"
+     text-anchor="middle"
+     class="txt"
+     id="text13">2 × 3 = 6 rows for key A</text>
+  <rect
+     x="1020"
+     y="188"
+     width="460"
+     height="32"
+     class="rowOut"
+     id="rect13" />
+  <rect
+     x="1020"
+     y="226"
+     width="460"
+     height="32"
+     class="rowOut"
+     id="rect14" />
+  <rect
+     x="1020"
+     y="264"
+     width="460"
+     height="32"
+     class="rowOut"
+     id="rect15" />
+  <rect
+     x="1020"
+     y="302"
+     width="460"
+     height="32"
+     class="rowOut"
+     id="rect16" />
+  <rect
+     x="1020"
+     y="340"
+     width="460"
+     height="32"
+     class="rowOut"
+     id="rect17" />
+  <text
+     x="1250"
+     y="395"
+     text-anchor="middle"
+     class="txt"
+     id="text17"
+     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:18px;line-height:normal;font-family:'Segoe UI', Tahoma, Arial, sans-serif">(plus one more row)</text>
+  <path
+     d="M 450 250 L 520 250"
+     class="line"
+     id="path17" />
+  <path
+     d="M 900 250 L 980 250"
+     class="line"
+     id="path18" />
+  <text
+     x="800"
+     y="470"
+     text-anchor="middle"
+     class="note"
+     id="text18">Fix aggregate to matching grain before join</text>
+</svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 360" role="img" aria-labelledby="title desc">
   <title id="title">SQL query flow showing WHERE versus HAVING</title>
-  <desc id="desc">Pipeline diagram for SQL order: FROM JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY.</desc>
+  <desc id="desc">Pipeline diagram for SQL order FROM JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY.</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f6fbff"/>
@@ -21,7 +21,7 @@
   </defs>
 
   <rect x="0" y="0" width="1500" height="360" fill="url(#bg)"/>
-  <text x="750" y="44" text-anchor="middle" class="title">SQL Execution Flow: WHERE vs HAVING</text>
+  <text x="750" y="44" text-anchor="middle" class="title">SQL Logical Execution Flow WHERE vs HAVING</text>
 
   <rect x="40" y="120" width="200" height="80" class="box"/>
   <text x="140" y="165" text-anchor="middle" class="txt">FROM / JOIN</text>

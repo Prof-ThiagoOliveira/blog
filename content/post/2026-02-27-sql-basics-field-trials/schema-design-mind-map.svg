@@ -1,117 +1,488 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 1400" role="img" aria-labelledby="title desc">
-  <title id="title">Mind map of farm trial SQL schema design</title>
-  <desc id="desc">A mind map showing table groups, keys, relationships, and integrity rules for a farm trial SQL schema.</desc>
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f6fbf9"/>
-      <stop offset="100%" stop-color="#eef5ff"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 2200 1400"
+   role="img"
+   aria-labelledby="title desc"
+   version="1.1"
+   id="svg58"
+   sodipodi:docname="schema-design-mind-map.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview58"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.71785714"
+     inkscape:cx="1100.4975"
+     inkscape:cy="588.55722"
+     inkscape:window-width="2400"
+     inkscape:window-height="1261"
+     inkscape:window-x="2391"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg58" />
+  <title
+     id="title">Mind map of farm trial SQL schema design</title>
+  <desc
+     id="desc">A mind map showing table groups, keys, relationships, and integrity rules for a farm trial SQL schema.</desc>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="bgGrad"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="100%">
+      <stop
+         offset="0%"
+         stop-color="#f6fbf9"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#eef5ff"
+         id="stop2" />
     </linearGradient>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b4b6b"/>
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="9"
+       markerHeight="9"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 10 5 L 0 10 z"
+         fill="#3b4b6b"
+         id="path2" />
     </marker>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="160%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#1a2440" flood-opacity="0.14"/>
+    <filter
+       id="softShadow"
+       x="-0.0045454545"
+       y="-0.015625"
+       width="1.0090909"
+       height="1.03125">
+      <feDropShadow
+         dx="0"
+         dy="4"
+         stdDeviation="6"
+         flood-color="#1a2440"
+         flood-opacity="0.14" />
     </filter>
-    <style>
-      .title { font: 700 44px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1a2a4a; }
-      .subtitle { font: 500 23px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #31456e; }
-      .box-title { font: 700 30px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #122244; }
-      .node-title { font: 700 26px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #15284a; }
-      .text { font: 500 21px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #223357; }
-      .small { font: 500 19px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2c4068; }
-      .link-var { fill: #0a67d8; font-weight: 700; }
-      .center-box { fill: #dff4ec; stroke: #2c8f70; stroke-width: 3.5; rx: 24; }
-      .design-box { fill: #fcead1; stroke: #cc8c22; stroke-width: 3; rx: 20; }
-      .entity-box { fill: #dff0ff; stroke: #2a6eb3; stroke-width: 3; rx: 20; }
-      .event-box { fill: #ffe6e6; stroke: #bf4c4c; stroke-width: 3; rx: 20; }
-      .logic-box { fill: #ede5ff; stroke: #6b4db8; stroke-width: 3; rx: 20; }
-      .rule-box { fill: #e6f8e8; stroke: #3d9653; stroke-width: 3; rx: 20; }
-      .connector { fill: none; stroke: #3b4b6b; stroke-width: 3.4; marker-end: url(#arrow); }
-      .sub-connector { fill: none; stroke: #4a5c80; stroke-width: 2.8; marker-end: url(#arrow); }
-    </style>
+    <style
+       id="style2">&#10;      .title { font: 700 44px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #1a2a4a; }&#10;      .subtitle { font: 500 23px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #31456e; }&#10;      .box-title { font: 700 30px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #122244; }&#10;      .node-title { font: 700 26px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #15284a; }&#10;      .text { font: 500 21px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #223357; }&#10;      .small { font: 500 20px 'Segoe UI', Tahoma, Arial, sans-serif; fill: #2c4068; }&#10;      .link-var { fill: #0a67d8; font-weight: 700; }&#10;      .center-box { fill: #dff4ec; stroke: #2c8f70; stroke-width: 3.5; rx: 24; }&#10;      .design-box { fill: #fcead1; stroke: #cc8c22; stroke-width: 3; rx: 20; }&#10;      .entity-box { fill: #dff0ff; stroke: #2a6eb3; stroke-width: 3; rx: 20; }&#10;      .event-box { fill: #ffe6e6; stroke: #bf4c4c; stroke-width: 3; rx: 20; }&#10;      .logic-box { fill: #ede5ff; stroke: #6b4db8; stroke-width: 3; rx: 20; }&#10;      .rule-box { fill: #e6f8e8; stroke: #3d9653; stroke-width: 3; rx: 20; }&#10;      .connector { fill: none; stroke: #3b4b6b; stroke-width: 3.4; marker-end: url(#arrow); }&#10;      .sub-connector { fill: none; stroke: #4a5c80; stroke-width: 2.8; marker-end: url(#arrow); }&#10;    </style>
   </defs>
-
-  <rect x="0" y="0" width="2200" height="1400" fill="url(#bgGrad)"/>
-
-  <text x="1100" y="78" text-anchor="middle" class="title">Farm Trial SQL Schema - Mind Map</text>
-  <text x="1100" y="118" text-anchor="middle" class="subtitle">Schema structure for entities, events, keys, relationships, and integrity</text>
-
-  <rect x="830" y="560" width="540" height="160" class="center-box" filter="url(#softShadow)"/>
-  <text x="1100" y="630" text-anchor="middle" class="box-title">Central Schema</text>
-  <text x="1100" y="668" text-anchor="middle" class="text">farm trials core data model</text>
-
-  <rect x="810" y="200" width="580" height="180" class="design-box" filter="url(#softShadow)"/>
-  <text x="1100" y="248" text-anchor="middle" class="node-title">Design Decisions</text>
-  <text x="852" y="286" class="text">- define row grain per table</text>
-  <text x="852" y="318" class="text">- separate entities vs design/events</text>
-  <text x="852" y="350" class="text">- staging -&gt; core -&gt; analysis</text>
-
-  <rect x="165" y="360" width="500" height="96" class="entity-box" filter="url(#softShadow)"/>
-  <text x="415" y="420" text-anchor="middle" class="node-title">Entity Tables</text>
-
-  <rect x="38" y="500" width="355" height="178" class="entity-box" filter="url(#softShadow)"/>
-  <text x="216" y="546" text-anchor="middle" class="node-title">farms</text>
-  <text x="62" y="582" class="small link-var">PK farm_id</text>
-  <text x="62" y="612" class="small">farm_name</text>
-  <text x="62" y="642" class="small">region</text>
-
-  <rect x="418" y="500" width="355" height="208" class="entity-box" filter="url(#softShadow)"/>
-  <text x="596" y="546" text-anchor="middle" class="node-title">fields</text>
-  <text x="442" y="582" class="small link-var">PK field_id</text>
-  <text x="442" y="612" class="small link-var">FK farm_id -&gt; farms</text>
-  <text x="442" y="642" class="small">field_name, area_ha</text>
-  <text x="442" y="672" class="small">soil_type</text>
-
-  <rect x="220" y="748" width="375" height="178" class="entity-box" filter="url(#softShadow)"/>
-  <text x="408" y="794" text-anchor="middle" class="node-title">treatments</text>
-  <text x="246" y="830" class="small link-var">PK treatment_id</text>
-  <text x="246" y="860" class="small">treatment_name</text>
-  <text x="246" y="890" class="small">fertilizer_kg_ha</text>
-
-  <rect x="1546" y="360" width="510" height="96" class="event-box" filter="url(#softShadow)"/>
-  <text x="1801" y="420" text-anchor="middle" class="node-title">Design/Event Tables</text>
-
-  <rect x="1478" y="500" width="456" height="240" class="event-box" filter="url(#softShadow)"/>
-  <text x="1706" y="546" text-anchor="middle" class="node-title">trial_plots + harvests</text>
-  <text x="1506" y="582" class="small link-var">PK plot_id</text>
-  <text x="1506" y="612" class="small link-var">FK field_id -&gt; fields</text>
-  <text x="1506" y="642" class="small link-var">FK treatment_id -&gt; treatments</text>
-  <text x="1506" y="672" class="small">season_year, replicate_no</text>
-  <text x="1506" y="702" class="small link-var">harvests FK plot_id</text>
-  <text x="1506" y="732" class="small">yield_t_ha, harvest_date</text>
-
-  <rect x="1566" y="790" width="420" height="198" class="event-box" filter="url(#softShadow)"/>
-  <text x="1776" y="836" text-anchor="middle" class="node-title">weather_daily</text>
-  <text x="1592" y="872" class="small">PK weather_id</text>
-  <text x="1592" y="902" class="small link-var">FK farm_id -&gt; farms</text>
-  <text x="1592" y="932" class="small">day, rainfall_mm, tmean_c</text>
-
-  <rect x="116" y="1014" width="840" height="250" class="logic-box" filter="url(#softShadow)"/>
-  <text x="536" y="1062" text-anchor="middle" class="node-title">Relationship Logic</text>
-  <text x="154" y="1112" class="text">- farms 1:N fields</text>
-  <text x="154" y="1142" class="text">- farms 1:N weather_daily</text>
-  <text x="154" y="1172" class="text">- fields 1:N trial_plots</text>
-  <text x="154" y="1202" class="text">- treatments 1:N trial_plots</text>
-  <text x="154" y="1232" class="text">- trial_plots 1:1 harvests</text>
-
-  <rect x="1028" y="1014" width="1060" height="250" class="rule-box" filter="url(#softShadow)"/>
-  <text x="1558" y="1062" text-anchor="middle" class="node-title">Integrity and Constraints</text>
-  <text x="1070" y="1112" class="text">- UNIQUE(field_id, treatment_id, season_year, replicate_no)</text>
-  <text x="1070" y="1142" class="text">- UNIQUE(plot_id) in harvests</text>
-  <text x="1070" y="1172" class="text">- UNIQUE(farm_id, day)</text>
-  <text x="1070" y="1202" class="text">- CHECK(yield_t_ha &gt;= 0), NOT NULL core fields</text>
-
-  <path d="M 1100 560 C 1100 500, 1100 450, 1100 380" class="connector"/>
-  <path d="M 830 635 C 700 635, 560 580, 415 456" class="connector"/>
-  <path d="M 1370 635 C 1525 635, 1660 565, 1801 456" class="connector"/>
-  <path d="M 980 720 C 860 820, 710 910, 536 1014" class="connector"/>
-  <path d="M 1220 720 C 1370 840, 1478 930, 1558 1014" class="connector"/>
-
-  <path d="M 415 456 C 350 470, 285 478, 216 500" class="sub-connector"/>
-  <path d="M 415 456 C 470 470, 530 482, 596 500" class="sub-connector"/>
-  <path d="M 415 456 C 420 560, 420 650, 408 748" class="sub-connector"/>
-
-  <path d="M 1801 456 C 1770 472, 1740 486, 1706 500" class="sub-connector"/>
-  <path d="M 1801 456 C 1800 575, 1790 670, 1776 790" class="sub-connector"/>
-
+  <rect
+     x="0"
+     y="0"
+     width="2200"
+     height="1400"
+     fill="url(#bgGrad)"
+     id="rect2" />
+  <text
+     x="1100"
+     y="78"
+     text-anchor="middle"
+     class="title"
+     id="text2">Farm Trial SQL Schema - Mind Map</text>
+  <text
+     x="1100"
+     y="118"
+     text-anchor="middle"
+     class="subtitle"
+     id="text3">Schema structure for entities, events, keys, relationships, and integrity</text>
+  <rect
+     x="830"
+     y="620"
+     width="540"
+     height="160"
+     class="center-box"
+     filter="url(#softShadow)"
+     id="rect3" />
+  <text
+     x="1100"
+     y="690"
+     text-anchor="middle"
+     class="box-title"
+     id="text4">Central Schema</text>
+  <text
+     x="1100"
+     y="728"
+     text-anchor="middle"
+     class="text"
+     id="text5">farm trials core data model</text>
+  <rect
+     x="810"
+     y="170"
+     width="580"
+     height="180"
+     class="design-box"
+     filter="url(#softShadow)"
+     id="rect5" />
+  <text
+     x="1100"
+     y="220"
+     text-anchor="middle"
+     class="node-title"
+     id="text6">Design Decisions</text>
+  <text
+     x="850"
+     y="258"
+     class="text"
+     id="text7">- define row grain per table</text>
+  <text
+     x="850"
+     y="290"
+     class="text"
+     id="text8">- separate entities vs design/events</text>
+  <text
+     x="850"
+     y="322"
+     class="text"
+     id="text9">- staging -&gt; core -&gt; analysis</text>
+  <rect
+     x="165"
+     y="360"
+     width="500"
+     height="96"
+     class="entity-box"
+     filter="url(#softShadow)"
+     id="rect9" />
+  <text
+     x="415"
+     y="420"
+     text-anchor="middle"
+     class="node-title"
+     id="text10">Entity Tables</text>
+  <rect
+     x="38"
+     y="500"
+     width="355"
+     height="178"
+     class="entity-box"
+     filter="url(#softShadow)"
+     id="rect10" />
+  <text
+     x="216"
+     y="546"
+     text-anchor="middle"
+     class="node-title"
+     id="text11">farms</text>
+  <text
+     x="62"
+     y="582"
+     class="small link-var"
+     id="text12">PK farm_id</text>
+  <text
+     x="62"
+     y="612"
+     class="small"
+     id="text13">farm_name</text>
+  <text
+     x="62"
+     y="642"
+     class="small"
+     id="text14">region</text>
+  <rect
+     x="418"
+     y="500"
+     width="355"
+     height="208"
+     class="entity-box"
+     filter="url(#softShadow)"
+     id="rect14" />
+  <text
+     x="596"
+     y="546"
+     text-anchor="middle"
+     class="node-title"
+     id="text15">fields</text>
+  <text
+     x="442"
+     y="582"
+     class="small link-var"
+     id="text16">PK field_id</text>
+  <text
+     x="442"
+     y="612"
+     class="small link-var"
+     id="text17">FK farm_id -&gt; farms</text>
+  <text
+     x="442"
+     y="642"
+     class="small"
+     id="text18">soil_type</text>
+  <rect
+     x="220"
+     y="748"
+     width="375"
+     height="178"
+     class="entity-box"
+     filter="url(#softShadow)"
+     id="rect18" />
+  <text
+     x="408"
+     y="794"
+     text-anchor="middle"
+     class="node-title"
+     id="text19">treatments</text>
+  <text
+     x="246"
+     y="830"
+     class="small link-var"
+     id="text20">PK treatment_id</text>
+  <text
+     x="246"
+     y="860"
+     class="small"
+     id="text21">treatment_name</text>
+  <text
+     x="246"
+     y="890"
+     class="small"
+     id="text22">fertilizer_kg_ha</text>
+  <rect
+     x="1546"
+     y="320"
+     width="510"
+     height="96"
+     class="event-box"
+     filter="url(#softShadow)"
+     id="rect22" />
+  <text
+     x="1801"
+     y="378"
+     text-anchor="middle"
+     class="node-title"
+     id="text23">Design/Event Tables</text>
+  <rect
+     x="1410"
+     y="500"
+     width="330"
+     height="220"
+     class="event-box"
+     filter="url(#softShadow)"
+     id="rect23" />
+  <text
+     x="1575"
+     y="546"
+     text-anchor="middle"
+     class="node-title"
+     id="text24">trial_plots</text>
+  <text
+     x="1436"
+     y="582"
+     class="small link-var"
+     id="text25">PK plot_id</text>
+  <text
+     x="1436"
+     y="612"
+     class="small link-var"
+     id="text26">FK field_id -&gt; fields</text>
+  <text
+     x="1436"
+     y="642"
+     class="small link-var"
+     id="text27">FK treatment_id -&gt; treatments</text>
+  <text
+     x="1436"
+     y="672"
+     class="small"
+     id="text28">season_year, replicate_no</text>
+  <rect
+     x="1840"
+     y="500"
+     width="330"
+     height="190"
+     class="event-box"
+     filter="url(#softShadow)"
+     id="rect28" />
+  <text
+     x="2005"
+     y="546"
+     text-anchor="middle"
+     class="node-title"
+     id="text29">harvests</text>
+  <text
+     x="1866"
+     y="582"
+     class="small link-var"
+     id="text30">PK harvest_id</text>
+  <text
+     x="1866"
+     y="612"
+     class="small link-var"
+     id="text31">FK plot_id -&gt; trial_plots</text>
+  <text
+     x="1866"
+     y="642"
+     class="small"
+     id="text32">yield_t_ha, harvest_date</text>
+  <rect
+     x="1540"
+     y="790"
+     width="420"
+     height="198"
+     class="event-box"
+     filter="url(#softShadow)"
+     id="rect32" />
+  <text
+     x="1750"
+     y="836"
+     text-anchor="middle"
+     class="node-title"
+     id="text33">weather_daily</text>
+  <text
+     x="1566"
+     y="872"
+     class="small link-var"
+     id="text34">PK weather_id</text>
+  <text
+     x="1566"
+     y="902"
+     class="small link-var"
+     id="text35">FK farm_id -&gt; farms</text>
+  <text
+     x="1566"
+     y="932"
+     class="small"
+     id="text36">day</text>
+  <rect
+     x="116"
+     y="1014"
+     width="840"
+     height="250"
+     class="logic-box"
+     filter="url(#softShadow)"
+     id="rect36" />
+  <text
+     x="536"
+     y="1062"
+     text-anchor="middle"
+     class="node-title"
+     id="text37">Relationship Logic</text>
+  <text
+     x="154"
+     y="1112"
+     class="text"
+     id="text38">- farms 1 to N fields</text>
+  <text
+     x="154"
+     y="1142"
+     class="text"
+     id="text39">- farms 1 to N weather_daily</text>
+  <text
+     x="154"
+     y="1172"
+     class="text"
+     id="text40">- fields 1 to N trial_plots</text>
+  <text
+     x="154"
+     y="1202"
+     class="text"
+     id="text41">- treatments 1 to N trial_plots</text>
+  <text
+     x="154"
+     y="1232"
+     class="text"
+     id="text42">- trial_plots 1 to 0..1 harvests</text>
+  <rect
+     x="1028"
+     y="1014"
+     width="1060"
+     height="250"
+     class="rule-box"
+     filter="url(#softShadow)"
+     id="rect42" />
+  <text
+     x="1558"
+     y="1062"
+     text-anchor="middle"
+     class="node-title"
+     id="text43">Integrity and Constraints</text>
+  <text
+     x="1070"
+     y="1112"
+     class="text"
+     id="text44">- UNIQUE(field_id, treatment_id, season_year, replicate_no)</text>
+  <text
+     x="1070"
+     y="1142"
+     class="text"
+     id="text45">- UNIQUE(plot_id) in harvests</text>
+  <text
+     x="1070"
+     y="1172"
+     class="text"
+     id="text46">- UNIQUE(farm_id, day)</text>
+  <text
+     x="1070"
+     y="1202"
+     class="text"
+     id="text47">- CHECK(yield_t_ha &gt;= 0), NOT NULL core fields</text>
+  <path
+     d="M 1100 620 C 1100 530, 1100 450, 1100 350"
+     class="connector"
+     id="path47" />
+  <path
+     d="M 830,700 H 786.46766 L 782.28856,454.52736 665,420"
+     class="connector"
+     id="path48"
+     sodipodi:nodetypes="cccc" />
+  <path
+     d="M 1370,680 1415.3461,447.96283 1546,368"
+     class="connector"
+     id="path49"
+     sodipodi:nodetypes="ccc" />
+  <path
+     d="M 980 780 C 860 860, 710 930, 536 1014"
+     class="connector"
+     id="path50" />
+  <path
+     d="M 1220 780 C 1370 870, 1478 940, 1558 1014"
+     class="connector"
+     id="path51" />
+  <path
+     d="M 415 456 C 350 470, 285 478, 216 500"
+     class="sub-connector"
+     id="path52" />
+  <path
+     d="M 415 456 C 470 470, 530 482, 596 500"
+     class="sub-connector"
+     id="path53" />
+  <path
+     d="m 415,456 c 2.67536,55.64739 -0.2599,101.71443 -1.51989,152.7156 C 412.38528,653.03106 413.57915,702.43696 408,748"
+     class="sub-connector"
+     id="path54"
+     sodipodi:nodetypes="csc" />
+  <path
+     d="M 1801 416 C 1710 450, 1630 475, 1575 500"
+     class="sub-connector"
+     id="path55" />
+  <path
+     d="M 1801 416 C 1870 450, 1950 475, 2005 500"
+     class="sub-connector"
+     id="path56" />
+  <path
+     d="M 1801 416 L 1760 790"
+     class="sub-connector"
+     id="path57" />
+  <path
+     d="M 1740 560 C 1775 545, 1805 545, 1840 560"
+     class="sub-connector"
+     id="path58" />
+  <text
+     x="1802"
+     y="540"
+     text-anchor="middle"
+     class="small link-var"
+     id="text58"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:20px;line-height:normal;font-family:'Segoe UI', Tahoma, Arial, sans-serif">FK</text>
 </svg>

@@ -29,7 +29,7 @@
   <text x="420" y="142" text-anchor="middle" class="txt">UPDATE / DELETE</text>
 
   <rect x="600" y="100" width="220" height="70" class="box"/>
-  <text x="710" y="142" text-anchor="middle" class="txt">CHECK RESULT</text>
+  <text x="710" y="142" text-anchor="middle" class="txt">CHECK RESULT (SELECT)</text>
 
   <rect x="920" y="72" width="200" height="70" class="box good"/>
   <text x="1020" y="114" text-anchor="middle" class="txt">COMMIT</text>

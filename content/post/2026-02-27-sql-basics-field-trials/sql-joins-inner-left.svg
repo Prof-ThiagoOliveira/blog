@@ -20,7 +20,7 @@
   </defs>
 
   <rect x="0" y="0" width="1600" height="540" fill="url(#bg)"/>
-  <text x="800" y="42" text-anchor="middle" class="title">JOIN Behavior: INNER vs LEFT</text>
+  <text x="800" y="42" text-anchor="middle" class="title">JOIN Behavior INNER vs LEFT</text>
 
   <rect x="40" y="80" width="740" height="420" class="panel"/>
   <text x="410" y="118" text-anchor="middle" class="head">INNER JOIN</text>
@@ -66,4 +66,5 @@
   <text x="1360" y="280" text-anchor="middle" class="txt">NULL for 2</text>
   <rect x="1265" y="300" width="190" height="38" class="match"/>
   <text x="1360" y="324" text-anchor="middle" class="txt">match for 3</text>
+  <text x="1190" y="470" text-anchor="middle" class="txt">Tip put right-table filters in ON, not WHERE, to keep LEFT JOIN behavior.</text>
 </svg>

@@ -17,7 +17,7 @@
     </style>
   </defs>
   <rect x="0" y="0" width="1400" height="420" fill="url(#bg)"/>
-  <text x="700" y="44" text-anchor="middle" class="title">NULL Handling: What Works and What Does Not</text>
+  <text x="700" y="44" text-anchor="middle" class="title">NULL Handling What Works and What Does Not</text>
 
   <rect x="50" y="90" width="400" height="280" class="panel"/>
   <text x="250" y="128" text-anchor="middle" class="head">IS NULL (correct)</text>
@@ -29,7 +29,7 @@
   <text x="700" y="128" text-anchor="middle" class="head">= NULL (incorrect)</text>
   <rect x="525" y="146" width="350" height="58" class="bad"/>
   <text x="700" y="182" text-anchor="middle" class="txt">WHERE tmean_c = NULL</text>
-  <text x="700" y="228" text-anchor="middle" class="txt">Does not match as expected</text>
+  <text x="700" y="228" text-anchor="middle" class="txt">Returns UNKNOWN (never TRUE)</text>
 
   <rect x="950" y="90" width="400" height="280" class="panel"/>
   <text x="1150" y="128" text-anchor="middle" class="head">COALESCE (replace for reporting)</text>

@@ -1,5 +1,5 @@
 ---
-title: "SQL for beginners an example in field trial"
+title: "SQL for beginners: an example in field trials"
 author: Thiago de Paula Oliveira
 date:  "`r format(Sys.Date(), '%B %d, %Y')`"
 slug: sql-for-complete-beginners-field-trials
@@ -13,7 +13,7 @@ tags:
   - Oracle
   - Field Trials
   - Beginners
-subtitle: 'A beginner friendly SQL tutorial using realistic farm trial data with clear explanations and practical analysis.'
+subtitle: 'A beginner-friendly SQL tutorial using realistic farm trial data with clear explanations and practical analysis.'
 summary: 'As a statistician I teach SQL from zero using a realistic agriculture dataset with tables keys joins summaries quality checks and a simple treatment effect analysis.'
 authors:
   - admin
@@ -55,7 +55,7 @@ If spreadsheets are your current home, think of SQL as the next level for at lea
 In agriculture, this happens quickly. Examples:
 
 - One farm becomes multiple farms.
-- One season becomes multi year comparisons.
+- One season becomes multi-year comparisons.
 - One file becomes many sources (harvests, weather, field metadata, treatments).
 
 Without SQL, people copy-paste and make accidental mistakes.
@@ -117,7 +117,7 @@ Foreign key = reference to a folder in another cabinet.
 
 **This is what allows us to connect tables correctly with joins.**
 
-![](foreign-key-link.svg)
+<img src="foreign-key-link.svg" alt="Foreign key relationship diagram" />
 
 *Figure. Foreign key relationship example. `fields.farm_id` must match an existing `farms.farm_id`, creating a reliable one-to-many link for joins.*
 
@@ -137,11 +137,11 @@ Our dataset has six tables
 This structure is very common in production analytics, and can be seen as
 
 "Entity" tables (farm, field, treatment) describe the system.
-"Design/event" tables (`trial_plots`, harvest, daily weather) store assignment and repeated observations over time.
+"Design/event" tables (`trial_plots`, harvests, daily weather) store assignment and repeated observations over time.
 
 Note that this structure is not only "database theory". It directly affects analysis quality because
 
-- if farm/field metadata are separated cleanly from events, joins are simpler and less error prone.
+- if farm/field metadata are separated cleanly from events, joins are simpler and less error-prone.
 - if everything is in one giant table, duplicates and inconsistent updates become much more likely.
 - good schema design is one of the easiest ways to reduce analysis mistakes before they happen.
 
@@ -156,7 +156,7 @@ If you are just starting, schema design may feel abstract. A practical way to th
 
 In this farm trial example, we separate entities from events and focus on treatment response, missing records, and weather context.
 
-![](schema-design-mind-map.svg)
+<img src="schema-design-mind-map.svg" alt="Schema mind map diagram" />
 
 *Figure. Schema design mind map for this tutorial. Blue labels indicate the variables that link tables.*
 
@@ -206,17 +206,17 @@ In this farm trial example, we separate entities from events and focus on treatm
 
 `harvests` (event table linked to `trial_plots` by `plot_id`)
 
-| harvest_id | plot_id | yield_t_ha |
-|---:|---:|---:|
-| 1  | 1  | 6.20 |
-| 2  | 2  | 7.00 |
-| 3  | 3  | 6.10 |
-| 4  | 4  | 7.40 |
-| 10 | 10 | 7.60 |
-| 11 | 11 | 6.90 |
-| 12 | 12 | 7.90 |
-| 18 | 18 | 5.60 |
-| 24 | 24 | 6.20 |
+| harvest_id | plot_id | yield_t_ha | harvest_date |
+|---:|---:|---:|------------|
+| 1  | 1  | 6.20 | 2024-10-05 |
+| 2  | 2  | 7.00 | 2024-10-05 |
+| 3  | 3  | 6.10 | 2025-10-06 |
+| 4  | 4  | 7.40 | 2025-10-06 |
+| 10 | 10 | 7.60 | 2024-10-10 |
+| 11 | 11 | 6.90 | 2025-10-11 |
+| 12 | 12 | 7.90 | 2025-10-11 |
+| 18 | 18 | 5.60 | 2024-10-12 |
+| 24 | 24 | 6.20 | 2025-10-13 |
 
 `weather_daily` (event table linked to farms by `farm_id`)
 
@@ -251,11 +251,13 @@ Design/event tables (`trial_plots`, `harvests`, `weather_daily`) one row per ass
 
 If grain is unclear, everything after that gets messy (duplicates, wrong joins, wrong counts).
 
+<img src="grain-uniqueness-cheatsheet.svg" alt="Grain and uniqueness cheatsheet for trial_plots, harvests, and weather_daily" />
+
+*Figure. Quick grain and uniqueness map showing what one row represents and the matching `UNIQUE(...)` rule.*
+
 ### Step B choose primary keys and foreign keys
 
-Use the same linking variables shown above and enforce them with primary keys (IDs in parent tables) and foreign keys (matching IDs in child/event tables).
-
-This gives you safe joins and enforces referential integrity.
+Use the same linking variables shown above and enforce them with primary keys (IDs in parent tables) and foreign keys (matching IDs in child/event tables). This gives you safe joins and enforces referential integrity. Performance note (PostgreSQL): foreign keys enforce integrity, but they do not automatically create indexes on the referencing columns. For large farm/event tables, it is often a good idea to index the foreign key columns you join on.
 
 ### Step C define business uniqueness with constraints
 
@@ -289,10 +291,10 @@ This protects your analysis from duplicate event records.
 
 Use types and constraints to prevent bad data early.
 
-`DATE` for dates (`harvest_date`, `day`).
-numeric types for quantities (`yield_t_ha`, `rainfall_mm`, `area_ha`).
-`NOT NULL` for required fields.
-`CHECK` for physical logic (for example non negative yield).
+- `DATE` for dates (`harvest_date`, `day`).
+- numeric types for quantities (`yield_t_ha`, `rainfall_mm`, `area_ha`).
+- `NOT NULL` for required fields.
+- `CHECK` for physical logic (for example non negative `yield_t_ha`).
 
 Your schema is the first quality control layer.
 
@@ -313,7 +315,7 @@ Field trial data evolves. Plan for that.
 
 A practical habit is to sketch the schema on a piece of paper first. Writing it by hand is often the best way to think through table grain and links before coding.
 
-![](schema-extension-sketch.svg)
+<img src="schema-extension-sketch.svg" alt="Schema extension sketch add new event tables linked by keys" />
 
 *Figure. Extension ready schema sketch with added event tables (for example `pest_scouting` and `soil_tests`).*
 
@@ -325,16 +327,11 @@ Good schema design makes future extension easier and safer.
 
 ### Mini design checklist (farm trial version)
 
-Is each table grain explicit?
-Are primary and foreign keys defined?
-Are business level uniqueness constraints present?
-Are required columns `NOT NULL` where appropriate?
-Are sanity checks (`CHECK`) defined for critical numeric values?
-Can you answer your main trial questions with straightforward joins?
+Is each table grain explicit? Are primary and foreign keys defined? Are business level uniqueness constraints present? Are required columns `NOT NULL` where appropriate? Are sanity checks (`CHECK`) defined for critical numeric values? Can you answer your main trial questions with straightforward joins?
 
 # 4) Create the schema (PostgreSQL)
 
-Below is a clean schema for the six required tables. I will use PostgreSQL syntax and keep it beginner friendly.
+Below is a clean schema for the six required tables. I will use PostgreSQL syntax and keep it beginner-friendly.
 
 ```sql
 -- Optional cleanup if you are re-running this tutorial script.
@@ -361,14 +358,18 @@ CREATE TABLE fields (
     area_ha NUMERIC(8,2) NOT NULL,
     soil_type TEXT NOT NULL,
     CONSTRAINT fk_fields_farm
-        FOREIGN KEY (farm_id) REFERENCES farms (farm_id)
+        FOREIGN KEY (farm_id) REFERENCES farms (farm_id),
+    CONSTRAINT chk_positive_area
+        CHECK (area_ha > 0)
 );
 
 -- 3) Treatments table
 CREATE TABLE treatments (
     treatment_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     treatment_name TEXT NOT NULL,
-    fertilizer_kg_ha NUMERIC(8,2) NOT NULL
+    fertilizer_kg_ha NUMERIC(8,2) NOT NULL,
+    CONSTRAINT chk_nonnegative_fert
+        CHECK (fertilizer_kg_ha >= 0)
 );
 
 -- 4) Trial plots table (plot level treatment assignment)
@@ -382,8 +383,16 @@ CREATE TABLE trial_plots (
     CONSTRAINT fk_trialplots_field
         FOREIGN KEY (field_id) REFERENCES fields (field_id),
     CONSTRAINT fk_trialplots_treatment
-        FOREIGN KEY (treatment_id) REFERENCES treatments (treatment_id)
+        FOREIGN KEY (treatment_id) REFERENCES treatments (treatment_id),
+    CONSTRAINT uq_trialplot_field_treat_year_rep
+        UNIQUE (field_id, treatment_id, season_year, replicate_no)
 );
+```
+
+Note: `block_no` is optional and represents blocking (for example in an RCBD).  
+If you do not use blocks yet, you can leave it NULL and ignore it in queries.
+
+```sql
 
 -- 5) Harvests table
 CREATE TABLE harvests (
@@ -393,6 +402,8 @@ CREATE TABLE harvests (
     harvest_date DATE NOT NULL,
     CONSTRAINT fk_harvests_plot
         FOREIGN KEY (plot_id) REFERENCES trial_plots (plot_id),
+    CONSTRAINT uq_harvest_plot
+        UNIQUE (plot_id),
     CONSTRAINT chk_nonnegative_yield
         CHECK (yield_t_ha >= 0)
 );
@@ -405,8 +416,19 @@ CREATE TABLE weather_daily (
     rainfall_mm NUMERIC(8,2) NOT NULL,
     tmean_c NUMERIC(5,2),
     CONSTRAINT fk_weather_farm
-        FOREIGN KEY (farm_id) REFERENCES farms (farm_id)
+        FOREIGN KEY (farm_id) REFERENCES farms (farm_id),
+    CONSTRAINT uq_weather_farm_day
+        UNIQUE (farm_id, day),
+    CONSTRAINT chk_nonnegative_rain
+        CHECK (rainfall_mm >= 0)
 );
+
+-- Optional indexes for faster joins on bigger datasets (PostgreSQL)
+CREATE INDEX IF NOT EXISTS idx_fields_farm_id ON fields (farm_id);
+CREATE INDEX IF NOT EXISTS idx_trial_plots_field_id ON trial_plots (field_id);
+CREATE INDEX IF NOT EXISTS idx_trial_plots_treatment_id ON trial_plots (treatment_id);
+CREATE INDEX IF NOT EXISTS idx_harvests_plot_id ON harvests (plot_id);
+CREATE INDEX IF NOT EXISTS idx_weather_daily_farm_day ON weather_daily (farm_id, day);
 ```
 
 ### Line by line explanation (key points)
@@ -451,6 +473,13 @@ INSERT INTO treatments (treatment_name, fertilizer_kg_ha) VALUES
 ('Nitrogen_Low', 60),
 ('Nitrogen_Medium', 120),
 ('Nitrogen_High', 180);
+
+```
+
+Note: the `harvests` inserts below assume the `trial_plots` rows were inserted into an empty table in this exact order, so `plot_id` becomes 1..24.  
+If you change insert order or re-run partially, your IDs can differ.
+
+```sql
 
 -- Trial plots
 INSERT INTO trial_plots (field_id, treatment_id, season_year, replicate_no) VALUES
@@ -629,14 +658,14 @@ FROM harvests h
 JOIN trial_plots p
     ON h.plot_id = p.plot_id
 WHERE p.season_year = 2025
-  AND harvest_date >= '2025-10-10';
+  AND h.harvest_date >= '2025-10-10';
 ```
 
 Line by line
 
 1. `p.season_year = 2025` keep records from 2025 season.
 2. `AND` both conditions must be true.
-3. `harvest_date >= '2025 10 10'` keep later harvest dates.
+3. `h.harvest_date >= '2025-10-10'` keep later harvest dates.
 
 Expected result (illustrative)
 
@@ -645,6 +674,8 @@ Expected result (illustrative)
 | 12 | 3 | 2025 | 7.90 | 2025-10-11 |
 | 16 | 4 | 2025 | 7.60 | 2025-10-10 |
 | 20 | 5 | 2025 | 5.90 | 2025-10-12 |
+
+(...more rows match this filter in the sample data.)
 
 ### Query E OR condition
 
@@ -714,7 +745,7 @@ Oracle `FETCH FIRST 5 ROWS ONLY` (after `ORDER BY`).
 
 ## 6.4 Aggregates COUNT, AVG, SUM, GROUP BY, HAVING
 
-![](sql-where-vs-having-flow.svg)
+<img src="sql-where-vs-having-flow.svg" alt="SQL execution flow where filters rows and HAVING filters groups" />
 
 *Figure. Query flow reminder `WHERE` filters rows before grouping, `HAVING` filters groups after `GROUP BY`.*
 
@@ -745,14 +776,14 @@ Line by line
 6. `GROUP BY t.treatment_name` one summary row per treatment.
 7. `ORDER BY avg_yield_t_ha DESC` best average first.
 
-Expected result (illustrative)
+Expected result (illustrative, computed from the sample inserts)
 
 | treatment_name  | n_harvests | avg_yield_t_ha | total_yield_t_ha |
 |-----------------|---:|---:|---:|
 | Nitrogen_High   | 2  | 7.10 | 14.20 |
-| Nitrogen_Medium | 6  | 6.83 | 40.99 |
-| Nitrogen_Low    | 6  | 6.33 | 37.90 |
-| Control         | 10 | 5.87 | 58.70 |
+| Nitrogen_Medium | 6  | 6.83 | 41.00 |
+| Nitrogen_Low    | 4  | 6.57 | 26.30 |
+| Control         | 12 | 5.89 | 70.70 |
 
 Do not rank treatments using only `avg_yield_t_ha`.
 Also check `n_harvests` because very small sample sizes can look "best" by chance.
@@ -780,19 +811,23 @@ Line by line
 2. `HAVING AVG(yield_t_ha) > 6.0` filter groups after aggregation.
 3. `WHERE` filters rows before grouping; `HAVING` filters grouped results.
 
-Expected result (illustrative)
+Expected result (illustrative, computed from the sample inserts)
 
 | season_year | n_records | avg_yield |
 |---:|---:|---:|
-| 2024 | 12 | 6.13 |
-| 2025 | 12 | 6.42 |
+| 2024 | 12 | 6.29 |
+| 2025 | 12 | 6.39 |
+
+<img src="join-row-explosion.svg" alt="Join row explosion from many-to-many keys and fix by matching grain" />
+
+*Figure. Join row explosion many to many joins multiply rows and aggregate to matching grain before joining.*
 
 ## 6.5 JOINs INNER JOIN and LEFT JOIN
 
 Before the queries, quick definitions are that `INNER JOIN` keep only matching rows in both tables.
 `LEFT JOIN` keep all rows from the left table, even if there is no match on the right.
 
-![](sql-joins-inner-left.svg)
+<img src="sql-joins-inner-left.svg" alt="INNER JOIN versus LEFT JOIN matched rows versus keep all left behavior" />
 
 *Figure. `INNER JOIN` keeps matched keys only. `LEFT JOIN` keeps all left table rows and fills unmatched right side values with `NULL`.*
 
@@ -876,7 +911,7 @@ If you put `p.season_year = 2026` in `WHERE` instead of `ON`, you can accidental
 
 A CTE (Common Table Expression) is a temporary named query. It helps you write readable SQL in steps.
 
-![](sql-cte-flow.svg)
+<img src="sql-cte-flow.svg" alt="CTE flow diagram" />
 
 *Figure. CTE flow aggregate weather first, then join into an analysis ready table.*
 
@@ -964,7 +999,7 @@ SELECT
     ROUND(MIN(h.yield_t_ha), 2) AS min_yield,
     ROUND(MAX(h.yield_t_ha), 2) AS max_yield,
     ROUND(
-      PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY h.yield_t_ha)::NUMERIC,
+      (PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY h.yield_t_ha))::NUMERIC,
       2
     ) AS median_yield
 FROM harvests h
@@ -984,14 +1019,14 @@ Line by line
 4. `PERCENTILE_CONT(0.5) WITHIN GROUP` median.
 5. Grouping by treatment gives one summary row per treatment.
 
-Expected result (illustrative)
+Expected result (illustrative, computed from the sample inserts)
 
 | treatment_name  | n | mean_yield | sd_yield | min_yield | max_yield | median_yield |
 |-----------------|---:|---:|---:|---:|---:|---:|
-| Nitrogen_High   | 2 | 7.10 | 0.424 | 6.80 | 7.40 | 7.10 |
-| Nitrogen_Medium | 6 | 6.83 | 0.703 | 5.90 | 7.90 | 6.90 |
-| Nitrogen_Low    | 6 | 6.32 | 0.839 | 5.60 | 7.60 | 6.25 |
-| Control         |10 | 5.87 | 0.835 | 4.70 | 7.10 | 5.95 |
+| Nitrogen_High   | 2  | 7.10 | 0.424 | 6.80 | 7.40 | 7.10 |
+| Nitrogen_Medium | 6  | 6.83 | 0.802 | 5.90 | 7.90 | 6.70 |
+| Nitrogen_Low    | 4  | 6.57 | 0.974 | 5.60 | 7.60 | 6.55 |
+| Control         | 12 | 5.89 | 0.846 | 4.70 | 7.10 | 5.80 |
 
 ### PostgreSQL vs Oracle notes (stats)
 
@@ -1003,7 +1038,7 @@ Expected result (illustrative)
 
 `NULL` means missing/unknown. It is not the same as zero.
 
-![](sql-null-handling.svg)
+<img src="sql-null-handling.svg" alt="NULL handling diagram" />
 
 *Figure. `IS NULL` is correct for missing checks; `= NULL` is not; `COALESCE` is useful for fallback values.*
 
@@ -1201,6 +1236,9 @@ A practical workflow I would use is
 3. Do advanced statistics and plots in `R`.
 4. Optionally write summarized outputs back to SQL tables.
 
+When exporting SQL data for downstream analysis in `R`, do not use `ROUND()` in SQL.  
+Keep full numeric precision so model estimates, standard errors, and later summaries are not distorted by early rounding.
+
 Example (`R` + PostgreSQL)
 
 ```r
@@ -1267,13 +1305,14 @@ WITH baseline AS (
     SELECT
         p.field_id,
         p.season_year,
-        h.yield_t_ha AS control_yield_t_ha
+        AVG(h.yield_t_ha) AS control_yield_t_ha
     FROM harvests h
     JOIN trial_plots p
       ON h.plot_id = p.plot_id
     JOIN treatments t
       ON p.treatment_id = t.treatment_id
     WHERE t.fertilizer_kg_ha = 0
+    GROUP BY p.field_id, p.season_year
 ),
 comparisons AS (
     SELECT
@@ -1305,9 +1344,9 @@ SELECT
     region,
     treatment_name,
     COUNT(*) AS n_field_seasons,
-    ROUND(AVG(gain_vs_control_t_ha), 2) AS avg_gain_t_ha,
-    ROUND(MIN(gain_vs_control_t_ha), 2) AS min_gain_t_ha,
-    ROUND(MAX(gain_vs_control_t_ha), 2) AS max_gain_t_ha
+    AVG(gain_vs_control_t_ha) AS avg_gain_t_ha,
+    MIN(gain_vs_control_t_ha) AS min_gain_t_ha,
+    MAX(gain_vs_control_t_ha) AS max_gain_t_ha
 FROM comparisons
 GROUP BY region, treatment_name
 ORDER BY avg_gain_t_ha DESC;
@@ -1320,18 +1359,20 @@ Line by line
 3. Final aggregation by `region` and `treatment_name`.
 4. We report average and range of gains.
 
-Expected result (illustrative)
+Expected result (illustrative, computed from the sample inserts)
 
 | region  | treatment_name  | n_field_seasons | avg_gain_t_ha | min_gain_t_ha | max_gain_t_ha |
 |---------|-----------------|---:|---:|---:|---:|
 | North   | Nitrogen_High   | 2 | 1.35 | 1.30 | 1.40 |
 | South   | Nitrogen_Medium | 2 | 1.15 | 1.10 | 1.20 |
 | Central | Nitrogen_Medium | 2 | 0.95 | 0.90 | 1.00 |
+| North   | Nitrogen_Medium | 2 | 0.85 | 0.80 | 0.90 |
 | South   | Nitrogen_Low    | 2 | 0.65 | 0.60 | 0.70 |
 | Central | Nitrogen_Low    | 2 | 0.45 | 0.40 | 0.50 |
 
 Interpretation would be that higher fertilizer rates show larger gains, especially in the North.
-this is still observational comparison inside a simple dataset.
+This is still a simple within-field comparison inside a toy dataset.  
+If your trial is randomized, difference vs control is a reasonable estimator, but missingness and design imbalance can still bias summaries.
 
 Note that **confounding** means other factors may influence both treatment assignment and yield (for example soil class, rainfall timing, pest pressure, planting date). Even with field season control subtraction, we are not proving causality.
 
@@ -1346,7 +1387,7 @@ SELECT
     fm.region,
     p.season_year,
     t.treatment_name,
-    COUNT(*) AS n_field_seasons
+    COUNT(*) AS n_plots
 FROM harvests h
 JOIN trial_plots p
     ON h.plot_id = p.plot_id
@@ -1362,13 +1403,13 @@ ORDER BY fm.region, p.season_year, t.treatment_name;
 
 Line by line
 
-1. We count how often each treatment appears in each region season.
+1. We count how many harvested plots appear for each treatment in each region season.
 2. This is not a yield summary; it is a design summary.
 3. If counts are highly unbalanced, interpret treatment means with caution.
 
 Expected result (illustrative)
 
-| region  | season_year | treatment_name  | n_field_seasons |
+| region  | season_year | treatment_name  | n_plots |
 |---------|---:|-----------------|---:|
 | Central | 2024 | Control         | 2 |
 | Central | 2024 | Nitrogen_Low    | 1 |
@@ -1406,6 +1447,9 @@ Line by line
 Weighted means give more influence to larger fields.
 Neither is always "right"; the right choice depends on your decision question.
 If you are making logistics or tonnage decisions, weighted summaries are often more relevant.
+
+Trial note: in real field experiments, weighting should usually use plot area (or equal weights per plot/replicate), not the whole field area.  
+Here we use `field.area_ha` only as a simple demo of weighted means.
 
 ## 6.12 Data manipulation essentials
 
@@ -1445,6 +1489,8 @@ Another important warning would be that always run the matching `SELECT` first t
 
 ### Query W `INSERT ... SELECT` to load transformed data
 
+Assume `weather_daily_staging` is a temporary/staging table you created earlier (for example from a CSV import).
+
 ```sql
 INSERT INTO weather_daily (farm_id, day, rainfall_mm, tmean_c)
 SELECT
@@ -1465,6 +1511,7 @@ Line by line
 
 ```sql
 INSERT INTO treatments (treatment_id, treatment_name, fertilizer_kg_ha)
+OVERRIDING SYSTEM VALUE
 VALUES (4, 'Nitrogen_High', 180)
 ON CONFLICT (treatment_id)
 DO UPDATE SET
@@ -1477,6 +1524,8 @@ Line by line
 1. Try to insert a row.
 2. If key already exists (`treatment_id`), update instead.
 3. Useful when syncing reference tables.
+
+Note: `OVERRIDING SYSTEM VALUE` is needed here because `treatment_id` is an identity column defined as `GENERATED ALWAYS`. 
 
 Note that PostgreSQL commonly uses `ON CONFLICT`.
 Oracle workflows often use `MERGE` for similar behavior.
@@ -1526,7 +1575,7 @@ Line by line
 
 ### Safe workflow transactions for batch edits
 
-![](sql-transaction-timeline.svg)
+<img src="sql-transaction-timeline.svg" alt="Transaction workflow diagram" />
 
 *Figure. Safe edit timeline start transaction, make changes, check, then `COMMIT` or `ROLLBACK`.*
 

@@ -21,36 +21,37 @@
   </defs>
 
   <rect x="0" y="0" width="1500" height="420" fill="url(#bg)"/>
-  <text x="750" y="44" text-anchor="middle" class="title">CTE Flow: Build Analysis Table in Steps</text>
+  <text x="750" y="44" text-anchor="middle" class="title">CTE Flow Build Analysis Table in Steps</text>
 
   <rect x="60" y="120" width="260" height="120" class="box"/>
   <text x="190" y="164" text-anchor="middle" class="txt">weather_daily</text>
   <text x="190" y="194" text-anchor="middle" class="sub">daily farm weather</text>
 
   <rect x="410" y="100" width="330" height="160" class="box cte"/>
-  <text x="575" y="145" text-anchor="middle" class="txt">CTE: weather_by_farm_year</text>
+  <text x="575" y="145" text-anchor="middle" class="txt">CTE weather_by_farm_year</text>
   <text x="575" y="176" text-anchor="middle" class="sub">GROUP BY farm_id + year</text>
   <text x="575" y="206" text-anchor="middle" class="sub">SUM rain, AVG temp</text>
 
-  <rect x="820" y="70" width="220" height="90" class="box"/>
-  <text x="930" y="118" text-anchor="middle" class="txt">harvests</text>
-  <text x="930" y="144" text-anchor="middle" class="sub">plot outcomes</text>
-  <rect x="820" y="180" width="220" height="90" class="box"/>
-  <text x="930" y="228" text-anchor="middle" class="txt">trial_plots</text>
-  <rect x="820" y="290" width="220" height="90" class="box"/>
-  <text x="930" y="332" text-anchor="middle" class="txt">fields + farms +</text>
-  <text x="930" y="356" text-anchor="middle" class="txt">treatments</text>
+  <rect x="800" y="70" width="220" height="90" class="box"/>
+  <text x="910" y="118" text-anchor="middle" class="txt">harvests</text>
+  <text x="910" y="144" text-anchor="middle" class="sub">plot outcomes</text>
+  <rect x="800" y="180" width="220" height="90" class="box"/>
+  <text x="910" y="228" text-anchor="middle" class="txt">trial_plots</text>
+  <rect x="800" y="290" width="220" height="90" class="box"/>
+  <text x="910" y="332" text-anchor="middle" class="txt">fields + farms +</text>
+  <text x="910" y="356" text-anchor="middle" class="txt">treatments</text>
 
-  <rect x="1120" y="130" width="320" height="160" class="box result"/>
-  <text x="1280" y="176" text-anchor="middle" class="txt">CTE: analysis_table</text>
-  <text x="1280" y="206" text-anchor="middle" class="sub">joined clean dataset</text>
-  <text x="1280" y="236" text-anchor="middle" class="sub">ready for analysis</text>
+  <rect x="1080" y="120" width="400" height="180" class="box result"/>
+  <text x="1280" y="172" text-anchor="middle" class="txt">CTE analysis_table</text>
+  <text x="1280" y="202" text-anchor="middle" class="sub">joined clean dataset</text>
+  <text x="1280" y="232" text-anchor="middle" class="sub">ready for analysis</text>
+  <text x="1280" y="262" text-anchor="middle" class="sub">weather optional (LEFT JOIN) -&gt; NULLs if missing</text>
 
   <path d="M 320 180 L 410 180" class="line"/>
-  <path d="M 740 180 L 820 115" class="line"/>
-  <path d="M 740 180 L 820 225" class="line"/>
-  <path d="M 740 180 L 820 335" class="line"/>
-  <path d="M 1040 115 L 1120 170" class="line"/>
-  <path d="M 1040 225 L 1120 210" class="line"/>
-  <path d="M 1040 335 L 1120 250" class="line"/>
+  <path d="M 740 180 L 800 115" class="line"/>
+  <path d="M 740 180 L 800 225" class="line"/>
+  <path d="M 740 180 L 800 335" class="line"/>
+  <path d="M 1020 115 L 1080 165" class="line"/>
+  <path d="M 1020 225 L 1080 205" class="line"/>
+  <path d="M 1020 335 L 1080 245" class="line"/>
 </svg>
