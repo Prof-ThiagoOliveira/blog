@@ -1264,7 +1264,7 @@ Discussion:
 - Neither is always "right"; the right choice depends on your decision question.
 - If you are making logistics or tonnage decisions, weighted summaries are often more relevant.
 
-## 6.12 Data manipulation essentials beginners should know
+## 6.12 Data manipulation essentials
 
 So far we used SQL mostly to read and summarize data. In real projects, you will also need to correct, append, and safely maintain tables.
 
