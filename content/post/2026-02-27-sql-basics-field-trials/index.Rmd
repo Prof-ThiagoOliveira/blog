@@ -41,7 +41,6 @@ output:
 - [6) SQL queries in increasing difficulty](#sql-queries-in-increasing-difficulty)
 - [7) Quick recap of common mistakes](#quick-recap-of-common-mistakes)
 
-General summary
 In this post we move from SQL fundamentals to a practical farm trial workflow. We cover tables and keys, schema design, data loading, core queries, quality checks, and clear interpretation limits.
 
 # 1) Why SQL matters in agriculture analytics
