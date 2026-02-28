@@ -115,9 +115,21 @@ output:
 <h2><span class="header-section-number">5.2</span> Dataset generation</h2>
 <p>We benchmark row counts 10^6, and three structures (numeric, character, mixed). The helper below fabricates a mixed‑type frame:</p>
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
-source(&quot;utils.R&quot;)
-
-generate_sample_data &lt;- function(n, type = &quot;mixed&quot;){
+source(&quot;utils.R&quot;)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;data.table&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;arrow&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;qs&#39; was built under R version 4.4.3</code></pre>
+<pre><code>## Warning: package &#39;fst&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Warning: package &#39;microbenchmark&#39; was built under R version 4.4.3</code></pre>
+<pre class="r"><code>generate_sample_data &lt;- function(n, type = &quot;mixed&quot;){
   set.seed(123)
   if(type == &quot;numeric&quot;){
     data.frame(ID = seq_len(n), Value = rnorm(n))

@@ -801,7 +801,7 @@
       "query-l-mean-sd-min-max-median-by-treatment",
       "query-m-find-missing-temperature-rows",
       "query-n-replace-null-with-fallback-value",
-      "query-o-duplicate-checks-in-harvests",
+      "query-o-duplicate-checks-in-trial_plots",
       "query-p-impossible-values",
       "query-q-outlier-flags-using-iqr-rule",
       "query-r-field-season-control-adjusted-gains",

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 700" role="img" aria-labelledby="title desc">
   <title id="title">Extension-ready farm trial schema sketch</title>
-  <desc id="desc">Core farm trial tables with future extension tables such as pest scouting and soil tests.</desc>
+  <desc id="desc">Core farm trial tables with trial_plots plus harvest linkage, and future extension tables such as pest scouting and soil tests.</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f7fbff"/>
@@ -44,10 +44,11 @@
   <text x="925" y="278" class="txt">treatment_name, rate</text>
 
   <rect x="500" y="400" width="360" height="180" class="event"/>
-  <text x="680" y="445" text-anchor="middle" class="box-title">harvests</text>
-  <text x="525" y="480" class="pkfk">FK field_id -&gt; fields</text>
-  <text x="525" y="508" class="pkfk">FK treatment_id -&gt; treatments</text>
-  <text x="525" y="536" class="txt">season_year, yield_t_ha</text>
+  <text x="680" y="445" text-anchor="middle" class="box-title">trial_plots + harvests</text>
+  <text x="525" y="478" class="pkfk">PK plot_id</text>
+  <text x="525" y="504" class="pkfk">FK field_id -&gt; fields</text>
+  <text x="525" y="530" class="pkfk">FK treatment_id -&gt; treatments</text>
+  <text x="525" y="556" class="txt">harvests FK plot_id + yield/date</text>
 
   <rect x="120" y="400" width="300" height="160" class="event"/>
   <text x="270" y="445" text-anchor="middle" class="box-title">weather_daily</text>

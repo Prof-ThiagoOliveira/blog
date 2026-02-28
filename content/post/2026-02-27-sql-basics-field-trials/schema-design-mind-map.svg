@@ -43,7 +43,7 @@
   <rect x="810" y="200" width="580" height="180" class="design-box" filter="url(#softShadow)"/>
   <text x="1100" y="248" text-anchor="middle" class="node-title">Design Decisions</text>
   <text x="852" y="286" class="text">- define row grain per table</text>
-  <text x="852" y="318" class="text">- separate entities vs events</text>
+  <text x="852" y="318" class="text">- separate entities vs design/events</text>
   <text x="852" y="350" class="text">- staging -&gt; core -&gt; analysis</text>
 
   <rect x="165" y="360" width="500" height="96" class="entity-box" filter="url(#softShadow)"/>
@@ -69,15 +69,16 @@
   <text x="246" y="890" class="small">fertilizer_kg_ha</text>
 
   <rect x="1546" y="360" width="510" height="96" class="event-box" filter="url(#softShadow)"/>
-  <text x="1801" y="420" text-anchor="middle" class="node-title">Event Tables</text>
+  <text x="1801" y="420" text-anchor="middle" class="node-title">Design/Event Tables</text>
 
   <rect x="1478" y="500" width="456" height="240" class="event-box" filter="url(#softShadow)"/>
-  <text x="1706" y="546" text-anchor="middle" class="node-title">harvests</text>
-  <text x="1506" y="582" class="small">PK harvest_id</text>
+  <text x="1706" y="546" text-anchor="middle" class="node-title">trial_plots + harvests</text>
+  <text x="1506" y="582" class="small link-var">PK plot_id</text>
   <text x="1506" y="612" class="small link-var">FK field_id -&gt; fields</text>
   <text x="1506" y="642" class="small link-var">FK treatment_id -&gt; treatments</text>
-  <text x="1506" y="672" class="small">season_year, yield_t_ha</text>
-  <text x="1506" y="702" class="small">harvest_date</text>
+  <text x="1506" y="672" class="small">season_year, replicate_no</text>
+  <text x="1506" y="702" class="small link-var">harvests FK plot_id</text>
+  <text x="1506" y="732" class="small">yield_t_ha, harvest_date</text>
 
   <rect x="1566" y="790" width="420" height="198" class="event-box" filter="url(#softShadow)"/>
   <text x="1776" y="836" text-anchor="middle" class="node-title">weather_daily</text>
@@ -88,16 +89,17 @@
   <rect x="116" y="1014" width="840" height="250" class="logic-box" filter="url(#softShadow)"/>
   <text x="536" y="1062" text-anchor="middle" class="node-title">Relationship Logic</text>
   <text x="154" y="1112" class="text">- farms 1:N fields</text>
-  <text x="154" y="1144" class="text">- farms 1:N weather_daily</text>
-  <text x="154" y="1176" class="text">- fields 1:N harvests</text>
-  <text x="154" y="1208" class="text">- treatments 1:N harvests</text>
+  <text x="154" y="1142" class="text">- farms 1:N weather_daily</text>
+  <text x="154" y="1172" class="text">- fields 1:N trial_plots</text>
+  <text x="154" y="1202" class="text">- treatments 1:N trial_plots</text>
+  <text x="154" y="1232" class="text">- trial_plots 1:1 harvests</text>
 
   <rect x="1028" y="1014" width="1060" height="250" class="rule-box" filter="url(#softShadow)"/>
   <text x="1558" y="1062" text-anchor="middle" class="node-title">Integrity and Constraints</text>
-  <text x="1070" y="1112" class="text">- UNIQUE(field_id, treatment_id, season_year)</text>
-  <text x="1070" y="1144" class="text">- UNIQUE(farm_id, day)</text>
-  <text x="1070" y="1176" class="text">- CHECK(yield_t_ha &gt;= 0)</text>
-  <text x="1070" y="1208" class="text">- NOT NULL for required columns</text>
+  <text x="1070" y="1112" class="text">- UNIQUE(field_id, treatment_id, season_year, replicate_no)</text>
+  <text x="1070" y="1142" class="text">- UNIQUE(plot_id) in harvests</text>
+  <text x="1070" y="1172" class="text">- UNIQUE(farm_id, day)</text>
+  <text x="1070" y="1202" class="text">- CHECK(yield_t_ha &gt;= 0), NOT NULL core fields</text>
 
   <path d="M 1100 560 C 1100 500, 1100 450, 1100 380" class="connector"/>
   <path d="M 830 635 C 700 635, 560 580, 415 456" class="connector"/>

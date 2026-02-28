@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 420" role="img" aria-labelledby="title desc">
   <title id="title">CTE flow for analysis table</title>
-  <desc id="desc">Diagram showing weather_daily aggregated into weather_by_farm_year then joined with harvest tables into analysis_table.</desc>
+  <desc id="desc">Diagram showing weather_daily aggregated into weather_by_farm_year then joined with harvests, trial_plots, and lookup tables into analysis_table.</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f7fbff"/>
@@ -34,10 +34,12 @@
 
   <rect x="820" y="70" width="220" height="90" class="box"/>
   <text x="930" y="118" text-anchor="middle" class="txt">harvests</text>
+  <text x="930" y="144" text-anchor="middle" class="sub">plot outcomes</text>
   <rect x="820" y="180" width="220" height="90" class="box"/>
-  <text x="930" y="228" text-anchor="middle" class="txt">fields + farms</text>
+  <text x="930" y="228" text-anchor="middle" class="txt">trial_plots</text>
   <rect x="820" y="290" width="220" height="90" class="box"/>
-  <text x="930" y="338" text-anchor="middle" class="txt">treatments</text>
+  <text x="930" y="332" text-anchor="middle" class="txt">fields + farms +</text>
+  <text x="930" y="356" text-anchor="middle" class="txt">treatments</text>
 
   <rect x="1120" y="130" width="320" height="160" class="box result"/>
   <text x="1280" y="176" text-anchor="middle" class="txt">CTE: analysis_table</text>

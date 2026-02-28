@@ -1,4 +1,4 @@
----
+﻿---
 title: "SQL for beginners an example in field trial"
 author: Thiago de Paula Oliveira
 date:  "February 28, 2026"
@@ -17,7 +17,7 @@ subtitle: 'A beginner friendly SQL tutorial using realistic farm trial data with
 summary: 'As a statistician I teach SQL from zero using a realistic agriculture dataset with tables keys joins summaries quality checks and a simple treatment effect analysis.'
 authors:
   - admin
-lastmod: "2026-02-28T13:16:38Z"
+lastmod: "2026-02-28T13:34:36Z"
 featured: no
 image:
   caption: ''
@@ -62,7 +62,7 @@ output:
 </ul>
 <p>Without SQL, people copy-paste and make accidental mistakes.
 With SQL, you ask clear questions and get reproducible answers.</p>
-<p>Another reason this matters in field trial work is that your SQL query becomes a transparent analysis recipe. If someone asks “how did you compute that treatment average?”, you can show the exact logic instead of manually reconstructing spreadsheet steps.</p>
+<p>Another reason this matters in field trial work is that your SQL query becomes a transparent analysis recipe. If someone asks â€œhow did you compute that treatment average?â€, you can show the exact logic instead of manually reconstructing spreadsheet steps.</p>
 <p>A few real questions SQL helps you answer are:</p>
 <ul>
 <li>Which treatment had the best average yield in 2025?</li>
@@ -70,7 +70,7 @@ With SQL, you ask clear questions and get reproducible answers.</p>
 <li>Which fields are missing weather data?</li>
 <li>Are there duplicate harvest records?</li>
 </ul>
-<p>I also want to prevent a common beginner frustration such as writing queries that “kind of work” but return the wrong rows. I will show you exactly how to avoid the classic pitfalls (especially forgetting <code>WHERE</code>, confusing <code>NULL</code>, and using the wrong type of join).</p>
+<p>I also want to prevent a common beginner frustration such as writing queries that â€œkind of workâ€ but return the wrong rows. I will show you exactly how to avoid the classic pitfalls (especially forgetting <code>WHERE</code>, confusing <code>NULL</code>, and using the wrong type of join).</p>
 </div>
 <div id="what-is-a-table-row-column-what-is-a-key" class="section level1">
 <h1>2) What is a table, row, column? What is a key?</h1>
@@ -114,18 +114,19 @@ Foreign key = reference to a folder in another cabinet.</p>
 <div id="the-data-story-as-an-illustrative-simple-field-trial-dataset" class="section level1">
 <h1>3) The data story as an illustrative simple field trial dataset</h1>
 <p>Let us imagine a realistic but small trial program. You manage three farms in different regions. Each farm has fields. In each field, you test fertilizer treatments across seasons. You also collect daily weather at farm level.</p>
-<p>Our dataset has five tables</p>
+<p>Our dataset has six tables</p>
 <ol style="list-style-type: decimal">
 <li><code>farms</code> one row per farm.</li>
 <li><code>fields</code> one row per field (each field belongs to a farm).</li>
 <li><code>treatments</code> one row per treatment level.</li>
-<li><code>harvests</code> one row per harvested field treatment season result.</li>
+<li><code>trial_plots</code> one row per field treatment season plot assignment.</li>
+<li><code>harvests</code> one row per harvested plot result.</li>
 <li><code>weather_daily</code> one row per farm day weather record.</li>
 </ol>
 <p>This structure is very common in production analytics, and can be seen as</p>
-<p>“Entity” tables (farm, field, treatment) describe the system.
-“Event” tables (harvest, daily weather) store repeated observations over time.</p>
-<p>Note that this structure is not only “database theory”. It directly affects analysis quality because</p>
+<p>â€œEntityâ€ tables (farm, field, treatment) describe the system.
+â€œDesign/eventâ€ tables (<code>trial_plots</code>, harvest, daily weather) store assignment and repeated observations over time.</p>
+<p>Note that this structure is not only â€œdatabase theoryâ€. It directly affects analysis quality because</p>
 <ul>
 <li>if farm/field metadata are separated cleanly from events, joins are simpler and less error prone.</li>
 <li>if everything is in one giant table, duplicates and inconsistent updates become much more likely.</li>
@@ -136,7 +137,7 @@ Foreign key = reference to a folder in another cabinet.</p>
 <p>If you are just starting, schema design may feel abstract. A practical way to think is to answer these questions first</p>
 <ol style="list-style-type: decimal">
 <li>What decisions/questions do I need to answer?</li>
-<li>What “things” exist in my system?</li>
+<li>What â€œthingsâ€ exist in my system?</li>
 <li>What events happen over time?</li>
 <li>What should be unique, and what should be linked?</li>
 </ol>
@@ -260,15 +261,15 @@ Foreign key = reference to a folder in another cabinet.</p>
 </tr>
 </tbody>
 </table>
-<p><code>harvests</code> (event table linking <code>field_id</code> + <code>treatment_id</code>)</p>
+<p><code>trial_plots</code> (design/event table linking <code>field_id</code> + <code>treatment_id</code> + <code>season_year</code>)</p>
 <table>
 <thead>
 <tr class="header">
-<th align="right">harvest_id</th>
+<th align="right">plot_id</th>
 <th align="right">field_id</th>
 <th align="right">treatment_id</th>
 <th align="right">season_year</th>
-<th align="right">yield_t_ha</th>
+<th align="right">replicate_no</th>
 </tr>
 </thead>
 <tbody>
@@ -277,62 +278,119 @@ Foreign key = reference to a folder in another cabinet.</p>
 <td align="right">1</td>
 <td align="right">1</td>
 <td align="right">2024</td>
-<td align="right">6.20</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
 <td align="right">1</td>
 <td align="right">3</td>
 <td align="right">2024</td>
-<td align="right">7.00</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
 <td align="right">1</td>
 <td align="right">1</td>
 <td align="right">2025</td>
-<td align="right">6.10</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="right">4</td>
 <td align="right">1</td>
 <td align="right">4</td>
 <td align="right">2025</td>
-<td align="right">7.40</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td align="right">10</td>
 <td align="right">3</td>
 <td align="right">2</td>
 <td align="right">2024</td>
-<td align="right">7.60</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="right">11</td>
 <td align="right">3</td>
 <td align="right">1</td>
 <td align="right">2025</td>
-<td align="right">6.90</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td align="right">12</td>
 <td align="right">3</td>
 <td align="right">3</td>
 <td align="right">2025</td>
-<td align="right">7.90</td>
+<td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="right">18</td>
 <td align="right">5</td>
 <td align="right">2</td>
 <td align="right">2024</td>
-<td align="right">5.60</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td align="right">24</td>
 <td align="right">6</td>
 <td align="right">3</td>
 <td align="right">2025</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p><code>harvests</code> (event table linked to <code>trial_plots</code> by <code>plot_id</code>)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">harvest_id</th>
+<th align="right">plot_id</th>
+<th align="right">yield_t_ha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">6.20</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">7.00</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">6.10</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">7.40</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="right">7.60</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="right">11</td>
+<td align="right">6.90</td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="right">12</td>
+<td align="right">7.90</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="right">18</td>
+<td align="right">5.60</td>
+</tr>
+<tr class="odd">
+<td align="right">24</td>
+<td align="right">24</td>
 <td align="right">6.20</td>
 </tr>
 </tbody>
@@ -417,17 +475,18 @@ Foreign key = reference to a folder in another cabinet.</p>
 <p>Link summary</p>
 <ul>
 <li><code>fields.farm_id</code> links with <code>farms.farm_id</code>.</li>
-<li><code>harvests.field_id</code> links with <code>fields.field_id</code>.</li>
-<li><code>harvests.treatment_id</code> links with <code>treatments.treatment_id</code>.</li>
+<li><code>trial_plots.field_id</code> links with <code>fields.field_id</code>.</li>
+<li><code>trial_plots.treatment_id</code> links with <code>treatments.treatment_id</code>.</li>
+<li><code>harvests.plot_id</code> links with <code>trial_plots.plot_id</code>.</li>
 <li><code>weather_daily.farm_id</code> links with <code>farms.farm_id</code>.</li>
 </ul>
-<p>The core idea is that <code>harvests</code> connects agronomic outcomes to both location (<code>fields</code>/<code>farms</code>) and treatment (<code>treatments</code>), while <code>weather_daily</code> connects environmental context to the same farms.</p>
+<p>The core idea is that <code>trial_plots</code> stores treatment assignment at plot level, <code>harvests</code> stores measured outcomes for those plots, and <code>weather_daily</code> connects environmental context to the same farms.</p>
 </div>
 <div id="step-a-define-table-grain-first" class="section level3">
 <h3>Step A define table grain first</h3>
-<p><code>Grain</code> means “what one row represents”.</p>
+<p><code>Grain</code> means â€œwhat one row representsâ€.</p>
 <p>Entity tables (<code>farms</code>, <code>fields</code>, <code>treatments</code>) one row per entity.
-Event tables (<code>harvests</code>, <code>weather_daily</code>) one row per time based observation.</p>
+Design/event tables (<code>trial_plots</code>, <code>harvests</code>, <code>weather_daily</code>) one row per assignment or time based observation.</p>
 <p>If grain is unclear, everything after that gets messy (duplicates, wrong joins, wrong counts).</p>
 </div>
 <div id="step-b-choose-primary-keys-and-foreign-keys" class="section level3">
@@ -440,13 +499,18 @@ Event tables (<code>harvests</code>, <code>weather_daily</code>) one row per tim
 <p>Primary keys identify rows technically, but you also need domain level uniqueness.</p>
 <p>Examples for this project</p>
 <ul>
-<li>in <code>harvests</code>, you usually expect one row per <code>field_id + treatment_id + season_year</code>.</li>
+<li>in <code>trial_plots</code>, you usually expect one row per <code>field_id + treatment_id + season_year + replicate_no</code>.</li>
+<li>in <code>harvests</code>, you usually expect one row per <code>plot_id</code>.</li>
 <li>in <code>weather_daily</code>, you usually expect one row per <code>farm_id + day</code>.</li>
 </ul>
 <p>That can be enforced with unique constraints</p>
-<pre class="sql"><code>ALTER TABLE harvests
-ADD CONSTRAINT uq_harvest_field_treat_year
-UNIQUE (field_id, treatment_id, season_year);
+<pre class="sql"><code>ALTER TABLE trial_plots
+ADD CONSTRAINT uq_trialplot_field_treat_year_rep
+UNIQUE (field_id, treatment_id, season_year, replicate_no);
+
+ALTER TABLE harvests
+ADD CONSTRAINT uq_harvest_plot
+UNIQUE (plot_id);
 
 ALTER TABLE weather_daily
 ADD CONSTRAINT uq_weather_farm_day
@@ -468,7 +532,7 @@ numeric types for quantities (<code>yield_t_ha</code>, <code>rainfall_mm</code>,
 <ol style="list-style-type: decimal">
 <li>Load external files into staging tables.</li>
 <li>Validate and standardize.</li>
-<li>Insert into core relational tables (<code>farms</code>, <code>fields</code>, <code>harvests</code>, <code>weather_daily</code>).</li>
+<li>Insert into core relational tables (<code>farms</code>, <code>fields</code>, <code>trial_plots</code>, <code>harvests</code>, <code>weather_daily</code>).</li>
 <li>Build analysis views/CTEs from the clean core.</li>
 </ol>
 <p>This keeps raw import problems away from final reporting.</p>
@@ -479,7 +543,7 @@ numeric types for quantities (<code>yield_t_ha</code>, <code>rainfall_mm</code>,
 <p>A practical habit is to sketch the schema on a piece of paper first. Writing it by hand is often the best way to think through table grain and links before coding.</p>
 <p><img src="schema-extension-sketch.svg" /></p>
 <p><em>Figure. Extension ready schema sketch with added event tables (for example <code>pest_scouting</code> and <code>soil_tests</code>).</em></p>
-<p>New treatment levels can be added without redesigning harvest table.
+<p>New treatment levels can be added without redesigning <code>trial_plots</code> or <code>harvests</code>.
 new farms/fields can be inserted without touching historical records.
 additional event tables (for example pest scouting, soil tests) can be linked by keys.</p>
 <p>Good schema design makes future extension easier and safer.</p>
@@ -497,10 +561,11 @@ Can you answer your main trial questions with straightforward joins?</p>
 </div>
 <div id="create-the-schema-postgresql" class="section level1">
 <h1>4) Create the schema (PostgreSQL)</h1>
-<p>Below is a clean schema for the five required tables. I will use PostgreSQL syntax and keep it beginner friendly.</p>
+<p>Below is a clean schema for the six required tables. I will use PostgreSQL syntax and keep it beginner friendly.</p>
 <pre class="sql"><code>-- Optional cleanup if you are re-running this tutorial script.
 -- Drop child tables first (they depend on parent tables).
 DROP TABLE IF EXISTS harvests;
+DROP TABLE IF EXISTS trial_plots;
 DROP TABLE IF EXISTS weather_daily;
 DROP TABLE IF EXISTS fields;
 DROP TABLE IF EXISTS treatments;
@@ -531,23 +596,33 @@ CREATE TABLE treatments (
     fertilizer_kg_ha NUMERIC(8,2) NOT NULL
 );
 
--- 4) Harvests table
-CREATE TABLE harvests (
-    harvest_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+-- 4) Trial plots table (plot level treatment assignment)
+CREATE TABLE trial_plots (
+    plot_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     field_id INT NOT NULL,
     treatment_id INT NOT NULL,
     season_year INT NOT NULL,
+    replicate_no INT NOT NULL DEFAULT 1,
+    block_no INT,
+    CONSTRAINT fk_trialplots_field
+        FOREIGN KEY (field_id) REFERENCES fields (field_id),
+    CONSTRAINT fk_trialplots_treatment
+        FOREIGN KEY (treatment_id) REFERENCES treatments (treatment_id)
+);
+
+-- 5) Harvests table
+CREATE TABLE harvests (
+    harvest_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    plot_id INT NOT NULL,
     yield_t_ha NUMERIC(8,2) NOT NULL,
     harvest_date DATE NOT NULL,
-    CONSTRAINT fk_harvests_field
-        FOREIGN KEY (field_id) REFERENCES fields (field_id),
-    CONSTRAINT fk_harvests_treatment
-        FOREIGN KEY (treatment_id) REFERENCES treatments (treatment_id),
+    CONSTRAINT fk_harvests_plot
+        FOREIGN KEY (plot_id) REFERENCES trial_plots (plot_id),
     CONSTRAINT chk_nonnegative_yield
         CHECK (yield_t_ha &gt;= 0)
 );
 
--- 5) Daily weather table
+-- 6) Daily weather table
 CREATE TABLE weather_daily (
     weather_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     farm_id INT NOT NULL,
@@ -600,37 +675,69 @@ INSERT INTO treatments (treatment_name, fertilizer_kg_ha) VALUES
 (&#39;Nitrogen_Medium&#39;, 120),
 (&#39;Nitrogen_High&#39;, 180);
 
+-- Trial plots
+INSERT INTO trial_plots (field_id, treatment_id, season_year, replicate_no) VALUES
+(1, 1, 2024, 1),
+(1, 3, 2024, 1),
+(1, 1, 2025, 1),
+(1, 4, 2025, 1),
+
+(2, 1, 2024, 1),
+(2, 3, 2024, 1),
+(2, 1, 2025, 1),
+(2, 4, 2025, 1),
+
+(3, 1, 2024, 1),
+(3, 2, 2024, 1),
+(3, 1, 2025, 1),
+(3, 3, 2025, 1),
+
+(4, 1, 2024, 1),
+(4, 2, 2024, 1),
+(4, 1, 2025, 1),
+(4, 3, 2025, 1),
+
+(5, 1, 2024, 1),
+(5, 2, 2024, 1),
+(5, 1, 2025, 1),
+(5, 3, 2025, 1),
+
+(6, 1, 2024, 1),
+(6, 2, 2024, 1),
+(6, 1, 2025, 1),
+(6, 3, 2025, 1);
+
 -- Harvests
-INSERT INTO harvests (field_id, treatment_id, season_year, yield_t_ha, harvest_date) VALUES
-(1, 1, 2024, 6.20, &#39;2024-10-05&#39;),
-(1, 3, 2024, 7.00, &#39;2024-10-05&#39;),
-(1, 1, 2025, 6.10, &#39;2025-10-06&#39;),
-(1, 4, 2025, 7.40, &#39;2025-10-06&#39;),
+INSERT INTO harvests (plot_id, yield_t_ha, harvest_date) VALUES
+(1, 6.20, &#39;2024-10-05&#39;),
+(2, 7.00, &#39;2024-10-05&#39;),
+(3, 6.10, &#39;2025-10-06&#39;),
+(4, 7.40, &#39;2025-10-06&#39;),
 
-(2, 1, 2024, 5.50, &#39;2024-10-07&#39;),
-(2, 3, 2024, 6.40, &#39;2024-10-07&#39;),
-(2, 1, 2025, 5.40, &#39;2025-10-07&#39;),
-(2, 4, 2025, 6.80, &#39;2025-10-07&#39;),
+(5, 5.50, &#39;2024-10-07&#39;),
+(6, 6.40, &#39;2024-10-07&#39;),
+(7, 5.40, &#39;2025-10-07&#39;),
+(8, 6.80, &#39;2025-10-07&#39;),
 
-(3, 1, 2024, 7.10, &#39;2024-10-10&#39;),
-(3, 2, 2024, 7.60, &#39;2024-10-10&#39;),
-(3, 1, 2025, 6.90, &#39;2025-10-11&#39;),
-(3, 3, 2025, 7.90, &#39;2025-10-11&#39;),
+(9, 7.10, &#39;2024-10-10&#39;),
+(10, 7.60, &#39;2024-10-10&#39;),
+(11, 6.90, &#39;2025-10-11&#39;),
+(12, 7.90, &#39;2025-10-11&#39;),
 
-(4, 1, 2024, 6.80, &#39;2024-10-09&#39;),
-(4, 2, 2024, 7.20, &#39;2024-10-09&#39;),
-(4, 1, 2025, 6.70, &#39;2025-10-10&#39;),
-(4, 3, 2025, 7.60, &#39;2025-10-10&#39;),
+(13, 6.80, &#39;2024-10-09&#39;),
+(14, 7.20, &#39;2024-10-09&#39;),
+(15, 6.70, &#39;2025-10-10&#39;),
+(16, 7.60, &#39;2025-10-10&#39;),
 
-(5, 1, 2024, 4.90, &#39;2024-10-12&#39;),
-(5, 2, 2024, 5.60, &#39;2024-10-12&#39;),
-(5, 1, 2025, 4.70, &#39;2025-10-12&#39;),
-(5, 3, 2025, 5.90, &#39;2025-10-12&#39;),
+(17, 4.90, &#39;2024-10-12&#39;),
+(18, 5.60, &#39;2024-10-12&#39;),
+(19, 4.70, &#39;2025-10-12&#39;),
+(20, 5.90, &#39;2025-10-12&#39;),
 
-(6, 1, 2024, 5.30, &#39;2024-10-13&#39;),
-(6, 2, 2024, 5.90, &#39;2024-10-13&#39;),
-(6, 1, 2025, 5.10, &#39;2025-10-13&#39;),
-(6, 3, 2025, 6.20, &#39;2025-10-13&#39;);
+(21, 5.30, &#39;2024-10-13&#39;),
+(22, 5.90, &#39;2024-10-13&#39;),
+(23, 5.10, &#39;2025-10-13&#39;),
+(24, 6.20, &#39;2025-10-13&#39;);
 
 -- Weather daily (with some missing tmean_c to teach NULL handling)
 INSERT INTO weather_daily (farm_id, day, rainfall_mm, tmean_c) VALUES
@@ -787,13 +894,20 @@ WHERE area_ha &gt;= 12.0;</code></pre>
 </div>
 <div id="query-d-year-date-and" class="section level3">
 <h3>Query D year + date + AND</h3>
-<pre class="sql"><code>SELECT harvest_id, field_id, season_year, yield_t_ha, harvest_date
-FROM harvests
-WHERE season_year = 2025
+<pre class="sql"><code>SELECT
+    h.harvest_id,
+    p.field_id,
+    p.season_year,
+    h.yield_t_ha,
+    h.harvest_date
+FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
+WHERE p.season_year = 2025
   AND harvest_date &gt;= &#39;2025-10-10&#39;;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
-<li><code>season_year = 2025</code> keep records from 2025 season.</li>
+<li><code>p.season_year = 2025</code> keep records from 2025 season.</li>
 <li><code>AND</code> both conditions must be true.</li>
 <li><code>harvest_date &gt;= '2025 10 10'</code> keep later harvest dates.</li>
 </ol>
@@ -879,8 +993,14 @@ PostgreSQL accepts <code>'YYYY MM DD'</code> directly for a <code>DATE</code> co
 <h2>6.3 ORDER BY and LIMIT</h2>
 <div id="query-f-top-yields" class="section level3">
 <h3>Query F top yields</h3>
-<pre class="sql"><code>SELECT harvest_id, field_id, season_year, yield_t_ha
-FROM harvests
+<pre class="sql"><code>SELECT
+    h.harvest_id,
+    p.field_id,
+    p.season_year,
+    h.yield_t_ha
+FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 ORDER BY yield_t_ha DESC
 LIMIT 5;</code></pre>
 <p>Line by line</p>
@@ -950,8 +1070,10 @@ Oracle <code>FETCH FIRST 5 ROWS ONLY</code> (after <code>ORDER BY</code>).</p>
     ROUND(AVG(h.yield_t_ha), 2) AS avg_yield_t_ha,
     ROUND(SUM(h.yield_t_ha), 2) AS total_yield_t_ha
 FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 JOIN treatments t
-    ON h.treatment_id = t.treatment_id
+    ON p.treatment_id = t.treatment_id
 GROUP BY t.treatment_name
 ORDER BY avg_yield_t_ha DESC;</code></pre>
 <p>Line by line</p>
@@ -959,6 +1081,7 @@ ORDER BY avg_yield_t_ha DESC;</code></pre>
 <li><code>COUNT(*)</code> number of rows in each group.</li>
 <li><code>AVG(...)</code> average yield in each group.</li>
 <li><code>SUM(...)</code> total yield in each group.</li>
+<li><code>JOIN trial_plots</code> recover treatment assignment for each harvested plot.</li>
 <li><code>JOIN treatments</code> bring treatment names.</li>
 <li><code>GROUP BY t.treatment_name</code> one summary row per treatment.</li>
 <li><code>ORDER BY avg_yield_t_ha DESC</code> best average first.</li>
@@ -1001,20 +1124,22 @@ ORDER BY avg_yield_t_ha DESC;</code></pre>
 </tbody>
 </table>
 <p>Do not rank treatments using only <code>avg_yield_t_ha</code>.
-Also check <code>n_harvests</code> because very small sample sizes can look “best” by chance.
+Also check <code>n_harvests</code> because very small sample sizes can look â€œbestâ€ by chance.
 In this toy dataset, <code>Nitrogen_High</code> has high mean but only 2 rows, so uncertainty is larger.
 In real programs, always inspect balance before drawing conclusions.</p>
 </div>
 <div id="query-h-having-after-group-by" class="section level3">
 <h3>Query H HAVING after GROUP BY</h3>
 <pre class="sql"><code>SELECT
-    season_year,
+    p.season_year,
     COUNT(*) AS n_records,
-    ROUND(AVG(yield_t_ha), 2) AS avg_yield
-FROM harvests
-GROUP BY season_year
-HAVING AVG(yield_t_ha) &gt; 6.0
-ORDER BY season_year;</code></pre>
+    ROUND(AVG(h.yield_t_ha), 2) AS avg_yield
+FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
+GROUP BY p.season_year
+HAVING AVG(h.yield_t_ha) &gt; 6.0
+ORDER BY p.season_year;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
 <li><code>GROUP BY season_year</code> one row per season.</li>
@@ -1058,19 +1183,22 @@ ORDER BY season_year;</code></pre>
     f.field_name,
     fm.farm_name,
     t.treatment_name,
-    h.season_year,
+    p.season_year,
     h.yield_t_ha
 FROM harvests h
+INNER JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 INNER JOIN fields f
-    ON h.field_id = f.field_id
+    ON p.field_id = f.field_id
 INNER JOIN farms fm
     ON f.farm_id = fm.farm_id
 INNER JOIN treatments t
-    ON h.treatment_id = t.treatment_id
+    ON p.treatment_id = t.treatment_id
 ORDER BY h.harvest_id;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
 <li>Start from <code>harvests</code> because that is the main event table.</li>
+<li>Join to <code>trial_plots</code> to recover assignment metadata.</li>
 <li>Join to <code>fields</code> using <code>field_id</code>.</li>
 <li>Join to <code>farms</code> through fields.</li>
 <li>Join to <code>treatments</code> using <code>treatment_id</code>.</li>
@@ -1130,18 +1258,20 @@ ORDER BY h.harvest_id;</code></pre>
     f.field_id,
     f.field_name,
     h.harvest_id,
-    h.season_year,
+    p.season_year,
     h.yield_t_ha
 FROM fields f
+LEFT JOIN trial_plots p
+    ON f.field_id = p.field_id
+   AND p.season_year = 2026
 LEFT JOIN harvests h
-    ON f.field_id = h.field_id
-   AND h.season_year = 2026
+    ON p.plot_id = h.plot_id
 ORDER BY f.field_id;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
 <li>Left table is <code>fields</code>, so every field must appear.</li>
-<li>Right table is <code>harvests</code> filtered to 2026 in the <code>ON</code> clause.</li>
-<li>Since we have no 2026 rows, harvest columns become <code>NULL</code>.</li>
+<li>Right side starts with <code>trial_plots</code> filtered to 2026 in the <code>ON</code> clause.</li>
+<li>Since we have no 2026 rows, plot/harvest columns become <code>NULL</code>.</li>
 <li>This is useful to detect missing records.</li>
 </ol>
 <p>Expected result (illustrative)</p>
@@ -1180,7 +1310,7 @@ ORDER BY f.field_id;</code></pre>
 </tbody>
 </table>
 <p>Common mistake warning</p>
-<p>If you put <code>h.season_year = 2026</code> in <code>WHERE</code> instead of <code>ON</code>, you can accidentally turn your <code>LEFT JOIN</code> into INNER JOIN behavior.</p>
+<p>If you put <code>p.season_year = 2026</code> in <code>WHERE</code> instead of <code>ON</code>, you can accidentally turn your <code>LEFT JOIN</code> into INNER JOIN behavior.</p>
 </div>
 </div>
 <div id="cte-with-to-build-a-clean-analysis-table" class="section level2">
@@ -1202,7 +1332,8 @@ ORDER BY f.field_id;</code></pre>
 analysis_table AS (
     SELECT
         h.harvest_id,
-        h.season_year,
+        p.plot_id,
+        p.season_year,
         h.harvest_date,
         h.yield_t_ha,
         f.field_id,
@@ -1218,15 +1349,17 @@ analysis_table AS (
         w.total_rain_mm,
         w.avg_tmean_c
     FROM harvests h
+    JOIN trial_plots p
+        ON h.plot_id = p.plot_id
     JOIN fields f
-        ON h.field_id = f.field_id
+        ON p.field_id = f.field_id
     JOIN farms fm
         ON f.farm_id = fm.farm_id
     JOIN treatments t
-        ON h.treatment_id = t.treatment_id
+        ON p.treatment_id = t.treatment_id
     LEFT JOIN weather_by_farm_year w
         ON fm.farm_id = w.farm_id
-       AND h.season_year = w.season_year
+       AND p.season_year = w.season_year
 )
 SELECT *
 FROM analysis_table
@@ -1319,8 +1452,10 @@ PostgreSQL casting often uses <code>INT</code>; Oracle uses <code>CAST(... AS NU
       2
     ) AS median_yield
 FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 JOIN treatments t
-    ON h.treatment_id = t.treatment_id
+    ON p.treatment_id = t.treatment_id
 GROUP BY t.treatment_name
 ORDER BY mean_yield DESC;</code></pre>
 <p>Line by line</p>
@@ -1501,15 +1636,16 @@ Oracle also has <code>NVL</code>, which is Oracle specific.</p>
 </div>
 <div id="quality-checks-for-duplicates-impossible-values-outliers" class="section level2">
 <h2>6.9 Quality checks for duplicates, impossible values, outliers</h2>
-<div id="query-o-duplicate-checks-in-harvests" class="section level3">
-<h3>Query O duplicate checks in harvests</h3>
+<div id="query-o-duplicate-checks-in-trial_plots" class="section level3">
+<h3>Query O duplicate checks in trial_plots</h3>
 <pre class="sql"><code>SELECT
     field_id,
     treatment_id,
     season_year,
+    replicate_no,
     COUNT(*) AS n_rows
-FROM harvests
-GROUP BY field_id, treatment_id, season_year
+FROM trial_plots
+GROUP BY field_id, treatment_id, season_year, replicate_no
 HAVING COUNT(*) &gt; 1;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
@@ -1523,6 +1659,7 @@ HAVING COUNT(*) &gt; 1;</code></pre>
 <th align="right">field_id</th>
 <th align="right">treatment_id</th>
 <th align="right">season_year</th>
+<th align="right">replicate_no</th>
 <th align="right">n_rows</th>
 </tr>
 </thead>
@@ -1532,16 +1669,25 @@ HAVING COUNT(*) &gt; 1;</code></pre>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="query-p-impossible-values" class="section level3">
 <h3>Query P impossible values</h3>
-<pre class="sql"><code>SELECT *
-FROM harvests
-WHERE yield_t_ha &lt; 0
-   OR yield_t_ha &gt; 20;</code></pre>
+<pre class="sql"><code>SELECT
+    h.harvest_id,
+    p.field_id,
+    p.treatment_id,
+    p.season_year,
+    h.yield_t_ha,
+    h.harvest_date
+FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
+WHERE h.yield_t_ha &lt; 0
+   OR h.yield_t_ha &gt; 20;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
 <li>Yield lower than 0 is impossible.</li>
@@ -1599,12 +1745,14 @@ bounds AS (
 )
 SELECT
     h.harvest_id,
-    h.field_id,
-    h.season_year,
+    p.field_id,
+    p.season_year,
     h.yield_t_ha,
     b.lower_bound,
     b.upper_bound
 FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 CROSS JOIN bounds b
 WHERE h.yield_t_ha &lt; b.lower_bound
    OR h.yield_t_ha &gt; b.upper_bound
@@ -1647,8 +1795,8 @@ ORDER BY h.yield_t_ha;</code></pre>
 </tbody>
 </table>
 <p>Important interpretation note</p>
-<p>Outlier flag does not mean “wrong”.
-It means “investigate”.</p>
+<p>Outlier flag does not mean â€œwrongâ€.
+It means â€œinvestigateâ€.</p>
 </div>
 </div>
 <div id="mini-analysis-question" class="section level2">
@@ -1666,7 +1814,7 @@ It means “investigate”.</p>
 <li>field season control subtraction is a simple way to reduce that bias.</li>
 <li>it still does not fully solve confounding, but it is already a stronger comparison than global raw means.</li>
 </ul>
-<p>This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQL’s main objective. SQL is mainly designed to</p>
+<p>This is not a full causal model, but it is much better than comparing raw means alone. Important context as a data analyst is that even though we can do useful summaries and basic statistics in SQL, statistics is not SQLâ€™s main objective. SQL is mainly designed to</p>
 <ul>
 <li>store and organize structured data safely,</li>
 <li>filter and join data efficiently,</li>
@@ -1706,7 +1854,7 @@ WITH weather_by_farm_year AS (
 )
 SELECT
   h.harvest_id,
-  h.season_year,
+  p.season_year,
   h.yield_t_ha,
   f.field_name,
   fm.farm_name,
@@ -1716,12 +1864,13 @@ SELECT
   w.total_rain_mm,
   w.avg_tmean_c
 FROM harvests h
-JOIN fields f ON h.field_id = f.field_id
+JOIN trial_plots p ON h.plot_id = p.plot_id
+JOIN fields f ON p.field_id = f.field_id
 JOIN farms fm ON f.farm_id = fm.farm_id
-JOIN treatments t ON h.treatment_id = t.treatment_id
+JOIN treatments t ON p.treatment_id = t.treatment_id
 LEFT JOIN weather_by_farm_year w
   ON fm.farm_id = w.farm_id
- AND h.season_year = w.season_year
+ AND p.season_year = w.season_year
 &quot;
 
 analysis_df &lt;- dbGetQuery(con, sql_query)
@@ -1737,12 +1886,14 @@ dbDisconnect(con)</code></pre>
 <h3>Query R field season control adjusted gains</h3>
 <pre class="sql"><code>WITH baseline AS (
     SELECT
-        h.field_id,
-        h.season_year,
+        p.field_id,
+        p.season_year,
         h.yield_t_ha AS control_yield_t_ha
     FROM harvests h
+    JOIN trial_plots p
+      ON h.plot_id = p.plot_id
     JOIN treatments t
-      ON h.treatment_id = t.treatment_id
+      ON p.treatment_id = t.treatment_id
     WHERE t.fertilizer_kg_ha = 0
 ),
 comparisons AS (
@@ -1750,21 +1901,23 @@ comparisons AS (
         fm.region,
         fm.farm_name,
         f.field_name,
-        h.field_id,
-        h.season_year,
+        p.field_id,
+        p.season_year,
         t.treatment_name,
         t.fertilizer_kg_ha,
         h.yield_t_ha,
         b.control_yield_t_ha,
         (h.yield_t_ha - b.control_yield_t_ha) AS gain_vs_control_t_ha
     FROM harvests h
+    JOIN trial_plots p
+      ON h.plot_id = p.plot_id
     JOIN treatments t
-      ON h.treatment_id = t.treatment_id
+      ON p.treatment_id = t.treatment_id
     JOIN baseline b
-      ON h.field_id = b.field_id
-     AND h.season_year = b.season_year
+      ON p.field_id = b.field_id
+     AND p.season_year = b.season_year
     JOIN fields f
-      ON h.field_id = f.field_id
+      ON p.field_id = f.field_id
     JOIN farms fm
       ON f.farm_id = fm.farm_id
     WHERE t.fertilizer_kg_ha &gt; 0
@@ -1856,23 +2009,25 @@ this is still observational comparison inside a simple dataset.</p>
 </div>
 <div id="a-practical-interpretation-check" class="section level2">
 <h2>6.11 A practical interpretation check</h2>
-<p>Before deciding that “Treatment X is better”, check balance across regions and years. If one treatment appears mostly in stronger environments, it can look better even when its true effect is smaller.</p>
+<p>Before deciding that â€œTreatment X is betterâ€, check balance across regions and years. If one treatment appears mostly in stronger environments, it can look better even when its true effect is smaller.</p>
 <div id="query-s-treatment-representation-by-region-and-season" class="section level3">
 <h3>Query S treatment representation by region and season</h3>
 <pre class="sql"><code>SELECT
     fm.region,
-    h.season_year,
+    p.season_year,
     t.treatment_name,
     COUNT(*) AS n_field_seasons
 FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 JOIN fields f
-    ON h.field_id = f.field_id
+    ON p.field_id = f.field_id
 JOIN farms fm
     ON f.farm_id = fm.farm_id
 JOIN treatments t
-    ON h.treatment_id = t.treatment_id
-GROUP BY fm.region, h.season_year, t.treatment_name
-ORDER BY fm.region, h.season_year, t.treatment_name;</code></pre>
+    ON p.treatment_id = t.treatment_id
+GROUP BY fm.region, p.season_year, t.treatment_name
+ORDER BY fm.region, p.season_year, t.treatment_name;</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
 <li>We count how often each treatment appears in each region season.</li>
@@ -1932,10 +2087,12 @@ ORDER BY fm.region, h.season_year, t.treatment_name;</code></pre>
       2
     ) AS area_weighted_mean_yield_t_ha
 FROM harvests h
+JOIN trial_plots p
+    ON h.plot_id = p.plot_id
 JOIN fields f
-    ON h.field_id = f.field_id
+    ON p.field_id = f.field_id
 JOIN treatments t
-    ON h.treatment_id = t.treatment_id
+    ON p.treatment_id = t.treatment_id
 GROUP BY t.treatment_name
 ORDER BY area_weighted_mean_yield_t_ha DESC;</code></pre>
 <p>Line by line</p>
@@ -1946,7 +2103,7 @@ ORDER BY area_weighted_mean_yield_t_ha DESC;</code></pre>
 </ol>
 <p><strong>Unweighted means treat each field equally</strong>.
 Weighted means give more influence to larger fields.
-Neither is always “right”; the right choice depends on your decision question.
+Neither is always â€œrightâ€; the right choice depends on your decision question.
 If you are making logistics or tonnage decisions, weighted summaries are often more relevant.</p>
 </div>
 </div>
@@ -2038,8 +2195,10 @@ FROM fields;</code></pre>
 FROM fields f
 WHERE NOT EXISTS (
     SELECT 1
-    FROM harvests h
-    WHERE h.field_id = f.field_id
+    FROM trial_plots p
+    JOIN harvests h
+      ON h.plot_id = p.plot_id
+    WHERE p.field_id = f.field_id
 );</code></pre>
 <p>Line by line</p>
 <ol style="list-style-type: decimal">
@@ -2056,14 +2215,21 @@ WHERE NOT EXISTS (
 
 UPDATE harvests
 SET yield_t_ha = yield_t_ha + 0.10
-WHERE season_year = 2025
-  AND field_id IN (1, 2);
+WHERE plot_id IN (
+  SELECT plot_id
+  FROM trial_plots
+  WHERE season_year = 2025
+    AND field_id IN (1, 2)
+);
 
 -- Check your result before finalizing:
-SELECT *
-FROM harvests
-WHERE season_year = 2025
-  AND field_id IN (1, 2);
+SELECT
+    h.*
+FROM harvests h
+JOIN trial_plots p
+  ON h.plot_id = p.plot_id
+WHERE p.season_year = 2025
+  AND p.field_id IN (1, 2);
 
 -- If correct:
 COMMIT;
