@@ -8,3 +8,16 @@ plot_bench_ties
 unnamed-chunk-1	has_matrixCorr	has_pcaPP
 unnamed-chunk-2	cpp_tau_b_matrix	mc_mat	n_mat	p_mat	pp_mat	X_mat
 session	
+simulate_data	n	p	Sigma	X	X_df	.Random.seed
+benchmark_matrixcorr	bm_biweight	bm_kendall	bm_partial	bm_pearson	bm_shrink	bm_spearman	format_pair_benchmark	tab_biweight	tab_kendall	tab_partial	tab_pearson	tab_shrink	tab_spearman
+benchmark_plot	plot_bench
+agreement_three_cols	agreement	get_pairs	pair_index	pair_labels	X3	X3_df
+agreement_table	
+agreement_plot_scatter	rng
+agreement_plot_diff	
+table_pearson	
+table_spearman	
+table_kendall	
+table_biweight	
+table_shrink	
+table_partial	

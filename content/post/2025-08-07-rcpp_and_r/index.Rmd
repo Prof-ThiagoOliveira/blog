@@ -1,7 +1,7 @@
 ---
 title: From prototype to production, choosing the right R and C++ tool in Rcpp
 author: Thiago de Paula Oliveira
-date:  "`r format(Sys.Date(), '%B %d, %Y')`"
+date:  '2025-07-06'
 slug: rcpp-start-with-r
 categories:
   - R Programming
@@ -14,7 +14,7 @@ subtitle: ''
 summary: 'what each tool solves, when to reach for it, and ready-to-paste code.'
 authors: 
 - admin
-lastmod: '2025-07-06T09:15:54Z'
+lastmod: "`r format(as.POSIXct(Sys.time(), tz = 'UTC'), '%Y-%m-%dT%H:%M:%SZ')`"
 featured: no
 image:
   caption: ''
@@ -138,7 +138,7 @@ microbenchmark::microbenchmark(
 
 ### 4.2 Rcpp Attributes
 
-* Attributes internalise *inline*’s magic behind `[[Rcpp::export]]`.
+* Attributes internalise *inline*'s magic behind `[[Rcpp::export]]`.
 * `sourceCpp()` compiles a file; 
 * `cppFunction()` compiles from a string; 
 * `evalCpp()` runs an expression, all while caching builds transparently.

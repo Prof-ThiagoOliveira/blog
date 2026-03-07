@@ -5,3 +5,11 @@ ggplot2
 knitr
 matrixCorr
 pcaPP
+tidyr
+dynamicTreeCut
+fastcluster
+WGCNA
+corpcor
+MASS
+ppcor
+bench

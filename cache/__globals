@@ -8,3 +8,16 @@ plot_bench_ties
 unnamed-chunk-1	xbt	ybt
 unnamed-chunk-2	
 session	
+simulate_data	
+benchmark_matrixcorr	X	X_df
+benchmark_plot	bench_table
+agreement_three_cols	X
+agreement_table	agreement
+agreement_plot_scatter	agreement
+agreement_plot_diff	agreement
+table_pearson	tab_pearson
+table_spearman	tab_spearman
+table_kendall	tab_kendall
+table_biweight	tab_biweight
+table_shrink	tab_shrink
+table_partial	tab_partial
