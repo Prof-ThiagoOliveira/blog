@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Statistician
+role: Statistician | Data Quality | Statistical Computing
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -31,7 +31,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:thiago.oliveira@ed.ac.uk'
+    url: 'mailto:toliveira@abacusbio.com'
     label: E-mail Me
   - icon: brands/x
     url: https://twitter.com/_OliveiraTP_
@@ -73,67 +73,94 @@ education:
 
   - area: BSc in Agricultural Engineering
     institution: University of Sao Paulo
-    date_start: 2007-01-01
+    date_start: 2008-01-01
     date_end: 2012-12-31
     summary: |
       Specialized in agricultural systems and statistical applications for crop and livestock systems; graduated with honors.
 
 work:
-  - position: Statistician
+  - position: Consultant Statistician
     company_name: AbacusBio
     company_url: https://abacusbio.com/
     company_logo: ''
     date_start: 2023-04-01
     date_end: ''
     summary: |
-      - Lead cross-functional teams delivering genetic-evaluation pipelines, QC/ETL workflows, and interactive dashboards for livestock, crop, and agri-tech partners.
-      - Design economic and sustainability selection indexes that translate breeding-policy goals into actionable metrics.
-      - Build reproducible R, C++, bash, SQL codebases (Docker, CI) that keep analytics auditable and production-ready.
-      - Coach scientists and engineers on best practices for statistical modelling, automation, and decision-support communication.
+      - Deliver statistical and analytical solutions in quantitative genetics, selection index development, and genomics for plant and animal breeding programmes.
+      - Lead cross-functional delivery of genetic-evaluation pipelines, selection index tools, automated QC/ETL workflows, and dashboards for livestock, crop, and agri-tech partners.
+      - Develop and maintain reproducible analytical workflows, structured data pipelines, and practical decision-support tools for researchers and breeding teams.
+      - Maintain consistent reference datasets and analytical inputs across breeding workflows, supporting standardised interpretation of traits, identifiers, and evaluation outputs.
+      - Implement automated quality-control checks for pedigree, phenotype, and genomic datasets to improve reliability, consistency, and readiness for downstream analysis.
+      - Design traceable analytical pipelines linking raw breeding data, cleaned datasets, model inputs, and final genetic evaluation and selection index outputs.
+      - Maintain production-grade R, C++, Bash, and SQL workflows in Docker-based environments for auditable delivery.
+      - Translate complex quantitative modelling into practical, transparent, and decision-ready outputs for applied breeding programmes.
 
-  - position: Research fellow in quantitative genetics
+  - position: Research Fellow
     company_name: The Roslin Institute, University of Edinburgh
     company_url: https://www.ed.ac.uk/roslin
     company_logo: ''
-    date_start: 2020-01-01
+    date_start: 2020-04-01
     date_end: 2023-03-31
     summary: |
-      - Held a Marie Sklodowska-Curie COFUND fellowship focused on quantitative genetics and sustainability-focused breeding.
-      - Developed mixed-model, Bayesian, and simulation frameworks for plant-breeding pipelines and collaborated with international partners.
-      - Published and presented across high-impact venues while mentoring PhD students and early-career scientists.
+      - Conducted research on quantitative genetics and genomic selection in plant breeding systems under the TRAIN@Ed fellowship.
+      - Developed statistical models and computational workflows for analysis of large-scale breeding datasets.
+      - Used high-performance computing environments to support large genomic data analyses.
+      - Produced research outputs, software contributions, and technical reports within collaborative interdisciplinary projects.
+      - Defined structured metadata for simulation and breeding datasets, including trait definitions, genomic variables, and environmental covariates, to ensure consistent interpretation and use across modelling and analytical workflows.
 
-  - position: Postdoctoral researcher in biostatistics
-    company_name: Insight Centre for Data Analytics, NUI Galway
-    company_url: https://www.insight-centre.org/
+  - position: Postdoctoral Researcher in Biostatistics
+    company_name: National University of Ireland Galway
+    company_url: https://www.universityofgalway.ie/
     company_logo: ''
-    date_start: 2019-01-01
+    date_start: 2020-07-01
     date_end: 2020-12-31
     summary: |
-      - Built Bayesian and machine-learning models for athlete readiness, fatigue, and health monitoring.
-      - Led predictive-modelling pipelines for COVID-19 decision making and other longitudinal public-health datasets.
-      - Partnered with clinicians, sports scientists, and data engineers to productize analytics outputs.
+      - Worked on modelling approaches for early detection of secondary COVID-19 infection waves.
+      - Applied statistical modelling to public-health surveillance data.
+      - Delivered applied research outputs supporting epidemiological monitoring.
 
-  - position: Lecturer in statistics
+  - position: Postdoctoral Researcher in Biostatistics
+    company_name: National University of Ireland Galway
+    company_url: https://www.universityofgalway.ie/
+    company_logo: ''
+    date_start: 2020-01-01
+    date_end: 2020-06-30
+    summary: |
+      - Contributed to interdisciplinary research projects within the Aspire Academy programme.
+      - Applied statistical analysis to research questions linking data science and applied performance contexts.
+
+  - position: Postdoctoral Researcher in Biostatistics
+    company_name: National University of Ireland Galway
+    company_url: https://www.universityofgalway.ie/
+    company_logo: ''
+    date_start: 2019-01-01
+    date_end: 2019-12-31
+    summary: |
+      - Developed statistical modelling approaches for optimisation of athlete performance.
+      - Collaborated with Orreco and the Insight Centre for Data Analytics on applied sport science analytics.
+      - Produced applied modelling outputs to support decision making in elite sport environments.
+
+  - position: Postdoctoral Researcher in Statistics
+    company_name: University of Sao Paulo
+    company_url: https://www5.usp.br/
+    company_logo: ''
+    date_start: 2018-01-01
+    date_end: 2019-12-31
+    summary: |
+      - Led development of the lcc R package for estimation of longitudinal concordance correlation.
+      - Developed reusable statistical software supporting consistent and efficient analysis workflows.
+      - Combined methodological statistical research with production-quality software implementation.
+
+  - position: Assistant Professor
     company_name: University of Sao Paulo
     company_url: https://www5.usp.br/
     company_logo: ''
     date_start: 2017-01-01
     date_end: 2019-12-31
     summary: |
-      - Taught undergraduate and graduate courses spanning experimental design, linear models, and statistical programming.
-      - Supervised theses and independent research projects that linked statistics with agriculture and genetics.
-      - Modernized course materials, lab content, and assessment to emphasize reproducible workflows.
-
-  - position: Biostatistician
-    company_name: Orreco
-    company_url: https://www.orreco.com/
-    company_logo: ''
-    date_start: 2019-01-01
-    date_end: 2019-12-31
-    summary: |
-      - Developed statistical models and dashboards for elite-athlete monitoring and recovery workflows.
-      - Delivered bespoke analytics consulting for professional teams, bridging biomarker, GPS, and wellness data.
-      - Embedded with sports-science staff to translate insights into day-to-day decision tools.
+      - Delivered teaching and supervision in statistics and quantitative methods.
+      - Led and supervised research projects involving applied statistical modelling and data analysis.
+      - Managed teams of students and researchers working on statistical and computational projects.
 
 # Skills & Hobbies
 # Add your own SVG icons to `assets/media/icons/`
@@ -282,7 +309,7 @@ awards:
 ## About Me
 
 <div style="text-align: justify;">
-I am Thiago de Paula Oliveira, a statistician at AbacusBio with 14+ years of experience turning experimental, genomic, and performance data into decisions. I specialise in advanced mixed-model and Bayesian analytics, the development of economic and sustainability selection indexes, and the delivery of reproducible analytics products, from R, C++, bash, SQL codebases to Dockerised dashboards. Whether the brief is accelerating genetic gain, improving farm-system resilience, or strengthening agricultural production systems, I focus on rigour, transparency, and decision-ready outputs.
+I am Thiago de Paula Oliveira, a statistician and statistical computing specialist at AbacusBio with 14+ years of experience developing reliable analytical workflows, reusable R packages, dashboards, and reproducible reporting across agriculture, genetics, public health, and sports analytics. My work centres on data quality, traceable QC/ETL pipelines, structured computational workflows, and decision-ready outputs built with R, C++, Bash, SQL, Docker, GitHub, and high-performance computing. Whether the task is improving analytical reliability, standardising breeding workflows, or delivering practical tools for researchers and stakeholders, I focus on transparency, reuse, and production-ready analysis.
 </div>
 
 <div class="cv-downloads">

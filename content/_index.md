@@ -30,13 +30,13 @@ sections:
       subtitle: ''
       text: |-
         <div style="text-align: justify;">
-          I am a statistician with <strong>14+ years of experience</strong> turning experimental, genomic, and farm-system data into decisions. After completing my PhD in Statistics at the University of Sao Paulo, I specialised in advanced mixed-model/Bayesian analytics and in the development of <strong>economic and sustainability selection indices</strong> that keep breeding programmes accountable.
+          I am a statistician and statistical computing specialist with <strong>14+ years of experience</strong> developing reliable analytical workflows, reusable R packages, dashboards, and reproducible reporting across agriculture, genetics, public health, and sports analytics. My work focuses on data quality, analytical reliability, and decision-ready outputs delivered through structured computational workflows, QC/ETL pipelines, and standardised analysis practices.
 
-          As a <strong>Consultant Statistician at <a href="https://www.abacusbio.com/">AbacusBio</a></strong>, I lead cross-functional teams that deliver genetic-evaluation pipelines, automated QC/ETL workflows, and decision dashboards for livestock, crop, and agri-tech partners. That work depends on production-grade code in R, C++, bash, and SQL, Docker-based reproducible environments, and early collaboration between domain scientists and data engineers.
+          As a <strong>Consultant Statistician at <a href="https://www.abacusbio.com/">AbacusBio</a></strong>, I deliver statistical and analytical solutions for plant and animal breeding programmes, lead cross-functional delivery of genetic-evaluation pipelines, and build traceable workflows that link raw data, cleaned datasets, model inputs, and final outputs. That work depends on production-grade code in R, C++, Bash, and SQL, Docker-based environments, and clear technical documentation.
 
-          Earlier, I held a Marie Sklodowska-Curie COFUND fellowship at the Roslin Institute (University of Edinburgh), worked with multidisciplinary research and industry teams, and lectured in statistics at USP. Along the way I have published across Nature-branded journals, advised national breeding programmes, and mentored teams on delivering transparent, auditable analyses for agriculture and genomics.
+          Earlier, I held a Marie Sklodowska-Curie COFUND fellowship at the Roslin Institute, worked on public-health and sports analytics projects at the National University of Ireland Galway, and taught statistics and quantitative methods at the University of Sao Paulo. Across those roles I developed software, dashboards, and analytical pipelines designed for transparency, reuse, and auditability.
 
-          Whether the brief is accelerating genetic gain, improving farm-system resilience, or strengthening agricultural production systems, my bias is toward rigour, reproducibility, and decision-ready outputs. Browse my recent publications and projects, and get in touch if you would like to collaborate or have a specific challenge in mind.
+          I combine advanced statistical modelling with reproducible analytical tooling to make complex data more usable for researchers, analysts, and stakeholders. Browse my recent publications and projects, and get in touch if you would like to collaborate.
         </div>
     design:
       columns: '1'
@@ -119,12 +119,12 @@ sections:
       title: "Connect with an expert statistician"
       text: |-
         <div style="text-align: justify; font-family: Arial, sans-serif; line-height: 1.6;">
-          <p>I focus on advanced statistical modelling, <strong>economic and sustainability selection indices</strong>, interactive dashboards, and reproducible (Dockerised) pipelines that deliver decision-ready insights for agriculture and genomics.</p>
+          <p>I focus on data quality, statistical modelling, reusable analytical tooling, and reproducible workflows that turn complex datasets into reliable, decision-ready outputs.</p>
 
           <h3>Areas of impact</h3>
-          <p><strong>Agriculture.</strong> Design and analyse agronomic and farm-systems experiments, including multi-environment trials and spatial models, to optimise yield, resource use, and sustainability.</p>
-          <p><strong>Genetics.</strong> Build genetic-evaluation pipelines and <em>economic and sustainability selection indices</em> that maximise genetic gain and inform breeding objectives.</p>
-          <p><strong>Agri-tech analytics.</strong> Build practical decision-support tools that connect statistical modelling, data engineering, and stakeholder communication.</p>
+          <p><strong>Data stewardship.</strong> Design reproducible analytical workflows, automated QC/ETL pipelines, and structured computational environments that support reliability and traceability.</p>
+          <p><strong>Data quality and usability.</strong> Build dashboards, software packages, and decision-support tools that improve accessibility, consistency, and interpretability of complex data.</p>
+          <p><strong>Technical leadership.</strong> Lead cross-functional teams, mentor colleagues, and translate quantitative work into practical outputs for researchers, analysts, and stakeholders.</p>
 
           <p>Explore my publications, projects, and recent work. If you are interested in collaborating or would like to learn more, please get in touch.</p>
 
@@ -135,7 +135,7 @@ sections:
         </div>
     button:
       text: "Contact Me"
-      url: "mailto:thiago.oliveira@ed.ac.uk"
+      url: "mailto:toliveira@abacusbio.com"
     design:
       card:
         css_class: "bg-primary-700"

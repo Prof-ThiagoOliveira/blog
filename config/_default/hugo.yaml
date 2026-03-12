@@ -110,10 +110,10 @@ privacy:
 # Site params: used by theme/templates to improve SEO and visual polish
 params:
   siteTitle: "Thiago Oliveira"
-  description: "Statistician — quantitative genetics, agritech & sports analytics. Reproducible pipelines, R/C++ development, decision-ready outputs."
+  description: "Statistician and statistical computing specialist focused on data quality, reproducible workflows, QC/ETL pipelines, and decision-ready analytical outputs."
   author:
     name: "Thiago de Paula Oliveira"
-    email: "thiago.oliveira@ed.ac.uk"
+    email: "toliveira@abacusbio.com"
   themeColor: "#3b80d1"
   social:
     twitter: "_OliveiraTP_"
