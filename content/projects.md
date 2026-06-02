@@ -22,7 +22,7 @@ My project work spans breeding analytics, reproducible software, and sports/publ
 
 | Project | Theme | Outcome & references |
 | ------- | ----- | --------------------- |
-| Correlation & concordance research (matrixCorr + lcc) | Statistical methods | Unified correlation/association package and longitudinal agreement framework. → **R Packages** section |
+| Correlation & concordance research (matrixCorr + lcc) | Statistical methods | Unified correlation, dependence, agreement, and reliability toolkit plus a longitudinal agreement framework. → **R Packages** section |
 | Drivers of genetic change | Breeding analytics | Partitioned genetic mean/variance, delivered management scenarios. → **Pipelines** section |
 | Reads2Map & AlphaPart tooling | GBS pipelines | Package + Docker image adopted in linkage-map studies. → **R Packages** / **Pipelines** |
 | Sustainability indexes | GHG & methane | Decision-ready dashboards and indexes for breeding clients. |

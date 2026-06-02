@@ -1,6 +1,6 @@
 ---
 title: "Benchmarking Kendall's Tau in R and Rcpp"
-date:  "`r format(Sys.Date(), '%B %d, %Y')`"
+date: "2026-02-27"
 slug: "benchmarking-kendalls-tau-r-rcpp"
 categories:
   - "R Programming"
@@ -16,7 +16,7 @@ subtitle: "R vs Rcpp with a fast inversion-count implementation"
 summary: "Implement and benchmark a fast Kendall's tau-a in C++ via Rcpp against base R, discuss tie handling (tau-b), and when to move from R to C++."
 authors:
   - admin
-lastmod: "`r format(as.POSIXct(Sys.time(), tz = 'UTC'), '%Y-%m-%dT%H:%M:%SZ')`"
+lastmod: "2026-06-02T15:10:00Z"
 featured: false
 image:
   caption: ""
@@ -509,7 +509,7 @@ The IQRs (0.18 ms for tau-a; 0.46 ms for tau-b; 214.89 ms for base `R`) indicate
 To close, we benchmark the same many-ties dataset using all fast implementations together:
 
 - `kendall_tau_b_cpp(x, y)`
-- `matrixCorr::kendall_tau(data, y = NULL, check_na = TRUE)`
+- `matrixCorr::kendall_tau(data, y = NULL, na_method = c("error", "pairwise", "complete"))`
 - `pcaPP::cor.fk(x, y = NULL)`
 
 `matrixCorr::kendall_tau()` is a dedicated high-performance Kendall implementation from the **matrixCorr** package, while `pcaPP::cor.fk()` comes from **pcaPP** and is widely used as a fast Kendall option in robust-statistics workflows.
@@ -528,7 +528,7 @@ if (!has_matrixCorr || !has_pcaPP) {
     method = c("cpp_tau_b", "matrixCorr_tau", "pcaPP_cor_fk", "base_kendall"),
     estimate = c(
       kendall_tau_b_cpp(xbt, ybt),
-      matrixCorr::kendall_tau(xbt, ybt, check_na = FALSE),
+      matrixCorr::kendall_tau(xbt, ybt),
       pcaPP::cor.fk(xbt, ybt),
       stats::cor(xbt, ybt, method = "kendall")
     )
@@ -547,7 +547,7 @@ if (!has_matrixCorr || !has_pcaPP) {
 
   mb_final <- microbenchmark::microbenchmark(
     cpp_tau_b      = kendall_tau_b_cpp(xbt, ybt),
-    matrixCorr_tau = matrixCorr::kendall_tau(xbt, ybt, check_na = FALSE),
+    matrixCorr_tau = matrixCorr::kendall_tau(xbt, ybt),
     pcaPP_cor_fk   = pcaPP::cor.fk(xbt, ybt),
     base_kendall   = stats::cor(xbt, ybt, method = "kendall"),
     times = 70L,
@@ -577,15 +577,15 @@ if (!has_matrixCorr || !has_pcaPP) {
 }
 ```
 
-In this fair setup, `matrixCorr::kendall_tau()` uses `check_na = FALSE` because we assert complete data once before benchmarking. If your real data may contain missing values, keep `check_na = TRUE`.
+In this fair setup, `matrixCorr::kendall_tau()` uses its standard complete-data validation path. If your real data contain missing values, set `na_method = "pairwise"` or `na_method = "complete"` according to the intended analysis.
 
 In this rerun, `pcaPP::cor.fk()` achieved the lowest median time, `matrixCorr::kendall_tau()` came second, and `kendall_tau_b_cpp()` remained very fast. `stats::cor(..., method = "kendall")` stayed orders of magnitude slower. This ranking is compatible with all methods being roughly $O(n\log n)$ because implementation constants, memory behavior, and runtime noise can change which fast implementation comes first.
 
 Also note that medians are the most informative timing summary here. The large `max_ms` values seen for `pcaPP` and `matrixCorr` usually reflect occasional GC/OS scheduling outliers, not typical runtime.
 
-A fair comparison uses the same data, the same tie structure, the same NA policy (for example `check_na = FALSE` when completeness is guaranteed), and enough repetitions.
+A fair comparison uses the same data, the same tie structure, an explicit missing-data policy when required, and enough repetitions.
 
-## Where matrixCorr starts to shine with a 10-column matrix benchmark
+## Matrix-mode benchmark with 10 columns
 
 To highlight matrix-mode performance, we benchmark a 10-column tied dataset and compute the full Kendall matrix using `matrixCorr` matrix mode, `pcaPP::cor.fk()` matrix mode, and a pairwise loop based on `kendall_tau_b_cpp()`.
 
@@ -614,13 +614,13 @@ cpp_tau_b_matrix <- function(M) {
   out
 }
 
-mc_mat <- matrixCorr::kendall_tau(X_mat, check_na = FALSE)
+mc_mat <- matrixCorr::kendall_tau(X_mat)
 pp_mat <- pcaPP::cor.fk(X_mat)
 cpp_mat <- cpp_tau_b_matrix(X_mat)
 
 invisible(gc())
 mb_mat10 <- microbenchmark::microbenchmark(
-  matrixCorr_matrix = matrixCorr::kendall_tau(X_mat, check_na = FALSE),
+  matrixCorr_matrix = matrixCorr::kendall_tau(X_mat),
   pcaPP_matrix = pcaPP::cor.fk(X_mat),
   cpp_tau_b_pairwise = cpp_tau_b_matrix(X_mat),
   times = 20L,
@@ -667,7 +667,7 @@ knitr::kable(
 )
 ```
 
-In this matrix benchmark, `matrixCorr::kendall_tau()` is markedly faster because it computes the whole matrix in one dedicated matrix-oriented call, while the other two approaches effectively assemble results pair by pair.
+In this rerun, `matrixCorr::kendall_tau()` had the lowest median matrix-mode runtime, `pcaPP::cor.fk()` came second, and the explicit `kendall_tau_b_cpp()` pairwise loop came third. Both package implementations compute the full matrix through dedicated matrix-oriented calls, while the illustrative C++ route assembles the result pair by pair.
 
 ## Conclusion
 
@@ -675,7 +675,7 @@ In conclusion, the statistical results are coherent with Kendall theory and tie 
 
 The computational results show that optimized implementations can reduce runtime by orders of magnitude while preserving the intended estimator. In the many-ties two-vector benchmark with `n = 10,000`, `pcaPP::cor.fk()`, `matrixCorr::kendall_tau()`, and `kendall_tau_b_cpp()` run in the low millisecond range, while base R remains in the thousand millisecond range. This pattern supports using median time as the main summary and reading large maximum values mainly as outlier behavior from runtime and memory management effects.
 
-This confirms that the simple `cpp_tau_a` version introduced earlier is not necessarily the fastest in absolute terms, but it remains clearly faster than base R in the earlier many-ties benchmark at about 1455.1 times faster. Performance ranking also depends on data type and task shape. For one pair of vectors, fast specialized routines can alternate leadership depending on constants and runtime noise, and in this case `pcaPP::cor.fk()` was the best. For a multi-column matrix task, `matrixCorr` matrix mode was best in this post, while `pcaPP` and pairwise C++ loops were slower because they effectively build the matrix pair by pair.
+This confirms that the simple `cpp_tau_a` version introduced earlier is not necessarily the fastest in absolute terms, but it remains clearly faster than base R in the earlier many-ties benchmark at about 1455.1 times faster. Performance ranking also depends on data type and task shape. For one pair of vectors, fast specialized routines can alternate leadership depending on constants and runtime noise, and in this case `pcaPP::cor.fk()` was the best. In the multi-column matrix rerun, the standard `matrixCorr` matrix mode was first, `pcaPP` matrix mode was second, and the illustrative pairwise C++ loop was third.
 
 # Reproducibility
 

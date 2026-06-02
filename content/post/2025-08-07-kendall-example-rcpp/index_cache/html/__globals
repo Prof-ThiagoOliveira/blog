@@ -10,3 +10,4 @@ bench_final_extra	kendall_tau_b_cpp	xbt	ybt
 bench_final_note	mb_ties_sum
 unnamed-chunk-1	kendall_tau_b_cpp	xbt	ybt
 bench_matrix10	kendall_tau_b_cpp
+unnamed-chunk-2	kendall_tau_b_cpp

@@ -12,7 +12,7 @@ sections:
       title: Maintained R packages
       text: |-
         <p align="justify">
-          Tooling I maintain for correlation, agreement, and quantitative-genetics workflows. Each package ships with unit tests, documentation, and benchmarks so teams can adopt them confidently.
+          Tooling I maintain for correlation, agreement, reliability, and quantitative-genetics workflows. Each package ships with unit tests, documentation, and benchmarks so teams can adopt them confidently.
         </p>
       filters:
         folders:

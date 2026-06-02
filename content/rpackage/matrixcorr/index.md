@@ -1,12 +1,14 @@
 ---
-title: 'matrixCorr: Correlation & Agreement Toolkit'
+title: 'matrixCorr: Correlation, Agreement & Reliability Toolkit'
 date: '2024-11-01'
-summary: 'An R package that collects correlation, shrinkage, and agreement estimators in one statistically sound toolbox.'
+lastmod: '2026-06-02'
+summary: 'A matrix-oriented R toolkit for correlation, dependence, agreement, and reliability analysis, from ordinary wide data to high-dimensional and repeated-measures designs.'
 tags:
   - R Package
   - Statistical Methods
   - Correlation
   - Agreement Analysis
+  - Reliability Analysis
   - High-dimensional data
 image:
   caption: matrixCorr package
@@ -22,21 +24,84 @@ links:
     url: https://CRAN.R-project.org/package=matrixCorr
 ---
 
-Description: Compute correlation and other association matrices from small to high-dimensional datasets with relatively simple functions and sensible defaults. Includes shrinkage and robust estimators for noisy or **p ≥ n** situations, convenient print/plot methods, C++/BLAS/OpenMP backends with memory-aware symmetric updates, and support for base matrices/data frames via a consistent S3 interface. Fits naturally in statistics, machine-learning, and method-comparison workflows. Supports Pearson, Spearman, Kendall, distance, partial, biweight mid-correlation, Bland–Altman analyses, and Lin’s concordance correlation coefficient (including repeated-measures extensions). Methods follow Ledoit & Wolf (2004), Schäfer & Strimmer (2005), and Lin (1989).
+`matrixCorr` is an R package for analysing association, agreement, and reliability without switching between unrelated interfaces. It is designed around a practical distinction: correlation asks whether variables move together, agreement asks whether methods produce sufficiently similar values on the measurement scale, and reliability asks how much variation reflects stable differences among subjects rather than measurement error or method disagreement.
 
-`matrixCorr` packages the correlation and agreement estimators I rely on when exploring high-dimensional datasets or validating measurement methods. Everything shares one S3 interface, so I can move from Pearson/Spearman screening to Bland–Altman or concordance analyses without switching packages. The implementation leans on Rcpp, BLAS, and OpenMP, which keeps matrix updates fast even when the number of variables exceeds the number of samples.
+The package combines five workflow families. Wide-data functions accept a matrix or data frame with variables in columns and return square results indexed by the original column names. Repeated-measures functions use long-format data with explicit subject, method, and time identifiers where required. Most fitted objects support a familiar inspection pattern: `print()` for a compact preview, `summary()` for a richer digest, `plot()` for a graphical summary, and accessors such as `estimate()`, `confint()`, `ci()`, and `tidy()` where appropriate.
 
-### Why this package matters
+### Choose a workflow
 
-- **Consistent API** – Pearson, Spearman, Kendall, distance, partial, and robust correlations all follow the same argument structure and return familiar matrix objects.
-- **High-dimensional ready** – Shrinkage estimators (`schafer_corr()`), distance correlation, and memory-aware symmetric updates behave well when **p >> n**.
-- **Agreement analytics included** – Bland–Altman (two-method, repeated-measures) and Lin’s concordance (pairwise, REML/LMM, U-statistic) live alongside correlation tools, which keeps method-comparison workflows tidy.
-- **Well-tested implementation** – Rcpp + BLAS/OpenMP kernels plus CI for R-CMD-check and coverage provide the stability needed for production R scripts and dashboards.
+| Scientific question or data structure | Start with | What it targets |
+| --- | --- | --- |
+| Approximately linear association among continuous variables | `pearson_corr()` | Pearson correlation on the original measurement scale |
+| Monotone association or rank-based analysis | `spearman_rho()` or `kendall_tau()` | Rank correlation |
+| Non-linear dependence that Pearson correlation may miss | `dcor()` or `hsic()` | General dependence rather than only linear association |
+| Directed dependence | `xi_corr()` | Chatterjee's asymmetric rank correlation |
+| Outlier-prone numeric data | `bicor()`, `pbcor()`, `wincor()`, or `skipped_corr()` | Robust alternatives to ordinary correlation |
+| Conditional association after accounting for other variables | `pcorr()` | Partial correlation, including regularised estimators |
+| High-dimensional data where **p >= n** | `shrinkage_corr()` or regularised `pcorr()` | Better-conditioned correlation or precision estimates |
+| Binary, ordinal, or mixed-scale variables | `tetrachoric()`, `polychoric()`, `polyserial()`, or `biserial()` | Latent association under threshold models |
+| Similarity between measurement methods | `ccc()` or `ba()` | Concordance, bias, and limits of agreement |
+| Reliability across methods or raters | `icc()` | Pairwise or overall intraclass correlation |
+| Nominal agreement between two raters | `cohen_kappa()` or `gwet_ac()` | Cohen's kappa or Gwet's AC1/AC2 |
+| Ordered agreement between two raters | `weighted_kappa()` | Weighted kappa with unweighted, linear, quadratic, or custom weights |
+| Nominal agreement across multiple raters | `multirater_kappa()` or `gwet_ac()` | Fleiss, Randolph, or panel AC1/AC2 agreement |
+| Panel reliability with nominal, ordinal, interval, or ratio disagreement | `krippendorff_alpha()` | Krippendorff's alpha, including missing ratings |
+| Reliability expressed as an agreement probability curve | `prob_agree()` | Probability of agreement for binomial reliability curves |
+| Individual agreement with replicated readings | `cia()` | Coefficient of individual agreement relative to within-method disagreement |
+| Within-subject association over repeated observations | `rmcorr()` | Repeated-measures correlation after subject-level offsets are removed |
+| Repeated-measures agreement or reliability | `ba_rm()`, `ccc_rm_ustat()`, `ccc_rm_reml()`, `icc_rm_reml()`, or `cia_rm()` | Repeated bias, concordance, reliability, or individual agreement |
+| Concordance for count data | `ccc_glmm()` | Poisson GLMM concordance, including total, inter-, and method-specific intra-CCC |
 
-### What’s new compared to typical correlation helpers
+### Quick start
 
-1. **Correlation + agreement in one place** – I can stay in the same package from exploratory covariance work through formal method-agreement reporting.
-2. **Defaults tuned for messy data** – Heavy-tailed, noisy, or undersampled datasets get shrinkage and robust options without ad-hoc tweaks.
-3. **Documented and reproducible** – The package is unit-tested, benchmarked, and documented so that anyone reading an analysis or pipeline can reproduce the association layer exactly.
+```r
+library(matrixCorr)
 
-Whenever I need a clean correlation/association layer without juggling multiple packages, `matrixCorr` is the first tool I reach for.
+set.seed(1)
+X <- as.data.frame(matrix(rnorm(300 * 6), ncol = 6))
+names(X) <- paste0("V", 1:6)
+
+fit <- pearson_corr(X, ci = TRUE)
+
+print(fit, digits = 2)
+summary(fit)
+plot(fit)
+tidy(fit)
+```
+
+The same matrix-oriented pattern extends to rank correlation, distance correlation, robust estimators, shrinkage correlation, latent correlation, concordance, and ICC. For repeated-measures designs, the package keeps a shared long-format interface but changes the estimator to account for within-subject structure explicitly.
+
+### Installation
+
+```r
+# CRAN release
+install.packages("matrixCorr")
+
+# Development version from GitHub
+# install.packages("remotes")
+remotes::install_github("Prof-ThiagoOliveira/matrixCorr")
+```
+
+### Important distinctions
+
+The functions are intentionally related, but they are not interchangeable:
+
+- `ccc()` summarises pairwise concordance by combining precision and accuracy, while `ba()` makes bias and limits of agreement visible on the original scale.
+- `icc(scope = "pairwise")` asks how reliable each method pair is. `icc(scope = "overall")` asks how reliable the full set of methods is when analysed jointly.
+- `icc(type = "consistency")` discounts additive method shifts, whereas `icc(type = "agreement")` penalises them.
+- `rmcorr()` targets within-subject association. It is not an agreement coefficient.
+- `ccc_rm_ustat()` is a non-parametric repeated-measures CCC route. `ccc_rm_reml()` is the model-based path when variance components and residual structure need to be handled explicitly.
+- `icc_rm_reml()` uses the repeated-measures REML backend but targets reliability rather than CCC concordance.
+
+### Implementation
+
+Most computational functions expose `n_threads`, with package-wide defaults configurable through `options(matrixCorr.threads = ...)`. Performance-critical paths use optimized C++ backends with Rcpp, BLAS/OpenMP, and memory-aware symmetric updates. Optional Shiny viewers support interactive matrix inspection.
+
+The [GitHub repository](https://github.com/Prof-ThiagoOliveira/matrixCorr) contains the README, issue tracker, and six workflow vignettes:
+
+1. [Introduction to matrixCorr](https://github.com/Prof-ThiagoOliveira/matrixCorr/blob/main/vignettes/v01-matrixCorr-introduction.Rmd)
+2. [Wide Correlation Workflows](https://github.com/Prof-ThiagoOliveira/matrixCorr/blob/main/vignettes/v02-wide-correlation-workflows.Rmd)
+3. [Robust and High-Dimensional Correlation](https://github.com/Prof-ThiagoOliveira/matrixCorr/blob/main/vignettes/v03-robust-and-highdim-correlation.Rmd)
+4. [Latent and Mixed-Scale Correlation](https://github.com/Prof-ThiagoOliveira/matrixCorr/blob/main/vignettes/v04-latent-and-mixed-scale-correlation.Rmd)
+5. [Agreement and ICC for Wide Data](https://github.com/Prof-ThiagoOliveira/matrixCorr/blob/main/vignettes/v05-agreement-and-icc-wide.Rmd)
+6. [Repeated-Measures Workflows](https://github.com/Prof-ThiagoOliveira/matrixCorr/blob/main/vignettes/v06-repeated-measures-workflows.Rmd)

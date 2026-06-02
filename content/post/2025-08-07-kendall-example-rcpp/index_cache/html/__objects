@@ -10,3 +10,4 @@ bench_final_extra	base_median	final_vals	has_matrixCorr	has_pcaPP	mb_final	mb_fi
 bench_final_note	base_median_prev	simple_tau_a_prev	simple_tau_a_speedup
 unnamed-chunk-1	base_median	final_vals	has_matrixCorr	has_pcaPP	mb_final	mb_final_sum
 bench_matrix10	best_mat	cpp_mat	cpp_tau_b_matrix	mb_mat10	mb_mat10_sum	mc_mat	n_mat	p_mat	pp_mat	X_mat
+unnamed-chunk-2	best_mat	cpp_mat	cpp_tau_b_matrix	mb_mat10	mb_mat10_sum	mc_mat	n_mat	p_mat	pp_mat	X_mat
